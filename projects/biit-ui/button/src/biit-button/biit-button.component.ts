@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 export type BiitButtonType =
   | 'default'
@@ -52,4 +52,6 @@ export class BiitButtonComponent {
   get disabled(): boolean {
     return this._disabled;
   }
+
+  @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();
 }

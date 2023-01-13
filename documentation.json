@@ -73,7 +73,7 @@
         },
         {
             "name": "BiitButtonComponent",
-            "id": "component-BiitButtonComponent-37f713c1400809b424dd6c20a2fb140873fb2063c027e86cff04d28b58eee8981b6811451f1d5a25e0503fe65afb8912897931c764224cd83104d98935e25a06",
+            "id": "component-BiitButtonComponent-93136ee4d07e7834881731a8b711bb76f84603df7726321d87cf4bda95b0d725cca9463b06bcd53ea56ba2601a37e38e10ad72e1fa4df2f2a9be874e90c1fb9d",
             "file": "projects/biit-ui/button/src/biit-button/biit-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -94,7 +94,7 @@
                     "name": "buttonType",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 27,
+                    "line": 28,
                     "type": "BiitButtonType",
                     "decorators": []
                 },
@@ -102,12 +102,29 @@
                     "name": "color",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 35,
+                    "line": 36,
                     "type": "MaterialColor",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 49,
+                    "type": "boolean",
                     "decorators": []
                 }
             ],
-            "outputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 56,
+                    "type": "EventEmitter<Event>"
+                }
+            ],
             "propertiesClass": [
                 {
                     "name": "_buttonType",
@@ -128,6 +145,16 @@
                     "optional": false,
                     "description": "",
                     "line": 24
+                },
+                {
+                    "name": "_disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
                 }
             ],
             "methodsClass": [],
@@ -138,7 +165,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input} from '@angular/core';\r\n\r\nexport type BiitButtonType =\r\n  | 'default'\r\n  | 'flat'\r\n  | 'raised'\r\n  | 'stroked';\r\n\r\nexport type MaterialColor =\r\n  | 'empty'\r\n  | 'primary'\r\n  | 'accent'\r\n  | 'warn';\r\n\r\n@Component({\r\n  selector: 'app-biit-button',\r\n  templateUrl: 'biit-button.component.html',\r\n  styleUrls: ['biit-button.component.scss'],\r\n})\r\n\r\nexport class BiitButtonComponent {\r\n\r\n  _buttonType: BiitButtonType = 'default';\r\n  _color: MaterialColor = 'primary';\r\n\r\n  @Input()\r\n  set buttonType(value: BiitButtonType) {\r\n    this._buttonType = value;\r\n  }\r\n  get buttonType(): BiitButtonType {\r\n    return this._buttonType;\r\n  }\r\n\r\n  @Input()\r\n  set color(value: MaterialColor) {\r\n    if (value === 'empty') {\r\n      // @ts-ignore\r\n      this._color = '';\r\n    } else {\r\n      this._color = value;\r\n    }\r\n  }\r\n  get color(): MaterialColor {\r\n    return this._color;\r\n  }\r\n}\r\n",
+            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\r\n\r\nexport type BiitButtonType =\r\n  | 'default'\r\n  | 'flat'\r\n  | 'raised'\r\n  | 'stroked';\r\n\r\nexport type MaterialColor =\r\n  | 'empty'\r\n  | 'primary'\r\n  | 'accent'\r\n  | 'warn';\r\n\r\n@Component({\r\n  selector: 'app-biit-button',\r\n  templateUrl: 'biit-button.component.html',\r\n  styleUrls: ['biit-button.component.scss'],\r\n})\r\n\r\nexport class BiitButtonComponent {\r\n\r\n  _buttonType: BiitButtonType = 'default';\r\n  _color: MaterialColor = 'primary';\r\n  _disabled: boolean = false;\r\n\r\n  @Input()\r\n  set buttonType(value: BiitButtonType) {\r\n    this._buttonType = value;\r\n  }\r\n  get buttonType(): BiitButtonType {\r\n    return this._buttonType;\r\n  }\r\n\r\n  @Input()\r\n  set color(value: MaterialColor) {\r\n    if (value === 'empty') {\r\n      // @ts-ignore\r\n      this._color = '';\r\n    } else {\r\n      this._color = value;\r\n    }\r\n  }\r\n  get color(): MaterialColor {\r\n    return this._color;\r\n  }\r\n\r\n  @Input()\r\n  set disabled(value: boolean) {\r\n    this._disabled = value;\r\n  }\r\n  get disabled(): boolean {\r\n    return this._disabled;\r\n  }\r\n\r\n  @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -164,7 +191,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 27,
+                        "line": 28,
                         "jsdoctags": [
                             {
                                 "name": "value",
@@ -181,7 +208,7 @@
                         "name": "buttonType",
                         "type": "",
                         "returnType": "BiitButtonType",
-                        "line": 30
+                        "line": 31
                     }
                 },
                 "color": {
@@ -200,7 +227,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 35,
+                        "line": 36,
                         "jsdoctags": [
                             {
                                 "name": "value",
@@ -217,11 +244,47 @@
                         "name": "color",
                         "type": "",
                         "returnType": "MaterialColor",
-                        "line": 43
+                        "line": 44
+                    }
+                },
+                "disabled": {
+                    "name": "disabled",
+                    "setSignature": {
+                        "name": "disabled",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "boolean",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 49,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "boolean",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "disabled",
+                        "type": "boolean",
+                        "returnType": "boolean",
+                        "line": 52
                     }
                 }
             },
-            "templateData": "<button mat-button *ngIf=\"buttonType === 'default'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-raised-button *ngIf=\"buttonType === 'raised'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-flat-button *ngIf=\"buttonType === 'flat'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-stroked-button *ngIf=\"buttonType === 'stroked'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<ng-template #buttonText>\r\n  <ng-content></ng-content>\r\n</ng-template>\r\n"
+            "templateData": "<button mat-button *ngIf=\"buttonType === 'default'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-raised-button *ngIf=\"buttonType === 'raised'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-flat-button *ngIf=\"buttonType === 'flat'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-stroked-button *ngIf=\"buttonType === 'stroked'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<ng-template #buttonText>\r\n  <ng-content></ng-content>\r\n</ng-template>\r\n"
         },
         {
             "name": "ButtonComponent",
@@ -684,7 +747,7 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
+                "file": "src/stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -694,16 +757,6 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -715,6 +768,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "LoggedOut",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -778,7 +841,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<BiitButtonComponent>",
-                "defaultValue": "(args: BiitButtonComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-button\r\n      [buttonType]=\"buttonType\"\r\n      [color]=\"color\"\r\n    >\r\n      Button\r\n    </app-biit-button>`\r\n})"
+                "defaultValue": "(args: BiitButtonComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-button\r\n      [buttonType]=\"buttonType\"\r\n      [color]=\"color\"\r\n      [disabled]=\"disabled\"\r\n      (onClick)=\"onClick()\"\r\n    >\r\n      Button\r\n    </app-biit-button>`\r\n})"
             },
             {
                 "name": "Template",
@@ -794,21 +857,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<Header>",
                 "defaultValue": "(args: Header) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Page>",
+                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
             }
         ],
         "functions": [],
@@ -899,7 +962,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<BiitButtonComponent>",
-                    "defaultValue": "(args: BiitButtonComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-button\r\n      [buttonType]=\"buttonType\"\r\n      [color]=\"color\"\r\n    >\r\n      Button\r\n    </app-biit-button>`\r\n})"
+                    "defaultValue": "(args: BiitButtonComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-button\r\n      [buttonType]=\"buttonType\"\r\n      [color]=\"color\"\r\n      [disabled]=\"disabled\"\r\n      (onClick)=\"onClick()\"\r\n    >\r\n      Button\r\n    </app-biit-button>`\r\n})"
                 }
             ],
             "src/stories/Button.stories.ts": [
@@ -954,38 +1017,6 @@
                     "defaultValue": "(args: Button) => ({\n  props: args,\n})"
                 }
             ],
-            "src/stories/Page.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Page>",
-                    "defaultValue": "(args: Page) => ({\n  props: args,\n})"
-                }
-            ],
             "src/stories/Header.stories.ts": [
                 {
                     "name": "LoggedIn",
@@ -1016,6 +1047,38 @@
                     "deprecationMessage": "",
                     "type": "Story<Header>",
                     "defaultValue": "(args: Header) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/stories/Page.stories.ts": [
+                {
+                    "name": "LoggedIn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "LoggedOut",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<Page>",
+                    "defaultValue": "(args: Page) => ({\n  props: args,\n})"
                 }
             ]
         },
@@ -1072,7 +1135,7 @@
                 "linktype": "component",
                 "name": "BiitButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {

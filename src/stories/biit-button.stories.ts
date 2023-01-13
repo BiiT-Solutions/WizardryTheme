@@ -10,7 +10,8 @@ export default {
   ],
   args: {
     buttonType: 'default',
-    color: 'primary'
+    color: 'primary',
+    disabled: false
   },
   argTypes: {
     buttonType: {
@@ -56,6 +57,15 @@ export default {
       control: {
         type: 'boolean'
       }
+    },
+    onClick: {
+      action: 'clicked',
+      name: 'onClick',
+      description: 'Emits an Event object.',
+      table: {
+        type: 'Event',
+        category: 'Outputs'
+      }
     }
   }
 } as Meta;
@@ -67,6 +77,7 @@ const Template: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
       [buttonType]="buttonType"
       [color]="color"
       [disabled]="disabled"
+      (onClick)="onClick()"
     >
       Button
     </app-biit-button>`
