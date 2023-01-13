@@ -6,6 +6,9 @@
     "paths": {
       "biit-ui": [
         "projects/biit-ui/src/public-api"
+      ],
+      "biit-ui/button": [
+        "projects/biit-ui/button/src/public-api"
       ]
     },
     "outDir": "./dist/out-tsc",

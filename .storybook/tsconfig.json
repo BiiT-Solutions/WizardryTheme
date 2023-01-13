@@ -1,5 +1,5 @@
 {
-  "extends": "../tsconfig.app.json",
+  "extends": "../projects/biit-ui/tsconfig.lib.json",
   "compilerOptions": {
     "types": [
       "node"

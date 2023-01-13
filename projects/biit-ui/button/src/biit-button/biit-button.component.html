@@ -1,0 +1,27 @@
+<button mat-button *ngIf="buttonType === 'default'"
+        color="{{color}}"
+        [disabled]="_disabled">
+  <ng-container *ngTemplateOutlet="buttonText"></ng-container>
+</button>
+
+<button mat-raised-button *ngIf="buttonType === 'raised'"
+        color="{{color}}"
+        [disabled]="_disabled">
+  <ng-container *ngTemplateOutlet="buttonText"></ng-container>
+</button>
+
+<button mat-flat-button *ngIf="buttonType === 'flat'"
+        color="{{color}}"
+        [disabled]="_disabled">
+  <ng-container *ngTemplateOutlet="buttonText"></ng-container>
+</button>
+
+<button mat-stroked-button *ngIf="buttonType === 'stroked'"
+        color="{{color}}"
+        [disabled]="_disabled">
+  <ng-container *ngTemplateOutlet="buttonText"></ng-container>
+</button>
+
+<ng-template #buttonText>
+  <ng-content></ng-content>
+</ng-template>
