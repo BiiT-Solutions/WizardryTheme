@@ -14,7 +14,35 @@
             "methods": []
         }
     ],
-    "injectables": [],
+    "injectables": [
+        {
+            "name": "FilterResetService",
+            "id": "injectable-FilterResetService-b0aa9142bdc638052740bb5aa1b9332835d7b649f162a77bb0daa6e9e03eff9e95715bbaf137b1af4fec66e36fc1d8b93de1b73d243662c2224db615d05b20d0",
+            "file": "projects/biit-ui/filter/src/biit-filter/filter-reset.service.ts",
+            "properties": [
+                {
+                    "name": "resetFilter",
+                    "defaultValue": "new BehaviorSubject<boolean>(false)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "BehaviorSubject<boolean>",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import {Injectable} from '@angular/core';\nimport {BehaviorSubject} from \"rxjs\";\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class FilterResetService {\n\n  public resetFilter: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);\n}\n",
+            "type": "injectable"
+        }
+    ],
     "guards": [],
     "interceptors": [],
     "classes": [],
@@ -73,7 +101,7 @@
         },
         {
             "name": "BiitButtonComponent",
-            "id": "component-BiitButtonComponent-93136ee4d07e7834881731a8b711bb76f84603df7726321d87cf4bda95b0d725cca9463b06bcd53ea56ba2601a37e38e10ad72e1fa4df2f2a9be874e90c1fb9d",
+            "id": "component-BiitButtonComponent-899ef01fe33342d61200c018d5186bf9afdb5267f0d386f2a56878d15112010d92750a4abfcb7516474d14b3381a122cea8cc2d49a3e71fab7000ceb8578634a",
             "file": "projects/biit-ui/button/src/biit-button/biit-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -102,7 +130,7 @@
                     "name": "color",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 36,
+                    "line": 37,
                     "type": "MaterialColor",
                     "decorators": []
                 },
@@ -110,7 +138,7 @@
                     "name": "disabled",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 49,
+                    "line": 50,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -121,7 +149,7 @@
                     "defaultValue": "new EventEmitter<Event>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 56,
+                    "line": 57,
                     "type": "EventEmitter<Event>"
                 }
             ],
@@ -165,7 +193,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\r\n\r\nexport type BiitButtonType =\r\n  | 'default'\r\n  | 'flat'\r\n  | 'raised'\r\n  | 'stroked';\r\n\r\nexport type MaterialColor =\r\n  | 'empty'\r\n  | 'primary'\r\n  | 'accent'\r\n  | 'warn';\r\n\r\n@Component({\r\n  selector: 'app-biit-button',\r\n  templateUrl: 'biit-button.component.html',\r\n  styleUrls: ['biit-button.component.scss'],\r\n})\r\n\r\nexport class BiitButtonComponent {\r\n\r\n  _buttonType: BiitButtonType = 'default';\r\n  _color: MaterialColor = 'primary';\r\n  _disabled: boolean = false;\r\n\r\n  @Input()\r\n  set buttonType(value: BiitButtonType) {\r\n    this._buttonType = value;\r\n  }\r\n  get buttonType(): BiitButtonType {\r\n    return this._buttonType;\r\n  }\r\n\r\n  @Input()\r\n  set color(value: MaterialColor) {\r\n    if (value === 'empty') {\r\n      // @ts-ignore\r\n      this._color = '';\r\n    } else {\r\n      this._color = value;\r\n    }\r\n  }\r\n  get color(): MaterialColor {\r\n    return this._color;\r\n  }\r\n\r\n  @Input()\r\n  set disabled(value: boolean) {\r\n    this._disabled = value;\r\n  }\r\n  get disabled(): boolean {\r\n    return this._disabled;\r\n  }\r\n\r\n  @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();\r\n}\r\n",
+            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\n\nexport type BiitButtonType =\n  | 'default'\n  | 'flat'\n  | 'raised'\n  | 'stroked';\n\nexport type MaterialColor =\n  | 'empty'\n  | 'primary'\n  | 'accent'\n  | 'warn';\n\n@Component({\n  selector: 'app-biit-button',\n  templateUrl: 'biit-button.component.html',\n  styleUrls: ['biit-button.component.scss'],\n})\n\nexport class BiitButtonComponent {\n\n  _buttonType: BiitButtonType = 'default';\n  _color: MaterialColor = 'primary';\n  _disabled: boolean = false;\n\n  @Input()\n  set buttonType(value: BiitButtonType) {\n    console.log('--->', value);\n    this._buttonType = value;\n  }\n  get buttonType(): BiitButtonType {\n    return this._buttonType;\n  }\n\n  @Input()\n  set color(value: MaterialColor) {\n    if (value === 'empty') {\n      // @ts-ignore\n      this._color = '';\n    } else {\n      this._color = value;\n    }\n  }\n  get color(): MaterialColor {\n    return this._color;\n  }\n\n  @Input()\n  set disabled(value: boolean) {\n    this._disabled = value;\n  }\n  get disabled(): boolean {\n    return this._disabled;\n  }\n\n  @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -208,7 +236,7 @@
                         "name": "buttonType",
                         "type": "",
                         "returnType": "BiitButtonType",
-                        "line": 31
+                        "line": 32
                     }
                 },
                 "color": {
@@ -227,7 +255,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 36,
+                        "line": 37,
                         "jsdoctags": [
                             {
                                 "name": "value",
@@ -244,7 +272,7 @@
                         "name": "color",
                         "type": "",
                         "returnType": "MaterialColor",
-                        "line": 44
+                        "line": 45
                     }
                 },
                 "disabled": {
@@ -263,7 +291,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 49,
+                        "line": 50,
                         "jsdoctags": [
                             {
                                 "name": "value",
@@ -280,11 +308,168 @@
                         "name": "disabled",
                         "type": "boolean",
                         "returnType": "boolean",
-                        "line": 52
+                        "line": 53
                     }
                 }
             },
             "templateData": "<button mat-button *ngIf=\"buttonType === 'default'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-raised-button *ngIf=\"buttonType === 'raised'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-flat-button *ngIf=\"buttonType === 'flat'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-stroked-button *ngIf=\"buttonType === 'stroked'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<ng-template #buttonText>\r\n  <ng-content></ng-content>\r\n</ng-template>\r\n"
+        },
+        {
+            "name": "BiiTFilterComponent",
+            "id": "component-BiiTFilterComponent-89fdd209f4fc1c5f9dc41edd7409342a90c30e0880a5eec371a2ca13b3e835b66816dafae88b714e8f05a53a266577a6b98f7638d66c170faa9dbffa94790b5e",
+            "file": "projects/biit-ui/filter/src/biit-filter/biit-filter.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-biit-filter",
+            "styleUrls": [
+                "./biit-filter.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./biit-filter.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "resetValue",
+                    "defaultValue": "new Subject<boolean>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "Subject<boolean>",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "filterChanged",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "EventEmitter<string>"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "filterString",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "filter",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 32,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "reset",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 37,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';\nimport {Subject} from \"rxjs\";\nimport {FilterResetService} from \"./filter-reset.service\";\n\n@Component({\n  selector: 'app-biit-filter',\n  templateUrl: './biit-filter.component.html',\n  styleUrls: ['./biit-filter.component.scss']\n})\nexport class BiiTFilterComponent implements OnInit {\n\n  filterString: string = '';\n\n  @Output() filterChanged: EventEmitter<string> = new EventEmitter();\n\n  @Input() disabled: boolean = false;\n\n  @Input() resetValue: Subject<boolean> = new Subject<boolean>();\n\n  constructor(private filterResetService: FilterResetService) {\n  }\n\n  ngOnInit() {\n    this.resetValue.subscribe(() => {\n      this.reset();\n    });\n    this.filterResetService.resetFilter.subscribe(() => {\n      this.reset();\n    })\n  }\n\n  filter(event: Event) {\n    const filter: string = (event.target as HTMLInputElement).value.toLowerCase();\n    this.filterChanged.emit(filter);\n  }\n\n  reset() {\n    this.filterString = '';\n    this.filterChanged.emit(this.filterString);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".filter {\n  text-align: right;\n  padding-bottom: 10px;\n  display: inline-block;\n  padding-left: 5vh;\n}\n\n.reset {\n  padding-left: 0;\n}\n",
+                    "styleUrl": "./biit-filter.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "filterResetService",
+                        "type": "FilterResetService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 18,
+                "jsdoctags": [
+                    {
+                        "name": "filterResetService",
+                        "type": "FilterResetService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div>\n  <div class=\"filter\">\n    <mat-form-field>\n      <input matInput type=\"text\" [disabled]=\"disabled\" [(ngModel)]=\"filterString\" (keyup)=\"filter($event)\"\n             placeholder=\"'filter'\">\n    </mat-form-field>\n  </div>\n  <button #resetButton mat-button  class=\"reset\" color=\"warn\" (click)=\"reset()\">\n    <mat-icon>clear</mat-icon>\n  </button>\n</div>\n\n"
         },
         {
             "name": "ButtonComponent",
@@ -651,13 +836,13 @@
         },
         {
             "name": "BiitButtonModule",
-            "id": "module-BiitButtonModule-a81e4c8b407db75e87a7b23119ffbbac72cc40c20ff1e37966e71c393fcd34defcb192fcbce7ef38bb3e37c75f2daf962d7155dc266c0279c44608e9c58586ac",
+            "id": "module-BiitButtonModule-b052543f7f141cfad0fd0133be4ff83ece86ee409e368a915606e14de8e5821f641e9be5a24d9831650857b60fbec73418a566d6beac4841e6380d5bbbdd7cac",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/biit-ui/button/src/biit-button/biit-button.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BiitButtonComponent } from './biit-button.component';\r\nimport {MatButtonModule} from \"@angular/material/button\";\r\nimport {NgIf, NgTemplateOutlet} from \"@angular/common\";\r\n\r\n@NgModule({\r\n  declarations: [\r\n    BiitButtonComponent\r\n  ],\r\n  imports: [\r\n    MatButtonModule,\r\n    NgIf,\r\n    NgTemplateOutlet\r\n  ],\r\n  exports: [\r\n    BiitButtonComponent\r\n  ]\r\n})\r\nexport class BiitButtonModule { }\r\n",
+            "sourceCode": "import {NgModule} from '@angular/core';\nimport {BiitButtonComponent} from './biit-button.component';\nimport {MatButtonModule} from \"@angular/material/button\";\nimport {NgClass, NgIf, NgTemplateOutlet} from \"@angular/common\";\n\n@NgModule({\n  declarations: [\n    BiitButtonComponent\n  ],\n  imports: [\n    MatButtonModule,\n    NgIf,\n    NgTemplateOutlet,\n    NgClass\n  ],\n  exports: [\n    BiitButtonComponent\n  ]\n})\nexport class BiitButtonModule {\n}\n",
             "children": [
                 {
                     "type": "providers",
@@ -675,6 +860,9 @@
                     "type": "imports",
                     "elements": [
                         {
+                            "name": "NgClass"
+                        },
+                        {
                             "name": "NgIf"
                         },
                         {
@@ -687,6 +875,50 @@
                     "elements": [
                         {
                             "name": "BiitButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "BiitFilterModule",
+            "id": "module-BiitFilterModule-0bbeaae19235243566c8500cee93f1135fdbb29d021ecff5f9a2caece31df954b33a528afbfc113e579ad1b43662bbf375b9f6d30aa366a439c7566e25a5e43f",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/biit-ui/filter/src/biit-filter/biit-filter.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport {BiiTFilterComponent} from \"./biit-filter.component\";\nimport {MatButtonModule} from \"@angular/material/button\";\nimport {MatInputModule} from \"@angular/material/input\";\nimport {FormsModule} from \"@angular/forms\";\nimport {MatIconModule} from \"@angular/material/icon\";\n\n\n\n@NgModule({\n  declarations: [BiiTFilterComponent],\n  exports:[BiiTFilterComponent],\n  imports: [\n    CommonModule,\n    FormsModule,\n    MatInputModule,\n    MatIconModule,\n    MatButtonModule\n  ]\n})\nexport class BiitFilterModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "BiiTFilterComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "BiiTFilterComponent"
                         }
                     ]
                 },
@@ -718,6 +950,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/biit-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/filter.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -837,16 +1079,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/biit-button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<BiitButtonComponent>",
-                "defaultValue": "(args: BiitButtonComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-button\r\n      [buttonType]=\"buttonType\"\r\n      [color]=\"color\"\r\n      [disabled]=\"disabled\"\r\n      (onClick)=\"onClick()\"\r\n    >\r\n      Button\r\n    </app-biit-button>`\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -872,6 +1104,26 @@
                 "deprecationMessage": "",
                 "type": "Story<Page>",
                 "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/biit-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitButtonComponent>",
+                "defaultValue": "(args: BiitButtonComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-button\r\n      [buttonType]=\"buttonType\"\r\n      [color]=\"color\"\r\n      [disabled]=\"disabled\"\r\n      (onClick)=\"onClick()\"\r\n    >\r\n      Button\r\n    </app-biit-button>`\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/filter.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiiTFilterComponent>",
+                "defaultValue": "(args: BiiTFilterComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-filter\r\n      [resetValue]=\"resetValue\"\r\n      [disabled]=\"disabled\"\r\n      (filterChanged)=\"filterChanged()\">\r\n    </app-biit-filter>`\r\n})"
             }
         ],
         "functions": [],
@@ -963,6 +1215,28 @@
                     "deprecationMessage": "",
                     "type": "Story<BiitButtonComponent>",
                     "defaultValue": "(args: BiitButtonComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-button\r\n      [buttonType]=\"buttonType\"\r\n      [color]=\"color\"\r\n      [disabled]=\"disabled\"\r\n      (onClick)=\"onClick()\"\r\n    >\r\n      Button\r\n    </app-biit-button>`\r\n})"
+                }
+            ],
+            "src/stories/filter.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/filter.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/filter.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiiTFilterComponent>",
+                    "defaultValue": "(args: BiiTFilterComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-filter\r\n      [resetValue]=\"resetValue\"\r\n      [disabled]=\"disabled\"\r\n      (filterChanged)=\"filterChanged()\">\r\n    </app-biit-filter>`\r\n})"
                 }
             ],
             "src/stories/Button.stories.ts": [
@@ -1136,6 +1410,24 @@
                 "name": "BiitButtonComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/biit-ui/filter/src/biit-filter/biit-filter.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BiiTFilterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/biit-ui/filter/src/biit-filter/filter-reset.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "FilterResetService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -1334,6 +1626,26 @@
                 "coveragePercent": 83,
                 "coverageCount": "5/6",
                 "status": "very-good"
+            },
+            {
+                "filePath": "src/stories/filter.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/filter.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
             },
             {
                 "filePath": "src/stories/header.component.ts",

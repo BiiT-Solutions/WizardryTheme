@@ -1,27 +1,74 @@
 # BiitFrontendComponents
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.5.
+This project contains all common components that are used among all Angular projects developed by BiiT.
 
-## Development server
+# Adding a new component
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+On the path `projects/biit-ui` generate a folder for your component. Inside this folder must exist a `src` component a
+new folder inside it with the name of your component. For example `projects/biit-ui/mycomponent/src/mycustomcomponent`.
 
-## Code scaffolding
+Now generate the component and the module files:
+```
+ng generate component ../../projects/biit-ui/mycomponent/src/mycustomcomponent --skip-import
+ng generate module ../../projects/biit-ui/mycomponent/src/mycustomcomponent
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+And write your code in them.
 
-## Build
+After it, create a `stories.ts` file for your component under `src/stories/` folder. Something like `src/stories/mycustomcomponent.stories.ts`:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+export default {
+  title: 'Section/MyComponent',
+  decorators: [
+    moduleMetadata({
+      imports: [MyCustomComponentModule],
+    }),
+  ],
+  args: {
+    ...
+  },
+  argTypes: {
+    ...
+  }
+} as Meta;
 
-## Running unit tests
+const Template: Story<MyCustomComponent> = (args: MyCustomComponent) => ({
+  props: args,
+  template: `
+    <my-custom-component>
+      ...
+    </my-custom-component>`
+}
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+export const Default = Template.bind({});
+Default.args = {
+  ...
+}
+```
 
-## Running end-to-end tests
+### Use on an external application
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Generate a file `public-api.ts` on the `src` folder of your component (`projects/biit-ui/mycomponent/src/public-api.ts`)
+. And define all the exports in it:
 
-## Further help
+```
+/*
+ * Public API Surface of biit-ui/mycomponent
+ */
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+export * from './mycustomcomponent/my-custom-component.component';
+export * from './mycustomcomponent/my-custom-component.module';
+
+```
+
+
+### Executing the storybook
+
+To run and test the storybook, simply execute:
+
+```
+npm run storybook
+```
+
+# Consuming a component in your application

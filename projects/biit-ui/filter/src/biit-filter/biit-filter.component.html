@@ -1,0 +1,12 @@
+<div>
+  <div class="filter">
+    <mat-form-field>
+      <input matInput type="text" [disabled]="disabled" [(ngModel)]="filterString" (keyup)="filter($event)"
+             placeholder="'filter'">
+    </mat-form-field>
+  </div>
+  <button #resetButton mat-button  class="reset" color="warn" (click)="reset()">
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>
+
