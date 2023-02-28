@@ -7,7 +7,7 @@ import {FilterResetService} from "./filter-reset.service";
   templateUrl: './biit-filter.component.html',
   styleUrls: ['./biit-filter.component.scss']
 })
-export class BiiTFilterComponent implements OnInit {
+export class BiitFilterComponent implements OnInit {
 
   filterString: string = '';
 

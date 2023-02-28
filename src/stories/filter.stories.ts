@@ -1,5 +1,5 @@
-import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {BiiTFilterComponent} from "../../projects/biit-ui/filter/src/biit-filter/biit-filter.component";
+import {componentWrapperDecorator, Meta, moduleMetadata, Story} from '@storybook/angular';
+import {BiitFilterComponent} from "../../projects/biit-ui/filter/src/biit-filter/biit-filter.component";
 import {BiitFilterModule} from "../../projects/biit-ui/filter/src/biit-filter/biit-filter.module";
 import {I18nModule} from "../app/i18n/i18n.module";
 
@@ -9,6 +9,7 @@ export default {
     moduleMetadata({
       imports: [BiitFilterModule, I18nModule],
     }),
+    componentWrapperDecorator(story => `<div style="margin: 3em">${story}</div>`),
   ],
   args: {
     disabled: false
@@ -40,7 +41,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<BiiTFilterComponent> = (args: BiiTFilterComponent) => ({
+const Template: Story<BiitFilterComponent> = (args: BiitFilterComponent) => ({
   props: args,
   template: `
     <app-biit-filter

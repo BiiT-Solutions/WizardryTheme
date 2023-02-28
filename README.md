@@ -62,6 +62,10 @@ export * from './mycustomcomponent/my-custom-component.module';
 
 ```
 
+### Translations
+
+Remember to include the `i18n` folder in your application with the required translations.
+
 
 ### Executing the storybook
 

@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {BiiTFilterComponent} from "./biit-filter.component";
+import {BiitFilterComponent} from "./biit-filter.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
@@ -10,8 +10,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
-  declarations: [BiiTFilterComponent],
-  exports: [BiiTFilterComponent],
+  declarations: [BiitFilterComponent],
+  exports: [BiitFilterComponent],
   imports: [
     CommonModule,
     FormsModule,
