@@ -2,7 +2,7 @@ import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import { BiitButtonComponent, BiitButtonModule } from 'biit-ui/button';
 
 export default {
-  title: 'Buttons/Standard',
+  title: 'Basic/Button',
   decorators: [
     moduleMetadata({
       imports: [BiitButtonModule],

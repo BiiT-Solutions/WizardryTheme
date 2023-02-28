@@ -3,7 +3,7 @@ import {BiiTFilterComponent} from "../../projects/biit-ui/filter/src/biit-filter
 import {BiitFilterModule} from "../../projects/biit-ui/filter/src/biit-filter/biit-filter.module";
 
 export default {
-  title: 'Components/Standard',
+  title: 'Basic/Filter',
   decorators: [
     moduleMetadata({
       imports: [BiitFilterModule],
