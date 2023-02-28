@@ -26,7 +26,6 @@ export class BiitButtonComponent {
 
   @Input()
   set buttonType(value: BiitButtonType) {
-    console.log('--->', value);
     this._buttonType = value;
   }
   get buttonType(): BiitButtonType {

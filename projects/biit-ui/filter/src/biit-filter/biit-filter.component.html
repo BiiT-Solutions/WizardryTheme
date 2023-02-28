@@ -2,10 +2,11 @@
   <div class="filter">
     <mat-form-field>
       <input matInput type="text" [disabled]="disabled" [(ngModel)]="filterString" (keyup)="filter($event)"
-             placeholder="'filter'">
+             placeholder="{{'filter.placeholder' | translate}}">
     </mat-form-field>
+    {{'filter.placeholder' | translate}}
   </div>
-  <button #resetButton mat-button  class="reset" color="warn" (click)="reset()">
+  <button mat-button  class="reset" color="warn" (click)="reset()">
     <mat-icon>clear</mat-icon>
   </button>
 </div>

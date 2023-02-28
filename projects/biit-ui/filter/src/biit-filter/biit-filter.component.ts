@@ -21,9 +21,11 @@ export class BiiTFilterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.resetValue.subscribe(() => {
-      this.reset();
-    });
+    if (this.resetValue) {
+      this.resetValue.subscribe(() => {
+        this.reset();
+      });
+    }
     this.filterResetService.resetFilter.subscribe(() => {
       this.reset();
     })
