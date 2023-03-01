@@ -45,7 +45,114 @@
     ],
     "guards": [],
     "interceptors": [],
-    "classes": [],
+    "classes": [
+        {
+            "name": "BasicTableData",
+            "id": "class-BasicTableData-96d31a1f4613dc8563432b38cd9b463d2de6e81d7c9566113d77c2183d4ed8fe14d63c49633ca5b469b2f5c4a380e5cecf6b88d5dc0a664171b0dcaa52643c97",
+            "file": "projects/biit-ui/table/src/biit-table/basic-table-data.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import {SelectionModel} from \"@angular/cdk/collections\";\nimport {MatTableDataSource} from \"@angular/material/table\";\n\nexport class BasicTableData<T> {\n  columns: string[] = [];\n  columnsTags: string[] = [];\n  visibleColumns: string[] = [];\n  selection: SelectionModel<T> = new SelectionModel<T>(false, []);\n  dataSource: MatTableDataSource<T> = new MatTableDataSource<T>();\n  selectedElement: T | undefined = undefined;\n\n  selectItem(item: any): void {\n    this.selection.toggle(item);\n    this.selectedElement = item;\n  }\n\n}\n",
+            "properties": [
+                {
+                    "name": "columns",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "columnsTags",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "dataSource",
+                    "defaultValue": "new MatTableDataSource<T>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MatTableDataSource<T>",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                },
+                {
+                    "name": "selectedElement",
+                    "defaultValue": "undefined",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "T | undefined",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "selection",
+                    "defaultValue": "new SelectionModel<T>(false, [])",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "SelectionModel<T>",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "visibleColumns",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                }
+            ],
+            "methods": [
+                {
+                    "name": "selectItem",
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
     "directives": [],
     "components": [
         {
@@ -315,8 +422,8 @@
             "templateData": "<button mat-button *ngIf=\"buttonType === 'default'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-raised-button *ngIf=\"buttonType === 'raised'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-flat-button *ngIf=\"buttonType === 'flat'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-stroked-button *ngIf=\"buttonType === 'stroked'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<ng-template #buttonText>\r\n  <ng-content></ng-content>\r\n</ng-template>\r\n"
         },
         {
-            "name": "BiiTFilterComponent",
-            "id": "component-BiiTFilterComponent-e4fb816b6147f25d43ee89b77a436a6121ef64f69d48d271e9949b88e60ce295e069899245129679575b04229a6e7deac2c125db944ca51b7ecb6427300cfdd0",
+            "name": "BiitFilterComponent",
+            "id": "component-BiitFilterComponent-7e46bee5f4cf5dfd2545d015b0471662bfc03c68d9012d9833a84f5d91422e357aa1d4cfe8fd0f4a64dc7b910ff8399af69fe1ea6d19324d02a5594fd2c9c1e3",
             "file": "projects/biit-ui/filter/src/biit-filter/biit-filter.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -431,7 +538,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';\nimport {Subject} from \"rxjs\";\nimport {FilterResetService} from \"./filter-reset.service\";\n\n@Component({\n  selector: 'app-biit-filter',\n  templateUrl: './biit-filter.component.html',\n  styleUrls: ['./biit-filter.component.scss']\n})\nexport class BiiTFilterComponent implements OnInit {\n\n  filterString: string = '';\n\n  @Output() filterChanged: EventEmitter<string> = new EventEmitter();\n\n  @Input() disabled: boolean = false;\n\n  @Input() resetValue: Subject<boolean> = new Subject<boolean>();\n\n  constructor(private filterResetService: FilterResetService) {\n  }\n\n  ngOnInit() {\n    if (this.resetValue) {\n      this.resetValue.subscribe(() => {\n        this.reset();\n      });\n    }\n    this.filterResetService.resetFilter.subscribe(() => {\n      this.reset();\n    })\n  }\n\n  filter(event: Event) {\n    const filter: string = (event.target as HTMLInputElement).value.toLowerCase();\n    this.filterChanged.emit(filter);\n  }\n\n  reset() {\n    this.filterString = '';\n    this.filterChanged.emit(this.filterString);\n  }\n}\n",
+            "sourceCode": "import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';\nimport {Subject} from \"rxjs\";\nimport {FilterResetService} from \"./filter-reset.service\";\n\n@Component({\n  selector: 'app-biit-filter',\n  templateUrl: './biit-filter.component.html',\n  styleUrls: ['./biit-filter.component.scss']\n})\nexport class BiitFilterComponent implements OnInit {\n\n  filterString: string = '';\n\n  @Output() filterChanged: EventEmitter<string> = new EventEmitter();\n\n  @Input() disabled: boolean = false;\n\n  @Input() resetValue: Subject<boolean> = new Subject<boolean>();\n\n  constructor(private filterResetService: FilterResetService) {\n  }\n\n  ngOnInit() {\n    if (this.resetValue) {\n      this.resetValue.subscribe(() => {\n        this.reset();\n      });\n    }\n    this.filterResetService.resetFilter.subscribe(() => {\n      this.reset();\n    })\n  }\n\n  filter(event: Event) {\n    const filter: string = (event.target as HTMLInputElement).value.toLowerCase();\n    this.filterChanged.emit(filter);\n  }\n\n  reset() {\n    this.filterString = '';\n    this.filterChanged.emit(this.filterString);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -469,7 +576,392 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div>\n  <div class=\"filter\">\n    <mat-form-field>\n      <input matInput type=\"text\" [disabled]=\"disabled\" [(ngModel)]=\"filterString\" (keyup)=\"filter($event)\"\n             placeholder=\"{{'filter.placeholder' | translate}}\">\n    </mat-form-field>\n    {{'filter.placeholder' | translate}}\n  </div>\n  <button mat-button  class=\"reset\" color=\"warn\" (click)=\"reset()\">\n    <mat-icon>clear</mat-icon>\n  </button>\n</div>\n\n"
+            "templateData": "<div>\n  <div class=\"filter\">\n    <mat-form-field>\n      <input matInput type=\"text\" [disabled]=\"disabled\" [(ngModel)]=\"filterString\" (keyup)=\"filter($event)\"\n             placeholder=\"{{'filter.placeholder' | translate}}\">\n    </mat-form-field>\n  </div>\n  <button mat-button  class=\"reset\" color=\"warn\" (click)=\"reset()\">\n    <mat-icon>clear</mat-icon>\n  </button>\n</div>\n\n"
+        },
+        {
+            "name": "BiitTableComponent",
+            "id": "component-BiitTableComponent-085dce013e041627d73996484b56aebc0160e669d4e94f1ac933c33dd6ee6ce47880592655f81d8f96abed79f893f2604099798a51514860549c1507b23f02f8",
+            "file": "projects/biit-ui/table/src/biit-table/biit-table.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-biit-table",
+            "styleUrls": [
+                "./biit-table.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./biit-table.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "basicTableData",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "BasicTableData<any>",
+                    "decorators": []
+                },
+                {
+                    "name": "locale",
+                    "defaultValue": "\"en\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "paginator",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MatPaginator",
+                    "optional": true,
+                    "description": "",
+                    "line": 15,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "MatPaginator"
+                        }
+                    ]
+                },
+                {
+                    "name": "pipe",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "DatePipe | undefined",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                },
+                {
+                    "name": "sort",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MatSort",
+                    "optional": true,
+                    "description": "",
+                    "line": 16,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "MatSort"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "filter",
+                    "args": [
+                        {
+                            "name": "filter",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 71,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "filter",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getColumnData",
+                    "args": [
+                        {
+                            "name": "column",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 107,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "column",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getDefaultPageSize",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "number",
+                    "typeParameters": [],
+                    "line": 97,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "isColumnVisible",
+                    "args": [
+                        {
+                            "name": "column",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 75,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "column",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 44,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onPaginateChange",
+                    "args": [
+                        {
+                            "name": "$event",
+                            "type": "PageEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 103,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "$event",
+                            "type": "PageEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setLocale",
+                    "args": [
+                        {
+                            "name": "locale",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 49,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "locale",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setSelectedItem",
+                    "args": [
+                        {
+                            "name": "row",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 63,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "row",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "snakeToCamel",
+                    "args": [
+                        {
+                            "name": "string",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 129,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "string",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "toggleColumnVisibility",
+                    "args": [
+                        {
+                            "name": "column",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 79,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "column",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, Input, OnInit, ViewChild} from '@angular/core';\nimport {MatPaginator, PageEvent} from \"@angular/material/paginator\";\nimport {TranslateService} from \"@ngx-translate/core\";\nimport {MatSort} from \"@angular/material/sort\";\nimport {BasicTableData} from \"./basic-table-data\";\nimport {DatePipe} from \"@angular/common\";\n\n@Component({\n  selector: 'app-biit-table',\n  templateUrl: './biit-table.component.html',\n  styleUrls: ['./biit-table.component.scss']\n})\nexport class BiitTableComponent implements OnInit {\n\n  @ViewChild(MatPaginator) paginator?: MatPaginator;\n  @ViewChild(MatSort) sort?: MatSort;\n\n  @Input()\n  basicTableData?: BasicTableData<any>;\n\n  @Input()\n  locale: string = \"en\";\n\n  pipe: DatePipe | undefined;\n\n  constructor(private translateService: TranslateService) {\n\n  }\n\n  ngOnInit(): void {\n    this.setLocale(this.locale);\n    this.basicTableData!.dataSource.filterPredicate = (data: any, filter: string): boolean => {\n      filter = filter.toLowerCase().normalize('NFD').replace(/\\p{Diacritic}/gu, \"\");\n      const dataSearch = Object.keys(data).reduce((searchTerm: string, key: string) => {\n        return (searchTerm + (data as { [key: string]: any })[key]);\n      }, '').normalize('NFD').replace(/\\p{Diacritic}/gu, \"\").toLowerCase();\n\n      const transformedFilter = filter.trim().normalize('NFD').replace(/\\p{Diacritic}/gu, \"\").toLowerCase();\n\n      return dataSearch.indexOf(transformedFilter) != -1;\n    }\n  }\n\n  ngAfterViewInit() {\n    this.basicTableData!.dataSource.paginator = this.paginator!;\n    this.basicTableData!.dataSource.sort = this.sort!;\n  }\n\n  private setLocale(locale: string) {\n    if (locale === 'es' || locale === 'ca') {\n      this.pipe = new DatePipe('es');\n    } else if (locale === 'it') {\n      this.pipe = new DatePipe('it');\n    } else if (locale === 'de') {\n      this.pipe = new DatePipe('de');\n    } else if (locale === 'nl') {\n      this.pipe = new DatePipe('nl');\n    } else {\n      this.pipe = new DatePipe('en-US');\n    }\n  }\n\n  setSelectedItem(row: any): void {\n    if (row === this.basicTableData!.selectedElement) {\n      this.basicTableData!.selectedElement = undefined;\n    } else {\n      this.basicTableData!.selectedElement = row;\n    }\n  }\n\n  filter(filter: string) {\n    this.basicTableData!.dataSource.filter = filter;\n  }\n\n  isColumnVisible(column: string): boolean {\n    return this.basicTableData!.visibleColumns.includes(column);\n  }\n\n  toggleColumnVisibility(column: string) {\n    const index: number = this.basicTableData!.visibleColumns.indexOf(column);\n    if (index !== -1) {\n      this.basicTableData!.visibleColumns.splice(index, 1);\n    } else {\n      let oldVisibleColumns: string[];\n      oldVisibleColumns = [...this.basicTableData!.visibleColumns];\n      oldVisibleColumns.push(column);\n      this.basicTableData!.visibleColumns.length = 0;\n      //Maintain columns order.\n      for (let tableColumn of this.basicTableData!.columns) {\n        if (oldVisibleColumns.includes(tableColumn)) {\n          this.basicTableData!.visibleColumns.push(tableColumn);\n        }\n      }\n    }\n  }\n\n  getDefaultPageSize(): number {\n    //Get from user session storage\n    return 10;\n  }\n\n\n  onPaginateChange($event: PageEvent) {\n    //Store into user session storage\n  }\n\n  getColumnData(column: any): any {\n    if (typeof column === 'number') {\n      return column;\n    } else if (typeof column === 'boolean') {\n      return column ? this.translateService.instant('yes') : this.translateService.instant('no');\n    } else if (!isNaN(Date.parse(column))) {\n      return this.pipe!.transform(column, 'short');\n    } else {\n      if (column) {\n        const text: string = (column as string);\n        if (text.toUpperCase() === text) {\n          //probably is an enum\n          return this.translateService.instant(this.snakeToCamel(text.toLowerCase()));\n        } else {\n          return this.translateService.instant(text);\n        }\n      } else {\n        return \"\";\n      }\n    }\n  }\n\n  snakeToCamel(string: string): string {\n    return string.toLowerCase().replace(/[-_][a-z]/g, (group) => group.slice(-1).toUpperCase());\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".filter {\n  display: inline-block;\n  height: 30px;\n}\n\n.separator {\n  display: inline-block;\n}\n\ntable {\n  width: 100%;\n  min-width: 600px;\n}\n\n.menu-setting-option {\n  padding: 5px;\n}\n\n.menu-setting-option-text {\n  color: var(--text-color);\n}\n\n.mat-header-cell {\n  text-align: center;\n  padding: 8px 20px 8px 20px !important;\n  overflow-wrap: break-word;\n  word-wrap: break-word;\n  word-break: break-word;\n  border-right: 1px solid currentColor;\n  font-size: medium;\n}\n\n.disabled {\n  opacity: 0.6;\n}\n\n@media screen and (max-width: 1000px) {\n  .filter-field {\n    display: none !important;\n  }\n}\n\n@media screen and (max-width: 600px) {\n  .tune-button {\n    display: none !important;\n  }\n}\n",
+                    "styleUrl": "./biit-table.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "translateService",
+                        "type": "TranslateService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 24,
+                "jsdoctags": [
+                    {
+                        "name": "translateService",
+                        "type": "TranslateService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<app-biit-filter (filterChanged)=\"filter($event)\" (reset)=\"filter('')\"></app-biit-filter>\n<button class=\"tune-button\" mat-button [matMenuTriggerFor]=\"mainMenuButton\" [matTooltipShowDelay]=\"500\"\n        matTooltip=\"{{'table.fields' | translate}}\">\n  <mat-icon>tune</mat-icon>\n</button>\n<mat-menu #mainMenuButton=\"matMenu\" class=\"table-settings\">\n        <span (click)=\"$event.stopPropagation()\" *ngFor=\"let column of basicTableData.columns\">\n          <mat-checkbox class=\"menu-setting-option\" (change)=\"toggleColumnVisibility(column)\"\n                        [checked]=\"isColumnVisible(column)\"></mat-checkbox>\n          <span class=\"menu-setting-option-text\">{{column | translate}}</span>\n          <br>\n        </span>\n</mat-menu>\n<div class=\"mat-elevation-z8\">\n  <div class=\"basic-table\">\n    <table mat-table [dataSource]=\"basicTableData.dataSource\" class=\"mat-elevation-z8\" matSort matSortActive=\"createdAt\"\n           matSortDirection=\"desc\" aria-describedby=\"List of items on a table view\">\n      <ng-container *ngFor=\"let column of basicTableData.columns; let i = index\">\n        <ng-container [matColumnDef]=column>\n          <th mat-header-cell *matHeaderCellDef\n              mat-sort-header={{column}}>{{basicTableData.columnsTags[i] | translate}}</th>\n          <td mat-cell *matCellDef=\"let data\"> {{getColumnData(data[column])}} </td>\n        </ng-container>\n      </ng-container>\n\n      <tr mat-header-row *matHeaderRowDef=\"basicTableData.visibleColumns\"></tr>\n      <tr mat-row *matRowDef=\"let row; columns: basicTableData.visibleColumns;\"\n          (click)=\"basicTableData.selection.toggle(row); setSelectedItem(row)\" (mouseover)=\"row.hovered=true\"\n          [ngClass]=\"{hovered: row.hovered, highlighted: basicTableData.selection.isSelected(row)}\"\n          (mouseout)=\"row.hovered=false\"></tr>\n    </table>\n    <mat-paginator [pageSize]=\"getDefaultPageSize()\" [pageSizeOptions]=\"[10, 20, 50]\" (page)=\"onPaginateChange($event)\"\n                   showFirstLastButtons></mat-paginator>\n  </div>\n</div>\n"
         },
         {
             "name": "ButtonComponent",
@@ -890,13 +1382,13 @@
         },
         {
             "name": "BiitFilterModule",
-            "id": "module-BiitFilterModule-4b3559d870e25156b6762d567f0f92333debb25300ef8414146e9b3796440b755c7fee89ab95f17b697c1bcf0ccba80783255796dbcf3484b46c16266fc65e4c",
+            "id": "module-BiitFilterModule-c4cfd1017e2af04f2bd2b437bd2e04207994144e43d3f2096489a7698a3d5287e9a01315a827e3cff556ed81f7bc0ceaeb686357dbac0ea6ec159ab065cc0dbf",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/biit-ui/filter/src/biit-filter/biit-filter.module.ts",
             "methods": [],
-            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {BiiTFilterComponent} from \"./biit-filter.component\";\nimport {MatButtonModule} from \"@angular/material/button\";\nimport {MatInputModule} from \"@angular/material/input\";\nimport {FormsModule} from \"@angular/forms\";\nimport {MatIconModule} from \"@angular/material/icon\";\nimport {I18nModule} from \"../../../../../src/app/i18n/i18n.module\";\nimport {BrowserAnimationsModule} from \"@angular/platform-browser/animations\";\n\n\n@NgModule({\n  declarations: [BiiTFilterComponent],\n  exports: [BiiTFilterComponent],\n  imports: [\n    CommonModule,\n    FormsModule,\n    MatInputModule,\n    MatIconModule,\n    MatButtonModule,\n    I18nModule,\n    BrowserAnimationsModule\n  ]\n})\nexport class BiitFilterModule {\n}\n",
+            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {BiitFilterComponent} from \"./biit-filter.component\";\nimport {MatButtonModule} from \"@angular/material/button\";\nimport {MatInputModule} from \"@angular/material/input\";\nimport {FormsModule} from \"@angular/forms\";\nimport {MatIconModule} from \"@angular/material/icon\";\nimport {I18nModule} from \"../../../../../src/app/i18n/i18n.module\";\nimport {BrowserAnimationsModule} from \"@angular/platform-browser/animations\";\n\n\n@NgModule({\n  declarations: [BiitFilterComponent],\n  exports: [BiitFilterComponent],\n  imports: [\n    CommonModule,\n    FormsModule,\n    MatInputModule,\n    MatIconModule,\n    MatButtonModule,\n    I18nModule,\n    BrowserAnimationsModule\n  ]\n})\nexport class BiitFilterModule {\n}\n",
             "children": [
                 {
                     "type": "providers",
@@ -906,7 +1398,7 @@
                     "type": "declarations",
                     "elements": [
                         {
-                            "name": "BiiTFilterComponent"
+                            "name": "BiitFilterComponent"
                         }
                     ]
                 },
@@ -922,7 +1414,58 @@
                     "type": "exports",
                     "elements": [
                         {
-                            "name": "BiiTFilterComponent"
+                            "name": "BiitFilterComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "BiitTableModule",
+            "id": "module-BiitTableModule-d0f61d2a66c214b0ce22de1566dc5d1d3a17ca57740dbf5db3f2df653415949ba9a2d73f7a60b233217e8fa0e577acf86b39bc8af6e610688660357a9234eb6e",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/biit-ui/table/src/biit-table/biit-table.module.ts",
+            "methods": [],
+            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {BiitTableComponent} from \"./biit-table.component\";\nimport {MatPaginatorModule} from \"@angular/material/paginator\";\nimport {MatTableModule} from \"@angular/material/table\";\nimport {MatSortModule} from \"@angular/material/sort\";\nimport {MatMenuModule} from \"@angular/material/menu\";\nimport {MatCheckboxModule} from \"@angular/material/checkbox\";\nimport {MatIconModule} from \"@angular/material/icon\";\nimport {MatTooltipModule} from \"@angular/material/tooltip\";\nimport {BiitFilterModule} from \"../../../filter/src/biit-filter/biit-filter.module\";\nimport {MatFormFieldModule} from \"@angular/material/form-field\";\nimport {MatInputModule} from \"@angular/material/input\";\nimport {MatButtonModule} from \"@angular/material/button\";\nimport {MatDialogModule} from \"@angular/material/dialog\";\nimport {I18nModule} from \"../../../../../src/app/i18n/i18n.module\";\nimport {FormsModule} from \"@angular/forms\";\n\n\n@NgModule({\n  declarations: [BiitTableComponent],\n  exports: [BiitTableComponent],\n  imports: [\n    CommonModule,\n    I18nModule,\n    MatIconModule,\n    MatFormFieldModule,\n    MatMenuModule,\n    MatCheckboxModule,\n    MatPaginatorModule,\n    MatTableModule,\n    MatInputModule,\n    MatSortModule,\n    MatButtonModule,\n    MatTooltipModule,\n    BiitFilterModule,\n    MatDialogModule,\n    FormsModule\n  ]\n})\nexport class BiitTableModule {\n}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "BiitTableComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "BiitFilterModule"
+                        },
+                        {
+                            "name": "I18nModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "BiitTableComponent"
                         }
                     ]
                 },
@@ -1000,6 +1543,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/filter.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1162,8 +1715,18 @@
                 "file": "src/stories/filter.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<BiiTFilterComponent>",
-                "defaultValue": "(args: BiiTFilterComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-filter\r\n      [resetValue]=\"resetValue\"\r\n      [disabled]=\"disabled\"\r\n      (filterChanged)=\"filterChanged()\">\r\n    </app-biit-filter>`\r\n})"
+                "type": "Story<BiitFilterComponent>",
+                "defaultValue": "(args: BiitFilterComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-filter\r\n      [resetValue]=\"resetValue\"\r\n      [disabled]=\"disabled\"\r\n      (filterChanged)=\"filterChanged()\">\r\n    </app-biit-filter>`\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitTableComponent>",
+                "defaultValue": "(args: BiitTableComponent) => ({\r\n  props: args\r\n})"
             }
         ],
         "functions": [
@@ -1304,8 +1867,30 @@
                     "file": "src/stories/filter.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<BiiTFilterComponent>",
-                    "defaultValue": "(args: BiiTFilterComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-filter\r\n      [resetValue]=\"resetValue\"\r\n      [disabled]=\"disabled\"\r\n      (filterChanged)=\"filterChanged()\">\r\n    </app-biit-filter>`\r\n})"
+                    "type": "Story<BiitFilterComponent>",
+                    "defaultValue": "(args: BiitFilterComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-filter\r\n      [resetValue]=\"resetValue\"\r\n      [disabled]=\"disabled\"\r\n      (filterChanged)=\"filterChanged()\">\r\n    </app-biit-filter>`\r\n})"
+                }
+            ],
+            "src/stories/table.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiitTableComponent>",
+                    "defaultValue": "(args: BiitTableComponent) => ({\r\n  props: args\r\n})"
                 }
             ],
             "src/stories/Button.stories.ts": [
@@ -1516,7 +2101,7 @@
                 "filePath": "projects/biit-ui/filter/src/biit-filter/biit-filter.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "BiiTFilterComponent",
+                "name": "BiitFilterComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/9",
                 "status": "low"
@@ -1538,6 +2123,24 @@
                 "name": "BIIT_UI_SDK",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/biit-ui/table/src/biit-table/basic-table-data.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "BasicTableData",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/biit-ui/table/src/biit-table/biit-table.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BiitTableComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/18",
                 "status": "low"
             },
             {
@@ -1773,6 +2376,26 @@
                 "name": "PageComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             }
         ]

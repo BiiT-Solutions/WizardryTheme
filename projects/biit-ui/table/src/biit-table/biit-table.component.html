@@ -1,6 +1,6 @@
 <app-biit-filter (filterChanged)="filter($event)" (reset)="filter('')"></app-biit-filter>
 <button class="tune-button" mat-button [matMenuTriggerFor]="mainMenuButton" [matTooltipShowDelay]="500"
-        matTooltip="{{'fields' | translate}}">
+        matTooltip="{{'table.fields' | translate}}">
   <mat-icon>tune</mat-icon>
 </button>
 <mat-menu #mainMenuButton="matMenu" class="table-settings">
@@ -27,7 +27,6 @@
       <tr mat-row *matRowDef="let row; columns: basicTableData.visibleColumns;"
           (click)="basicTableData.selection.toggle(row); setSelectedItem(row)" (mouseover)="row.hovered=true"
           [ngClass]="{hovered: row.hovered, highlighted: basicTableData.selection.isSelected(row)}"
-          [class.disabled]="disableRow(row)"
           (mouseout)="row.hovered=false"></tr>
     </table>
     <mat-paginator [pageSize]="getDefaultPageSize()" [pageSizeOptions]="[10, 20, 50]" (page)="onPaginateChange($event)"

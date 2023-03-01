@@ -1,6 +1,5 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
-import {MatDialog} from "@angular/material/dialog";
 import {TranslateService} from "@ngx-translate/core";
 import {MatSort} from "@angular/material/sort";
 import {BasicTableData} from "./basic-table-data";
@@ -20,14 +19,11 @@ export class BiitTableComponent implements OnInit {
   basicTableData?: BasicTableData<any>;
 
   @Input()
-  disableRow: undefined | ((argument: () => any) => boolean);
-
-  @Input()
   locale: string = "en";
 
   pipe: DatePipe | undefined;
 
-  constructor(public dialog: MatDialog, private translateService: TranslateService) {
+  constructor(private translateService: TranslateService) {
 
   }
 

@@ -1,5 +1,8 @@
 {
   "filter": {
     "placeholder": "filter"
+  },
+  "table": {
+    "fields": "Fields"
   }
 }
