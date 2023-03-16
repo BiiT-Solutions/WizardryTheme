@@ -1,19 +1,19 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {BarChartModule} from "../../projects/biit-ui/charts/src/bar-chart/bar-chart.module";
-import {BarChartComponent} from "../../projects/biit-ui/charts/src/bar-chart/bar-chart.component";
+import {LineChartModule} from "../../../projects/biit-ui/charts/src/line-chart/line-chart.module";
+import {Colors} from "../../../projects/biit-ui/charts/src/colors";
 
 export default {
-  title: 'Chart/Bar',
+  title: 'Charts/Line',
   decorators: [
     moduleMetadata({
-      imports: [BarChartModule],
+      imports: [LineChartModule],
     }),
   ],
-  // component: BarChartComponent,
   args: {
     width: 500,
+    height: 250,
     showToolbar: true,
-    colors: ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7"],
+    colors: Colors.defaultPalette,
     horizontal: false,
     barThicknessPercentage: 75,
     showValuesLabels: true,
@@ -24,9 +24,9 @@ export default {
     title: undefined,
     titleAlignment: 'center',
     fill: 'solid',
-    borderRadius: 0,
-    legendPosition: 'bottom',
-    shadow: true
+    curve: 'smooth',
+    shadow: true,
+    strokeWidth: 5
   },
   argTypes: {
     width: {
@@ -41,6 +41,20 @@ export default {
       control: {
         type: 'number',
         min: 300, max: 1000, step: 50,
+      }
+    },
+    height: {
+      type: {name: 'number', required: false},
+      defaultValue: 250,
+      description: 'Defines the height of the chart in pixels',
+      table: {
+        type: {summary: 'number'},
+        defaultValue: {summary: 250},
+        category: 'Inputs'
+      },
+      control: {
+        type: 'number',
+        min: 200, max: 800, step: 50,
       }
     },
     showToolbar: {
@@ -185,12 +199,12 @@ export default {
     },
     titleAlignment: {
       name: 'titleAlignment',
-      type: { name: 'string', required: false },
+      type: {name: 'string', required: false},
       defaultValue: 'default',
       description: 'Defines the alignment of the title',
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'empty' },
+        type: {summary: 'string'},
+        defaultValue: {summary: 'empty'},
         category: 'Inputs'
       },
       options: ['left', 'center', 'right'],
@@ -200,44 +214,30 @@ export default {
     },
     fill: {
       name: 'fill',
-      type: { name: 'string', required: false },
+      type: {name: 'string', required: false},
       defaultValue: 'default',
       description: 'Defines how the bars are filled',
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'empty' },
+        type: {summary: 'string'},
+        defaultValue: {summary: 'empty'},
         category: 'Inputs'
       },
-      options: ['gradient', 'solid', 'pattern', 'image'],
+      options: ['gradient', 'solid', 'pattern'],
       control: {
         type: 'select'
       }
     },
-    borderRadius: {
-      type: {name: 'number', required: false},
-      defaultValue: 0,
-      description: 'Defines the border radius for each bar in %',
-      table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 0},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'number',
-        min: 0, max: 200, step: 5,
-      }
-    },
-    legendPosition: {
-      name: 'legendPosition',
-      type: { name: 'string', required: false },
+    curve: {
+      name: 'curve',
+      type: {name: 'string', required: false},
       defaultValue: 'default',
-      description: 'Defines where the legend is shown',
+      description: 'Defined the line\'s curves',
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'empty' },
+        type: {summary: 'string'},
+        defaultValue: {summary: 'empty'},
         category: 'Inputs'
       },
-      options: ['left', 'bottom', 'right', 'top'],
+      options: ['straight', 'smooth', 'stepline'],
       control: {
         type: 'select'
       }
@@ -256,14 +256,29 @@ export default {
         type: 'boolean'
       }
     },
+    strokeWidth: {
+      type: {name: 'number', required: false},
+      defaultValue: 5,
+      description: 'Defines the width of the lines',
+      table: {
+        type: {summary: 'number'},
+        defaultValue: {summary: 5},
+        category: 'Inputs'
+      },
+      control: {
+        type: 'number',
+        min: 1, max: 30, step: 1,
+      }
+    },
   }
 } as Meta;
 
-const Template: Story<BarChartComponent> = (args: BarChartComponent) => ({
+const Template: Story<LineChartModule> = (args: LineChartModule) => ({
   props: args,
   template: `
-    <app-bar-chart
+    <app-line-chart
       [width]="width"
+      [height]="height"
       [showToolbar]="showToolbar"
       [horizontal]="horizontal"
       [colors]="colors"
@@ -276,15 +291,14 @@ const Template: Story<BarChartComponent> = (args: BarChartComponent) => ({
       [title]="title"
       [titleAlignment]="titleAlignment"
       [fill]="fill"
-      [borderRadius]="borderRadius"
-      [legendPosition]="legendPosition"
+      [curve]="curve"
       [shadow]="shadow"
+      [strokeWidth]="strokeWidth"
     >
-    </app-bar-chart>`
+    </app-line-chart>`
 });
 
 export const Default = Template.bind({});
-Default.args = {
-}
+Default.args = {}
 
 

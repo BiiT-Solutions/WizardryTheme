@@ -1,6 +1,7 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {ApexChart, ApexFill, ApexLegend, ApexPlotOptions, ApexTitleSubtitle, ChartComponent} from "ng-apexcharts";
 import {RadialChartData} from "./radial-chart-data";
+import {Colors} from "../colors";
 
 type RadialChartOptions = {
   series: number[];
@@ -33,17 +34,7 @@ export class RadialChartComponent implements OnInit {
   @Input()
   public showToolbar: boolean = true;
   @Input()
-  public colors: string[] = [
-    "#fd7f6f",
-    "#7eb0d5",
-    "#b2e061",
-    "#bd7ebe",
-    "#ffb55a",
-    "#ffee65",
-    "#beb9db",
-    "#fdcce5",
-    "#8bd3c7"
-  ];
+  public colors: string[] = Colors.defaultPalette;
   @Input()
   public title: string | undefined = undefined;
   @Input()
@@ -67,6 +58,14 @@ export class RadialChartComponent implements OnInit {
 
 
   ngOnInit() {
+    this.setProperties();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.setProperties();
+  }
+
+  private setProperties(): void {
     this.radialChartOptions = {
       colors: this.colors,
       chart: {

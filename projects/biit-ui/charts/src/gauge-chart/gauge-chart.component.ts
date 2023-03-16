@@ -1,8 +1,7 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {ApexChart, ApexFill, ApexLegend, ApexPlotOptions, ApexTitleSubtitle, ChartComponent} from "ng-apexcharts";
-import {RadialChartData} from "../radial-chart/radial-chart-data";
-import {BarChartData} from "../bar-chart/bar-chart-data";
+import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {ApexChart, ApexFill, ApexPlotOptions, ApexTitleSubtitle, ChartComponent} from "ng-apexcharts";
 import {GaugeChartData} from "./gauge-chart-data";
+import {Colors} from "../colors";
 
 type GaugeChartOptions = {
   series: number[];
@@ -12,7 +11,6 @@ type GaugeChartOptions = {
   chart: ApexChart;
   plotOptions: ApexPlotOptions;
   title: ApexTitleSubtitle;
-  legend: ApexLegend;
 };
 
 @Component({
@@ -36,26 +34,15 @@ export class GaugeChartComponent implements OnInit {
   @Input()
   public showToolbar: boolean = true;
   @Input()
-  public colors: string[] = [
-    "#fd7f6f",
-    "#7eb0d5",
-    "#b2e061",
-    "#bd7ebe",
-    "#ffb55a",
-    "#ffee65",
-    "#beb9db",
-    "#fdcce5",
-    "#8bd3c7"
-  ];
-
+  public colors: string[] = Colors.defaultPalette;
   @Input()
   public title: string | undefined = undefined;
   @Input()
   public titleAlignment: "left" | "center" | "right" = "center";
   @Input()
-  public fill: "gradient" | "solid" | "pattern" | "image" = "solid";
+  public fill: "gradient" | "solid" | "pattern" | "image" = "gradient";
   @Input()
-  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = "bottom"
+  public opacity: number = 1;
   @Input()
   public shadow: boolean = true;
   @Input()
@@ -70,6 +57,14 @@ export class GaugeChartComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setProperties();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.setProperties();
+  }
+
+  private setProperties(): void {
     this.gaugeChartOptions = {
       colors: this.colors,
       chart: {
@@ -90,7 +85,8 @@ export class GaugeChartComponent implements OnInit {
       series: this.gaugeChartData.getValues(),
       labels: this.gaugeChartData.getLabels(),
       fill: {
-        type: "gradient",
+        type: this.fill,
+        opacity: this.opacity,
         gradient: {
           shade: "light",
           shadeIntensity: 0.4,
@@ -136,10 +132,7 @@ export class GaugeChartComponent implements OnInit {
       title: {
         text: this.title,
         align: this.titleAlignment
-      },
-      legend: {
-        position: this.legendPosition
-      },
+      }
     };
   }
 }

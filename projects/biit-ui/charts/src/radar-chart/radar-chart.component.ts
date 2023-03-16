@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -14,6 +14,7 @@ import {
 } from "ng-apexcharts";
 import {StackedBarsData} from "../stacked-bars-chart/stacked-bars-chart-data";
 import {RadarChartData, RadarChartDataElement} from "./radar-chart-data";
+import {Colors} from "../colors";
 
 type RadarChartOptions = {
   series: ApexAxisChartSeries;
@@ -49,23 +50,9 @@ export class RadarChartComponent implements OnInit {
   @Input()
   public showToolbar: boolean = true;
   @Input()
-  public colors: string[] = [
-    "#fd7f6f",
-    "#7eb0d5",
-    "#b2e061",
-    "#bd7ebe",
-    "#ffb55a",
-    "#ffee65",
-    "#beb9db",
-    "#fdcce5",
-    "#8bd3c7"
-  ];
+  public colors: string[] = Colors.defaultPalette;
   @Input()
   public showValuesLabels: boolean = false;
-  @Input()
-  public xAxisOnTop: boolean = false;
-  @Input()
-  public xAxisTitle: string | undefined = undefined;
   @Input()
   public title: string | undefined = undefined;
   @Input()
@@ -93,6 +80,14 @@ export class RadarChartComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setProperties();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.setProperties();
+  }
+
+  private setProperties(): void {
     this.radarChartOptions = {
       chart: {
         width: this.width,
@@ -133,11 +128,7 @@ export class RadarChartComponent implements OnInit {
         }
       },
       xaxis: {
-        categories: this.radarChartData.getLabels(),
-        position: this.xAxisOnTop ? 'top' : 'bottom',
-        title: {
-          text: this.xAxisTitle
-        }
+        categories: this.radarChartData.getLabels()
       },
       title: {
         text: this.title,

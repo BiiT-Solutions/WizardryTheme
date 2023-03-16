@@ -1,14 +1,17 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 
 import {
   ApexChart,
   ApexFill,
+  ApexLegend,
   ApexNonAxisChartSeries,
+  ApexPlotOptions,
   ApexResponsive,
   ApexTitleSubtitle,
   ChartComponent
 } from "ng-apexcharts";
 import {PieChartData} from "./pie-chart-data";
+import {Colors} from "../colors";
 
 
 type PieChartOptions = {
@@ -19,6 +22,7 @@ type PieChartOptions = {
   responsive: ApexResponsive[];
   labels: string[];
   title: ApexTitleSubtitle;
+  legend: ApexLegend;
 };
 
 @Component({
@@ -40,18 +44,7 @@ export class PieChartComponent implements OnInit {
   @Input()
   public showToolbar: boolean = true;
   @Input()
-  public colors: string[] = [
-    "#fd7f6f",
-    "#7eb0d5",
-    "#b2e061",
-    "#bd7ebe",
-    "#ffb55a",
-    "#ffee65",
-    "#beb9db",
-    "#fdcce5",
-    "#8bd3c7"
-  ];
-
+  public colors: string[] = Colors.defaultPalette;
   @Input()
   public title: string | undefined = undefined;
   @Input()
@@ -70,6 +63,14 @@ export class PieChartComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setProperties();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.setProperties();
+  }
+
+  private setProperties(): void {
     this.pieChartOptions = {
       colors: this.colors,
       chart: {
@@ -108,6 +109,9 @@ export class PieChartComponent implements OnInit {
       title: {
         text: this.title,
         align: this.titleAlignment
+      },
+      legend: {
+        position: this.legendPosition
       },
     };
   }
