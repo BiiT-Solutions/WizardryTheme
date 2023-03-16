@@ -1,32 +1,29 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {LineChartModule} from "../../../projects/biit-ui/charts/src/line-chart/line-chart.module";
+import {PieChartModule} from "../../../projects/biit-ui/charts/src/pie-chart/pie-chart.module";
+import {RadarChartModule} from "../../../projects/biit-ui/charts/src/radar-chart/radar-chart.module";
 import {Colors} from "../../../projects/biit-ui/charts/src/colors";
 
 export default {
-  title: 'Charts/Line',
+  title: 'Charts/Radar',
   decorators: [
     moduleMetadata({
-      imports: [LineChartModule],
+      imports: [RadarChartModule],
     }),
   ],
   args: {
     width: 500,
-    height: 250,
+    radarSize: 140,
     showToolbar: true,
     colors: Colors.defaultPalette,
-    horizontal: false,
-    barThicknessPercentage: 75,
     showValuesLabels: true,
-    xAxisOnTop: false,
-    xAxisTitle: undefined,
-    yAxisTitle: undefined,
-    showYAxis: true,
     title: undefined,
     titleAlignment: 'center',
     fill: 'solid',
-    curve: 'smooth',
     shadow: true,
-    strokeWidth: 5
+    opacity: 0.4,
+    strokeWidth: 5,
+    innerColors: ["#ffffff", "#efefef"],
+    legendPosition: 'bottom',
   },
   argTypes: {
     width: {
@@ -43,18 +40,18 @@ export default {
         min: 300, max: 1000, step: 50,
       }
     },
-    height: {
+    radarSize: {
       type: {name: 'number', required: false},
-      defaultValue: 250,
-      description: 'Defines the height of the chart in pixels',
+      defaultValue: 500,
+      description: 'Defines the size of the drawing',
       table: {
         type: {summary: 'number'},
-        defaultValue: {summary: 250},
+        defaultValue: {summary: 140},
         category: 'Inputs'
       },
       control: {
         type: 'number',
-        min: 200, max: 800, step: 50,
+        min: 50, max: 1000, step: 20,
       }
     },
     showToolbar: {
@@ -62,20 +59,6 @@ export default {
       type: {name: 'boolean', required: false},
       defaultValue: 'true',
       description: 'Disables the toolbar.',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
-    horizontal: {
-      name: 'horizontal',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Shows bars in horizontal mode.',
       table: {
         type: {summary: 'boolean'},
         defaultValue: {summary: true},
@@ -99,81 +82,11 @@ export default {
         type: 'object'
       }
     },
-    barThicknessPercentage: {
-      type: {name: 'number', required: false},
-      defaultValue: 75,
-      description: 'Defines the width of each bar in %',
-      table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 75},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'number',
-        min: 5, max: 100, step: 5,
-      }
-    },
     showValuesLabels: {
       name: 'showValuesLabels',
       type: {name: 'boolean', required: false},
       defaultValue: 'true',
-      description: 'Shows the value on the bars',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
-    xAxisOnTop: {
-      name: 'xAxisOnTop',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Shows the x bar at the top of the chart',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
-    xAxisTitle: {
-      name: 'xAxisTitle',
-      type: {name: 'string', required: false},
-      defaultValue: 'undefined',
-      description: 'Shows a text on the X axis',
-      table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'text'
-      }
-    },
-    yAxisTitle: {
-      name: 'yAxisTitle',
-      type: {name: 'string', required: false},
-      defaultValue: 'undefined',
-      description: 'Shows a text on the X axis',
-      table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'text'
-      }
-    },
-    showYAxis: {
-      name: 'showYAxis',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Shows or hides the Y Axis',
+      description: 'Shows or hide the values on the radar.',
       table: {
         type: {summary: 'boolean'},
         defaultValue: {summary: true},
@@ -227,21 +140,6 @@ export default {
         type: 'select'
       }
     },
-    curve: {
-      name: 'curve',
-      type: {name: 'string', required: false},
-      defaultValue: 'default',
-      description: 'Defined the line\'s curves',
-      table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: 'empty'},
-        category: 'Inputs'
-      },
-      options: ['straight', 'smooth', 'stepline'],
-      control: {
-        type: 'select'
-      }
-    },
     shadow: {
       name: 'shadow',
       type: {name: 'boolean', required: false},
@@ -254,6 +152,20 @@ export default {
       },
       control: {
         type: 'boolean'
+      }
+    },
+    opacity: {
+      type: {name: 'number', required: false},
+      defaultValue: 1,
+      description: 'Defines the opacity of the arc [0..1]',
+      table: {
+        type: {summary: 'number'},
+        defaultValue: {summary: 1},
+        category: 'Inputs'
+      },
+      control: {
+        type: 'number',
+        min: 0, max: 1, step: 0.1,
       }
     },
     strokeWidth: {
@@ -270,32 +182,57 @@ export default {
         min: 1, max: 30, step: 1,
       }
     },
+    innerColors: {
+      name: 'innerColors',
+      type: {name: 'string', required: false},
+      defaultValue: '["#ffffff"]',
+      description: 'Change the colors of the areas of the radar',
+      table: {
+        type: {summary: 'array'},
+        defaultValue: {summary: 'empty'},
+        category: 'Inputs'
+      },
+      control: {
+        type: 'object'
+      }
+    },
+    legendPosition: {
+      name: 'legendPosition',
+      type: { name: 'string', required: false },
+      defaultValue: 'default',
+      description: 'Defines where the legend is shown',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'empty' },
+        category: 'Inputs'
+      },
+      options: ['left', 'bottom', 'right', 'top'],
+      control: {
+        type: 'select'
+      }
+    },
   }
 } as Meta;
 
-const Template: Story<LineChartModule> = (args: LineChartModule) => ({
+const Template: Story<RadarChartModule> = (args: RadarChartModule) => ({
   props: args,
   template: `
-    <app-line-chart
+    <app-radar-chart
       [width]="width"
-      [height]="height"
+      [radarSize]="radarSize"
       [showToolbar]="showToolbar"
-      [horizontal]="horizontal"
       [colors]="colors"
-      [barThicknessPercentage]="barThicknessPercentage"
       [showValuesLabels]="showValuesLabels"
-      [xAxisOnTop]="xAxisOnTop"
-      [xAxisTitle]="xAxisTitle"
-      [yAxisTitle]="yAxisTitle"
-      [showYAxis]="showYAxis"
       [title]="title"
       [titleAlignment]="titleAlignment"
       [fill]="fill"
-      [curve]="curve"
       [shadow]="shadow"
+      [opacity]="opacity"
       [strokeWidth]="strokeWidth"
+      [innerColors]="innerColors"
+      [legendPosition]="legendPosition"
     >
-    </app-line-chart>`
+    </app-radar-chart>`
 });
 
 export const Default = Template.bind({});

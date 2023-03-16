@@ -1,6 +1,7 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {BarChartModule} from "../../../projects/biit-ui/charts/src/bar-chart/bar-chart.module";
 import {BarChartComponent} from "../../../projects/biit-ui/charts/src/bar-chart/bar-chart.component";
+import {Colors} from "../../../projects/biit-ui/charts/src/colors";
 
 export default {
   title: 'Charts/Bars',
@@ -12,7 +13,7 @@ export default {
   args: {
     width: 500,
     showToolbar: true,
-    colors: ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7"],
+    colors: Colors.defaultPalette,
     horizontal: false,
     barThicknessPercentage: 75,
     showValuesLabels: true,

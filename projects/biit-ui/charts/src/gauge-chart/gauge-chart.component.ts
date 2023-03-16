@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {ApexChart, ApexFill, ApexPlotOptions, ApexTitleSubtitle, ChartComponent} from "ng-apexcharts";
 import {GaugeChartData} from "./gauge-chart-data";
+import {Colors} from "../colors";
 
 type GaugeChartOptions = {
   series: number[];
@@ -33,18 +34,7 @@ export class GaugeChartComponent implements OnInit {
   @Input()
   public showToolbar: boolean = true;
   @Input()
-  public colors: string[] = [
-    "#fd7f6f",
-    "#7eb0d5",
-    "#b2e061",
-    "#bd7ebe",
-    "#ffb55a",
-    "#ffee65",
-    "#beb9db",
-    "#fdcce5",
-    "#8bd3c7"
-  ];
-
+  public colors: string[] = Colors.defaultPalette;
   @Input()
   public title: string | undefined = undefined;
   @Input()

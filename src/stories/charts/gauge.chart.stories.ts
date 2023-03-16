@@ -1,5 +1,6 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {GaugeChartModule} from "../../../projects/biit-ui/charts/src/gauge-chart/gauge-chart.module";
+import {Colors} from "../../../projects/biit-ui/charts/src/colors";
 
 export default {
   title: 'Charts/Gauge',
@@ -12,7 +13,7 @@ export default {
     width: 500,
     height: 200,
     showToolbar: true,
-    colors: ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7"],
+    colors: Colors.defaultPalette,
     title: undefined,
     titleAlignment: 'center',
     fill: 'solid',
@@ -167,7 +168,7 @@ export default {
     trackBackgroundColor: {
       name: 'trackBackgroundColor',
       type: {name: 'string', required: false},
-      defaultValue: 'e7e7e7',
+      defaultValue: '#e7e7e7',
       description: 'Change the colors of the track bar',
       table: {
         type: {summary: 'array'},

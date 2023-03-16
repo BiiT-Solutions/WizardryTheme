@@ -3101,7 +3101,7 @@
         },
         {
             "name": "GaugeChartComponent",
-            "id": "component-GaugeChartComponent-c35632a85a172fd8624027c36b6bd7e789311284134d927eae0ab497efe4ab4cdd46689dc4014851be86cf7f1489cab3976e4f2a4de869d48f4c44db0780aa13",
+            "id": "component-GaugeChartComponent-9dfc3e650794a470e9241c3d1754edeaf69ff804add6bb8497b7e16872485c317ea681388c41ac65855dee4d456272cd36569befa638dbffb0267dee78bd4b39",
             "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3123,16 +3123,16 @@
                     "defaultValue": "[\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 39,
+                    "line": 36,
                     "type": "string[]",
                     "decorators": []
                 },
                 {
                     "name": "fill",
-                    "defaultValue": "\"solid\"",
+                    "defaultValue": "\"gradient\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 56,
+                    "line": 53,
                     "type": "\"gradient\" | \"solid\" | \"pattern\" | \"image\"",
                     "decorators": []
                 },
@@ -3140,7 +3140,7 @@
                     "name": "gaugeChartData",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
+                    "line": 28,
                     "type": "GaugeChartData",
                     "decorators": []
                 },
@@ -3149,7 +3149,7 @@
                     "defaultValue": "200",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 35,
+                    "line": 32,
                     "type": "number",
                     "decorators": []
                 },
@@ -3158,17 +3158,17 @@
                     "defaultValue": "50",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 62,
+                    "line": 59,
                     "type": "number",
                     "decorators": []
                 },
                 {
-                    "name": "legendPosition",
-                    "defaultValue": "\"bottom\"",
+                    "name": "opacity",
+                    "defaultValue": "1",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 58,
-                    "type": "\"left\" | \"bottom\" | \"right\" | \"top\"",
+                    "line": 55,
+                    "type": "number",
                     "decorators": []
                 },
                 {
@@ -3176,7 +3176,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 60,
+                    "line": 57,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3185,7 +3185,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 37,
+                    "line": 34,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3194,7 +3194,7 @@
                     "defaultValue": "undefined",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 52,
+                    "line": 49,
                     "type": "string | undefined",
                     "decorators": []
                 },
@@ -3203,7 +3203,7 @@
                     "defaultValue": "\"center\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 54,
+                    "line": 51,
                     "type": "\"left\" | \"center\" | \"right\"",
                     "decorators": []
                 },
@@ -3212,7 +3212,7 @@
                     "defaultValue": "\"#e7e7e7\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 64,
+                    "line": 61,
                     "type": "string",
                     "decorators": []
                 },
@@ -3221,7 +3221,7 @@
                     "defaultValue": "97",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 66,
+                    "line": 63,
                     "type": "number",
                     "decorators": []
                 },
@@ -3230,7 +3230,7 @@
                     "defaultValue": "500",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 33,
+                    "line": 30,
                     "type": "number",
                     "decorators": []
                 }
@@ -3244,7 +3244,7 @@
                     "type": "ChartComponent",
                     "optional": false,
                     "description": "",
-                    "line": 26,
+                    "line": 23,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -3259,7 +3259,7 @@
                     "type": "GaugeChartOptions",
                     "optional": false,
                     "description": "",
-                    "line": 28,
+                    "line": 25,
                     "modifierKind": [
                         123
                     ]
@@ -3267,14 +3267,55 @@
             ],
             "methodsClass": [
                 {
+                    "name": "ngOnChanges",
+                    "args": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 73,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 72,
+                    "line": 69,
                     "deprecated": false,
                     "deprecationMessage": ""
+                },
+                {
+                    "name": "setProperties",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 77,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
                 }
             ],
             "deprecated": false,
@@ -3284,7 +3325,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, ViewChild} from '@angular/core';\nimport {ApexChart, ApexFill, ApexLegend, ApexPlotOptions, ApexTitleSubtitle, ChartComponent} from \"ng-apexcharts\";\nimport {RadialChartData} from \"../radial-chart/radial-chart-data\";\nimport {BarChartData} from \"../bar-chart/bar-chart-data\";\nimport {GaugeChartData} from \"./gauge-chart-data\";\n\ntype GaugeChartOptions = {\n  series: number[];\n  colors: string [];\n  labels: string[];\n  fill: ApexFill;\n  chart: ApexChart;\n  plotOptions: ApexPlotOptions;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n};\n\n@Component({\n  selector: 'app-gauge-chart',\n  templateUrl: './gauge-chart.component.html',\n  styleUrls: ['./gauge-chart.component.scss']\n})\nexport class GaugeChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public gaugeChartOptions!: GaugeChartOptions;\n\n  @Input()\n  public gaugeChartData: GaugeChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public height: number = 200;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = [\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ];\n\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public innerCirclePercentage: number = 50;\n  @Input()\n  public trackBackgroundColor: string = \"#e7e7e7\";\n  @Input()\n  public trackBackgroundThicknessPercentage: number = 97;\n\n  constructor() {\n    this.gaugeChartData = GaugeChartData.fromArray([[\"Value1\", 85]]);\n  }\n\n  ngOnInit() {\n    this.gaugeChartOptions = {\n      colors: this.colors,\n      chart: {\n        width: this.width,\n        type: \"radialBar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 18,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      series: this.gaugeChartData.getValues(),\n      labels: this.gaugeChartData.getLabels(),\n      fill: {\n        type: \"gradient\",\n        gradient: {\n          shade: \"light\",\n          shadeIntensity: 0.4,\n          inverseColors: false,\n          opacityFrom: 1,\n          opacityTo: 1,\n          stops: [0, 50, 53, 91]\n        }\n      },\n      plotOptions: {\n        radialBar: {\n          startAngle: -90,\n          endAngle: 90,\n          track: {\n            background: this.trackBackgroundColor,\n            strokeWidth: this.trackBackgroundThicknessPercentage + \"%\",\n            dropShadow: {\n              enabled: true,\n              top: 2,\n              left: 0,\n              opacity: 0.31,\n              blur: 2\n            }\n          },\n          offsetY: -20,\n          dataLabels: {\n            name: {\n              show: true,\n              offsetY: -15,\n              fontSize: \"16px\"\n            },\n            value: {\n              show: true,\n              offsetY: -15,\n              fontSize: \"12px\"\n            }\n          },\n          hollow: {\n            size: this.innerCirclePercentage + \"%\"\n          }\n        }\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {ApexChart, ApexFill, ApexPlotOptions, ApexTitleSubtitle, ChartComponent} from \"ng-apexcharts\";\nimport {GaugeChartData} from \"./gauge-chart-data\";\n\ntype GaugeChartOptions = {\n  series: number[];\n  colors: string [];\n  labels: string[];\n  fill: ApexFill;\n  chart: ApexChart;\n  plotOptions: ApexPlotOptions;\n  title: ApexTitleSubtitle;\n};\n\n@Component({\n  selector: 'app-gauge-chart',\n  templateUrl: './gauge-chart.component.html',\n  styleUrls: ['./gauge-chart.component.scss']\n})\nexport class GaugeChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public gaugeChartOptions!: GaugeChartOptions;\n\n  @Input()\n  public gaugeChartData: GaugeChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public height: number = 200;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = [\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ];\n\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"gradient\";\n  @Input()\n  public opacity: number = 1;\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public innerCirclePercentage: number = 50;\n  @Input()\n  public trackBackgroundColor: string = \"#e7e7e7\";\n  @Input()\n  public trackBackgroundThicknessPercentage: number = 97;\n\n  constructor() {\n    this.gaugeChartData = GaugeChartData.fromArray([[\"Value1\", 85]]);\n  }\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.gaugeChartOptions = {\n      colors: this.colors,\n      chart: {\n        width: this.width,\n        type: \"radialBar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 18,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      series: this.gaugeChartData.getValues(),\n      labels: this.gaugeChartData.getLabels(),\n      fill: {\n        type: this.fill,\n        opacity: this.opacity,\n        gradient: {\n          shade: \"light\",\n          shadeIntensity: 0.4,\n          inverseColors: false,\n          opacityFrom: 1,\n          opacityTo: 1,\n          stops: [0, 50, 53, 91]\n        }\n      },\n      plotOptions: {\n        radialBar: {\n          startAngle: -90,\n          endAngle: 90,\n          track: {\n            background: this.trackBackgroundColor,\n            strokeWidth: this.trackBackgroundThicknessPercentage + \"%\",\n            dropShadow: {\n              enabled: true,\n              top: 2,\n              left: 0,\n              opacity: 0.31,\n              blur: 2\n            }\n          },\n          offsetY: -20,\n          dataLabels: {\n            name: {\n              show: true,\n              offsetY: -15,\n              fontSize: \"16px\"\n            },\n            value: {\n              show: true,\n              offsetY: -15,\n              fontSize: \"12px\"\n            }\n          },\n          hollow: {\n            size: this.innerCirclePercentage + \"%\"\n          }\n        }\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      }\n    };\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3299,12 +3340,12 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 66
+                "line": 63
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div id=\"chart\" *ngIf=\"gaugeChartOptions\">\n  <div class=\"box shadow\" [ngStyle]=\"{'height': [height]+'px'}\">\n    <apx-chart\n      [series]=\"gaugeChartOptions.series\"\n      [colors]=\"gaugeChartOptions.colors\"\n      [fill]=\"gaugeChartOptions.fill\"\n      [chart]=\"gaugeChartOptions.chart\"\n      [plotOptions]=\"gaugeChartOptions.plotOptions\"\n      [title]=\"gaugeChartOptions.title\"\n      [legend]=\"gaugeChartOptions.legend\"\n      [labels]=\"gaugeChartOptions.labels\"\n    ></apx-chart>\n  </div>\n</div>\n"
+            "templateData": "<div id=\"chart\" *ngIf=\"gaugeChartOptions\">\n  <div class=\"box shadow\" [ngStyle]=\"{'height': [height]+'px'}\">\n    <apx-chart\n      [series]=\"gaugeChartOptions.series\"\n      [colors]=\"gaugeChartOptions.colors\"\n      [fill]=\"gaugeChartOptions.fill\"\n      [chart]=\"gaugeChartOptions.chart\"\n      [plotOptions]=\"gaugeChartOptions.plotOptions\"\n      [title]=\"gaugeChartOptions.title\"\n      [labels]=\"gaugeChartOptions.labels\"\n    ></apx-chart>\n  </div>\n</div>\n"
         },
         {
             "name": "HeaderComponent",
@@ -3381,7 +3422,7 @@
         },
         {
             "name": "LineChartComponent",
-            "id": "component-LineChartComponent-8e0dc50e096940f6ffd9364830decb92c91c7fb385954c831e69d2f7d8a6a8c8bde90f462ee2cb7cbcc06bd1019aa1c026902cadb357d9e3183728436e178f14",
+            "id": "component-LineChartComponent-a0c2f1ca4d8aa0310ed2917c5ca966290bcca3aaafe524de65f13322ea2039abd833ddb95fdb70c6d9e944cc6702d4460906479a5d02e17c29137d772514f880",
             "file": "projects/biit-ui/charts/src/line-chart/line-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3592,14 +3633,55 @@
             ],
             "methodsClass": [
                 {
+                    "name": "ngOnChanges",
+                    "args": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 102,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 96,
+                    "line": 98,
                     "deprecated": false,
                     "deprecationMessage": ""
+                },
+                {
+                    "name": "setProperties",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 106,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
                 }
             ],
             "deprecated": false,
@@ -3609,7 +3691,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, ViewChild} from '@angular/core';\nimport {\n  ApexAxisChartSeries,\n  ApexChart,\n  ApexDataLabels,\n  ApexFill, ApexMarkers,\n  ApexPlotOptions,\n  ApexStroke,\n  ApexTitleSubtitle,\n  ApexXAxis,\n  ApexYAxis,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {LineChartData} from \"./line-chart-data\";\nimport {GaugeChartData} from \"../gauge-chart/gauge-chart-data\";\n\n\ntype LineChartOptions = {\n  series: ApexAxisChartSeries;\n  colors: string [];\n  chart: ApexChart;\n  labels: ApexDataLabels;\n  fill: ApexFill;\n  plotOptions: ApexPlotOptions;\n  stroke: ApexStroke;\n  xaxis: ApexXAxis;\n  yaxis: ApexYAxis;\n  title: ApexTitleSubtitle;\n  markers: ApexMarkers;\n};\n\n@Component({\n  selector: 'app-line-chart',\n  templateUrl: './line-chart.component.html',\n  styleUrls: ['./line-chart.component.scss']\n})\nexport class LineChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public lineChartOptions!: LineChartOptions;\n\n  @Input()\n  public lineChartData: LineChartData;\n  @Input()\n  public height: number = 250;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = [\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ];\n  @Input()\n  public horizontal: boolean = false;\n  @Input()\n  public barThicknessPercentage: number = 75;\n  @Input()\n  public showValuesLabels: boolean = true;\n  @Input()\n  public xAxisOnTop: boolean = false;\n  @Input()\n  public xAxisTitle: string | undefined = undefined;\n  @Input()\n  public yAxisTitle: string | undefined = undefined;\n  @Input()\n  public showYAxis: boolean = true;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public curve: \"straight\" | \"smooth\" | \"stepline\" = \"smooth\";\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public strokeWidth: number = 5;\n\n  constructor() {\n    this.lineChartData = LineChartData.fromArray([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]]);\n  }\n\n\n  ngOnInit() {\n    this.lineChartOptions = {\n      colors: this.colors,\n      series: this.lineChartData.getData(),\n      chart: {\n        height: this.height,\n        width: this.width,\n        type: \"line\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 18,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      labels: {\n        enabled: this.showValuesLabels\n      },\n      fill: {\n        type: this.fill,\n      },\n      plotOptions: {\n        bar: {\n          distributed: true, // this line is mandatory for using colors\n          horizontal: this.horizontal,\n          barHeight: this.barThicknessPercentage + '%',\n          columnWidth: this.barThicknessPercentage + '%',\n        }\n      },\n      xaxis: {\n        categories: this.lineChartData.getLabels(),\n        position: this.xAxisOnTop ? 'top' : 'bottom',\n        title: {\n          text: this.xAxisTitle\n        }\n        //type: 'datetime'\n      },\n      yaxis: {\n        show: this.showYAxis,\n        title: {\n          text: this.yAxisTitle\n        },\n      },\n      stroke: {\n        curve: this.curve,\n        width: this.strokeWidth,\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      markers: {\n        size: 0\n      },\n    };\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {\n  ApexAxisChartSeries,\n  ApexChart,\n  ApexDataLabels,\n  ApexFill,\n  ApexMarkers,\n  ApexPlotOptions,\n  ApexStroke,\n  ApexTitleSubtitle,\n  ApexXAxis,\n  ApexYAxis,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {LineChartData, LineChartDataElement} from \"./line-chart-data\";\n\n\ntype LineChartOptions = {\n  series: ApexAxisChartSeries;\n  colors: string [];\n  chart: ApexChart;\n  labels: ApexDataLabels;\n  fill: ApexFill;\n  plotOptions: ApexPlotOptions;\n  stroke: ApexStroke;\n  xaxis: ApexXAxis;\n  yaxis: ApexYAxis;\n  title: ApexTitleSubtitle;\n  markers: ApexMarkers;\n};\n\n@Component({\n  selector: 'app-line-chart',\n  templateUrl: './line-chart.component.html',\n  styleUrls: ['./line-chart.component.scss']\n})\nexport class LineChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public lineChartOptions!: LineChartOptions;\n\n  @Input()\n  public lineChartData: LineChartData;\n  @Input()\n  public height: number = 250;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = [\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ];\n  @Input()\n  public horizontal: boolean = false;\n  @Input()\n  public barThicknessPercentage: number = 75;\n  @Input()\n  public showValuesLabels: boolean = true;\n  @Input()\n  public xAxisOnTop: boolean = false;\n  @Input()\n  public xAxisTitle: string | undefined = undefined;\n  @Input()\n  public yAxisTitle: string | undefined = undefined;\n  @Input()\n  public showYAxis: boolean = true;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public curve: \"straight\" | \"smooth\" | \"stepline\" = \"smooth\";\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public strokeWidth: number = 5;\n\n  constructor() {\n    this.lineChartData = LineChartData.fromMultipleDataElements([\n      new LineChartDataElement([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]], \"Line1\"),\n      new LineChartDataElement([[\"Value1\", 2], [\"Value2\", 3], [\"Value3\", 5]], \"Line2\")]);\n  }\n\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.lineChartOptions = {\n      colors: this.colors,\n      series: this.lineChartData.getData(),\n      chart: {\n        height: this.height,\n        width: this.width,\n        type: \"line\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 18,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      labels: {\n        enabled: this.showValuesLabels\n      },\n      fill: {\n        type: this.fill,\n      },\n      plotOptions: {\n        bar: {\n          distributed: true, // this line is mandatory for using colors\n          horizontal: this.horizontal,\n          barHeight: this.barThicknessPercentage + '%',\n          columnWidth: this.barThicknessPercentage + '%',\n        }\n      },\n      xaxis: {\n        categories: this.lineChartData.getLabels(),\n        position: this.xAxisOnTop ? 'top' : 'bottom',\n        title: {\n          text: this.xAxisTitle\n        }\n        //type: 'datetime'\n      },\n      yaxis: {\n        show: this.showYAxis,\n        title: {\n          text: this.yAxisTitle\n        },\n      },\n      stroke: {\n        curve: this.curve,\n        width: this.strokeWidth,\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      markers: {\n        size: 0\n      },\n    };\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3713,7 +3795,7 @@
         },
         {
             "name": "PieChartComponent",
-            "id": "component-PieChartComponent-b813898de15ba3bf55e45bddc3ddff3e5dae033bdd45b12bddcbc0e1ab292a33cabed9b3d50758cd8050eefa9c802ae9b823fa0d9409d9d952369257b4f744a3",
+            "id": "component-PieChartComponent-1b50415adb9b0f82c6e656f313df37d6b8026204f8f0ace8a476823a8fbb1484f14f0a934fe3fab63fdbe16095b3eece21a9a04478e5511af77c87c5b32a2640",
             "file": "projects/biit-ui/charts/src/pie-chart/pie-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3735,7 +3817,7 @@
                     "defaultValue": "[\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 43,
+                    "line": 46,
                     "type": "string[]",
                     "decorators": []
                 },
@@ -3744,7 +3826,7 @@
                     "defaultValue": "\"solid\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 62,
+                    "line": 65,
                     "type": "\"gradient\" | \"solid\" | \"pattern\" | \"image\"",
                     "decorators": []
                 },
@@ -3753,7 +3835,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 60,
+                    "line": 63,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3762,7 +3844,7 @@
                     "defaultValue": "\"bottom\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 66,
+                    "line": 69,
                     "type": "\"left\" | \"bottom\" | \"right\" | \"top\"",
                     "decorators": []
                 },
@@ -3770,7 +3852,7 @@
                     "name": "pieChartData",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 37,
+                    "line": 40,
                     "type": "PieChartData",
                     "decorators": []
                 },
@@ -3779,7 +3861,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 64,
+                    "line": 67,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3788,7 +3870,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 41,
+                    "line": 44,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3797,7 +3879,7 @@
                     "defaultValue": "undefined",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 56,
+                    "line": 59,
                     "type": "string | undefined",
                     "decorators": []
                 },
@@ -3806,7 +3888,7 @@
                     "defaultValue": "\"center\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 58,
+                    "line": 61,
                     "type": "\"left\" | \"center\" | \"right\"",
                     "decorators": []
                 },
@@ -3815,7 +3897,7 @@
                     "defaultValue": "500",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 39,
+                    "line": 42,
                     "type": "number",
                     "decorators": []
                 }
@@ -3829,7 +3911,7 @@
                     "type": "ChartComponent",
                     "optional": false,
                     "description": "",
-                    "line": 32,
+                    "line": 35,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -3847,7 +3929,7 @@
                     "type": "PieChartOptions",
                     "optional": false,
                     "description": "",
-                    "line": 34,
+                    "line": 37,
                     "modifierKind": [
                         123
                     ]
@@ -3855,14 +3937,55 @@
             ],
             "methodsClass": [
                 {
+                    "name": "ngOnChanges",
+                    "args": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 79,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 72,
+                    "line": 75,
                     "deprecated": false,
                     "deprecationMessage": ""
+                },
+                {
+                    "name": "setProperties",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 83,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
                 }
             ],
             "deprecated": false,
@@ -3872,7 +3995,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, ViewChild} from '@angular/core';\n\nimport {\n  ApexChart,\n  ApexFill,\n  ApexNonAxisChartSeries,\n  ApexResponsive,\n  ApexTitleSubtitle,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {PieChartData} from \"./pie-chart-data\";\n\n\ntype PieChartOptions = {\n  series: ApexNonAxisChartSeries;\n  colors: string [];\n  chart: ApexChart;\n  fill: ApexFill;\n  responsive: ApexResponsive[];\n  labels: string[];\n  title: ApexTitleSubtitle;\n};\n\n@Component({\n  selector: 'app-pie-chart',\n  templateUrl: './pie-chart.component.html',\n  styleUrls: ['./pie-chart.component.scss']\n})\nexport class PieChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  private chart!: ChartComponent;\n\n  public pieChartOptions!: PieChartOptions;\n\n  @Input()\n  public pieChartData: PieChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = [\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ];\n\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public isDonut: boolean = false;\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n\n  constructor() {\n    this.pieChartData = PieChartData.fromArray([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]]);\n  }\n\n  ngOnInit() {\n    this.pieChartOptions = {\n      colors: this.colors,\n      chart: {\n        width: this.width,\n        type: this.isDonut ? \"donut\" : \"pie\",\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: -5,\n          left: 7,\n          blur: 8,\n          opacity: 0.2\n        },\n        toolbar: {\n          show: this.showToolbar,\n        },\n      },\n      series: this.pieChartData.getValues(),\n      labels: this.pieChartData.getLabels(),\n      fill: {\n        type: this.fill,\n      },\n      responsive: [\n        {\n          breakpoint: 480,\n          options: {\n            chart: {\n              width: 200\n            },\n            legend: {\n              position: this.legendPosition\n            }\n          }\n        }\n      ],\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n    };\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\n\nimport {\n  ApexChart,\n  ApexFill,\n  ApexLegend,\n  ApexNonAxisChartSeries,\n  ApexPlotOptions,\n  ApexResponsive,\n  ApexTitleSubtitle,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {PieChartData} from \"./pie-chart-data\";\n\n\ntype PieChartOptions = {\n  series: ApexNonAxisChartSeries;\n  colors: string [];\n  chart: ApexChart;\n  fill: ApexFill;\n  responsive: ApexResponsive[];\n  labels: string[];\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n};\n\n@Component({\n  selector: 'app-pie-chart',\n  templateUrl: './pie-chart.component.html',\n  styleUrls: ['./pie-chart.component.scss']\n})\nexport class PieChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  private chart!: ChartComponent;\n\n  public pieChartOptions!: PieChartOptions;\n\n  @Input()\n  public pieChartData: PieChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = [\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ];\n\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public isDonut: boolean = false;\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n\n  constructor() {\n    this.pieChartData = PieChartData.fromArray([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]]);\n  }\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.pieChartOptions = {\n      colors: this.colors,\n      chart: {\n        width: this.width,\n        type: this.isDonut ? \"donut\" : \"pie\",\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: -5,\n          left: 7,\n          blur: 8,\n          opacity: 0.2\n        },\n        toolbar: {\n          show: this.showToolbar,\n        },\n      },\n      series: this.pieChartData.getValues(),\n      labels: this.pieChartData.getLabels(),\n      fill: {\n        type: this.fill,\n      },\n      responsive: [\n        {\n          breakpoint: 480,\n          options: {\n            chart: {\n              width: 200\n            },\n            legend: {\n              position: this.legendPosition\n            }\n          }\n        }\n      ],\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3887,16 +4010,16 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 66
+                "line": 69
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div id=\"chart\" *ngIf=\"pieChartOptions\">\n  <div class=\"box shadow\">\n    <apx-chart\n      [series]=\"pieChartOptions.series\"\n      [colors]=\"pieChartOptions.colors\"\n      [fill]=\"pieChartOptions.fill\"\n      [chart]=\"pieChartOptions.chart\"\n      [labels]=\"pieChartOptions.labels\"\n      [responsive]=\"pieChartOptions.responsive\"\n      [title]=\"pieChartOptions.title\"\n    ></apx-chart>\n  </div>\n</div>\n"
+            "templateData": "<div id=\"chart\" *ngIf=\"pieChartOptions\">\n  <div class=\"box shadow\">\n    <apx-chart\n      [series]=\"pieChartOptions.series\"\n      [colors]=\"pieChartOptions.colors\"\n      [fill]=\"pieChartOptions.fill\"\n      [chart]=\"pieChartOptions.chart\"\n      [labels]=\"pieChartOptions.labels\"\n      [responsive]=\"pieChartOptions.responsive\"\n      [title]=\"pieChartOptions.title\"\n      [legend]=\"pieChartOptions.legend\"\n    ></apx-chart>\n  </div>\n</div>\n"
         },
         {
             "name": "RadarChartComponent",
-            "id": "component-RadarChartComponent-12509ccd645bca6306bb969ff529e23b189549842f79c4afd77e6b0bc83457e7d1198b588c5712f725476be84dfb49205e4fe395a603edc9f42038e9556040d1",
+            "id": "component-RadarChartComponent-e9ba1549d7f91e12cc8b941895c8523ba03ee3df4a91aece9410739beda4a19a8b0f583efc4058f0bdf5123122ad1de453a3605899358f861ed08a60bf05beea",
             "file": "projects/biit-ui/charts/src/radar-chart/radar-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3918,7 +4041,7 @@
                     "defaultValue": "[\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 52,
+                    "line": 51,
                     "type": "string[]",
                     "decorators": []
                 },
@@ -3927,7 +4050,7 @@
                     "defaultValue": "\"solid\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 74,
+                    "line": 69,
                     "type": "\"gradient\" | \"solid\" | \"pattern\" | \"image\"",
                     "decorators": []
                 },
@@ -3936,7 +4059,7 @@
                     "defaultValue": "[\"#ffffff\"]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 82,
+                    "line": 77,
                     "type": "string[]",
                     "decorators": []
                 },
@@ -3945,7 +4068,7 @@
                     "defaultValue": "\"bottom\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 84,
+                    "line": 79,
                     "type": "\"left\" | \"bottom\" | \"right\" | \"top\"",
                     "decorators": []
                 },
@@ -3954,7 +4077,7 @@
                     "defaultValue": "0.4",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 78,
+                    "line": 73,
                     "type": "number",
                     "decorators": []
                 },
@@ -3962,7 +4085,7 @@
                     "name": "radarChartData",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 44,
+                    "line": 43,
                     "type": "RadarChartData",
                     "decorators": []
                 },
@@ -3971,7 +4094,7 @@
                     "defaultValue": "140",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 48,
+                    "line": 47,
                     "type": "number",
                     "decorators": []
                 },
@@ -3980,7 +4103,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 76,
+                    "line": 71,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3989,7 +4112,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 50,
+                    "line": 49,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3998,7 +4121,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 64,
+                    "line": 63,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -4007,7 +4130,7 @@
                     "defaultValue": "5",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 80,
+                    "line": 75,
                     "type": "number",
                     "decorators": []
                 },
@@ -4016,7 +4139,7 @@
                     "defaultValue": "undefined",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 70,
+                    "line": 65,
                     "type": "string | undefined",
                     "decorators": []
                 },
@@ -4025,7 +4148,7 @@
                     "defaultValue": "\"center\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 72,
+                    "line": 67,
                     "type": "\"left\" | \"center\" | \"right\"",
                     "decorators": []
                 },
@@ -4034,26 +4157,8 @@
                     "defaultValue": "600",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 46,
+                    "line": 45,
                     "type": "number",
-                    "decorators": []
-                },
-                {
-                    "name": "xAxisOnTop",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 66,
-                    "type": "boolean",
-                    "decorators": []
-                },
-                {
-                    "name": "xAxisTitle",
-                    "defaultValue": "undefined",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 68,
-                    "type": "string | undefined",
                     "decorators": []
                 }
             ],
@@ -4066,7 +4171,7 @@
                     "type": "ChartComponent",
                     "optional": false,
                     "description": "",
-                    "line": 39,
+                    "line": 38,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -4081,7 +4186,7 @@
                     "type": "RadarChartOptions",
                     "optional": false,
                     "description": "",
-                    "line": 41,
+                    "line": 40,
                     "modifierKind": [
                         123
                     ]
@@ -4089,12 +4194,40 @@
             ],
             "methodsClass": [
                 {
+                    "name": "ngOnChanges",
+                    "args": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 94,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 95,
+                    "line": 90,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -4111,7 +4244,7 @@
                     "optional": false,
                     "returnType": "StackedBarsData[]",
                     "typeParameters": [],
-                    "line": 152,
+                    "line": 148,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -4125,6 +4258,19 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "setProperties",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 98,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
                 }
             ],
             "deprecated": false,
@@ -4134,7 +4280,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, ViewChild} from '@angular/core';\nimport {\n  ApexAxisChartSeries,\n  ApexChart,\n  ApexDataLabels,\n  ApexFill,\n  ApexLegend,\n  ApexMarkers,\n  ApexPlotOptions,\n  ApexStroke,\n  ApexTitleSubtitle,\n  ApexXAxis,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {StackedBarsData} from \"../stacked-bars-chart/stacked-bars-chart-data\";\nimport {RadarChartData, RadarChartDataElement} from \"./radar-chart-data\";\n\ntype RadarChartOptions = {\n  series: ApexAxisChartSeries;\n  chart: ApexChart;\n  labels: ApexDataLabels;\n  fill: ApexFill;\n  plotOptions: ApexPlotOptions;\n  xaxis: ApexXAxis;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n  markers: ApexMarkers;\n  stroke: ApexStroke;\n};\n\n@Component({\n  selector: 'app-radar-chart',\n  templateUrl: './radar-chart.component.html',\n  styleUrls: ['./radar-chart.component.scss']\n})\nexport class RadarChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public radarChartOptions!: RadarChartOptions;\n\n  @Input()\n  public radarChartData: RadarChartData;\n  @Input()\n  public width: number = 600;\n  @Input()\n  public radarSize: number = 140;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = [\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ];\n  @Input()\n  public showValuesLabels: boolean = false;\n  @Input()\n  public xAxisOnTop: boolean = false;\n  @Input()\n  public xAxisTitle: string | undefined = undefined;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public opacity: number = 0.4;\n  @Input()\n  public strokeWidth: number = 5;\n  @Input()\n  public innerColors: string[] = [\"#ffffff\"]\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n\n  constructor() {\n    this.radarChartData = RadarChartData.fromMultipleDataElements([\n      new RadarChartDataElement([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]], \"Group1\"),\n      new RadarChartDataElement([[\"Value1\", 1], [\"Value2\", 2], [\"Value3\", 3]], \"Group2\"),\n      new RadarChartDataElement([[\"Value1\", 4], [\"Value2\", 3], [\"Value3\", 3]], \"Group3\"),\n      new RadarChartDataElement([[\"Value1\", 1], [\"Value2\", 2], [\"Value3\", 3]], \"Group4\"),\n      new RadarChartDataElement([[\"Value1\", 6], [\"Value2\", 2], [\"Value3\", 3]], \"Group5\")]);\n  }\n\n  ngOnInit() {\n    this.radarChartOptions = {\n      chart: {\n        width: this.width,\n        type: \"radar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          blur: 1,\n          left: 1,\n          top: 1\n        },\n      },\n      series: this.setColors(this.radarChartData.getData()),\n      labels: {\n        enabled: this.showValuesLabels\n      },\n      fill: {\n        type: this.fill,\n        opacity: this.opacity,\n      },\n      markers: {\n        size: 0\n      },\n      stroke: {\n        width: this.strokeWidth\n      },\n      plotOptions: {\n        radar: {\n          size: this.radarSize,\n          polygons: {\n            fill: {\n              colors: this.innerColors\n            }\n          }\n        }\n      },\n      xaxis: {\n        categories: this.radarChartData.getLabels(),\n        position: this.xAxisOnTop ? 'top' : 'bottom',\n        title: {\n          text: this.xAxisTitle\n        }\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n\n  setColors(data: StackedBarsData[]): StackedBarsData[] {\n    for (let i = 0; i < data.length; i++) {\n      data[i].color = this.colors[i % this.colors.length];\n    }\n    return data;\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {\n  ApexAxisChartSeries,\n  ApexChart,\n  ApexDataLabels,\n  ApexFill,\n  ApexLegend,\n  ApexMarkers,\n  ApexPlotOptions,\n  ApexStroke,\n  ApexTitleSubtitle,\n  ApexXAxis,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {StackedBarsData} from \"../stacked-bars-chart/stacked-bars-chart-data\";\nimport {RadarChartData, RadarChartDataElement} from \"./radar-chart-data\";\n\ntype RadarChartOptions = {\n  series: ApexAxisChartSeries;\n  chart: ApexChart;\n  labels: ApexDataLabels;\n  fill: ApexFill;\n  plotOptions: ApexPlotOptions;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n  markers: ApexMarkers;\n  stroke: ApexStroke;\n};\n\n@Component({\n  selector: 'app-radar-chart',\n  templateUrl: './radar-chart.component.html',\n  styleUrls: ['./radar-chart.component.scss']\n})\nexport class RadarChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public radarChartOptions!: RadarChartOptions;\n\n  @Input()\n  public radarChartData: RadarChartData;\n  @Input()\n  public width: number = 600;\n  @Input()\n  public radarSize: number = 140;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = [\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ];\n  @Input()\n  public showValuesLabels: boolean = false;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public opacity: number = 0.4;\n  @Input()\n  public strokeWidth: number = 5;\n  @Input()\n  public innerColors: string[] = [\"#ffffff\"]\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n\n  constructor() {\n    this.radarChartData = RadarChartData.fromMultipleDataElements([\n      new RadarChartDataElement([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]], \"Group1\"),\n      new RadarChartDataElement([[\"Value1\", 1], [\"Value2\", 2], [\"Value3\", 3]], \"Group2\"),\n      new RadarChartDataElement([[\"Value1\", 4], [\"Value2\", 3], [\"Value3\", 3]], \"Group3\"),\n      new RadarChartDataElement([[\"Value1\", 1], [\"Value2\", 2], [\"Value3\", 3]], \"Group4\"),\n      new RadarChartDataElement([[\"Value1\", 6], [\"Value2\", 2], [\"Value3\", 3]], \"Group5\")]);\n  }\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.radarChartOptions = {\n      chart: {\n        width: this.width,\n        type: \"radar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          blur: 1,\n          left: 1,\n          top: 1\n        },\n      },\n      series: this.setColors(this.radarChartData.getData()),\n      labels: {\n        enabled: this.showValuesLabels\n      },\n      fill: {\n        type: this.fill,\n        opacity: this.opacity,\n      },\n      markers: {\n        size: 0\n      },\n      stroke: {\n        width: this.strokeWidth\n      },\n      plotOptions: {\n        radar: {\n          size: this.radarSize,\n          polygons: {\n            fill: {\n              colors: this.innerColors\n            }\n          }\n        }\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n\n  setColors(data: StackedBarsData[]): StackedBarsData[] {\n    for (let i = 0; i < data.length; i++) {\n      data[i].color = this.colors[i % this.colors.length];\n    }\n    return data;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4149,16 +4295,16 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 84
+                "line": 79
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div id=\"chart\" *ngIf=\"radarChartOptions\">\n  <div class=\"box shadow\">\n    <apx-chart\n      [series]=\"radarChartOptions.series\"\n      [chart]=\"radarChartOptions.chart\"\n      [dataLabels]=\"radarChartOptions.labels\"\n      [plotOptions]=\"radarChartOptions.plotOptions\"\n      [xaxis]=\"radarChartOptions.xaxis\"\n      [title]=\"radarChartOptions.title\"\n      [fill]=\"radarChartOptions.fill\"\n      [legend]=\"radarChartOptions.legend\"\n      [markers]=\"radarChartOptions.markers\"\n      [stroke]=\"radarChartOptions.stroke\"\n    ></apx-chart>\n  </div>\n</div>\n"
+            "templateData": "<div id=\"chart\" *ngIf=\"radarChartOptions\">\n  <div class=\"box shadow\">\n    <apx-chart\n      [series]=\"radarChartOptions.series\"\n      [chart]=\"radarChartOptions.chart\"\n      [dataLabels]=\"radarChartOptions.labels\"\n      [plotOptions]=\"radarChartOptions.plotOptions\"\n      [title]=\"radarChartOptions.title\"\n      [fill]=\"radarChartOptions.fill\"\n      [legend]=\"radarChartOptions.legend\"\n      [markers]=\"radarChartOptions.markers\"\n      [stroke]=\"radarChartOptions.stroke\"\n    ></apx-chart>\n  </div>\n</div>\n"
         },
         {
             "name": "RadialChartComponent",
-            "id": "component-RadialChartComponent-7a97ea29b449aec3b402c8b7d390194bbde1246576b2d26f466e0599cc439fa268cd656279f98289b99a80370c96dd8c785cbe007bb635aa4fd3baf549a1f59e",
+            "id": "component-RadialChartComponent-752108fc5336a9acde20058a38973fbb19d052e9d1a9e2ad5c09f52c0aa3e2c66f14b2d193585e245bf87f14fc21654ae75468e1215136b7d55b8f637f3d7c5f",
             "file": "projects/biit-ui/charts/src/radial-chart/radial-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4315,6 +4461,34 @@
             ],
             "methodsClass": [
                 {
+                    "name": "ngOnChanges",
+                    "args": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 73,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
@@ -4323,6 +4497,19 @@
                     "line": 69,
                     "deprecated": false,
                     "deprecationMessage": ""
+                },
+                {
+                    "name": "setProperties",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 77,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
                 }
             ],
             "deprecated": false,
@@ -4332,7 +4519,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, ViewChild} from '@angular/core';\nimport {ApexChart, ApexFill, ApexLegend, ApexPlotOptions, ApexTitleSubtitle, ChartComponent} from \"ng-apexcharts\";\nimport {RadialChartData} from \"./radial-chart-data\";\n\ntype RadialChartOptions = {\n  series: number[];\n  colors: string [];\n  labels: string[];\n  fill: ApexFill;\n  chart: ApexChart;\n  plotOptions: ApexPlotOptions;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n};\n\n\n@Component({\n  selector: 'app-radial-chart',\n  templateUrl: './radial-chart.component.html',\n  styleUrls: ['./radial-chart.component.scss']\n})\nexport class RadialChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public radialChartOptions!: RadialChartOptions;\n\n  @Input()\n  public data: RadialChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = [\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ];\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"gradient\";\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public innerCirclePercentage: number = 40;\n  @Input()\n  public startAngle: number = 0;\n  @Input()\n  public endAngle: number = 360;\n\n  constructor() {\n    this.data = RadialChartData.fromArray([[\"Value1\", 85], [\"Value2\", 49], [\"Value3\", 36]]);\n  }\n\n\n  ngOnInit() {\n    this.radialChartOptions = {\n      colors: this.colors,\n      chart: {\n        width: this.width,\n        type: \"radialBar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 18,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      series: this.data.getValues(),\n      labels: this.data.getLabels(),\n      fill: {\n        type: this.fill,\n        gradient: {\n          shade: \"light\",\n          shadeIntensity: 0.4,\n          inverseColors: false,\n          opacityFrom: 1,\n          opacityTo: 1,\n          stops: [0, 50, 53, 91]\n        }\n      },\n      plotOptions: {\n        radialBar: {\n          startAngle: this.startAngle,\n          endAngle: this.endAngle,\n          dataLabels: {\n            name: {\n              fontSize: \"22px\"\n            },\n            value: {\n              offsetY: 5,\n              fontSize: \"16px\"\n            },\n            total: {\n              show: true,\n              label: \"Total\",\n              color: \"#000000\",\n              formatter: (w: any) => {\n                return (Math.round((this.data.getTotal() / this.data.getValues().length) * 100) / 100).toFixed(2) + \"%\";\n              }\n            }\n          },\n          hollow: {\n            size: this.innerCirclePercentage + \"%\"\n          }\n        }\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {ApexChart, ApexFill, ApexLegend, ApexPlotOptions, ApexTitleSubtitle, ChartComponent} from \"ng-apexcharts\";\nimport {RadialChartData} from \"./radial-chart-data\";\n\ntype RadialChartOptions = {\n  series: number[];\n  colors: string [];\n  labels: string[];\n  fill: ApexFill;\n  chart: ApexChart;\n  plotOptions: ApexPlotOptions;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n};\n\n\n@Component({\n  selector: 'app-radial-chart',\n  templateUrl: './radial-chart.component.html',\n  styleUrls: ['./radial-chart.component.scss']\n})\nexport class RadialChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public radialChartOptions!: RadialChartOptions;\n\n  @Input()\n  public data: RadialChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = [\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ];\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"gradient\";\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public innerCirclePercentage: number = 40;\n  @Input()\n  public startAngle: number = 0;\n  @Input()\n  public endAngle: number = 360;\n\n  constructor() {\n    this.data = RadialChartData.fromArray([[\"Value1\", 85], [\"Value2\", 49], [\"Value3\", 36]]);\n  }\n\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.radialChartOptions = {\n      colors: this.colors,\n      chart: {\n        width: this.width,\n        type: \"radialBar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 18,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      series: this.data.getValues(),\n      labels: this.data.getLabels(),\n      fill: {\n        type: this.fill,\n        gradient: {\n          shade: \"light\",\n          shadeIntensity: 0.4,\n          inverseColors: false,\n          opacityFrom: 1,\n          opacityTo: 1,\n          stops: [0, 50, 53, 91]\n        }\n      },\n      plotOptions: {\n        radialBar: {\n          startAngle: this.startAngle,\n          endAngle: this.endAngle,\n          dataLabels: {\n            name: {\n              fontSize: \"22px\"\n            },\n            value: {\n              offsetY: 5,\n              fontSize: \"16px\"\n            },\n            total: {\n              show: true,\n              label: \"Total\",\n              color: \"#000000\",\n              formatter: (w: any) => {\n                return (Math.round((this.data.getTotal() / this.data.getValues().length) * 100) / 100).toFixed(2) + \"%\";\n              }\n            }\n          },\n          hollow: {\n            size: this.innerCirclePercentage + \"%\"\n          }\n        }\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4356,7 +4543,7 @@
         },
         {
             "name": "StackedBarsChartComponent",
-            "id": "component-StackedBarsChartComponent-8074baf679a7f2de388e4434621c955db1537636dae7aac4cd1f07c151c5d536d64709468d9b6ec0edfa90b694cf7d6765d8050fc3338f162791fc34deff9c7d",
+            "id": "component-StackedBarsChartComponent-9059e2256bd65a4914de6f9c595560ed728139c8377b38ad39bc049e843b1e319d5a30a999caa7d1aaf69a22ca1d9a33994b458a6e45ba60176aa19a048ef5f5",
             "file": "projects/biit-ui/charts/src/stacked-bars-chart/stacked-bars-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4567,6 +4754,34 @@
             ],
             "methodsClass": [
                 {
+                    "name": "ngOnChanges",
+                    "args": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 98,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
@@ -4589,7 +4804,7 @@
                     "optional": false,
                     "returnType": "StackedBarsData[]",
                     "typeParameters": [],
-                    "line": 159,
+                    "line": 167,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -4603,6 +4818,19 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "setProperties",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 102,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
                 }
             ],
             "deprecated": false,
@@ -4612,7 +4840,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, ViewChild} from '@angular/core';\nimport {\n  ApexAxisChartSeries,\n  ApexChart,\n  ApexDataLabels,\n  ApexFill,\n  ApexLegend,\n  ApexPlotOptions,\n  ApexTitleSubtitle,\n  ApexXAxis,\n  ApexYAxis,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {StackedBarsData, StackedBarChartData, StackedBarChartDataElement} from \"./stacked-bars-chart-data\";\n\n\ntype StackedBarsChartOptions = {\n  series: ApexAxisChartSeries;\n  chart: ApexChart;\n  labels: ApexDataLabels;\n  fill: ApexFill;\n  plotOptions: ApexPlotOptions;\n  xaxis: ApexXAxis;\n  yaxis: ApexYAxis;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n};\n\n@Component({\n  selector: 'app-stacked-bars-chart',\n  templateUrl: './stacked-bars-chart.component.html',\n  styleUrls: ['./stacked-bars-chart.component.scss']\n})\nexport class StackedBarsChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public stackedBarsChartOptions!: StackedBarsChartOptions;\n\n  @Input()\n  public stackedBarChartData: StackedBarChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = [\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ];\n  @Input()\n  public horizontal: boolean = false;\n  @Input()\n  public barThicknessPercentage: number = 75;\n  @Input()\n  public showValuesLabels: boolean = true;\n  @Input()\n  public xAxisOnTop: boolean = false;\n  @Input()\n  public xAxisTitle: string | undefined = undefined;\n  @Input()\n  public yAxisTitle: string | undefined = undefined;\n  @Input()\n  public showYAxis: boolean = true;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public borderRadius: number = 0;\n  @Input()\n  public enableTotals: boolean = true;\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n  @Input()\n  public shadow: boolean = true;\n\n  constructor() {\n    this.stackedBarChartData = StackedBarChartData.fromMultipleDataElements([\n      new StackedBarChartDataElement([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]], \"Group1\"),\n      new StackedBarChartDataElement([[\"Value1\", 1], [\"Value2\", 2], [\"Value3\", 3]], \"Group2\")]);\n  }\n\n  ngOnInit() {\n    this.stackedBarsChartOptions = {\n      chart: {\n        width: this.width,\n        type: \"bar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        stacked: true,\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 0,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      series: this.setColors(this.stackedBarChartData.getData()),\n      labels: {\n        enabled: this.showValuesLabels\n      },\n      fill: {\n        type: this.fill,\n      },\n      plotOptions: {\n        bar: {\n          distributed: false, // this line is mandatory for using colors\n          horizontal: this.horizontal,\n          barHeight: this.barThicknessPercentage + '%',\n          columnWidth: this.barThicknessPercentage + '%',\n          borderRadius: this.borderRadius,\n          dataLabels: {\n            total: {\n              enabled: this.enableTotals,\n              style: {\n                fontWeight: 900\n              }\n            }\n          }\n        }\n      },\n      xaxis: {\n        categories: this.stackedBarChartData.getLabels(),\n        position: this.xAxisOnTop ? 'top' : 'bottom',\n        title: {\n          text: this.xAxisTitle\n        }\n      },\n      yaxis: {\n        show: this.showYAxis,\n        title: {\n          text: this.yAxisTitle\n        },\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n\n  setColors(data: StackedBarsData[]): StackedBarsData[] {\n    for (let i = 0; i < data.length; i++) {\n      data[i].color = this.colors[i % this.colors.length];\n    }\n    return data;\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {\n  ApexAxisChartSeries,\n  ApexChart,\n  ApexDataLabels,\n  ApexFill,\n  ApexLegend,\n  ApexPlotOptions,\n  ApexTitleSubtitle,\n  ApexXAxis,\n  ApexYAxis,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {StackedBarsData, StackedBarChartData, StackedBarChartDataElement} from \"./stacked-bars-chart-data\";\n\n\ntype StackedBarsChartOptions = {\n  series: ApexAxisChartSeries;\n  chart: ApexChart;\n  labels: ApexDataLabels;\n  fill: ApexFill;\n  plotOptions: ApexPlotOptions;\n  xaxis: ApexXAxis;\n  yaxis: ApexYAxis;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n};\n\n@Component({\n  selector: 'app-stacked-bars-chart',\n  templateUrl: './stacked-bars-chart.component.html',\n  styleUrls: ['./stacked-bars-chart.component.scss']\n})\nexport class StackedBarsChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public stackedBarsChartOptions!: StackedBarsChartOptions;\n\n  @Input()\n  public stackedBarChartData: StackedBarChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = [\n    \"#fd7f6f\",\n    \"#7eb0d5\",\n    \"#b2e061\",\n    \"#bd7ebe\",\n    \"#ffb55a\",\n    \"#ffee65\",\n    \"#beb9db\",\n    \"#fdcce5\",\n    \"#8bd3c7\"\n  ];\n  @Input()\n  public horizontal: boolean = false;\n  @Input()\n  public barThicknessPercentage: number = 75;\n  @Input()\n  public showValuesLabels: boolean = true;\n  @Input()\n  public xAxisOnTop: boolean = false;\n  @Input()\n  public xAxisTitle: string | undefined = undefined;\n  @Input()\n  public yAxisTitle: string | undefined = undefined;\n  @Input()\n  public showYAxis: boolean = true;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public borderRadius: number = 0;\n  @Input()\n  public enableTotals: boolean = true;\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n  @Input()\n  public shadow: boolean = true;\n\n  constructor() {\n    this.stackedBarChartData = StackedBarChartData.fromMultipleDataElements([\n      new StackedBarChartDataElement([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]], \"Group1\"),\n      new StackedBarChartDataElement([[\"Value1\", 1], [\"Value2\", 2], [\"Value3\", 3]], \"Group2\")]);\n  }\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.stackedBarsChartOptions = {\n      chart: {\n        width: this.width,\n        type: \"bar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        stacked: true,\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 0,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      series: this.setColors(this.stackedBarChartData.getData()),\n      labels: {\n        enabled: this.showValuesLabels\n      },\n      fill: {\n        type: this.fill,\n      },\n      plotOptions: {\n        bar: {\n          distributed: false, // this line is mandatory for using colors\n          horizontal: this.horizontal,\n          barHeight: this.barThicknessPercentage + '%',\n          columnWidth: this.barThicknessPercentage + '%',\n          borderRadius: this.borderRadius,\n          dataLabels: {\n            total: {\n              enabled: this.enableTotals,\n              style: {\n                fontWeight: 900\n              }\n            }\n          }\n        }\n      },\n      xaxis: {\n        categories: this.stackedBarChartData.getLabels(),\n        position: this.xAxisOnTop ? 'top' : 'bottom',\n        title: {\n          text: this.xAxisTitle\n        }\n      },\n      yaxis: {\n        show: this.showYAxis,\n        title: {\n          text: this.yAxisTitle\n        },\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n\n  setColors(data: StackedBarsData[]): StackedBarsData[] {\n    for (let i = 0; i < data.length; i++) {\n      data[i].color = this.colors[i % this.colors.length];\n    }\n    return data;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -5261,6 +5489,46 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/gauge.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/line.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/pie.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/radar.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Flat",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -5429,6 +5697,46 @@
                 "deprecationMessage": "",
                 "type": "Story<BarChartComponent>",
                 "defaultValue": "(args: BarChartComponent) => ({\n  props: args,\n  template: `\n    <app-bar-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [borderRadius]=\"borderRadius\"\n      [legendPosition]=\"legendPosition\"\n      [shadow]=\"shadow\"\n    >\n    </app-bar-chart>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/gauge.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<GaugeChartModule>",
+                "defaultValue": "(args: GaugeChartModule) => ({\n  props: args,\n  template: `\n    <app-gauge-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [opacity]=\"opacity\"\n      [shadow]=\"shadow\"\n      [innerCirclePercentage]=\"innerCirclePercentage\"\n      [trackBackgroundColor]=\"trackBackgroundColor\"\n      [trackBackgroundThicknessPercentage]=\"trackBackgroundThicknessPercentage\"\n    >\n    </app-gauge-chart>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/line.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<LineChartModule>",
+                "defaultValue": "(args: LineChartModule) => ({\n  props: args,\n  template: `\n    <app-line-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [curve]=\"curve\"\n      [shadow]=\"shadow\"\n      [strokeWidth]=\"strokeWidth\"\n    >\n    </app-line-chart>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/pie.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<PieChartModule>",
+                "defaultValue": "(args: PieChartModule) => ({\n  props: args,\n  template: `\n    <app-pie-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [isDonut]=\"isDonut\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-pie-chart>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/radar.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<RadarChartModule>",
+                "defaultValue": "(args: RadarChartModule) => ({\n  props: args,\n  template: `\n    <app-radar-chart\n      [width]=\"width\"\n      [radarSize]=\"radarSize\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [opacity]=\"opacity\"\n      [strokeWidth]=\"strokeWidth\"\n      [innerColors]=\"innerColors\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-radar-chart>`\n})"
             }
         ],
         "functions": [
@@ -5703,6 +6011,94 @@
                     "deprecationMessage": "",
                     "type": "Story<BarChartComponent>",
                     "defaultValue": "(args: BarChartComponent) => ({\n  props: args,\n  template: `\n    <app-bar-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [borderRadius]=\"borderRadius\"\n      [legendPosition]=\"legendPosition\"\n      [shadow]=\"shadow\"\n    >\n    </app-bar-chart>`\n})"
+                }
+            ],
+            "src/stories/charts/gauge.chart.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/gauge.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/gauge.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<GaugeChartModule>",
+                    "defaultValue": "(args: GaugeChartModule) => ({\n  props: args,\n  template: `\n    <app-gauge-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [opacity]=\"opacity\"\n      [shadow]=\"shadow\"\n      [innerCirclePercentage]=\"innerCirclePercentage\"\n      [trackBackgroundColor]=\"trackBackgroundColor\"\n      [trackBackgroundThicknessPercentage]=\"trackBackgroundThicknessPercentage\"\n    >\n    </app-gauge-chart>`\n})"
+                }
+            ],
+            "src/stories/charts/line.chart.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/line.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/line.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<LineChartModule>",
+                    "defaultValue": "(args: LineChartModule) => ({\n  props: args,\n  template: `\n    <app-line-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [curve]=\"curve\"\n      [shadow]=\"shadow\"\n      [strokeWidth]=\"strokeWidth\"\n    >\n    </app-line-chart>`\n})"
+                }
+            ],
+            "src/stories/charts/pie.chart.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/pie.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/pie.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<PieChartModule>",
+                    "defaultValue": "(args: PieChartModule) => ({\n  props: args,\n  template: `\n    <app-pie-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [isDonut]=\"isDonut\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-pie-chart>`\n})"
+                }
+            ],
+            "src/stories/charts/radar.chart.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/radar.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/radar.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<RadarChartModule>",
+                    "defaultValue": "(args: RadarChartModule) => ({\n  props: args,\n  template: `\n    <app-radar-chart\n      [width]=\"width\"\n      [radarSize]=\"radarSize\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [opacity]=\"opacity\"\n      [strokeWidth]=\"strokeWidth\"\n      [innerColors]=\"innerColors\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-radar-chart>`\n})"
                 }
             ],
             "src/stories/Button.stories.ts": [
@@ -6090,7 +6486,7 @@
                 "linktype": "component",
                 "name": "GaugeChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/18",
+                "coverageCount": "0/20",
                 "status": "low"
             },
             {
@@ -6117,7 +6513,7 @@
                 "linktype": "component",
                 "name": "LineChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/23",
+                "coverageCount": "0/25",
                 "status": "low"
             },
             {
@@ -6144,7 +6540,7 @@
                 "linktype": "component",
                 "name": "PieChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/15",
+                "coverageCount": "0/17",
                 "status": "low"
             },
             {
@@ -6207,7 +6603,7 @@
                 "linktype": "component",
                 "name": "RadialChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/17",
+                "coverageCount": "0/19",
                 "status": "low"
             },
             {
@@ -6243,7 +6639,7 @@
                 "linktype": "component",
                 "name": "StackedBarsChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/24",
+                "coverageCount": "0/26",
                 "status": "low"
             },
             {
@@ -6501,6 +6897,86 @@
             },
             {
                 "filePath": "src/stories/charts/bar.chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/charts/gauge.chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/charts/gauge.chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/charts/line.chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/charts/line.chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/charts/pie.chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/charts/pie.chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/charts/radar.chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/charts/radar.chart.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
