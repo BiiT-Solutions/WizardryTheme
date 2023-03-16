@@ -3,7 +3,7 @@ import {BarChartModule} from "../../../projects/biit-ui/charts/src/bar-chart/bar
 import {BarChartComponent} from "../../../projects/biit-ui/charts/src/bar-chart/bar-chart.component";
 
 export default {
-  title: 'Chart/Bars',
+  title: 'Charts/Bars',
   decorators: [
     moduleMetadata({
       imports: [BarChartModule],

@@ -1,25 +1,23 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {GaugeChartModule} from "../../../projects/biit-ui/charts/src/gauge-chart/gauge-chart.module";
+import {PieChartModule} from "../../../projects/biit-ui/charts/src/pie-chart/pie-chart.module";
 
 export default {
-  title: 'Charts/Gauge',
+  title: 'Charts/Pie',
   decorators: [
     moduleMetadata({
-      imports: [GaugeChartModule],
+      imports: [PieChartModule],
     }),
   ],
   args: {
     width: 500,
-    height: 200,
     showToolbar: true,
     colors: ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7"],
     title: undefined,
     titleAlignment: 'center',
+    isDonut: false,
     fill: 'solid',
     shadow: true,
-    innerCirclePercentage: 50,
-    trackBackgroundColor: "#e7e7e7",
-    trackBackgroundThicknessPercentage: 97
+    legendPosition: 'bottom',
   },
   argTypes: {
     width: {
@@ -34,20 +32,6 @@ export default {
       control: {
         type: 'number',
         min: 300, max: 1000, step: 50,
-      }
-    },
-    height: {
-      type: {name: 'number', required: false},
-      defaultValue: 250,
-      description: 'Defines the height of the chart in pixels',
-      table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 250},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'number',
-        min: 200, max: 800, step: 50,
       }
     },
     showToolbar: {
@@ -107,6 +91,20 @@ export default {
         type: 'select'
       }
     },
+    isDonut: {
+      name: 'isDonut',
+      type: {name: 'boolean', required: false},
+      defaultValue: 'true',
+      description: 'Draws a hole at the center',
+      table: {
+        type: {summary: 'boolean'},
+        defaultValue: {summary: true},
+        category: 'Inputs'
+      },
+      control: {
+        type: 'boolean'
+      }
+    },
     fill: {
       name: 'fill',
       type: {name: 'string', required: false},
@@ -120,20 +118,6 @@ export default {
       options: ['gradient', 'solid', 'pattern'],
       control: {
         type: 'select'
-      }
-    },
-    opacity: {
-      type: {name: 'number', required: false},
-      defaultValue: 1,
-      description: 'Defines the opacity of the arc [0..1]',
-      table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 1},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'number',
-        min: 0, max: 1, step: 0.1,
       }
     },
     shadow: {
@@ -150,69 +134,39 @@ export default {
         type: 'boolean'
       }
     },
-    innerCirclePercentage: {
-      type: {name: 'number', required: false},
-      defaultValue: 50,
-      description: 'Defines the size of the inner circle in %',
+    legendPosition: {
+      name: 'legendPosition',
+      type: { name: 'string', required: false },
+      defaultValue: 'default',
+      description: 'Defines where the legend is shown',
       table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 50},
+        type: { summary: 'string' },
+        defaultValue: { summary: 'empty' },
         category: 'Inputs'
       },
+      options: ['left', 'bottom', 'right', 'top'],
       control: {
-        type: 'number',
-        min: 5, max: 95, step: 5,
-      }
-    },
-    trackBackgroundColor: {
-      name: 'trackBackgroundColor',
-      type: {name: 'string', required: false},
-      defaultValue: 'e7e7e7',
-      description: 'Change the colors of the track bar',
-      table: {
-        type: {summary: 'array'},
-        defaultValue: {summary: 'empty'},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'color'
-      }
-    },
-    trackBackgroundThicknessPercentage: {
-      type: {name: 'number', required: false},
-      defaultValue: 50,
-      description: 'Defines the size of the background of the arc on %',
-      table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 97},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'number',
-        min: 5, max: 100, step: 5,
+        type: 'select'
       }
     },
   }
 } as Meta;
 
-const Template: Story<GaugeChartModule> = (args: GaugeChartModule) => ({
+const Template: Story<PieChartModule> = (args: PieChartModule) => ({
   props: args,
   template: `
-    <app-gauge-chart
+    <app-pie-chart
       [width]="width"
-      [height]="height"
       [showToolbar]="showToolbar"
       [colors]="colors"
       [title]="title"
       [titleAlignment]="titleAlignment"
+      [isDonut]="isDonut"
       [fill]="fill"
-      [opacity]="opacity"
       [shadow]="shadow"
-      [innerCirclePercentage]="innerCirclePercentage"
-      [trackBackgroundColor]="trackBackgroundColor"
-      [trackBackgroundThicknessPercentage]="trackBackgroundThicknessPercentage"
+      [legendPosition]="legendPosition"
     >
-    </app-gauge-chart>`
+    </app-pie-chart>`
 });
 
 export const Default = Template.bind({});

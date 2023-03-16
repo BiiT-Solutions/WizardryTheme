@@ -3,7 +3,9 @@ import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core'
 import {
   ApexChart,
   ApexFill,
+  ApexLegend,
   ApexNonAxisChartSeries,
+  ApexPlotOptions,
   ApexResponsive,
   ApexTitleSubtitle,
   ChartComponent
@@ -19,6 +21,7 @@ type PieChartOptions = {
   responsive: ApexResponsive[];
   labels: string[];
   title: ApexTitleSubtitle;
+  legend: ApexLegend;
 };
 
 @Component({
@@ -116,6 +119,9 @@ export class PieChartComponent implements OnInit {
       title: {
         text: this.title,
         align: this.titleAlignment
+      },
+      legend: {
+        position: this.legendPosition
       },
     };
   }

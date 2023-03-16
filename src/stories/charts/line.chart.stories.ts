@@ -2,7 +2,7 @@ import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {LineChartModule} from "../../../projects/biit-ui/charts/src/line-chart/line-chart.module";
 
 export default {
-  title: 'Chart/Line',
+  title: 'Charts/Line',
   decorators: [
     moduleMetadata({
       imports: [LineChartModule],
