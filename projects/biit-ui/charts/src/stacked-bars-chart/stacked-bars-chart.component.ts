@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -92,6 +92,14 @@ export class StackedBarsChartComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setProperties();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.setProperties();
+  }
+
+  private setProperties(): void {
     this.stackedBarsChartOptions = {
       chart: {
         width: this.width,

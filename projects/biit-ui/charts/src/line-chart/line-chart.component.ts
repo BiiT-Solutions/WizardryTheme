@@ -1,9 +1,10 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
   ApexDataLabels,
-  ApexFill, ApexMarkers,
+  ApexFill,
+  ApexMarkers,
   ApexPlotOptions,
   ApexStroke,
   ApexTitleSubtitle,
@@ -11,8 +12,7 @@ import {
   ApexYAxis,
   ChartComponent
 } from "ng-apexcharts";
-import {LineChartData} from "./line-chart-data";
-import {GaugeChartData} from "../gauge-chart/gauge-chart-data";
+import {LineChartData, LineChartDataElement} from "./line-chart-data";
 
 
 type LineChartOptions = {
@@ -89,11 +89,21 @@ export class LineChartComponent implements OnInit {
   public strokeWidth: number = 5;
 
   constructor() {
-    this.lineChartData = LineChartData.fromArray([["Value1", 5], ["Value2", 4], ["Value3", 1]]);
+    this.lineChartData = LineChartData.fromMultipleDataElements([
+      new LineChartDataElement([["Value1", 5], ["Value2", 4], ["Value3", 1]], "Line1"),
+      new LineChartDataElement([["Value1", 2], ["Value2", 3], ["Value3", 5]], "Line2")]);
   }
 
 
   ngOnInit() {
+    this.setProperties();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.setProperties();
+  }
+
+  private setProperties(): void {
     this.lineChartOptions = {
       colors: this.colors,
       series: this.lineChartData.getData(),

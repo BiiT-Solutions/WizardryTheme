@@ -1,15 +1,14 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {BarChartModule} from "../../projects/biit-ui/charts/src/bar-chart/bar-chart.module";
-import {BarChartComponent} from "../../projects/biit-ui/charts/src/bar-chart/bar-chart.component";
+import {BarChartModule} from "../../../projects/biit-ui/charts/src/bar-chart/bar-chart.module";
+import {BarChartComponent} from "../../../projects/biit-ui/charts/src/bar-chart/bar-chart.component";
 
 export default {
-  title: 'Chart/Bar',
+  title: 'Chart/Bars',
   decorators: [
     moduleMetadata({
       imports: [BarChartModule],
     }),
   ],
-  // component: BarChartComponent,
   args: {
     width: 500,
     showToolbar: true,
@@ -208,7 +207,7 @@ export default {
         defaultValue: { summary: 'empty' },
         category: 'Inputs'
       },
-      options: ['gradient', 'solid', 'pattern', 'image'],
+      options: ['gradient', 'solid', 'pattern'],
       control: {
         type: 'select'
       }

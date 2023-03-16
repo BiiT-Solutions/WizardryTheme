@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {ApexChart, ApexFill, ApexLegend, ApexPlotOptions, ApexTitleSubtitle, ChartComponent} from "ng-apexcharts";
 import {RadialChartData} from "./radial-chart-data";
 
@@ -67,6 +67,14 @@ export class RadialChartComponent implements OnInit {
 
 
   ngOnInit() {
+    this.setProperties();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.setProperties();
+  }
+
+  private setProperties(): void {
     this.radialChartOptions = {
       colors: this.colors,
       chart: {

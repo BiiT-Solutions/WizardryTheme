@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {ApexChart, ApexFill, ApexLegend, ApexPlotOptions, ApexTitleSubtitle, ChartComponent} from "ng-apexcharts";
 import {RadialChartData} from "../radial-chart/radial-chart-data";
 import {BarChartData} from "../bar-chart/bar-chart-data";
@@ -70,6 +70,14 @@ export class GaugeChartComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setProperties();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.setProperties();
+  }
+
+  private setProperties(): void {
     this.gaugeChartOptions = {
       colors: this.colors,
       chart: {

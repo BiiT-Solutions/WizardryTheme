@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 
 import {
   ApexChart,
@@ -70,6 +70,14 @@ export class PieChartComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setProperties();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.setProperties();
+  }
+
+  private setProperties(): void {
     this.pieChartOptions = {
       colors: this.colors,
       chart: {
