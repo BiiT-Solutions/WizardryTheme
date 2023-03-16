@@ -1,0 +1,14 @@
+<div id="chart" *ngIf="radialChartOptions">
+  <div class="box shadow">
+    <apx-chart
+      [series]="radialChartOptions.series"
+      [colors]="radialChartOptions.colors"
+      [fill]="radialChartOptions.fill"
+      [chart]="radialChartOptions.chart"
+      [plotOptions]="radialChartOptions.plotOptions"
+      [title]="radialChartOptions.title"
+      [legend]="radialChartOptions.legend"
+      [labels]="radialChartOptions.labels"
+    ></apx-chart>
+  </div>
+</div>

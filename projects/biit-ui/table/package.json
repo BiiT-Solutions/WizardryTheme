@@ -1,0 +1,5 @@
+{
+  "peerDependencies": {
+    "@angular/material": "^15.1.0"
+  }
+}

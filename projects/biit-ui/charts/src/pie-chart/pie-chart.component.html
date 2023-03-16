@@ -1,0 +1,13 @@
+<div id="chart" *ngIf="pieChartOptions">
+  <div class="box shadow">
+    <apx-chart
+      [series]="pieChartOptions.series"
+      [colors]="pieChartOptions.colors"
+      [fill]="pieChartOptions.fill"
+      [chart]="pieChartOptions.chart"
+      [labels]="pieChartOptions.labels"
+      [responsive]="pieChartOptions.responsive"
+      [title]="pieChartOptions.title"
+    ></apx-chart>
+  </div>
+</div>

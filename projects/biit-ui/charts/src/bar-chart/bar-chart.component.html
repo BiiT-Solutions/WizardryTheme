@@ -1,0 +1,16 @@
+<div *ngIf="barChartOptions">
+  <div class="box shadow">
+  <apx-chart id="chart"
+    [series]="barChartOptions.series"
+    [colors]="barChartOptions.colors"
+    [fill]="barChartOptions.fill"
+    [chart]="barChartOptions.chart"
+    [dataLabels]="barChartOptions.labels"
+    [plotOptions]="barChartOptions.plotOptions"
+    [xaxis]="barChartOptions.xaxis"
+    [yaxis]="barChartOptions.yaxis"
+    [title]="barChartOptions.title"
+    [legend]="barChartOptions.legend"
+  ></apx-chart>
+  </div>
+</div>

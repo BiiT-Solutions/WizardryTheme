@@ -13,7 +13,50 @@ ng generate component ../../projects/biit-ui/mycomponent/src/mycustomcomponent -
 ng generate module ../../projects/biit-ui/mycomponent/src/mycustomcomponent
 ```
 
-And write your code in them.
+## Define your component
+
+### Define public-api.ts
+
+Generate a file `public-api.ts` on the `src` folder of your component (`projects/biit-ui/mycomponent/src/public-api.ts`)
+. And define all the exports in it:
+
+```
+/*
+ * Public API Surface of biit-ui/mycomponent
+ */
+
+export * from './mycustomcomponent/my-custom-component.component';
+export * from './mycustomcomponent/my-custom-component.module';
+
+```
+
+### Define ng-package.json
+
+Create this file on the root folder of your component (`projects/biit-ui/mycomponent/ng-package.json`). This file define the folder structure. As an example:
+
+```
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/biit-ui",
+  "lib": {
+    "entryFile": "src/public-api.ts"
+  }
+}
+```
+
+### Define package.json
+
+Create this file on the root folder of your component (`projects/biit-ui/mycomponent/package.json`)Include the dependencies from your component there:
+
+```
+{
+  "peerDependencies": {
+    "@angular/material": "^15.1.0"
+  }
+}
+```
+
+# Stories
 
 After it, create a `stories.ts` file for your component under `src/stories/` folder. Something like `src/stories/mycustomcomponent.stories.ts`:
 
@@ -45,21 +88,6 @@ export const Default = Template.bind({});
 Default.args = {
   ...
 }
-```
-
-### Use on an external application
-
-Generate a file `public-api.ts` on the `src` folder of your component (`projects/biit-ui/mycomponent/src/public-api.ts`)
-. And define all the exports in it:
-
-```
-/*
- * Public API Surface of biit-ui/mycomponent
- */
-
-export * from './mycustomcomponent/my-custom-component.component';
-export * from './mycustomcomponent/my-custom-component.module';
-
 ```
 
 ### Translations

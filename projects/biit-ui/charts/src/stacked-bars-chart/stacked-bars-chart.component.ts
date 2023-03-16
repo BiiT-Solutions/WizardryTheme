@@ -1,0 +1,165 @@
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {
+  ApexAxisChartSeries,
+  ApexChart,
+  ApexDataLabels,
+  ApexFill,
+  ApexLegend,
+  ApexPlotOptions,
+  ApexTitleSubtitle,
+  ApexXAxis,
+  ApexYAxis,
+  ChartComponent
+} from "ng-apexcharts";
+import {StackedBarsData, StackedBarChartData, StackedBarChartDataElement} from "./stacked-bars-chart-data";
+
+
+type StackedBarsChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  labels: ApexDataLabels;
+  fill: ApexFill;
+  plotOptions: ApexPlotOptions;
+  xaxis: ApexXAxis;
+  yaxis: ApexYAxis;
+  title: ApexTitleSubtitle;
+  legend: ApexLegend;
+};
+
+@Component({
+  selector: 'app-stacked-bars-chart',
+  templateUrl: './stacked-bars-chart.component.html',
+  styleUrls: ['./stacked-bars-chart.component.scss']
+})
+export class StackedBarsChartComponent implements OnInit {
+
+  @ViewChild('chart')
+  chart!: ChartComponent;
+
+  public stackedBarsChartOptions!: StackedBarsChartOptions;
+
+  @Input()
+  public stackedBarChartData: StackedBarChartData;
+  @Input()
+  public width: number = 500;
+  @Input()
+  public showToolbar: boolean = true;
+  @Input()
+  public colors: string[] = [
+    "#fd7f6f",
+    "#7eb0d5",
+    "#b2e061",
+    "#bd7ebe",
+    "#ffb55a",
+    "#ffee65",
+    "#beb9db",
+    "#fdcce5",
+    "#8bd3c7"
+  ];
+  @Input()
+  public horizontal: boolean = false;
+  @Input()
+  public barThicknessPercentage: number = 75;
+  @Input()
+  public showValuesLabels: boolean = true;
+  @Input()
+  public xAxisOnTop: boolean = false;
+  @Input()
+  public xAxisTitle: string | undefined = undefined;
+  @Input()
+  public yAxisTitle: string | undefined = undefined;
+  @Input()
+  public showYAxis: boolean = true;
+  @Input()
+  public title: string | undefined = undefined;
+  @Input()
+  public titleAlignment: "left" | "center" | "right" = "center";
+  @Input()
+  public fill: "gradient" | "solid" | "pattern" | "image" = "solid";
+  @Input()
+  public borderRadius: number = 0;
+  @Input()
+  public enableTotals: boolean = true;
+  @Input()
+  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = "bottom"
+  @Input()
+  public shadow: boolean = true;
+
+  constructor() {
+    this.stackedBarChartData = StackedBarChartData.fromMultipleDataElements([
+      new StackedBarChartDataElement([["Value1", 5], ["Value2", 4], ["Value3", 1]], "Group1"),
+      new StackedBarChartDataElement([["Value1", 1], ["Value2", 2], ["Value3", 3]], "Group2")]);
+  }
+
+  ngOnInit() {
+    this.stackedBarsChartOptions = {
+      chart: {
+        width: this.width,
+        type: "bar",
+        toolbar: {
+          show: this.showToolbar,
+        },
+        stacked: true,
+        dropShadow: {
+          enabled: this.shadow,
+          color: '#000',
+          top: 0,
+          left: 7,
+          blur: 10,
+          opacity: 0.2
+        },
+      },
+      series: this.setColors(this.stackedBarChartData.getData()),
+      labels: {
+        enabled: this.showValuesLabels
+      },
+      fill: {
+        type: this.fill,
+      },
+      plotOptions: {
+        bar: {
+          distributed: false, // this line is mandatory for using colors
+          horizontal: this.horizontal,
+          barHeight: this.barThicknessPercentage + '%',
+          columnWidth: this.barThicknessPercentage + '%',
+          borderRadius: this.borderRadius,
+          dataLabels: {
+            total: {
+              enabled: this.enableTotals,
+              style: {
+                fontWeight: 900
+              }
+            }
+          }
+        }
+      },
+      xaxis: {
+        categories: this.stackedBarChartData.getLabels(),
+        position: this.xAxisOnTop ? 'top' : 'bottom',
+        title: {
+          text: this.xAxisTitle
+        }
+      },
+      yaxis: {
+        show: this.showYAxis,
+        title: {
+          text: this.yAxisTitle
+        },
+      },
+      title: {
+        text: this.title,
+        align: this.titleAlignment
+      },
+      legend: {
+        position: this.legendPosition
+      },
+    };
+  }
+
+  setColors(data: StackedBarsData[]): StackedBarsData[] {
+    for (let i = 0; i < data.length; i++) {
+      data[i].color = this.colors[i % this.colors.length];
+    }
+    return data;
+  }
+}
