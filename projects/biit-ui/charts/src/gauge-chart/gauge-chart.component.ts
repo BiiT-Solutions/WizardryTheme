@@ -53,7 +53,7 @@ export class GaugeChartComponent implements OnInit {
   public trackBackgroundThicknessPercentage: number = 97;
 
   constructor() {
-    this.gaugeChartData = GaugeChartData.fromArray([["Value1", 85]]);
+    this.gaugeChartData = GaugeChartData.fromArray([["Value1", 85], ["Value2", 49]]);
   }
 
   ngOnInit() {
