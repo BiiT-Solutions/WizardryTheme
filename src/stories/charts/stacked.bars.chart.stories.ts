@@ -31,7 +31,8 @@ export default {
     borderRadius: 0,
     enableTotals: true,
     legendPosition: 'bottom',
-    shadow: true
+    shadow: true,
+    stackType: 'normal',
   },
   argTypes: {
     width: {
@@ -249,7 +250,7 @@ export default {
     legendPosition: {
       name: 'legendPosition',
       type: {name: 'string', required: false},
-      defaultValue: 'default',
+      defaultValue: 'right',
       description: 'Defines where the legend is shown',
       table: {
         type: {summary: 'string'},
@@ -273,6 +274,21 @@ export default {
       },
       control: {
         type: 'boolean'
+      }
+    },
+    stackType: {
+      name: 'stackType',
+      type: {name: 'string', required: false},
+      defaultValue: 'normal',
+      description: 'Defines the alignment of the title',
+      table: {
+        type: {summary: 'string'},
+        defaultValue: {summary: 'empty'},
+        category: 'Inputs'
+      },
+      options: ['normal', '100%'],
+      control: {
+        type: 'select'
       }
     },
   }
@@ -299,6 +315,7 @@ const Template: Story<StackedBarsChartComponent> = (args: StackedBarsChartCompon
       [enableTotals]="enableTotals"
       [legendPosition]="legendPosition"
       [shadow]="shadow"
+      [stackType]="stackType"
     >
     </app-stacked-bars-chart>`
 });

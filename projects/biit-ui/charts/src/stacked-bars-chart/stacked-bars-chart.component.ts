@@ -75,6 +75,8 @@ export class StackedBarsChartComponent implements OnInit {
   public legendPosition: 'left' | 'bottom' | 'right' | 'top' = "bottom"
   @Input()
   public shadow: boolean = true;
+  @Input()
+  public stackType: '100%' | 'normal' = "normal";
 
   constructor() {
     this.stackedBarChartData = StackedBarChartData.fromMultipleDataElements([
@@ -99,6 +101,7 @@ export class StackedBarsChartComponent implements OnInit {
           show: this.showToolbar,
         },
         stacked: true,
+        stackType: this.stackType,
         dropShadow: {
           enabled: this.shadow,
           color: '#000',
