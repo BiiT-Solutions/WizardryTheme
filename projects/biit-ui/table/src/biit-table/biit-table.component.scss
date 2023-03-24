@@ -1,6 +1,9 @@
-.filter {
-  display: inline-block;
-  height: 30px;
+.options {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+  margin-bottom: 20px;
 }
 
 .separator {

@@ -1,10 +1,8 @@
-<div>
-  <div class="filter">
-    <mat-form-field>
-      <input matInput type="text" [disabled]="disabled" [(ngModel)]="filterString" (keyup)="filter($event)"
-             placeholder="{{'filter.placeholder' | translate}}">
-    </mat-form-field>
-  </div>
+<div class="filter">
+  <mat-form-field subscriptSizing="dynamic">
+    <input matInput type="text" [disabled]="disabled" [(ngModel)]="filterString" (keyup)="filter($event)"
+           placeholder="{{'filter.placeholder' | translate}}">
+  </mat-form-field>
   <button mat-button  class="reset" color="warn" (click)="reset()">
     <mat-icon>clear</mat-icon>
   </button>

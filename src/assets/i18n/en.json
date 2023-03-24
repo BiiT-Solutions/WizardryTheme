@@ -1,8 +1,14 @@
 {
   "filter": {
-    "placeholder": "filter"
+    "placeholder": "Filter"
   },
   "table": {
     "fields": "Fields"
+  },
+  "demo": {
+    "id": "ID",
+    "title": "Title",
+    "available": "Available",
+    "releaseDate": "Release Date"
   }
 }

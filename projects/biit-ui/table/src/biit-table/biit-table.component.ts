@@ -12,16 +12,13 @@ import {DatePipe} from "@angular/common";
 })
 export class BiitTableComponent implements OnInit {
 
-  @ViewChild(MatPaginator) paginator?: MatPaginator;
-  @ViewChild(MatSort) sort?: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
-  @Input()
-  basicTableData?: BasicTableData<any>;
+  @Input() basicTableData: BasicTableData<any>;
+  @Input() locale: string = 'en';
 
-  @Input()
-  locale: string = "en";
-
-  pipe: DatePipe | undefined;
+  pipe: DatePipe;
 
   constructor(private translateService: TranslateService) {
 
@@ -29,7 +26,7 @@ export class BiitTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.setLocale(this.locale);
-    this.basicTableData!.dataSource.filterPredicate = (data: any, filter: string): boolean => {
+    this.basicTableData.dataSource.filterPredicate = (data: any, filter: string): boolean => {
       filter = filter.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "");
       const dataSearch = Object.keys(data).reduce((searchTerm: string, key: string) => {
         return (searchTerm + (data as { [key: string]: any })[key]);
@@ -42,8 +39,8 @@ export class BiitTableComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.basicTableData!.dataSource.paginator = this.paginator!;
-    this.basicTableData!.dataSource.sort = this.sort!;
+    this.basicTableData.dataSource.paginator = this.paginator;
+    this.basicTableData.dataSource.sort = this.sort;
   }
 
   private setLocale(locale: string) {
@@ -61,34 +58,34 @@ export class BiitTableComponent implements OnInit {
   }
 
   setSelectedItem(row: any): void {
-    if (row === this.basicTableData!.selectedElement) {
-      this.basicTableData!.selectedElement = undefined;
+    if (row === this.basicTableData.selectedElement) {
+      this.basicTableData.selectedElement = undefined;
     } else {
-      this.basicTableData!.selectedElement = row;
+      this.basicTableData.selectedElement = row;
     }
   }
 
   filter(filter: string) {
-    this.basicTableData!.dataSource.filter = filter;
+    this.basicTableData.dataSource.filter = filter;
   }
 
   isColumnVisible(column: string): boolean {
-    return this.basicTableData!.visibleColumns.includes(column);
+    return this.basicTableData.visibleColumns.includes(column);
   }
 
   toggleColumnVisibility(column: string) {
-    const index: number = this.basicTableData!.visibleColumns.indexOf(column);
+    const index: number = this.basicTableData.visibleColumns.indexOf(column);
     if (index !== -1) {
-      this.basicTableData!.visibleColumns.splice(index, 1);
+      this.basicTableData.visibleColumns.splice(index, 1);
     } else {
       let oldVisibleColumns: string[];
-      oldVisibleColumns = [...this.basicTableData!.visibleColumns];
+      oldVisibleColumns = [...this.basicTableData.visibleColumns];
       oldVisibleColumns.push(column);
-      this.basicTableData!.visibleColumns.length = 0;
+      this.basicTableData.visibleColumns.length = 0;
       //Maintain columns order.
-      for (let tableColumn of this.basicTableData!.columns) {
+      for (let tableColumn of this.basicTableData.columns) {
         if (oldVisibleColumns.includes(tableColumn)) {
-          this.basicTableData!.visibleColumns.push(tableColumn);
+          this.basicTableData.visibleColumns.push(tableColumn);
         }
       }
     }
@@ -109,8 +106,8 @@ export class BiitTableComponent implements OnInit {
       return column;
     } else if (typeof column === 'boolean') {
       return column ? this.translateService.instant('yes') : this.translateService.instant('no');
-    } else if (!isNaN(Date.parse(column))) {
-      return this.pipe!.transform(column, 'short');
+    } else if (column instanceof Date && !isNaN(column.getMonth())) {
+      return this.pipe.transform(column, 'dd/MM/yyyy');
     } else {
       if (column) {
         const text: string = (column as string);
