@@ -1,0 +1,13 @@
+<div id="dropdown-component" [class.disabled]="disabled">
+  <div class="selected" (click)="toggleMenu()">
+    <span *ngIf="selected && selected[label]">{{ selected[label] }}</span>
+    <span [ngClass]="{ 'arrow-down': menuOpen }">&#x27A4;</span>
+  </div>
+  <div class="menu-wrapper">
+    <ul [class.show-menu]="menuOpen">
+      <li *ngFor="let item of items" (click)="onClick(item)">
+        <a>{{ item[label] }}</a>
+      </li>
+    </ul>
+  </div>
+</div>

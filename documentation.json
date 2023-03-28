@@ -2534,6 +2534,274 @@
             "templateData": "<button mat-button *ngIf=\"buttonType === 'default'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-raised-button *ngIf=\"buttonType === 'raised'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-flat-button *ngIf=\"buttonType === 'flat'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<button mat-stroked-button *ngIf=\"buttonType === 'stroked'\"\r\n        color=\"{{color}}\"\r\n        [disabled]=\"_disabled\"\r\n        (click)=\"onClick.emit($event)\">\r\n  <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n</button>\r\n\r\n<ng-template #buttonText>\r\n  <ng-content></ng-content>\r\n</ng-template>\r\n"
         },
         {
+            "name": "BiitDropdownComponent",
+            "id": "component-BiitDropdownComponent-dc2b7958b45f3b5884e89b3528c2b7dcc4a61de9f1be3cce88624a3c93d7e4d40f126cb363103e6ffb6d4011e07658829ff69b3656fb4dc383ddfb8446bb4392",
+            "file": "projects/biit-ui/controls/src/biit-dropdown/biit-dropdown.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [
+                {
+                    "name": "{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => BiitDropdownComponent), multi: true }",
+                    "type": "component"
+                }
+            ],
+            "selector": "app-biit-dropdown",
+            "styleUrls": [
+                "biit-dropdown.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "biit-dropdown.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "items",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "T[]",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "listElem",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ElementRef",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'listElem'"
+                        }
+                    ]
+                },
+                {
+                    "name": "menuOpen",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "onChange",
+                    "defaultValue": "() => {...}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                },
+                {
+                    "name": "onTouched",
+                    "defaultValue": "() => {...}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                },
+                {
+                    "name": "selected",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "T",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "clickHandler",
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "T",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "T",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "hostClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 34,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'click'"
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 42,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "toggleMenu",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "obj",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 46,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "obj",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [
+                {
+                    "name": "click",
+                    "args": [],
+                    "argsDecorator": [],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, Input, forwardRef, ViewChild, ElementRef, HostListener} from '@angular/core';\r\nimport { NG_VALUE_ACCESSOR } from '@angular/forms';\r\nimport { ControlValueAccessor } from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'app-biit-dropdown',\r\n  templateUrl: 'biit-dropdown.component.html',\r\n  styleUrls: ['biit-dropdown.component.scss'],\r\n  providers: [\r\n    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => BiitDropdownComponent), multi: true }\r\n  ]\r\n})\r\nexport class BiitDropdownComponent<T> implements ControlValueAccessor {\r\n  menuOpen: boolean = false;\r\n  @ViewChild('listElem') listElem: ElementRef;\r\n  @Input() items: T[];\r\n  @Input() label: string; // Name of the label variable of the object\r\n  selected: T;\r\n\r\n  onChange = (value: any) => {};\r\n  onTouched = () => {};\r\n\r\n  toggleMenu() {\r\n    this.menuOpen = !this.menuOpen;\r\n    this.listElem.nativeElement.classList.toggle('show-menu');\r\n  }\r\n\r\n  clickHandler(item: T) {\r\n    this.selected = item;\r\n    this.toggleMenu();\r\n    this.onChange(this.selected);\r\n  }\r\n\r\n  @HostListener('click') hostClick() {\r\n    console.log('interacted with menu...');\r\n  }\r\n\r\n  registerOnChange(fn: any): void {\r\n    this.onChange = fn;\r\n  }\r\n\r\n  registerOnTouched(fn: any): void {\r\n    this.onTouched = fn;\r\n  }\r\n\r\n  writeValue(obj: any): void {\r\n    this.selected = obj;\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "#dropdown-component {\r\n  margin: 20px auto 0 auto;\r\n  font: normal 14px sans-serif;\r\n  width: 200px;\r\n  position: relative;\r\n  .selected {\r\n    z-index: 10;\r\n    cursor: pointer;\r\n    margin: 0 auto;\r\n    border: 1px solid black;\r\n    padding: 5px;\r\n    border-radius: 4px;\r\n    span:first-child {\r\n      margin-right: 10px;\r\n    }\r\n    span:last-child {\r\n      float: right;\r\n      transition: transform 0.2s;\r\n    }\r\n  }\r\n  .arrow-down {\r\n    transform: rotate(90deg);\r\n  }\r\n  .menu-wrapper {\r\n    overflow: hidden;\r\n    margin-top: 3px;\r\n    position: absolute;\r\n    width: 100%;\r\n    ul {\r\n      list-style-type: none;\r\n      width: calc(100% - 4px);\r\n      padding: 0;\r\n      border: 1px solid #000;\r\n      border-bottom-left-radius: 4px;\r\n      border-bottom-right-radius: 4px;\r\n      overflow: hidden;\r\n      transition: transform 0.2s;\r\n      transform: translateY(-145px);\r\n      left: 0;\r\n      right: 0;\r\n      margin: 0 auto;\r\n      li {\r\n        overflow: hidden;\r\n        a {\r\n          text-decoration: none;\r\n          background-color: lightgray;\r\n          width: 100%;\r\n          display: block;\r\n          color: black;\r\n          padding: 5px 0 5px 15px;\r\n          box-sizing: border-box;\r\n          transition: background-color 0.2s;\r\n          &:hover {\r\n            background-color: darkgray;\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  .show-menu {\r\n    transform: none !important;\r\n  }\r\n}\r\n",
+                    "styleUrl": "biit-dropdown.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "implements": [
+                "ControlValueAccessor"
+            ],
+            "templateData": "<div id=\"dropdown-component\">\r\n  <div class=\"selected\" (click)=\"toggleMenu()\">\r\n    <span>{{ selected[label] }}</span>\r\n    <span [ngClass]=\"{ 'arrow-down': menuOpen }\">&#x27A4;</span>\r\n  </div>\r\n  <div class=\"menu-wrapper\">\r\n    <ul #listElem>\r\n      <li *ngFor=\"let item of items\" (click)=\"clickHandler(item)\">\r\n        <a href=\"#\" clickDirective>{{ item[label] }}</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n</div>\r\n"
+        },
+        {
             "name": "BiitFilterComponent",
             "id": "component-BiitFilterComponent-2cb13fd201659cd9136976985e807ea44b38291c662bd5f8b2825fa445eccc2ff8fda20b3e40bde4cdb6eb8dc6618e6858c44d371c10c96453e3f4fc7ef30132",
             "file": "projects/biit-ui/filter/src/biit-filter/biit-filter.component.ts",
@@ -2692,7 +2960,7 @@
         },
         {
             "name": "BiitTableComponent",
-            "id": "component-BiitTableComponent-df6f4af641896e944df5657cdb320ebdb8f2ac9c1c2ac003cbf68766f7b4f6d87d4e3265c58e7068205b5c4a4a192816672388adee3b1b87f61190df0707326d",
+            "id": "component-BiitTableComponent-dabe00befa3717896499d891b88467098a8a6b1aa641648325ebb54ac34249d7f2939ea0f8a75bb57c2c0497c15dd38fd350f4e1c1c805b4317f0be236f72b19",
             "file": "projects/biit-ui/table/src/biit-table/biit-table.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3035,11 +3303,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, ViewChild} from '@angular/core';\r\nimport {MatPaginator, PageEvent} from \"@angular/material/paginator\";\r\nimport {TranslateService} from \"@ngx-translate/core\";\r\nimport {MatSort} from \"@angular/material/sort\";\r\nimport {BasicTableData} from \"./basic-table-data\";\r\nimport {DatePipe} from \"@angular/common\";\r\n\r\n@Component({\r\n  selector: 'app-biit-table',\r\n  templateUrl: './biit-table.component.html',\r\n  styleUrls: ['./biit-table.component.scss']\r\n})\r\nexport class BiitTableComponent implements OnInit {\r\n\r\n  @ViewChild(MatPaginator) paginator: MatPaginator;\r\n  @ViewChild(MatSort) sort: MatSort;\r\n\r\n  @Input() basicTableData: BasicTableData<any>;\r\n  @Input() locale: string = 'en';\r\n\r\n  pipe: DatePipe;\r\n\r\n  constructor(private translateService: TranslateService) {\r\n\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.setLocale(this.locale);\r\n    this.basicTableData.dataSource.filterPredicate = (data: any, filter: string): boolean => {\r\n      filter = filter.toLowerCase().normalize('NFD').replace(/\\p{Diacritic}/gu, \"\");\r\n      const dataSearch = Object.keys(data).reduce((searchTerm: string, key: string) => {\r\n        return (searchTerm + (data as { [key: string]: any })[key]);\r\n      }, '').normalize('NFD').replace(/\\p{Diacritic}/gu, \"\").toLowerCase();\r\n\r\n      const transformedFilter = filter.trim().normalize('NFD').replace(/\\p{Diacritic}/gu, \"\").toLowerCase();\r\n\r\n      return dataSearch.indexOf(transformedFilter) != -1;\r\n    }\r\n  }\r\n\r\n  ngAfterViewInit() {\r\n    this.basicTableData.dataSource.paginator = this.paginator;\r\n    this.basicTableData.dataSource.sort = this.sort;\r\n  }\r\n\r\n  private setLocale(locale: string) {\r\n    if (locale === 'es' || locale === 'ca') {\r\n      this.pipe = new DatePipe('es');\r\n    } else if (locale === 'it') {\r\n      this.pipe = new DatePipe('it');\r\n    } else if (locale === 'de') {\r\n      this.pipe = new DatePipe('de');\r\n    } else if (locale === 'nl') {\r\n      this.pipe = new DatePipe('nl');\r\n    } else {\r\n      this.pipe = new DatePipe('en-US');\r\n    }\r\n  }\r\n\r\n  setSelectedItem(row: any): void {\r\n    if (row === this.basicTableData.selectedElement) {\r\n      this.basicTableData.selectedElement = undefined;\r\n    } else {\r\n      this.basicTableData.selectedElement = row;\r\n    }\r\n  }\r\n\r\n  filter(filter: string) {\r\n    this.basicTableData.dataSource.filter = filter;\r\n  }\r\n\r\n  isColumnVisible(column: string): boolean {\r\n    return this.basicTableData.visibleColumns.includes(column);\r\n  }\r\n\r\n  toggleColumnVisibility(column: string) {\r\n    const index: number = this.basicTableData.visibleColumns.indexOf(column);\r\n    if (index !== -1) {\r\n      this.basicTableData.visibleColumns.splice(index, 1);\r\n    } else {\r\n      let oldVisibleColumns: string[];\r\n      oldVisibleColumns = [...this.basicTableData.visibleColumns];\r\n      oldVisibleColumns.push(column);\r\n      this.basicTableData.visibleColumns.length = 0;\r\n      //Maintain columns order.\r\n      for (let tableColumn of this.basicTableData.columns) {\r\n        if (oldVisibleColumns.includes(tableColumn)) {\r\n          this.basicTableData.visibleColumns.push(tableColumn);\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  getDefaultPageSize(): number {\r\n    //Get from user session storage\r\n    return 10;\r\n  }\r\n\r\n\r\n  onPaginateChange($event: PageEvent) {\r\n    //Store into user session storage\r\n  }\r\n\r\n  getColumnData(column: any): any {\r\n    if (typeof column === 'number') {\r\n      return column;\r\n    } else if (typeof column === 'boolean') {\r\n      return column ? this.translateService.instant('yes') : this.translateService.instant('no');\r\n    } else if (!isNaN(Date.parse(column))) {\r\n      return this.pipe.transform(column, 'short');\r\n    } else {\r\n      if (column) {\r\n        const text: string = (column as string);\r\n        if (text.toUpperCase() === text) {\r\n          //probably is an enum\r\n          return this.translateService.instant(this.snakeToCamel(text.toLowerCase()));\r\n        } else {\r\n          return this.translateService.instant(text);\r\n        }\r\n      } else {\r\n        return \"\";\r\n      }\r\n    }\r\n  }\r\n\r\n  snakeToCamel(string: string): string {\r\n    return string.toLowerCase().replace(/[-_][a-z]/g, (group) => group.slice(-1).toUpperCase());\r\n  }\r\n}\r\n",
+            "sourceCode": "import {Component, Input, OnInit, ViewChild} from '@angular/core';\r\nimport {MatPaginator, PageEvent} from \"@angular/material/paginator\";\r\nimport {TranslateService} from \"@ngx-translate/core\";\r\nimport {MatSort} from \"@angular/material/sort\";\r\nimport {BasicTableData} from \"./basic-table-data\";\r\nimport {DatePipe} from \"@angular/common\";\r\n\r\n@Component({\r\n  selector: 'app-biit-table',\r\n  templateUrl: './biit-table.component.html',\r\n  styleUrls: ['./biit-table.component.scss']\r\n})\r\nexport class BiitTableComponent implements OnInit {\r\n\r\n  @ViewChild(MatPaginator) paginator: MatPaginator;\r\n  @ViewChild(MatSort) sort: MatSort;\r\n\r\n  @Input() basicTableData: BasicTableData<any>;\r\n  @Input() locale: string = 'en';\r\n\r\n  pipe: DatePipe;\r\n\r\n  constructor(private translateService: TranslateService) {\r\n\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.setLocale(this.locale);\r\n    this.basicTableData.dataSource.filterPredicate = (data: any, filter: string): boolean => {\r\n      filter = filter.toLowerCase().normalize('NFD').replace(/\\p{Diacritic}/gu, \"\");\r\n      const dataSearch = Object.keys(data).reduce((searchTerm: string, key: string) => {\r\n        return (searchTerm + (data as { [key: string]: any })[key]);\r\n      }, '').normalize('NFD').replace(/\\p{Diacritic}/gu, \"\").toLowerCase();\r\n\r\n      const transformedFilter = filter.trim().normalize('NFD').replace(/\\p{Diacritic}/gu, \"\").toLowerCase();\r\n\r\n      return dataSearch.indexOf(transformedFilter) != -1;\r\n    }\r\n  }\r\n\r\n  ngAfterViewInit() {\r\n    this.basicTableData.dataSource.paginator = this.paginator;\r\n    this.basicTableData.dataSource.sort = this.sort;\r\n  }\r\n\r\n  private setLocale(locale: string) {\r\n    if (locale === 'es' || locale === 'ca') {\r\n      this.pipe = new DatePipe('es');\r\n    } else if (locale === 'it') {\r\n      this.pipe = new DatePipe('it');\r\n    } else if (locale === 'de') {\r\n      this.pipe = new DatePipe('de');\r\n    } else if (locale === 'nl') {\r\n      this.pipe = new DatePipe('nl');\r\n    } else {\r\n      this.pipe = new DatePipe('en-US');\r\n    }\r\n  }\r\n\r\n  setSelectedItem(row: any): void {\r\n    if (row === this.basicTableData.selectedElement) {\r\n      this.basicTableData.selectedElement = undefined;\r\n    } else {\r\n      this.basicTableData.selectedElement = row;\r\n    }\r\n  }\r\n\r\n  filter(filter: string) {\r\n    this.basicTableData.dataSource.filter = filter;\r\n  }\r\n\r\n  isColumnVisible(column: string): boolean {\r\n    return this.basicTableData.visibleColumns.includes(column);\r\n  }\r\n\r\n  toggleColumnVisibility(column: string) {\r\n    const index: number = this.basicTableData.visibleColumns.indexOf(column);\r\n    if (index !== -1) {\r\n      this.basicTableData.visibleColumns.splice(index, 1);\r\n    } else {\r\n      let oldVisibleColumns: string[];\r\n      oldVisibleColumns = [...this.basicTableData.visibleColumns];\r\n      oldVisibleColumns.push(column);\r\n      this.basicTableData.visibleColumns.length = 0;\r\n      //Maintain columns order.\r\n      for (let tableColumn of this.basicTableData.columns) {\r\n        if (oldVisibleColumns.includes(tableColumn)) {\r\n          this.basicTableData.visibleColumns.push(tableColumn);\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  getDefaultPageSize(): number {\r\n    //Get from user session storage\r\n    return 10;\r\n  }\r\n\r\n\r\n  onPaginateChange($event: PageEvent) {\r\n    //Store into user session storage\r\n  }\r\n\r\n  getColumnData(column: any): any {\r\n    if (typeof column === 'number') {\r\n      return column;\r\n    } else if (typeof column === 'boolean') {\r\n      return column ? this.translateService.instant('yes') : this.translateService.instant('no');\r\n    } else if (column instanceof Date && !isNaN(column.getMonth())) {\r\n      return this.pipe.transform(column, 'dd/MM/yyyy');\r\n    } else {\r\n      if (column) {\r\n        const text: string = (column as string);\r\n        if (text.toUpperCase() === text) {\r\n          //probably is an enum\r\n          return this.translateService.instant(this.snakeToCamel(text.toLowerCase()));\r\n        } else {\r\n          return this.translateService.instant(text);\r\n        }\r\n      } else {\r\n        return \"\";\r\n      }\r\n    }\r\n  }\r\n\r\n  snakeToCamel(string: string): string {\r\n    return string.toLowerCase().replace(/[-_][a-z]/g, (group) => group.slice(-1).toUpperCase());\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".options {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n  justify-content: flex-end;\r\n}\r\n\r\n.separator {\r\n  display: inline-block;\r\n}\r\n\r\ntable {\r\n  width: 100%;\r\n  min-width: 600px;\r\n}\r\n\r\n.menu-setting-option {\r\n  padding: 5px;\r\n}\r\n\r\n.menu-setting-option-text {\r\n  color: var(--text-color);\r\n}\r\n\r\n.mat-header-cell {\r\n  text-align: center;\r\n  padding: 8px 20px 8px 20px !important;\r\n  overflow-wrap: break-word;\r\n  word-wrap: break-word;\r\n  word-break: break-word;\r\n  border-right: 1px solid currentColor;\r\n  font-size: medium;\r\n}\r\n\r\n.disabled {\r\n  opacity: 0.6;\r\n}\r\n\r\n@media screen and (max-width: 1000px) {\r\n  .filter-field {\r\n    display: none !important;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n  .tune-button {\r\n    display: none !important;\r\n  }\r\n}\r\n",
+                    "data": ".options {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n  justify-content: flex-end;\r\n  margin-bottom: 20px;\r\n}\r\n\r\n.separator {\r\n  display: inline-block;\r\n}\r\n\r\ntable {\r\n  width: 100%;\r\n  min-width: 600px;\r\n}\r\n\r\n.menu-setting-option {\r\n  padding: 5px;\r\n}\r\n\r\n.menu-setting-option-text {\r\n  color: var(--text-color);\r\n}\r\n\r\n.mat-header-cell {\r\n  text-align: center;\r\n  padding: 8px 20px 8px 20px !important;\r\n  overflow-wrap: break-word;\r\n  word-wrap: break-word;\r\n  word-break: break-word;\r\n  border-right: 1px solid currentColor;\r\n  font-size: medium;\r\n}\r\n\r\n.disabled {\r\n  opacity: 0.6;\r\n}\r\n\r\n@media screen and (max-width: 1000px) {\r\n  .filter-field {\r\n    display: none !important;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 600px) {\r\n  .tune-button {\r\n    display: none !important;\r\n  }\r\n}\r\n",
                     "styleUrl": "./biit-table.component.scss"
                 }
             ],
@@ -3077,7 +3345,7 @@
         },
         {
             "name": "BiitTableDemoComponent",
-            "id": "component-BiitTableDemoComponent-b365a5c4c98c44e3ecedc3d41fe3e7d48bce9547ab43f59e2027b9c40c1f1a72f63e3e3f730b57cf174fef0c3acf125d4818fc93c70f92811ac57b3d6f63d56f",
+            "id": "component-BiitTableDemoComponent-24b37452fba57066b60109caf62f0cb9ff0208efef958f475bb38c10ac48fdb31e8df0b82fbdcee4e91b99cc3c430705aa18869d5c16f82aa5e22232e1fa0bd1",
             "file": "projects/biit-ui/table/src/biit-table-demo/biit-table-demo.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3108,7 +3376,7 @@
             "propertiesClass": [
                 {
                     "name": "basicTableData",
-                    "defaultValue": "new BasicTableData(\r\n    ['id', 'title', 'available', 'releaseDate'],\r\n    ['demo.id', 'demo.title', 'demo.available', 'demo.releaseDate'],\r\n    ['id', 'title', 'available', 'releaseDate'],\r\n    [\r\n      { id: 1, title: 'Super Metroid', available: true, releaseDate: '19/03/1994' },\r\n      { id: 2, title: 'F-Zero GX', available: false, releaseDate: '25/07/2003' },\r\n      { id: 3, title: 'Paper Mario', available: true, releaseDate: '11/08/2000' },\r\n      { id: 4, title: 'Pokémon SoulSilver', available: false, releaseDate: '12/09/2009' },\r\n      { id: 5, title: \"Geoff Crammond's Grand Prix 4\", available: false, releaseDate: '09/12/2002' },\r\n      { id: 6, title: \"Alex Kidd in Miracle World\", available: true, releaseDate: '01/11/1996' }\r\n    ]\r\n  )",
+                    "defaultValue": "new BasicTableData(\r\n    ['id', 'title', 'available', 'releaseDate'],\r\n    ['demo.id', 'demo.title', 'demo.available', 'demo.releaseDate'],\r\n    ['id', 'title', 'available', 'releaseDate'],\r\n    [\r\n      { id: 1, title: 'Super Metroid', available: true, releaseDate: new Date('1994-03-19') },\r\n      { id: 2, title: 'F-Zero GX', available: false, releaseDate: new Date('2003-07-25') },\r\n      { id: 3, title: 'Paper Mario', available: true, releaseDate: new Date('2000-08-11') },\r\n      { id: 4, title: 'Pokémon SoulSilver', available: false, releaseDate: new Date('2009-09-12') },\r\n      { id: 5, title: \"Geoff Crammond's Grand Prix 4\", available: false, releaseDate: new Date('2002-12-09') },\r\n      { id: 6, title: \"Alex Kidd in Miracle World\", available: false, releaseDate: new Date('1986-11-01') },\r\n      { id: 7, title: \"Tomb Raider\", available: true, releaseDate: new Date('1996-10-25') },\r\n      { id: 8, title: \"Rayman 3: Hoodlum Havoc\", available: true, releaseDate: new Date('2003-03-18') },\r\n      { id: 9, title: \"God of War\", available: true, releaseDate: new Date('2018-04-20') },\r\n      { id: 10, title: \"S4 League\", available: false, releaseDate: new Date('2008-10-09') },\r\n      { id: 11, title: \"Battlefield 2142\", available: false, releaseDate: new Date('2006-10-17') },\r\n      { id: 12, title: \"Lotus III: The Ultimate Challenge\", available: false, releaseDate: new Date('1992-06-13') }\r\n    ]\r\n  )",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3125,7 +3393,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input} from '@angular/core';\r\nimport {BasicTableData} from '../biit-table/basic-table-data';\r\n\r\n@Component({\r\n  selector: 'app-biit-table-demo',\r\n  templateUrl: './biit-table-demo.component.html',\r\n  styleUrls: ['./biit-table-demo.component.scss']\r\n})\r\nexport class BiitTableDemoComponent {\r\n\r\n  @Input() locale: string = 'en';\r\n\r\n  basicTableData = new BasicTableData(\r\n    ['id', 'title', 'available', 'releaseDate'],\r\n    ['demo.id', 'demo.title', 'demo.available', 'demo.releaseDate'],\r\n    ['id', 'title', 'available', 'releaseDate'],\r\n    [\r\n      { id: 1, title: 'Super Metroid', available: true, releaseDate: '19/03/1994' },\r\n      { id: 2, title: 'F-Zero GX', available: false, releaseDate: '25/07/2003' },\r\n      { id: 3, title: 'Paper Mario', available: true, releaseDate: '11/08/2000' },\r\n      { id: 4, title: 'Pokémon SoulSilver', available: false, releaseDate: '12/09/2009' },\r\n      { id: 5, title: \"Geoff Crammond's Grand Prix 4\", available: false, releaseDate: '09/12/2002' },\r\n      { id: 6, title: \"Alex Kidd in Miracle World\", available: true, releaseDate: '01/11/1996' }\r\n    ]\r\n  );\r\n\r\n  constructor() {}\r\n\r\n}\r\n",
+            "sourceCode": "import {Component, Input} from '@angular/core';\r\nimport {BasicTableData} from '../biit-table/basic-table-data';\r\n\r\n@Component({\r\n  selector: 'app-biit-table-demo',\r\n  templateUrl: './biit-table-demo.component.html',\r\n  styleUrls: ['./biit-table-demo.component.scss']\r\n})\r\nexport class BiitTableDemoComponent {\r\n\r\n  @Input() locale: string = 'en';\r\n\r\n  basicTableData = new BasicTableData(\r\n    ['id', 'title', 'available', 'releaseDate'],\r\n    ['demo.id', 'demo.title', 'demo.available', 'demo.releaseDate'],\r\n    ['id', 'title', 'available', 'releaseDate'],\r\n    [\r\n      { id: 1, title: 'Super Metroid', available: true, releaseDate: new Date('1994-03-19') },\r\n      { id: 2, title: 'F-Zero GX', available: false, releaseDate: new Date('2003-07-25') },\r\n      { id: 3, title: 'Paper Mario', available: true, releaseDate: new Date('2000-08-11') },\r\n      { id: 4, title: 'Pokémon SoulSilver', available: false, releaseDate: new Date('2009-09-12') },\r\n      { id: 5, title: \"Geoff Crammond's Grand Prix 4\", available: false, releaseDate: new Date('2002-12-09') },\r\n      { id: 6, title: \"Alex Kidd in Miracle World\", available: false, releaseDate: new Date('1986-11-01') },\r\n      { id: 7, title: \"Tomb Raider\", available: true, releaseDate: new Date('1996-10-25') },\r\n      { id: 8, title: \"Rayman 3: Hoodlum Havoc\", available: true, releaseDate: new Date('2003-03-18') },\r\n      { id: 9, title: \"God of War\", available: true, releaseDate: new Date('2018-04-20') },\r\n      { id: 10, title: \"S4 League\", available: false, releaseDate: new Date('2008-10-09') },\r\n      { id: 11, title: \"Battlefield 2142\", available: false, releaseDate: new Date('2006-10-17') },\r\n      { id: 12, title: \"Lotus III: The Ultimate Challenge\", available: false, releaseDate: new Date('1992-06-13') }\r\n    ]\r\n  );\r\n\r\n  constructor() {}\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3140,7 +3408,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 25
+                "line": 31
             },
             "templateData": "<app-biit-table\r\n  [basicTableData]=\"basicTableData\"\r\n  [locale]=\"'en'\"></app-biit-table>\r\n"
         },
@@ -5225,6 +5493,50 @@
             ]
         },
         {
+            "name": "BiitDropdownModule",
+            "id": "module-BiitDropdownModule-bbf6e339ebd16ea727e85208330f023d302f6f87791055d7aa0725847c443ec5edf2a021c7918d813804fc5c442c3485f9807285ec75e3552b2cdc6ea4dac740",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/biit-ui/controls/src/biit-dropdown/biit-dropdown.module.ts",
+            "methods": [],
+            "sourceCode": "import {NgModule} from '@angular/core';\r\nimport {BiitDropdownComponent} from './biit-dropdown.component';\r\nimport {FormsModule} from '@angular/forms';\r\nimport {BrowserModule} from '@angular/platform-browser';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    BiitDropdownComponent\r\n  ],\r\n  imports: [\r\n    FormsModule,\r\n    BrowserModule\r\n  ],\r\n  exports: [\r\n    BiitDropdownComponent\r\n  ]\r\n})\r\nexport class BiitDropdownModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "BiitDropdownComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "BiitDropdownComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "BiitFilterModule",
             "id": "module-BiitFilterModule-afa86799f1a92a6caf7aea0d448dcde1b02bd2f33e8d17f4405d636de85e96dfccddc7069bec623da12d2c8770646800e6c074e4d11c3255c6d5990f34f114e7",
             "description": "",
@@ -5718,7 +6030,17 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/bar.chart.stories.ts",
+                "file": "src/stories/controls/biit-dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/line.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -5748,16 +6070,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/line.chart.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/charts/radial.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -5768,7 +6080,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/radar.chart.stories.ts",
+                "file": "src/stories/charts/bar.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -5779,6 +6091,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/charts/stacked.bars.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/radar.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -5958,11 +6280,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/bar.chart.stories.ts",
+                "file": "src/stories/controls/biit-dropdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<BarChartComponent>",
-                "defaultValue": "(args: BarChartComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-bar-chart\r\n      [width]=\"width\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [horizontal]=\"horizontal\"\r\n      [colors]=\"colors\"\r\n      [barThicknessPercentage]=\"barThicknessPercentage\"\r\n      [showValuesLabels]=\"showValuesLabels\"\r\n      [xAxisOnTop]=\"xAxisOnTop\"\r\n      [xAxisTitle]=\"xAxisTitle\"\r\n      [yAxisTitle]=\"yAxisTitle\"\r\n      [showYAxis]=\"showYAxis\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [borderRadius]=\"borderRadius\"\r\n      [legendPosition]=\"legendPosition\"\r\n      [shadow]=\"shadow\"\r\n    >\r\n    </app-bar-chart>`\r\n})"
+                "type": "Story<BiitDropdownComponent<literal type>>",
+                "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\r\n  props: args,\r\n  template:`\r\n    <app-biit-dropdown [(ngModel)]=\"value\"\r\n                       [label]=\"'name'\"\r\n    ></app-biit-dropdown>\r\n`\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/line.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<LineChartModule>",
+                "defaultValue": "(args: LineChartModule) => ({\r\n  props: args,\r\n  template: `\r\n    <app-line-chart\r\n      [width]=\"width\"\r\n      [height]=\"height\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [horizontal]=\"horizontal\"\r\n      [colors]=\"colors\"\r\n      [barThicknessPercentage]=\"barThicknessPercentage\"\r\n      [showValuesLabels]=\"showValuesLabels\"\r\n      [xAxisOnTop]=\"xAxisOnTop\"\r\n      [xAxisTitle]=\"xAxisTitle\"\r\n      [yAxisTitle]=\"yAxisTitle\"\r\n      [showYAxis]=\"showYAxis\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [curve]=\"curve\"\r\n      [shadow]=\"shadow\"\r\n      [strokeWidth]=\"strokeWidth\"\r\n    >\r\n    </app-line-chart>`\r\n})"
             },
             {
                 "name": "Template",
@@ -5988,16 +6320,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/line.chart.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<LineChartModule>",
-                "defaultValue": "(args: LineChartModule) => ({\r\n  props: args,\r\n  template: `\r\n    <app-line-chart\r\n      [width]=\"width\"\r\n      [height]=\"height\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [horizontal]=\"horizontal\"\r\n      [colors]=\"colors\"\r\n      [barThicknessPercentage]=\"barThicknessPercentage\"\r\n      [showValuesLabels]=\"showValuesLabels\"\r\n      [xAxisOnTop]=\"xAxisOnTop\"\r\n      [xAxisTitle]=\"xAxisTitle\"\r\n      [yAxisTitle]=\"yAxisTitle\"\r\n      [showYAxis]=\"showYAxis\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [curve]=\"curve\"\r\n      [shadow]=\"shadow\"\r\n      [strokeWidth]=\"strokeWidth\"\r\n    >\r\n    </app-line-chart>`\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/charts/radial.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -6008,11 +6330,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/radar.chart.stories.ts",
+                "file": "src/stories/charts/bar.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<RadarChartModule>",
-                "defaultValue": "(args: RadarChartModule) => ({\r\n  props: args,\r\n  template: `\r\n    <app-radar-chart\r\n      [width]=\"width\"\r\n      [radarSize]=\"radarSize\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [colors]=\"colors\"\r\n      [showValuesLabels]=\"showValuesLabels\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [shadow]=\"shadow\"\r\n      [opacity]=\"opacity\"\r\n      [strokeWidth]=\"strokeWidth\"\r\n      [innerColors]=\"innerColors\"\r\n      [legendPosition]=\"legendPosition\"\r\n    >\r\n    </app-radar-chart>`\r\n})"
+                "type": "Story<BarChartComponent>",
+                "defaultValue": "(args: BarChartComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-bar-chart\r\n      [width]=\"width\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [horizontal]=\"horizontal\"\r\n      [colors]=\"colors\"\r\n      [barThicknessPercentage]=\"barThicknessPercentage\"\r\n      [showValuesLabels]=\"showValuesLabels\"\r\n      [xAxisOnTop]=\"xAxisOnTop\"\r\n      [xAxisTitle]=\"xAxisTitle\"\r\n      [yAxisTitle]=\"yAxisTitle\"\r\n      [showYAxis]=\"showYAxis\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [borderRadius]=\"borderRadius\"\r\n      [legendPosition]=\"legendPosition\"\r\n      [shadow]=\"shadow\"\r\n    >\r\n    </app-bar-chart>`\r\n})"
             },
             {
                 "name": "Template",
@@ -6023,6 +6345,16 @@
                 "deprecationMessage": "",
                 "type": "Story<StackedBarsChartComponent>",
                 "defaultValue": "(args: StackedBarsChartComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-stacked-bars-chart\r\n      [width]=\"width\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [horizontal]=\"horizontal\"\r\n      [colors]=\"colors\"\r\n      [barThicknessPercentage]=\"barThicknessPercentage\"\r\n      [showValuesLabels]=\"showValuesLabels\"\r\n      [xAxisOnTop]=\"xAxisOnTop\"\r\n      [xAxisTitle]=\"xAxisTitle\"\r\n      [yAxisTitle]=\"yAxisTitle\"\r\n      [showYAxis]=\"showYAxis\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [borderRadius]=\"borderRadius\"\r\n      [enableTotals]=\"enableTotals\"\r\n      [legendPosition]=\"legendPosition\"\r\n      [shadow]=\"shadow\"\r\n      [stackType]=\"stackType\"\r\n    >\r\n    </app-stacked-bars-chart>`\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/radar.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<RadarChartModule>",
+                "defaultValue": "(args: RadarChartModule) => ({\r\n  props: args,\r\n  template: `\r\n    <app-radar-chart\r\n      [width]=\"width\"\r\n      [radarSize]=\"radarSize\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [colors]=\"colors\"\r\n      [showValuesLabels]=\"showValuesLabels\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [shadow]=\"shadow\"\r\n      [opacity]=\"opacity\"\r\n      [strokeWidth]=\"strokeWidth\"\r\n      [innerColors]=\"innerColors\"\r\n      [legendPosition]=\"legendPosition\"\r\n    >\r\n    </app-radar-chart>`\r\n})"
             }
         ],
         "functions": [
@@ -6083,7 +6415,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/bar-chart/bar-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -6094,7 +6426,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/bar-chart/bar-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -6299,12 +6631,12 @@
                     "defaultValue": "(args: BiitTableComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-table-demo\r\n      [locale]=\"locale\"\r\n    ></app-biit-table-demo>`\r\n})"
                 }
             ],
-            "src/stories/charts/bar.chart.stories.ts": [
+            "src/stories/controls/biit-dropdown.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/charts/bar.chart.stories.ts",
+                    "file": "src/stories/controls/biit-dropdown.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -6314,11 +6646,33 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/charts/bar.chart.stories.ts",
+                    "file": "src/stories/controls/biit-dropdown.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<BarChartComponent>",
-                    "defaultValue": "(args: BarChartComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-bar-chart\r\n      [width]=\"width\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [horizontal]=\"horizontal\"\r\n      [colors]=\"colors\"\r\n      [barThicknessPercentage]=\"barThicknessPercentage\"\r\n      [showValuesLabels]=\"showValuesLabels\"\r\n      [xAxisOnTop]=\"xAxisOnTop\"\r\n      [xAxisTitle]=\"xAxisTitle\"\r\n      [yAxisTitle]=\"yAxisTitle\"\r\n      [showYAxis]=\"showYAxis\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [borderRadius]=\"borderRadius\"\r\n      [legendPosition]=\"legendPosition\"\r\n      [shadow]=\"shadow\"\r\n    >\r\n    </app-bar-chart>`\r\n})"
+                    "type": "Story<BiitDropdownComponent<literal type>>",
+                    "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\r\n  props: args,\r\n  template:`\r\n    <app-biit-dropdown [(ngModel)]=\"value\"\r\n                       [label]=\"'name'\"\r\n    ></app-biit-dropdown>\r\n`\r\n})"
+                }
+            ],
+            "src/stories/charts/line.chart.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/line.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/line.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<LineChartModule>",
+                    "defaultValue": "(args: LineChartModule) => ({\r\n  props: args,\r\n  template: `\r\n    <app-line-chart\r\n      [width]=\"width\"\r\n      [height]=\"height\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [horizontal]=\"horizontal\"\r\n      [colors]=\"colors\"\r\n      [barThicknessPercentage]=\"barThicknessPercentage\"\r\n      [showValuesLabels]=\"showValuesLabels\"\r\n      [xAxisOnTop]=\"xAxisOnTop\"\r\n      [xAxisTitle]=\"xAxisTitle\"\r\n      [yAxisTitle]=\"yAxisTitle\"\r\n      [showYAxis]=\"showYAxis\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [curve]=\"curve\"\r\n      [shadow]=\"shadow\"\r\n      [strokeWidth]=\"strokeWidth\"\r\n    >\r\n    </app-line-chart>`\r\n})"
                 }
             ],
             "src/stories/charts/gauge.chart.stories.ts": [
@@ -6365,28 +6719,6 @@
                     "defaultValue": "(args: PieChartModule) => ({\r\n  props: args,\r\n  template: `\r\n    <app-pie-chart\r\n      [width]=\"width\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [colors]=\"colors\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [isDonut]=\"isDonut\"\r\n      [fill]=\"fill\"\r\n      [shadow]=\"shadow\"\r\n      [legendPosition]=\"legendPosition\"\r\n    >\r\n    </app-pie-chart>`\r\n})"
                 }
             ],
-            "src/stories/charts/line.chart.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/charts/line.chart.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/charts/line.chart.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<LineChartModule>",
-                    "defaultValue": "(args: LineChartModule) => ({\r\n  props: args,\r\n  template: `\r\n    <app-line-chart\r\n      [width]=\"width\"\r\n      [height]=\"height\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [horizontal]=\"horizontal\"\r\n      [colors]=\"colors\"\r\n      [barThicknessPercentage]=\"barThicknessPercentage\"\r\n      [showValuesLabels]=\"showValuesLabels\"\r\n      [xAxisOnTop]=\"xAxisOnTop\"\r\n      [xAxisTitle]=\"xAxisTitle\"\r\n      [yAxisTitle]=\"yAxisTitle\"\r\n      [showYAxis]=\"showYAxis\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [curve]=\"curve\"\r\n      [shadow]=\"shadow\"\r\n      [strokeWidth]=\"strokeWidth\"\r\n    >\r\n    </app-line-chart>`\r\n})"
-                }
-            ],
             "src/stories/charts/radial.chart.stories.ts": [
                 {
                     "name": "Default",
@@ -6409,12 +6741,12 @@
                     "defaultValue": "(args: RadialChartModule) => ({\r\n  props: args,\r\n  template: `\r\n    <app-radial-chart\r\n      [width]=\"width\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [colors]=\"colors\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [shadow]=\"shadow\"\r\n      [legendPosition]=\"legendPosition\"\r\n      [innerCirclePercentage]=\"innerCirclePercentage\"\r\n      [startAngle]=\"startAngle\"\r\n      [endAngle]=\"endAngle\"\r\n    >\r\n    </app-radial-chart>`\r\n})"
                 }
             ],
-            "src/stories/charts/radar.chart.stories.ts": [
+            "src/stories/charts/bar.chart.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/charts/radar.chart.stories.ts",
+                    "file": "src/stories/charts/bar.chart.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -6424,11 +6756,11 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/charts/radar.chart.stories.ts",
+                    "file": "src/stories/charts/bar.chart.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<RadarChartModule>",
-                    "defaultValue": "(args: RadarChartModule) => ({\r\n  props: args,\r\n  template: `\r\n    <app-radar-chart\r\n      [width]=\"width\"\r\n      [radarSize]=\"radarSize\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [colors]=\"colors\"\r\n      [showValuesLabels]=\"showValuesLabels\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [shadow]=\"shadow\"\r\n      [opacity]=\"opacity\"\r\n      [strokeWidth]=\"strokeWidth\"\r\n      [innerColors]=\"innerColors\"\r\n      [legendPosition]=\"legendPosition\"\r\n    >\r\n    </app-radar-chart>`\r\n})"
+                    "type": "Story<BarChartComponent>",
+                    "defaultValue": "(args: BarChartComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-bar-chart\r\n      [width]=\"width\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [horizontal]=\"horizontal\"\r\n      [colors]=\"colors\"\r\n      [barThicknessPercentage]=\"barThicknessPercentage\"\r\n      [showValuesLabels]=\"showValuesLabels\"\r\n      [xAxisOnTop]=\"xAxisOnTop\"\r\n      [xAxisTitle]=\"xAxisTitle\"\r\n      [yAxisTitle]=\"yAxisTitle\"\r\n      [showYAxis]=\"showYAxis\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [borderRadius]=\"borderRadius\"\r\n      [legendPosition]=\"legendPosition\"\r\n      [shadow]=\"shadow\"\r\n    >\r\n    </app-bar-chart>`\r\n})"
                 }
             ],
             "src/stories/charts/stacked.bars.chart.stories.ts": [
@@ -6451,6 +6783,28 @@
                     "deprecationMessage": "",
                     "type": "Story<StackedBarsChartComponent>",
                     "defaultValue": "(args: StackedBarsChartComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-stacked-bars-chart\r\n      [width]=\"width\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [horizontal]=\"horizontal\"\r\n      [colors]=\"colors\"\r\n      [barThicknessPercentage]=\"barThicknessPercentage\"\r\n      [showValuesLabels]=\"showValuesLabels\"\r\n      [xAxisOnTop]=\"xAxisOnTop\"\r\n      [xAxisTitle]=\"xAxisTitle\"\r\n      [yAxisTitle]=\"yAxisTitle\"\r\n      [showYAxis]=\"showYAxis\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [borderRadius]=\"borderRadius\"\r\n      [enableTotals]=\"enableTotals\"\r\n      [legendPosition]=\"legendPosition\"\r\n      [shadow]=\"shadow\"\r\n      [stackType]=\"stackType\"\r\n    >\r\n    </app-stacked-bars-chart>`\r\n})"
+                }
+            ],
+            "src/stories/charts/radar.chart.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/radar.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/radar.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<RadarChartModule>",
+                    "defaultValue": "(args: RadarChartModule) => ({\r\n  props: args,\r\n  template: `\r\n    <app-radar-chart\r\n      [width]=\"width\"\r\n      [radarSize]=\"radarSize\"\r\n      [showToolbar]=\"showToolbar\"\r\n      [colors]=\"colors\"\r\n      [showValuesLabels]=\"showValuesLabels\"\r\n      [title]=\"title\"\r\n      [titleAlignment]=\"titleAlignment\"\r\n      [fill]=\"fill\"\r\n      [shadow]=\"shadow\"\r\n      [opacity]=\"opacity\"\r\n      [strokeWidth]=\"strokeWidth\"\r\n      [innerColors]=\"innerColors\"\r\n      [legendPosition]=\"legendPosition\"\r\n    >\r\n    </app-radar-chart>`\r\n})"
                 }
             ],
             "src/stories/Button.stories.ts": [
@@ -6641,19 +6995,6 @@
                     "kind": 186
                 }
             ],
-            "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
-                {
-                    "name": "Data",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "literal type",
-                    "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 181
-                }
-            ],
             "projects/biit-ui/charts/src/bar-chart/bar-chart-data.ts": [
                 {
                     "name": "Data",
@@ -6661,6 +7002,19 @@
                     "subtype": "typealias",
                     "rawtype": "literal type",
                     "file": "projects/biit-ui/charts/src/bar-chart/bar-chart-data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
+            ],
+            "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
+                {
+                    "name": "Data",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -7001,6 +7355,15 @@
                 "name": "StackedBarsChartComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/27",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/biit-ui/controls/src/biit-dropdown/biit-dropdown.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BiitDropdownComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/15",
                 "status": "low"
             },
             {
@@ -7387,6 +7750,26 @@
             },
             {
                 "filePath": "src/stories/charts/stacked.bars.chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/controls/biit-dropdown.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/controls/biit-dropdown.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

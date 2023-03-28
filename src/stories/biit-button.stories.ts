@@ -48,7 +48,7 @@ export default {
       name: 'disabled',
       type: { name: 'boolean', required: false },
       defaultValue: 'false',
-      description: 'Disables the component interaction.',
+      description: 'Disables component interactions.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
