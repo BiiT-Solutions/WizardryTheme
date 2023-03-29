@@ -9,8 +9,8 @@ new folder inside it with the name of your component. For example `projects/biit
 
 Now generate the component and the module files:
 ```
-ng generate component ../../projects/biit-ui/mycomponent/src/mycustomcomponent --skip-import
 ng generate module ../../projects/biit-ui/mycomponent/src/mycustomcomponent
+ng generate component ../../projects/biit-ui/mycomponent/src/mycustomcomponent
 ```
 
 ## Define your component
