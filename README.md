@@ -103,4 +103,24 @@ To run and test the storybook, simply execute:
 npm run storybook
 ```
 
+### Compiling the storybook
+
+To compile storybook, run next command:
+
+```
+npm run build-storybook
+```
+
+### Publishing the storybook
+
+If you need to publish. A script has been created on package.json.
+To do it, just run the next command:
+
+```
+npm run publish-storybook
+```
+
+This command will compile the project it will copy README and package.json to 
+the proper dist directory and, finally it will publish.
+
 # Consuming a component in your application
