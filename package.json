@@ -1,6 +1,6 @@
 {
-  "name": "biit-frontend-components",
-  "version": "1.1.7",
+  "name": "storybook-biit",
+  "version": "1.1.8",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +10,7 @@
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
     "build-storybook": "npm run docs:json && build-storybook",
-    "prepare-publication" : "cp ./package.json ./storybook-static/ && cp ./README.md ./storybook-static/",
+    "prepare-publication": "cp ./package.json ./storybook-static/ && cp ./README.md ./storybook-static/",
     "publish-storybook": "npm run build-storybook && npm run prepare-publication && npm publish ./storybook-static"
   },
   "private": false,
