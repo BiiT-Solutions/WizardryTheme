@@ -123,4 +123,12 @@ npm run publish-storybook
 This command will compile the project it will copy README and package.json to 
 the proper dist directory and, finally it will publish.
 
+### Generating compressed distribution
+
+To get a compressed distribution in /dist-zip/storyboo.gz. Simply run: 
+
+```
+npm run generate-zip
+```
+
 # Consuming a component in your application

@@ -11,6 +11,7 @@
     "storybook": "npm run docs:json && start-storybook -p 6006",
     "build-storybook": "npm run docs:json && build-storybook",
     "prepare-publication": "cp ./package.json ./storybook-static/ && cp ./README.md ./storybook-static/",
+    "generate-zip": "mkdir -p ./dist-zip && tar -zcvf ./dist-zip/storybook.gz ./storybook-static",
     "publish-storybook": "npm run build-storybook && npm run prepare-publication && npm publish ./storybook-static"
   },
   "private": false,
