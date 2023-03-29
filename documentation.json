@@ -6017,7 +6017,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/pie.chart.stories.ts",
+                "file": "src/stories/charts/line.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6027,7 +6027,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/radial.chart.stories.ts",
+                "file": "src/stories/charts/pie.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6047,17 +6047,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/line.chart.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/controls/biit-dropdown.stories.ts",
+                "file": "src/stories/charts/radial.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6068,6 +6058,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/charts/stacked.bars.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/controls/biit-dropdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6267,21 +6267,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/pie.chart.stories.ts",
+                "file": "src/stories/charts/line.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<PieChartModule>",
-                "defaultValue": "(args: PieChartModule) => ({\n  props: args,\n  template: `\n    <app-pie-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [isDonut]=\"isDonut\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-pie-chart>`\n})"
+                "type": "Story<LineChartModule>",
+                "defaultValue": "(args: LineChartModule) => ({\n  props: args,\n  template: `\n    <app-line-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [curve]=\"curve\"\n      [shadow]=\"shadow\"\n      [strokeWidth]=\"strokeWidth\"\n    >\n    </app-line-chart>`\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/radial.chart.stories.ts",
+                "file": "src/stories/charts/pie.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<RadialChartModule>",
-                "defaultValue": "(args: RadialChartModule) => ({\n  props: args,\n  template: `\n    <app-radial-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n      [innerCirclePercentage]=\"innerCirclePercentage\"\n      [startAngle]=\"startAngle\"\n      [endAngle]=\"endAngle\"\n    >\n    </app-radial-chart>`\n})"
+                "type": "Story<PieChartModule>",
+                "defaultValue": "(args: PieChartModule) => ({\n  props: args,\n  template: `\n    <app-pie-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [isDonut]=\"isDonut\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-pie-chart>`\n})"
             },
             {
                 "name": "Template",
@@ -6297,21 +6297,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/line.chart.stories.ts",
+                "file": "src/stories/charts/radial.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<LineChartModule>",
-                "defaultValue": "(args: LineChartModule) => ({\n  props: args,\n  template: `\n    <app-line-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [curve]=\"curve\"\n      [shadow]=\"shadow\"\n      [strokeWidth]=\"strokeWidth\"\n    >\n    </app-line-chart>`\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/controls/biit-dropdown.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<BiitDropdownComponent<literal type>>",
-                "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
+                "type": "Story<RadialChartModule>",
+                "defaultValue": "(args: RadialChartModule) => ({\n  props: args,\n  template: `\n    <app-radial-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n      [innerCirclePercentage]=\"innerCirclePercentage\"\n      [startAngle]=\"startAngle\"\n      [endAngle]=\"endAngle\"\n    >\n    </app-radial-chart>`\n})"
             },
             {
                 "name": "Template",
@@ -6322,6 +6312,16 @@
                 "deprecationMessage": "",
                 "type": "Story<StackedBarsChartComponent>",
                 "defaultValue": "(args: StackedBarsChartComponent) => ({\n  props: args,\n  template: `\n    <app-stacked-bars-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [borderRadius]=\"borderRadius\"\n      [enableTotals]=\"enableTotals\"\n      [legendPosition]=\"legendPosition\"\n      [shadow]=\"shadow\"\n      [stackType]=\"stackType\"\n    >\n    </app-stacked-bars-chart>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/controls/biit-dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitDropdownComponent<literal type>>",
+                "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
             }
         ],
         "functions": [
@@ -6642,6 +6642,28 @@
                     "defaultValue": "(args: GaugeChartModule) => ({\n  props: args,\n  template: `\n    <app-gauge-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [opacity]=\"opacity\"\n      [shadow]=\"shadow\"\n      [innerCirclePercentage]=\"innerCirclePercentage\"\n      [trackBackgroundColor]=\"trackBackgroundColor\"\n      [trackBackgroundThicknessPercentage]=\"trackBackgroundThicknessPercentage\"\n    >\n    </app-gauge-chart>`\n})"
                 }
             ],
+            "src/stories/charts/line.chart.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/line.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/line.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<LineChartModule>",
+                    "defaultValue": "(args: LineChartModule) => ({\n  props: args,\n  template: `\n    <app-line-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [curve]=\"curve\"\n      [shadow]=\"shadow\"\n      [strokeWidth]=\"strokeWidth\"\n    >\n    </app-line-chart>`\n})"
+                }
+            ],
             "src/stories/charts/pie.chart.stories.ts": [
                 {
                     "name": "Default",
@@ -6662,28 +6684,6 @@
                     "deprecationMessage": "",
                     "type": "Story<PieChartModule>",
                     "defaultValue": "(args: PieChartModule) => ({\n  props: args,\n  template: `\n    <app-pie-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [isDonut]=\"isDonut\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-pie-chart>`\n})"
-                }
-            ],
-            "src/stories/charts/radial.chart.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/charts/radial.chart.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/charts/radial.chart.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<RadialChartModule>",
-                    "defaultValue": "(args: RadialChartModule) => ({\n  props: args,\n  template: `\n    <app-radial-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n      [innerCirclePercentage]=\"innerCirclePercentage\"\n      [startAngle]=\"startAngle\"\n      [endAngle]=\"endAngle\"\n    >\n    </app-radial-chart>`\n})"
                 }
             ],
             "src/stories/charts/radar.chart.stories.ts": [
@@ -6708,12 +6708,12 @@
                     "defaultValue": "(args: RadarChartModule) => ({\n  props: args,\n  template: `\n    <app-radar-chart\n      [width]=\"width\"\n      [radarSize]=\"radarSize\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [opacity]=\"opacity\"\n      [strokeWidth]=\"strokeWidth\"\n      [innerColors]=\"innerColors\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-radar-chart>`\n})"
                 }
             ],
-            "src/stories/charts/line.chart.stories.ts": [
+            "src/stories/charts/radial.chart.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/charts/line.chart.stories.ts",
+                    "file": "src/stories/charts/radial.chart.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -6723,33 +6723,11 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/charts/line.chart.stories.ts",
+                    "file": "src/stories/charts/radial.chart.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<LineChartModule>",
-                    "defaultValue": "(args: LineChartModule) => ({\n  props: args,\n  template: `\n    <app-line-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [curve]=\"curve\"\n      [shadow]=\"shadow\"\n      [strokeWidth]=\"strokeWidth\"\n    >\n    </app-line-chart>`\n})"
-                }
-            ],
-            "src/stories/controls/biit-dropdown.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/controls/biit-dropdown.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/controls/biit-dropdown.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<BiitDropdownComponent<literal type>>",
-                    "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
+                    "type": "Story<RadialChartModule>",
+                    "defaultValue": "(args: RadialChartModule) => ({\n  props: args,\n  template: `\n    <app-radial-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n      [innerCirclePercentage]=\"innerCirclePercentage\"\n      [startAngle]=\"startAngle\"\n      [endAngle]=\"endAngle\"\n    >\n    </app-radial-chart>`\n})"
                 }
             ],
             "src/stories/charts/stacked.bars.chart.stories.ts": [
@@ -6772,6 +6750,28 @@
                     "deprecationMessage": "",
                     "type": "Story<StackedBarsChartComponent>",
                     "defaultValue": "(args: StackedBarsChartComponent) => ({\n  props: args,\n  template: `\n    <app-stacked-bars-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [borderRadius]=\"borderRadius\"\n      [enableTotals]=\"enableTotals\"\n      [legendPosition]=\"legendPosition\"\n      [shadow]=\"shadow\"\n      [stackType]=\"stackType\"\n    >\n    </app-stacked-bars-chart>`\n})"
+                }
+            ],
+            "src/stories/controls/biit-dropdown.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/controls/biit-dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/controls/biit-dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiitDropdownComponent<literal type>>",
+                    "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
                 }
             ],
             "src/stories/Button.stories.ts": [
