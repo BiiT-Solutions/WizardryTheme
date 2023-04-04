@@ -5,7 +5,6 @@ import {
   ApexFill,
   ApexLegend,
   ApexNonAxisChartSeries,
-  ApexPlotOptions,
   ApexResponsive,
   ApexTitleSubtitle,
   ChartComponent
@@ -114,5 +113,9 @@ export class PieChartComponent implements OnInit {
         position: this.legendPosition
       },
     };
+  }
+
+  update(data: PieChartData) {
+    this.chart.updateSeries(data.getData());
   }
 }

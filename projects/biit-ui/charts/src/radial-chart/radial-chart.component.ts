@@ -131,4 +131,8 @@ export class RadialChartComponent implements OnInit {
       },
     };
   }
+
+  update(data: RadialChartData) {
+    this.chart.updateSeries(data.getData());
+  }
 }

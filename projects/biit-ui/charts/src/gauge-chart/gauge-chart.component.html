@@ -1,13 +1,13 @@
 <div id="chart" *ngIf="gaugeChartOptions">
   <div class="box shadow" [ngStyle]="{'height': [height]+'px'}">
-    <apx-chart
-      [series]="gaugeChartOptions.series"
-      [colors]="gaugeChartOptions.colors"
-      [fill]="gaugeChartOptions.fill"
-      [chart]="gaugeChartOptions.chart"
-      [plotOptions]="gaugeChartOptions.plotOptions"
-      [title]="gaugeChartOptions.title"
-      [labels]="gaugeChartOptions.labels"
+    <apx-chart #chart
+               [series]="gaugeChartOptions.series"
+               [colors]="gaugeChartOptions.colors"
+               [fill]="gaugeChartOptions.fill"
+               [chart]="gaugeChartOptions.chart"
+               [plotOptions]="gaugeChartOptions.plotOptions"
+               [title]="gaugeChartOptions.title"
+               [labels]="gaugeChartOptions.labels"
     ></apx-chart>
   </div>
 </div>

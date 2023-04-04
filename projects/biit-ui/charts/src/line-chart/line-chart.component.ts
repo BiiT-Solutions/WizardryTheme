@@ -155,4 +155,8 @@ export class LineChartComponent implements OnInit {
       },
     };
   }
+
+  update(data: LineChartData) {
+    this.chart.updateSeries(data.getData());
+  }
 }

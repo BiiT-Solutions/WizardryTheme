@@ -48,12 +48,12 @@
     "classes": [
         {
             "name": "BarChartData",
-            "id": "class-BarChartData-5b0d441af2c669f223f4fbf077d36c29f194ea66c28ba8e378c6008ef56f52bff1d8c9e1d47de01d9cff25c127c539379672c50f56a41d4528f012c20f242f62",
+            "id": "class-BarChartData-5334f98dd952a5edffdf2ee16c8fff5ed3fec3bd8afa23f9afc56c1a27c765a4e8372890483f39806ed34ed795f3e62fac939e4cb51f6bcd919af1efc5107ed2",
             "file": "projects/biit-ui/charts/src/bar-chart/bar-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class BarChartData {\n  name: string | undefined;\n  elements: BarChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): BarChartData {\n    const barChartData: BarChartData = new BarChartData();\n    barChartData.elements = [];\n    for (const element of elements) {\n      barChartData.elements.push(new BarChartDataElement(element[0], element[1]));\n    }\n    return barChartData;\n  }\n\n  public static fromDataElements(elements: BarChartDataElement[]): BarChartData {\n    const barChartData: BarChartData = new BarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string) {\n    this.name = name;\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.x);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.y);\n  }\n\n  getData(): Data[] {\n    return [{\n      name: this.name ? this.name : \"\",\n      data: this.getValues()\n    }]\n  }\n}\n\nexport class BarChartDataElement {\n  x: string;\n  y: number;\n\n  constructor(x: string, y: number) {\n    this.x = x;\n    this.y = y;\n  }\n}\n\ntype Data = {\n  name: string ,\n  data: number[]\n};\n",
+            "sourceCode": "export class BarChartData {\n  name: string | undefined;\n  elements: BarChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): BarChartData {\n    const barChartData: BarChartData = new BarChartData();\n    barChartData.elements = [];\n    for (const element of elements) {\n      barChartData.elements.push(new BarChartDataElement(element[0], element[1]));\n    }\n    return barChartData;\n  }\n\n  public static fromDataElements(elements: BarChartDataElement[]): BarChartData {\n    const barChartData: BarChartData = new BarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string) {\n    this.name = name;\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.x);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.y);\n  }\n\n  getData(): Data[] {\n    return [{\n      name: this.name ? this.name : \"\",\n      data: this.getValues()\n    }]\n  }\n}\n\nexport class BarChartDataElement {\n  x: string;\n  y: number;\n\n  constructor(x: string, y: number) {\n    this.x = x;\n    this.y = y;\n  }\n}\n\ntype Data = {\n  name: string,\n  data: number[]\n};\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -172,7 +172,7 @@
                     "optional": false,
                     "returnType": "Data[]",
                     "typeParameters": [],
-                    "line": 32,
+                    "line": 33,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -182,7 +182,7 @@
                     "optional": false,
                     "returnType": "string[]",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -192,7 +192,7 @@
                     "optional": false,
                     "returnType": "number[]",
                     "typeParameters": [],
-                    "line": 28,
+                    "line": 29,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -205,12 +205,12 @@
         },
         {
             "name": "BarChartDataElement",
-            "id": "class-BarChartDataElement-5b0d441af2c669f223f4fbf077d36c29f194ea66c28ba8e378c6008ef56f52bff1d8c9e1d47de01d9cff25c127c539379672c50f56a41d4528f012c20f242f62",
+            "id": "class-BarChartDataElement-5334f98dd952a5edffdf2ee16c8fff5ed3fec3bd8afa23f9afc56c1a27c765a4e8372890483f39806ed34ed795f3e62fac939e4cb51f6bcd919af1efc5107ed2",
             "file": "projects/biit-ui/charts/src/bar-chart/bar-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class BarChartData {\n  name: string | undefined;\n  elements: BarChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): BarChartData {\n    const barChartData: BarChartData = new BarChartData();\n    barChartData.elements = [];\n    for (const element of elements) {\n      barChartData.elements.push(new BarChartDataElement(element[0], element[1]));\n    }\n    return barChartData;\n  }\n\n  public static fromDataElements(elements: BarChartDataElement[]): BarChartData {\n    const barChartData: BarChartData = new BarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string) {\n    this.name = name;\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.x);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.y);\n  }\n\n  getData(): Data[] {\n    return [{\n      name: this.name ? this.name : \"\",\n      data: this.getValues()\n    }]\n  }\n}\n\nexport class BarChartDataElement {\n  x: string;\n  y: number;\n\n  constructor(x: string, y: number) {\n    this.x = x;\n    this.y = y;\n  }\n}\n\ntype Data = {\n  name: string ,\n  data: number[]\n};\n",
+            "sourceCode": "export class BarChartData {\n  name: string | undefined;\n  elements: BarChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): BarChartData {\n    const barChartData: BarChartData = new BarChartData();\n    barChartData.elements = [];\n    for (const element of elements) {\n      barChartData.elements.push(new BarChartDataElement(element[0], element[1]));\n    }\n    return barChartData;\n  }\n\n  public static fromDataElements(elements: BarChartDataElement[]): BarChartData {\n    const barChartData: BarChartData = new BarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string) {\n    this.name = name;\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.x);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.y);\n  }\n\n  getData(): Data[] {\n    return [{\n      name: this.name ? this.name : \"\",\n      data: this.getValues()\n    }]\n  }\n}\n\nexport class BarChartDataElement {\n  x: string;\n  y: number;\n\n  constructor(x: string, y: number) {\n    this.x = x;\n    this.y = y;\n  }\n}\n\ntype Data = {\n  name: string,\n  data: number[]\n};\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -230,7 +230,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 42,
+                "line": 43,
                 "jsdoctags": [
                     {
                         "name": "x",
@@ -260,7 +260,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 41
+                    "line": 42
                 },
                 {
                     "name": "y",
@@ -269,7 +269,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 42
+                    "line": 43
                 }
             ],
             "methods": [],
@@ -487,12 +487,12 @@
         },
         {
             "name": "GaugeChartData",
-            "id": "class-GaugeChartData-df19a6ed976a9e0eb328593a9880b0972db05c65ac53d0256fe5a4b7868be17e540124d187d5f2cee1f2df8e517b96a3b108c9c4bf1ada886a883e4302b9f4ba",
+            "id": "class-GaugeChartData-d772576e877db128b4da2604a828f267a5c3a64099b936f15056cf9bb44eb4dd842139cd1064c89142a1a0b6c1d6f27f272170b7393acc82d5769b6080063438",
             "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class GaugeChartData {\n  name: string | undefined;\n  elements: GaugeChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): GaugeChartData {\n    const radialChartData: GaugeChartData = new GaugeChartData();\n    radialChartData.elements = [];\n    for (const element of elements) {\n      radialChartData.elements.push(new GaugeChartDataElement(element[0], element[1]));\n    }\n    return radialChartData;\n  }\n\n  public static fromDataElements(elements: GaugeChartDataElement[]): GaugeChartData {\n    const radialChartData: GaugeChartData = new GaugeChartData();\n    radialChartData.elements = elements;\n    return radialChartData;\n  }\n\n  constructor(name?: string) {\n    this.name = name;\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.label);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.value);\n  }\n\n  getTotal(): number {\n    return this.elements.reduce((sum, e) => sum + e.value, 0);\n  }\n}\n\nexport class GaugeChartDataElement {\n  label: string;\n  value: number;\n\n  constructor(x: string, y: number) {\n    this.label = x;\n    this.value = y;\n  }\n}\n",
+            "sourceCode": "export class GaugeChartData {\n  name: string | undefined;\n  elements: GaugeChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): GaugeChartData {\n    const radialChartData: GaugeChartData = new GaugeChartData();\n    radialChartData.elements = [];\n    for (const element of elements) {\n      radialChartData.elements.push(new GaugeChartDataElement(element[0], element[1]));\n    }\n    return radialChartData;\n  }\n\n  public static fromDataElements(elements: GaugeChartDataElement[]): GaugeChartData {\n    const radialChartData: GaugeChartData = new GaugeChartData();\n    radialChartData.elements = elements;\n    return radialChartData;\n  }\n\n  constructor(name?: string) {\n    this.name = name;\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.label);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.value);\n  }\n\n  getData(): Data[] {\n    return [{\n      name: this.name ? this.name : \"\",\n      data: this.getValues()\n    }]\n  }\n\n  getTotal(): number {\n    return this.elements.reduce((sum, e) => sum + e.value, 0);\n  }\n}\n\nexport class GaugeChartDataElement {\n  label: string;\n  value: number;\n\n  constructor(x: string, y: number) {\n    this.label = x;\n    this.value = y;\n  }\n}\n\ntype Data = {\n  name: string,\n  data: number[]\n};\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -606,12 +606,22 @@
                     ]
                 },
                 {
+                    "name": "getData",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Data[]",
+                    "typeParameters": [],
+                    "line": 33,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
                     "name": "getLabels",
                     "args": [],
                     "optional": false,
                     "returnType": "string[]",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -621,7 +631,7 @@
                     "optional": false,
                     "returnType": "number",
                     "typeParameters": [],
-                    "line": 32,
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -631,7 +641,7 @@
                     "optional": false,
                     "returnType": "number[]",
                     "typeParameters": [],
-                    "line": 28,
+                    "line": 29,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -644,12 +654,12 @@
         },
         {
             "name": "GaugeChartDataElement",
-            "id": "class-GaugeChartDataElement-df19a6ed976a9e0eb328593a9880b0972db05c65ac53d0256fe5a4b7868be17e540124d187d5f2cee1f2df8e517b96a3b108c9c4bf1ada886a883e4302b9f4ba",
+            "id": "class-GaugeChartDataElement-d772576e877db128b4da2604a828f267a5c3a64099b936f15056cf9bb44eb4dd842139cd1064c89142a1a0b6c1d6f27f272170b7393acc82d5769b6080063438",
             "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class GaugeChartData {\n  name: string | undefined;\n  elements: GaugeChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): GaugeChartData {\n    const radialChartData: GaugeChartData = new GaugeChartData();\n    radialChartData.elements = [];\n    for (const element of elements) {\n      radialChartData.elements.push(new GaugeChartDataElement(element[0], element[1]));\n    }\n    return radialChartData;\n  }\n\n  public static fromDataElements(elements: GaugeChartDataElement[]): GaugeChartData {\n    const radialChartData: GaugeChartData = new GaugeChartData();\n    radialChartData.elements = elements;\n    return radialChartData;\n  }\n\n  constructor(name?: string) {\n    this.name = name;\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.label);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.value);\n  }\n\n  getTotal(): number {\n    return this.elements.reduce((sum, e) => sum + e.value, 0);\n  }\n}\n\nexport class GaugeChartDataElement {\n  label: string;\n  value: number;\n\n  constructor(x: string, y: number) {\n    this.label = x;\n    this.value = y;\n  }\n}\n",
+            "sourceCode": "export class GaugeChartData {\n  name: string | undefined;\n  elements: GaugeChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): GaugeChartData {\n    const radialChartData: GaugeChartData = new GaugeChartData();\n    radialChartData.elements = [];\n    for (const element of elements) {\n      radialChartData.elements.push(new GaugeChartDataElement(element[0], element[1]));\n    }\n    return radialChartData;\n  }\n\n  public static fromDataElements(elements: GaugeChartDataElement[]): GaugeChartData {\n    const radialChartData: GaugeChartData = new GaugeChartData();\n    radialChartData.elements = elements;\n    return radialChartData;\n  }\n\n  constructor(name?: string) {\n    this.name = name;\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.label);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.value);\n  }\n\n  getData(): Data[] {\n    return [{\n      name: this.name ? this.name : \"\",\n      data: this.getValues()\n    }]\n  }\n\n  getTotal(): number {\n    return this.elements.reduce((sum, e) => sum + e.value, 0);\n  }\n}\n\nexport class GaugeChartDataElement {\n  label: string;\n  value: number;\n\n  constructor(x: string, y: number) {\n    this.label = x;\n    this.value = y;\n  }\n}\n\ntype Data = {\n  name: string,\n  data: number[]\n};\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -669,7 +679,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 39,
+                "line": 47,
                 "jsdoctags": [
                     {
                         "name": "x",
@@ -699,7 +709,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 38
+                    "line": 46
                 },
                 {
                     "name": "value",
@@ -708,7 +718,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 39
+                    "line": 47
                 }
             ],
             "methods": [],
@@ -720,12 +730,12 @@
         },
         {
             "name": "LineChartData",
-            "id": "class-LineChartData-9d047acbe48e8e5cadb839b81a53c6b38a889c747a1914c256f7a5038e23377371b57793491e44fa6c65dc8fcc8aca3125751364e7d957f7ca05237dbd40835f",
+            "id": "class-LineChartData-a294f8d217032f8b8867b55f7510d1fbb8bbd7673e0e8b42adb406e5196ff755b460e5f9199332a53de75023d9d5595342be814b1ba6f8c18492e841508da83f",
             "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class LineChartData {\n  name: string[] | undefined;\n  elements: LineChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = [];\n    lineChartData.elements.push(new LineChartDataElement(elements));\n    return lineChartData;\n  }\n\n  public static fromMultipleArray(elements: [string, number][][]): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = [];\n    for (let i = 0; i < elements.length; i++) {\n      lineChartData.elements.push(new LineChartDataElement(elements[i]));\n    }\n    return lineChartData;\n  }\n\n  public static fromDataElements(element: LineChartDataElement): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = [];\n    lineChartData.elements[0] = element;\n    return lineChartData;\n  }\n\n  public static fromMultipleDataElements(elements: LineChartDataElement[]): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = elements;\n    return lineChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n  }\n\n  getLabels(): string[] {\n    const labels: Set<string> = new Set();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        labels.add(point[0]);\n      }\n    }\n    return Array.from(labels);\n  }\n\n  getData(): Data[] {\n    const data: Data[] = [];\n    const labels: string[] = this.getLabels();\n    for (const element of this.elements) {\n      const points: (number | null)[] = [];\n      for (const label of labels) {\n        const point: [string, number] | undefined = element.points.find(p => p[0] == label);\n        if (point) {\n          points.push(point[1]);\n        } else {\n          points.push(null);\n        }\n\n      }\n      data.push({name: element.name!, data: points});\n    }\n    return data;\n  }\n}\n\nexport class LineChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\ntype Data = {\n  name: string,\n  data: (number | null)[]\n};\n",
+            "sourceCode": "export class LineChartData {\n  name: string[] | undefined;\n  elements: LineChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = [];\n    lineChartData.elements.push(new LineChartDataElement(elements));\n    return lineChartData;\n  }\n\n  public static fromMultipleArray(elements: [string, number][][]): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = [];\n    for (let i = 0; i < elements.length; i++) {\n      lineChartData.elements.push(new LineChartDataElement(elements[i]));\n    }\n    return lineChartData;\n  }\n\n  public static fromDataElements(element: LineChartDataElement): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = [];\n    lineChartData.elements[0] = element;\n    return lineChartData;\n  }\n\n  public static fromMultipleDataElements(elements: LineChartDataElement[]): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = elements;\n    return lineChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    const labels: Set<string> = new Set();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        labels.add(point[0]);\n      }\n    }\n    return Array.from(labels);\n  }\n\n  getData(): Data[] {\n    const data: Data[] = [];\n    const labels: string[] = this.getLabels();\n    for (const element of this.elements) {\n      const points: (number | null)[] = [];\n      for (const label of labels) {\n        const point: [string, number] | undefined = element.points.find(p => p[0] == label);\n        if (point) {\n          points.push(point[1]);\n        } else {\n          points.push(null);\n        }\n\n      }\n      data.push({name: element.name!, data: points});\n    }\n    return data;\n  }\n}\n\nexport class LineChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\ntype Data = {\n  name: string,\n  data: (number | null)[]\n};\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -906,7 +916,7 @@
                     "optional": false,
                     "returnType": "Data[]",
                     "typeParameters": [],
-                    "line": 48,
+                    "line": 49,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -916,7 +926,7 @@
                     "optional": false,
                     "returnType": "string[]",
                     "typeParameters": [],
-                    "line": 38,
+                    "line": 39,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -929,12 +939,12 @@
         },
         {
             "name": "LineChartDataElement",
-            "id": "class-LineChartDataElement-9d047acbe48e8e5cadb839b81a53c6b38a889c747a1914c256f7a5038e23377371b57793491e44fa6c65dc8fcc8aca3125751364e7d957f7ca05237dbd40835f",
+            "id": "class-LineChartDataElement-a294f8d217032f8b8867b55f7510d1fbb8bbd7673e0e8b42adb406e5196ff755b460e5f9199332a53de75023d9d5595342be814b1ba6f8c18492e841508da83f",
             "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class LineChartData {\n  name: string[] | undefined;\n  elements: LineChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = [];\n    lineChartData.elements.push(new LineChartDataElement(elements));\n    return lineChartData;\n  }\n\n  public static fromMultipleArray(elements: [string, number][][]): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = [];\n    for (let i = 0; i < elements.length; i++) {\n      lineChartData.elements.push(new LineChartDataElement(elements[i]));\n    }\n    return lineChartData;\n  }\n\n  public static fromDataElements(element: LineChartDataElement): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = [];\n    lineChartData.elements[0] = element;\n    return lineChartData;\n  }\n\n  public static fromMultipleDataElements(elements: LineChartDataElement[]): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = elements;\n    return lineChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n  }\n\n  getLabels(): string[] {\n    const labels: Set<string> = new Set();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        labels.add(point[0]);\n      }\n    }\n    return Array.from(labels);\n  }\n\n  getData(): Data[] {\n    const data: Data[] = [];\n    const labels: string[] = this.getLabels();\n    for (const element of this.elements) {\n      const points: (number | null)[] = [];\n      for (const label of labels) {\n        const point: [string, number] | undefined = element.points.find(p => p[0] == label);\n        if (point) {\n          points.push(point[1]);\n        } else {\n          points.push(null);\n        }\n\n      }\n      data.push({name: element.name!, data: points});\n    }\n    return data;\n  }\n}\n\nexport class LineChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\ntype Data = {\n  name: string,\n  data: (number | null)[]\n};\n",
+            "sourceCode": "export class LineChartData {\n  name: string[] | undefined;\n  elements: LineChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = [];\n    lineChartData.elements.push(new LineChartDataElement(elements));\n    return lineChartData;\n  }\n\n  public static fromMultipleArray(elements: [string, number][][]): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = [];\n    for (let i = 0; i < elements.length; i++) {\n      lineChartData.elements.push(new LineChartDataElement(elements[i]));\n    }\n    return lineChartData;\n  }\n\n  public static fromDataElements(element: LineChartDataElement): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = [];\n    lineChartData.elements[0] = element;\n    return lineChartData;\n  }\n\n  public static fromMultipleDataElements(elements: LineChartDataElement[]): LineChartData {\n    const lineChartData: LineChartData = new LineChartData();\n    lineChartData.elements = elements;\n    return lineChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    const labels: Set<string> = new Set();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        labels.add(point[0]);\n      }\n    }\n    return Array.from(labels);\n  }\n\n  getData(): Data[] {\n    const data: Data[] = [];\n    const labels: string[] = this.getLabels();\n    for (const element of this.elements) {\n      const points: (number | null)[] = [];\n      for (const label of labels) {\n        const point: [string, number] | undefined = element.points.find(p => p[0] == label);\n        if (point) {\n          points.push(point[1]);\n        } else {\n          points.push(null);\n        }\n\n      }\n      data.push({name: element.name!, data: points});\n    }\n    return data;\n  }\n}\n\nexport class LineChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\ntype Data = {\n  name: string,\n  data: (number | null)[]\n};\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -955,7 +965,7 @@
                         "optional": true
                     }
                 ],
-                "line": 71,
+                "line": 72,
                 "jsdoctags": [
                     {
                         "name": "points",
@@ -986,7 +996,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 69
+                    "line": 70
                 },
                 {
                     "name": "points",
@@ -995,7 +1005,7 @@
                     "type": "[]",
                     "optional": false,
                     "description": "",
-                    "line": 71
+                    "line": 72
                 }
             ],
             "methods": [],
@@ -1007,12 +1017,12 @@
         },
         {
             "name": "PieChartData",
-            "id": "class-PieChartData-d8116e417f84cab1b97f214f01ac10983647a586ca44aa99d1d85db8a4b5421b56699684525fa9d574496beb1745fb24ca1031acea7de4c4d9109b203d49ec0e",
+            "id": "class-PieChartData-a06a77f31177be819f0c27d96409b7a22c809521105d9e1c9f0e255e56670346551958a7f6f7209cff508864b05a2eaa39920128107ed7057d01e3b8d118bded",
             "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class PieChartData {\n  elements: PieChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): PieChartData {\n    const pieChartData: PieChartData = new PieChartData();\n    pieChartData.elements = [];\n    for (const element of elements) {\n      pieChartData.elements.push(new PieChartDataElement(element[0], element[1]));\n    }\n    return pieChartData;\n  }\n\n  public static fromDataElements(elements: PieChartDataElement[]): PieChartData {\n    const pieChartData: PieChartData = new PieChartData();\n    pieChartData.elements = elements;\n    return pieChartData;\n  }\n\n  constructor() {\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.label);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.value);\n  }\n}\n\nexport class PieChartDataElement {\n  label: string = \"\";\n  value: number = 0;\n\n  constructor(label?: string, value?: number) {\n    this.label = label!;\n    this.value = value!;\n  }\n}\n",
+            "sourceCode": "export class PieChartData {\n  elements: PieChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): PieChartData {\n    const pieChartData: PieChartData = new PieChartData();\n    pieChartData.elements = [];\n    for (const element of elements) {\n      pieChartData.elements.push(new PieChartDataElement(element[0], element[1]));\n    }\n    return pieChartData;\n  }\n\n  public static fromDataElements(elements: PieChartDataElement[]): PieChartData {\n    const pieChartData: PieChartData = new PieChartData();\n    pieChartData.elements = elements;\n    return pieChartData;\n  }\n\n  constructor() {\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.label);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.value);\n  }\n\n  getData(): Data[] {\n    return [{\n      labels: this.getLabels(),\n      data: this.getValues()\n    }]\n  }\n}\n\nexport class PieChartDataElement {\n  label: string = \"\";\n  value: number = 0;\n\n  constructor(label?: string, value?: number) {\n    this.label = label!;\n    this.value = value!;\n  }\n}\n\ntype Data = {\n  labels: string[],\n  data: number[]\n};\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1097,12 +1107,22 @@
                     ]
                 },
                 {
+                    "name": "getData",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Data[]",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
                     "name": "getLabels",
                     "args": [],
                     "optional": false,
                     "returnType": "string[]",
                     "typeParameters": [],
-                    "line": 22,
+                    "line": 23,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1112,7 +1132,7 @@
                     "optional": false,
                     "returnType": "number[]",
                     "typeParameters": [],
-                    "line": 26,
+                    "line": 27,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1125,12 +1145,12 @@
         },
         {
             "name": "PieChartDataElement",
-            "id": "class-PieChartDataElement-d8116e417f84cab1b97f214f01ac10983647a586ca44aa99d1d85db8a4b5421b56699684525fa9d574496beb1745fb24ca1031acea7de4c4d9109b203d49ec0e",
+            "id": "class-PieChartDataElement-a06a77f31177be819f0c27d96409b7a22c809521105d9e1c9f0e255e56670346551958a7f6f7209cff508864b05a2eaa39920128107ed7057d01e3b8d118bded",
             "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class PieChartData {\n  elements: PieChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): PieChartData {\n    const pieChartData: PieChartData = new PieChartData();\n    pieChartData.elements = [];\n    for (const element of elements) {\n      pieChartData.elements.push(new PieChartDataElement(element[0], element[1]));\n    }\n    return pieChartData;\n  }\n\n  public static fromDataElements(elements: PieChartDataElement[]): PieChartData {\n    const pieChartData: PieChartData = new PieChartData();\n    pieChartData.elements = elements;\n    return pieChartData;\n  }\n\n  constructor() {\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.label);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.value);\n  }\n}\n\nexport class PieChartDataElement {\n  label: string = \"\";\n  value: number = 0;\n\n  constructor(label?: string, value?: number) {\n    this.label = label!;\n    this.value = value!;\n  }\n}\n",
+            "sourceCode": "export class PieChartData {\n  elements: PieChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): PieChartData {\n    const pieChartData: PieChartData = new PieChartData();\n    pieChartData.elements = [];\n    for (const element of elements) {\n      pieChartData.elements.push(new PieChartDataElement(element[0], element[1]));\n    }\n    return pieChartData;\n  }\n\n  public static fromDataElements(elements: PieChartDataElement[]): PieChartData {\n    const pieChartData: PieChartData = new PieChartData();\n    pieChartData.elements = elements;\n    return pieChartData;\n  }\n\n  constructor() {\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.label);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.value);\n  }\n\n  getData(): Data[] {\n    return [{\n      labels: this.getLabels(),\n      data: this.getValues()\n    }]\n  }\n}\n\nexport class PieChartDataElement {\n  label: string = \"\";\n  value: number = 0;\n\n  constructor(label?: string, value?: number) {\n    this.label = label!;\n    this.value = value!;\n  }\n}\n\ntype Data = {\n  labels: string[],\n  data: number[]\n};\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1152,7 +1172,7 @@
                         "optional": true
                     }
                 ],
-                "line": 33,
+                "line": 41,
                 "jsdoctags": [
                     {
                         "name": "label",
@@ -1185,7 +1205,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 32
+                    "line": 40
                 },
                 {
                     "name": "value",
@@ -1195,7 +1215,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 33
+                    "line": 41
                 }
             ],
             "methods": [],
@@ -1207,12 +1227,12 @@
         },
         {
             "name": "RadarChartData",
-            "id": "class-RadarChartData-1bc3fefa73b4dbf25f5e3e081fe3f27d3f7c33217adc8526de40b4b2be564253b2da928579991970553f10b65ba0f70a69d2a4edb8c0d99b55aac587d5b44dc8",
+            "id": "class-RadarChartData-fc7491220ce1331b6f58d3636f25e15b9eb13cfd40085a082745d726a4184cbe990f922e8e74cdfb7e6dfeed333429c9b2a4e793f6d6b02e36a8ea36d37a467d",
             "file": "projects/biit-ui/charts/src/radar-chart/radar-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class RadarChartData {\n  name: string[] | undefined;\n  elements: RadarChartDataElement[] = [];\n\n  public static fromDataElements(elements: RadarChartDataElement): RadarChartData {\n    const barChartData: RadarChartData = new RadarChartData();\n    barChartData.elements = [];\n    barChartData.elements[0] = elements;\n    return barChartData;\n  }\n\n  public static fromMultipleDataElements(elements: RadarChartDataElement[]): RadarChartData {\n    const barChartData: RadarChartData = new RadarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.name);\n  }\n\n  getData(): RadarData[] {\n    const data: Map<string, RadarData> = new Map<string, RadarData>();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        if (data.get(point[0]) === undefined) {\n          data.set(point[0], new RadarData());\n        }\n        data.get(point[0])!.name = point[0];\n        data.get(point[0])!.data.push(point[1]);\n      }\n    }\n    return Array.from(data.values());\n  }\n}\n\nexport class RadarChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\nexport class RadarData {\n  name: string = \"\";\n  data: number[] = [];\n  color: string = \"#ff0000\"; //Color be set on the chart component\n}\n",
+            "sourceCode": "export class RadarChartData {\n  name: string[] | undefined;\n  elements: RadarChartDataElement[] = [];\n\n  public static fromDataElements(elements: RadarChartDataElement): RadarChartData {\n    const barChartData: RadarChartData = new RadarChartData();\n    barChartData.elements = [];\n    barChartData.elements[0] = elements;\n    return barChartData;\n  }\n\n  public static fromMultipleDataElements(elements: RadarChartDataElement[]): RadarChartData {\n    const barChartData: RadarChartData = new RadarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.name);\n  }\n\n  getData(): RadarData[] {\n    const data: Map<string, RadarData> = new Map<string, RadarData>();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        if (data.get(point[0]) === undefined) {\n          data.set(point[0], new RadarData());\n        }\n        data.get(point[0])!.name = point[0];\n        data.get(point[0])!.data.push(point[1]);\n      }\n    }\n    return Array.from(data.values());\n  }\n}\n\nexport class RadarChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\nexport class RadarData {\n  name: string = \"\";\n  data: number[] = [];\n  color: string = \"#ff0000\"; //Color be set on the chart component\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1331,7 +1351,7 @@
                     "optional": false,
                     "returnType": "RadarData[]",
                     "typeParameters": [],
-                    "line": 26,
+                    "line": 27,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1341,7 +1361,7 @@
                     "optional": false,
                     "returnType": "string[]",
                     "typeParameters": [],
-                    "line": 22,
+                    "line": 23,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1354,12 +1374,12 @@
         },
         {
             "name": "RadarChartDataElement",
-            "id": "class-RadarChartDataElement-1bc3fefa73b4dbf25f5e3e081fe3f27d3f7c33217adc8526de40b4b2be564253b2da928579991970553f10b65ba0f70a69d2a4edb8c0d99b55aac587d5b44dc8",
+            "id": "class-RadarChartDataElement-fc7491220ce1331b6f58d3636f25e15b9eb13cfd40085a082745d726a4184cbe990f922e8e74cdfb7e6dfeed333429c9b2a4e793f6d6b02e36a8ea36d37a467d",
             "file": "projects/biit-ui/charts/src/radar-chart/radar-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class RadarChartData {\n  name: string[] | undefined;\n  elements: RadarChartDataElement[] = [];\n\n  public static fromDataElements(elements: RadarChartDataElement): RadarChartData {\n    const barChartData: RadarChartData = new RadarChartData();\n    barChartData.elements = [];\n    barChartData.elements[0] = elements;\n    return barChartData;\n  }\n\n  public static fromMultipleDataElements(elements: RadarChartDataElement[]): RadarChartData {\n    const barChartData: RadarChartData = new RadarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.name);\n  }\n\n  getData(): RadarData[] {\n    const data: Map<string, RadarData> = new Map<string, RadarData>();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        if (data.get(point[0]) === undefined) {\n          data.set(point[0], new RadarData());\n        }\n        data.get(point[0])!.name = point[0];\n        data.get(point[0])!.data.push(point[1]);\n      }\n    }\n    return Array.from(data.values());\n  }\n}\n\nexport class RadarChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\nexport class RadarData {\n  name: string = \"\";\n  data: number[] = [];\n  color: string = \"#ff0000\"; //Color be set on the chart component\n}\n",
+            "sourceCode": "export class RadarChartData {\n  name: string[] | undefined;\n  elements: RadarChartDataElement[] = [];\n\n  public static fromDataElements(elements: RadarChartDataElement): RadarChartData {\n    const barChartData: RadarChartData = new RadarChartData();\n    barChartData.elements = [];\n    barChartData.elements[0] = elements;\n    return barChartData;\n  }\n\n  public static fromMultipleDataElements(elements: RadarChartDataElement[]): RadarChartData {\n    const barChartData: RadarChartData = new RadarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.name);\n  }\n\n  getData(): RadarData[] {\n    const data: Map<string, RadarData> = new Map<string, RadarData>();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        if (data.get(point[0]) === undefined) {\n          data.set(point[0], new RadarData());\n        }\n        data.get(point[0])!.name = point[0];\n        data.get(point[0])!.data.push(point[1]);\n      }\n    }\n    return Array.from(data.values());\n  }\n}\n\nexport class RadarChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\nexport class RadarData {\n  name: string = \"\";\n  data: number[] = [];\n  color: string = \"#ff0000\"; //Color be set on the chart component\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1380,7 +1400,7 @@
                         "optional": true
                     }
                 ],
-                "line": 44,
+                "line": 45,
                 "jsdoctags": [
                     {
                         "name": "points",
@@ -1411,7 +1431,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 42
+                    "line": 43
                 },
                 {
                     "name": "points",
@@ -1420,7 +1440,7 @@
                     "type": "[]",
                     "optional": false,
                     "description": "",
-                    "line": 44
+                    "line": 45
                 }
             ],
             "methods": [],
@@ -1432,12 +1452,12 @@
         },
         {
             "name": "RadarData",
-            "id": "class-RadarData-1bc3fefa73b4dbf25f5e3e081fe3f27d3f7c33217adc8526de40b4b2be564253b2da928579991970553f10b65ba0f70a69d2a4edb8c0d99b55aac587d5b44dc8",
+            "id": "class-RadarData-fc7491220ce1331b6f58d3636f25e15b9eb13cfd40085a082745d726a4184cbe990f922e8e74cdfb7e6dfeed333429c9b2a4e793f6d6b02e36a8ea36d37a467d",
             "file": "projects/biit-ui/charts/src/radar-chart/radar-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class RadarChartData {\n  name: string[] | undefined;\n  elements: RadarChartDataElement[] = [];\n\n  public static fromDataElements(elements: RadarChartDataElement): RadarChartData {\n    const barChartData: RadarChartData = new RadarChartData();\n    barChartData.elements = [];\n    barChartData.elements[0] = elements;\n    return barChartData;\n  }\n\n  public static fromMultipleDataElements(elements: RadarChartDataElement[]): RadarChartData {\n    const barChartData: RadarChartData = new RadarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.name);\n  }\n\n  getData(): RadarData[] {\n    const data: Map<string, RadarData> = new Map<string, RadarData>();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        if (data.get(point[0]) === undefined) {\n          data.set(point[0], new RadarData());\n        }\n        data.get(point[0])!.name = point[0];\n        data.get(point[0])!.data.push(point[1]);\n      }\n    }\n    return Array.from(data.values());\n  }\n}\n\nexport class RadarChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\nexport class RadarData {\n  name: string = \"\";\n  data: number[] = [];\n  color: string = \"#ff0000\"; //Color be set on the chart component\n}\n",
+            "sourceCode": "export class RadarChartData {\n  name: string[] | undefined;\n  elements: RadarChartDataElement[] = [];\n\n  public static fromDataElements(elements: RadarChartDataElement): RadarChartData {\n    const barChartData: RadarChartData = new RadarChartData();\n    barChartData.elements = [];\n    barChartData.elements[0] = elements;\n    return barChartData;\n  }\n\n  public static fromMultipleDataElements(elements: RadarChartDataElement[]): RadarChartData {\n    const barChartData: RadarChartData = new RadarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.name);\n  }\n\n  getData(): RadarData[] {\n    const data: Map<string, RadarData> = new Map<string, RadarData>();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        if (data.get(point[0]) === undefined) {\n          data.set(point[0], new RadarData());\n        }\n        data.get(point[0])!.name = point[0];\n        data.get(point[0])!.data.push(point[1]);\n      }\n    }\n    return Array.from(data.values());\n  }\n}\n\nexport class RadarChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\nexport class RadarData {\n  name: string = \"\";\n  data: number[] = [];\n  color: string = \"#ff0000\"; //Color be set on the chart component\n}\n",
             "properties": [
                 {
                     "name": "color",
@@ -1447,7 +1467,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 59
+                    "line": 60
                 },
                 {
                     "name": "data",
@@ -1457,7 +1477,7 @@
                     "type": "number[]",
                     "optional": false,
                     "description": "",
-                    "line": 58
+                    "line": 59
                 },
                 {
                     "name": "name",
@@ -1467,7 +1487,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 57
+                    "line": 58
                 }
             ],
             "methods": [],
@@ -1479,12 +1499,12 @@
         },
         {
             "name": "RadialChartData",
-            "id": "class-RadialChartData-1a28d330d9769637acfcad19479d4bf7c6e840f6bcaa451257aae1ede24a0a27b72d3fdb788ffa32a64e65e37741a3a329ecfb4b762dfa7b717686eef846b1b0",
+            "id": "class-RadialChartData-2fcc78557adbfbba76e850a160a29c972a60c1ff34446c962404d369d2e475cf07fca0062c64c18d074f277d142a0fd39ae50fc0f344b0f3db7602321cf89164",
             "file": "projects/biit-ui/charts/src/radial-chart/radial-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class RadialChartData {\n  name: string | undefined;\n  elements: RadialChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): RadialChartData {\n    const radialChartData: RadialChartData = new RadialChartData();\n    radialChartData.elements = [];\n    for (const element of elements) {\n      radialChartData.elements.push(new RadialChartDataElement(element[0], element[1]));\n    }\n    return radialChartData;\n  }\n\n  public static fromDataElements(elements: RadialChartDataElement[]): RadialChartData {\n    const radialChartData: RadialChartData = new RadialChartData();\n    radialChartData.elements = elements;\n    return radialChartData;\n  }\n\n  constructor(name?: string) {\n    this.name = name;\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.label);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.value);\n  }\n\n  getTotal(): number {\n    return this.elements.reduce((sum, e) => sum + e.value, 0);\n  }\n}\n\nexport class RadialChartDataElement {\n  label: string;\n  value: number;\n\n  constructor(x: string, y: number) {\n    this.label = x;\n    this.value = y;\n  }\n}\n\ntype Data = {\n  name: string,\n  data: number[]\n};\n",
+            "sourceCode": "export class RadialChartData {\n  name: string | undefined;\n  elements: RadialChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): RadialChartData {\n    const radialChartData: RadialChartData = new RadialChartData();\n    radialChartData.elements = [];\n    for (const element of elements) {\n      radialChartData.elements.push(new RadialChartDataElement(element[0], element[1]));\n    }\n    return radialChartData;\n  }\n\n  public static fromDataElements(elements: RadialChartDataElement[]): RadialChartData {\n    const radialChartData: RadialChartData = new RadialChartData();\n    radialChartData.elements = elements;\n    return radialChartData;\n  }\n\n  constructor(name?: string) {\n    this.name = name;\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.label);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.value);\n  }\n\n  getData(): Data[] {\n    return [{\n      name: this.name ? this.name : \"\",\n      data: this.getValues()\n    }]\n  }\n\n  getTotal(): number {\n    return this.elements.reduce((sum, e) => sum + e.value, 0);\n  }\n}\n\nexport class RadialChartDataElement {\n  label: string;\n  value: number;\n\n  constructor(x: string, y: number) {\n    this.label = x;\n    this.value = y;\n  }\n}\n\ntype Data = {\n  name: string,\n  data: number[]\n};\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1598,12 +1618,22 @@
                     ]
                 },
                 {
+                    "name": "getData",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Data[]",
+                    "typeParameters": [],
+                    "line": 33,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
                     "name": "getLabels",
                     "args": [],
                     "optional": false,
                     "returnType": "string[]",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1613,7 +1643,7 @@
                     "optional": false,
                     "returnType": "number",
                     "typeParameters": [],
-                    "line": 32,
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1623,7 +1653,7 @@
                     "optional": false,
                     "returnType": "number[]",
                     "typeParameters": [],
-                    "line": 28,
+                    "line": 29,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1636,12 +1666,12 @@
         },
         {
             "name": "RadialChartDataElement",
-            "id": "class-RadialChartDataElement-1a28d330d9769637acfcad19479d4bf7c6e840f6bcaa451257aae1ede24a0a27b72d3fdb788ffa32a64e65e37741a3a329ecfb4b762dfa7b717686eef846b1b0",
+            "id": "class-RadialChartDataElement-2fcc78557adbfbba76e850a160a29c972a60c1ff34446c962404d369d2e475cf07fca0062c64c18d074f277d142a0fd39ae50fc0f344b0f3db7602321cf89164",
             "file": "projects/biit-ui/charts/src/radial-chart/radial-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class RadialChartData {\n  name: string | undefined;\n  elements: RadialChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): RadialChartData {\n    const radialChartData: RadialChartData = new RadialChartData();\n    radialChartData.elements = [];\n    for (const element of elements) {\n      radialChartData.elements.push(new RadialChartDataElement(element[0], element[1]));\n    }\n    return radialChartData;\n  }\n\n  public static fromDataElements(elements: RadialChartDataElement[]): RadialChartData {\n    const radialChartData: RadialChartData = new RadialChartData();\n    radialChartData.elements = elements;\n    return radialChartData;\n  }\n\n  constructor(name?: string) {\n    this.name = name;\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.label);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.value);\n  }\n\n  getTotal(): number {\n    return this.elements.reduce((sum, e) => sum + e.value, 0);\n  }\n}\n\nexport class RadialChartDataElement {\n  label: string;\n  value: number;\n\n  constructor(x: string, y: number) {\n    this.label = x;\n    this.value = y;\n  }\n}\n\ntype Data = {\n  name: string,\n  data: number[]\n};\n",
+            "sourceCode": "export class RadialChartData {\n  name: string | undefined;\n  elements: RadialChartDataElement[] = [];\n\n  public static fromArray(elements: [string, number][]): RadialChartData {\n    const radialChartData: RadialChartData = new RadialChartData();\n    radialChartData.elements = [];\n    for (const element of elements) {\n      radialChartData.elements.push(new RadialChartDataElement(element[0], element[1]));\n    }\n    return radialChartData;\n  }\n\n  public static fromDataElements(elements: RadialChartDataElement[]): RadialChartData {\n    const radialChartData: RadialChartData = new RadialChartData();\n    radialChartData.elements = elements;\n    return radialChartData;\n  }\n\n  constructor(name?: string) {\n    this.name = name;\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.label);\n  }\n\n  getValues(): number[] {\n    return this.elements.map(e => e.value);\n  }\n\n  getData(): Data[] {\n    return [{\n      name: this.name ? this.name : \"\",\n      data: this.getValues()\n    }]\n  }\n\n  getTotal(): number {\n    return this.elements.reduce((sum, e) => sum + e.value, 0);\n  }\n}\n\nexport class RadialChartDataElement {\n  label: string;\n  value: number;\n\n  constructor(x: string, y: number) {\n    this.label = x;\n    this.value = y;\n  }\n}\n\ntype Data = {\n  name: string,\n  data: number[]\n};\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1661,7 +1691,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 39,
+                "line": 47,
                 "jsdoctags": [
                     {
                         "name": "x",
@@ -1691,7 +1721,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 38
+                    "line": 46
                 },
                 {
                     "name": "value",
@@ -1700,7 +1730,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 39
+                    "line": 47
                 }
             ],
             "methods": [],
@@ -1712,12 +1742,12 @@
         },
         {
             "name": "StackedBarChartData",
-            "id": "class-StackedBarChartData-dc5b59e874b0ed9c48d5da64a1a512e478ae2a2021534e043aedddd327eb4d128d797376dce422e5046604cf55e32d511d213a3e7dde2d88620e056ab8f85e8b",
+            "id": "class-StackedBarChartData-03b5a7dd5472e1a86b4ba3e6e3617694c262b9cb62625c8db9aebc803b78fe2ebf120f7590c9365108298d3d87bdc59c0d5496b0cbd5df95faaec31b4bbee351",
             "file": "projects/biit-ui/charts/src/stacked-bars-chart/stacked-bars-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class StackedBarChartData {\n  name: string[] | undefined;\n  elements: StackedBarChartDataElement[] = [];\n\n  public static fromDataElements(elements: StackedBarChartDataElement): StackedBarChartData {\n    const barChartData: StackedBarChartData = new StackedBarChartData();\n    barChartData.elements = [];\n    barChartData.elements[0] = elements;\n    return barChartData;\n  }\n\n  public static fromMultipleDataElements(elements: StackedBarChartDataElement[]): StackedBarChartData {\n    const barChartData: StackedBarChartData = new StackedBarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.name);\n  }\n\n  getData(): StackedBarsData[] {\n    const data: Map<string, StackedBarsData> = new Map<string, StackedBarsData>();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        if (data.get(point[0]) === undefined) {\n          data.set(point[0], new StackedBarsData());\n        }\n        data.get(point[0])!.name = point[0];\n        data.get(point[0])!.data.push(point[1]);\n      }\n    }\n    return Array.from(data.values());\n  }\n}\n\nexport class StackedBarChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\nexport class StackedBarsData {\n  name: string = \"\";\n  data: number[] = [];\n  color: string = \"#ff0000\"; //Color be set on the chart component\n}\n",
+            "sourceCode": "export class StackedBarChartData {\n  name: string[] | undefined;\n  elements: StackedBarChartDataElement[] = [];\n\n  public static fromDataElements(elements: StackedBarChartDataElement): StackedBarChartData {\n    const barChartData: StackedBarChartData = new StackedBarChartData();\n    barChartData.elements = [];\n    barChartData.elements[0] = elements;\n    return barChartData;\n  }\n\n  public static fromMultipleDataElements(elements: StackedBarChartDataElement[]): StackedBarChartData {\n    const barChartData: StackedBarChartData = new StackedBarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.name);\n  }\n\n  getData(): StackedBarsData[] {\n    const data: Map<string, StackedBarsData> = new Map<string, StackedBarsData>();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        if (data.get(point[0]) === undefined) {\n          data.set(point[0], new StackedBarsData());\n        }\n        data.get(point[0])!.name = point[0];\n        data.get(point[0])!.data.push(point[1]);\n      }\n    }\n    return Array.from(data.values());\n  }\n}\n\nexport class StackedBarChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\nexport class StackedBarsData {\n  name: string = \"\";\n  data: number[] = [];\n  color: string = \"#ff0000\"; //Color be set on the chart component\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1836,7 +1866,7 @@
                     "optional": false,
                     "returnType": "StackedBarsData[]",
                     "typeParameters": [],
-                    "line": 26,
+                    "line": 27,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1846,7 +1876,7 @@
                     "optional": false,
                     "returnType": "string[]",
                     "typeParameters": [],
-                    "line": 22,
+                    "line": 23,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1859,12 +1889,12 @@
         },
         {
             "name": "StackedBarChartDataElement",
-            "id": "class-StackedBarChartDataElement-dc5b59e874b0ed9c48d5da64a1a512e478ae2a2021534e043aedddd327eb4d128d797376dce422e5046604cf55e32d511d213a3e7dde2d88620e056ab8f85e8b",
+            "id": "class-StackedBarChartDataElement-03b5a7dd5472e1a86b4ba3e6e3617694c262b9cb62625c8db9aebc803b78fe2ebf120f7590c9365108298d3d87bdc59c0d5496b0cbd5df95faaec31b4bbee351",
             "file": "projects/biit-ui/charts/src/stacked-bars-chart/stacked-bars-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class StackedBarChartData {\n  name: string[] | undefined;\n  elements: StackedBarChartDataElement[] = [];\n\n  public static fromDataElements(elements: StackedBarChartDataElement): StackedBarChartData {\n    const barChartData: StackedBarChartData = new StackedBarChartData();\n    barChartData.elements = [];\n    barChartData.elements[0] = elements;\n    return barChartData;\n  }\n\n  public static fromMultipleDataElements(elements: StackedBarChartDataElement[]): StackedBarChartData {\n    const barChartData: StackedBarChartData = new StackedBarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.name);\n  }\n\n  getData(): StackedBarsData[] {\n    const data: Map<string, StackedBarsData> = new Map<string, StackedBarsData>();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        if (data.get(point[0]) === undefined) {\n          data.set(point[0], new StackedBarsData());\n        }\n        data.get(point[0])!.name = point[0];\n        data.get(point[0])!.data.push(point[1]);\n      }\n    }\n    return Array.from(data.values());\n  }\n}\n\nexport class StackedBarChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\nexport class StackedBarsData {\n  name: string = \"\";\n  data: number[] = [];\n  color: string = \"#ff0000\"; //Color be set on the chart component\n}\n",
+            "sourceCode": "export class StackedBarChartData {\n  name: string[] | undefined;\n  elements: StackedBarChartDataElement[] = [];\n\n  public static fromDataElements(elements: StackedBarChartDataElement): StackedBarChartData {\n    const barChartData: StackedBarChartData = new StackedBarChartData();\n    barChartData.elements = [];\n    barChartData.elements[0] = elements;\n    return barChartData;\n  }\n\n  public static fromMultipleDataElements(elements: StackedBarChartDataElement[]): StackedBarChartData {\n    const barChartData: StackedBarChartData = new StackedBarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.name);\n  }\n\n  getData(): StackedBarsData[] {\n    const data: Map<string, StackedBarsData> = new Map<string, StackedBarsData>();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        if (data.get(point[0]) === undefined) {\n          data.set(point[0], new StackedBarsData());\n        }\n        data.get(point[0])!.name = point[0];\n        data.get(point[0])!.data.push(point[1]);\n      }\n    }\n    return Array.from(data.values());\n  }\n}\n\nexport class StackedBarChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\nexport class StackedBarsData {\n  name: string = \"\";\n  data: number[] = [];\n  color: string = \"#ff0000\"; //Color be set on the chart component\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1885,7 +1915,7 @@
                         "optional": true
                     }
                 ],
-                "line": 44,
+                "line": 45,
                 "jsdoctags": [
                     {
                         "name": "points",
@@ -1916,7 +1946,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 42
+                    "line": 43
                 },
                 {
                     "name": "points",
@@ -1925,7 +1955,7 @@
                     "type": "[]",
                     "optional": false,
                     "description": "",
-                    "line": 44
+                    "line": 45
                 }
             ],
             "methods": [],
@@ -1937,12 +1967,12 @@
         },
         {
             "name": "StackedBarsData",
-            "id": "class-StackedBarsData-dc5b59e874b0ed9c48d5da64a1a512e478ae2a2021534e043aedddd327eb4d128d797376dce422e5046604cf55e32d511d213a3e7dde2d88620e056ab8f85e8b",
+            "id": "class-StackedBarsData-03b5a7dd5472e1a86b4ba3e6e3617694c262b9cb62625c8db9aebc803b78fe2ebf120f7590c9365108298d3d87bdc59c0d5496b0cbd5df95faaec31b4bbee351",
             "file": "projects/biit-ui/charts/src/stacked-bars-chart/stacked-bars-chart-data.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class StackedBarChartData {\n  name: string[] | undefined;\n  elements: StackedBarChartDataElement[] = [];\n\n  public static fromDataElements(elements: StackedBarChartDataElement): StackedBarChartData {\n    const barChartData: StackedBarChartData = new StackedBarChartData();\n    barChartData.elements = [];\n    barChartData.elements[0] = elements;\n    return barChartData;\n  }\n\n  public static fromMultipleDataElements(elements: StackedBarChartDataElement[]): StackedBarChartData {\n    const barChartData: StackedBarChartData = new StackedBarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.name);\n  }\n\n  getData(): StackedBarsData[] {\n    const data: Map<string, StackedBarsData> = new Map<string, StackedBarsData>();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        if (data.get(point[0]) === undefined) {\n          data.set(point[0], new StackedBarsData());\n        }\n        data.get(point[0])!.name = point[0];\n        data.get(point[0])!.data.push(point[1]);\n      }\n    }\n    return Array.from(data.values());\n  }\n}\n\nexport class StackedBarChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\nexport class StackedBarsData {\n  name: string = \"\";\n  data: number[] = [];\n  color: string = \"#ff0000\"; //Color be set on the chart component\n}\n",
+            "sourceCode": "export class StackedBarChartData {\n  name: string[] | undefined;\n  elements: StackedBarChartDataElement[] = [];\n\n  public static fromDataElements(elements: StackedBarChartDataElement): StackedBarChartData {\n    const barChartData: StackedBarChartData = new StackedBarChartData();\n    barChartData.elements = [];\n    barChartData.elements[0] = elements;\n    return barChartData;\n  }\n\n  public static fromMultipleDataElements(elements: StackedBarChartDataElement[]): StackedBarChartData {\n    const barChartData: StackedBarChartData = new StackedBarChartData();\n    barChartData.elements = elements;\n    return barChartData;\n  }\n\n  constructor(name?: string[]) {\n    this.name = name;\n    this.elements = [];\n  }\n\n  getLabels(): string[] {\n    return this.elements.map(e => e.name);\n  }\n\n  getData(): StackedBarsData[] {\n    const data: Map<string, StackedBarsData> = new Map<string, StackedBarsData>();\n    for (const element of this.elements) {\n      for (const point of element.points) {\n        if (data.get(point[0]) === undefined) {\n          data.set(point[0], new StackedBarsData());\n        }\n        data.get(point[0])!.name = point[0];\n        data.get(point[0])!.data.push(point[1]);\n      }\n    }\n    return Array.from(data.values());\n  }\n}\n\nexport class StackedBarChartDataElement {\n  name: string;\n  //X,Y\n  points: [string, number][];\n\n  constructor(points: [string, number][], name?: string) {\n    this.points = points;\n    if (name) {\n      this.name = name;\n    } else {\n      this.name = \"\";\n    }\n  }\n}\n\nexport class StackedBarsData {\n  name: string = \"\";\n  data: number[] = [];\n  color: string = \"#ff0000\"; //Color be set on the chart component\n}\n",
             "properties": [
                 {
                     "name": "color",
@@ -1952,7 +1982,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 59
+                    "line": 60
                 },
                 {
                     "name": "data",
@@ -1962,7 +1992,7 @@
                     "type": "number[]",
                     "optional": false,
                     "description": "",
-                    "line": 58
+                    "line": 59
                 },
                 {
                     "name": "name",
@@ -1972,7 +2002,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 57
+                    "line": 58
                 }
             ],
             "methods": [],
@@ -2038,7 +2068,7 @@
         },
         {
             "name": "BarChartComponent",
-            "id": "component-BarChartComponent-59bca0c40c8b8c083d3dc89c302bce1399253d61090b68fb3b59f7e92a7cd122066306c61df218dca143d5fa20845b9059a746c073206c2060e548d1003a2d50",
+            "id": "component-BarChartComponent-1c135c547b52084dc654465331e769217557fecb2bb4b71bb6691fe23b251b3dd1d017ce66ea12a59d3204b50af2c72a1cf6906f0ebdd265f44d7025cc11978e",
             "file": "projects/biit-ui/charts/src/bar-chart/bar-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2286,6 +2316,34 @@
                     "modifierKind": [
                         121
                     ]
+                },
+                {
+                    "name": "update",
+                    "args": [
+                        {
+                            "name": "data",
+                            "type": "BarChartData",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 148,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "data",
+                            "type": "BarChartData",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "deprecated": false,
@@ -2295,7 +2353,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {\n  ApexAxisChartSeries,\n  ApexChart,\n  ApexDataLabels,\n  ApexFill,\n  ApexLegend,\n  ApexPlotOptions,\n  ApexTitleSubtitle,\n  ApexXAxis,\n  ApexYAxis,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {BarChartData} from \"./bar-chart-data\";\nimport {Colors} from \"../colors\";\n\n\ntype BarChartOptions = {\n  series: ApexAxisChartSeries;\n  colors: string [];\n  fill: ApexFill;\n  chart: ApexChart;\n  labels: ApexDataLabels;\n  plotOptions: ApexPlotOptions;\n  xaxis: ApexXAxis;\n  yaxis: ApexYAxis;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n};\n\n@Component({\n  selector: 'app-bar-chart',\n  templateUrl: './bar-chart.component.html',\n  styleUrls: ['./bar-chart.component.scss']\n})\nexport class BarChartComponent implements OnInit, OnChanges {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  barChartOptions!: BarChartOptions;\n\n  @Input()\n  public barChartData: BarChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = Colors.defaultPalette;\n  @Input()\n  public horizontal: boolean = false;\n  @Input()\n  public barThicknessPercentage: number = 75;\n  @Input()\n  public showValuesLabels: boolean = true;\n  @Input()\n  public xAxisOnTop: boolean = false;\n  @Input()\n  public xAxisTitle: string | undefined = undefined;\n  @Input()\n  public yAxisTitle: string | undefined = undefined;\n  @Input()\n  public showYAxis: boolean = true;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public borderRadius: number = 0;\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n  @Input()\n  public shadow: boolean = true;\n\n  constructor() {\n    this.barChartData = BarChartData.fromArray([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]]);\n  }\n\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.barChartOptions = {\n      colors: this.colors,\n      chart: {\n        width: this.width,\n        type: \"bar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 18,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      series: this.barChartData.getData(),\n      labels: {\n        enabled: this.showValuesLabels\n      },\n      fill: {\n        type: this.fill,\n      },\n      plotOptions: {\n        bar: {\n          distributed: true, // this line is mandatory for using colors\n          horizontal: this.horizontal,\n          barHeight: this.barThicknessPercentage + '%',\n          columnWidth: this.barThicknessPercentage + '%',\n          borderRadius: this.borderRadius\n        }\n      },\n      xaxis: {\n        categories: this.barChartData.getLabels(),\n        position: this.xAxisOnTop ? 'top' : 'bottom',\n        title: {\n          text: this.xAxisTitle\n        }\n      },\n      yaxis: {\n        show: this.showYAxis,\n        title: {\n          text: this.yAxisTitle\n        },\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {\n  ApexAxisChartSeries,\n  ApexChart,\n  ApexDataLabels,\n  ApexFill,\n  ApexLegend,\n  ApexPlotOptions,\n  ApexTitleSubtitle,\n  ApexXAxis,\n  ApexYAxis,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {BarChartData} from \"./bar-chart-data\";\nimport {Colors} from \"../colors\";\n\n\ntype BarChartOptions = {\n  series: ApexAxisChartSeries;\n  colors: string [];\n  fill: ApexFill;\n  chart: ApexChart;\n  labels: ApexDataLabels;\n  plotOptions: ApexPlotOptions;\n  xaxis: ApexXAxis;\n  yaxis: ApexYAxis;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n};\n\n@Component({\n  selector: 'app-bar-chart',\n  templateUrl: './bar-chart.component.html',\n  styleUrls: ['./bar-chart.component.scss']\n})\nexport class BarChartComponent implements OnInit, OnChanges {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  barChartOptions!: BarChartOptions;\n\n  @Input()\n  public barChartData: BarChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = Colors.defaultPalette;\n  @Input()\n  public horizontal: boolean = false;\n  @Input()\n  public barThicknessPercentage: number = 75;\n  @Input()\n  public showValuesLabels: boolean = true;\n  @Input()\n  public xAxisOnTop: boolean = false;\n  @Input()\n  public xAxisTitle: string | undefined = undefined;\n  @Input()\n  public yAxisTitle: string | undefined = undefined;\n  @Input()\n  public showYAxis: boolean = true;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public borderRadius: number = 0;\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n  @Input()\n  public shadow: boolean = true;\n\n  constructor() {\n    this.barChartData = BarChartData.fromArray([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]]);\n  }\n\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.barChartOptions = {\n      colors: this.colors,\n      chart: {\n        width: this.width,\n        type: \"bar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 18,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      series: this.barChartData.getData(),\n      labels: {\n        enabled: this.showValuesLabels\n      },\n      fill: {\n        type: this.fill,\n      },\n      plotOptions: {\n        bar: {\n          distributed: true, // this line is mandatory for using colors\n          horizontal: this.horizontal,\n          barHeight: this.barThicknessPercentage + '%',\n          columnWidth: this.barThicknessPercentage + '%',\n          borderRadius: this.borderRadius\n        }\n      },\n      xaxis: {\n        categories: this.barChartData.getLabels(),\n        position: this.xAxisOnTop ? 'top' : 'bottom',\n        title: {\n          text: this.xAxisTitle\n        }\n      },\n      yaxis: {\n        show: this.showYAxis,\n        title: {\n          text: this.yAxisTitle\n        },\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n\n  update(data: BarChartData){\n    this.chart.updateSeries(data.getData());\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2316,7 +2374,7 @@
                 "OnInit",
                 "OnChanges"
             ],
-            "templateData": "<div *ngIf=\"barChartOptions\">\n  <div class=\"box shadow\">\n  <apx-chart id=\"chart\"\n    [series]=\"barChartOptions.series\"\n    [colors]=\"barChartOptions.colors\"\n    [fill]=\"barChartOptions.fill\"\n    [chart]=\"barChartOptions.chart\"\n    [dataLabels]=\"barChartOptions.labels\"\n    [plotOptions]=\"barChartOptions.plotOptions\"\n    [xaxis]=\"barChartOptions.xaxis\"\n    [yaxis]=\"barChartOptions.yaxis\"\n    [title]=\"barChartOptions.title\"\n    [legend]=\"barChartOptions.legend\"\n  ></apx-chart>\n  </div>\n</div>\n"
+            "templateData": "<div *ngIf=\"barChartOptions\">\n  <div class=\"box shadow\">\n    <apx-chart #chart id=\"chart\"\n               [series]=\"barChartOptions.series\"\n               [colors]=\"barChartOptions.colors\"\n               [fill]=\"barChartOptions.fill\"\n               [chart]=\"barChartOptions.chart\"\n               [dataLabels]=\"barChartOptions.labels\"\n               [plotOptions]=\"barChartOptions.plotOptions\"\n               [xaxis]=\"barChartOptions.xaxis\"\n               [yaxis]=\"barChartOptions.yaxis\"\n               [title]=\"barChartOptions.title\"\n               [legend]=\"barChartOptions.legend\"\n    ></apx-chart>\n  </div>\n</div>\n"
         },
         {
             "name": "BiitButtonComponent",
@@ -3508,7 +3566,7 @@
         },
         {
             "name": "GaugeChartComponent",
-            "id": "component-GaugeChartComponent-3bc1ea88c10e04e0d98ee85d4a1487149c7002ca3ede0a8ab6429b207f870bce49de008ab41a14597f7448c785fd9e2907306b9227b133960ce1ca1f8a363872",
+            "id": "component-GaugeChartComponent-fa26b22006c76fec4f73ae18729705c93f922b1b4b08575101c422feda56900a573e204ed8cbb6703287410aee6d15e103204189426d8af89066a40a3ff346f9",
             "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3723,6 +3781,34 @@
                     "modifierKind": [
                         121
                     ]
+                },
+                {
+                    "name": "update",
+                    "args": [
+                        {
+                            "name": "data",
+                            "type": "GaugeChartData",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 139,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "data",
+                            "type": "GaugeChartData",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "deprecated": false,
@@ -3732,7 +3818,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {ApexChart, ApexFill, ApexPlotOptions, ApexTitleSubtitle, ChartComponent} from \"ng-apexcharts\";\nimport {GaugeChartData} from \"./gauge-chart-data\";\nimport {Colors} from \"../colors\";\n\ntype GaugeChartOptions = {\n  series: number[];\n  colors: string [];\n  labels: string[];\n  fill: ApexFill;\n  chart: ApexChart;\n  plotOptions: ApexPlotOptions;\n  title: ApexTitleSubtitle;\n};\n\n@Component({\n  selector: 'app-gauge-chart',\n  templateUrl: './gauge-chart.component.html',\n  styleUrls: ['./gauge-chart.component.scss']\n})\nexport class GaugeChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public gaugeChartOptions!: GaugeChartOptions;\n\n  @Input()\n  public gaugeChartData: GaugeChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public height: number = 200;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = Colors.defaultPalette;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"gradient\";\n  @Input()\n  public opacity: number = 1;\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public innerCirclePercentage: number = 50;\n  @Input()\n  public trackBackgroundColor: string = \"#e7e7e7\";\n  @Input()\n  public trackBackgroundThicknessPercentage: number = 97;\n\n  constructor() {\n    this.gaugeChartData = GaugeChartData.fromArray([[\"Value1\", 85], [\"Value2\", 49]]);\n  }\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.gaugeChartOptions = {\n      colors: this.colors,\n      chart: {\n        width: this.width,\n        type: \"radialBar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 18,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      series: this.gaugeChartData.getValues(),\n      labels: this.gaugeChartData.getLabels(),\n      fill: {\n        type: this.fill,\n        opacity: this.opacity,\n        gradient: {\n          shade: \"light\",\n          shadeIntensity: 0.4,\n          inverseColors: false,\n          opacityFrom: 1,\n          opacityTo: 1,\n          stops: [0, 50, 53, 91]\n        }\n      },\n      plotOptions: {\n        radialBar: {\n          startAngle: -90,\n          endAngle: 90,\n          track: {\n            background: this.trackBackgroundColor,\n            strokeWidth: this.trackBackgroundThicknessPercentage + \"%\",\n            dropShadow: {\n              enabled: true,\n              top: 2,\n              left: 0,\n              opacity: 0.31,\n              blur: 2\n            }\n          },\n          offsetY: -20,\n          dataLabels: {\n            name: {\n              show: true,\n              offsetY: -15,\n              fontSize: \"16px\"\n            },\n            value: {\n              show: true,\n              offsetY: -15,\n              fontSize: \"12px\"\n            }\n          },\n          hollow: {\n            size: this.innerCirclePercentage + \"%\"\n          }\n        }\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      }\n    };\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {ApexChart, ApexFill, ApexPlotOptions, ApexTitleSubtitle, ChartComponent} from \"ng-apexcharts\";\nimport {GaugeChartData} from \"./gauge-chart-data\";\nimport {Colors} from \"../colors\";\n\ntype GaugeChartOptions = {\n  series: number[];\n  colors: string [];\n  labels: string[];\n  fill: ApexFill;\n  chart: ApexChart;\n  plotOptions: ApexPlotOptions;\n  title: ApexTitleSubtitle;\n};\n\n@Component({\n  selector: 'app-gauge-chart',\n  templateUrl: './gauge-chart.component.html',\n  styleUrls: ['./gauge-chart.component.scss']\n})\nexport class GaugeChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public gaugeChartOptions!: GaugeChartOptions;\n\n  @Input()\n  public gaugeChartData: GaugeChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public height: number = 200;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = Colors.defaultPalette;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"gradient\";\n  @Input()\n  public opacity: number = 1;\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public innerCirclePercentage: number = 50;\n  @Input()\n  public trackBackgroundColor: string = \"#e7e7e7\";\n  @Input()\n  public trackBackgroundThicknessPercentage: number = 97;\n\n  constructor() {\n    this.gaugeChartData = GaugeChartData.fromArray([[\"Value1\", 85], [\"Value2\", 49]]);\n  }\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.gaugeChartOptions = {\n      colors: this.colors,\n      chart: {\n        width: this.width,\n        type: \"radialBar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 18,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      series: this.gaugeChartData.getValues(),\n      labels: this.gaugeChartData.getLabels(),\n      fill: {\n        type: this.fill,\n        opacity: this.opacity,\n        gradient: {\n          shade: \"light\",\n          shadeIntensity: 0.4,\n          inverseColors: false,\n          opacityFrom: 1,\n          opacityTo: 1,\n          stops: [0, 50, 53, 91]\n        }\n      },\n      plotOptions: {\n        radialBar: {\n          startAngle: -90,\n          endAngle: 90,\n          track: {\n            background: this.trackBackgroundColor,\n            strokeWidth: this.trackBackgroundThicknessPercentage + \"%\",\n            dropShadow: {\n              enabled: true,\n              top: 2,\n              left: 0,\n              opacity: 0.31,\n              blur: 2\n            }\n          },\n          offsetY: -20,\n          dataLabels: {\n            name: {\n              show: true,\n              offsetY: -15,\n              fontSize: \"16px\"\n            },\n            value: {\n              show: true,\n              offsetY: -15,\n              fontSize: \"12px\"\n            }\n          },\n          hollow: {\n            size: this.innerCirclePercentage + \"%\"\n          }\n        }\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      }\n    };\n  }\n\n  update(data: GaugeChartData) {\n    this.chart.updateSeries(data.getData());\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3752,7 +3838,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div id=\"chart\" *ngIf=\"gaugeChartOptions\">\n  <div class=\"box shadow\" [ngStyle]=\"{'height': [height]+'px'}\">\n    <apx-chart\n      [series]=\"gaugeChartOptions.series\"\n      [colors]=\"gaugeChartOptions.colors\"\n      [fill]=\"gaugeChartOptions.fill\"\n      [chart]=\"gaugeChartOptions.chart\"\n      [plotOptions]=\"gaugeChartOptions.plotOptions\"\n      [title]=\"gaugeChartOptions.title\"\n      [labels]=\"gaugeChartOptions.labels\"\n    ></apx-chart>\n  </div>\n</div>\n"
+            "templateData": "<div id=\"chart\" *ngIf=\"gaugeChartOptions\">\n  <div class=\"box shadow\" [ngStyle]=\"{'height': [height]+'px'}\">\n    <apx-chart #chart\n               [series]=\"gaugeChartOptions.series\"\n               [colors]=\"gaugeChartOptions.colors\"\n               [fill]=\"gaugeChartOptions.fill\"\n               [chart]=\"gaugeChartOptions.chart\"\n               [plotOptions]=\"gaugeChartOptions.plotOptions\"\n               [title]=\"gaugeChartOptions.title\"\n               [labels]=\"gaugeChartOptions.labels\"\n    ></apx-chart>\n  </div>\n</div>\n"
         },
         {
             "name": "HeaderComponent",
@@ -3829,7 +3915,7 @@
         },
         {
             "name": "LineChartComponent",
-            "id": "component-LineChartComponent-8ee77335a1891e37fd2146e6bf99d39332d2ff7fa6dd6fb679d6793cf3daa5a7a48d6d3ceda6d71cc9b3348d5633cf31c283d6f5a53a4fab25ac2c98f738aa2f",
+            "id": "component-LineChartComponent-db3988c219e0050497bf5a6672b4b84137afa12a17fe21b3c68cabe95edd8d003c1a093162d34cabdb5ed4ec2587991ec77ed77f6a65a0560c5cf7ffb9ffb365",
             "file": "projects/biit-ui/charts/src/line-chart/line-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4089,6 +4175,34 @@
                     "modifierKind": [
                         121
                     ]
+                },
+                {
+                    "name": "update",
+                    "args": [
+                        {
+                            "name": "data",
+                            "type": "LineChartData",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 159,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "data",
+                            "type": "LineChartData",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "deprecated": false,
@@ -4098,7 +4212,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {\n  ApexAxisChartSeries,\n  ApexChart,\n  ApexDataLabels,\n  ApexFill,\n  ApexMarkers,\n  ApexPlotOptions,\n  ApexStroke,\n  ApexTitleSubtitle,\n  ApexXAxis,\n  ApexYAxis,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {LineChartData, LineChartDataElement} from \"./line-chart-data\";\nimport {Colors} from \"../colors\";\n\n\ntype LineChartOptions = {\n  series: ApexAxisChartSeries;\n  colors: string [];\n  chart: ApexChart;\n  labels: ApexDataLabels;\n  fill: ApexFill;\n  plotOptions: ApexPlotOptions;\n  stroke: ApexStroke;\n  xaxis: ApexXAxis;\n  yaxis: ApexYAxis;\n  title: ApexTitleSubtitle;\n  markers: ApexMarkers;\n};\n\n@Component({\n  selector: 'app-line-chart',\n  templateUrl: './line-chart.component.html',\n  styleUrls: ['./line-chart.component.scss']\n})\nexport class LineChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public lineChartOptions!: LineChartOptions;\n\n  @Input()\n  public lineChartData: LineChartData;\n  @Input()\n  public height: number = 250;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = Colors.defaultPalette;\n  @Input()\n  public horizontal: boolean = false;\n  @Input()\n  public barThicknessPercentage: number = 75;\n  @Input()\n  public showValuesLabels: boolean = true;\n  @Input()\n  public xAxisOnTop: boolean = false;\n  @Input()\n  public xAxisTitle: string | undefined = undefined;\n  @Input()\n  public yAxisTitle: string | undefined = undefined;\n  @Input()\n  public showYAxis: boolean = true;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public curve: \"straight\" | \"smooth\" | \"stepline\" = \"smooth\";\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public strokeWidth: number = 5;\n\n  constructor() {\n    this.lineChartData = LineChartData.fromMultipleDataElements([\n      new LineChartDataElement([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]], \"Line1\"),\n      new LineChartDataElement([[\"Value1\", 2], [\"Value2\", 3], [\"Value3\", 5]], \"Line2\")]);\n  }\n\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.lineChartOptions = {\n      colors: this.colors,\n      series: this.lineChartData.getData(),\n      chart: {\n        height: this.height,\n        width: this.width,\n        type: \"line\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 18,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      labels: {\n        enabled: this.showValuesLabels\n      },\n      fill: {\n        type: this.fill,\n      },\n      plotOptions: {\n        bar: {\n          distributed: true, // this line is mandatory for using colors\n          horizontal: this.horizontal,\n          barHeight: this.barThicknessPercentage + '%',\n          columnWidth: this.barThicknessPercentage + '%',\n        }\n      },\n      xaxis: {\n        categories: this.lineChartData.getLabels(),\n        position: this.xAxisOnTop ? 'top' : 'bottom',\n        title: {\n          text: this.xAxisTitle\n        }\n        //type: 'datetime'\n      },\n      yaxis: {\n        show: this.showYAxis,\n        title: {\n          text: this.yAxisTitle\n        },\n      },\n      stroke: {\n        curve: this.curve,\n        width: this.strokeWidth,\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      markers: {\n        size: 0\n      },\n    };\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {\n  ApexAxisChartSeries,\n  ApexChart,\n  ApexDataLabels,\n  ApexFill,\n  ApexMarkers,\n  ApexPlotOptions,\n  ApexStroke,\n  ApexTitleSubtitle,\n  ApexXAxis,\n  ApexYAxis,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {LineChartData, LineChartDataElement} from \"./line-chart-data\";\nimport {Colors} from \"../colors\";\n\n\ntype LineChartOptions = {\n  series: ApexAxisChartSeries;\n  colors: string [];\n  chart: ApexChart;\n  labels: ApexDataLabels;\n  fill: ApexFill;\n  plotOptions: ApexPlotOptions;\n  stroke: ApexStroke;\n  xaxis: ApexXAxis;\n  yaxis: ApexYAxis;\n  title: ApexTitleSubtitle;\n  markers: ApexMarkers;\n};\n\n@Component({\n  selector: 'app-line-chart',\n  templateUrl: './line-chart.component.html',\n  styleUrls: ['./line-chart.component.scss']\n})\nexport class LineChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public lineChartOptions!: LineChartOptions;\n\n  @Input()\n  public lineChartData: LineChartData;\n  @Input()\n  public height: number = 250;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = Colors.defaultPalette;\n  @Input()\n  public horizontal: boolean = false;\n  @Input()\n  public barThicknessPercentage: number = 75;\n  @Input()\n  public showValuesLabels: boolean = true;\n  @Input()\n  public xAxisOnTop: boolean = false;\n  @Input()\n  public xAxisTitle: string | undefined = undefined;\n  @Input()\n  public yAxisTitle: string | undefined = undefined;\n  @Input()\n  public showYAxis: boolean = true;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public curve: \"straight\" | \"smooth\" | \"stepline\" = \"smooth\";\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public strokeWidth: number = 5;\n\n  constructor() {\n    this.lineChartData = LineChartData.fromMultipleDataElements([\n      new LineChartDataElement([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]], \"Line1\"),\n      new LineChartDataElement([[\"Value1\", 2], [\"Value2\", 3], [\"Value3\", 5]], \"Line2\")]);\n  }\n\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.lineChartOptions = {\n      colors: this.colors,\n      series: this.lineChartData.getData(),\n      chart: {\n        height: this.height,\n        width: this.width,\n        type: \"line\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 18,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      labels: {\n        enabled: this.showValuesLabels\n      },\n      fill: {\n        type: this.fill,\n      },\n      plotOptions: {\n        bar: {\n          distributed: true, // this line is mandatory for using colors\n          horizontal: this.horizontal,\n          barHeight: this.barThicknessPercentage + '%',\n          columnWidth: this.barThicknessPercentage + '%',\n        }\n      },\n      xaxis: {\n        categories: this.lineChartData.getLabels(),\n        position: this.xAxisOnTop ? 'top' : 'bottom',\n        title: {\n          text: this.xAxisTitle\n        }\n        //type: 'datetime'\n      },\n      yaxis: {\n        show: this.showYAxis,\n        title: {\n          text: this.yAxisTitle\n        },\n      },\n      stroke: {\n        curve: this.curve,\n        width: this.strokeWidth,\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      markers: {\n        size: 0\n      },\n    };\n  }\n\n  update(data: LineChartData) {\n    this.chart.updateSeries(data.getData());\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4118,7 +4232,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div id=\"chart\">\n  <div class=\"box shadow\">\n    <apx-chart\n      [series]=\"lineChartOptions.series\"\n      [colors]=\"lineChartOptions.colors\"\n      [chart]=\"lineChartOptions.chart\"\n      [dataLabels]=\"lineChartOptions.labels\"\n      [plotOptions]=\"lineChartOptions.plotOptions\"\n      [xaxis]=\"lineChartOptions.xaxis\"\n      [yaxis]=\"lineChartOptions.yaxis\"\n      [title]=\"lineChartOptions.title\"\n      [fill]=\"lineChartOptions.fill\"\n      [stroke]=\"lineChartOptions.stroke\"\n      [markers]=\"lineChartOptions.markers\"\n    ></apx-chart>\n  </div>\n</div>\n"
+            "templateData": "<div id=\"chart\">\n  <div class=\"box shadow\">\n    <apx-chart #chart\n               [series]=\"lineChartOptions.series\"\n               [colors]=\"lineChartOptions.colors\"\n               [chart]=\"lineChartOptions.chart\"\n               [dataLabels]=\"lineChartOptions.labels\"\n               [plotOptions]=\"lineChartOptions.plotOptions\"\n               [xaxis]=\"lineChartOptions.xaxis\"\n               [yaxis]=\"lineChartOptions.yaxis\"\n               [title]=\"lineChartOptions.title\"\n               [fill]=\"lineChartOptions.fill\"\n               [stroke]=\"lineChartOptions.stroke\"\n               [markers]=\"lineChartOptions.markers\"\n    ></apx-chart>\n  </div>\n</div>\n"
         },
         {
             "name": "PageComponent",
@@ -4202,7 +4316,7 @@
         },
         {
             "name": "PieChartComponent",
-            "id": "component-PieChartComponent-1433f87feaa27814436a9dd4dc6a76661a4a4f1c34a3b756e1abc54956ce5947e41cd33480c67122237fbca0b5f0bf9f1e3178f32bc312d6bf6ab24caecba0df",
+            "id": "component-PieChartComponent-8af0f9aecfbe509171f116f0788646b86f5355486f7de79df2240345861a5472afbfff513a70b1881ba37ad41e17927587ddc6cc09a8b2602c08f1b42e9700a0",
             "file": "projects/biit-ui/charts/src/pie-chart/pie-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4224,7 +4338,7 @@
                     "defaultValue": "Colors.defaultPalette",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 47,
+                    "line": 46,
                     "type": "string[]",
                     "decorators": []
                 },
@@ -4233,7 +4347,7 @@
                     "defaultValue": "\"solid\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 55,
+                    "line": 54,
                     "type": "\"gradient\" | \"solid\" | \"pattern\" | \"image\"",
                     "decorators": []
                 },
@@ -4242,7 +4356,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 53,
+                    "line": 52,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -4251,7 +4365,7 @@
                     "defaultValue": "\"bottom\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 59,
+                    "line": 58,
                     "type": "\"left\" | \"bottom\" | \"right\" | \"top\"",
                     "decorators": []
                 },
@@ -4259,7 +4373,7 @@
                     "name": "pieChartData",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 41,
+                    "line": 40,
                     "type": "PieChartData",
                     "decorators": []
                 },
@@ -4268,7 +4382,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 57,
+                    "line": 56,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -4277,7 +4391,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 45,
+                    "line": 44,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -4286,7 +4400,7 @@
                     "defaultValue": "undefined",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 49,
+                    "line": 48,
                     "type": "string | undefined",
                     "decorators": []
                 },
@@ -4295,7 +4409,7 @@
                     "defaultValue": "\"center\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 51,
+                    "line": 50,
                     "type": "\"left\" | \"center\" | \"right\"",
                     "decorators": []
                 },
@@ -4304,7 +4418,7 @@
                     "defaultValue": "500",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 43,
+                    "line": 42,
                     "type": "number",
                     "decorators": []
                 }
@@ -4318,7 +4432,7 @@
                     "type": "ChartComponent",
                     "optional": false,
                     "description": "",
-                    "line": 36,
+                    "line": 35,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -4336,7 +4450,7 @@
                     "type": "PieChartOptions",
                     "optional": false,
                     "description": "",
-                    "line": 38,
+                    "line": 37,
                     "modifierKind": [
                         123
                     ]
@@ -4356,7 +4470,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 69,
+                    "line": 68,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -4377,7 +4491,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 65,
+                    "line": 64,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -4387,11 +4501,39 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 73,
+                    "line": 72,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
                         121
+                    ]
+                },
+                {
+                    "name": "update",
+                    "args": [
+                        {
+                            "name": "data",
+                            "type": "PieChartData",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 118,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "data",
+                            "type": "PieChartData",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
                     ]
                 }
             ],
@@ -4402,7 +4544,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\n\nimport {\n  ApexChart,\n  ApexFill,\n  ApexLegend,\n  ApexNonAxisChartSeries,\n  ApexPlotOptions,\n  ApexResponsive,\n  ApexTitleSubtitle,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {PieChartData} from \"./pie-chart-data\";\nimport {Colors} from \"../colors\";\n\n\ntype PieChartOptions = {\n  series: ApexNonAxisChartSeries;\n  colors: string [];\n  chart: ApexChart;\n  fill: ApexFill;\n  responsive: ApexResponsive[];\n  labels: string[];\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n};\n\n@Component({\n  selector: 'app-pie-chart',\n  templateUrl: './pie-chart.component.html',\n  styleUrls: ['./pie-chart.component.scss']\n})\nexport class PieChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  private chart!: ChartComponent;\n\n  public pieChartOptions!: PieChartOptions;\n\n  @Input()\n  public pieChartData: PieChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = Colors.defaultPalette;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public isDonut: boolean = false;\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n\n  constructor() {\n    this.pieChartData = PieChartData.fromArray([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]]);\n  }\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.pieChartOptions = {\n      colors: this.colors,\n      chart: {\n        width: this.width,\n        type: this.isDonut ? \"donut\" : \"pie\",\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: -5,\n          left: 7,\n          blur: 8,\n          opacity: 0.2\n        },\n        toolbar: {\n          show: this.showToolbar,\n        },\n      },\n      series: this.pieChartData.getValues(),\n      labels: this.pieChartData.getLabels(),\n      fill: {\n        type: this.fill,\n      },\n      responsive: [\n        {\n          breakpoint: 480,\n          options: {\n            chart: {\n              width: 200\n            },\n            legend: {\n              position: this.legendPosition\n            }\n          }\n        }\n      ],\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\n\nimport {\n  ApexChart,\n  ApexFill,\n  ApexLegend,\n  ApexNonAxisChartSeries,\n  ApexResponsive,\n  ApexTitleSubtitle,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {PieChartData} from \"./pie-chart-data\";\nimport {Colors} from \"../colors\";\n\n\ntype PieChartOptions = {\n  series: ApexNonAxisChartSeries;\n  colors: string [];\n  chart: ApexChart;\n  fill: ApexFill;\n  responsive: ApexResponsive[];\n  labels: string[];\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n};\n\n@Component({\n  selector: 'app-pie-chart',\n  templateUrl: './pie-chart.component.html',\n  styleUrls: ['./pie-chart.component.scss']\n})\nexport class PieChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  private chart!: ChartComponent;\n\n  public pieChartOptions!: PieChartOptions;\n\n  @Input()\n  public pieChartData: PieChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = Colors.defaultPalette;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public isDonut: boolean = false;\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n\n  constructor() {\n    this.pieChartData = PieChartData.fromArray([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]]);\n  }\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.pieChartOptions = {\n      colors: this.colors,\n      chart: {\n        width: this.width,\n        type: this.isDonut ? \"donut\" : \"pie\",\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: -5,\n          left: 7,\n          blur: 8,\n          opacity: 0.2\n        },\n        toolbar: {\n          show: this.showToolbar,\n        },\n      },\n      series: this.pieChartData.getValues(),\n      labels: this.pieChartData.getLabels(),\n      fill: {\n        type: this.fill,\n      },\n      responsive: [\n        {\n          breakpoint: 480,\n          options: {\n            chart: {\n              width: 200\n            },\n            legend: {\n              position: this.legendPosition\n            }\n          }\n        }\n      ],\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n\n  update(data: PieChartData) {\n    this.chart.updateSeries(data.getData());\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4417,16 +4559,16 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 59
+                "line": 58
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div id=\"chart\" *ngIf=\"pieChartOptions\">\n  <div class=\"box shadow\">\n    <apx-chart\n      [series]=\"pieChartOptions.series\"\n      [colors]=\"pieChartOptions.colors\"\n      [fill]=\"pieChartOptions.fill\"\n      [chart]=\"pieChartOptions.chart\"\n      [labels]=\"pieChartOptions.labels\"\n      [responsive]=\"pieChartOptions.responsive\"\n      [title]=\"pieChartOptions.title\"\n      [legend]=\"pieChartOptions.legend\"\n    ></apx-chart>\n  </div>\n</div>\n"
+            "templateData": "<div id=\"chart\" *ngIf=\"pieChartOptions\">\n  <div class=\"box shadow\">\n    <apx-chart #chart\n               [series]=\"pieChartOptions.series\"\n               [colors]=\"pieChartOptions.colors\"\n               [fill]=\"pieChartOptions.fill\"\n               [chart]=\"pieChartOptions.chart\"\n               [labels]=\"pieChartOptions.labels\"\n               [responsive]=\"pieChartOptions.responsive\"\n               [title]=\"pieChartOptions.title\"\n               [legend]=\"pieChartOptions.legend\"\n    ></apx-chart>\n  </div>\n</div>\n"
         },
         {
             "name": "RadarChartComponent",
-            "id": "component-RadarChartComponent-531f0663c6ca54fbe60a23d430696092fc87536e60472e7abe587e9a5b68763e0d216c4193d1a3d4050d67a6409b3753fe25540510498b0f30aca8aba5cf0a09",
+            "id": "component-RadarChartComponent-89090fffa5cc5e46ae93e7a99d9c90575d226197e85a066bf8e38ebdbe04da8a16d32a3675b8fa7a67564fd5e2e7ff8c5cdac1006363f7986966eff6f144adce",
             "file": "projects/biit-ui/charts/src/radar-chart/radar-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4651,7 +4793,7 @@
                     "optional": false,
                     "returnType": "StackedBarsData[]",
                     "typeParameters": [],
-                    "line": 143,
+                    "line": 148,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -4678,6 +4820,34 @@
                     "modifierKind": [
                         121
                     ]
+                },
+                {
+                    "name": "update",
+                    "args": [
+                        {
+                            "name": "data",
+                            "type": "RadarChartData",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 143,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "data",
+                            "type": "RadarChartData",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "deprecated": false,
@@ -4687,7 +4857,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {\n  ApexAxisChartSeries,\n  ApexChart,\n  ApexDataLabels,\n  ApexFill,\n  ApexLegend,\n  ApexMarkers,\n  ApexPlotOptions,\n  ApexStroke,\n  ApexTitleSubtitle,\n  ApexXAxis,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {StackedBarsData} from \"../stacked-bars-chart/stacked-bars-chart-data\";\nimport {RadarChartData, RadarChartDataElement} from \"./radar-chart-data\";\nimport {Colors} from \"../colors\";\n\ntype RadarChartOptions = {\n  series: ApexAxisChartSeries;\n  chart: ApexChart;\n  labels: ApexDataLabels;\n  fill: ApexFill;\n  plotOptions: ApexPlotOptions;\n  xaxis: ApexXAxis;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n  markers: ApexMarkers;\n  stroke: ApexStroke;\n};\n\n@Component({\n  selector: 'app-radar-chart',\n  templateUrl: './radar-chart.component.html',\n  styleUrls: ['./radar-chart.component.scss']\n})\nexport class RadarChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public radarChartOptions!: RadarChartOptions;\n\n  @Input()\n  public radarChartData: RadarChartData;\n  @Input()\n  public width: number = 600;\n  @Input()\n  public radarSize: number = 140;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = Colors.defaultPalette;\n  @Input()\n  public showValuesLabels: boolean = false;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public opacity: number = 0.4;\n  @Input()\n  public strokeWidth: number = 5;\n  @Input()\n  public innerColors: string[] = [\"#ffffff\"]\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n\n  constructor() {\n    this.radarChartData = RadarChartData.fromMultipleDataElements([\n      new RadarChartDataElement([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]], \"Group1\"),\n      new RadarChartDataElement([[\"Value1\", 1], [\"Value2\", 2], [\"Value3\", 3]], \"Group2\"),\n      new RadarChartDataElement([[\"Value1\", 4], [\"Value2\", 3], [\"Value3\", 3]], \"Group3\"),\n      new RadarChartDataElement([[\"Value1\", 1], [\"Value2\", 2], [\"Value3\", 3]], \"Group4\"),\n      new RadarChartDataElement([[\"Value1\", 6], [\"Value2\", 2], [\"Value3\", 3]], \"Group5\")]);\n  }\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.radarChartOptions = {\n      chart: {\n        width: this.width,\n        type: \"radar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          blur: 1,\n          left: 1,\n          top: 1\n        },\n      },\n      series: this.setColors(this.radarChartData.getData()),\n      labels: {\n        enabled: this.showValuesLabels\n      },\n      fill: {\n        type: this.fill,\n        opacity: this.opacity,\n      },\n      markers: {\n        size: 0\n      },\n      stroke: {\n        width: this.strokeWidth\n      },\n      plotOptions: {\n        radar: {\n          size: this.radarSize,\n          polygons: {\n            fill: {\n              colors: this.innerColors\n            }\n          }\n        }\n      },\n      xaxis: {\n        categories: this.radarChartData.getLabels()\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n\n  setColors(data: StackedBarsData[]): StackedBarsData[] {\n    for (let i = 0; i < data.length; i++) {\n      data[i].color = this.colors[i % this.colors.length];\n    }\n    return data;\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {\n  ApexAxisChartSeries,\n  ApexChart,\n  ApexDataLabels,\n  ApexFill,\n  ApexLegend,\n  ApexMarkers,\n  ApexPlotOptions,\n  ApexStroke,\n  ApexTitleSubtitle,\n  ApexXAxis,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {StackedBarsData} from \"../stacked-bars-chart/stacked-bars-chart-data\";\nimport {RadarChartData, RadarChartDataElement} from \"./radar-chart-data\";\nimport {Colors} from \"../colors\";\n\ntype RadarChartOptions = {\n  series: ApexAxisChartSeries;\n  chart: ApexChart;\n  labels: ApexDataLabels;\n  fill: ApexFill;\n  plotOptions: ApexPlotOptions;\n  xaxis: ApexXAxis;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n  markers: ApexMarkers;\n  stroke: ApexStroke;\n};\n\n@Component({\n  selector: 'app-radar-chart',\n  templateUrl: './radar-chart.component.html',\n  styleUrls: ['./radar-chart.component.scss']\n})\nexport class RadarChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public radarChartOptions!: RadarChartOptions;\n\n  @Input()\n  public radarChartData: RadarChartData;\n  @Input()\n  public width: number = 600;\n  @Input()\n  public radarSize: number = 140;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = Colors.defaultPalette;\n  @Input()\n  public showValuesLabels: boolean = false;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public opacity: number = 0.4;\n  @Input()\n  public strokeWidth: number = 5;\n  @Input()\n  public innerColors: string[] = [\"#ffffff\"]\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n\n  constructor() {\n    this.radarChartData = RadarChartData.fromMultipleDataElements([\n      new RadarChartDataElement([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]], \"Group1\"),\n      new RadarChartDataElement([[\"Value1\", 1], [\"Value2\", 2], [\"Value3\", 3]], \"Group2\"),\n      new RadarChartDataElement([[\"Value1\", 4], [\"Value2\", 3], [\"Value3\", 3]], \"Group3\"),\n      new RadarChartDataElement([[\"Value1\", 1], [\"Value2\", 2], [\"Value3\", 3]], \"Group4\"),\n      new RadarChartDataElement([[\"Value1\", 6], [\"Value2\", 2], [\"Value3\", 3]], \"Group5\")]);\n  }\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.radarChartOptions = {\n      chart: {\n        width: this.width,\n        type: \"radar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          blur: 1,\n          left: 1,\n          top: 1\n        },\n      },\n      series: this.setColors(this.radarChartData.getData()),\n      labels: {\n        enabled: this.showValuesLabels\n      },\n      fill: {\n        type: this.fill,\n        opacity: this.opacity,\n      },\n      markers: {\n        size: 0\n      },\n      stroke: {\n        width: this.strokeWidth\n      },\n      plotOptions: {\n        radar: {\n          size: this.radarSize,\n          polygons: {\n            fill: {\n              colors: this.innerColors\n            }\n          }\n        }\n      },\n      xaxis: {\n        categories: this.radarChartData.getLabels()\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n\n  update(data: RadarChartData) {\n    this.chart.updateSeries(data.getData());\n  }\n\n\n  setColors(data: StackedBarsData[]): StackedBarsData[] {\n    for (let i = 0; i < data.length; i++) {\n      data[i].color = this.colors[i % this.colors.length];\n    }\n    return data;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4707,11 +4877,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div id=\"chart\" *ngIf=\"radarChartOptions\">\n  <div class=\"box shadow\">\n    <apx-chart\n      [series]=\"radarChartOptions.series\"\n      [chart]=\"radarChartOptions.chart\"\n      [dataLabels]=\"radarChartOptions.labels\"\n      [plotOptions]=\"radarChartOptions.plotOptions\"\n      [xaxis]=\"radarChartOptions.xaxis\"\n      [title]=\"radarChartOptions.title\"\n      [fill]=\"radarChartOptions.fill\"\n      [legend]=\"radarChartOptions.legend\"\n      [markers]=\"radarChartOptions.markers\"\n      [stroke]=\"radarChartOptions.stroke\"\n    ></apx-chart>\n  </div>\n</div>\n"
+            "templateData": "<div id=\"chart\" *ngIf=\"radarChartOptions\">\n  <div class=\"box shadow\">\n    <apx-chart #chart\n               [series]=\"radarChartOptions.series\"\n               [chart]=\"radarChartOptions.chart\"\n               [dataLabels]=\"radarChartOptions.labels\"\n               [plotOptions]=\"radarChartOptions.plotOptions\"\n               [xaxis]=\"radarChartOptions.xaxis\"\n               [title]=\"radarChartOptions.title\"\n               [fill]=\"radarChartOptions.fill\"\n               [legend]=\"radarChartOptions.legend\"\n               [markers]=\"radarChartOptions.markers\"\n               [stroke]=\"radarChartOptions.stroke\"\n    ></apx-chart>\n  </div>\n</div>\n"
         },
         {
             "name": "RadialChartComponent",
-            "id": "component-RadialChartComponent-2d50ea1d1a18a2f55fd3033faffb778b7a5855e0937d6b3e9a61e1bddb588b8f4422726f71da2567ef7a977391f527d35ec00e9fbb04aa96ad525d30e25b0e69",
+            "id": "component-RadialChartComponent-52264b01805d5a1883d7f226d1abfb80eb9465836506fae904e71183546cf426fac899f7cbea8ef06b29b2e44a8a3b49d73ab618a67e51c78fdeef4838e7ba3c",
             "file": "projects/biit-ui/charts/src/radial-chart/radial-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4917,6 +5087,34 @@
                     "modifierKind": [
                         121
                     ]
+                },
+                {
+                    "name": "update",
+                    "args": [
+                        {
+                            "name": "data",
+                            "type": "RadialChartData",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 135,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "data",
+                            "type": "RadialChartData",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "deprecated": false,
@@ -4926,7 +5124,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {ApexChart, ApexFill, ApexLegend, ApexPlotOptions, ApexTitleSubtitle, ChartComponent} from \"ng-apexcharts\";\nimport {RadialChartData} from \"./radial-chart-data\";\nimport {Colors} from \"../colors\";\n\ntype RadialChartOptions = {\n  series: number[];\n  colors: string [];\n  labels: string[];\n  fill: ApexFill;\n  chart: ApexChart;\n  plotOptions: ApexPlotOptions;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n};\n\n\n@Component({\n  selector: 'app-radial-chart',\n  templateUrl: './radial-chart.component.html',\n  styleUrls: ['./radial-chart.component.scss']\n})\nexport class RadialChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public radialChartOptions!: RadialChartOptions;\n\n  @Input()\n  public data: RadialChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = Colors.defaultPalette;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"gradient\";\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public innerCirclePercentage: number = 40;\n  @Input()\n  public startAngle: number = 0;\n  @Input()\n  public endAngle: number = 360;\n\n  constructor() {\n    this.data = RadialChartData.fromArray([[\"Value1\", 85], [\"Value2\", 49], [\"Value3\", 36]]);\n  }\n\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.radialChartOptions = {\n      colors: this.colors,\n      chart: {\n        width: this.width,\n        type: \"radialBar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 18,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      series: this.data.getValues(),\n      labels: this.data.getLabels(),\n      fill: {\n        type: this.fill,\n        gradient: {\n          shade: \"light\",\n          shadeIntensity: 0.4,\n          inverseColors: false,\n          opacityFrom: 1,\n          opacityTo: 1,\n          stops: [0, 50, 53, 91]\n        }\n      },\n      plotOptions: {\n        radialBar: {\n          startAngle: this.startAngle,\n          endAngle: this.endAngle,\n          dataLabels: {\n            name: {\n              fontSize: \"22px\"\n            },\n            value: {\n              offsetY: 5,\n              fontSize: \"16px\"\n            },\n            total: {\n              show: true,\n              label: \"Total\",\n              color: \"#000000\",\n              formatter: (w: any) => {\n                return (Math.round((this.data.getTotal() / this.data.getValues().length) * 100) / 100).toFixed(2) + \"%\";\n              }\n            }\n          },\n          hollow: {\n            size: this.innerCirclePercentage + \"%\"\n          }\n        }\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {ApexChart, ApexFill, ApexLegend, ApexPlotOptions, ApexTitleSubtitle, ChartComponent} from \"ng-apexcharts\";\nimport {RadialChartData} from \"./radial-chart-data\";\nimport {Colors} from \"../colors\";\n\ntype RadialChartOptions = {\n  series: number[];\n  colors: string [];\n  labels: string[];\n  fill: ApexFill;\n  chart: ApexChart;\n  plotOptions: ApexPlotOptions;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n};\n\n\n@Component({\n  selector: 'app-radial-chart',\n  templateUrl: './radial-chart.component.html',\n  styleUrls: ['./radial-chart.component.scss']\n})\nexport class RadialChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public radialChartOptions!: RadialChartOptions;\n\n  @Input()\n  public data: RadialChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = Colors.defaultPalette;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"gradient\";\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public innerCirclePercentage: number = 40;\n  @Input()\n  public startAngle: number = 0;\n  @Input()\n  public endAngle: number = 360;\n\n  constructor() {\n    this.data = RadialChartData.fromArray([[\"Value1\", 85], [\"Value2\", 49], [\"Value3\", 36]]);\n  }\n\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.radialChartOptions = {\n      colors: this.colors,\n      chart: {\n        width: this.width,\n        type: \"radialBar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 18,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      series: this.data.getValues(),\n      labels: this.data.getLabels(),\n      fill: {\n        type: this.fill,\n        gradient: {\n          shade: \"light\",\n          shadeIntensity: 0.4,\n          inverseColors: false,\n          opacityFrom: 1,\n          opacityTo: 1,\n          stops: [0, 50, 53, 91]\n        }\n      },\n      plotOptions: {\n        radialBar: {\n          startAngle: this.startAngle,\n          endAngle: this.endAngle,\n          dataLabels: {\n            name: {\n              fontSize: \"22px\"\n            },\n            value: {\n              offsetY: 5,\n              fontSize: \"16px\"\n            },\n            total: {\n              show: true,\n              label: \"Total\",\n              color: \"#000000\",\n              formatter: (w: any) => {\n                return (Math.round((this.data.getTotal() / this.data.getValues().length) * 100) / 100).toFixed(2) + \"%\";\n              }\n            }\n          },\n          hollow: {\n            size: this.innerCirclePercentage + \"%\"\n          }\n        }\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n\n  update(data: RadialChartData) {\n    this.chart.updateSeries(data.getData());\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4946,11 +5144,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div id=\"chart\" *ngIf=\"radialChartOptions\">\n  <div class=\"box shadow\">\n    <apx-chart\n      [series]=\"radialChartOptions.series\"\n      [colors]=\"radialChartOptions.colors\"\n      [fill]=\"radialChartOptions.fill\"\n      [chart]=\"radialChartOptions.chart\"\n      [plotOptions]=\"radialChartOptions.plotOptions\"\n      [title]=\"radialChartOptions.title\"\n      [legend]=\"radialChartOptions.legend\"\n      [labels]=\"radialChartOptions.labels\"\n    ></apx-chart>\n  </div>\n</div>\n"
+            "templateData": "<div id=\"chart\" *ngIf=\"radialChartOptions\">\n  <div class=\"box shadow\">\n    <apx-chart #chart\n               [series]=\"radialChartOptions.series\"\n               [colors]=\"radialChartOptions.colors\"\n               [fill]=\"radialChartOptions.fill\"\n               [chart]=\"radialChartOptions.chart\"\n               [plotOptions]=\"radialChartOptions.plotOptions\"\n               [title]=\"radialChartOptions.title\"\n               [legend]=\"radialChartOptions.legend\"\n               [labels]=\"radialChartOptions.labels\"\n    ></apx-chart>\n  </div>\n</div>\n"
         },
         {
             "name": "StackedBarsChartComponent",
-            "id": "component-StackedBarsChartComponent-c05e2f62e8e4982876e39833c2e5cb78d0a3687313c69382d981653799600f8f881b8de872fa5adf16cc3877292acc4cdf555a4c05f9b71b817a75aa27f3c93a",
+            "id": "component-StackedBarsChartComponent-4fc1a5fec6c0ca565d0cf43811337516ff064994449b764d4f0d31692cf432f3e1762b53a3371faee732d7dffb477cf6d6d332a32fcc4e149ffacc3810a307eb",
             "file": "projects/biit-ui/charts/src/stacked-bars-chart/stacked-bars-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5220,7 +5418,7 @@
                     "optional": false,
                     "returnType": "StackedBarsData[]",
                     "typeParameters": [],
-                    "line": 161,
+                    "line": 165,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -5247,6 +5445,34 @@
                     "modifierKind": [
                         121
                     ]
+                },
+                {
+                    "name": "update",
+                    "args": [
+                        {
+                            "name": "data",
+                            "type": "StackedBarChartData",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 161,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "data",
+                            "type": "StackedBarChartData",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "deprecated": false,
@@ -5256,7 +5482,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {\n  ApexAxisChartSeries,\n  ApexChart,\n  ApexDataLabels,\n  ApexFill,\n  ApexLegend,\n  ApexPlotOptions,\n  ApexTitleSubtitle,\n  ApexXAxis,\n  ApexYAxis,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {StackedBarsData, StackedBarChartData, StackedBarChartDataElement} from \"./stacked-bars-chart-data\";\nimport {Colors} from \"../colors\";\n\n\ntype StackedBarsChartOptions = {\n  series: ApexAxisChartSeries;\n  chart: ApexChart;\n  labels: ApexDataLabels;\n  fill: ApexFill;\n  plotOptions: ApexPlotOptions;\n  xaxis: ApexXAxis;\n  yaxis: ApexYAxis;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n};\n\n@Component({\n  selector: 'app-stacked-bars-chart',\n  templateUrl: './stacked-bars-chart.component.html',\n  styleUrls: ['./stacked-bars-chart.component.scss']\n})\nexport class StackedBarsChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public stackedBarsChartOptions!: StackedBarsChartOptions;\n\n  @Input()\n  public stackedBarChartData: StackedBarChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = Colors.defaultPalette;\n  @Input()\n  public horizontal: boolean = false;\n  @Input()\n  public barThicknessPercentage: number = 75;\n  @Input()\n  public showValuesLabels: boolean = true;\n  @Input()\n  public xAxisOnTop: boolean = false;\n  @Input()\n  public xAxisTitle: string | undefined = undefined;\n  @Input()\n  public yAxisTitle: string | undefined = undefined;\n  @Input()\n  public showYAxis: boolean = true;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public borderRadius: number = 0;\n  @Input()\n  public enableTotals: boolean = true;\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public stackType: '100%' | 'normal' = \"normal\";\n\n  constructor() {\n    this.stackedBarChartData = StackedBarChartData.fromMultipleDataElements([\n      new StackedBarChartDataElement([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]], \"Group1\"),\n      new StackedBarChartDataElement([[\"Value1\", 1], [\"Value2\", 2], [\"Value3\", 3]], \"Group2\")]);\n  }\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.stackedBarsChartOptions = {\n      chart: {\n        width: this.width,\n        type: \"bar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        stacked: true,\n        stackType: this.stackType,\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 0,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      series: this.setColors(this.stackedBarChartData.getData()),\n      labels: {\n        enabled: this.showValuesLabels\n      },\n      fill: {\n        type: this.fill,\n      },\n      plotOptions: {\n        bar: {\n          distributed: false, // this line is mandatory for using colors\n          horizontal: this.horizontal,\n          barHeight: this.barThicknessPercentage + '%',\n          columnWidth: this.barThicknessPercentage + '%',\n          borderRadius: this.borderRadius,\n          dataLabels: {\n            total: {\n              enabled: this.enableTotals,\n              style: {\n                fontWeight: 900\n              }\n            }\n          }\n        }\n      },\n      xaxis: {\n        categories: this.stackedBarChartData.getLabels(),\n        position: this.xAxisOnTop ? 'top' : 'bottom',\n        title: {\n          text: this.xAxisTitle\n        }\n      },\n      yaxis: {\n        show: this.showYAxis,\n        title: {\n          text: this.yAxisTitle\n        },\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n\n  setColors(data: StackedBarsData[]): StackedBarsData[] {\n    for (let i = 0; i < data.length; i++) {\n      data[i].color = this.colors[i % this.colors.length];\n    }\n    return data;\n  }\n}\n",
+            "sourceCode": "import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';\nimport {\n  ApexAxisChartSeries,\n  ApexChart,\n  ApexDataLabels,\n  ApexFill,\n  ApexLegend,\n  ApexPlotOptions,\n  ApexTitleSubtitle,\n  ApexXAxis,\n  ApexYAxis,\n  ChartComponent\n} from \"ng-apexcharts\";\nimport {StackedBarChartData, StackedBarChartDataElement, StackedBarsData} from \"./stacked-bars-chart-data\";\nimport {Colors} from \"../colors\";\n\n\ntype StackedBarsChartOptions = {\n  series: ApexAxisChartSeries;\n  chart: ApexChart;\n  labels: ApexDataLabels;\n  fill: ApexFill;\n  plotOptions: ApexPlotOptions;\n  xaxis: ApexXAxis;\n  yaxis: ApexYAxis;\n  title: ApexTitleSubtitle;\n  legend: ApexLegend;\n};\n\n@Component({\n  selector: 'app-stacked-bars-chart',\n  templateUrl: './stacked-bars-chart.component.html',\n  styleUrls: ['./stacked-bars-chart.component.scss']\n})\nexport class StackedBarsChartComponent implements OnInit {\n\n  @ViewChild('chart')\n  chart!: ChartComponent;\n\n  public stackedBarsChartOptions!: StackedBarsChartOptions;\n\n  @Input()\n  public stackedBarChartData: StackedBarChartData;\n  @Input()\n  public width: number = 500;\n  @Input()\n  public showToolbar: boolean = true;\n  @Input()\n  public colors: string[] = Colors.defaultPalette;\n  @Input()\n  public horizontal: boolean = false;\n  @Input()\n  public barThicknessPercentage: number = 75;\n  @Input()\n  public showValuesLabels: boolean = true;\n  @Input()\n  public xAxisOnTop: boolean = false;\n  @Input()\n  public xAxisTitle: string | undefined = undefined;\n  @Input()\n  public yAxisTitle: string | undefined = undefined;\n  @Input()\n  public showYAxis: boolean = true;\n  @Input()\n  public title: string | undefined = undefined;\n  @Input()\n  public titleAlignment: \"left\" | \"center\" | \"right\" = \"center\";\n  @Input()\n  public fill: \"gradient\" | \"solid\" | \"pattern\" | \"image\" = \"solid\";\n  @Input()\n  public borderRadius: number = 0;\n  @Input()\n  public enableTotals: boolean = true;\n  @Input()\n  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = \"bottom\"\n  @Input()\n  public shadow: boolean = true;\n  @Input()\n  public stackType: '100%' | 'normal' = \"normal\";\n\n  constructor() {\n    this.stackedBarChartData = StackedBarChartData.fromMultipleDataElements([\n      new StackedBarChartDataElement([[\"Value1\", 5], [\"Value2\", 4], [\"Value3\", 1]], \"Group1\"),\n      new StackedBarChartDataElement([[\"Value1\", 1], [\"Value2\", 2], [\"Value3\", 3]], \"Group2\")]);\n  }\n\n  ngOnInit() {\n    this.setProperties();\n  }\n\n  ngOnChanges(changes: SimpleChanges) {\n    this.setProperties();\n  }\n\n  private setProperties(): void {\n    this.stackedBarsChartOptions = {\n      chart: {\n        width: this.width,\n        type: \"bar\",\n        toolbar: {\n          show: this.showToolbar,\n        },\n        stacked: true,\n        stackType: this.stackType,\n        dropShadow: {\n          enabled: this.shadow,\n          color: '#000',\n          top: 0,\n          left: 7,\n          blur: 10,\n          opacity: 0.2\n        },\n      },\n      series: this.setColors(this.stackedBarChartData.getData()),\n      labels: {\n        enabled: this.showValuesLabels\n      },\n      fill: {\n        type: this.fill,\n      },\n      plotOptions: {\n        bar: {\n          distributed: false, // this line is mandatory for using colors\n          horizontal: this.horizontal,\n          barHeight: this.barThicknessPercentage + '%',\n          columnWidth: this.barThicknessPercentage + '%',\n          borderRadius: this.borderRadius,\n          dataLabels: {\n            total: {\n              enabled: this.enableTotals,\n              style: {\n                fontWeight: 900\n              }\n            }\n          }\n        }\n      },\n      xaxis: {\n        categories: this.stackedBarChartData.getLabels(),\n        position: this.xAxisOnTop ? 'top' : 'bottom',\n        title: {\n          text: this.xAxisTitle\n        }\n      },\n      yaxis: {\n        show: this.showYAxis,\n        title: {\n          text: this.yAxisTitle\n        },\n      },\n      title: {\n        text: this.title,\n        align: this.titleAlignment\n      },\n      legend: {\n        position: this.legendPosition\n      },\n    };\n  }\n\n  update(data: StackedBarChartData) {\n    this.chart.updateSeries(data.getData());\n  }\n\n  setColors(data: StackedBarsData[]): StackedBarsData[] {\n    for (let i = 0; i < data.length; i++) {\n      data[i].color = this.colors[i % this.colors.length];\n    }\n    return data;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -5276,7 +5502,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div id=\"chart\" *ngIf=\"stackedBarsChartOptions\">\n  <div class=\"box shadow\">\n    <apx-chart\n      [series]=\"stackedBarsChartOptions.series\"\n      [chart]=\"stackedBarsChartOptions.chart\"\n      [dataLabels]=\"stackedBarsChartOptions.labels\"\n      [plotOptions]=\"stackedBarsChartOptions.plotOptions\"\n      [xaxis]=\"stackedBarsChartOptions.xaxis\"\n      [yaxis]=\"stackedBarsChartOptions.yaxis\"\n      [title]=\"stackedBarsChartOptions.title\"\n      [fill]=\"stackedBarsChartOptions.fill\"\n      [legend]=\"stackedBarsChartOptions.legend\"\n    ></apx-chart>\n  </div>\n</div>\n"
+            "templateData": "<div id=\"chart\" *ngIf=\"stackedBarsChartOptions\">\n  <div class=\"box shadow\">\n    <apx-chart #chart\n               [series]=\"stackedBarsChartOptions.series\"\n               [chart]=\"stackedBarsChartOptions.chart\"\n               [dataLabels]=\"stackedBarsChartOptions.labels\"\n               [plotOptions]=\"stackedBarsChartOptions.plotOptions\"\n               [xaxis]=\"stackedBarsChartOptions.xaxis\"\n               [yaxis]=\"stackedBarsChartOptions.yaxis\"\n               [title]=\"stackedBarsChartOptions.title\"\n               [fill]=\"stackedBarsChartOptions.fill\"\n               [legend]=\"stackedBarsChartOptions.legend\"\n    ></apx-chart>\n  </div>\n</div>\n"
         }
     ],
     "modules": [
@@ -6231,7 +6457,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<BiitFilterComponent>",
-                "defaultValue": "(args: BiitFilterComponent) => ({\n  props: args,\n  template: `\n    <app-biit-filter\n      [resetValue]=\"resetValue\"\n      [disabled]=\"disabled\"\n      (filterChanged)=\"filterChanged()\">\n    </app-biit-filter>`\n})"
+                "defaultValue": "(args: BiitFilterComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-filter\r\n      [resetValue]=\"resetValue\"\r\n      [disabled]=\"disabled\"\r\n      (filterChanged)=\"filterChanged()\">\r\n    </app-biit-filter>`\r\n})"
             },
             {
                 "name": "Template",
@@ -6383,6 +6609,28 @@
                 "subtype": "typealias",
                 "rawtype": "literal type",
                 "file": "projects/biit-ui/charts/src/bar-chart/bar-chart-data.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 181
+            },
+            {
+                "name": "Data",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 181
+            },
+            {
+                "name": "Data",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -6573,7 +6821,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<BiitFilterComponent>",
-                    "defaultValue": "(args: BiitFilterComponent) => ({\n  props: args,\n  template: `\n    <app-biit-filter\n      [resetValue]=\"resetValue\"\n      [disabled]=\"disabled\"\n      (filterChanged)=\"filterChanged()\">\n    </app-biit-filter>`\n})"
+                    "defaultValue": "(args: BiitFilterComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-filter\r\n      [resetValue]=\"resetValue\"\r\n      [disabled]=\"disabled\"\r\n      (filterChanged)=\"filterChanged()\">\r\n    </app-biit-filter>`\r\n})"
                 }
             ],
             "src/stories/table.stories.ts": [
@@ -6975,6 +7223,32 @@
                     "kind": 181
                 }
             ],
+            "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts": [
+                {
+                    "name": "Data",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
+            ],
+            "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts": [
+                {
+                    "name": "Data",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
+            ],
             "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
                 {
                     "name": "Data",
@@ -7132,7 +7406,7 @@
                 "linktype": "component",
                 "name": "BarChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/24",
+                "coverageCount": "0/25",
                 "status": "low"
             },
             {
@@ -7150,7 +7424,7 @@
                 "linktype": "classe",
                 "name": "GaugeChartData",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -7168,7 +7442,7 @@
                 "linktype": "component",
                 "name": "GaugeChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/20",
+                "coverageCount": "0/21",
                 "status": "low"
             },
             {
@@ -7195,7 +7469,7 @@
                 "linktype": "component",
                 "name": "LineChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/25",
+                "coverageCount": "0/26",
                 "status": "low"
             },
             {
@@ -7204,7 +7478,7 @@
                 "linktype": "classe",
                 "name": "PieChartData",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -7222,7 +7496,7 @@
                 "linktype": "component",
                 "name": "PieChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/17",
+                "coverageCount": "0/18",
                 "status": "low"
             },
             {
@@ -7258,7 +7532,7 @@
                 "linktype": "component",
                 "name": "RadarChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/22",
+                "coverageCount": "0/23",
                 "status": "low"
             },
             {
@@ -7267,7 +7541,7 @@
                 "linktype": "classe",
                 "name": "RadialChartData",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -7285,7 +7559,7 @@
                 "linktype": "component",
                 "name": "RadialChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/19",
+                "coverageCount": "0/20",
                 "status": "low"
             },
             {
@@ -7321,7 +7595,7 @@
                 "linktype": "component",
                 "name": "StackedBarsChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/27",
+                "coverageCount": "0/28",
                 "status": "low"
             },
             {

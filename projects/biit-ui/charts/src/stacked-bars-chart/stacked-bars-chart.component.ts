@@ -11,7 +11,7 @@ import {
   ApexYAxis,
   ChartComponent
 } from "ng-apexcharts";
-import {StackedBarsData, StackedBarChartData, StackedBarChartDataElement} from "./stacked-bars-chart-data";
+import {StackedBarChartData, StackedBarChartDataElement, StackedBarsData} from "./stacked-bars-chart-data";
 import {Colors} from "../colors";
 
 
@@ -156,6 +156,10 @@ export class StackedBarsChartComponent implements OnInit {
         position: this.legendPosition
       },
     };
+  }
+
+  update(data: StackedBarChartData) {
+    this.chart.updateSeries(data.getData());
   }
 
   setColors(data: StackedBarsData[]): StackedBarsData[] {

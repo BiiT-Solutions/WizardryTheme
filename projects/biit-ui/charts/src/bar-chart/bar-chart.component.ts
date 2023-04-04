@@ -144,4 +144,8 @@ export class BarChartComponent implements OnInit, OnChanges {
       },
     };
   }
+
+  update(data: BarChartData){
+    this.chart.updateSeries(data.getData());
+  }
 }

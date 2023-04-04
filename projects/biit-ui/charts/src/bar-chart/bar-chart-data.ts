@@ -19,6 +19,7 @@ export class BarChartData {
 
   constructor(name?: string) {
     this.name = name;
+    this.elements = [];
   }
 
   getLabels(): string[] {
@@ -48,6 +49,6 @@ export class BarChartDataElement {
 }
 
 type Data = {
-  name: string ,
+  name: string,
   data: number[]
 };

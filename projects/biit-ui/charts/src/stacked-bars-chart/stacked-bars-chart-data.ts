@@ -17,6 +17,7 @@ export class StackedBarChartData {
 
   constructor(name?: string[]) {
     this.name = name;
+    this.elements = [];
   }
 
   getLabels(): string[] {

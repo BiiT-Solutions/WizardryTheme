@@ -1,16 +1,16 @@
 <div id="chart" *ngIf="radarChartOptions">
   <div class="box shadow">
-    <apx-chart
-      [series]="radarChartOptions.series"
-      [chart]="radarChartOptions.chart"
-      [dataLabels]="radarChartOptions.labels"
-      [plotOptions]="radarChartOptions.plotOptions"
-      [xaxis]="radarChartOptions.xaxis"
-      [title]="radarChartOptions.title"
-      [fill]="radarChartOptions.fill"
-      [legend]="radarChartOptions.legend"
-      [markers]="radarChartOptions.markers"
-      [stroke]="radarChartOptions.stroke"
+    <apx-chart #chart
+               [series]="radarChartOptions.series"
+               [chart]="radarChartOptions.chart"
+               [dataLabels]="radarChartOptions.labels"
+               [plotOptions]="radarChartOptions.plotOptions"
+               [xaxis]="radarChartOptions.xaxis"
+               [title]="radarChartOptions.title"
+               [fill]="radarChartOptions.fill"
+               [legend]="radarChartOptions.legend"
+               [markers]="radarChartOptions.markers"
+               [stroke]="radarChartOptions.stroke"
     ></apx-chart>
   </div>
 </div>
