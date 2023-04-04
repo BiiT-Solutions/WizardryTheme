@@ -1,7 +1,7 @@
 import {componentWrapperDecorator, Meta, moduleMetadata, Story} from '@storybook/angular';
-import {BiitFilterComponent} from "../../projects/biit-ui/filter/src/biit-filter/biit-filter.component";
-import {BiitFilterModule} from "../../projects/biit-ui/filter/src/biit-filter/biit-filter.module";
-import {I18nModule} from "../app/i18n/i18n.module";
+import {BiitFilterComponent} from "../../../projects/biit-ui/filter/src/biit-filter/biit-filter.component";
+import {BiitFilterModule} from "../../../projects/biit-ui/filter/src/biit-filter/biit-filter.module";
+import {I18nModule} from "../../app/i18n/i18n.module";
 
 export default {
   title: 'Basic/Filter',
