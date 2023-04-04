@@ -6203,26 +6203,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/filter.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/table.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/charts/bar.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -6294,6 +6274,26 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/controls/biit-dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/filter/filter.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6453,26 +6453,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/filter.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<BiitFilterComponent>",
-                "defaultValue": "(args: BiitFilterComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-filter\r\n      [resetValue]=\"resetValue\"\r\n      [disabled]=\"disabled\"\r\n      (filterChanged)=\"filterChanged()\">\r\n    </app-biit-filter>`\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/table.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<BiitTableComponent>",
-                "defaultValue": "(args: BiitTableComponent) => ({\n  props: args,\n  template: `\n    <app-biit-table-demo\n      [locale]=\"locale\"\n    ></app-biit-table-demo>`\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/charts/bar.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -6548,6 +6528,26 @@
                 "deprecationMessage": "",
                 "type": "Story<BiitDropdownComponent<literal type>>",
                 "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/filter/filter.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitFilterComponent>",
+                "defaultValue": "(args: BiitFilterComponent) => ({\n  props: args,\n  template: `\n    <app-biit-filter\n      [resetValue]=\"resetValue\"\n      [disabled]=\"disabled\"\n      (filterChanged)=\"filterChanged()\">\n    </app-biit-filter>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/table/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitTableComponent>",
+                "defaultValue": "(args: BiitTableComponent) => ({\n  props: args,\n  template: `\n    <app-biit-table-demo\n      [locale]=\"locale\"\n    ></app-biit-table-demo>`\n})"
             }
         ],
         "functions": [
@@ -6619,7 +6619,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -6641,7 +6641,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -6800,50 +6800,6 @@
                     "deprecationMessage": "",
                     "type": "Story<BiitButtonComponent>",
                     "defaultValue": "(args: BiitButtonComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-button\r\n      [buttonType]=\"buttonType\"\r\n      [color]=\"color\"\r\n      [disabled]=\"disabled\"\r\n      (onClick)=\"onClick()\"\r\n    >\r\n      Button\r\n    </app-biit-button>`\r\n})"
-                }
-            ],
-            "src/stories/filter.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/filter.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/filter.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<BiitFilterComponent>",
-                    "defaultValue": "(args: BiitFilterComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-filter\r\n      [resetValue]=\"resetValue\"\r\n      [disabled]=\"disabled\"\r\n      (filterChanged)=\"filterChanged()\">\r\n    </app-biit-filter>`\r\n})"
-                }
-            ],
-            "src/stories/table.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/table.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/table.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<BiitTableComponent>",
-                    "defaultValue": "(args: BiitTableComponent) => ({\n  props: args,\n  template: `\n    <app-biit-table-demo\n      [locale]=\"locale\"\n    ></app-biit-table-demo>`\n})"
                 }
             ],
             "src/stories/charts/bar.chart.stories.ts": [
@@ -7020,6 +6976,50 @@
                     "deprecationMessage": "",
                     "type": "Story<BiitDropdownComponent<literal type>>",
                     "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
+                }
+            ],
+            "src/stories/filter/filter.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/filter/filter.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/filter/filter.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiitFilterComponent>",
+                    "defaultValue": "(args: BiitFilterComponent) => ({\n  props: args,\n  template: `\n    <app-biit-filter\n      [resetValue]=\"resetValue\"\n      [disabled]=\"disabled\"\n      (filterChanged)=\"filterChanged()\">\n    </app-biit-filter>`\n})"
+                }
+            ],
+            "src/stories/table/table.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiitTableComponent>",
+                    "defaultValue": "(args: BiitTableComponent) => ({\n  props: args,\n  template: `\n    <app-biit-table-demo\n      [locale]=\"locale\"\n    ></app-biit-table-demo>`\n})"
                 }
             ],
             "src/stories/Button.stories.ts": [
@@ -7223,13 +7223,13 @@
                     "kind": 181
                 }
             ],
-            "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts": [
+            "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
                 {
                     "name": "Data",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "literal type",
-                    "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
+                    "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -7249,13 +7249,13 @@
                     "kind": 181
                 }
             ],
-            "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
+            "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts": [
                 {
                     "name": "Data",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "literal type",
-                    "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
+                    "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -8020,7 +8020,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/filter.stories.ts",
+                "filePath": "src/stories/filter/filter.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -8030,7 +8030,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/filter.stories.ts",
+                "filePath": "src/stories/filter/filter.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -8058,7 +8058,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/table.stories.ts",
+                "filePath": "src/stories/table/table.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -8068,7 +8068,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/table.stories.ts",
+                "filePath": "src/stories/table/table.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
