@@ -16,6 +16,104 @@
     ],
     "injectables": [
         {
+            "name": "BiitIconService",
+            "id": "injectable-BiitIconService-00abe0a521a07a5b96403fb7b38875009b0834b0794135395b275f18e693d5ece3afa0a6257ed6e866d19cbdd4ae826e1dc8ed925cfc5c2b6048f910451e647e",
+            "file": "projects/biit-ui/icon/src/biit-icon/biit-icon.service.ts",
+            "properties": [
+                {
+                    "name": "registry",
+                    "defaultValue": "new Map<biitIcon, string>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Map<biitIcon | string>",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "getIcon",
+                    "args": [
+                        {
+                            "name": "iconName",
+                            "type": "biitIcon",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string | undefined",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "iconName",
+                            "type": "biitIcon",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerIcons",
+                    "args": [
+                        {
+                            "name": "icons",
+                            "type": "BiitIcons[]",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "icons",
+                            "type": "BiitIcons[]",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport {biitIcon, BiitIcons} from \"biit-icons-collection\";\n\n@Injectable({\n  providedIn: 'any'\n})\nexport class BiitIconService {\n\n  private registry: Map<biitIcon, string> = new Map<biitIcon, string>();\n  constructor() { }\n\n  public registerIcons(icons: BiitIcons[]): void {\n    icons.forEach(icon => this.registry.set(icon.name, icon.data))\n  }\n\n  public getIcon(iconName: biitIcon): string | undefined {\n    if (!this.registry.has(iconName)) {\n      console.warn(`Icon '${iconName} was not found'`);\n    }\n    return this.registry.get(iconName);\n  }\n\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 9
+            },
+            "type": "injectable"
+        },
+        {
             "name": "FilterResetService",
             "id": "injectable-FilterResetService-b0aa9142bdc638052740bb5aa1b9332835d7b649f162a77bb0daa6e9e03eff9e95715bbaf137b1af4fec66e36fc1d8b93de1b73d243662c2224db615d05b20d0",
             "file": "projects/biit-ui/filter/src/biit-filter/filter-reset.service.ts",
@@ -2987,6 +3085,439 @@
             "templateData": "<div class=\"filter\">\n  <mat-form-field subscriptSizing=\"dynamic\">\n    <input matInput type=\"text\" [disabled]=\"disabled\" [(ngModel)]=\"filterString\" (keyup)=\"filter($event)\"\n           placeholder=\"{{'filter.placeholder' | translate}}\">\n  </mat-form-field>\n  <button mat-button  class=\"reset\" color=\"warn\" (click)=\"reset()\">\n    <mat-icon>clear</mat-icon>\n  </button>\n</div>\n\n"
         },
         {
+            "name": "BiitIconComponent",
+            "id": "component-BiitIconComponent-e8d3cd6d33abf39f0a62dda613b76e5d5812e5f6276091f3ad2ee0d7c27a9e9dde0f49c66279fd3ba1548e149fcb3739b1b75dbdddc07cbbf50667adfc363b84",
+            "file": "projects/biit-ui/icon/src/biit-icon/biit-icon.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "biit-icon",
+            "styleUrls": [],
+            "styles": [
+                ":host::ng-deep svg{width: 50px; height: 50px}"
+            ],
+            "template": "<ng-content></ng-content>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "height",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "biitIcon | undefined",
+                    "decorators": []
+                },
+                {
+                    "name": "pathStyle",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "width",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "height",
+                    "defaultValue": "'50px'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 40,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "initialized",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 43,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "biitIcon | undefined",
+                    "optional": false,
+                    "description": "",
+                    "line": 38,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "pathStyle",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 42,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 41,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "svgIcon",
+                    "defaultValue": "undefined",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "SVGElement | undefined",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "width",
+                    "defaultValue": "'50px'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 39,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "draw",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 52,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 47,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "svgElementFromString",
+                    "args": [
+                        {
+                            "name": "svgContent",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "SVGElement",
+                    "typeParameters": [],
+                    "line": 82,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "svgContent",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {ChangeDetectionStrategy, Component, ElementRef, Inject, Input, OnInit, Optional} from '@angular/core';\nimport {BiitIconService} from \"./biit-icon.service\";\nimport {DOCUMENT} from \"@angular/common\";\nimport {biitIcon} from \"biit-icons-collection\";\n\n@Component({\n  selector: 'biit-icon',\n  template: `\n    <ng-content></ng-content>\n  `,\n  styles: [':host::ng-deep svg{width: 50px; height: 50px}'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class BiitIconComponent implements OnInit {\n  private svgIcon: SVGElement | undefined = undefined;\n\n  @Input('name') set nameUpdater(name: biitIcon | undefined) {\n    this.name = name;\n    this.draw();\n  }\n  @Input('width') set widthUpdater(width: string) {\n    this.width = width;\n    this.draw();\n  };\n  @Input('height') set heightUpdater(height: string) {\n    this.height = height;\n    this.draw();\n  }\n  @Input('style') set styleUpdater(style: any) {\n    this.style = style;\n    this.draw();\n  }\n  @Input('pathStyle') set stylePathUpdater(style: any) {\n    this.pathStyle = style;\n    this.draw();\n  }\n\n  private name: biitIcon | undefined;\n  private width: string = '50px';\n  private height: string = '50px';\n  private style: any;\n  private pathStyle: any;\n  private initialized: boolean = true; //avoids draw for each input while initializing.\n  public constructor(private element: ElementRef, private biitIconService: BiitIconService, @Optional() @Inject(DOCUMENT) private document: any) {\n  }\n\n  ngOnInit(): void {\n    this.initialized = false;\n    this.draw();\n  }\n\n  private draw(): void {\n    if(this.initialized) {\n      return;\n    }\n    if (this.svgIcon) {\n      this.element.nativeElement.removeChild(this.svgIcon);\n    }\n    if (!this.name) {\n      return;\n    }\n    const svgData: string | undefined = this.biitIconService.getIcon(this.name);\n    if (svgData) {\n      this.svgIcon = this.svgElementFromString(svgData);\n      if (!this.svgIcon) {\n        return;\n      }\n      this.svgIcon.style.width = this.width;\n      this.svgIcon.style.height = this.height;\n      if (this.style) {\n        Object.keys(this.style).forEach(styleKey => (this.svgIcon?.style as any)[styleKey] = (this.style as any)[styleKey] );\n      }\n      if (this.pathStyle) {\n        Array.from(this.svgIcon.getElementsByTagName('path')).forEach(path => {\n          Object.keys(this.pathStyle).forEach(styleKey => (path.style as any)[styleKey] = (this.pathStyle as any)[styleKey] );\n        })\n      }\n      this.element.nativeElement.appendChild(this.svgIcon);\n    }\n  }\n\n  private svgElementFromString(svgContent: string): SVGElement {\n    const div: HTMLDivElement = this.document.createElement('DIV');\n    div.innerHTML = svgContent;\n    return div.querySelector('svg') || this.document.createElementNS('http://www.w3.org/2000/svg', 'pattern');\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ":host::ng-deep svg{width: 50px; height: 50px}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "element",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "biitIconService",
+                        "type": "BiitIconService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "document",
+                        "type": "any",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 43,
+                "modifierKind": [
+                    123
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "element",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "biitIconService",
+                        "type": "BiitIconService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "document",
+                        "type": "any",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "accessors": {
+                "nameUpdater": {
+                    "name": "nameUpdater",
+                    "setSignature": {
+                        "name": "nameUpdater",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "name",
+                                "type": "biitIcon | undefined",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 17,
+                        "jsdoctags": [
+                            {
+                                "name": "name",
+                                "type": "biitIcon | undefined",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "widthUpdater": {
+                    "name": "widthUpdater",
+                    "setSignature": {
+                        "name": "widthUpdater",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "width",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 21,
+                        "jsdoctags": [
+                            {
+                                "name": "width",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "heightUpdater": {
+                    "name": "heightUpdater",
+                    "setSignature": {
+                        "name": "heightUpdater",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "height",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 25,
+                        "jsdoctags": [
+                            {
+                                "name": "height",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "styleUpdater": {
+                    "name": "styleUpdater",
+                    "setSignature": {
+                        "name": "styleUpdater",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "style",
+                                "type": "any",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 29,
+                        "jsdoctags": [
+                            {
+                                "name": "style",
+                                "type": "any",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "stylePathUpdater": {
+                    "name": "stylePathUpdater",
+                    "setSignature": {
+                        "name": "stylePathUpdater",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "style",
+                                "type": "any",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 33,
+                        "jsdoctags": [
+                            {
+                                "name": "style",
+                                "type": "any",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
             "name": "BiitTableComponent",
             "id": "component-BiitTableComponent-53ab94486abddd35375ca962e8f9b562c759f6391ffd715c192633f894fe94b7f30626bc1e8bee53e8298a2bf2975fd52b345d5f7b64355df604921bdd65c605",
             "file": "projects/biit-ui/table/src/biit-table/biit-table.component.ts",
@@ -5778,6 +6309,50 @@
             ]
         },
         {
+            "name": "BiitIconModule",
+            "id": "module-BiitIconModule-614c7f1f03dc817e5415f61aec8c3159b5c1db8de27903312b4065b20358e65055107b55dd9de1a901e4f6aac492b88335030d9235fa28557d4d2e74894ac872",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/biit-ui/icon/src/biit-icon/biit-icon.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BiitIconComponent } from './biit-icon.component';\nimport {CommonModule} from \"@angular/common\";\n\n\n\n@NgModule({\n  declarations: [\n    BiitIconComponent\n  ],\n  imports: [\n    CommonModule\n  ],\n  exports: [\n    BiitIconComponent\n  ]\n})\nexport class BiitIconModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "BiitIconComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "BiitIconComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "BiitTableDemoModule",
             "id": "module-BiitTableDemoModule-1e7517be92fef997f5753a86fd6481b4451706f1d324154e4cbb2b40b7296079ae1d21bd6864c1358a9c2907e67b26fbf1db0f8ea0e7589e1c0729220d007c13",
             "description": "",
@@ -6193,7 +6768,17 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/biit-button.stories.ts",
+                "file": "src/stories/basic/biit-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/basic/biit-icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6303,7 +6888,7 @@
                 "name": "Flat",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/biit-button.stories.ts",
+                "file": "src/stories/basic/biit-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6373,7 +6958,7 @@
                 "name": "Raised",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/biit-button.stories.ts",
+                "file": "src/stories/basic/biit-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6403,7 +6988,7 @@
                 "name": "Stroked",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/biit-button.stories.ts",
+                "file": "src/stories/basic/biit-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6443,11 +7028,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/biit-button.stories.ts",
+                "file": "src/stories/basic/biit-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<BiitButtonComponent>",
                 "defaultValue": "(args: BiitButtonComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-button\r\n      [buttonType]=\"buttonType\"\r\n      [color]=\"color\"\r\n      [disabled]=\"disabled\"\r\n      (onClick)=\"onClick()\"\r\n    >\r\n      Button\r\n    </app-biit-button>`\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/basic/biit-icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitIconComponent>",
+                "defaultValue": "(args: BiitIconComponent) => ({\n  props: args,\n  template: `\n       <biit-icon [name]=\"name\" [width]=\"width\" [height]=\"height\" [style]=\"style\" [pathStyle]=\"pathStyle\"></biit-icon>\n  `\n})"
             },
             {
                 "name": "Template",
@@ -6552,6 +7147,34 @@
         ],
         "functions": [
             {
+                "name": "biitIconServiceFactory",
+                "file": "src/stories/basic/biit-icon.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "service",
+                        "type": "BiitIconService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "service",
+                        "type": "BiitIconService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
                 "name": "HttpLoaderFactory",
                 "file": "src/app/i18n/i18n.module.ts",
                 "ctype": "miscellaneous",
@@ -6608,7 +7231,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/bar-chart/bar-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -6641,7 +7264,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/bar-chart/bar-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -6750,12 +7373,12 @@
                     "defaultValue": "\"biit-ui\""
                 }
             ],
-            "src/stories/biit-button.stories.ts": [
+            "src/stories/basic/biit-button.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/biit-button.stories.ts",
+                    "file": "src/stories/basic/biit-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -6765,7 +7388,7 @@
                     "name": "Flat",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/biit-button.stories.ts",
+                    "file": "src/stories/basic/biit-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -6775,7 +7398,7 @@
                     "name": "Raised",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/biit-button.stories.ts",
+                    "file": "src/stories/basic/biit-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -6785,7 +7408,7 @@
                     "name": "Stroked",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/biit-button.stories.ts",
+                    "file": "src/stories/basic/biit-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -6795,11 +7418,33 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/biit-button.stories.ts",
+                    "file": "src/stories/basic/biit-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<BiitButtonComponent>",
                     "defaultValue": "(args: BiitButtonComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-button\r\n      [buttonType]=\"buttonType\"\r\n      [color]=\"color\"\r\n      [disabled]=\"disabled\"\r\n      (onClick)=\"onClick()\"\r\n    >\r\n      Button\r\n    </app-biit-button>`\r\n})"
+                }
+            ],
+            "src/stories/basic/biit-icon.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/basic/biit-icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/basic/biit-icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiitIconComponent>",
+                    "defaultValue": "(args: BiitIconComponent) => ({\n  props: args,\n  template: `\n       <biit-icon [name]=\"name\" [width]=\"width\" [height]=\"height\" [style]=\"style\" [pathStyle]=\"pathStyle\"></biit-icon>\n  `\n})"
                 }
             ],
             "src/stories/charts/bar.chart.stories.ts": [
@@ -7140,6 +7785,36 @@
             ]
         },
         "groupedFunctions": {
+            "src/stories/basic/biit-icon.stories.ts": [
+                {
+                    "name": "biitIconServiceFactory",
+                    "file": "src/stories/basic/biit-icon.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "service",
+                            "type": "BiitIconService",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "service",
+                            "type": "BiitIconService",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "src/app/i18n/i18n.module.ts": [
                 {
                     "name": "HttpLoaderFactory",
@@ -7210,13 +7885,13 @@
                     "kind": 186
                 }
             ],
-            "projects/biit-ui/charts/src/bar-chart/bar-chart-data.ts": [
+            "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts": [
                 {
                     "name": "Data",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "literal type",
-                    "file": "projects/biit-ui/charts/src/bar-chart/bar-chart-data.ts",
+                    "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -7249,13 +7924,13 @@
                     "kind": 181
                 }
             ],
-            "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts": [
+            "projects/biit-ui/charts/src/bar-chart/bar-chart-data.ts": [
                 {
                     "name": "Data",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "literal type",
-                    "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
+                    "file": "projects/biit-ui/charts/src/bar-chart/bar-chart-data.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -7626,6 +8301,24 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/biit-ui/icon/src/biit-icon/biit-icon.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BiitIconComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/17",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/biit-ui/icon/src/biit-icon/biit-icon.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "BiitIconService",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/biit-ui/src/public-api.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -7801,7 +8494,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/biit-button.stories.ts",
+                "filePath": "src/stories/basic/biit-button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -7811,7 +8504,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/biit-button.stories.ts",
+                "filePath": "src/stories/basic/biit-button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -7821,7 +8514,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/biit-button.stories.ts",
+                "filePath": "src/stories/basic/biit-button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -7831,7 +8524,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/biit-button.stories.ts",
+                "filePath": "src/stories/basic/biit-button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -7841,7 +8534,37 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/biit-button.stories.ts",
+                "filePath": "src/stories/basic/biit-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/basic/biit-icon.stories.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "biitIconServiceFactory",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/basic/biit-icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/basic/biit-icon.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

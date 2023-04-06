@@ -30,6 +30,7 @@
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "apexcharts": "^3.37.1",
+    "biit-icons-collection": "^1.0.6",
     "material-design-icons": "^3.0.1",
     "ng-apexcharts": "^1.7.4",
     "rxjs": "~7.5.0",
