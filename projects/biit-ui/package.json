@@ -1,6 +1,13 @@
 {
   "name": "biit-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "author": "Biit Sourcing Solutions",
+  "scripts": {
+    "build:prod": "ng build --configuration production",
+    "buid:dev": "ng build --configuration development",
+    "increase-version": "npm --no-git-tag-version version patch",
+    "publish-library": "npm run build:prod && npm publish ../../dist/biit-ui"
+  },
   "peerDependencies": {
     "@angular/common": "^15.0.0",
     "@angular/core": "^15.0.0",

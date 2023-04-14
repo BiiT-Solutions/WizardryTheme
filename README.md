@@ -56,6 +56,29 @@ Create this file on the root folder of your component (`projects/biit-ui/mycompo
 }
 ```
 
+### Add your new library to main `tsconfig.json` file
+
+Open (`tsconfig.json`) file and add your component on section compilerOptions/paths:
+
+```
+ "compilerOptions": {
+    ...
+    "paths": {
+      ...
+      "biit-ui/filter": [
+        "projects/biit-ui/filter/src/public-api"
+      ]
+    }
+```
+
+You will need this if you want to use this library in other libraries from this project.
+
+To import them you have to use the short path:
+
+```
+import {BiitFilterModule} from "biit-ui/filter";
+```
+
 # Stories
 
 After it, create a `stories.ts` file for your component under `src/stories/` folder. Something like `src/stories/mycustomcomponent.stories.ts`:

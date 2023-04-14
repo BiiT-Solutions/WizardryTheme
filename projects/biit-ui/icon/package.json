@@ -1,6 +1,5 @@
 {
   "name": "@biit-ui/biit-icon",
-  "version": "0.0.1",
   "author": "BiiT Sourcing Solutions",
   "peerDependencies": {
     "@angular/common": "^15.0.0",

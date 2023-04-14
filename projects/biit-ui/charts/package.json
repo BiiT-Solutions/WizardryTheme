@@ -1,6 +1,5 @@
 {
   "name": "@biit-ui/chart",
-  "version": "0.0.1",
   "peerDependencies": {
     "apexcharts": "^3.37.1",
     "ng-apexcharts": "^1.7.4"

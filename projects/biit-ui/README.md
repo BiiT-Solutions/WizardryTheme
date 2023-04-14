@@ -1,24 +1,13 @@
 # BiitUi
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+This library contains a collections of components to be imported to your projects.
 
-## Code scaffolding
-
-Run `ng generate component component-name --project biit-ui` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project biit-ui`.
-> Note: Don't forget to add `--project biit-ui` or else it will be added to the default project in your `angular.json` file. 
+See StoryBook to check components and functionalities.
 
 ## Build
 
-Run `ng build biit-ui` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build:prod` to build the project. The build artifacts will be stored in the `../../dist/biit-ui` directory.
 
 ## Publishing
 
-After building your library with `ng build biit-ui`, go to the dist folder `cd dist/biit-ui` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test biit-ui` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+After building your library with `npm run publish`.
