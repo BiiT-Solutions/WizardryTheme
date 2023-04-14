@@ -3,14 +3,7 @@
   "version": "0.0.3",
   "author": "Biit Sourcing Solutions",
   "scripts": {
-    "build:prod": "ng build --configuration production",
-    "buid:dev": "ng build --configuration development",
-    "increase-version": "npm --no-git-tag-version version patch",
-    "publish-library": "npm run build:prod && npm publish ../../dist/biit-ui"
-  },
-  "devDependencies": {
-    "@angular/cli": "~15.0.5",
-    "@angular/compiler-cli": "^15.0.0"
+    "increase-version": "npm --no-git-tag-version version patch"
   },
   "peerDependencies": {
     "@angular/common": "^15.0.0",

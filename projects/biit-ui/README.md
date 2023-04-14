@@ -6,7 +6,7 @@ See StoryBook to check components and functionalities.
 
 ## Build
 
-Run `npm run build:prod` to build the project. The build artifacts will be stored in the `../../dist/biit-ui` directory.
+Run `npm run build-library` from root directory to build the project. The build artifacts will be stored in the `../../dist/biit-ui` directory.
 
 ## Publishing
 
