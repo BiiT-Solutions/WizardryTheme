@@ -1,4 +1,4 @@
 {
-  "peerDependencies": {
-  }
+  "name": "@biit-ui/controls",
+  "version": "0.0.1"
 }

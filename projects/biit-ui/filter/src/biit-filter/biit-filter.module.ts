@@ -5,7 +5,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
-import {I18nModule} from "../../../../../src/app/i18n/i18n.module";
+import {I18nModule} from "./i18n.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 

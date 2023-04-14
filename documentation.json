@@ -6262,13 +6262,13 @@
         },
         {
             "name": "BiitFilterModule",
-            "id": "module-BiitFilterModule-c4cfd1017e2af04f2bd2b437bd2e04207994144e43d3f2096489a7698a3d5287e9a01315a827e3cff556ed81f7bc0ceaeb686357dbac0ea6ec159ab065cc0dbf",
+            "id": "module-BiitFilterModule-9f071186b45586db980a2be5bbb81c7f9f8551470694c796ca3851337723734937556cec17c8c87293f73e1f273436838e45ef6cdeef63776a365a32ef39a359",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/biit-ui/filter/src/biit-filter/biit-filter.module.ts",
             "methods": [],
-            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {BiitFilterComponent} from \"./biit-filter.component\";\nimport {MatButtonModule} from \"@angular/material/button\";\nimport {MatInputModule} from \"@angular/material/input\";\nimport {FormsModule} from \"@angular/forms\";\nimport {MatIconModule} from \"@angular/material/icon\";\nimport {I18nModule} from \"../../../../../src/app/i18n/i18n.module\";\nimport {BrowserAnimationsModule} from \"@angular/platform-browser/animations\";\n\n\n@NgModule({\n  declarations: [BiitFilterComponent],\n  exports: [BiitFilterComponent],\n  imports: [\n    CommonModule,\n    FormsModule,\n    MatInputModule,\n    MatIconModule,\n    MatButtonModule,\n    I18nModule,\n    BrowserAnimationsModule\n  ]\n})\nexport class BiitFilterModule {\n}\n",
+            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {BiitFilterComponent} from \"./biit-filter.component\";\nimport {MatButtonModule} from \"@angular/material/button\";\nimport {MatInputModule} from \"@angular/material/input\";\nimport {FormsModule} from \"@angular/forms\";\nimport {MatIconModule} from \"@angular/material/icon\";\nimport {I18nModule} from \"./i18n.module\";\nimport {BrowserAnimationsModule} from \"@angular/platform-browser/animations\";\n\n\n@NgModule({\n  declarations: [BiitFilterComponent],\n  exports: [BiitFilterComponent],\n  imports: [\n    CommonModule,\n    FormsModule,\n    MatInputModule,\n    MatIconModule,\n    MatButtonModule,\n    I18nModule,\n    BrowserAnimationsModule\n  ]\n})\nexport class BiitFilterModule {\n}\n",
             "children": [
                 {
                     "type": "providers",
@@ -6402,13 +6402,13 @@
         },
         {
             "name": "BiitTableModule",
-            "id": "module-BiitTableModule-d0f61d2a66c214b0ce22de1566dc5d1d3a17ca57740dbf5db3f2df653415949ba9a2d73f7a60b233217e8fa0e577acf86b39bc8af6e610688660357a9234eb6e",
+            "id": "module-BiitTableModule-fdafe13447580b9f38b554fd87e3b2cbf5c69295fb5a4fe584a330ce99deaaf885b54a6b1320ce6efe93c683ed6daf2b0917538ca80178ec09c5f315b92ccdae",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/biit-ui/table/src/biit-table/biit-table.module.ts",
             "methods": [],
-            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {BiitTableComponent} from \"./biit-table.component\";\nimport {MatPaginatorModule} from \"@angular/material/paginator\";\nimport {MatTableModule} from \"@angular/material/table\";\nimport {MatSortModule} from \"@angular/material/sort\";\nimport {MatMenuModule} from \"@angular/material/menu\";\nimport {MatCheckboxModule} from \"@angular/material/checkbox\";\nimport {MatIconModule} from \"@angular/material/icon\";\nimport {MatTooltipModule} from \"@angular/material/tooltip\";\nimport {BiitFilterModule} from \"../../../filter/src/biit-filter/biit-filter.module\";\nimport {MatFormFieldModule} from \"@angular/material/form-field\";\nimport {MatInputModule} from \"@angular/material/input\";\nimport {MatButtonModule} from \"@angular/material/button\";\nimport {MatDialogModule} from \"@angular/material/dialog\";\nimport {I18nModule} from \"../../../../../src/app/i18n/i18n.module\";\nimport {FormsModule} from \"@angular/forms\";\n\n\n@NgModule({\n  declarations: [BiitTableComponent],\n  exports: [BiitTableComponent],\n  imports: [\n    CommonModule,\n    I18nModule,\n    MatIconModule,\n    MatFormFieldModule,\n    MatMenuModule,\n    MatCheckboxModule,\n    MatPaginatorModule,\n    MatTableModule,\n    MatInputModule,\n    MatSortModule,\n    MatButtonModule,\n    MatTooltipModule,\n    BiitFilterModule,\n    MatDialogModule,\n    FormsModule\n  ]\n})\nexport class BiitTableModule {\n}\n",
+            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {BiitTableComponent} from \"./biit-table.component\";\nimport {MatPaginatorModule} from \"@angular/material/paginator\";\nimport {MatTableModule} from \"@angular/material/table\";\nimport {MatSortModule} from \"@angular/material/sort\";\nimport {MatMenuModule} from \"@angular/material/menu\";\nimport {MatCheckboxModule} from \"@angular/material/checkbox\";\nimport {MatIconModule} from \"@angular/material/icon\";\nimport {MatTooltipModule} from \"@angular/material/tooltip\";\nimport {BiitFilterModule} from \"biit-ui/filter\";\nimport {MatFormFieldModule} from \"@angular/material/form-field\";\nimport {MatInputModule} from \"@angular/material/input\";\nimport {MatButtonModule} from \"@angular/material/button\";\nimport {MatDialogModule} from \"@angular/material/dialog\";\nimport {I18nModule} from \"./i18n.module\";\nimport {FormsModule} from \"@angular/forms\";\n\n\n@NgModule({\n  declarations: [BiitTableComponent],\n  exports: [BiitTableComponent],\n  imports: [\n    CommonModule,\n    I18nModule,\n    MatIconModule,\n    MatFormFieldModule,\n    MatMenuModule,\n    MatCheckboxModule,\n    MatPaginatorModule,\n    MatTableModule,\n    MatInputModule,\n    MatSortModule,\n    MatButtonModule,\n    MatTooltipModule,\n    BiitFilterModule,\n    MatDialogModule,\n    FormsModule\n  ]\n})\nexport class BiitTableModule {\n}\n",
             "children": [
                 {
                     "type": "providers",
@@ -6504,6 +6504,78 @@
             "file": "src/app/i18n/i18n.module.ts",
             "methods": [],
             "sourceCode": "import {LOCALE_ID, NgModule} from '@angular/core';\nimport {HttpClient, HttpClientModule} from '@angular/common/http';\nimport {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';\nimport {TranslateHttpLoader} from '@ngx-translate/http-loader';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    HttpClientModule,\n    TranslateModule.forRoot({\n      loader: {\n        provide: TranslateLoader,\n        useFactory: HttpLoaderFactory,\n        deps: [HttpClient]\n      }\n    })\n  ],\n  exports: [TranslateModule],\n  providers: [\n    { provide: LOCALE_ID, useValue: 'en'}\n  ]\n})\nexport class I18nModule {\n  constructor(translate: TranslateService) {\n    translate.setDefaultLang('en');\n    translate.use('en');\n  }\n}\n\n// AoT requires an exported function for factories\nexport function HttpLoaderFactory(http: HttpClient) {\n  return new TranslateHttpLoader(http, \"./assets/i18n/\", \".json\");\n}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "I18nModule",
+            "id": "module-I18nModule-5364af52f120696b458ed503144b2703392ea82331e653baf5948185d3b83eed25f5f84e47a4a2f31c3b580a87255221d7667e880a50712408c418148d59e77e-1",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/biit-ui/filter/src/biit-filter/i18n.module.ts",
+            "methods": [],
+            "sourceCode": "import {LOCALE_ID, NgModule} from '@angular/core';\nimport {HttpClient, HttpClientModule} from '@angular/common/http';\nimport {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';\nimport {TranslateHttpLoader} from '@ngx-translate/http-loader';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    HttpClientModule,\n    TranslateModule.forRoot({\n      loader: {\n        provide: TranslateLoader,\n        useFactory: HttpLoaderFactory,\n        deps: [HttpClient]\n      }\n    })\n  ],\n  exports: [TranslateModule],\n  providers: [\n    { provide: LOCALE_ID, useValue: 'en'}\n  ]\n})\nexport class I18nModule {\n  constructor(translate: TranslateService) {\n    translate.setDefaultLang('en');\n    translate.use('en');\n  }\n}\n\n// AoT requires an exported function for factories\nexport function HttpLoaderFactory(http: HttpClient) {\n  // @ts-ignore\n  return new TranslateHttpLoader(http, \"./assets/i18n/\", \".json\");\n}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "I18nModule",
+            "id": "module-I18nModule-5364af52f120696b458ed503144b2703392ea82331e653baf5948185d3b83eed25f5f84e47a4a2f31c3b580a87255221d7667e880a50712408c418148d59e77e-2",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/biit-ui/table/src/biit-table/i18n.module.ts",
+            "methods": [],
+            "sourceCode": "import {LOCALE_ID, NgModule} from '@angular/core';\nimport {HttpClient, HttpClientModule} from '@angular/common/http';\nimport {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';\nimport {TranslateHttpLoader} from '@ngx-translate/http-loader';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    HttpClientModule,\n    TranslateModule.forRoot({\n      loader: {\n        provide: TranslateLoader,\n        useFactory: HttpLoaderFactory,\n        deps: [HttpClient]\n      }\n    })\n  ],\n  exports: [TranslateModule],\n  providers: [\n    { provide: LOCALE_ID, useValue: 'en'}\n  ]\n})\nexport class I18nModule {\n  constructor(translate: TranslateService) {\n    translate.setDefaultLang('en');\n    translate.use('en');\n  }\n}\n\n// AoT requires an exported function for factories\nexport function HttpLoaderFactory(http: HttpClient) {\n  // @ts-ignore\n  return new TranslateHttpLoader(http, \"./assets/i18n/\", \".json\");\n}\n",
             "children": [
                 {
                     "type": "providers",
@@ -6788,6 +6860,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/controls/biit-dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/charts/bar.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -6849,16 +6931,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/charts/stacked.bars.chart.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/controls/biit-dropdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6998,21 +7070,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Header>",
-                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<Button>",
                 "defaultValue": "(args: Button) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Header>",
+                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -7043,6 +7115,16 @@
                 "deprecationMessage": "",
                 "type": "Story<BiitIconComponent>",
                 "defaultValue": "(args: BiitIconComponent) => ({\n  props: args,\n  template: `\n       <biit-icon [name]=\"name\" [width]=\"width\" [height]=\"height\" [style]=\"style\" [pathStyle]=\"pathStyle\"></biit-icon>\n  `\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/controls/biit-dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitDropdownComponent<literal type>>",
+                "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
             },
             {
                 "name": "Template",
@@ -7113,16 +7195,6 @@
                 "deprecationMessage": "",
                 "type": "Story<StackedBarsChartComponent>",
                 "defaultValue": "(args: StackedBarsChartComponent) => ({\n  props: args,\n  template: `\n    <app-stacked-bars-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [borderRadius]=\"borderRadius\"\n      [enableTotals]=\"enableTotals\"\n      [legendPosition]=\"legendPosition\"\n      [shadow]=\"shadow\"\n      [stackType]=\"stackType\"\n    >\n    </app-stacked-bars-chart>`\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/controls/biit-dropdown.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<BiitDropdownComponent<literal type>>",
-                "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
             },
             {
                 "name": "Template",
@@ -7201,6 +7273,62 @@
                         }
                     }
                 ]
+            },
+            {
+                "name": "HttpLoaderFactory",
+                "file": "projects/biit-ui/filter/src/biit-filter/i18n.module.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "HttpLoaderFactory",
+                "file": "projects/biit-ui/table/src/biit-table/i18n.module.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             }
         ],
         "typealiases": [
@@ -7253,7 +7381,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -7264,7 +7392,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -7447,6 +7575,28 @@
                     "defaultValue": "(args: BiitIconComponent) => ({\n  props: args,\n  template: `\n       <biit-icon [name]=\"name\" [width]=\"width\" [height]=\"height\" [style]=\"style\" [pathStyle]=\"pathStyle\"></biit-icon>\n  `\n})"
                 }
             ],
+            "src/stories/controls/biit-dropdown.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/controls/biit-dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/controls/biit-dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiitDropdownComponent<literal type>>",
+                    "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
+                }
+            ],
             "src/stories/charts/bar.chart.stories.ts": [
                 {
                     "name": "Default",
@@ -7599,28 +7749,6 @@
                     "deprecationMessage": "",
                     "type": "Story<StackedBarsChartComponent>",
                     "defaultValue": "(args: StackedBarsChartComponent) => ({\n  props: args,\n  template: `\n    <app-stacked-bars-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [borderRadius]=\"borderRadius\"\n      [enableTotals]=\"enableTotals\"\n      [legendPosition]=\"legendPosition\"\n      [shadow]=\"shadow\"\n      [stackType]=\"stackType\"\n    >\n    </app-stacked-bars-chart>`\n})"
-                }
-            ],
-            "src/stories/controls/biit-dropdown.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/controls/biit-dropdown.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/controls/biit-dropdown.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<BiitDropdownComponent<literal type>>",
-                    "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
                 }
             ],
             "src/stories/filter/filter.stories.ts": [
@@ -7844,6 +7972,66 @@
                         }
                     ]
                 }
+            ],
+            "projects/biit-ui/filter/src/biit-filter/i18n.module.ts": [
+                {
+                    "name": "HttpLoaderFactory",
+                    "file": "projects/biit-ui/filter/src/biit-filter/i18n.module.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "http",
+                            "type": "HttpClient",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "http",
+                            "type": "HttpClient",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "projects/biit-ui/table/src/biit-table/i18n.module.ts": [
+                {
+                    "name": "HttpLoaderFactory",
+                    "file": "projects/biit-ui/table/src/biit-table/i18n.module.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "http",
+                            "type": "HttpClient",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "http",
+                            "type": "HttpClient",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
             ]
         },
         "groupedEnumerations": {},
@@ -7911,19 +8099,6 @@
                     "kind": 181
                 }
             ],
-            "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
-                {
-                    "name": "Data",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "literal type",
-                    "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 181
-                }
-            ],
             "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts": [
                 {
                     "name": "Data",
@@ -7931,6 +8106,19 @@
                     "subtype": "typealias",
                     "rawtype": "literal type",
                     "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
+            ],
+            "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
+                {
+                    "name": "Data",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -8301,6 +8489,16 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/biit-ui/filter/src/biit-filter/i18n.module.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "HttpLoaderFactory",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/biit-ui/icon/src/biit-icon/biit-icon.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -8353,6 +8551,16 @@
                 "name": "BiitTableComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/18",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/biit-ui/table/src/biit-table/i18n.module.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "HttpLoaderFactory",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
