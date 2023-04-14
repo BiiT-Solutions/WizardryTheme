@@ -8,6 +8,11 @@
     "increase-version": "npm --no-git-tag-version version patch",
     "publish-library": "npm run build:prod && npm publish ../../dist/biit-ui"
   },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^15.0.5",
+    "@angular/cli": "~15.0.5",
+    "@angular/compiler-cli": "^15.0.0"
+  },
   "peerDependencies": {
     "@angular/common": "^15.0.0",
     "@angular/core": "^15.0.0",
