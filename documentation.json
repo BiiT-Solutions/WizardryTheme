@@ -7381,7 +7381,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -7392,7 +7392,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -8099,19 +8099,6 @@
                     "kind": 181
                 }
             ],
-            "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
-                {
-                    "name": "Data",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "literal type",
-                    "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 181
-                }
-            ],
             "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts": [
                 {
                     "name": "Data",
@@ -8119,6 +8106,19 @@
                     "subtype": "typealias",
                     "rawtype": "literal type",
                     "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
+            ],
+            "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
+                {
+                    "name": "Data",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
