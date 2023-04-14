@@ -6840,7 +6840,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/basic/biit-icon.stories.ts",
+                "file": "src/stories/basic/biit-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6850,7 +6850,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/basic/biit-button.stories.ts",
+                "file": "src/stories/basic/biit-icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6900,7 +6900,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/radial.chart.stories.ts",
+                "file": "src/stories/charts/radar.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6910,7 +6910,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/radar.chart.stories.ts",
+                "file": "src/stories/charts/radial.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6930,7 +6930,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/controls/biit-dropdown.stories.ts",
+                "file": "src/stories/filter/filter.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6940,7 +6940,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/filter/filter.stories.ts",
+                "file": "src/stories/controls/biit-dropdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6980,7 +6980,7 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
+                "file": "src/stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -6990,16 +6990,6 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7011,6 +7001,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "LoggedOut",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -7080,16 +7080,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7100,11 +7090,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/basic/biit-icon.stories.ts",
+                "file": "src/stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<BiitIconComponent>",
-                "defaultValue": "(args: BiitIconComponent) => ({\n  props: args,\n  template: `\n       <biit-icon [name]=\"name\" [width]=\"width\" [height]=\"height\" [style]=\"style\" [pathStyle]=\"pathStyle\"></biit-icon>\n  `\n})"
+                "type": "Story<Page>",
+                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -7115,6 +7105,16 @@
                 "deprecationMessage": "",
                 "type": "Story<BiitButtonComponent>",
                 "defaultValue": "(args: BiitButtonComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-button\r\n      [buttonType]=\"buttonType\"\r\n      [color]=\"color\"\r\n      [disabled]=\"disabled\"\r\n      (onClick)=\"onClick()\"\r\n    >\r\n      Button\r\n    </app-biit-button>`\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/basic/biit-icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitIconComponent>",
+                "defaultValue": "(args: BiitIconComponent) => ({\n  props: args,\n  template: `\n       <biit-icon [name]=\"name\" [width]=\"width\" [height]=\"height\" [style]=\"style\" [pathStyle]=\"pathStyle\"></biit-icon>\n  `\n})"
             },
             {
                 "name": "Template",
@@ -7160,21 +7160,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/radial.chart.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<RadialChartModule>",
-                "defaultValue": "(args: RadialChartModule) => ({\n  props: args,\n  template: `\n    <app-radial-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n      [innerCirclePercentage]=\"innerCirclePercentage\"\n      [startAngle]=\"startAngle\"\n      [endAngle]=\"endAngle\"\n    >\n    </app-radial-chart>`\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/charts/radar.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<RadarChartModule>",
                 "defaultValue": "(args: RadarChartModule) => ({\n  props: args,\n  template: `\n    <app-radar-chart\n      [width]=\"width\"\n      [radarSize]=\"radarSize\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [opacity]=\"opacity\"\n      [strokeWidth]=\"strokeWidth\"\n      [innerColors]=\"innerColors\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-radar-chart>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/radial.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<RadialChartModule>",
+                "defaultValue": "(args: RadialChartModule) => ({\n  props: args,\n  template: `\n    <app-radial-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n      [innerCirclePercentage]=\"innerCirclePercentage\"\n      [startAngle]=\"startAngle\"\n      [endAngle]=\"endAngle\"\n    >\n    </app-radial-chart>`\n})"
             },
             {
                 "name": "Template",
@@ -7190,21 +7190,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/controls/biit-dropdown.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<BiitDropdownComponent<literal type>>",
-                "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/filter/filter.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<BiitFilterComponent>",
                 "defaultValue": "(args: BiitFilterComponent) => ({\n  props: args,\n  template: `\n    <app-biit-filter\n      [resetValue]=\"resetValue\"\n      [disabled]=\"disabled\"\n      (filterChanged)=\"filterChanged()\">\n    </app-biit-filter>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/controls/biit-dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitDropdownComponent<literal type>>",
+                "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
             },
             {
                 "name": "Template",
@@ -7370,7 +7370,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -7381,7 +7381,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -7501,28 +7501,6 @@
                     "defaultValue": "\"biit-ui\""
                 }
             ],
-            "src/stories/basic/biit-icon.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/basic/biit-icon.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/basic/biit-icon.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<BiitIconComponent>",
-                    "defaultValue": "(args: BiitIconComponent) => ({\n  props: args,\n  template: `\n       <biit-icon [name]=\"name\" [width]=\"width\" [height]=\"height\" [style]=\"style\" [pathStyle]=\"pathStyle\"></biit-icon>\n  `\n})"
-                }
-            ],
             "src/stories/basic/biit-button.stories.ts": [
                 {
                     "name": "Default",
@@ -7573,6 +7551,28 @@
                     "deprecationMessage": "",
                     "type": "Story<BiitButtonComponent>",
                     "defaultValue": "(args: BiitButtonComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <app-biit-button\r\n      [buttonType]=\"buttonType\"\r\n      [color]=\"color\"\r\n      [disabled]=\"disabled\"\r\n      (onClick)=\"onClick()\"\r\n    >\r\n      Button\r\n    </app-biit-button>`\r\n})"
+                }
+            ],
+            "src/stories/basic/biit-icon.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/basic/biit-icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/basic/biit-icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiitIconComponent>",
+                    "defaultValue": "(args: BiitIconComponent) => ({\n  props: args,\n  template: `\n       <biit-icon [name]=\"name\" [width]=\"width\" [height]=\"height\" [style]=\"style\" [pathStyle]=\"pathStyle\"></biit-icon>\n  `\n})"
                 }
             ],
             "src/stories/charts/bar.chart.stories.ts": [
@@ -7663,28 +7663,6 @@
                     "defaultValue": "(args: PieChartModule) => ({\n  props: args,\n  template: `\n    <app-pie-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [isDonut]=\"isDonut\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-pie-chart>`\n})"
                 }
             ],
-            "src/stories/charts/radial.chart.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/charts/radial.chart.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/charts/radial.chart.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<RadialChartModule>",
-                    "defaultValue": "(args: RadialChartModule) => ({\n  props: args,\n  template: `\n    <app-radial-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n      [innerCirclePercentage]=\"innerCirclePercentage\"\n      [startAngle]=\"startAngle\"\n      [endAngle]=\"endAngle\"\n    >\n    </app-radial-chart>`\n})"
-                }
-            ],
             "src/stories/charts/radar.chart.stories.ts": [
                 {
                     "name": "Default",
@@ -7705,6 +7683,28 @@
                     "deprecationMessage": "",
                     "type": "Story<RadarChartModule>",
                     "defaultValue": "(args: RadarChartModule) => ({\n  props: args,\n  template: `\n    <app-radar-chart\n      [width]=\"width\"\n      [radarSize]=\"radarSize\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [opacity]=\"opacity\"\n      [strokeWidth]=\"strokeWidth\"\n      [innerColors]=\"innerColors\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-radar-chart>`\n})"
+                }
+            ],
+            "src/stories/charts/radial.chart.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/radial.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/radial.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<RadialChartModule>",
+                    "defaultValue": "(args: RadialChartModule) => ({\n  props: args,\n  template: `\n    <app-radial-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n      [innerCirclePercentage]=\"innerCirclePercentage\"\n      [startAngle]=\"startAngle\"\n      [endAngle]=\"endAngle\"\n    >\n    </app-radial-chart>`\n})"
                 }
             ],
             "src/stories/charts/stacked.bars.chart.stories.ts": [
@@ -7729,28 +7729,6 @@
                     "defaultValue": "(args: StackedBarsChartComponent) => ({\n  props: args,\n  template: `\n    <app-stacked-bars-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [borderRadius]=\"borderRadius\"\n      [enableTotals]=\"enableTotals\"\n      [legendPosition]=\"legendPosition\"\n      [shadow]=\"shadow\"\n      [stackType]=\"stackType\"\n    >\n    </app-stacked-bars-chart>`\n})"
                 }
             ],
-            "src/stories/controls/biit-dropdown.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/controls/biit-dropdown.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/controls/biit-dropdown.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<BiitDropdownComponent<literal type>>",
-                    "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
-                }
-            ],
             "src/stories/filter/filter.stories.ts": [
                 {
                     "name": "Default",
@@ -7771,6 +7749,28 @@
                     "deprecationMessage": "",
                     "type": "Story<BiitFilterComponent>",
                     "defaultValue": "(args: BiitFilterComponent) => ({\n  props: args,\n  template: `\n    <app-biit-filter\n      [resetValue]=\"resetValue\"\n      [disabled]=\"disabled\"\n      (filterChanged)=\"filterChanged()\">\n    </app-biit-filter>`\n})"
+                }
+            ],
+            "src/stories/controls/biit-dropdown.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/controls/biit-dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/controls/biit-dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiitDropdownComponent<literal type>>",
+                    "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
                 }
             ],
             "src/stories/table/table.stories.ts": [
@@ -7847,38 +7847,6 @@
                     "defaultValue": "(args: Button) => ({\n  props: args,\n})"
                 }
             ],
-            "src/stories/Page.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Page>",
-                    "defaultValue": "(args: Page) => ({\n  props: args,\n})"
-                }
-            ],
             "src/stories/Header.stories.ts": [
                 {
                     "name": "LoggedIn",
@@ -7909,6 +7877,38 @@
                     "deprecationMessage": "",
                     "type": "Story<Header>",
                     "defaultValue": "(args: Header) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/stories/Page.stories.ts": [
+                {
+                    "name": "LoggedIn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "LoggedOut",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<Page>",
+                    "defaultValue": "(args: Page) => ({\n  props: args,\n})"
                 }
             ]
         },
@@ -8086,19 +8086,6 @@
                     "kind": 181
                 }
             ],
-            "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts": [
-                {
-                    "name": "Data",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "literal type",
-                    "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 181
-                }
-            ],
             "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
                 {
                     "name": "Data",
@@ -8106,6 +8093,19 @@
                     "subtype": "typealias",
                     "rawtype": "literal type",
                     "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
+            ],
+            "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts": [
+                {
+                    "name": "Data",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
