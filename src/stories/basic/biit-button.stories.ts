@@ -14,6 +14,21 @@ export default {
     disabled: false
   },
   argTypes: {
+    content: {
+      name: 'content',
+      type: { name: 'string', required: false },
+      defaultValue: 'Button',
+      description: 'Defines text content',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'default' },
+        category: 'Content'
+      },
+      options: ['default', 'raised', 'flat', 'stroked'],
+      control: {
+        type: 'text'
+      }
+    },
     buttonType: {
       name: 'buttonType',
       type: { name: 'string', required: false },
@@ -79,7 +94,7 @@ const Template: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
       [disabled]="disabled"
       (onClick)="onClick()"
     >
-      Button
+      {{content}}
     </app-biit-button>`
 });
 
