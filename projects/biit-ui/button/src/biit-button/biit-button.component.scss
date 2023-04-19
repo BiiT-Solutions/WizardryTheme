@@ -34,6 +34,9 @@ $dark-border: #262626;
     &:hover {
       padding-bottom: 0.5rem;
     }
+    &:active {
+      padding-bottom: 0.25rem;
+    }
   }
 }
 
@@ -83,12 +86,12 @@ $dark-border: #262626;
 }
 
 .biit-button {
-  height: 3.179rem;
+  height: 2.929rem;
   font-weight: bold;
   font-size: 1rem;
   border: none;
   &.primary, &.secondary {
-    padding: 0 2.214rem;
+    padding: 0 2rem;
   }
   &.tertiary {
     height: 1.25rem;
@@ -123,7 +126,7 @@ $dark-border: #262626;
 .secondary {
   background: transparent;
   color: $dark-border;
-  padding: 0 2.214rem;
+  padding: 0 2rem;
   &.disabled {
     color: $light-grey;
   }
