@@ -1,16 +1,9 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 export type BiitButtonType =
-  | 'default'
-  | 'flat'
-  | 'raised'
-  | 'stroked';
-
-export type MaterialColor =
-  | 'empty'
   | 'primary'
-  | 'accent'
-  | 'warn';
+  | 'secondary'
+  | 'tertiary'
 
 @Component({
   selector: 'app-biit-button',
@@ -20,29 +13,15 @@ export type MaterialColor =
 
 export class BiitButtonComponent {
 
-  _buttonType: BiitButtonType = 'default';
-  _color: MaterialColor = 'primary';
+  _type: BiitButtonType = 'primary';
   _disabled: boolean = false;
 
   @Input()
-  set buttonType(value: BiitButtonType) {
-    this._buttonType = value;
+  set type(value: BiitButtonType) {
+    this._type = value;
   }
-  get buttonType(): BiitButtonType {
-    return this._buttonType;
-  }
-
-  @Input()
-  set color(value: MaterialColor) {
-    if (value === 'empty') {
-      // @ts-ignore
-      this._color = '';
-    } else {
-      this._color = value;
-    }
-  }
-  get color(): MaterialColor {
-    return this._color;
+  get type(): BiitButtonType {
+    return this._type;
   }
 
   @Input()

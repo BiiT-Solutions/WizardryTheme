@@ -1,0 +1,144 @@
+$default-color: #F20D5E;
+$dark-grey: #808080;
+$light-grey: #D9D9D9;
+$dark-border: #262626;
+
+.button-border {
+  border: 0.25rem solid;
+  width: fit-content;
+  &:has(> .primary) {
+    border-color: $default-color;
+    &:hover {
+      border-color: $dark-border;
+    }
+    &.disabled {
+      border-color: $light-grey;
+    }
+  }
+  &:has(> .secondary) {
+    border-color: $dark-border;
+    &.disabled {
+      border-color: $light-grey;
+    }
+  }
+  &:has(> .tertiary) {
+    border: 0 !important;
+    border-bottom: 0.25rem solid $default-color !important;
+    padding-bottom: 0.25rem;
+    &.disabled {
+      border-bottom: 0.25rem solid $light-grey !important;
+      &:hover {
+        padding-bottom: 0.25rem;
+      }
+    }
+    &:hover {
+      padding-bottom: 0.5rem;
+    }
+  }
+}
+
+@-moz-document url-prefix() {
+  .moz-fix-primary {
+    border-color: $default-color !important;
+    &:hover {
+      border-color: $dark-border !important;
+    }
+    &.disabled {
+      border-color: $light-grey !important;
+    }
+  }
+  .moz-fix-secondary {
+    border-color: $dark-border !important;
+    &:hover {
+      border-color: $dark-border !important;
+    }
+    &.disabled {
+      border-color: $light-grey !important;
+    }
+  }
+  .moz-fix-tertiary {
+    border: 0 !important;
+    border-bottom: 0.25rem solid $default-color !important;
+    padding-bottom: 0.25rem;
+    &.disabled {
+      border-bottom: 0.25rem solid $light-grey !important;
+      &:hover {
+        padding-bottom: 0.25rem;
+      }
+    }
+    &:hover {
+      padding-bottom: 0.5rem;
+    }
+  }
+}
+
+.button-border.disabled {
+  border-color: $light-grey;
+}
+.button-border:hover {
+  border-color: $dark-border;
+}
+
+.biit-button {
+  height: 3.179rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  &.primary, &.secondary {
+    padding: 0 2.214rem;
+  }
+  &.tertiary {
+    height: 1.25rem;
+    padding: 0;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.disabled:hover {
+  cursor: not-allowed;
+}
+.primary {
+  background: $default-color;
+  color: $dark-border;
+  &.disabled {
+    background: $light-grey;
+    color: $dark-grey;
+  }
+}
+
+.primary, .secondary {
+  &:active {
+    translate: 0.5rem 0.5rem;
+  }
+  &.disabled:active {
+    translate: 0 0;
+  }
+}
+
+.secondary {
+  background: transparent;
+  color: $dark-border;
+  padding: 0 2.214rem;
+  &.disabled {
+    color: $light-grey;
+  }
+  &:active {
+    background: $light-grey;
+  }
+  &:hover {
+    background: $light-grey;
+  }
+  &:hover.disabled {
+    background: transparent;
+  }
+}
+
+.tertiary {
+  background: transparent;
+  color: $default-color;
+  &.disabled {
+    color: $light-grey;
+  }
+}

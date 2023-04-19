@@ -9,8 +9,7 @@ export default {
     }),
   ],
   args: {
-    buttonType: 'default',
-    color: 'primary',
+    type: 'primary',
     disabled: false
   },
   argTypes: {
@@ -24,37 +23,21 @@ export default {
         defaultValue: { summary: 'default' },
         category: 'Content'
       },
-      options: ['default', 'raised', 'flat', 'stroked'],
       control: {
         type: 'text'
       }
     },
-    buttonType: {
-      name: 'buttonType',
+    type: {
+      name: 'type',
       type: { name: 'string', required: false },
-      defaultValue: 'default',
+      defaultValue: 'primary',
       description: 'Defines the type of button that will be rendered.',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'default' },
         category: 'Inputs'
       },
-      options: ['default', 'raised', 'flat', 'stroked'],
-      control: {
-        type: 'select'
-      }
-    },
-    color: {
-      name: 'color',
-      type: { name: 'string', required: false },
-      defaultValue: 'default',
-      description: 'Defines the color palette used, defined by Material theme.',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'empty' },
-        category: 'Inputs'
-      },
-      options: ['empty', 'primary', 'accent', 'warn'],
+      options: ['primary', 'secondary', 'tertiary'],
       control: {
         type: 'select'
       }
@@ -89,8 +72,7 @@ const Template: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
   props: args,
   template: `
     <app-biit-button
-      [buttonType]="buttonType"
-      [color]="color"
+      [type]="type"
       [disabled]="disabled"
       (onClick)="onClick()"
     >
@@ -98,30 +80,20 @@ const Template: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
     </app-biit-button>`
 });
 
-export const Default = Template.bind({});
-Default.args = {
-  buttonType: 'default',
-  color: 'primary',
+export const Primary = Template.bind({});
+Primary.args = {
+  type: 'primary',
   disabled: false
 }
 
-export const Raised = Template.bind({});
-Raised.args = {
-  buttonType: 'raised',
-  color: 'primary',
+export const Secondary = Template.bind({});
+Secondary.args = {
+  type: 'secondary',
   disabled: false
 }
 
-export const Flat = Template.bind({});
-Flat.args = {
-  buttonType: 'flat',
-  color: 'primary',
-  disabled: false
-}
-
-export const Stroked = Template.bind({});
-Stroked.args = {
-  buttonType: 'stroked',
-  color: 'primary',
+export const Tertiary = Template.bind({});
+Tertiary.args = {
+  type: 'tertiary',
   disabled: false
 }
