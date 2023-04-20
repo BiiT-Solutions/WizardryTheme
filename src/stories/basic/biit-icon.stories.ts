@@ -1,7 +1,5 @@
 import {Meta, moduleMetadata, Story} from "@storybook/angular";
-import {BiitIconModule} from "../../../projects/biit-ui/icon/src/biit-icon/biit-icon.module";
-import {BiitIconComponent} from "../../../projects/biit-ui/icon/src/biit-icon/biit-icon.component";
-import {BiitIconService} from "../../../projects/biit-ui/icon/src/biit-icon/biit-icon.service";
+import {BiitIconService, BiitIconComponent, BiitIconModule} from "biit-ui/icon";
 import {completeIconSet} from "biit-icons-collection";
 import {APP_INITIALIZER} from "@angular/core";
 

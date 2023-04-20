@@ -12,6 +12,9 @@
       ],
       "biit-ui/filter": [
         "projects/biit-ui/filter/src/public-api"
+      ],
+      "biit-ui/icon": [
+        "projects/biit-ui/icon/src/public-api"
       ]
     },
     "outDir": "./dist/out-tsc",

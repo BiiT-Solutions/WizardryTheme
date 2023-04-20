@@ -68,7 +68,11 @@ export class BiitIconComponent implements OnInit {
       this.svgIcon.style.width = this.width;
       this.svgIcon.style.height = this.height;
       if (this.style) {
-        Object.keys(this.style).forEach(styleKey => (this.svgIcon?.style as any)[styleKey] = (this.style as any)[styleKey] );
+        Object.keys(this.style).forEach(styleKey => {
+          if (this.svgIcon) {
+            (this.svgIcon.style as any)[styleKey] = (this.style as any)[styleKey]
+          }
+        });
       }
       if (this.pathStyle) {
         Array.from(this.svgIcon.getElementsByTagName('path')).forEach(path => {
