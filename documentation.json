@@ -3032,7 +3032,7 @@
         },
         {
             "name": "BiitIconComponent",
-            "id": "component-BiitIconComponent-e8d3cd6d33abf39f0a62dda613b76e5d5812e5f6276091f3ad2ee0d7c27a9e9dde0f49c66279fd3ba1548e149fcb3739b1b75dbdddc07cbbf50667adfc363b84",
+            "id": "component-BiitIconComponent-69bf0520d783fbdabdbb63ac922a6391a192ae4ab26bf5c1d279a0ceb092fa6a8bac6be2db8cb2399232930143239de4819f4e07ff125ec757fa87d247f3e4a6",
             "file": "projects/biit-ui/icon/src/biit-icon/biit-icon.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -3218,7 +3218,7 @@
                     "optional": false,
                     "returnType": "SVGElement",
                     "typeParameters": [],
-                    "line": 82,
+                    "line": 86,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -3244,7 +3244,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {ChangeDetectionStrategy, Component, ElementRef, Inject, Input, OnInit, Optional} from '@angular/core';\nimport {BiitIconService} from \"./biit-icon.service\";\nimport {DOCUMENT} from \"@angular/common\";\nimport {biitIcon} from \"biit-icons-collection\";\n\n@Component({\n  selector: 'biit-icon',\n  template: `\n    <ng-content></ng-content>\n  `,\n  styles: [':host::ng-deep svg{width: 50px; height: 50px}'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class BiitIconComponent implements OnInit {\n  private svgIcon: SVGElement | undefined = undefined;\n\n  @Input('name') set nameUpdater(name: biitIcon | undefined) {\n    this.name = name;\n    this.draw();\n  }\n  @Input('width') set widthUpdater(width: string) {\n    this.width = width;\n    this.draw();\n  };\n  @Input('height') set heightUpdater(height: string) {\n    this.height = height;\n    this.draw();\n  }\n  @Input('style') set styleUpdater(style: any) {\n    this.style = style;\n    this.draw();\n  }\n  @Input('pathStyle') set stylePathUpdater(style: any) {\n    this.pathStyle = style;\n    this.draw();\n  }\n\n  private name: biitIcon | undefined;\n  private width: string = '50px';\n  private height: string = '50px';\n  private style: any;\n  private pathStyle: any;\n  private initialized: boolean = true; //avoids draw for each input while initializing.\n  public constructor(private element: ElementRef, private biitIconService: BiitIconService, @Optional() @Inject(DOCUMENT) private document: any) {\n  }\n\n  ngOnInit(): void {\n    this.initialized = false;\n    this.draw();\n  }\n\n  private draw(): void {\n    if(this.initialized) {\n      return;\n    }\n    if (this.svgIcon) {\n      this.element.nativeElement.removeChild(this.svgIcon);\n    }\n    if (!this.name) {\n      return;\n    }\n    const svgData: string | undefined = this.biitIconService.getIcon(this.name);\n    if (svgData) {\n      this.svgIcon = this.svgElementFromString(svgData);\n      if (!this.svgIcon) {\n        return;\n      }\n      this.svgIcon.style.width = this.width;\n      this.svgIcon.style.height = this.height;\n      if (this.style) {\n        Object.keys(this.style).forEach(styleKey => (this.svgIcon?.style as any)[styleKey] = (this.style as any)[styleKey] );\n      }\n      if (this.pathStyle) {\n        Array.from(this.svgIcon.getElementsByTagName('path')).forEach(path => {\n          Object.keys(this.pathStyle).forEach(styleKey => (path.style as any)[styleKey] = (this.pathStyle as any)[styleKey] );\n        })\n      }\n      this.element.nativeElement.appendChild(this.svgIcon);\n    }\n  }\n\n  private svgElementFromString(svgContent: string): SVGElement {\n    const div: HTMLDivElement = this.document.createElement('DIV');\n    div.innerHTML = svgContent;\n    return div.querySelector('svg') || this.document.createElementNS('http://www.w3.org/2000/svg', 'pattern');\n  }\n}\n",
+            "sourceCode": "import {ChangeDetectionStrategy, Component, ElementRef, Inject, Input, OnInit, Optional} from '@angular/core';\nimport {BiitIconService} from \"./biit-icon.service\";\nimport {DOCUMENT} from \"@angular/common\";\nimport {biitIcon} from \"biit-icons-collection\";\n\n@Component({\n  selector: 'biit-icon',\n  template: `\n    <ng-content></ng-content>\n  `,\n  styles: [':host::ng-deep svg{width: 50px; height: 50px}'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class BiitIconComponent implements OnInit {\n  private svgIcon: SVGElement | undefined = undefined;\n\n  @Input('name') set nameUpdater(name: biitIcon | undefined) {\n    this.name = name;\n    this.draw();\n  }\n  @Input('width') set widthUpdater(width: string) {\n    this.width = width;\n    this.draw();\n  };\n  @Input('height') set heightUpdater(height: string) {\n    this.height = height;\n    this.draw();\n  }\n  @Input('style') set styleUpdater(style: any) {\n    this.style = style;\n    this.draw();\n  }\n  @Input('pathStyle') set stylePathUpdater(style: any) {\n    this.pathStyle = style;\n    this.draw();\n  }\n\n  private name: biitIcon | undefined;\n  private width: string = '50px';\n  private height: string = '50px';\n  private style: any;\n  private pathStyle: any;\n  private initialized: boolean = true; //avoids draw for each input while initializing.\n  public constructor(private element: ElementRef, private biitIconService: BiitIconService, @Optional() @Inject(DOCUMENT) private document: any) {\n  }\n\n  ngOnInit(): void {\n    this.initialized = false;\n    this.draw();\n  }\n\n  private draw(): void {\n    if(this.initialized) {\n      return;\n    }\n    if (this.svgIcon) {\n      this.element.nativeElement.removeChild(this.svgIcon);\n    }\n    if (!this.name) {\n      return;\n    }\n    const svgData: string | undefined = this.biitIconService.getIcon(this.name);\n    if (svgData) {\n      this.svgIcon = this.svgElementFromString(svgData);\n      if (!this.svgIcon) {\n        return;\n      }\n      this.svgIcon.style.width = this.width;\n      this.svgIcon.style.height = this.height;\n      if (this.style) {\n        Object.keys(this.style).forEach(styleKey => {\n          if (this.svgIcon) {\n            (this.svgIcon.style as any)[styleKey] = (this.style as any)[styleKey]\n          }\n        });\n      }\n      if (this.pathStyle) {\n        Array.from(this.svgIcon.getElementsByTagName('path')).forEach(path => {\n          Object.keys(this.pathStyle).forEach(styleKey => (path.style as any)[styleKey] = (this.pathStyle as any)[styleKey] );\n        })\n      }\n      this.element.nativeElement.appendChild(this.svgIcon);\n    }\n  }\n\n  private svgElementFromString(svgContent: string): SVGElement {\n    const div: HTMLDivElement = this.document.createElement('DIV');\n    div.innerHTML = svgContent;\n    return div.querySelector('svg') || this.document.createElementNS('http://www.w3.org/2000/svg', 'pattern');\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ":host::ng-deep svg{width: 50px; height: 50px}\n",
@@ -6799,16 +6799,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/controls/biit-dropdown.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/charts/bar.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -6870,6 +6860,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/charts/stacked.bars.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/controls/biit-dropdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -7049,16 +7049,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/controls/biit-dropdown.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<BiitDropdownComponent<literal type>>",
-                "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/charts/bar.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7124,6 +7114,16 @@
                 "deprecationMessage": "",
                 "type": "Story<StackedBarsChartComponent>",
                 "defaultValue": "(args: StackedBarsChartComponent) => ({\n  props: args,\n  template: `\n    <app-stacked-bars-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [borderRadius]=\"borderRadius\"\n      [enableTotals]=\"enableTotals\"\n      [legendPosition]=\"legendPosition\"\n      [shadow]=\"shadow\"\n      [stackType]=\"stackType\"\n    >\n    </app-stacked-bars-chart>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/controls/biit-dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitDropdownComponent<literal type>>",
+                "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
             },
             {
                 "name": "Template",
@@ -7451,28 +7451,6 @@
                     "defaultValue": "(args: BiitIconComponent) => ({\n  props: args,\n  template: `\n       <biit-icon [name]=\"name\" [width]=\"width\" [height]=\"height\" [style]=\"style\" [pathStyle]=\"pathStyle\"></biit-icon>\n  `\n})"
                 }
             ],
-            "src/stories/controls/biit-dropdown.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/controls/biit-dropdown.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/controls/biit-dropdown.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<BiitDropdownComponent<literal type>>",
-                    "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
-                }
-            ],
             "src/stories/charts/bar.chart.stories.ts": [
                 {
                     "name": "Default",
@@ -7625,6 +7603,28 @@
                     "deprecationMessage": "",
                     "type": "Story<StackedBarsChartComponent>",
                     "defaultValue": "(args: StackedBarsChartComponent) => ({\n  props: args,\n  template: `\n    <app-stacked-bars-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [borderRadius]=\"borderRadius\"\n      [enableTotals]=\"enableTotals\"\n      [legendPosition]=\"legendPosition\"\n      [shadow]=\"shadow\"\n      [stackType]=\"stackType\"\n    >\n    </app-stacked-bars-chart>`\n})"
+                }
+            ],
+            "src/stories/controls/biit-dropdown.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/controls/biit-dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/controls/biit-dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiitDropdownComponent<literal type>>",
+                    "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
                 }
             ],
             "src/stories/filter/filter.stories.ts": [
