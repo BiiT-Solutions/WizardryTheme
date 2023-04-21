@@ -92,6 +92,8 @@ $error-color: #A1093F;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+.password {
   cursor: pointer;
   &:hover {
     background-color: $background-color;

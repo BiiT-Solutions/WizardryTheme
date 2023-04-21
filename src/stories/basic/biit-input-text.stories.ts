@@ -1,4 +1,4 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {BiitInputTextComponent, BiitInputTextModule, Type} from "biit-ui/inputs";
 import {BiitIconService} from "biit-ui/icon";
 import {completeIconSet} from "biit-icons-collection";
@@ -23,11 +23,12 @@ export default {
     }),
   ],
   args: {
-    placeholder: 'PlaceHolder',
-    width: '200px',
     error: null,
+    icon: null,
+    placeholder: 'PlaceHolder',
     type: 'text',
-    value: ''
+    value: '',
+    width: '200px'
   },
   argTypes: {
     placeholder: {
@@ -86,6 +87,21 @@ export default {
         type: 'text'
       }
     },
+    icon: {
+      name: 'icon',
+      type: { name: 'string', required: false },
+      defaultValue: null,
+      description: 'Defines the icon showed to perform action',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'text' },
+        category: 'Inputs'
+      },
+      options: completeIconSet.map(icon => icon.name),
+      control: {
+        type: 'select'
+      }
+    },
     type: {
       name: 'type',
       type: { name: 'string', required: false },
@@ -112,6 +128,7 @@ const Template: Story<BiitInputTextComponent> = (args: BiitInputTextComponent) =
      [width]="width"
      [error]="error"
      [type]="type"
+     [icon]="icon"
      [(ngModel)]="value"
      >
 
