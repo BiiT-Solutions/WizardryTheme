@@ -1,12 +1,12 @@
 <div class="biit-input">
   <div class="input-container">
     <div *ngIf="type === Type.PASSWORD || icon" class="input-show-icon-container"
+         [class.password]="type === Type.PASSWORD"
          (click)="reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit()">
       <biit-icon [name]="type === Type.PASSWORD ? 'show' : icon"
                  width="1.5rem"
                  height="1.5rem"
                  class="input-show-icon"
-                 [class.password]="type === Type.PASSWORD"
                  [pathStyle]="{fill: reveal ? '#F20D5E' : '#262626'}"
       ></biit-icon>
     </div>
