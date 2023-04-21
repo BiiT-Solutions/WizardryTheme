@@ -15,6 +15,9 @@
       ],
       "biit-ui/icon": [
         "projects/biit-ui/icon/src/public-api"
+      ],
+      "biit-ui/inputs": [
+        "projects/biit-ui/inputs/src/public-api"
       ]
     },
     "outDir": "./dist/out-tsc",

@@ -14,7 +14,23 @@ ng generate component ../../projects/biit-ui/mycomponent/src/mycustomcomponent
 ```
 
 ## Define your component
+<h3><mark>&nbsp;Important!&nbsp;</mark></h3>
 
+Remember to export your component in the component module: 
+mycustomcomponent.module.ts
+
+```typescript
+@NgModule({
+  declarations: [
+    MyCustomComponentComponent
+  ],
+  imports: [
+    CommonModule
+  ],
+  exports: [MyCustomComponentComponent]
+})
+export class MyCustomComponentModule { }
+```
 ### Define public-api.ts
 
 Generate a file `public-api.ts` on the `src` folder of your component (`projects/biit-ui/mycomponent/src/public-api.ts`)
