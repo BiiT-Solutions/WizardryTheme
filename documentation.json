@@ -3741,7 +3741,7 @@
                     }
                 }
             },
-            "templateData": "<div class=\"biit-input\">\n  <div class=\"input-container\">\n    <div *ngIf=\"type === Type.PASSWORD || icon\" class=\"input-show-icon-container\"\n         (click)=\"reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit()\">\n      <biit-icon [name]=\"type === Type.PASSWORD ? 'show' : icon\"\n                 width=\"1.5rem\"\n                 height=\"1.5rem\"\n                 class=\"input-show-icon\"\n                 [class.password]=\"type === Type.PASSWORD\"\n                 [pathStyle]=\"{fill: reveal ? '#F20D5E' : '#262626'}\"\n      ></biit-icon>\n    </div>\n    <input class=\"input-object\"\n           style=\"width:{{width}}\"\n           [(ngModel)]=\"value\"\n           [type]=\"reveal ? Type.TEXT : type\" required\n           [class.error]=\"error\"\n           [class.password]=\"type === Type.PASSWORD\"\n           [class.reveal]=\"reveal\"\n    >\n    <label class=\"input-placeholder\">{{placeholder}}</label>\n    <biit-icon *ngIf=\"error\" name=\"exclamation\" width=\"1rem\" height=\"1rem\" class=\"input-error-icon\" [pathStyle]=\"{fill:'#A1093F'}\"></biit-icon>\n  </div>\n  <label *ngIf=\"error\" class=\"input-error-msg\">{{error}}</label>\n</div>\n"
+            "templateData": "<div class=\"biit-input\">\n  <div class=\"input-container\">\n    <div *ngIf=\"type === Type.PASSWORD || icon\" class=\"input-show-icon-container\"\n         [class.password]=\"type === Type.PASSWORD\"\n         (click)=\"reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit()\">\n      <biit-icon [name]=\"type === Type.PASSWORD ? 'show' : icon\"\n                 width=\"1.5rem\"\n                 height=\"1.5rem\"\n                 class=\"input-show-icon\"\n                 [pathStyle]=\"{fill: reveal ? '#F20D5E' : '#262626'}\"\n      ></biit-icon>\n    </div>\n    <input class=\"input-object\"\n           style=\"width:{{width}}\"\n           [(ngModel)]=\"value\"\n           [type]=\"reveal ? Type.TEXT : type\" required\n           [class.error]=\"error\"\n           [class.password]=\"type === Type.PASSWORD\"\n           [class.reveal]=\"reveal\"\n    >\n    <label class=\"input-placeholder\">{{placeholder}}</label>\n    <biit-icon *ngIf=\"error\" name=\"exclamation\" width=\"1rem\" height=\"1rem\" class=\"input-error-icon\" [pathStyle]=\"{fill:'#A1093F'}\"></biit-icon>\n  </div>\n  <label *ngIf=\"error\" class=\"input-error-msg\">{{error}}</label>\n</div>\n"
         },
         {
             "name": "BiitTableComponent",
@@ -7157,7 +7157,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/pie.chart.stories.ts",
+                "file": "src/stories/charts/line.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -7167,7 +7167,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/line.chart.stories.ts",
+                "file": "src/stories/charts/pie.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -7417,21 +7417,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/pie.chart.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<PieChartModule>",
-                "defaultValue": "(args: PieChartModule) => ({\n  props: args,\n  template: `\n    <app-pie-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [isDonut]=\"isDonut\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-pie-chart>`\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/charts/line.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<LineChartModule>",
                 "defaultValue": "(args: LineChartModule) => ({\n  props: args,\n  template: `\n    <app-line-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [curve]=\"curve\"\n      [shadow]=\"shadow\"\n      [strokeWidth]=\"strokeWidth\"\n    >\n    </app-line-chart>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/pie.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<PieChartModule>",
+                "defaultValue": "(args: PieChartModule) => ({\n  props: args,\n  template: `\n    <app-pie-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [isDonut]=\"isDonut\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-pie-chart>`\n})"
             },
             {
                 "name": "Template",
@@ -7696,7 +7696,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -7707,7 +7707,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -7917,28 +7917,6 @@
                     "defaultValue": "(args: GaugeChartModule) => ({\n  props: args,\n  template: `\n    <app-gauge-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [opacity]=\"opacity\"\n      [shadow]=\"shadow\"\n      [innerCirclePercentage]=\"innerCirclePercentage\"\n      [trackBackgroundColor]=\"trackBackgroundColor\"\n      [trackBackgroundThicknessPercentage]=\"trackBackgroundThicknessPercentage\"\n    >\n    </app-gauge-chart>`\n})"
                 }
             ],
-            "src/stories/charts/pie.chart.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/charts/pie.chart.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/charts/pie.chart.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<PieChartModule>",
-                    "defaultValue": "(args: PieChartModule) => ({\n  props: args,\n  template: `\n    <app-pie-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [isDonut]=\"isDonut\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-pie-chart>`\n})"
-                }
-            ],
             "src/stories/charts/line.chart.stories.ts": [
                 {
                     "name": "Default",
@@ -7959,6 +7937,28 @@
                     "deprecationMessage": "",
                     "type": "Story<LineChartModule>",
                     "defaultValue": "(args: LineChartModule) => ({\n  props: args,\n  template: `\n    <app-line-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [curve]=\"curve\"\n      [shadow]=\"shadow\"\n      [strokeWidth]=\"strokeWidth\"\n    >\n    </app-line-chart>`\n})"
+                }
+            ],
+            "src/stories/charts/pie.chart.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/pie.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/pie.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<PieChartModule>",
+                    "defaultValue": "(args: PieChartModule) => ({\n  props: args,\n  template: `\n    <app-pie-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [isDonut]=\"isDonut\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-pie-chart>`\n})"
                 }
             ],
             "src/stories/charts/radar.chart.stories.ts": [
@@ -8484,19 +8484,6 @@
                     "kind": 181
                 }
             ],
-            "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts": [
-                {
-                    "name": "Data",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "literal type",
-                    "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 181
-                }
-            ],
             "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
                 {
                     "name": "Data",
@@ -8504,6 +8491,19 @@
                     "subtype": "typealias",
                     "rawtype": "literal type",
                     "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
+            ],
+            "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts": [
+                {
+                    "name": "Data",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
