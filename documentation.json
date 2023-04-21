@@ -3464,6 +3464,269 @@
             }
         },
         {
+            "name": "BiitInputTextComponent",
+            "id": "component-BiitInputTextComponent-c65e6036848f93003a395525697ba7592b11e53c1ad5453ef9c4c32414ad67c9527aaead78465341afa32e94e805de214835bfb400604840b26def1f95698d25",
+            "file": "projects/biit-ui/inputs/src/biit-input-text/biit-input-text.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => BiitInputTextComponent), multi: true\n}",
+                    "type": "component"
+                }
+            ],
+            "selector": "biit-input-text",
+            "styleUrls": [
+                "./biit-input-text.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./biit-input-text.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "error",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "Type",
+                    "decorators": []
+                },
+                {
+                    "name": "width",
+                    "defaultValue": "'100%'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "onChange",
+                    "defaultValue": "() => {...}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 30
+                },
+                {
+                    "name": "onTouch",
+                    "defaultValue": "() => {...}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 31
+                },
+                {
+                    "name": "placeholder",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 26
+                },
+                {
+                    "name": "reveal",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                },
+                {
+                    "name": "Type",
+                    "defaultValue": "Type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 28,
+                    "modifierKind": [
+                        122,
+                        144
+                    ]
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 27
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 33,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 37,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 41,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, forwardRef, Input} from '@angular/core';\nimport {ControlValueAccessor, NG_VALUE_ACCESSOR} from \"@angular/forms\";\n\n@Component({\n  selector: 'biit-input-text',\n  templateUrl: './biit-input-text.component.html',\n  styleUrls: ['./biit-input-text.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: forwardRef(() => BiitInputTextComponent),\n      multi: true\n    }\n  ]\n})\nexport class BiitInputTextComponent implements ControlValueAccessor{\n\n  @Input('placeholder') set setPlaceHolder(value: string) {\n    this.placeholder = value.toUpperCase();\n  }\n  @Input() width: string = '100%';\n  @Input() error: string;\n  @Input() type: Type;\n\n  reveal: boolean = false;\n  placeholder: string = '';\n  value: string;\n  protected readonly Type = Type;\n\n  onChange = (_: any) => {};\n  onTouch = () => {};\n\n  registerOnChange(fn: any): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: any): void {\n    this.onTouch = fn;\n  }\n\n  writeValue(value: string): void {\n    this.value = value;\n    this.onChange(value);\n  }\n}\nexport enum Type {\n  TEXT = 'TEXT',\n  PASSWORD = 'PASSWORD'\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "$default-color: #262626;\n$background-color: #D9D9D9;\n$secondary-color: #808080;\n$error-color: #A1093F;\n\n* { box-sizing:border-box; }\n\n\n.input-container {\n  position:relative;\n  margin-top: 0.357rem;\n}\n\n.input-object {\n  font-size:1rem;\n  display:block;\n  border:none;\n  border-bottom:3px solid $default-color;\n  color: $default-color;\n  padding: 1rem 1rem 0.786rem 1rem;\n  height: 3rem;\n  min-width: 3rem;\n  font-weight: normal;\n  &:focus {\n    outline: none;\n    background: $background-color;\n  }\n  &:hover {\n    background: $background-color;\n  }\n  &.error {\n    color: $error-color;\n    border-color: $error-color;\n  }\n  &.password {\n    padding: 1rem 3rem 0.786rem 1rem;\n  }\n  &.password.reveal {\n    -webkit-text-security: none;\n    input-security: none;\n  }\n}\n\n.input-placeholder {\n  color:$default-color;\n  font-size:1rem;\n  font-weight:bolder;\n  position:absolute;\n  pointer-events:none;\n  left:1rem;\n  top:1rem;\n  height: 1rem;\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n}\n\n/* active state */\n.input-object:focus ~ .input-placeholder, .input-object:valid ~ .input-placeholder {\n  top:-1rem;\n  font-size: 0.714rem;\n  font-weight:normal;\n  color:$secondary-color;\n}\n\n.input-error-icon {\n  top:1rem;\n  position: absolute;\n}\n.input-error-msg {\n  font-size: 0.714rem;\n  color: $error-color;\n  height: 0.714rem;\n  margin-top: 0.357rem;\n  margin-bottom: 0.429rem;\n}\n.biit-input {\n  display: inline-grid;\n}\n\n.input-show-icon {\n  width: 1.5rem;\n  height: 1.5rem;\n}\n.input-show-icon-container {\n  right: 0;\n  position: absolute;\n  width: 3rem;\n  height: 2.75rem;\n  padding-top: 0.25rem;\n  align-content: center;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  &:hover {\n    background-color: $background-color;\n  }\n}\n",
+                    "styleUrl": "./biit-input-text.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "implements": [
+                "ControlValueAccessor"
+            ],
+            "accessors": {
+                "setPlaceHolder": {
+                    "name": "setPlaceHolder",
+                    "setSignature": {
+                        "name": "setPlaceHolder",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 18,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "templateData": "<div class=\"biit-input\">\n  <div class=\"input-container\">\n    <div *ngIf=\"type === Type.PASSWORD\" class=\"input-show-icon-container\" (click)=\"reveal = !reveal\">\n      <biit-icon name=\"show\"\n                 width=\"1.5rem\"\n                 height=\"1.5rem\"\n                 class=\"input-show-icon\"\n                 [pathStyle]=\"{fill: reveal ? '#F20D5E' : '#262626'}\"\n      ></biit-icon>\n    </div>\n    <input class=\"input-object\"\n           style=\"width:{{width}}\"\n           [(ngModel)]=\"value\"\n           [type]=\"reveal ? Type.TEXT : type\" required\n           [class.error]=\"error\"\n           [class.password]=\"type === Type.PASSWORD\"\n           [class.reveal]=\"reveal\"\n    >\n    <label class=\"input-placeholder\">{{placeholder}}</label>\n    <biit-icon *ngIf=\"error\" name=\"exclamation\" width=\"1rem\" height=\"1rem\" class=\"input-error-icon\" [pathStyle]=\"{fill:'#A1093F'}\"></biit-icon>\n  </div>\n  <label *ngIf=\"error\" class=\"input-error-msg\">{{error}}</label>\n</div>\n"
+        },
+        {
             "name": "BiitTableComponent",
             "id": "component-BiitTableComponent-53ab94486abddd35375ca962e8f9b562c759f6391ffd715c192633f894fe94b7f30626bc1e8bee53e8298a2bf2975fd52b345d5f7b64355df604921bdd65c605",
             "file": "projects/biit-ui/table/src/biit-table/biit-table.component.ts",
@@ -6302,6 +6565,54 @@
             ]
         },
         {
+            "name": "BiitInputTextModule",
+            "id": "module-BiitInputTextModule-5e6dc0f14b9960bc1aec40bca3f613e9f94222f37cec408075c17235fd4f995557818d248e82f19c79bfaca67ccb979b8a4a2c2146306cb68e406e0949a2832c",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/biit-ui/inputs/src/biit-input-text/biit-input-text.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BiitInputTextComponent } from './biit-input-text.component';\nimport {BiitIconModule} from \"biit-ui/icon\";\nimport {FormsModule} from \"@angular/forms\";\n\n@NgModule({\n  declarations: [\n    BiitInputTextComponent\n  ],\n    imports: [\n        CommonModule,\n        BiitIconModule,\n        FormsModule\n    ],\n  exports: [BiitInputTextComponent]\n})\nexport class BiitInputTextModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "BiitInputTextComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "BiitIconModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "BiitInputTextComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "BiitTableDemoModule",
             "id": "module-BiitTableDemoModule-1e7517be92fef997f5753a86fd6481b4451706f1d324154e4cbb2b40b7296079ae1d21bd6864c1358a9c2907e67b26fbf1db0f8ea0e7589e1c0729220d007c13",
             "description": "",
@@ -6799,6 +7110,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/basic/biit-input-text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/charts/bar.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7049,6 +7370,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/basic/biit-input-text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitInputTextComponent>",
+                "defaultValue": "(args: BiitInputTextComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-input-text\r\n     [placeholder]=\"placeholder\"\r\n     [width]=\"width\"\r\n     [error]=\"error\"\r\n     [type]=\"type\"\r\n     [(ngModel)]=\"value\"\r\n     >\r\n\r\n    </biit-input-text>`\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/charts/bar.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7160,6 +7491,34 @@
             {
                 "name": "biitIconServiceFactory",
                 "file": "src/stories/basic/biit-icon.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "service",
+                        "type": "BiitIconService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "service",
+                        "type": "BiitIconService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "biitIconServiceFactory",
+                "file": "src/stories/basic/biit-input-text.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "deprecated": false,
@@ -7309,17 +7668,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 181
-            },
-            {
-                "name": "Data",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "literal type",
                 "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7331,7 +7679,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -7343,6 +7691,17 @@
                 "subtype": "typealias",
                 "rawtype": "literal type",
                 "file": "projects/biit-ui/charts/src/radial-chart/radial-chart-data.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 181
+            },
+            {
+                "name": "Data",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -7415,7 +7774,31 @@
                 "kind": 181
             }
         ],
-        "enumerations": [],
+        "enumerations": [
+            {
+                "name": "Type",
+                "childs": [
+                    {
+                        "name": "TEXT",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "TEXT"
+                    },
+                    {
+                        "name": "PASSWORD",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "PASSWORD"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "projects/biit-ui/inputs/src/biit-input-text/biit-input-text.component.ts"
+            }
+        ],
         "groupedVariables": {
             "projects/biit-ui/src/public-api.ts": [
                 {
@@ -7449,6 +7832,28 @@
                     "deprecationMessage": "",
                     "type": "Story<BiitIconComponent>",
                     "defaultValue": "(args: BiitIconComponent) => ({\n  props: args,\n  template: `\n       <biit-icon [name]=\"name\" [width]=\"width\" [height]=\"height\" [style]=\"style\" [pathStyle]=\"pathStyle\"></biit-icon>\n  `\n})"
+                }
+            ],
+            "src/stories/basic/biit-input-text.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/basic/biit-input-text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/basic/biit-input-text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiitInputTextComponent>",
+                    "defaultValue": "(args: BiitInputTextComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-input-text\r\n     [placeholder]=\"placeholder\"\r\n     [width]=\"width\"\r\n     [error]=\"error\"\r\n     [type]=\"type\"\r\n     [(ngModel)]=\"value\"\r\n     >\r\n\r\n    </biit-input-text>`\r\n})"
                 }
             ],
             "src/stories/charts/bar.chart.stories.ts": [
@@ -7861,6 +8266,36 @@
                     ]
                 }
             ],
+            "src/stories/basic/biit-input-text.stories.ts": [
+                {
+                    "name": "biitIconServiceFactory",
+                    "file": "src/stories/basic/biit-input-text.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "service",
+                            "type": "BiitIconService",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "service",
+                            "type": "BiitIconService",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "src/app/i18n/i18n.module.ts": [
                 {
                     "name": "HttpLoaderFactory",
@@ -7952,7 +8387,33 @@
                 }
             ]
         },
-        "groupedEnumerations": {},
+        "groupedEnumerations": {
+            "projects/biit-ui/inputs/src/biit-input-text/biit-input-text.component.ts": [
+                {
+                    "name": "Type",
+                    "childs": [
+                        {
+                            "name": "TEXT",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "TEXT"
+                        },
+                        {
+                            "name": "PASSWORD",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "PASSWORD"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "projects/biit-ui/inputs/src/biit-input-text/biit-input-text.component.ts"
+                }
+            ]
+        },
         "groupedTypeAliases": {
             "projects/biit-ui/charts/src/bar-chart/bar-chart.component.ts": [
                 {
@@ -7993,19 +8454,6 @@
                     "kind": 181
                 }
             ],
-            "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts": [
-                {
-                    "name": "Data",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "literal type",
-                    "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 181
-                }
-            ],
             "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
                 {
                     "name": "Data",
@@ -8019,13 +8467,13 @@
                     "kind": 181
                 }
             ],
-            "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts": [
+            "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts": [
                 {
                     "name": "Data",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "literal type",
-                    "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
+                    "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -8039,6 +8487,19 @@
                     "subtype": "typealias",
                     "rawtype": "literal type",
                     "file": "projects/biit-ui/charts/src/radial-chart/radial-chart-data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
+            ],
+            "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts": [
+                {
+                    "name": "Data",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -8140,7 +8601,7 @@
         ]
     },
     "coverage": {
-        "count": 1,
+        "count": 0,
         "status": "low",
         "files": [
             {
@@ -8424,6 +8885,15 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/biit-ui/inputs/src/biit-input-text/biit-input-text.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BiitInputTextComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/14",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/biit-ui/src/public-api.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -8670,6 +9140,36 @@
             },
             {
                 "filePath": "src/stories/basic/biit-icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/basic/biit-input-text.stories.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "biitIconServiceFactory",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/basic/biit-input-text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/basic/biit-input-text.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
