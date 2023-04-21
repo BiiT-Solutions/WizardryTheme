@@ -3465,7 +3465,7 @@
         },
         {
             "name": "BiitInputTextComponent",
-            "id": "component-BiitInputTextComponent-c65e6036848f93003a395525697ba7592b11e53c1ad5453ef9c4c32414ad67c9527aaead78465341afa32e94e805de214835bfb400604840b26def1f95698d25",
+            "id": "component-BiitInputTextComponent-40d6bb34ef18be848b3a93a2f900839b141051004e97ebafb8302f1723d79b3ec2e05073925efba632ecf4e0552d1c100058c4ec6b46129880173e1aa7cc7edb",
             "file": "projects/biit-ui/inputs/src/biit-input-text/biit-input-text.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3491,15 +3491,23 @@
                     "name": "error",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 23,
                     "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "icon",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "biitIcon",
                     "decorators": []
                 },
                 {
                     "name": "placeholder",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 19,
                     "type": "string",
                     "decorators": []
                 },
@@ -3507,7 +3515,7 @@
                     "name": "type",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
+                    "line": 24,
                     "type": "Type",
                     "decorators": []
                 },
@@ -3516,12 +3524,21 @@
                     "defaultValue": "'100%'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 22,
                     "type": "string",
                     "decorators": []
                 }
             ],
-            "outputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "onActionPerformed",
+                    "defaultValue": "new EventEmitter<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "EventEmitter<void>"
+                }
+            ],
             "propertiesClass": [
                 {
                     "name": "onChange",
@@ -3531,7 +3548,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 30
+                    "line": 33
                 },
                 {
                     "name": "onTouch",
@@ -3541,7 +3558,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 31
+                    "line": 34
                 },
                 {
                     "name": "placeholder",
@@ -3551,7 +3568,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 26
+                    "line": 29
                 },
                 {
                     "name": "reveal",
@@ -3561,7 +3578,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 25
+                    "line": 28
                 },
                 {
                     "name": "Type",
@@ -3571,7 +3588,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 28,
+                    "line": 31,
                     "modifierKind": [
                         122,
                         144
@@ -3584,7 +3601,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 27
+                    "line": 30
                 }
             ],
             "methodsClass": [
@@ -3601,7 +3618,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 33,
+                    "line": 36,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -3629,7 +3646,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 37,
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -3657,7 +3674,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 41,
+                    "line": 44,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -3680,11 +3697,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, forwardRef, Input} from '@angular/core';\nimport {ControlValueAccessor, NG_VALUE_ACCESSOR} from \"@angular/forms\";\n\n@Component({\n  selector: 'biit-input-text',\n  templateUrl: './biit-input-text.component.html',\n  styleUrls: ['./biit-input-text.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: forwardRef(() => BiitInputTextComponent),\n      multi: true\n    }\n  ]\n})\nexport class BiitInputTextComponent implements ControlValueAccessor{\n\n  @Input('placeholder') set setPlaceHolder(value: string) {\n    this.placeholder = value.toUpperCase();\n  }\n  @Input() width: string = '100%';\n  @Input() error: string;\n  @Input() type: Type;\n\n  reveal: boolean = false;\n  placeholder: string = '';\n  value: string;\n  protected readonly Type = Type;\n\n  onChange = (_: any) => {};\n  onTouch = () => {};\n\n  registerOnChange(fn: any): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: any): void {\n    this.onTouch = fn;\n  }\n\n  writeValue(value: string): void {\n    this.value = value;\n    this.onChange(value);\n  }\n}\nexport enum Type {\n  TEXT = 'TEXT',\n  PASSWORD = 'PASSWORD'\n}\n",
+            "sourceCode": "import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';\nimport {ControlValueAccessor, NG_VALUE_ACCESSOR} from \"@angular/forms\";\nimport {biitIcon} from \"biit-icons-collection\";\n\n@Component({\n  selector: 'biit-input-text',\n  templateUrl: './biit-input-text.component.html',\n  styleUrls: ['./biit-input-text.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: forwardRef(() => BiitInputTextComponent),\n      multi: true\n    }\n  ]\n})\nexport class BiitInputTextComponent implements ControlValueAccessor{\n\n  @Input('placeholder') set setPlaceHolder(value: string) {\n    this.placeholder = value.toUpperCase();\n  }\n  @Input() width: string = '100%';\n  @Input() error: string;\n  @Input() type: Type;\n  @Input() icon: biitIcon;\n  @Output() onActionPerformed: EventEmitter<void> = new EventEmitter<void>();\n\n  reveal: boolean = false;\n  placeholder: string = '';\n  value: string;\n  protected readonly Type = Type;\n\n  onChange = (_: any) => {};\n  onTouch = () => {};\n\n  registerOnChange(fn: any): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: any): void {\n    this.onTouch = fn;\n  }\n\n  writeValue(value: string): void {\n    this.value = value;\n    this.onChange(value);\n  }\n}\nexport enum Type {\n  TEXT = 'TEXT',\n  PASSWORD = 'PASSWORD'\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "$default-color: #262626;\n$background-color: #D9D9D9;\n$secondary-color: #808080;\n$error-color: #A1093F;\n\n* { box-sizing:border-box; }\n\n\n.input-container {\n  position:relative;\n  margin-top: 0.357rem;\n}\n\n.input-object {\n  font-size:1rem;\n  display:block;\n  border:none;\n  border-bottom:3px solid $default-color;\n  color: $default-color;\n  padding: 1rem 1rem 0.786rem 1rem;\n  height: 3rem;\n  min-width: 3rem;\n  font-weight: normal;\n  &:focus {\n    outline: none;\n    background: $background-color;\n  }\n  &:hover {\n    background: $background-color;\n  }\n  &.error {\n    color: $error-color;\n    border-color: $error-color;\n  }\n  &.password {\n    padding: 1rem 3rem 0.786rem 1rem;\n  }\n  &.password.reveal {\n    -webkit-text-security: none;\n    input-security: none;\n  }\n}\n\n.input-placeholder {\n  color:$default-color;\n  font-size:1rem;\n  font-weight:bolder;\n  position:absolute;\n  pointer-events:none;\n  left:1rem;\n  top:1rem;\n  height: 1rem;\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n}\n\n/* active state */\n.input-object:focus ~ .input-placeholder, .input-object:valid ~ .input-placeholder {\n  top:-1rem;\n  font-size: 0.714rem;\n  font-weight:normal;\n  color:$secondary-color;\n}\n\n.input-error-icon {\n  top:1rem;\n  position: absolute;\n}\n.input-error-msg {\n  font-size: 0.714rem;\n  color: $error-color;\n  height: 0.714rem;\n  margin-top: 0.357rem;\n  margin-bottom: 0.429rem;\n}\n.biit-input {\n  display: inline-grid;\n}\n\n.input-show-icon {\n  width: 1.5rem;\n  height: 1.5rem;\n}\n.input-show-icon-container {\n  right: 0;\n  position: absolute;\n  width: 3rem;\n  height: 2.75rem;\n  padding-top: 0.25rem;\n  align-content: center;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  &:hover {\n    background-color: $background-color;\n  }\n}\n",
+                    "data": "$default-color: #262626;\n$background-color: #D9D9D9;\n$secondary-color: #808080;\n$error-color: #A1093F;\n\n* { box-sizing:border-box; }\n\n\n.input-container {\n  position:relative;\n  margin-top: 0.357rem;\n}\n\n.input-object {\n  font-size:1rem;\n  display:block;\n  border:none;\n  border-bottom:3px solid $default-color;\n  color: $default-color;\n  padding: 1rem 1rem 0.786rem 1rem;\n  height: 3rem;\n  min-width: 3rem;\n  font-weight: normal;\n  &:focus {\n    outline: none;\n    background: $background-color;\n  }\n  &:hover {\n    background: $background-color;\n  }\n  &.error {\n    color: $error-color;\n    border-color: $error-color;\n  }\n  &.password {\n    padding: 1rem 3rem 0.786rem 1rem;\n  }\n  &.password.reveal {\n    -webkit-text-security: none;\n    input-security: none;\n  }\n}\n\n.input-placeholder {\n  color:$default-color;\n  font-size:1rem;\n  font-weight:bolder;\n  position:absolute;\n  pointer-events:none;\n  left:1rem;\n  top:1rem;\n  height: 1rem;\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n}\n\n/* active state */\n.input-object:focus ~ .input-placeholder, .input-object:valid ~ .input-placeholder {\n  top:-1rem;\n  font-size: 0.714rem;\n  font-weight:normal;\n  color:$secondary-color;\n}\n\n.input-error-icon {\n  top:1rem;\n  position: absolute;\n}\n.input-error-msg {\n  font-size: 0.714rem;\n  color: $error-color;\n  height: 0.714rem;\n  margin-top: 0.357rem;\n  margin-bottom: 0.429rem;\n}\n.biit-input {\n  display: inline-grid;\n}\n\n.input-show-icon {\n  width: 1.5rem;\n  height: 1.5rem;\n}\n.input-show-icon-container {\n  right: 0;\n  position: absolute;\n  width: 3rem;\n  height: 2.75rem;\n  padding-top: 0.25rem;\n  align-content: center;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n}\n.password {\n  cursor: pointer;\n  &:hover {\n    background-color: $background-color;\n  }\n}\n",
                     "styleUrl": "./biit-input-text.component.scss"
                 }
             ],
@@ -3709,7 +3726,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 18,
+                        "line": 19,
                         "jsdoctags": [
                             {
                                 "name": "value",
@@ -3724,7 +3741,7 @@
                     }
                 }
             },
-            "templateData": "<div class=\"biit-input\">\n  <div class=\"input-container\">\n    <div *ngIf=\"type === Type.PASSWORD\" class=\"input-show-icon-container\" (click)=\"reveal = !reveal\">\n      <biit-icon name=\"show\"\n                 width=\"1.5rem\"\n                 height=\"1.5rem\"\n                 class=\"input-show-icon\"\n                 [pathStyle]=\"{fill: reveal ? '#F20D5E' : '#262626'}\"\n      ></biit-icon>\n    </div>\n    <input class=\"input-object\"\n           style=\"width:{{width}}\"\n           [(ngModel)]=\"value\"\n           [type]=\"reveal ? Type.TEXT : type\" required\n           [class.error]=\"error\"\n           [class.password]=\"type === Type.PASSWORD\"\n           [class.reveal]=\"reveal\"\n    >\n    <label class=\"input-placeholder\">{{placeholder}}</label>\n    <biit-icon *ngIf=\"error\" name=\"exclamation\" width=\"1rem\" height=\"1rem\" class=\"input-error-icon\" [pathStyle]=\"{fill:'#A1093F'}\"></biit-icon>\n  </div>\n  <label *ngIf=\"error\" class=\"input-error-msg\">{{error}}</label>\n</div>\n"
+            "templateData": "<div class=\"biit-input\">\n  <div class=\"input-container\">\n    <div *ngIf=\"type === Type.PASSWORD || icon\" class=\"input-show-icon-container\"\n         (click)=\"reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit()\">\n      <biit-icon [name]=\"type === Type.PASSWORD ? 'show' : icon\"\n                 width=\"1.5rem\"\n                 height=\"1.5rem\"\n                 class=\"input-show-icon\"\n                 [class.password]=\"type === Type.PASSWORD\"\n                 [pathStyle]=\"{fill: reveal ? '#F20D5E' : '#262626'}\"\n      ></biit-icon>\n    </div>\n    <input class=\"input-object\"\n           style=\"width:{{width}}\"\n           [(ngModel)]=\"value\"\n           [type]=\"reveal ? Type.TEXT : type\" required\n           [class.error]=\"error\"\n           [class.password]=\"type === Type.PASSWORD\"\n           [class.reveal]=\"reveal\"\n    >\n    <label class=\"input-placeholder\">{{placeholder}}</label>\n    <biit-icon *ngIf=\"error\" name=\"exclamation\" width=\"1rem\" height=\"1rem\" class=\"input-error-icon\" [pathStyle]=\"{fill:'#A1093F'}\"></biit-icon>\n  </div>\n  <label *ngIf=\"error\" class=\"input-error-msg\">{{error}}</label>\n</div>\n"
         },
         {
             "name": "BiitTableComponent",
@@ -7140,7 +7157,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/line.chart.stories.ts",
+                "file": "src/stories/charts/pie.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -7150,7 +7167,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/pie.chart.stories.ts",
+                "file": "src/stories/charts/line.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -7374,7 +7391,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<BiitInputTextComponent>",
-                "defaultValue": "(args: BiitInputTextComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-input-text\r\n     [placeholder]=\"placeholder\"\r\n     [width]=\"width\"\r\n     [error]=\"error\"\r\n     [type]=\"type\"\r\n     [(ngModel)]=\"value\"\r\n     >\r\n\r\n    </biit-input-text>`\r\n})"
+                "defaultValue": "(args: BiitInputTextComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-input-text\r\n     [placeholder]=\"placeholder\"\r\n     [width]=\"width\"\r\n     [error]=\"error\"\r\n     [type]=\"type\"\r\n     [icon]=\"icon\"\r\n     [(ngModel)]=\"value\"\r\n     >\r\n\r\n    </biit-input-text>`\r\n})"
             },
             {
                 "name": "Template",
@@ -7400,21 +7417,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/charts/line.chart.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<LineChartModule>",
-                "defaultValue": "(args: LineChartModule) => ({\n  props: args,\n  template: `\n    <app-line-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [curve]=\"curve\"\n      [shadow]=\"shadow\"\n      [strokeWidth]=\"strokeWidth\"\n    >\n    </app-line-chart>`\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/charts/pie.chart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<PieChartModule>",
                 "defaultValue": "(args: PieChartModule) => ({\n  props: args,\n  template: `\n    <app-pie-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [isDonut]=\"isDonut\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-pie-chart>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/charts/line.chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<LineChartModule>",
+                "defaultValue": "(args: LineChartModule) => ({\n  props: args,\n  template: `\n    <app-line-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [curve]=\"curve\"\n      [shadow]=\"shadow\"\n      [strokeWidth]=\"strokeWidth\"\n    >\n    </app-line-chart>`\n})"
             },
             {
                 "name": "Template",
@@ -7668,17 +7685,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 181
-            },
-            {
-                "name": "Data",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "literal type",
                 "file": "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7690,7 +7696,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/radial-chart/radial-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -7701,7 +7707,18 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 181
+            },
+            {
+                "name": "Data",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "projects/biit-ui/charts/src/radial-chart/radial-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -7853,7 +7870,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<BiitInputTextComponent>",
-                    "defaultValue": "(args: BiitInputTextComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-input-text\r\n     [placeholder]=\"placeholder\"\r\n     [width]=\"width\"\r\n     [error]=\"error\"\r\n     [type]=\"type\"\r\n     [(ngModel)]=\"value\"\r\n     >\r\n\r\n    </biit-input-text>`\r\n})"
+                    "defaultValue": "(args: BiitInputTextComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-input-text\r\n     [placeholder]=\"placeholder\"\r\n     [width]=\"width\"\r\n     [error]=\"error\"\r\n     [type]=\"type\"\r\n     [icon]=\"icon\"\r\n     [(ngModel)]=\"value\"\r\n     >\r\n\r\n    </biit-input-text>`\r\n})"
                 }
             ],
             "src/stories/charts/bar.chart.stories.ts": [
@@ -7900,28 +7917,6 @@
                     "defaultValue": "(args: GaugeChartModule) => ({\n  props: args,\n  template: `\n    <app-gauge-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [opacity]=\"opacity\"\n      [shadow]=\"shadow\"\n      [innerCirclePercentage]=\"innerCirclePercentage\"\n      [trackBackgroundColor]=\"trackBackgroundColor\"\n      [trackBackgroundThicknessPercentage]=\"trackBackgroundThicknessPercentage\"\n    >\n    </app-gauge-chart>`\n})"
                 }
             ],
-            "src/stories/charts/line.chart.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/charts/line.chart.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/charts/line.chart.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<LineChartModule>",
-                    "defaultValue": "(args: LineChartModule) => ({\n  props: args,\n  template: `\n    <app-line-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [curve]=\"curve\"\n      [shadow]=\"shadow\"\n      [strokeWidth]=\"strokeWidth\"\n    >\n    </app-line-chart>`\n})"
-                }
-            ],
             "src/stories/charts/pie.chart.stories.ts": [
                 {
                     "name": "Default",
@@ -7942,6 +7937,28 @@
                     "deprecationMessage": "",
                     "type": "Story<PieChartModule>",
                     "defaultValue": "(args: PieChartModule) => ({\n  props: args,\n  template: `\n    <app-pie-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [colors]=\"colors\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [isDonut]=\"isDonut\"\n      [fill]=\"fill\"\n      [shadow]=\"shadow\"\n      [legendPosition]=\"legendPosition\"\n    >\n    </app-pie-chart>`\n})"
+                }
+            ],
+            "src/stories/charts/line.chart.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/line.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/charts/line.chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<LineChartModule>",
+                    "defaultValue": "(args: LineChartModule) => ({\n  props: args,\n  template: `\n    <app-line-chart\n      [width]=\"width\"\n      [height]=\"height\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [curve]=\"curve\"\n      [shadow]=\"shadow\"\n      [strokeWidth]=\"strokeWidth\"\n    >\n    </app-line-chart>`\n})"
                 }
             ],
             "src/stories/charts/radar.chart.stories.ts": [
@@ -8454,19 +8471,6 @@
                     "kind": 181
                 }
             ],
-            "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
-                {
-                    "name": "Data",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "literal type",
-                    "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 181
-                }
-            ],
             "projects/biit-ui/charts/src/gauge-chart/gauge-chart-data.ts": [
                 {
                     "name": "Data",
@@ -8480,19 +8484,6 @@
                     "kind": 181
                 }
             ],
-            "projects/biit-ui/charts/src/radial-chart/radial-chart-data.ts": [
-                {
-                    "name": "Data",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "literal type",
-                    "file": "projects/biit-ui/charts/src/radial-chart/radial-chart-data.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 181
-                }
-            ],
             "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts": [
                 {
                     "name": "Data",
@@ -8500,6 +8491,32 @@
                     "subtype": "typealias",
                     "rawtype": "literal type",
                     "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
+            ],
+            "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
+                {
+                    "name": "Data",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
+            ],
+            "projects/biit-ui/charts/src/radial-chart/radial-chart-data.ts": [
+                {
+                    "name": "Data",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/biit-ui/charts/src/radial-chart/radial-chart-data.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -8890,7 +8907,7 @@
                 "linktype": "component",
                 "name": "BiitInputTextComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/14",
+                "coverageCount": "0/16",
                 "status": "low"
             },
             {
