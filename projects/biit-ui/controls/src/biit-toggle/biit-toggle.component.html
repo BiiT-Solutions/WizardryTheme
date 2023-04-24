@@ -1,0 +1,19 @@
+<div class="toggle-base" [class.disabled]="disabled">
+  <div class="toggle-switch">
+    <div class="toggle-trail"
+         [class.toggle-trail-checked]="checked && !disabled"></div>
+    <biit-icon [name]="'data'"
+               width="1rem"
+               height="1rem"
+               [pathStyle]="{fill: '#262626'}"
+               class="toggle-box"
+               [class.toggle-box-checked]="checked"
+               [class.disabled-box]="disabled"
+               (click)="onClick(!checked)"
+    ></biit-icon>
+  </div>
+  <label class="toggle-label"
+         [class.disabled-text]="disabled">
+    {{label}}
+  </label>
+</div>
