@@ -12,7 +12,7 @@ function biitIconServiceFactory(service: BiitIconService) {
 }
 
 export default {
-  title: 'Controls/Toggle',
+  title: 'Basic/Inputs',
   decorators: [
     moduleMetadata({
       imports: [BiitToggleModule, FormsModule],
@@ -30,7 +30,7 @@ export default {
   },
   argTypes: {
     value: {
-      name: 'ngModel',
+      name: 'value',
       description: 'Handles the object to be modified.',
       type: { name: 'boolean', required: true },
       table: {
