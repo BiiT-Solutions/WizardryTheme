@@ -1,24 +1,25 @@
 $default-color: #262626;
-$trail: #EDEDED;
-$trail-checked: #FBAEC9;
-$box: #262626;
-$box-checked: #F20D5E;
-$disabled: #D9D9D9;
+$trail-color: #EDEDED;
+$trail-selected-color: #FBAEC9;
+$box-selected-color: #F20D5E;
+$disabled-color: #D9D9D9;
 
-$box-border-size: 0.357rem;
+$_2px: 0.143rem;
+$_5px: 0.357rem;
 
 .toggle-base {
   display: flex;
   align-items: center;
-  cursor: pointer;
+  width: fit-content;
+  cursor: default;
 
   &.disabled {
     pointer-events: none;
     cursor: default;
   }
   &:hover .toggle-box:not(.checked) {
-    transform: rotate(15deg) translate(0.143rem);
-    border: $box-border-size solid $box-checked;
+    transform: rotate(15deg) translate($_2px);
+    border: $_5px solid $box-selected-color;
   }
 }
 
@@ -32,15 +33,16 @@ $box-border-size: 0.357rem;
 .toggle-trail {
   display: inline-flex;
   width: 2rem;
-  height: $box-border-size;
-  background: $trail;
+  height: $_5px;
+  background: $trail-color;
   z-index: 0;
+
   transition:0.2s ease all;
   -moz-transition:0.2s ease all;
   -webkit-transition:0.2s ease all;
 
   &.checked {
-    background: $trail-checked;
+    background: $trail-selected-color;
   }
 }
 
@@ -49,25 +51,26 @@ $box-border-size: 0.357rem;
   display: inline-flex;
   height: 1rem;
   width: 1rem;
-  border: $box-border-size solid $box;
+  border: $_5px solid $default-color;
   box-sizing: border-box;
   z-index: 1;
+
   transition:0.2s ease all;
   -moz-transition:0.2s ease all;
   -webkit-transition:0.2s ease all;
 
   &.checked:not(.disabled) {
     transform: translate(1rem, 0) rotate(45deg) !important;
-    border: $box-border-size solid $box-checked;
-    background: $box-checked;
+    border: $_5px solid $box-selected-color;
+    background: $box-selected-color;
   }
   &.disabled:not(.checked) {
-    border: $box-border-size solid $disabled;
+    border: $_5px solid $disabled-color;
   }
   &.checked.disabled {
     transform: translate(1rem, 0) rotate(45deg) !important;
-    border: $box-border-size solid $disabled;
-    background: $disabled;
+    border: $_5px solid $disabled-color;
+    background: $disabled-color;
   }
 }
 
@@ -76,6 +79,6 @@ $box-border-size: 0.357rem;
   cursor: inherit;
 
   &.disabled {
-    color: $disabled;
+    color: $disabled-color;
   }
 }

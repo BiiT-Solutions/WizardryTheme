@@ -2,28 +2,23 @@ import {Component, Input, forwardRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
-  selector: 'app-biit-toggle',
-  templateUrl: 'biit-toggle.component.html',
-  styleUrls: ['biit-toggle.component.scss'],
+  selector: 'app-biit-checkbox',
+  templateUrl: 'biit-checkbox.component.html',
+  styleUrls: ['biit-checkbox.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BiitToggleComponent),
+      useExisting: forwardRef(() => BiitCheckboxComponent),
       multi: true
     }
   ]
 })
-export class BiitToggleComponent implements ControlValueAccessor {
+export class BiitCheckboxComponent implements ControlValueAccessor {
   @Input() disabled = false;
-  checked: boolean;
+  checked: any;
 
   onChange = (value: any) => {};
   onTouched = () => {};
-
-  onClick(item: boolean) {
-    this.checked = item;
-    this.onChange(this.checked);
-  }
 
   registerOnChange(fn: any): void {
     this.onChange = fn;
@@ -33,7 +28,12 @@ export class BiitToggleComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  writeValue(obj: boolean): void {
-    this.checked = obj;
+  writeValue(checked: boolean): void {
+    this.checked = checked;
+  }
+
+  onModelChange(event: boolean) {
+    this.checked = event;
+    this.onChange(event);
   }
 }

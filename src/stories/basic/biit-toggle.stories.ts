@@ -18,7 +18,7 @@ export default {
   argTypes: {
     value: {
       name: 'value',
-      description: 'Handles the object to be modified.',
+      description: 'Handles the variable to be modified.',
       type: { name: 'boolean', required: true },
       table: {
         type: { summary: 'boolean' },
@@ -31,7 +31,7 @@ export default {
     },
     label: {
       name: 'label',
-      description: 'Defines the object\'s variable name that will get printed as a label in the component.',
+      description: 'Defines the label that will get printed alongside the toggle.',
       type: { name: 'string', required: true },
       table: {
         type: { summary: 'string' },
@@ -63,9 +63,9 @@ const Template: Story<BiitToggleComponent> = (args: BiitToggleComponent) => ({
   props: args,
   template:`
     <app-biit-toggle [(ngModel)]="value"
-                     [label]="label"
-                     [disabled]="disabled"
-    ></app-biit-toggle>
+                     [disabled]="disabled">
+        {{label}}
+    </app-biit-toggle>
 `
 });
 

@@ -1,18 +1,18 @@
 import {NgModule} from '@angular/core';
-import {BiitToggleComponent} from './biit-toggle.component';
+import {BiitCheckboxComponent} from './biit-checkbox.component';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
-    BiitToggleComponent
+    BiitCheckboxComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
   ],
   exports: [
-    BiitToggleComponent
+    BiitCheckboxComponent
   ]
 })
-export class BiitToggleModule { }
+export class BiitCheckboxModule { }
