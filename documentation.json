@@ -2644,6 +2644,207 @@
             "templateData": "<div (click)=\"onClick.emit($event)\" (dblclick)=\"onDoubleClick.emit($event)\" class=\"button-border\" [class.disabled]=\"disabled\"\r\n     [ngClass]=\"{'primary': 'moz-fix-primary', 'secondary': 'moz-fix-secondary', 'tertiary': 'moz-fix-tertiary'} [type]\">\r\n  <button [ngClass]=\"{'primary': 'primary', 'secondary': 'secondary', 'tertiary': 'tertiary'} [type]\"\r\n          [class.disabled]=\"disabled\" class=\"biit-button\">\r\n    <ng-container *ngTemplateOutlet=\"buttonText\"></ng-container>\r\n  </button>\r\n</div>\r\n\r\n<ng-template #buttonText>\r\n  <ng-content></ng-content>\r\n</ng-template>\r\n"
         },
         {
+            "name": "BiitCheckboxComponent",
+            "id": "component-BiitCheckboxComponent-c5ac804651d33c83e735f1d46c999cbc6d7e83423e21656b95dc76a0ef3ba9a1afac67c65eb1dd26bbf7878cd73a3ad7686c706e605b511313b4f4342485f10f",
+            "file": "projects/biit-ui/inputs/src/biit-checkbox/biit-checkbox.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => BiitCheckboxComponent), multi: true\n}",
+                    "type": "component"
+                }
+            ],
+            "selector": "app-biit-checkbox",
+            "styleUrls": [
+                "biit-checkbox.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "biit-checkbox.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "checked",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                },
+                {
+                    "name": "onChange",
+                    "defaultValue": "() => {...}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                },
+                {
+                    "name": "onTouched",
+                    "defaultValue": "() => {...}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onModelChange",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 35,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "checked",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "checked",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, Input, forwardRef} from '@angular/core';\nimport {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';\n\n@Component({\n  selector: 'app-biit-checkbox',\n  templateUrl: 'biit-checkbox.component.html',\n  styleUrls: ['biit-checkbox.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: forwardRef(() => BiitCheckboxComponent),\n      multi: true\n    }\n  ]\n})\nexport class BiitCheckboxComponent implements ControlValueAccessor {\n  @Input() disabled = false;\n  checked: any;\n\n  onChange = (value: any) => {};\n  onTouched = () => {};\n\n  registerOnChange(fn: any): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: any): void {\n    this.onTouched = fn;\n  }\n\n  writeValue(checked: boolean): void {\n    this.checked = checked;\n  }\n\n  onModelChange(event: boolean) {\n    this.checked = event;\n    this.onChange(event);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "$default-color: #262626;\n$selected-color: #F20D5E;\n$disabled-color: #D9D9D9;\n$_3px: 0.214rem;\n$_5px: 0.357rem;\n$_14px: 1rem;\n\nlabel {\n  display: flex;\n  align-items: center;\n  width: fit-content;\n\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n\n  &.disabled {\n    pointer-events: none;\n    color: $disabled-color;\n  }\n}\n\ninput[type=\"checkbox\"] {\n  /* Add if not using autoprefixer */\n  -webkit-appearance: none;\n  appearance: none;\n  /* For iOS < 15 to remove gradient background */\n  background-color: #fff;\n\n  font: inherit;\n  width: $_14px;\n  height: $_14px;\n  border: $_3px solid $default-color;\n  box-sizing: border-box;\n  margin: $_5px $_14px $_5px $_5px;\n\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n\n  &:hover:not(.disabled) {\n    transform: rotate(15deg);\n    border: $_3px solid $selected-color;\n  }\n  &:checked:not(.disabled) {\n    transform: rotate(45deg);\n    border: $_3px solid $selected-color;\n    background: $selected-color;\n  }\n  &.disabled:not(:checked) {\n    border: $_3px solid $disabled-color;\n  }\n  &:checked.disabled {\n    transform: rotate(45deg);\n    border: $_3px solid $disabled-color;\n    background: $disabled-color;\n  }\n}\n",
+                    "styleUrl": "biit-checkbox.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "implements": [
+                "ControlValueAccessor"
+            ],
+            "templateData": "<label [class.disabled]=\"disabled\">\n  <input type=\"checkbox\"\n         class=\"checkbox-box\"\n         [ngModel]=\"checked\"\n         (ngModelChange)=\"onModelChange($event)\"\n         [class.disabled]=\"disabled\"/>\n  <ng-content></ng-content>\n</label>\n"
+        },
+        {
             "name": "BiitDropdownComponent",
             "id": "component-BiitDropdownComponent-b67989365d4d1d5af7b98c2dec68a13b669b47fdd642d595f2cbe6afb8908ddb8b11ff010bdf9071c6f20e67d963d5cbe87adaf8e2501aca28edc33dd74b169f",
             "file": "projects/biit-ui/inputs/src/biit-dropdown/biit-dropdown.component.ts",
@@ -4257,7 +4458,7 @@
         },
         {
             "name": "BiitToggleComponent",
-            "id": "component-BiitToggleComponent-45e32466cf786f149e5a9c17f3690c36d3acdf88f4a1475728e9a499633466e5af368cff384dafd5c61bae5b6b9dab06e39ad8485ac3612c5216ce6d9412517b",
+            "id": "component-BiitToggleComponent-3d95ae01e9af6fae61523e62d6a6edd10efbb29234da63d4da819b4f532aa6e8ca13dece940a2f9af8ffbdaccdad8ee25bf2eba38dff667caf2499f5981db0f0",
             "file": "projects/biit-ui/inputs/src/biit-toggle/biit-toggle.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4284,17 +4485,8 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
-                    "type": "boolean",
-                    "decorators": []
-                },
-                {
-                    "name": "label",
-                    "defaultValue": "\"\"",
-                    "deprecated": false,
-                    "deprecationMessage": "",
                     "line": 17,
-                    "type": "string",
+                    "type": "boolean",
                     "decorators": []
                 }
             ],
@@ -4307,7 +4499,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 19
+                    "line": 18
                 },
                 {
                     "name": "onChange",
@@ -4317,7 +4509,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 21
+                    "line": 20
                 },
                 {
                     "name": "onTouched",
@@ -4327,7 +4519,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 22
+                    "line": 21
                 }
             ],
             "methodsClass": [
@@ -4344,7 +4536,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 23,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -4372,7 +4564,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 29,
+                    "line": 28,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -4400,7 +4592,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 33,
+                    "line": 32,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -4428,7 +4620,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 37,
+                    "line": 36,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -4451,11 +4643,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input, forwardRef} from '@angular/core';\nimport {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';\n\n@Component({\n  selector: 'app-biit-toggle',\n  templateUrl: 'biit-toggle.component.html',\n  styleUrls: ['biit-toggle.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: forwardRef(() => BiitToggleComponent),\n      multi: true\n    }\n  ]\n})\nexport class BiitToggleComponent implements ControlValueAccessor {\n  @Input() label = \"\";\n  @Input() disabled = false;\n  checked: boolean;\n\n  onChange = (value: any) => {};\n  onTouched = () => {};\n\n  onClick(item: boolean) {\n    this.checked = item;\n    this.onChange(this.checked);\n  }\n\n  registerOnChange(fn: any): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: any): void {\n    this.onTouched = fn;\n  }\n\n  writeValue(obj: boolean): void {\n    this.checked = obj;\n  }\n}\n",
+            "sourceCode": "import {Component, Input, forwardRef} from '@angular/core';\nimport {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';\n\n@Component({\n  selector: 'app-biit-toggle',\n  templateUrl: 'biit-toggle.component.html',\n  styleUrls: ['biit-toggle.component.scss'],\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: forwardRef(() => BiitToggleComponent),\n      multi: true\n    }\n  ]\n})\nexport class BiitToggleComponent implements ControlValueAccessor {\n  @Input() disabled = false;\n  checked: boolean;\n\n  onChange = (value: any) => {};\n  onTouched = () => {};\n\n  onClick(item: boolean) {\n    this.checked = item;\n    this.onChange(this.checked);\n  }\n\n  registerOnChange(fn: any): void {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: any): void {\n    this.onTouched = fn;\n  }\n\n  writeValue(obj: boolean): void {\n    this.checked = obj;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "$default-color: #262626;\n$trail: #EDEDED;\n$trail-checked: #FBAEC9;\n$box: #262626;\n$box-checked: #F20D5E;\n$disabled: #D9D9D9;\n\n$box-border-size: 0.357rem;\n\n.toggle-base {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n\n  &.disabled {\n    pointer-events: none;\n    cursor: default;\n  }\n  &:hover .toggle-box:not(.checked) {\n    transform: rotate(15deg) translate(0.143rem);\n    border: $box-border-size solid $box-checked;\n  }\n}\n\n.toggle-switch {\n  display: flex;\n  align-items: center;\n  width: 2rem;\n  height: 1rem;\n}\n\n.toggle-trail {\n  display: inline-flex;\n  width: 2rem;\n  height: $box-border-size;\n  background: $trail;\n  z-index: 0;\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n\n  &.checked {\n    background: $trail-checked;\n  }\n}\n\n.toggle-box {\n  position: absolute;\n  display: inline-flex;\n  height: 1rem;\n  width: 1rem;\n  border: $box-border-size solid $box;\n  box-sizing: border-box;\n  z-index: 1;\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n\n  &.checked:not(.disabled) {\n    transform: translate(1rem, 0) rotate(45deg) !important;\n    border: $box-border-size solid $box-checked;\n    background: $box-checked;\n  }\n  &.disabled:not(.checked) {\n    border: $box-border-size solid $disabled;\n  }\n  &.checked.disabled {\n    transform: translate(1rem, 0) rotate(45deg) !important;\n    border: $box-border-size solid $disabled;\n    background: $disabled;\n  }\n}\n\n.toggle-label {\n  margin-left: 1rem;\n  cursor: inherit;\n\n  &.disabled {\n    color: $disabled;\n  }\n}\n",
+                    "data": "$default-color: #262626;\n$trail-color: #EDEDED;\n$trail-selected-color: #FBAEC9;\n$box-selected-color: #F20D5E;\n$disabled-color: #D9D9D9;\n\n$_2px: 0.143rem;\n$_5px: 0.357rem;\n\n.toggle-base {\n  display: flex;\n  align-items: center;\n  width: fit-content;\n  cursor: default;\n\n  &.disabled {\n    pointer-events: none;\n    cursor: default;\n  }\n  &:hover .toggle-box:not(.checked) {\n    transform: rotate(15deg) translate($_2px);\n    border: $_5px solid $box-selected-color;\n  }\n}\n\n.toggle-switch {\n  display: flex;\n  align-items: center;\n  width: 2rem;\n  height: 1rem;\n}\n\n.toggle-trail {\n  display: inline-flex;\n  width: 2rem;\n  height: $_5px;\n  background: $trail-color;\n  z-index: 0;\n\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n\n  &.checked {\n    background: $trail-selected-color;\n  }\n}\n\n.toggle-box {\n  position: absolute;\n  display: inline-flex;\n  height: 1rem;\n  width: 1rem;\n  border: $_5px solid $default-color;\n  box-sizing: border-box;\n  z-index: 1;\n\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n\n  &.checked:not(.disabled) {\n    transform: translate(1rem, 0) rotate(45deg) !important;\n    border: $_5px solid $box-selected-color;\n    background: $box-selected-color;\n  }\n  &.disabled:not(.checked) {\n    border: $_5px solid $disabled-color;\n  }\n  &.checked.disabled {\n    transform: translate(1rem, 0) rotate(45deg) !important;\n    border: $_5px solid $disabled-color;\n    background: $disabled-color;\n  }\n}\n\n.toggle-label {\n  margin-left: 1rem;\n  cursor: inherit;\n\n  &.disabled {\n    color: $disabled-color;\n  }\n}\n",
                     "styleUrl": "biit-toggle.component.scss"
                 }
             ],
@@ -4463,7 +4655,7 @@
             "implements": [
                 "ControlValueAccessor"
             ],
-            "templateData": "<div class=\"toggle-base\"\n     [class.disabled]=\"disabled\"\n     (click)=\"onClick(!checked)\">\n  <div class=\"toggle-switch\">\n    <div class=\"toggle-trail\"\n         [class.checked]=\"checked && !disabled\"></div>\n    <div class=\"toggle-box\"\n         [class.checked]=\"checked\"\n         [class.disabled]=\"disabled\"></div>\n  </div>\n  <label class=\"toggle-label\"\n         [class.disabled]=\"disabled\">\n    {{label}}\n  </label>\n</div>\n"
+            "templateData": "<div class=\"toggle-base\"\n     [class.disabled]=\"disabled\"\n     (click)=\"onClick(!checked)\">\n  <div class=\"toggle-switch\">\n    <div class=\"toggle-trail\"\n         [class.checked]=\"checked && !disabled\"></div>\n    <div class=\"toggle-box\"\n         [class.checked]=\"checked\"\n         [class.disabled]=\"disabled\"></div>\n  </div>\n  <label class=\"toggle-label\"\n         [class.disabled]=\"disabled\">\n    <ng-content></ng-content>\n  </label>\n</div>\n"
         },
         {
             "name": "ButtonComponent",
@@ -6714,6 +6906,50 @@
             ]
         },
         {
+            "name": "BiitCheckboxModule",
+            "id": "module-BiitCheckboxModule-d2e39eefc668e6dd3cd5ed6bae025aa1464d0f129906afc4e387a228a6043b0ecfba7d6b478706b6866e4dc86d6035235343439078a0c03d7eeefcf368789d1a",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/biit-ui/inputs/src/biit-checkbox/biit-checkbox.module.ts",
+            "methods": [],
+            "sourceCode": "import {NgModule} from '@angular/core';\nimport {BiitCheckboxComponent} from './biit-checkbox.component';\nimport {FormsModule} from '@angular/forms';\nimport {CommonModule} from '@angular/common';\n\n@NgModule({\n  declarations: [\n    BiitCheckboxComponent\n  ],\n  imports: [\n    CommonModule,\n    FormsModule,\n  ],\n  exports: [\n    BiitCheckboxComponent\n  ]\n})\nexport class BiitCheckboxModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "BiitCheckboxComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "BiitCheckboxComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "BiitDropdownModule",
             "id": "module-BiitDropdownModule-71577bc5057b8204081dbc0276349b128aa102d0753ceb8d8251654514fcf84ae9b7d1d11483d60269887fee216fd384d53f779e1ef3d7d9b443d9930e3348e8",
             "description": "",
@@ -7042,13 +7278,13 @@
         },
         {
             "name": "BiitToggleModule",
-            "id": "module-BiitToggleModule-430d697599ad1430a2b81bc5715a0c0cea2c5402e7ee0607ac80835e78ff29da1df1bed1ef9be81619b9764519b8da504388d7377a98eec61f7686063a983a00",
+            "id": "module-BiitToggleModule-e144308dd318c3d78a60ab93d98906c6530fa094486459e1601b676c7039d5da1e4e8cc7d42e9a5e22b15101044e486831f5f688fd163247291245d2bf971686",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/biit-ui/inputs/src/biit-toggle/biit-toggle.module.ts",
             "methods": [],
-            "sourceCode": "import {NgModule} from '@angular/core';\nimport {BiitToggleComponent} from './biit-toggle.component';\nimport {BiitIconModule} from 'biit-ui/icon';\nimport {FormsModule} from '@angular/forms';\nimport {CommonModule} from '@angular/common';\n\n@NgModule({\n  declarations: [\n    BiitToggleComponent\n  ],\n  imports: [\n    CommonModule,\n    FormsModule,\n    BiitIconModule\n  ],\n  exports: [\n    BiitToggleComponent\n  ]\n})\nexport class BiitToggleModule { }\n",
+            "sourceCode": "import {NgModule} from '@angular/core';\nimport {BiitToggleComponent} from './biit-toggle.component';\nimport {FormsModule} from '@angular/forms';\nimport {CommonModule} from '@angular/common';\n\n@NgModule({\n  declarations: [\n    BiitToggleComponent\n  ],\n  imports: [\n    CommonModule,\n    FormsModule,\n  ],\n  exports: [\n    BiitToggleComponent\n  ]\n})\nexport class BiitToggleModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -7064,11 +7300,7 @@
                 },
                 {
                     "type": "imports",
-                    "elements": [
-                        {
-                            "name": "BiitIconModule"
-                        }
-                    ]
+                    "elements": []
                 },
                 {
                     "type": "exports",
@@ -7477,6 +7709,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/basic/biit-checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/basic/biit-dropdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7757,6 +7999,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/basic/biit-checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitCheckboxComponent>",
+                "defaultValue": "(args: BiitCheckboxComponent) => ({\n  props: args,\n  template:`\n    <div *ngFor=\"let item of items\">\n      <app-biit-checkbox [(ngModel)]=\"item.checked\"\n                         [disabled]=\"disabled\">\n        {{item.name}}\n      </app-biit-checkbox>\n    </div>\n\n    <div style=\"margin-top: 1rem\">\n        Selected items:\n        <div *ngFor=\"let item of items\">\n            <li *ngIf=\"item.checked\">{{item.name}}</li>\n        </div>\n    </div>\n`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/basic/biit-dropdown.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7801,7 +8053,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<BiitToggleComponent>",
-                "defaultValue": "(args: BiitToggleComponent) => ({\n  props: args,\n  template:`\n    <app-biit-toggle [(ngModel)]=\"value\"\n                     [label]=\"label\"\n                     [disabled]=\"disabled\"\n    ></app-biit-toggle>\n`\n})"
+                "defaultValue": "(args: BiitToggleComponent) => ({\n  props: args,\n  template:`\n    <app-biit-toggle [(ngModel)]=\"value\"\n                     [disabled]=\"disabled\">\n        {{label}}\n    </app-biit-toggle>\n`\n})"
             },
             {
                 "name": "Template",
@@ -8096,7 +8348,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -8107,7 +8359,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
-                "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
+                "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -8229,6 +8481,28 @@
                     "defaultValue": "\"biit-ui\""
                 }
             ],
+            "src/stories/basic/biit-checkbox.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/basic/biit-checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/basic/biit-checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiitCheckboxComponent>",
+                    "defaultValue": "(args: BiitCheckboxComponent) => ({\n  props: args,\n  template:`\n    <div *ngFor=\"let item of items\">\n      <app-biit-checkbox [(ngModel)]=\"item.checked\"\n                         [disabled]=\"disabled\">\n        {{item.name}}\n      </app-biit-checkbox>\n    </div>\n\n    <div style=\"margin-top: 1rem\">\n        Selected items:\n        <div *ngFor=\"let item of items\">\n            <li *ngIf=\"item.checked\">{{item.name}}</li>\n        </div>\n    </div>\n`\n})"
+                }
+            ],
             "src/stories/basic/biit-dropdown.stories.ts": [
                 {
                     "name": "Default",
@@ -8336,7 +8610,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<BiitToggleComponent>",
-                    "defaultValue": "(args: BiitToggleComponent) => ({\n  props: args,\n  template:`\n    <app-biit-toggle [(ngModel)]=\"value\"\n                     [label]=\"label\"\n                     [disabled]=\"disabled\"\n    ></app-biit-toggle>\n`\n})"
+                    "defaultValue": "(args: BiitToggleComponent) => ({\n  props: args,\n  template:`\n    <app-biit-toggle [(ngModel)]=\"value\"\n                     [disabled]=\"disabled\">\n        {{label}}\n    </app-biit-toggle>\n`\n})"
                 }
             ],
             "src/stories/charts/bar.chart.stories.ts": [
@@ -8928,19 +9202,6 @@
                     "kind": 181
                 }
             ],
-            "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
-                {
-                    "name": "Data",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "literal type",
-                    "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 181
-                }
-            ],
             "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts": [
                 {
                     "name": "Data",
@@ -8948,6 +9209,19 @@
                     "subtype": "typealias",
                     "rawtype": "literal type",
                     "file": "projects/biit-ui/charts/src/pie-chart/pie-chart-data.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
+            ],
+            "projects/biit-ui/charts/src/line-chart/line-chart-data.ts": [
+                {
+                    "name": "Data",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/biit-ui/charts/src/line-chart/line-chart-data.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -9337,6 +9611,15 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/biit-ui/inputs/src/biit-checkbox/biit-checkbox.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BiitCheckboxComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/biit-ui/inputs/src/biit-dropdown/biit-dropdown.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -9360,7 +9643,7 @@
                 "linktype": "component",
                 "name": "BiitToggleComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/10",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -9593,6 +9876,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Tertiary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/basic/biit-checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/basic/biit-checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
