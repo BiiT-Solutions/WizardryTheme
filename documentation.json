@@ -3749,7 +3749,7 @@
                     }
                 }
             },
-            "templateData": "<div class=\"biit-input\">\n  <div class=\"input-container\">\n    <div *ngIf=\"type === Type.PASSWORD || icon\" class=\"input-show-icon-container\"\n         [class.password]=\"type === Type.PASSWORD\"\n         (click)=\"reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit()\">\n      <biit-icon [name]=\"type === Type.PASSWORD ? 'show' : icon\"\n                 width=\"1.5rem\"\n                 height=\"1.5rem\"\n                 class=\"input-show-icon\"\n                 [pathStyle]=\"{fill: reveal ? '#F20D5E' : '#262626'}\"\n      ></biit-icon>\n    </div>\n    <input class=\"input-object\"\n           style=\"width:{{width}}\"\n           [(ngModel)]=\"value\"\n           [type]=\"reveal ? Type.TEXT : type\" required\n           [class.error]=\"error\"\n           [class.password]=\"type === Type.PASSWORD\"\n           [class.reveal]=\"reveal\"\n    >\n    <label class=\"input-placeholder\">{{placeholder}}</label>\n    <biit-icon *ngIf=\"error\" name=\"exclamation\" width=\"1rem\" height=\"1rem\" class=\"input-error-icon\" [pathStyle]=\"{fill:'#A1093F'}\"></biit-icon>\n  </div>\n  <label *ngIf=\"error\" class=\"input-error-msg\">{{error}}</label>\n</div>\n"
+            "templateData": "<div class=\"biit-input\" style=\"width:{{width}}\">\n  <div class=\"input-container\">\n    <div *ngIf=\"type === Type.PASSWORD || icon\" class=\"input-show-icon-container\"\n         [class.password]=\"type === Type.PASSWORD\"\n         (click)=\"reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit()\">\n      <biit-icon [name]=\"type === Type.PASSWORD ? 'show' : icon\"\n                 width=\"1.5rem\"\n                 height=\"1.5rem\"\n                 class=\"input-show-icon\"\n                 [pathStyle]=\"{fill: reveal ? '#F20D5E' : '#262626'}\"\n      ></biit-icon>\n    </div>\n    <input class=\"input-object\"\n           style=\"width:{{width}}\"\n           [(ngModel)]=\"value\"\n           [type]=\"reveal ? Type.TEXT : type\" required\n           [class.error]=\"error\"\n           [class.password]=\"type === Type.PASSWORD\"\n           [class.reveal]=\"reveal\"\n    >\n    <label class=\"input-placeholder\">{{placeholder}}</label>\n    <biit-icon *ngIf=\"error\" name=\"exclamation\" width=\"1rem\" height=\"1rem\" class=\"input-error-icon\" [pathStyle]=\"{fill:'#A1093F'}\"></biit-icon>\n  </div>\n  <div *ngIf=\"error\" class=\"input-error-msg\">{{error}}</div>\n</div>\n"
         },
         {
             "name": "BiitTableComponent",
@@ -7677,7 +7677,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<BiitInputTextComponent>",
-                "defaultValue": "(args: BiitInputTextComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-input-text\r\n     [placeholder]=\"placeholder\"\r\n     [width]=\"width\"\r\n     [error]=\"error\"\r\n     [type]=\"type\"\r\n     [icon]=\"icon\"\r\n     [(ngModel)]=\"value\"\r\n     >\r\n\r\n    </biit-input-text>`\r\n})"
+                "defaultValue": "(args: BiitInputTextComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-input-text\r\n     [placeholder]=\"placeholder\"\r\n     [width]=\"width\"\r\n     [error]=\"error\"\r\n     [type]=\"type\"\r\n     [icon]=\"icon\"\r\n     [(ngModel)]=\"value\"\r\n     (onActionPerformed)=\"onActionPerformed()\"\r\n     >\r\n\r\n    </biit-input-text>`\r\n})"
             },
             {
                 "name": "Template",
@@ -8178,7 +8178,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<BiitInputTextComponent>",
-                    "defaultValue": "(args: BiitInputTextComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-input-text\r\n     [placeholder]=\"placeholder\"\r\n     [width]=\"width\"\r\n     [error]=\"error\"\r\n     [type]=\"type\"\r\n     [icon]=\"icon\"\r\n     [(ngModel)]=\"value\"\r\n     >\r\n\r\n    </biit-input-text>`\r\n})"
+                    "defaultValue": "(args: BiitInputTextComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-input-text\r\n     [placeholder]=\"placeholder\"\r\n     [width]=\"width\"\r\n     [error]=\"error\"\r\n     [type]=\"type\"\r\n     [icon]=\"icon\"\r\n     [(ngModel)]=\"value\"\r\n     (onActionPerformed)=\"onActionPerformed()\"\r\n     >\r\n\r\n    </biit-input-text>`\r\n})"
                 }
             ],
             "src/stories/basic/biit-toggle.stories.ts": [
