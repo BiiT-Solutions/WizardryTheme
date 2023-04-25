@@ -2646,7 +2646,7 @@
         {
             "name": "BiitDropdownComponent",
             "id": "component-BiitDropdownComponent-b67989365d4d1d5af7b98c2dec68a13b669b47fdd642d595f2cbe6afb8908ddb8b11ff010bdf9071c6f20e67d963d5cbe87adaf8e2501aca28edc33dd74b169f",
-            "file": "projects/biit-ui/controls/src/biit-dropdown/biit-dropdown.component.ts",
+            "file": "projects/biit-ui/inputs/src/biit-dropdown/biit-dropdown.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -4208,7 +4208,7 @@
         {
             "name": "BiitToggleComponent",
             "id": "component-BiitToggleComponent-45e32466cf786f149e5a9c17f3690c36d3acdf88f4a1475728e9a499633466e5af368cff384dafd5c61bae5b6b9dab06e39ad8485ac3612c5216ce6d9412517b",
-            "file": "projects/biit-ui/controls/src/biit-toggle/biit-toggle.component.ts",
+            "file": "projects/biit-ui/inputs/src/biit-toggle/biit-toggle.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -4405,7 +4405,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "$default-color: #262626;\n$trail: #EDEDED;\n$trail-checked: #FBAEC9;\n$box: #262626;\n$box-checked: #F20D5E;\n\n.toggle-base {\n  display: flex;\n  align-items: center;\n}\n\n.toggle-switch {\n  display: flex;\n  align-items: center;\n  width: 2rem;\n  height: 1rem;\n}\n\n.toggle-trail {\n  display: inline-flex;\n  width: 2rem;\n  height: 0.357rem;\n  background: #EDEDED;\n  z-index: 0;\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n}\n\n.toggle-trail-checked {\n  background: #FBAEC9;\n}\n\n.toggle-box {\n  position: absolute;\n  display: inline-flex;\n  z-index: 1;\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n  cursor: pointer;\n}\n\n.toggle-box:hover {\n  transform: rotate(15deg) translate(0.143rem);\n  filter: invert(19%) sepia(83%) saturate(6666%) hue-rotate(331deg) brightness(96%) contrast(98%);\n}\n\n.toggle-box-checked {\n  transform: translate(1rem, 0) rotate(45deg) !important;\n  filter: invert(19%) sepia(83%) saturate(6666%) hue-rotate(331deg) brightness(96%) contrast(98%);\n}\n\n.toggle-label {\n  margin-left: 1rem;\n}\n\n.disabled {\n  pointer-events: none;\n  cursor: default;\n}\n\n.disabled-box {\n  filter: invert(100%) sepia(0%) saturate(1394%) hue-rotate(188deg) brightness(89%) contrast(92%);\n}\n\n.disabled-text {\n  color: #D9D9D9;\n}\n",
+                    "data": "$default-color: #262626;\n$trail: #EDEDED;\n$trail-checked: #FBAEC9;\n$box: #262626;\n$box-checked: #F20D5E;\n$disabled: #D9D9D9;\n\n$box-border-size: 0.357rem;\n\n.toggle-base {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n\n  &.disabled {\n    pointer-events: none;\n    cursor: default;\n  }\n  &:hover .toggle-box:not(.checked) {\n    transform: rotate(15deg) translate(0.143rem);\n    border: $box-border-size solid $box-checked;\n  }\n}\n\n.toggle-switch {\n  display: flex;\n  align-items: center;\n  width: 2rem;\n  height: 1rem;\n}\n\n.toggle-trail {\n  display: inline-flex;\n  width: 2rem;\n  height: $box-border-size;\n  background: $trail;\n  z-index: 0;\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n\n  &.checked {\n    background: $trail-checked;\n  }\n}\n\n.toggle-box {\n  position: absolute;\n  display: inline-flex;\n  height: 1rem;\n  width: 1rem;\n  border: $box-border-size solid $box;\n  box-sizing: border-box;\n  z-index: 1;\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n\n  &.checked:not(.disabled) {\n    transform: translate(1rem, 0) rotate(45deg) !important;\n    border: $box-border-size solid $box-checked;\n    background: $box-checked;\n  }\n  &.disabled:not(.checked) {\n    border: $box-border-size solid $disabled;\n  }\n  &.checked.disabled {\n    transform: translate(1rem, 0) rotate(45deg) !important;\n    border: $box-border-size solid $disabled;\n    background: $disabled;\n  }\n}\n\n.toggle-label {\n  margin-left: 1rem;\n  cursor: inherit;\n\n  &.disabled {\n    color: $disabled;\n  }\n}\n",
                     "styleUrl": "biit-toggle.component.scss"
                 }
             ],
@@ -4413,7 +4413,7 @@
             "implements": [
                 "ControlValueAccessor"
             ],
-            "templateData": "<div class=\"toggle-base\" [class.disabled]=\"disabled\">\n  <div class=\"toggle-switch\">\n    <div class=\"toggle-trail\"\n         [class.toggle-trail-checked]=\"checked && !disabled\"></div>\n    <biit-icon [name]=\"'data'\"\n               width=\"1rem\"\n               height=\"1rem\"\n               [pathStyle]=\"{fill: '#262626'}\"\n               class=\"toggle-box\"\n               [class.toggle-box-checked]=\"checked\"\n               [class.disabled-box]=\"disabled\"\n               (click)=\"onClick(!checked)\"\n    ></biit-icon>\n  </div>\n  <label class=\"toggle-label\"\n         [class.disabled-text]=\"disabled\">\n    {{label}}\n  </label>\n</div>\n"
+            "templateData": "<div class=\"toggle-base\"\n     [class.disabled]=\"disabled\"\n     (click)=\"onClick(!checked)\">\n  <div class=\"toggle-switch\">\n    <div class=\"toggle-trail\"\n         [class.checked]=\"checked && !disabled\"></div>\n    <div class=\"toggle-box\"\n         [class.checked]=\"checked\"\n         [class.disabled]=\"disabled\"></div>\n  </div>\n  <label class=\"toggle-label\"\n         [class.disabled]=\"disabled\">\n    {{label}}\n  </label>\n</div>\n"
         },
         {
             "name": "ButtonComponent",
@@ -6669,7 +6669,7 @@
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
-            "file": "projects/biit-ui/controls/src/biit-dropdown/biit-dropdown.module.ts",
+            "file": "projects/biit-ui/inputs/src/biit-dropdown/biit-dropdown.module.ts",
             "methods": [],
             "sourceCode": "import {NgModule} from '@angular/core';\nimport {BiitDropdownComponent} from './biit-dropdown.component';\nimport {FormsModule} from '@angular/forms';\nimport {BrowserModule} from '@angular/platform-browser';\n\n@NgModule({\n  declarations: [\n    BiitDropdownComponent\n  ],\n  imports: [\n    FormsModule,\n    BrowserModule\n  ],\n  exports: [\n    BiitDropdownComponent\n  ]\n})\nexport class BiitDropdownModule { }\n",
             "children": [
@@ -6952,7 +6952,7 @@
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
-            "file": "projects/biit-ui/controls/src/biit-toggle/biit-toggle.module.ts",
+            "file": "projects/biit-ui/inputs/src/biit-toggle/biit-toggle.module.ts",
             "methods": [],
             "sourceCode": "import {NgModule} from '@angular/core';\nimport {BiitToggleComponent} from './biit-toggle.component';\nimport {BiitIconModule} from 'biit-ui/icon';\nimport {FormsModule} from '@angular/forms';\nimport {CommonModule} from '@angular/common';\n\n@NgModule({\n  declarations: [\n    BiitToggleComponent\n  ],\n  imports: [\n    CommonModule,\n    FormsModule,\n    BiitIconModule\n  ],\n  exports: [\n    BiitToggleComponent\n  ]\n})\nexport class BiitToggleModule { }\n",
             "children": [
@@ -7383,6 +7383,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/basic/biit-dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/basic/biit-icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7394,6 +7404,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/basic/biit-input-text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/basic/biit-toggle.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -7464,26 +7484,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/charts/stacked.bars.chart.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/controls/biit-dropdown.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/controls/biit-toggle.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -7653,6 +7653,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/basic/biit-dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitDropdownComponent<literal type>>",
+                "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/basic/biit-icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7668,6 +7678,16 @@
                 "deprecationMessage": "",
                 "type": "Story<BiitInputTextComponent>",
                 "defaultValue": "(args: BiitInputTextComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-input-text\r\n     [placeholder]=\"placeholder\"\r\n     [width]=\"width\"\r\n     [error]=\"error\"\r\n     [type]=\"type\"\r\n     [icon]=\"icon\"\r\n     [(ngModel)]=\"value\"\r\n     >\r\n\r\n    </biit-input-text>`\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/basic/biit-toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitToggleComponent>",
+                "defaultValue": "(args: BiitToggleComponent) => ({\n  props: args,\n  template:`\n    <app-biit-toggle [(ngModel)]=\"value\"\n                     [label]=\"label\"\n                     [disabled]=\"disabled\"\n    ></app-biit-toggle>\n`\n})"
             },
             {
                 "name": "Template",
@@ -7743,26 +7763,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/controls/biit-dropdown.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<BiitDropdownComponent<literal type>>",
-                "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/controls/biit-toggle.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<BiitToggleComponent>",
-                "defaultValue": "(args: BiitToggleComponent) => ({\n  props: args,\n  template:`\n    <app-biit-toggle [(ngModel)]=\"value\"\n                     [label]=\"label\"\n                     [disabled]=\"disabled\"\n    ></app-biit-toggle>\n`\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/filter/filter.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7822,34 +7822,6 @@
             {
                 "name": "biitIconServiceFactory",
                 "file": "src/stories/basic/biit-input-text.stories.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "args": [
-                    {
-                        "name": "service",
-                        "type": "BiitIconService",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    }
-                ],
-                "jsdoctags": [
-                    {
-                        "name": "service",
-                        "type": "BiitIconService",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            {
-                "name": "biitIconServiceFactory",
-                "file": "src/stories/controls/biit-toggle.stories.ts",
                 "ctype": "miscellaneous",
                 "subtype": "function",
                 "deprecated": false,
@@ -8143,6 +8115,28 @@
                     "defaultValue": "\"biit-ui\""
                 }
             ],
+            "src/stories/basic/biit-dropdown.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/basic/biit-dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/basic/biit-dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiitDropdownComponent<literal type>>",
+                    "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
+                }
+            ],
             "src/stories/basic/biit-icon.stories.ts": [
                 {
                     "name": "Default",
@@ -8185,6 +8179,28 @@
                     "deprecationMessage": "",
                     "type": "Story<BiitInputTextComponent>",
                     "defaultValue": "(args: BiitInputTextComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-input-text\r\n     [placeholder]=\"placeholder\"\r\n     [width]=\"width\"\r\n     [error]=\"error\"\r\n     [type]=\"type\"\r\n     [icon]=\"icon\"\r\n     [(ngModel)]=\"value\"\r\n     >\r\n\r\n    </biit-input-text>`\r\n})"
+                }
+            ],
+            "src/stories/basic/biit-toggle.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/basic/biit-toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/basic/biit-toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiitToggleComponent>",
+                    "defaultValue": "(args: BiitToggleComponent) => ({\n  props: args,\n  template:`\n    <app-biit-toggle [(ngModel)]=\"value\"\n                     [label]=\"label\"\n                     [disabled]=\"disabled\"\n    ></app-biit-toggle>\n`\n})"
                 }
             ],
             "src/stories/charts/bar.chart.stories.ts": [
@@ -8339,50 +8355,6 @@
                     "deprecationMessage": "",
                     "type": "Story<StackedBarsChartComponent>",
                     "defaultValue": "(args: StackedBarsChartComponent) => ({\n  props: args,\n  template: `\n    <app-stacked-bars-chart\n      [width]=\"width\"\n      [showToolbar]=\"showToolbar\"\n      [horizontal]=\"horizontal\"\n      [colors]=\"colors\"\n      [barThicknessPercentage]=\"barThicknessPercentage\"\n      [showValuesLabels]=\"showValuesLabels\"\n      [xAxisOnTop]=\"xAxisOnTop\"\n      [xAxisTitle]=\"xAxisTitle\"\n      [yAxisTitle]=\"yAxisTitle\"\n      [showYAxis]=\"showYAxis\"\n      [title]=\"title\"\n      [titleAlignment]=\"titleAlignment\"\n      [fill]=\"fill\"\n      [borderRadius]=\"borderRadius\"\n      [enableTotals]=\"enableTotals\"\n      [legendPosition]=\"legendPosition\"\n      [shadow]=\"shadow\"\n      [stackType]=\"stackType\"\n    >\n    </app-stacked-bars-chart>`\n})"
-                }
-            ],
-            "src/stories/controls/biit-dropdown.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/controls/biit-dropdown.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/controls/biit-dropdown.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<BiitDropdownComponent<literal type>>",
-                    "defaultValue": "(args: BiitDropdownComponent<{id:number, name:string}>) => ({\n  props: args,\n  template:`\n    <div style=\"text-align: center; margin-bottom: 10px;\">\n      Selected season: {{value.name}}\n    </div>\n\n    <app-biit-dropdown [(ngModel)]=\"value\"\n                       [items]=\"items\"\n                       [label]=\"label\"\n                       [disabled]=\"disabled\"\n    ></app-biit-dropdown>\n`\n})"
-                }
-            ],
-            "src/stories/controls/biit-toggle.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/controls/biit-toggle.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/controls/biit-toggle.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<BiitToggleComponent>",
-                    "defaultValue": "(args: BiitToggleComponent) => ({\n  props: args,\n  template:`\n    <app-biit-toggle [(ngModel)]=\"value\"\n                     [label]=\"label\"\n                     [disabled]=\"disabled\"\n    ></app-biit-toggle>\n`\n})"
                 }
             ],
             "src/stories/filter/filter.stories.ts": [
@@ -8623,36 +8595,6 @@
                 {
                     "name": "biitIconServiceFactory",
                     "file": "src/stories/basic/biit-input-text.stories.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "service",
-                            "type": "BiitIconService",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "service",
-                            "type": "BiitIconService",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "src/stories/controls/biit-toggle.stories.ts": [
-                {
-                    "name": "biitIconServiceFactory",
-                    "file": "src/stories/controls/biit-toggle.stories.ts",
                     "ctype": "miscellaneous",
                     "subtype": "function",
                     "deprecated": false,
@@ -9213,24 +9155,6 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/biit-ui/controls/src/biit-dropdown/biit-dropdown.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "BiitDropdownComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/13",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/biit-ui/controls/src/biit-toggle/biit-toggle.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "BiitToggleComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/10",
-                "status": "low"
-            },
-            {
                 "filePath": "projects/biit-ui/filter/src/biit-filter/biit-filter.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -9277,12 +9201,30 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/biit-ui/inputs/src/biit-dropdown/biit-dropdown.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BiitDropdownComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/13",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/biit-ui/inputs/src/biit-input-text/biit-input-text.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "BiitInputTextComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/16",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/biit-ui/inputs/src/biit-toggle/biit-toggle.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BiitToggleComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -9511,6 +9453,26 @@
                 "status": "low"
             },
             {
+                "filePath": "src/stories/basic/biit-dropdown.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/basic/biit-dropdown.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/basic/biit-icon.stories.ts",
                 "type": "function",
                 "linktype": "miscellaneous",
@@ -9562,6 +9524,26 @@
             },
             {
                 "filePath": "src/stories/basic/biit-input-text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/basic/biit-toggle.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/basic/biit-toggle.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -9711,56 +9693,6 @@
             },
             {
                 "filePath": "src/stories/charts/stacked.bars.chart.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/controls/biit-dropdown.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/controls/biit-dropdown.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/controls/biit-toggle.stories.ts",
-                "type": "function",
-                "linktype": "miscellaneous",
-                "linksubtype": "function",
-                "name": "biitIconServiceFactory",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/controls/biit-toggle.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/controls/biit-toggle.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
