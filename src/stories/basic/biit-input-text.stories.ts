@@ -116,7 +116,16 @@ export default {
       control: {
         type: 'select'
       }
-    }
+    },
+    onActionPerformed: {
+      action: 'onActionPerformed',
+      name: 'onActionPerformed',
+      description: 'Emits a void event to tell the performed action by the icon has been performed by user.',
+      table: {
+        type: 'Event',
+        category: 'Outputs'
+      }
+    },
   }
 } as Meta;
 
@@ -130,6 +139,7 @@ const Template: Story<BiitInputTextComponent> = (args: BiitInputTextComponent) =
      [type]="type"
      [icon]="icon"
      [(ngModel)]="value"
+     (onActionPerformed)="onActionPerformed()"
      >
 
     </biit-input-text>`

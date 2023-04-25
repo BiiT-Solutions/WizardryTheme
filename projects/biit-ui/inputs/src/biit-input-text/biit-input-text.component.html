@@ -1,4 +1,4 @@
-<div class="biit-input">
+<div class="biit-input" style="width:{{width}}">
   <div class="input-container">
     <div *ngIf="type === Type.PASSWORD || icon" class="input-show-icon-container"
          [class.password]="type === Type.PASSWORD"
@@ -21,5 +21,5 @@
     <label class="input-placeholder">{{placeholder}}</label>
     <biit-icon *ngIf="error" name="exclamation" width="1rem" height="1rem" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
   </div>
-  <label *ngIf="error" class="input-error-msg">{{error}}</label>
+  <div *ngIf="error" class="input-error-msg">{{error}}</div>
 </div>
