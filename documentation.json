@@ -3709,7 +3709,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "$default-color: #262626;\n$background-color: #D9D9D9;\n$secondary-color: #808080;\n$error-color: #A1093F;\n\n* { box-sizing:border-box; }\n\n\n.input-container {\n  position:relative;\n  margin-top: 0.357rem;\n}\n\n.input-object {\n  font-size:1rem;\n  display:block;\n  border:none;\n  border-bottom:3px solid $default-color;\n  color: $default-color;\n  padding: 1rem 1rem 0.786rem 1rem;\n  height: 3rem;\n  min-width: 3rem;\n  font-weight: normal;\n  &:focus {\n    outline: none;\n    background: $background-color;\n  }\n  &:hover {\n    background: $background-color;\n  }\n  &.error {\n    color: $error-color;\n    border-color: $error-color;\n  }\n  &.password {\n    padding: 1rem 3rem 0.786rem 1rem;\n  }\n  &.password.reveal {\n    -webkit-text-security: none;\n    input-security: none;\n  }\n}\n\n.input-placeholder {\n  color:$default-color;\n  font-size:1rem;\n  font-weight:bolder;\n  position:absolute;\n  pointer-events:none;\n  left:1rem;\n  top:1rem;\n  height: 1rem;\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n}\n\n/* active state */\n.input-object:focus ~ .input-placeholder, .input-object:valid ~ .input-placeholder {\n  top:-1rem;\n  font-size: 0.714rem;\n  font-weight:normal;\n  color:$secondary-color;\n}\n\n.input-error-icon {\n  top:1rem;\n  position: absolute;\n}\n.input-error-msg {\n  font-size: 0.714rem;\n  color: $error-color;\n  height: 0.714rem;\n  margin-top: 0.357rem;\n  margin-bottom: 0.429rem;\n}\n.biit-input {\n  display: inline-grid;\n}\n\n.input-show-icon {\n  width: 1.5rem;\n  height: 1.5rem;\n}\n.input-show-icon-container {\n  right: 0;\n  position: absolute;\n  width: 3rem;\n  height: 2.75rem;\n  padding-top: 0.25rem;\n  align-content: center;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n}\n.password {\n  cursor: pointer;\n  &:hover {\n    background-color: $background-color;\n  }\n}\n",
+                    "data": "$default-color: #262626;\n$background-color: #D9D9D9;\n$secondary-color: #808080;\n$error-color: #A1093F;\n\n* { box-sizing:border-box; }\n\n\n.input-container {\n  position:relative;\n  margin-top: 0.357rem;\n}\n\n.input-object {\n  font-size:1rem;\n  display:block;\n  border:none;\n  border-bottom:0.25rem solid $default-color;\n  color: $default-color;\n  padding: 1rem 1rem 0.786rem 1rem;\n  height: 3rem;\n  min-width: 3rem;\n  font-weight: normal;\n  &:focus {\n    outline: none;\n    background: $background-color;\n  }\n  &:hover {\n    background: $background-color;\n  }\n  &.error {\n    color: $error-color;\n    border-color: $error-color;\n  }\n  &.password {\n    padding: 1rem 3rem 0.786rem 1rem;\n  }\n  &.password.reveal {\n    -webkit-text-security: none;\n    input-security: none;\n  }\n}\n\n.input-placeholder {\n  color:$default-color;\n  font-size:1rem;\n  font-weight:bolder;\n  position:absolute;\n  pointer-events:none;\n  left:1rem;\n  top:1rem;\n  height: 1rem;\n  transition:0.2s ease all;\n  -moz-transition:0.2s ease all;\n  -webkit-transition:0.2s ease all;\n}\n\n/* active state */\n.input-object:focus ~ .input-placeholder, .input-object:valid ~ .input-placeholder {\n  top:-1rem;\n  font-size: 0.714rem;\n  font-weight:normal;\n  color:$secondary-color;\n}\n\n.input-error-icon {\n  top:1rem;\n  position: absolute;\n}\n.input-error-msg {\n  font-size: 0.714rem;\n  color: $error-color;\n  height: 0.714rem;\n  margin-top: 0.357rem;\n  margin-bottom: 0.429rem;\n}\n.biit-input {\n  display: inline-grid;\n}\n\n.input-show-icon {\n  width: 1.5rem;\n  height: 1.5rem;\n}\n.input-show-icon-container {\n  right: 0;\n  position: absolute;\n  width: 3rem;\n  height: 2.75rem;\n  padding-top: 0.25rem;\n  align-content: center;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n}\n.password {\n  cursor: pointer;\n  &:hover {\n    background-color: $background-color;\n  }\n}\n",
                     "styleUrl": "./biit-input-text.component.scss"
                 }
             ],
@@ -3750,6 +3750,56 @@
                 }
             },
             "templateData": "<div class=\"biit-input\" style=\"width:{{width}}\">\n  <div class=\"input-container\">\n    <div *ngIf=\"type === Type.PASSWORD || icon\" class=\"input-show-icon-container\"\n         [class.password]=\"type === Type.PASSWORD\"\n         (click)=\"reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit()\">\n      <biit-icon [name]=\"type === Type.PASSWORD ? 'show' : icon\"\n                 width=\"1.5rem\"\n                 height=\"1.5rem\"\n                 class=\"input-show-icon\"\n                 [pathStyle]=\"{fill: reveal ? '#F20D5E' : '#262626'}\"\n      ></biit-icon>\n    </div>\n    <input class=\"input-object\"\n           style=\"width:{{width}}\"\n           [(ngModel)]=\"value\"\n           [type]=\"reveal ? Type.TEXT : type\" required\n           [class.error]=\"error\"\n           [class.password]=\"type === Type.PASSWORD\"\n           [class.reveal]=\"reveal\"\n    >\n    <label class=\"input-placeholder\">{{placeholder}}</label>\n    <biit-icon *ngIf=\"error\" name=\"exclamation\" width=\"1rem\" height=\"1rem\" class=\"input-error-icon\" [pathStyle]=\"{fill:'#A1093F'}\"></biit-icon>\n  </div>\n  <div *ngIf=\"error\" class=\"input-error-msg\">{{error}}</div>\n</div>\n"
+        },
+        {
+            "name": "BiitPopupComponent",
+            "id": "component-BiitPopupComponent-63f5e9a7ba32329619d749511a4dd0d01ab0a6200b04afca127e288d4a7244aa8c599cedeac64402338d678d9893c9c78034c08a382dcb41043ac4bbe1e47e7d",
+            "file": "projects/biit-ui/popup/src/biit-popup/biit-popup.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "biit-popup",
+            "styleUrls": [
+                "./biit-popup.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./biit-popup.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "background",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, Input} from '@angular/core';\n\n@Component({\n  selector: 'biit-popup',\n  templateUrl: './biit-popup.component.html',\n  styleUrls: ['./biit-popup.component.scss']\n})\nexport class BiitPopupComponent {\n  @Input() background: boolean = true;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "$default-color: #262626;\n$background-color: #D9D9D9;\n$secondary-color: #808080;\n$error-color: #A1093F;\n\n.popup-background {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0,0,0,0.15);\n  z-index: 10;\n}\n\n.popup-content {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  margin-right: -50%;\n  transform: translate(-50%, -50%);\n  background-color: white;\n  z-index: 11;\n  border: solid 0.25rem $default-color;\n}\n",
+                    "styleUrl": "./biit-popup.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<div *ngIf=\"background\" class=\"popup-background\">\n</div>\n<div class=\"popup-content\">\n  <ng-container *ngTemplateOutlet=\"content\"></ng-container>\n</div>\n\n<ng-template #content>\n  <ng-content></ng-content>\n</ng-template>\n"
         },
         {
             "name": "BiitTableComponent",
@@ -6848,6 +6898,50 @@
             ]
         },
         {
+            "name": "BiitPopupModule",
+            "id": "module-BiitPopupModule-924fb9c380112d1e7998b0d84e8ce83ccd8f2d25d260bd40934ad995ef590810020febecc0197bdc73b56c4ae35b63fcd78e7478f8fa16bdd2f9625054ec0549",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/biit-ui/popup/src/biit-popup/biit-popup.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BiitPopupComponent } from './biit-popup.component';\n\n\n\n@NgModule({\n  declarations: [\n    BiitPopupComponent\n  ],\n  imports: [\n    CommonModule\n  ],\n  exports: [BiitPopupComponent]\n})\nexport class BiitPopupModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "BiitPopupComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "BiitPopupComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "BiitTableDemoModule",
             "id": "module-BiitTableDemoModule-1e7517be92fef997f5753a86fd6481b4451706f1d324154e4cbb2b40b7296079ae1d21bd6864c1358a9c2907e67b26fbf1db0f8ea0e7589e1c0729220d007c13",
             "description": "",
@@ -7413,6 +7507,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/basic/biit-popup.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/basic/biit-toggle.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -7678,6 +7782,16 @@
                 "deprecationMessage": "",
                 "type": "Story<BiitInputTextComponent>",
                 "defaultValue": "(args: BiitInputTextComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-input-text\r\n     [placeholder]=\"placeholder\"\r\n     [width]=\"width\"\r\n     [error]=\"error\"\r\n     [type]=\"type\"\r\n     [icon]=\"icon\"\r\n     [(ngModel)]=\"value\"\r\n     (onActionPerformed)=\"onActionPerformed()\"\r\n     >\r\n\r\n    </biit-input-text>`\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/basic/biit-popup.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BiitPopupComponent>",
+                "defaultValue": "(args: BiitPopupComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-popup [background]=\"background\">\r\n    <div [innerHTML]=\"content\"></div>\r\n    </biit-popup>`\r\n})"
             },
             {
                 "name": "Template",
@@ -8179,6 +8293,28 @@
                     "deprecationMessage": "",
                     "type": "Story<BiitInputTextComponent>",
                     "defaultValue": "(args: BiitInputTextComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-input-text\r\n     [placeholder]=\"placeholder\"\r\n     [width]=\"width\"\r\n     [error]=\"error\"\r\n     [type]=\"type\"\r\n     [icon]=\"icon\"\r\n     [(ngModel)]=\"value\"\r\n     (onActionPerformed)=\"onActionPerformed()\"\r\n     >\r\n\r\n    </biit-input-text>`\r\n})"
+                }
+            ],
+            "src/stories/basic/biit-popup.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/basic/biit-popup.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/basic/biit-popup.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<BiitPopupComponent>",
+                    "defaultValue": "(args: BiitPopupComponent) => ({\r\n  props: args,\r\n  template: `\r\n    <biit-popup [background]=\"background\">\r\n    <div [innerHTML]=\"content\"></div>\r\n    </biit-popup>`\r\n})"
                 }
             ],
             "src/stories/basic/biit-toggle.stories.ts": [
@@ -9228,6 +9364,15 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/biit-ui/popup/src/biit-popup/biit-popup.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BiitPopupComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/biit-ui/src/public-api.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -9524,6 +9669,26 @@
             },
             {
                 "filePath": "src/stories/basic/biit-input-text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/basic/biit-popup.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/basic/biit-popup.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
