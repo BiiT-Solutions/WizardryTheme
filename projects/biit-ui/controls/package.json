@@ -1,6 +1,0 @@
-{
-  "name": "@biit-ui/controls",
-  "peerDependencies": {
-    "@biit-ui/biit-icon": "latest"
-  }
-}

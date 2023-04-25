@@ -1,16 +1,13 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {BiitDropdownModule} from '../../../projects/biit-ui/controls/src/biit-dropdown/biit-dropdown.module';
-import {
-  BiitDropdownComponent
-} from '../../../projects/biit-ui/controls/src/biit-dropdown/biit-dropdown.component';
+import {BiitDropdownModule} from 'biit-ui/inputs';
+import {BiitDropdownComponent} from 'biit-ui/inputs';
 import {FormsModule} from '@angular/forms';
 
 export default {
-  title: 'Controls/Dropdown',
+  title: 'Basic/Inputs/Dropdown',
   decorators: [
     moduleMetadata({
-      imports: [BiitDropdownModule,
-                FormsModule],
+      imports: [BiitDropdownModule, FormsModule]
     }),
   ],
   args: {

@@ -1,26 +1,13 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
-import {BiitToggleModule} from '../../../projects/biit-ui/controls/src/biit-toggle/biit-toggle.module';
-import {BiitToggleComponent} from '../../../projects/biit-ui/controls/src/biit-toggle/biit-toggle.component';
-import {BiitIconService} from 'biit-ui/icon';
-import {completeIconSet} from 'biit-icons-collection';
-import {APP_INITIALIZER} from '@angular/core';
-
-function biitIconServiceFactory(service: BiitIconService) {
-  service.registerIcons(completeIconSet);
-  return () => service;
-}
+import {BiitToggleModule} from 'biit-ui/inputs';
+import {BiitToggleComponent} from 'biit-ui/inputs';
 
 export default {
-  title: 'Basic/Inputs',
+  title: 'Basic/Inputs/Toggle',
   decorators: [
     moduleMetadata({
-      imports: [BiitToggleModule, FormsModule],
-      providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: biitIconServiceFactory,
-        deps: [BiitIconService],
-      }]
+      imports: [BiitToggleModule, FormsModule]
     }),
   ],
   args: {
