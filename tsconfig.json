@@ -18,6 +18,9 @@
       ],
       "biit-ui/inputs": [
         "projects/biit-ui/inputs/src/public-api"
+      ],
+      "biit-ui/popup": [
+        "projects/biit-ui/popup/src/public-api"
       ]
     },
     "outDir": "./dist/out-tsc",
