@@ -57,8 +57,17 @@ export default {
       }
     },
     onClick: {
-      action: 'clicked',
+      action: 'onClick',
       name: 'onClick',
+      description: 'Emits an Event object.',
+      table: {
+        type: 'Event',
+        category: 'Outputs'
+      }
+    },
+    onDoubleClick: {
+      action: 'onDoubleClick',
+      name: 'onDoubleClick',
       description: 'Emits an Event object.',
       table: {
         type: 'Event',
@@ -74,7 +83,8 @@ const Template: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
     <app-biit-button
       [type]="type"
       [disabled]="disabled"
-      (onClick)="onClick()"
+      (onClick)="onClick($event)"
+      (onDoubleClick)="onDoubleClick($event)"
     >
       {{content}}
     </app-biit-button>`

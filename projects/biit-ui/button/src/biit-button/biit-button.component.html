@@ -1,4 +1,4 @@
-<div class="button-border" [class.disabled]="disabled"
+<div (click)="onClick.emit($event)" (dblclick)="onDoubleClick.emit($event)" class="button-border" [class.disabled]="disabled"
      [ngClass]="{'primary': 'moz-fix-primary', 'secondary': 'moz-fix-secondary', 'tertiary': 'moz-fix-tertiary'} [type]">
   <button [ngClass]="{'primary': 'primary', 'secondary': 'secondary', 'tertiary': 'tertiary'} [type]"
           [class.disabled]="disabled" class="biit-button">

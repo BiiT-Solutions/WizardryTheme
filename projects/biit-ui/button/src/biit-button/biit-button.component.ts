@@ -33,4 +33,5 @@ export class BiitButtonComponent {
   }
 
   @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();
+  @Output() onDoubleClick: EventEmitter<Event> = new EventEmitter<Event>();
 }
