@@ -44,3 +44,9 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Angular generated files
+package-lock.json
+
+# Storybook generated files
+documentation.json
