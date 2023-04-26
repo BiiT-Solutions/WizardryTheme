@@ -82,11 +82,11 @@ const Template: Story<BiitDropdownComponent<{id:number, name:string}>> = (args: 
       Selected season: {{value.name}}
     </div>
 
-    <app-biit-dropdown [(ngModel)]="value"
+    <biit-dropdown [(ngModel)]="value"
                        [items]="items"
                        [label]="label"
                        [disabled]="disabled"
-    ></app-biit-dropdown>
+    ></biit-dropdown>
 `
 });
 

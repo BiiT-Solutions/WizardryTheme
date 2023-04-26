@@ -3,7 +3,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessor } from '@angular/forms';
 
 @Component({
-  selector: 'app-biit-dropdown',
+  selector: 'biit-dropdown',
   templateUrl: 'biit-dropdown.component.html',
   styleUrls: ['biit-dropdown.component.scss'],
   providers: [

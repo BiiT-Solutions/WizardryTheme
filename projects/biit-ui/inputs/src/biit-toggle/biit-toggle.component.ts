@@ -2,7 +2,7 @@ import {Component, Input, forwardRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
-  selector: 'app-biit-toggle',
+  selector: 'biit-toggle',
   templateUrl: 'biit-toggle.component.html',
   styleUrls: ['biit-toggle.component.scss'],
   providers: [

@@ -6,7 +6,7 @@ export type BiitButtonType =
   | 'tertiary'
 
 @Component({
-  selector: 'app-biit-button',
+  selector: 'biit-button',
   templateUrl: 'biit-button.component.html',
   styleUrls: ['biit-button.component.scss'],
 })

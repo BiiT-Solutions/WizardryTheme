@@ -6,7 +6,7 @@ import {BasicTableData} from "./basic-table-data";
 import {DatePipe} from "@angular/common";
 
 @Component({
-  selector: 'app-biit-table',
+  selector: 'biit-table',
   templateUrl: './biit-table.component.html',
   styleUrls: ['./biit-table.component.scss']
 })

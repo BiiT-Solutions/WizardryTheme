@@ -80,14 +80,14 @@ export default {
 const Template: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
   props: args,
   template: `
-    <app-biit-button
+    <biit-button
       [type]="type"
       [disabled]="disabled"
       (onClick)="onClick($event)"
       (onDoubleClick)="onDoubleClick($event)"
     >
       {{content}}
-    </app-biit-button>`
+    </biit-button>`
 });
 
 export const Primary = Template.bind({});

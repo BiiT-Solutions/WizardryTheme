@@ -62,10 +62,10 @@ export default {
 const Template: Story<BiitToggleComponent> = (args: BiitToggleComponent) => ({
   props: args,
   template:`
-    <app-biit-toggle [(ngModel)]="value"
+    <biit-toggle [(ngModel)]="value"
                      [disabled]="disabled">
         {{label}}
-    </app-biit-toggle>
+    </biit-toggle>
 `
 });
 

@@ -54,10 +54,10 @@ const Template: Story<BiitCheckboxComponent> = (args: BiitCheckboxComponent) => 
   props: args,
   template:`
     <div *ngFor="let item of items">
-      <app-biit-checkbox [(ngModel)]="item.checked"
+      <biit-checkbox [(ngModel)]="item.checked"
                          [disabled]="disabled">
         {{item.name}}
-      </app-biit-checkbox>
+      </biit-checkbox>
     </div>
 
     <div style="margin-top: 1rem">

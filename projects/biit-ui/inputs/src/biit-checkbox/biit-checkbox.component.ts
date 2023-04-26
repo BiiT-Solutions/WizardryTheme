@@ -2,7 +2,7 @@ import {Component, Input, forwardRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
-  selector: 'app-biit-checkbox',
+  selector: 'biit-checkbox',
   templateUrl: 'biit-checkbox.component.html',
   styleUrls: ['biit-checkbox.component.scss'],
   providers: [

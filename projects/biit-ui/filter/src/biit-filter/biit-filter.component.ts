@@ -3,7 +3,7 @@ import {Subject} from "rxjs";
 import {FilterResetService} from "./filter-reset.service";
 
 @Component({
-  selector: 'app-biit-filter',
+  selector: 'biit-filter',
   templateUrl: './biit-filter.component.html',
   styleUrls: ['./biit-filter.component.scss']
 })
