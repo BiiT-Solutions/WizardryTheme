@@ -43,7 +43,6 @@ export class BiitInputTextComponent implements ControlValueAccessor{
 
   writeValue(value: string): void {
     this.value = value;
-    this.onChange(value);
   }
 }
 export enum Type {

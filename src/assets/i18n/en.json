@@ -10,5 +10,13 @@
     "title": "Title",
     "available": "Available",
     "releaseDate": "Release Date"
+  },
+  "login": {
+    "username-empty": "Username is mandatory.",
+    "password-empty": "Password is mandatory.",
+    "username": "username",
+    "password": "password",
+    "take_me_in": "TAKE ME IN",
+    "cant_remember": "CAN'T REMEMBER MY PASSWORD"
   }
 }

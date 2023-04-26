@@ -61,20 +61,6 @@ $dark-border: #262626;
   }
   .moz-fix-tertiary {
     border: 0 !important;
-    border-bottom: 0.25rem solid $default-color !important;
-    padding-bottom: 0.25rem;
-    &.disabled {
-      border-bottom: 0.25rem solid $light-grey !important;
-      &:hover {
-        padding-bottom: 0.25rem;
-      }
-    }
-    &:hover {
-      padding-bottom: 0.5rem;
-    }
-    &:active {
-      padding-bottom: 0.25rem;
-    }
   }
 }
 
@@ -95,7 +81,6 @@ $dark-border: #262626;
   }
   &.tertiary {
     height: 1.25rem;
-    padding: 0;
   }
   &:hover {
     cursor: pointer;
@@ -144,7 +129,23 @@ $dark-border: #262626;
 .tertiary {
   background: transparent;
   color: $default-color;
+  border-bottom: 0.25rem solid $default-color !important;
+  padding: 0 0 1.25rem;
   &.disabled {
     color: $light-grey;
+    border-bottom: 0.25rem solid $light-grey !important;
+    &:hover {
+      padding-bottom: 1.75rem;
+    }
   }
+  &:hover {
+    padding-bottom: 1.75rem;
+  }
+  &:active {
+    padding-bottom: 1.25rem;
+  }
+}
+
+.tertiary-height {
+  height: 1.5rem;
 }

@@ -7,6 +7,12 @@
       "biit-ui": [
         "projects/biit-ui/src/public-api"
       ],
+      "biit-ui/models": [
+        "projects/biit-ui/models/src/public-api"
+      ],
+      "biit-ui/global": [
+        "projects/biit-ui/global/src/public-api"
+      ],
       "biit-ui/button": [
         "projects/biit-ui/button/src/public-api"
       ],
@@ -21,6 +27,9 @@
       ],
       "biit-ui/popup": [
         "projects/biit-ui/popup/src/public-api"
+      ],
+      "biit-ui/login": [
+        "projects/biit-ui/login/src/public-api"
       ]
     },
     "outDir": "./dist/out-tsc",

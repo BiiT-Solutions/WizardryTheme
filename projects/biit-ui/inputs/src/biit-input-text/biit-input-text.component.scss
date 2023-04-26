@@ -8,7 +8,6 @@ $error-color: #A1093F;
 
 .input-container {
   position:relative;
-  margin-top: 0.357rem;
 }
 
 .input-object {
@@ -75,7 +74,9 @@ $error-color: #A1093F;
   margin-bottom: 0.429rem;
 }
 .biit-input {
-  display: inline-grid;
+  display: flex;
+  min-height: 6rem;
+  padding-top: 1.5rem;
 }
 
 .input-show-icon {
@@ -92,9 +93,9 @@ $error-color: #A1093F;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .password {
-  cursor: pointer;
   &:hover {
     background-color: $background-color;
   }
