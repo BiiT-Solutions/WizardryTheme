@@ -23,8 +23,7 @@ $dark-border: #262626;
   }
   &:has(> .tertiary) {
     border: 0 !important;
-    border-bottom: 0.25rem solid $default-color !important;
-    padding-bottom: 0.25rem;
+    padding-bottom: 0.5rem;
     &.disabled {
       border-bottom: 0.25rem solid $light-grey !important;
       &:hover {
