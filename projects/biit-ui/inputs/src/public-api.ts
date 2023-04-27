@@ -10,3 +10,5 @@ export * from './biit-toggle/biit-toggle.module';
 export * from './biit-toggle/biit-toggle.component';
 export * from './biit-checkbox/biit-checkbox.module';
 export * from './biit-checkbox/biit-checkbox.component';
+export * from './biit-radio-button/biit-radio-button.module';
+export * from './biit-radio-button/biit-radio-button.component';
