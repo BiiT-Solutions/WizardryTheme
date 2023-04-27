@@ -17,6 +17,7 @@
     "username": "username",
     "password": "password",
     "take_me_in": "TAKE ME IN",
-    "cant_remember": "CAN'T REMEMBER MY PASSWORD"
+    "cant_remember": "CAN'T REMEMBER MY PASSWORD",
+    "remember": "Remember me"
   }
 }

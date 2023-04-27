@@ -24,7 +24,6 @@ export class BiitLoginComponent {
 
   constructor(private translateService: TranslateService) {
     this.login = new BiitLogin();
-    this.login.username='test';
     this.onLogin = new EventEmitter<BiitLogin>();
     this.onNotRemember = new EventEmitter<void>();
     this.loginErrors = new Map<LoginErrors, string>();

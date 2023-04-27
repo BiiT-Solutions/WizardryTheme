@@ -14,7 +14,7 @@
      <biit-toggle
        style="padding: 1rem"
        [(ngModel)]="login.remember">
-       Remember me
+       {{'login.remember' | translate}}
      </biit-toggle>
      <div class="login-button centered">
        <biit-button (onClick)="performLogin()">{{'login.take_me_in' | translate}}</biit-button>
