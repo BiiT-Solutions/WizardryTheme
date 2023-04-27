@@ -11,11 +11,11 @@ $_5px: 0.357rem;
   display: flex;
   align-items: center;
   width: fit-content;
-  cursor: default;
+  cursor: pointer;
 
   &.disabled {
     pointer-events: none;
-    cursor: default;
+    cursor: not-allowed;
   }
   &:hover .toggle-box:not(.checked) {
     transform: rotate(15deg) translate($_2px);

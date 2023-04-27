@@ -82,11 +82,13 @@ $dark-border: #262626;
     height: 1.25rem;
   }
   &:hover {
+    pointer-events: none;
     cursor: pointer;
   }
 }
 
 .disabled:hover {
+  pointer-events: none;
   cursor: not-allowed;
 }
 .primary {
