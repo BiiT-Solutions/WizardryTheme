@@ -1,0 +1,59 @@
+$default-color: #262626;
+$selected-color: #F20D5E;
+$disabled-color: #D9D9D9;
+$_3px: 0.214rem;
+$_5px: 0.357rem;
+$_14px: 1rem;
+
+label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+
+  &.disabled {
+    pointer-events: none;
+    color: $disabled-color;
+  }
+  & .biit-radio {
+    transform: rotate(-30deg);
+
+    &.checked {
+      transform: rotate(0deg);
+    }
+    &.disabled {
+      transform: rotate(-30deg);
+    }
+  }
+  &:hover .biit-radio {
+    transform: rotate(-15deg);
+
+    &.checked {
+      transform: rotate(15deg);
+    }
+  }
+
+}
+
+input[type="radio"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+}
+
+.biit-radio {
+  height: 1rem;
+  width: 1rem;
+  margin: $_5px $_14px $_5px $_5px;
+
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}

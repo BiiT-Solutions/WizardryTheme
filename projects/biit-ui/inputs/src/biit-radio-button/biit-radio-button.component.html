@@ -1,0 +1,19 @@
+<label [class.disabled]="disabled" (mouseenter)="hover=true" (mouseleave)="hover=false">
+  <input type="radio"
+         class="checkbox-box"
+         [ngModel]="selected"
+         (ngModelChange)="onModelChange($event)"
+         [id]="id"
+         [name]="name"
+         [value]="value"
+         [class.disabled]="disabled"/>
+  <biit-icon [name]="value == selected ? 'radio_button_filled' : 'radio_button_empty'"
+             width="1rem"
+             height="1rem"
+             [pathStyle]="{fill: disabled ? '#D9D9D9' : hover || (value == selected) ? '#F20D5E' : '#262626'}"
+             class="biit-radio"
+             [class.checked]="value == selected"
+             [class.disabled]="disabled"
+  ></biit-icon>
+  <ng-content></ng-content>
+</label>
