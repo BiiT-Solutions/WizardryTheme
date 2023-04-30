@@ -1,0 +1,23 @@
+$default-color: #262626;
+$background-color: #D9D9D9;
+$active-color: #F20D5E;
+
+.icon-button-canvas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+
+  &:hover {
+    background-color: $background-color;
+  }
+  &.disabled {
+    pointer-events: none;
+  }
+}
+
+.icon-button-svg {
+  display: inline-flex;
+  pointer-events: none;
+}
