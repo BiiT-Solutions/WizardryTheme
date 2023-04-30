@@ -134,12 +134,12 @@ const Template: Story<BiitInputTextComponent> = (args: BiitInputTextComponent) =
   template: `
     <biit-input-text
      [placeholder]="placeholder"
-     [width]="width"
      [error]="error"
      [type]="type"
      [icon]="icon"
      [(ngModel)]="value"
      (onActionPerformed)="onActionPerformed()"
+     style="width: 256px; display: block;"
      >
 
     </biit-input-text>`
