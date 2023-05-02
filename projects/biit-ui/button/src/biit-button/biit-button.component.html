@@ -1,13 +1,9 @@
-<div (click)="!disabled && onClick.emit($event)"
-     (dblclick)="!disabled && onDoubleClick.emit($event)" class="button-border" [class.disabled]="disabled"
-     [class.tertiary-height]="type === 'tertiary'"
-     [ngClass]="{'primary': 'moz-fix-primary', 'secondary': 'moz-fix-secondary', 'tertiary': 'moz-fix-tertiary'} [type]">
-  <button [ngClass]="{'primary': 'primary', 'secondary': 'secondary', 'tertiary': 'tertiary'} [type]"
-          [class.disabled]="disabled" class="biit-button">
-    <ng-container *ngTemplateOutlet="buttonText"></ng-container>
-  </button>
+<div class="test-base prevent-select {{type}}"
+     [class.disabled]="_disabled"
+     (click)="onClick.emit($event)"
+     (dblclick)="onDoubleClick.emit($event)">
+  <div class="test-content">
+    <ng-content></ng-content>
+    <div *ngIf="_type === 'tertiary'" class="bar"></div>
+  </div>
 </div>
-
-<ng-template #buttonText>
-  <ng-content></ng-content>
-</ng-template>

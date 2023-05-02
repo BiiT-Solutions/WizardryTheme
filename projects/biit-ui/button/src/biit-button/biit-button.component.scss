@@ -3,150 +3,106 @@ $dark-grey: #808080;
 $light-grey: #D9D9D9;
 $dark-border: #262626;
 
-.button-border {
-  border: 0.25rem solid;
-  width: fit-content;
-  &:has(> .primary) {
-    border-color: $default-color;
-    &:hover {
-      border-color: $dark-border;
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.test-base{
+    font-size: 1rem;
+    line-height: 0.7rem;
+    width: fit-content;
+    background: transparent;
+    box-sizing: border-box;
+    border: 0.175rem solid transparent;
+
+  &:not(.tertiary) {
+    color: $dark-border;
+
+    .test-content {
+      padding: 0.675rem 1.375rem;
     }
-    &.disabled {
-      border-color: $light-grey;
+
+    &:active .test-content {
+      translate: 0.3rem 0.3rem;
     }
-  }
-  &:has(> .secondary) {
-    border-color: $dark-border;
-    &.disabled {
-      border-color: $light-grey;
-    }
-  }
-  &:has(> .tertiary) {
-    border: 0 !important;
-    padding-bottom: 0.5rem;
-    &.disabled {
-      border-bottom: 0.25rem solid $light-grey !important;
+
+    &.primary {
+      border: 0.175rem solid $default-color;
+
       &:hover {
-        padding-bottom: 0.25rem;
+        border: 0.175rem solid $dark-border;
+      }
+
+      .test-content {
+        background: $default-color;
       }
     }
-    &:hover {
-      padding-bottom: 0.5rem;
-    }
-    &:active {
-      padding-bottom: 0.25rem;
-    }
-  }
-}
 
-@-moz-document url-prefix() {
-  .moz-fix-primary {
-    border-color: $default-color !important;
-    &:hover {
-      border-color: $dark-border !important;
-    }
-    &.disabled {
-      border-color: $light-grey !important;
-    }
-  }
-  .moz-fix-secondary {
-    border-color: $dark-border !important;
-    &:hover {
-      border-color: $dark-border !important;
-    }
-    &.disabled {
-      border-color: $light-grey !important;
-    }
-  }
-  .moz-fix-tertiary {
-    border: 0 !important;
-  }
-}
+    &.secondary {
+      border: 0.175rem solid $dark-border;
 
-.button-border.disabled {
-  border-color: $light-grey;
-}
-.button-border:hover {
-  border-color: $dark-border;
-}
-
-.biit-button {
-  height: 2.929rem;
-  font-weight: bold;
-  font-size: 1rem;
-  border: none;
-  &.primary, &.secondary {
-    padding: 0 2rem;
+      &:hover .test-content {
+        background: $light-grey;
+      }
+    }
   }
+
   &.tertiary {
-    height: 1.25rem;
-  }
-  &:hover {
-    pointer-events: none;
-    cursor: pointer;
-  }
-}
+    color: $default-color;
 
-.disabled:hover {
-  pointer-events: none;
-  cursor: not-allowed;
-}
-.primary {
-  background: $default-color;
-  color: $dark-border;
-  &.disabled {
-    background: $light-grey;
-    color: $dark-grey;
-  }
-}
+    .test-content {
+      padding: 0.615rem 1.375rem;
+      translate: 0 0.07rem;
+    }
 
-.primary, .secondary {
-  &:active {
-    translate: 0.5rem 0.5rem;
-  }
-  &.disabled:active {
-    translate: 0 0;
-  }
-}
+    &:hover .bar {
+      top: 0.3rem;
+    }
 
-.secondary {
-  background: transparent;
-  color: $dark-border;
-  padding: 0 2rem;
-  &.disabled {
-    color: $light-grey;
-  }
-  &:active {
-    background: $light-grey;
-  }
-  &:hover {
-    background: $light-grey;
-  }
-  &:hover.disabled {
-    background: transparent;
-  }
-}
-
-.tertiary {
-  background: transparent;
-  color: $default-color;
-  border-bottom: 0.25rem solid $default-color !important;
-  padding: 0 0 1.25rem;
-  &.disabled {
-    color: $light-grey;
-    border-bottom: 0.25rem solid $light-grey !important;
-    &:hover {
-      padding-bottom: 1.75rem;
+    &:active .bar {
+      top: 0.15rem;
     }
   }
-  &:hover {
-    padding-bottom: 1.75rem;
-  }
-  &:active {
-    padding-bottom: 1.25rem;
+
+  &.disabled {
+    pointer-events: none;
+
+    &.primary {
+      border: 0.175rem solid $light-grey;
+
+      .test-content {
+        background: $light-grey;
+        color: $dark-grey;
+      }
+    }
+
+    &.secondary {
+      border: 0.175rem solid $light-grey;
+      color: $light-grey;
+    }
+
+    &.tertiary {
+      color: $light-grey;
+
+      .bar {
+        background: $light-grey;
+      }
+    }
   }
 }
 
-.tertiary-height {
-  height: 1.5rem;
+.test-content {
+  width: fit-content;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.bar {
+  width: 100%;
+  height: 0.15rem;
+  background: $default-color;
+  position: relative;
+  top: 0.15rem;
 }

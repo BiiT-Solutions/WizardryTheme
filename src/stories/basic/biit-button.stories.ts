@@ -61,7 +61,7 @@ export default {
       name: 'onClick',
       description: 'Emits an Event object.',
       table: {
-        type: 'Event',
+        type: 'EventEmitter<PointerEvent>',
         category: 'Outputs'
       }
     },
@@ -70,7 +70,7 @@ export default {
       name: 'onDoubleClick',
       description: 'Emits an Event object.',
       table: {
-        type: 'Event',
+        type: 'EventEmitter<MouseEvent>',
         category: 'Outputs'
       }
     }
