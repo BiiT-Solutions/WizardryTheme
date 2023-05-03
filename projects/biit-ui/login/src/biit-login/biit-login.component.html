@@ -3,7 +3,7 @@
    <div class="login-left-column">
      <div class="login-icon-square">
        <div class="login-keyring"></div>
-       <biit-icon name="key_{{keyId}}" width="18rem" height="18rem" class="login-key-icon"></biit-icon>
+       <biit-icon [name]="$any('key_' + keyId)" width="18rem" height="18rem" class="login-key-icon"></biit-icon>
      </div>
    </div>
    <div class="login-right-column">
