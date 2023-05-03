@@ -3,14 +3,15 @@
    <div class="login-left-column">
      <div class="login-icon-square">
        <div class="login-keyring"></div>
-       <biit-icon [name]="$any('key_' + keyId)" width="18rem" height="18rem" class="login-key-icon"></biit-icon>
+       <biit-icon name="key_{{keyId}}" class="login-key-icon"></biit-icon>
+       <biit-icon [name]="$any('key_' + keyId)" style="width:18rem; height:18rem;" class="login-key-icon"></biit-icon>
      </div>
    </div>
    <div class="login-right-column">
      <biit-input-text [(ngModel)]="login.username" [error]="this.loginErrors.get(LoginError.USERNAME)"
-                      placeholder="{{'login.username' | translate}}" width="256px"></biit-input-text>
+                      placeholder="{{'login.username' | translate}}" style="width: 256px"></biit-input-text>
      <biit-input-text [(ngModel)]="login.password" [error]="this.loginErrors.get(LoginError.PASSWORD)"
-                      placeholder="{{'login.password' | translate}}" [type]="Type.PASSWORD" width="256px"></biit-input-text>
+                      placeholder="{{'login.password' | translate}}" [type]="Type.PASSWORD" style="width: 256px"></biit-input-text>
      <biit-toggle
        style="padding: 1rem"
        [(ngModel)]="login.remember">

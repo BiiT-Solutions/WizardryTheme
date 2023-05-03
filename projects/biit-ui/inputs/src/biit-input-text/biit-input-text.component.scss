@@ -5,6 +5,12 @@ $error-color: #A1093F;
 
 * { box-sizing:border-box; }
 
+.biit-input {
+  display: flex;
+  min-width: 12.8rem;
+  min-height: 4.2rem;
+  padding-top: 1.05rem;
+}
 
 .input-container {
   position:relative;
@@ -16,28 +22,33 @@ $error-color: #A1093F;
   display:block;
   border:none;
   color: $default-color;
-  padding: 1rem 1rem 1rem 1rem;
-  height: 3rem;
+  padding: 0.7rem 0.7rem 0.7rem 0.7rem;
+  height: 2.1rem;
   width: 100%;
-  min-width: 3rem;
+  min-width: 2.1rem;
   font-weight: normal;
+
   &:focus {
     outline: none;
     background: $background-color;
   }
+
   &:hover {
     background: $background-color;
   }
+
   &.error {
     color: $error-color;
     border-color: $error-color;
   }
+
   &.password {
-    padding: 1rem 3rem 0.786rem 1rem;
-  }
-  &.password.reveal {
-    -webkit-text-security: none;
-    input-security: none;
+    padding: 0.7rem 2.1rem 0.55rem 0.7rem;
+
+    &.reveal {
+      -webkit-text-security: none;
+      input-security: none;
+    }
   }
 }
 
@@ -47,9 +58,9 @@ $error-color: #A1093F;
   font-weight:bolder;
   position:absolute;
   pointer-events:none;
-  left:1rem;
-  top:1rem;
-  height: 1rem;
+  left:0.7rem;
+  top: 0.42rem;
+  height: 0.7rem;
   transition:0.2s ease all;
   -moz-transition:0.2s ease all;
   -webkit-transition:0.2s ease all;
@@ -57,51 +68,49 @@ $error-color: #A1093F;
 
 /* active state */
 .input-object:focus ~ .input-placeholder, .input-object:valid ~ .input-placeholder {
-  top:-1rem;
-  font-size: 0.714rem;
+  top:-0.95rem;
+  font-size: 0.7rem;
   font-weight:normal;
   color:$secondary-color;
 }
 
 .input-error-icon {
-  top:1rem;
-  position: absolute;
-}
-.input-error-msg {
-  font-size: 0.714rem;
-  color: $error-color;
-  height: 0.714rem;
-  margin-top: 0.357rem;
-  margin-bottom: 0.429rem;
-}
-.biit-input {
   display: flex;
-  min-height: 6rem;
-  padding-top: 1.5rem;
+  top:0.7rem;
+  position: absolute;
+  width: 0.7rem;
+  height: 0.7rem;
+}
+
+.input-error-msg {
+  font-size: 0.7rem;
+  color: $error-color;
+  margin-top: 0.25rem;
+  margin-bottom: 0.3rem;
 }
 
 .input-show-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.05rem;
+  height: 1.05rem;
 }
+
 .input-show-icon-container {
   right: 0;
   position: absolute;
-  width: 3rem;
-  height: 3rem;
-  padding-top: 0.25rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  padding-top: 0.175rem;
   align-content: center;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
-.password {
-  &:hover {
-    background-color: $background-color;
-  }
+
+.password:hover {
+  background-color: $background-color;
 }
 
 .bottom-line {
-  border-bottom:0.25rem solid $default-color;
+  border-bottom:0.175rem solid $default-color;
 }

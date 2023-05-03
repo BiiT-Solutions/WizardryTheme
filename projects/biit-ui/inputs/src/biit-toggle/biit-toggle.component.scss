@@ -4,8 +4,10 @@ $trail-selected-color: #FBAEC9;
 $box-selected-color: #F20D5E;
 $disabled-color: #D9D9D9;
 
-$_2px: 0.143rem;
-$_5px: 0.357rem;
+$_2px: 0.1rem;
+$_5px: 0.25rem;
+$_14px: 0.7rem;
+$_28px: 1.4rem;
 
 .toggle-base {
   display: flex;
@@ -26,13 +28,11 @@ $_5px: 0.357rem;
 .toggle-switch {
   display: flex;
   align-items: center;
-  width: 2rem;
-  height: 1rem;
 }
 
 .toggle-trail {
   display: inline-flex;
-  width: 2rem;
+  width: $_28px;
   height: $_5px;
   background: $trail-color;
   z-index: 0;
@@ -49,8 +49,8 @@ $_5px: 0.357rem;
 .toggle-box {
   position: absolute;
   display: inline-flex;
-  height: 1rem;
-  width: 1rem;
+  height: $_14px;
+  width: $_14px;
   border: $_5px solid $default-color;
   box-sizing: border-box;
   z-index: 1;
@@ -60,7 +60,7 @@ $_5px: 0.357rem;
   -webkit-transition:0.2s ease all;
 
   &.checked:not(.disabled) {
-    transform: translate(1rem, 0) rotate(45deg) !important;
+    transform: translate($_14px, 0) rotate(45deg) !important;
     border: $_5px solid $box-selected-color;
     background: $box-selected-color;
   }
@@ -68,14 +68,14 @@ $_5px: 0.357rem;
     border: $_5px solid $disabled-color;
   }
   &.checked.disabled {
-    transform: translate(1rem, 0) rotate(45deg) !important;
+    transform: translate($_14px, 0) rotate(45deg) !important;
     border: $_5px solid $disabled-color;
     background: $disabled-color;
   }
 }
 
 .toggle-label {
-  margin-left: 1rem;
+  margin-left: $_14px;
   cursor: inherit;
 
   &.disabled {

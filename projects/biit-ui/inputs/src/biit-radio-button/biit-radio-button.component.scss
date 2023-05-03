@@ -1,9 +1,9 @@
 $default-color: #262626;
 $selected-color: #F20D5E;
 $disabled-color: #D9D9D9;
-$_3px: 0.214rem;
-$_5px: 0.357rem;
-$_14px: 1rem;
+$_3px: 0.15rem;
+$_5px: 0.25rem;
+$_14px: 0.7rem;
 
 label {
   display: flex;
@@ -49,8 +49,9 @@ input[type="radio"] {
 }
 
 .biit-radio {
-  height: 1rem;
-  width: 1rem;
+  display: inline-flex;
+  height: 0.9rem;
+  width: 0.9rem;
   margin: $_5px $_14px $_5px $_5px;
 
   transition:0.2s ease all;

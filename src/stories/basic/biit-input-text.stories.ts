@@ -122,7 +122,7 @@ export default {
       name: 'onActionPerformed',
       description: 'Emits a void event to tell the performed action by the icon has been performed by user.',
       table: {
-        type: 'Event',
+        type: 'EventEmitter<void>',
         category: 'Outputs'
       }
     },

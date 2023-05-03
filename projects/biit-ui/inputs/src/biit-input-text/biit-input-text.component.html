@@ -5,8 +5,6 @@
            [class.password]="type === Type.PASSWORD"
            (click)="reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit()">
         <biit-icon [name]="type === Type.PASSWORD ? 'show' : icon"
-                   width="1.5rem"
-                   height="1.5rem"
                    class="input-show-icon"
                    [pathStyle]="{fill: reveal ? '#F20D5E' : '#262626'}"
         ></biit-icon>
@@ -20,7 +18,7 @@
              [class.reveal]="reveal"
       >
       <label class="input-placeholder">{{placeholder}}</label>
-      <biit-icon *ngIf="error" name="exclamation" width="1rem" height="1rem" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
+      <biit-icon *ngIf="error" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
     </div>
     <div *ngIf="error" class="input-error-msg">{{error}}</div>
   </div>

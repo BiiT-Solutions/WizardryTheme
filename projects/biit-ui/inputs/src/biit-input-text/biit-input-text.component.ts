@@ -1,6 +1,6 @@
 import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
-import {biitIcon} from "biit-icons-collection";
+import {biitIcon} from 'biit-icons-collection';
 
 @Component({
   selector: 'biit-input-text',
@@ -19,7 +19,6 @@ export class BiitInputTextComponent implements ControlValueAccessor{
   @Input('placeholder') set setPlaceHolder(value: string) {
     this.placeholder = value.toUpperCase();
   }
-  @Input() width: string = '100%';
   @Input() error: string;
   @Input() type: Type;
   @Input() icon: biitIcon;

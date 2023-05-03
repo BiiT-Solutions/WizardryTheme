@@ -104,7 +104,11 @@ export default {
 const Template: Story<BiitIconComponent> = (args: BiitIconComponent) => ({
   props: args,
   template: `
-       <biit-icon [name]="name" [width]="width" [height]="height" [style]="style" [pathStyle]="pathStyle"></biit-icon>
+       <biit-icon [name]="name"
+                  [svgStyle]="style"
+                  [pathStyle]="pathStyle"
+                  style="width: 200px; height: 200px; display: block;"
+       ></biit-icon>
   `
 });
 

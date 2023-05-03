@@ -11,7 +11,7 @@ $dark-border: #262626;
 
 .test-base{
     font-size: 1rem;
-    line-height: 0.7rem;
+    line-height: 1rem;
     width: fit-content;
     background: transparent;
     box-sizing: border-box;
@@ -21,7 +21,7 @@ $dark-border: #262626;
     color: $dark-border;
 
     .test-content {
-      padding: 0.675rem 1.375rem;
+      padding: 0.535rem 1.375rem;
     }
 
     &:active .test-content {
@@ -29,9 +29,15 @@ $dark-border: #262626;
     }
 
     &.primary {
-      border: 0.175rem solid $default-color;
+      background: $default-color;
 
       &:hover {
+        background: transparent;
+        border: 0.175rem solid $dark-border;
+      }
+
+      &:active {
+        background: transparent;
         border: 0.175rem solid $dark-border;
       }
 
@@ -46,6 +52,10 @@ $dark-border: #262626;
       &:hover .test-content {
         background: $light-grey;
       }
+
+      &:active .test-content {
+        background: $light-grey;
+      }
     }
   }
 
@@ -53,16 +63,15 @@ $dark-border: #262626;
     color: $default-color;
 
     .test-content {
-      padding: 0.615rem 1.375rem;
-      translate: 0 0.07rem;
+      padding: 0.46rem 1.375rem;
     }
 
     &:hover .bar {
-      top: 0.3rem;
+      top: 0.15rem;
     }
 
     &:active .bar {
-      top: 0.15rem;
+      top: 0;
     }
   }
 
@@ -97,6 +106,7 @@ $dark-border: #262626;
   width: fit-content;
   text-transform: uppercase;
   font-weight: bold;
+  text-align: center;
 }
 
 .bar {
@@ -104,5 +114,5 @@ $dark-border: #262626;
   height: 0.15rem;
   background: $default-color;
   position: relative;
-  top: 0.15rem;
+  margin: 0 auto;
 }

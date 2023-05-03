@@ -18,15 +18,7 @@ export class BiitIconComponent implements OnInit {
     this.name = name;
     this.draw();
   }
-  @Input('width') set widthUpdater(width: string) {
-    this.width = width;
-    this.draw();
-  };
-  @Input('height') set heightUpdater(height: string) {
-    this.height = height;
-    this.draw();
-  }
-  @Input('style') set styleUpdater(style: any) {
+  @Input('svgStyle') set styleUpdater(style: any) {
     this.style = style;
     this.draw();
   }
@@ -36,8 +28,6 @@ export class BiitIconComponent implements OnInit {
   }
 
   private name: biitIcon | undefined;
-  private width: string = '50px';
-  private height: string = '50px';
   private style: any;
   private pathStyle: any;
   private initialized: boolean = true; //avoids draw for each input while initializing.
@@ -65,8 +55,8 @@ export class BiitIconComponent implements OnInit {
       if (!this.svgIcon) {
         return;
       }
-      this.svgIcon.style.width = this.width;
-      this.svgIcon.style.height = this.height;
+      this.svgIcon.style.width = '100%';
+      this.svgIcon.style.height = '100%';
       if (this.style) {
         Object.keys(this.style).forEach(styleKey => {
           if (this.svgIcon) {

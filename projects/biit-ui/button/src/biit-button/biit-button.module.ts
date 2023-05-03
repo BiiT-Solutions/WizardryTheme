@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BiitButtonComponent} from './biit-button.component';
 import {MatButtonModule} from "@angular/material/button";
-import {NgClass, NgIf, NgTemplateOutlet} from "@angular/common";
+import {NgClass, NgIf, NgStyle, NgTemplateOutlet} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -11,7 +11,8 @@ import {NgClass, NgIf, NgTemplateOutlet} from "@angular/common";
         MatButtonModule,
         NgIf,
         NgTemplateOutlet,
-        NgClass
+        NgClass,
+        NgStyle
     ],
   exports: [
     BiitButtonComponent

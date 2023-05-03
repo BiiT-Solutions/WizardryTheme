@@ -3,7 +3,9 @@
      (click)="onClick.emit($event)"
      (dblclick)="onDoubleClick.emit($event)">
   <div class="test-content">
-    <ng-content></ng-content>
-    <div *ngIf="_type === 'tertiary'" class="bar"></div>
+    <span #text>
+      <ng-content></ng-content>
+    </span>
+    <div *ngIf="_type === 'tertiary'" class="bar" [ngStyle]="{'width.px': text.offsetWidth }"></div>
   </div>
 </div>
