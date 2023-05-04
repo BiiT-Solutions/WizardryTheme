@@ -14,7 +14,23 @@ ng generate component ../../projects/biit-ui/mycomponent/src/mycustomcomponent
 ```
 
 ## Define your component
+<h3><mark>&nbsp;Important!&nbsp;</mark></h3>
 
+Remember to export your component in the component module: 
+mycustomcomponent.module.ts
+
+```typescript
+@NgModule({
+  declarations: [
+    MyCustomComponentComponent
+  ],
+  imports: [
+    CommonModule
+  ],
+  exports: [MyCustomComponentComponent]
+})
+export class MyCustomComponentModule { }
+```
 ### Define public-api.ts
 
 Generate a file `public-api.ts` on the `src` folder of your component (`projects/biit-ui/mycomponent/src/public-api.ts`)
@@ -54,6 +70,29 @@ Create this file on the root folder of your component (`projects/biit-ui/mycompo
     "@angular/material": "^15.1.0"
   }
 }
+```
+
+### Add your new library to main `tsconfig.json` file
+
+Open (`tsconfig.json`) file and add your component on section compilerOptions/paths:
+
+```
+ "compilerOptions": {
+    ...
+    "paths": {
+      ...
+      "biit-ui/filter": [
+        "projects/biit-ui/filter/src/public-api"
+      ]
+    }
+```
+
+You will need this if you want to use this library in other libraries from this project.
+
+To import them you have to use the short path:
+
+```
+import {BiitFilterModule} from "biit-ui/filter";
 ```
 
 # Stories

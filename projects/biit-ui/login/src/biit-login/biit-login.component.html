@@ -1,0 +1,28 @@
+<biit-popup [background]="false">
+ <div class="login-container">
+   <div class="login-left-column">
+     <div class="login-icon-square">
+       <div class="login-keyring"></div>
+       <biit-icon name="key_{{keyId}}" class="login-key-icon"></biit-icon>
+       <biit-icon [name]="$any('key_' + keyId)" style="width:18rem; height:18rem;" class="login-key-icon"></biit-icon>
+     </div>
+   </div>
+   <div class="login-right-column">
+     <biit-input-text [(ngModel)]="login.username" [error]="this.loginErrors.get(LoginError.USERNAME)"
+                      placeholder="{{'login.username' | translate}}" style="width: 256px"></biit-input-text>
+     <biit-input-text [(ngModel)]="login.password" [error]="this.loginErrors.get(LoginError.PASSWORD)"
+                      placeholder="{{'login.password' | translate}}" [type]="Type.PASSWORD" style="width: 256px"></biit-input-text>
+     <biit-toggle
+       style="padding: 1rem"
+       [(ngModel)]="login.remember">
+       {{'login.remember' | translate}}
+     </biit-toggle>
+     <div class="login-button centered">
+       <biit-button (onClick)="performLogin()">{{'login.take_me_in' | translate}}</biit-button>
+     </div>
+     <div class="centered margin-top-18">
+       <biit-button (onClick)="onNotRemember.emit()" type="tertiary">{{'login.cant_remember' | translate}}</biit-button>
+     </div>
+   </div>
+ </div>
+</biit-popup>

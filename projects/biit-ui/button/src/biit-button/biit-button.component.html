@@ -1,31 +1,11 @@
-<button mat-button *ngIf="buttonType === 'default'"
-        color="{{color}}"
-        [disabled]="_disabled"
-        (click)="onClick.emit($event)">
-  <ng-container *ngTemplateOutlet="buttonText"></ng-container>
-</button>
-
-<button mat-raised-button *ngIf="buttonType === 'raised'"
-        color="{{color}}"
-        [disabled]="_disabled"
-        (click)="onClick.emit($event)">
-  <ng-container *ngTemplateOutlet="buttonText"></ng-container>
-</button>
-
-<button mat-flat-button *ngIf="buttonType === 'flat'"
-        color="{{color}}"
-        [disabled]="_disabled"
-        (click)="onClick.emit($event)">
-  <ng-container *ngTemplateOutlet="buttonText"></ng-container>
-</button>
-
-<button mat-stroked-button *ngIf="buttonType === 'stroked'"
-        color="{{color}}"
-        [disabled]="_disabled"
-        (click)="onClick.emit($event)">
-  <ng-container *ngTemplateOutlet="buttonText"></ng-container>
-</button>
-
-<ng-template #buttonText>
-  <ng-content></ng-content>
-</ng-template>
+<div class="test-base prevent-select {{type}}"
+     [class.disabled]="_disabled"
+     (click)="onClick.emit($event)"
+     (dblclick)="onDoubleClick.emit($event)">
+  <div class="test-content">
+    <span #text>
+      <ng-content></ng-content>
+    </span>
+    <div *ngIf="_type === 'tertiary'" class="bar" [ngStyle]="{'width.px': text.offsetWidth }"></div>
+  </div>
+</div>

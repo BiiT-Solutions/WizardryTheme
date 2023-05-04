@@ -1,0 +1,15 @@
+<div class="toggle-base"
+     [class.disabled]="disabled"
+     (click)="onClick(!checked)">
+  <div class="toggle-switch">
+    <div class="toggle-trail"
+         [class.checked]="checked && !disabled"></div>
+    <div class="toggle-box"
+         [class.checked]="checked"
+         [class.disabled]="disabled"></div>
+  </div>
+  <label class="toggle-label"
+         [class.disabled]="disabled">
+    <ng-content></ng-content>
+  </label>
+</div>

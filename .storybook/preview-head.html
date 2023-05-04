@@ -1,0 +1,46 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,800" rel="stylesheet">
+<style>
+  * {
+    font-family: Montserrat, "Montserrat", sans-serif;
+  }
+  input {
+    font-family: Montserrat, "Montserrat", sans-serif;
+  }
+  /* Works in Firefox */
+  @-moz-document url-prefix() {
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #262626 #EDEDED;
+    }
+    *:hover {
+      scrollbar-color: #F20D5E #EDEDED;
+    }
+
+    *:active {
+      scrollbar-color: #F20D5E #EDEDED;
+    }
+  }
+
+  /* Works on Chrome, Edge, and Safari */
+  ::-webkit-scrollbar {
+    width: 0.357rem;
+  }
+
+  ::-webkit-scrollbar:hover {
+    width: 0.714rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #262626;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #F20D5E;
+  }
+  /*This is needed to increase scrollbar width on hovering*/
+  *:hover::-webkit-scrollbar-corner {
+    width: 0.714rem;
+  }
+
+  </style>

@@ -1,5 +1,5 @@
 <div class="options">
-  <app-biit-filter (filterChanged)="filter($event)" (reset)="filter('')"></app-biit-filter>
+  <biit-filter (filterChanged)="filter($event)" (reset)="filter('')"></biit-filter>
   <button class="tune-button" mat-button [matMenuTriggerFor]="mainMenuButton" [matTooltipShowDelay]="500"
           matTooltip="{{'table.fields' | translate}}">
     <mat-icon>tune</mat-icon>

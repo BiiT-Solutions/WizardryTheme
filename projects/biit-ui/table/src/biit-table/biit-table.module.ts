@@ -8,12 +8,12 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
-import {BiitFilterModule} from "../../../filter/src/biit-filter/biit-filter.module";
+import {BiitFilterModule} from "biit-ui/filter";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatDialogModule} from "@angular/material/dialog";
-import {I18nModule} from "../../../../../src/app/i18n/i18n.module";
+import {I18nModule} from "biit-ui/global";
 import {FormsModule} from "@angular/forms";
 
 

@@ -19,9 +19,9 @@ export default {
 const Template: Story<BiitTableComponent> = (args: BiitTableComponent) => ({
   props: args,
   template: `
-    <app-biit-table-demo
+    <biit-table-demo
       [locale]="locale"
-    ></app-biit-table-demo>`
+    ></biit-table-demo>`
 });
 
 export const Default = Template.bind({});

@@ -1,0 +1,50 @@
+$default-color: #262626;
+$column-width: 18.286rem;
+$biit-color: #F20D5E;
+$key-icon-size: 18rem;
+.login-container {
+  display: flex;
+}
+
+.login-left-column {
+  margin: 3rem;
+  display: inline-flex;
+  width: $column-width;
+}
+
+.login-right-column {
+  margin:  3rem;
+  width: $column-width;
+}
+
+.login-key-icon {
+  margin-top: 1.5rem;
+  rotate: 90deg;
+  height: $key-icon-size;
+  width: $key-icon-size;
+}
+
+.login-keyring {
+  width: 2rem;
+  position: absolute;
+  background: $biit-color;
+  height: 4rem;
+}
+
+.login-icon-square {
+  display: inline-flex;
+  border: solid 0.25rem $default-color;
+  width: 100%;
+  height: $key-icon-size;
+  justify-content: center;
+}
+.login-button {
+  margin-top: 1.125rem;
+}
+.margin-top-18 {
+  margin-top: 1.286rem;
+}
+.centered {
+  display: flex;
+  justify-content: center;
+}

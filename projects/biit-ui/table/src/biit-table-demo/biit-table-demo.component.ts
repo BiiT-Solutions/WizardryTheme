@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import {BasicTableData} from '../biit-table/basic-table-data';
 
 @Component({
-  selector: 'app-biit-table-demo',
+  selector: 'biit-table-demo',
   templateUrl: './biit-table-demo.component.html',
   styleUrls: ['./biit-table-demo.component.scss']
 })

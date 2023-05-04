@@ -1,0 +1,8 @@
+<label [class.disabled]="disabled">
+  <input type="checkbox"
+         class="checkbox-box"
+         [ngModel]="checked"
+         (ngModelChange)="onModelChange($event)"
+         [class.disabled]="disabled"/>
+  <ng-content></ng-content>
+</label>

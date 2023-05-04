@@ -7,14 +7,36 @@
       "biit-ui": [
         "projects/biit-ui/src/public-api"
       ],
+      "biit-ui/models": [
+        "projects/biit-ui/models/src/public-api"
+      ],
+      "biit-ui/global": [
+        "projects/biit-ui/global/src/public-api"
+      ],
       "biit-ui/button": [
         "projects/biit-ui/button/src/public-api"
+      ],
+      "biit-ui/filter": [
+        "projects/biit-ui/filter/src/public-api"
+      ],
+      "biit-ui/icon": [
+        "projects/biit-ui/icon/src/public-api"
+      ],
+      "biit-ui/inputs": [
+        "projects/biit-ui/inputs/src/public-api"
+      ],
+      "biit-ui/popup": [
+        "projects/biit-ui/popup/src/public-api"
+      ],
+      "biit-ui/login": [
+        "projects/biit-ui/login/src/public-api"
       ]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
+    "strictNullChecks": false,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,

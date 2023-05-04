@@ -1,6 +1,6 @@
 import {componentWrapperDecorator, Meta, moduleMetadata, Story} from '@storybook/angular';
-import {BiitFilterComponent} from "../../../projects/biit-ui/filter/src/biit-filter/biit-filter.component";
-import {BiitFilterModule} from "../../../projects/biit-ui/filter/src/biit-filter/biit-filter.module";
+import {BiitFilterComponent} from "biit-ui/filter";
+import {BiitFilterModule} from "biit-ui/filter";
 import {I18nModule} from "../../app/i18n/i18n.module";
 
 export default {
@@ -44,11 +44,11 @@ export default {
 const Template: Story<BiitFilterComponent> = (args: BiitFilterComponent) => ({
   props: args,
   template: `
-    <app-biit-filter
+    <biit-filter
       [resetValue]="resetValue"
       [disabled]="disabled"
       (filterChanged)="filterChanged()">
-    </app-biit-filter>`
+    </biit-filter>`
 });
 
 export const Default = Template.bind({});

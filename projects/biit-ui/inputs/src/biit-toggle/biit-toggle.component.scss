@@ -1,0 +1,84 @@
+$default-color: #262626;
+$trail-color: #EDEDED;
+$trail-selected-color: #FBAEC9;
+$box-selected-color: #F20D5E;
+$disabled-color: #D9D9D9;
+
+$_2px: 0.1rem;
+$_5px: 0.25rem;
+$_14px: 0.7rem;
+$_28px: 1.4rem;
+
+.toggle-base {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  cursor: pointer;
+
+  &.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+  &:hover .toggle-box:not(.checked) {
+    transform: rotate(15deg) translate($_2px);
+    border: $_5px solid $box-selected-color;
+  }
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-trail {
+  display: inline-flex;
+  width: $_28px;
+  height: $_5px;
+  background: $trail-color;
+  z-index: 0;
+
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+
+  &.checked {
+    background: $trail-selected-color;
+  }
+}
+
+.toggle-box {
+  position: absolute;
+  display: inline-flex;
+  height: $_14px;
+  width: $_14px;
+  border: $_5px solid $default-color;
+  box-sizing: border-box;
+  z-index: 1;
+
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+
+  &.checked:not(.disabled) {
+    transform: translate($_14px, 0) rotate(45deg) !important;
+    border: $_5px solid $box-selected-color;
+    background: $box-selected-color;
+  }
+  &.disabled:not(.checked) {
+    border: $_5px solid $disabled-color;
+  }
+  &.checked.disabled {
+    transform: translate($_14px, 0) rotate(45deg) !important;
+    border: $_5px solid $disabled-color;
+    background: $disabled-color;
+  }
+}
+
+.toggle-label {
+  margin-left: $_14px;
+  cursor: inherit;
+
+  &.disabled {
+    color: $disabled-color;
+  }
+}

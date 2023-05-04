@@ -1,0 +1,9 @@
+<div *ngIf="background" class="popup-background">
+</div>
+<div class="popup-content">
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</div>
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>
