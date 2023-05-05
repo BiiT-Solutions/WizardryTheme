@@ -13,7 +13,7 @@ export class BiitIconButtonComponent {
   @Input() disabled: boolean = false;
 
   @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();
-  @Output() onDoubleClick: EventEmitter<Event> = new EventEmitter<Event>();
+  @Output() onDblClick: EventEmitter<Event> = new EventEmitter<Event>();
 
   active = false;
 }

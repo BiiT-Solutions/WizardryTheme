@@ -1,50 +1,60 @@
 $default-color: #262626;
-$column-width: 18.286rem;
 $biit-color: #F20D5E;
-$key-icon-size: 18rem;
+
 .login-container {
   display: flex;
 }
 
-.login-left-column {
-  margin: 3rem;
+.login-column {
+  width: 12.8rem;
+  padding: 2.1rem;
   display: inline-flex;
-  width: $column-width;
-}
-
-.login-right-column {
-  margin:  3rem;
-  width: $column-width;
+  flex-direction: column;
 }
 
 .login-key-icon {
-  margin-top: 1.5rem;
+  position: absolute;
+  margin-top: 1rem;
   rotate: 90deg;
-  height: $key-icon-size;
-  width: $key-icon-size;
+  height: 12.8rem;
+  width: 12.8rem;
 }
 
 .login-keyring {
-  width: 2rem;
-  position: absolute;
+  width: 1.1rem;
   background: $biit-color;
-  height: 4rem;
+  height: 2.85rem;
 }
 
 .login-icon-square {
   display: inline-flex;
-  border: solid 0.25rem $default-color;
-  width: 100%;
-  height: $key-icon-size;
-  justify-content: center;
+  border: solid 0.175rem $default-color;
+  width: 12.8rem;
+  height: 12.8rem;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
 }
-.login-button {
-  margin-top: 1.125rem;
+
+.login-input {
+  width: 12.8rem;
 }
+
+.login-remember {
+  padding: 0.7rem 0;
+}
+
 .margin-top-18 {
-  margin-top: 1.286rem;
+  margin-top: 0.9rem;
 }
+
 .centered {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
+}
+
+.tertiary-fix-14 {
+  transform: scale(0.90);
+  transform-origin: top left;
+  width: 111%;
 }

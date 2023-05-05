@@ -16,16 +16,13 @@ import {biitIcon} from 'biit-icons-collection';
 })
 export class BiitInputTextComponent implements ControlValueAccessor{
 
-  @Input('placeholder') set setPlaceHolder(value: string) {
-    this.placeholder = value.toUpperCase();
-  }
+  @Input() placeholder: string = '';
   @Input() error: string;
   @Input() type: Type;
   @Input() icon: biitIcon;
   @Output() onActionPerformed: EventEmitter<void> = new EventEmitter<void>();
 
   reveal: boolean = false;
-  placeholder: string = '';
   value: string;
   protected readonly Type = Type;
 
@@ -44,6 +41,7 @@ export class BiitInputTextComponent implements ControlValueAccessor{
     this.value = value;
   }
 }
+
 export enum Type {
   TEXT = 'TEXT',
   PASSWORD = 'PASSWORD'

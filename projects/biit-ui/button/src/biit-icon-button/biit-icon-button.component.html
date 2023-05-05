@@ -3,11 +3,9 @@
      (pointerdown)="active=true"
      (pointerup)="active=false"
      (click)="onClick.emit($event)"
-     (dblclick)="onDoubleClick.emit($event)"
+     (dblclick)="onDblClick.emit($event)"
 >
   <biit-icon [name]="icon"
-             height="1.5rem"
-             width="1.5rem"
              [pathStyle]="{fill: disabled ? '#D9D9D9' : active ? '#F20D5E' : '#262626'}"
              class="icon-button-svg"
   ></biit-icon>

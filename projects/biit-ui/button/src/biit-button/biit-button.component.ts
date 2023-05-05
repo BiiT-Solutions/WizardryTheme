@@ -5,10 +5,16 @@ import {
   Output,
 } from '@angular/core';
 
-export type BiitButtonType =
+export type BiitButtonColor =
   | 'primary'
   | 'secondary'
   | 'tertiary'
+
+export enum Type {
+  BUTTON = 'BUTTON',
+  SUBMIT = 'SUBMIT',
+  RESET = 'RESET'
+}
 
 @Component({
   selector: 'biit-button',
@@ -18,25 +24,12 @@ export type BiitButtonType =
 
 export class BiitButtonComponent {
 
-  _type: BiitButtonType = 'primary';
-  _disabled: boolean = false;
-
-  @Input()
-  set type(value: BiitButtonType) {
-    this._type = value;
-  }
-  get type(): BiitButtonType {
-    return this._type;
-  }
-
-  @Input()
-  set disabled(value: boolean) {
-    this._disabled = value;
-  }
-  get disabled(): boolean {
-    return this._disabled;
-  }
+  @Input() color: BiitButtonColor = 'primary';
+  @Input() disabled: boolean = false;
+  @Input() type: Type = Type.BUTTON;
 
   @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();
-  @Output() onDoubleClick: EventEmitter<Event> = new EventEmitter<Event>();
+  @Output() onDblClick: EventEmitter<Event> = new EventEmitter<Event>();
+
+  protected readonly Type = Type;
 }

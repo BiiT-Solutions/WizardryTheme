@@ -27,11 +27,11 @@ export default {
         type: 'text'
       }
     },
-    type: {
+    color: {
       name: 'type',
       type: { name: 'string', required: false },
       defaultValue: 'primary',
-      description: 'Defines the type of button that will be rendered.',
+      description: 'Defines the button design.',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'default' },
@@ -65,9 +65,9 @@ export default {
         category: 'Outputs'
       }
     },
-    onDoubleClick: {
-      action: 'onDoubleClick',
-      name: 'onDoubleClick',
+    onDblClick: {
+      action: 'onDblClick',
+      name: 'onDblClick',
       description: 'Emits an Event object.',
       table: {
         type: 'EventEmitter<MouseEvent>',
@@ -81,10 +81,10 @@ const Template: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
   props: args,
   template: `
     <biit-button
-      [type]="type"
+      [color]="color"
       [disabled]="disabled"
       (onClick)="onClick($event)"
-      (onDoubleClick)="onDoubleClick($event)"
+      (onDblClick)="onDblClick($event)"
     >
       {{content}}
     </biit-button>`
@@ -92,18 +92,18 @@ const Template: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
 
 export const Primary = Template.bind({});
 Primary.args = {
-  type: 'primary',
+  color: 'primary',
   disabled: false
 }
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  type: 'secondary',
+  color: 'secondary',
   disabled: false
 }
 
 export const Tertiary = Template.bind({});
 Tertiary.args = {
-  type: 'tertiary',
+  color: 'tertiary',
   disabled: false
 }
