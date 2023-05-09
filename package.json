@@ -12,7 +12,7 @@
     "transloco:extract": "npm run transloco:clean && transloco-scoped-libs",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006 --no-version-updates",
-    "build-storybook": "transloco:extract && npm run docs:json && build-storybook",
+    "build-storybook": "npm run transloco:extract && npm run docs:json && build-storybook",
     "prepare-publication": "cp ./README.md ./storybook-static/ && echo \"{\\\"name\\\": \\\"`node -e \"console.log(require('./package.json').name);\"\n`\\\", \\\"version\\\": \\\"`node -e \"console.log(require('./package.json').version);\"\n`\\\"}\" > ./storybook-static/package.json",
     "generate-zip": "mkdir -p ./dist-zip && tar -zcvf ./dist-zip/storybook.gz ./storybook-static",
     "publish-storybook": "npm run build-storybook && npm run prepare-publication && npm publish ./storybook-static",
