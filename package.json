@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-library": "transloco:extract && ng build biit-ui",
+    "build-library": "npm run transloco:extract && ng build biit-ui",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "transloco:clean": "del-cli --force ./src/assets/i18n/biit-ui",
