@@ -1,6 +1,13 @@
 {
   "name": "@biit-ui/filter",
+  "i18n": [
+    {
+      "scope": "filter",
+      "path": "src/biit-filter/i18n"
+    }
+  ],
   "peerDependencies": {
-    "@angular/material": "^15.1.0"
+    "@angular/material": "^15.1.0",
+    "@ngneat/transloco": "^4.2.2"
   }
 }

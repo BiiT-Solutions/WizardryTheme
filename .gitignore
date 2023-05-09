@@ -50,3 +50,8 @@ package-lock.json
 
 # Storybook generated files
 documentation.json
+
+/src/assets/i18n/biit-ui/
+
+/src/assets/i18n/biit-ui/filter
+/src/assets/i18n/biit-ui/login

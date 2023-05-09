@@ -5,7 +5,7 @@ import {FilterResetService} from "./filter-reset.service";
 @Component({
   selector: 'biit-filter',
   templateUrl: './biit-filter.component.html',
-  styleUrls: ['./biit-filter.component.scss']
+  styleUrls: ['./biit-filter.component.scss'],
 })
 export class BiitFilterComponent implements OnInit {
 

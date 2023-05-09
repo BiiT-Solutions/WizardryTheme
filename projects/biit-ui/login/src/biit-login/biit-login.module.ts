@@ -6,7 +6,8 @@ import {BiitIconModule} from "biit-ui/icon";
 import {BiitInputTextModule, BiitToggleModule} from "biit-ui/inputs";
 import {FormsModule} from "@angular/forms";
 import {BiitButtonModule} from "biit-ui/button";
-import {I18nModule} from "biit-ui/global";
+import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
+import {TranslocoRootModule} from "biit-ui/i18n";
 
 
 @NgModule({
@@ -21,9 +22,13 @@ import {I18nModule} from "biit-ui/global";
     FormsModule,
     BiitToggleModule,
     BiitButtonModule,
-    I18nModule
+    TranslocoRootModule
   ], exports: [
     BiitLoginComponent
-  ]
+  ],
+  providers: [{
+    provide: TRANSLOCO_SCOPE,
+    useValue: {scope: 'biit-ui/login', alias: "login"}
+  }]
 })
 export class BiitLoginModule { }

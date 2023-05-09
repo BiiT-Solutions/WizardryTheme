@@ -1,13 +1,12 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {BiitTableComponent} from "../../../projects/biit-ui/table/src/biit-table/biit-table.component";
-import {I18nModule} from "../../app/i18n/i18n.module";
 import {BiitTableDemoModule} from '../../../projects/biit-ui/table/src/biit-table-demo/biit-table-demo.module';
 
 export default {
   title: 'Basic/Table',
   decorators: [
     moduleMetadata({
-      imports: [BiitTableDemoModule, I18nModule],
+      imports: [BiitTableDemoModule],
     })
   ],
   component: BiitTableComponent,

@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Type} from 'biit-ui/inputs';
 import {BiitLogin} from "biit-ui/models";
 import {LoginErrors} from "./models/LoginErrors";
-import {TranslateService} from "@ngx-translate/core";
+import {TranslocoService} from "@ngneat/transloco";
 
 @Component({
   selector: 'biit-login',
@@ -22,7 +22,8 @@ export class BiitLoginComponent {
 
   protected loginErrors: Map<LoginErrors, string>;
 
-  constructor(private translateService: TranslateService) {
+  constructor(public translocoService: TranslocoService) {
+    translocoService.setActiveLang('es');
     this.login = new BiitLogin();
     this.onLogin = new EventEmitter<BiitLogin>();
     this.onNotRemember = new EventEmitter<void>();
@@ -39,10 +40,10 @@ export class BiitLoginComponent {
   private validate(): boolean {
     this.loginErrors.clear();
     if (!this.login.username || !this.login.username.length) {
-      this.translateService.get('login.username-empty').subscribe(translation => this.loginErrors.set(LoginErrors.USERNAME, translation));
+      this.loginErrors.set(LoginErrors.USERNAME, this.translocoService.translate('login.username-empty'));
     }
     if (!this.login.password || !this.login.password.length) {
-      this.translateService.get('login.password-empty').subscribe(translation => this.loginErrors.set(LoginErrors.PASSWORD, translation));
+      this.loginErrors.set(LoginErrors.PASSWORD, this.translocoService.translate('login.password-empty'));
     }
     return !this.loginErrors.size;
   }

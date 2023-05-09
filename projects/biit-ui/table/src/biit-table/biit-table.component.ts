@@ -1,6 +1,5 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
-import {TranslateService} from "@ngx-translate/core";
 import {MatSort} from "@angular/material/sort";
 import {BasicTableData} from "./basic-table-data";
 import {DatePipe} from "@angular/common";
@@ -20,7 +19,7 @@ export class BiitTableComponent implements OnInit {
 
   pipe: DatePipe;
 
-  constructor(private translateService: TranslateService) {
+  constructor() {
 
   }
 
@@ -105,7 +104,7 @@ export class BiitTableComponent implements OnInit {
     if (typeof column === 'number') {
       return column;
     } else if (typeof column === 'boolean') {
-      return column ? this.translateService.instant('yes') : this.translateService.instant('no');
+      return column ? 'yes' : 'no';
     } else if (column instanceof Date && !isNaN(column.getMonth())) {
       return this.pipe.transform(column, 'dd/MM/yyyy');
     } else {
@@ -113,9 +112,9 @@ export class BiitTableComponent implements OnInit {
         const text: string = (column as string);
         if (text.toUpperCase() === text) {
           //probably is an enum
-          return this.translateService.instant(this.snakeToCamel(text.toLowerCase()));
+          return this.snakeToCamel(text.toLowerCase());
         } else {
-          return this.translateService.instant(text);
+          return text;
         }
       } else {
         return "";

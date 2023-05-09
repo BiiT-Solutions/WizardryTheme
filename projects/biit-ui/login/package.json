@@ -1,5 +1,11 @@
 {
   "name": "@biit-ui/login",
   "peerDependencies": {
-  }
+  },
+  "i18n": [
+    {
+      "scope": "login",
+      "path": "src/biit-login/i18n"
+    }
+  ]
 }

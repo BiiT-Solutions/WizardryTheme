@@ -13,7 +13,6 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatDialogModule} from "@angular/material/dialog";
-import {I18nModule} from "biit-ui/global";
 import {FormsModule} from "@angular/forms";
 
 
@@ -22,7 +21,6 @@ import {FormsModule} from "@angular/forms";
   exports: [BiitTableComponent],
   imports: [
     CommonModule,
-    I18nModule,
     MatIconModule,
     MatFormFieldModule,
     MatMenuModule,

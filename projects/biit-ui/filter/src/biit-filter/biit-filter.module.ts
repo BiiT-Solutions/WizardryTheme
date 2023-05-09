@@ -5,8 +5,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
-import {I18nModule} from "biit-ui/global";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
+import {TranslocoRootModule} from "biit-ui/i18n";
 
 
 @NgModule({
@@ -18,9 +19,13 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    I18nModule,
-    BrowserAnimationsModule
-  ]
+    BrowserAnimationsModule,
+    TranslocoRootModule
+  ],
+  providers: [{
+    provide: TRANSLOCO_SCOPE,
+    useValue: {scope: 'biit-ui/filter', alias: "filter"}
+  }]
 })
 export class BiitFilterModule {
 }

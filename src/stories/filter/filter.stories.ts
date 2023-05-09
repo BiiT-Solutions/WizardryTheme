@@ -1,13 +1,12 @@
 import {componentWrapperDecorator, Meta, moduleMetadata, Story} from '@storybook/angular';
 import {BiitFilterComponent} from "biit-ui/filter";
 import {BiitFilterModule} from "biit-ui/filter";
-import {I18nModule} from "../../app/i18n/i18n.module";
 
 export default {
   title: 'Basic/Filter',
   decorators: [
     moduleMetadata({
-      imports: [BiitFilterModule, I18nModule],
+      imports: [BiitFilterModule],
     }),
     componentWrapperDecorator(story => `<div style="margin: 3em">${story}</div>`),
   ],

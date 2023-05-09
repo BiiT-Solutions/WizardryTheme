@@ -9,6 +9,7 @@
     "@angular/common": "^15.0.0",
     "@angular/core": "^15.0.0",
     "@angular/material": "^15.1.0",
+    "@ngneat/transloco": "^4.2.2",
     "tslib": "^2.3.0"
   }
 }

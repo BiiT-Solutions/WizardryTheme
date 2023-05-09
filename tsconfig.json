@@ -10,8 +10,8 @@
       "biit-ui/models": [
         "projects/biit-ui/models/src/public-api"
       ],
-      "biit-ui/global": [
-        "projects/biit-ui/global/src/public-api"
+      "biit-ui/i18n": [
+        "projects/biit-ui/i18n/src/public-api"
       ],
       "biit-ui/button": [
         "projects/biit-ui/button/src/public-api"
