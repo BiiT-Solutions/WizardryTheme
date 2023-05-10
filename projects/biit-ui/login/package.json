@@ -5,7 +5,7 @@
   "i18n": [
     {
       "scope": "login",
-      "path": "src/biit-login/i18n"
+      "path": "src/i18n"
     }
   ]
 }
