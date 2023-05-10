@@ -10,17 +10,22 @@
      <biit-input-text [(ngModel)]="login.username" [error]="this.loginErrors.get(LoginError.USERNAME)"
                       placeholder="{{'login.username' | transloco}}" class="login-input"></biit-input-text>
      <biit-input-text [(ngModel)]="login.password" [error]="this.loginErrors.get(LoginError.PASSWORD)"
-                      placeholder="{{'login.password'| transloco}}" [type]="Type.PASSWORD" class="login-input"></biit-input-text>
+                      placeholder="{{'login.password' | transloco}}" [type]="Type.PASSWORD" class="login-input"></biit-input-text>
      <biit-toggle
-       class="login-remember"
+       class="login-remember margin-vertical-14"
        [(ngModel)]="login.remember">
        {{'login.remember' | transloco}}
      </biit-toggle>
      <div class="margin-top-18 centered">
-       <biit-button (onClick)="performLogin()">{{'login.take_me_in'| transloco}}</biit-button>
+       <biit-button (onClick)="performLogin()">{{'login.take_me_in' | transloco}}</biit-button>
      </div>
-     <div class="margin-top-18 centered tertiary-fix-14">
-       <biit-button (onClick)="onNotRemember.emit()" color="tertiary">{{'login.forgot' | transloco}}</biit-button>
+     <div class="margin-top-18 centered">
+       <biit-button (onClick)="onNotRemember.emit()"
+                    color="tertiary"
+                    class="smaller-text"
+       >
+         {{'login.forgot' | transloco}}
+       </biit-button>
      </div>
    </div>
  </div>

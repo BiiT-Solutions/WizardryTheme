@@ -1,21 +1,22 @@
 <div class="biit-input">
   <div class="input-container">
+    <input class="input-object"
+           [(ngModel)]="value"
+           (ngModelChange)="this.onChange($event);"
+           (keydown.enter)="onActionPerformed.emit()"
+           [type]="reveal ? Type.TEXT : type" required
+           [class.error]="error"
+           [class.reveal]="reveal"
+    >
     <div *ngIf="type === Type.PASSWORD || icon" class="input-show-icon-container"
-         [class.password]="type === Type.PASSWORD"
-         (click)="reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit()">
+         (click)="reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit()"
+         (keydown.enter)="reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit()"
+         tabindex="0">
       <biit-icon [name]="type === Type.PASSWORD ? 'show' : icon"
                  class="input-show-icon"
                  [pathStyle]="{fill: reveal ? '#F20D5E' : '#262626'}"
       ></biit-icon>
     </div>
-    <input class="input-object"
-           [(ngModel)]="value"
-           (ngModelChange)="this.onChange($event);"
-           [type]="reveal ? Type.TEXT : type" required
-           [class.error]="error"
-           [class.password]="type === Type.PASSWORD"
-           [class.reveal]="reveal"
-    >
     <label class="input-placeholder">{{placeholder}}</label>
     <biit-icon *ngIf="error" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
     <div class="bottom-line"></div>

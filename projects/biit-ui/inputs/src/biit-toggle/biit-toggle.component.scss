@@ -4,10 +4,26 @@ $trail-selected-color: #FBAEC9;
 $box-selected-color: #F20D5E;
 $disabled-color: #D9D9D9;
 
-$_2px: 0.1rem;
-$_5px: 0.25rem;
-$_14px: 0.7rem;
-$_28px: 1.4rem;
+$_2px: 0.1em;
+$_5px: 0.25em;
+$_14px: 0.7em;
+$_28px: 1.4em;
+
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  cursor: pointer;
+  font-size: inherit;
+}
 
 .toggle-base {
   display: flex;
@@ -15,13 +31,51 @@ $_28px: 1.4rem;
   width: fit-content;
   cursor: pointer;
 
-  &.disabled {
-    pointer-events: none;
-    cursor: not-allowed;
-  }
-  &:hover .toggle-box:not(.checked) {
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+
+  &:hover .toggle-box{
     transform: rotate(15deg) translate($_2px);
     border: $_5px solid $box-selected-color;
+  }
+
+  &:has(input:checked) {
+
+    .toggle-trail {
+      background: $trail-selected-color;
+    }
+
+    .toggle-box {
+      transform: translate($_14px, 0) rotate(45deg);
+      border: $_5px solid $box-selected-color;
+      background: $box-selected-color;
+    }
+  }
+
+  &:has(input:disabled) {
+    pointer-events: none;
+    cursor: default;
+
+    .toggle-trail {
+      background: $trail-color;
+    }
+
+    .toggle-box {
+      border: $_5px solid $disabled-color;
+      background: none;
+    }
+
+    .toggle-label {
+      color: $disabled-color;
+    }
+
+    &:has(input:checked) {
+
+      .toggle-box {
+        background: $disabled-color;
+      }
+    }
   }
 }
 
@@ -40,10 +94,6 @@ $_28px: 1.4rem;
   transition:0.2s ease all;
   -moz-transition:0.2s ease all;
   -webkit-transition:0.2s ease all;
-
-  &.checked {
-    background: $trail-selected-color;
-  }
 }
 
 .toggle-box {
@@ -58,28 +108,54 @@ $_28px: 1.4rem;
   transition:0.2s ease all;
   -moz-transition:0.2s ease all;
   -webkit-transition:0.2s ease all;
-
-  &.checked:not(.disabled) {
-    transform: translate($_14px, 0) rotate(45deg) !important;
-    border: $_5px solid $box-selected-color;
-    background: $box-selected-color;
-  }
-  &.disabled:not(.checked) {
-    border: $_5px solid $disabled-color;
-  }
-  &.checked.disabled {
-    transform: translate($_14px, 0) rotate(45deg) !important;
-    border: $_5px solid $disabled-color;
-    background: $disabled-color;
-  }
 }
 
 .toggle-label {
   margin-left: $_14px;
   cursor: inherit;
-  line-height: 0.7;
+  line-height: 0.7em;
+  user-select: none;
 
-  &.disabled {
-    color: $disabled-color;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+// Fix for Firefox browser (not compatible with :has as May 2023)
+@-moz-document url-prefix() {
+  input:checked ~ .toggle-switch {
+    .toggle-trail {
+      background: $trail-selected-color;
+    }
+
+    .toggle-box {
+      transform: translate($_14px, 0) rotate(45deg) !important;
+      border: $_5px solid $box-selected-color;
+      background: $box-selected-color;
+    }
+  }
+
+  input:disabled ~ .toggle-switch {
+    pointer-events: none;
+    cursor: default;
+
+    .toggle-trail {
+      background: $trail-color;
+    }
+
+    .toggle-box {
+      border: $_5px solid $disabled-color;
+      background: none;
+    }
+
+    .toggle-label {
+      color: $disabled-color;
+    }
+  }
+
+  input:checked:disabled ~ .toggle-switch {
+    .toggle-box {
+      background: $disabled-color;
+    }
   }
 }

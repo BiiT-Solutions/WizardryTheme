@@ -2,24 +2,36 @@ $default-color: #262626;
 $background-color: #D9D9D9;
 $active-color: #F20D5E;
 
-.icon-button-canvas {
+button, input[type="submit"], input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  outline: inherit;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 2.1rem;
-  width: 2.1rem;
+  height: 2.1em;
+  width: 2.1em;
 
-  &:hover {
-    background-color: $background-color;
-  }
   &.disabled {
     pointer-events: none;
   }
+
+  &:hover, &:focus-visible {
+    background-color: $background-color;
+  }
+}
+
+.icon-button-canvas {
+
 }
 
 .icon-button-svg {
   display: inline-flex;
   pointer-events: none;
-  width: 1.05rem;
-  height: 1.05rem;
+  width: 1.05em;
+  height: 1.05em;
 }
