@@ -23,7 +23,6 @@ export class BiitLoginComponent {
   protected loginErrors: Map<LoginErrors, string>;
 
   constructor(public translocoService: TranslocoService) {
-    translocoService.setActiveLang('es');
     this.login = new BiitLogin();
     this.onLogin = new EventEmitter<BiitLogin>();
     this.onNotRemember = new EventEmitter<void>();
