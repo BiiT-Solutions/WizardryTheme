@@ -20,7 +20,7 @@ export class BiitToggleComponent implements ControlValueAccessor {
   onChange = (value: any) => {};
   onTouched = () => {};
 
-  onClick(item: boolean) {
+  onToggle(item: boolean) {
     this.checked = item;
     this.onChange(this.checked);
   }

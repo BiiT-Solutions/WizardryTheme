@@ -11,6 +11,21 @@ button, input[type="submit"], input[type="reset"] {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+
+  &:focus-visible {
+    &:not(.disabled) {
+      .primary {
+        background: transparent;
+        border: 0.175em solid $dark-border;
+      }
+      .secondary .button-content {
+        background: $light-grey;
+      }
+      .tertiary .bar {
+        top: 0.15em;
+      }
+    }
+  }
 }
 
 .prevent-select {
@@ -20,35 +35,35 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .button-base{
-    font-size: 1rem;
-    line-height: 1rem;
+    font-size: inherit;
+    line-height: 1em;
     width: fit-content;
     background: transparent;
     box-sizing: border-box;
-    border: 0.175rem solid transparent;
+    border: 0.175em solid transparent;
 
   &:not(.tertiary) {
     color: $dark-border;
 
     .button-content {
-      padding: 0.535rem 1.375rem;
+      padding: 0.535em 1.375em;
     }
 
     &:active .button-content {
-      translate: 0.3rem 0.3rem;
+      translate: 0.3em 0.3em;
     }
 
     &.primary {
       background: $default-color;
 
-      &:hover {
+      &:hover, :focus-visible {
         background: transparent;
-        border: 0.175rem solid $dark-border;
+        border: 0.175em solid $dark-border;
       }
 
       &:active {
         background: transparent;
-        border: 0.175rem solid $dark-border;
+        border: 0.175em solid $dark-border;
       }
 
       .button-content {
@@ -57,9 +72,9 @@ button, input[type="submit"], input[type="reset"] {
     }
 
     &.secondary {
-      border: 0.175rem solid $dark-border;
+      border: 0.175em solid $dark-border;
 
-      &:hover .button-content {
+      &:hover .button-content, :focus-visible .button-content {
         background: $light-grey;
       }
 
@@ -73,8 +88,8 @@ button, input[type="submit"], input[type="reset"] {
     color: $default-color;
     border: 0;
 
-    &:hover .bar {
-      top: 0.15rem;
+    &:hover .bar, :focus-visible .bar {
+      top: 0.15em;
     }
 
     &:active .bar {
@@ -86,7 +101,7 @@ button, input[type="submit"], input[type="reset"] {
     pointer-events: none;
 
     &.primary {
-      border: 0.175rem solid $light-grey;
+      border: 0.175em solid $light-grey;
 
       .button-content {
         background: $light-grey;
@@ -95,7 +110,7 @@ button, input[type="submit"], input[type="reset"] {
     }
 
     &.secondary {
-      border: 0.175rem solid $light-grey;
+      border: 0.175em solid $light-grey;
       color: $light-grey;
     }
 
@@ -118,7 +133,7 @@ button, input[type="submit"], input[type="reset"] {
 
 .bar {
   width: 100%;
-  height: 0.15rem;
+  height: 0.15em;
   background: $default-color;
   position: relative;
   margin: 0 auto;

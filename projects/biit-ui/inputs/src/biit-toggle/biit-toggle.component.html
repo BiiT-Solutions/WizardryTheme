@@ -1,15 +1,13 @@
-<div class="toggle-base"
-     [class.disabled]="disabled"
-     (click)="onClick(!checked)">
+<label class="toggle-base">
+  <input type="checkbox"
+         [ngModel]="checked"
+         (ngModelChange)="onToggle($event)"
+         [disabled]="disabled"/>
   <div class="toggle-switch">
-    <div class="toggle-trail"
-         [class.checked]="checked && !disabled"></div>
-    <div class="toggle-box"
-         [class.checked]="checked"
-         [class.disabled]="disabled"></div>
+    <div class="toggle-trail"></div>
+    <div class="toggle-box"></div>
   </div>
-  <label class="toggle-label"
-         [class.disabled]="disabled">
+  <a class="toggle-label">
     <ng-content></ng-content>
-  </label>
-</div>
+  </a>
+</label>

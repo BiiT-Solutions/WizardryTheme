@@ -1,6 +1,5 @@
 <label [class.disabled]="disabled" (mouseenter)="hover=true" (mouseleave)="hover=false">
   <input type="radio"
-         class="checkbox-box"
          [ngModel]="selected"
          (ngModelChange)="onModelChange($event)"
          [id]="id"

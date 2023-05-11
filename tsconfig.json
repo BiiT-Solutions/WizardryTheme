@@ -30,6 +30,9 @@
       ],
       "biit-ui/login": [
         "projects/biit-ui/login/src/public-api"
+      ],
+      "biit-ui/info": [
+        "projects/biit-ui/info/src/public-api"
       ]
     },
     "outDir": "./dist/out-tsc",

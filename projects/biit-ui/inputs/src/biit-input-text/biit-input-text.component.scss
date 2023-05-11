@@ -104,20 +104,22 @@ $error-color: #A1093F;
 }
 
 .input-show-icon-container {
+  top: 0;
   right: 0;
   position: absolute;
   width: 2.1rem;
   height: 2.1rem;
-  padding-top: 0.175rem;
   align-content: center;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-}
 
-.password:hover {
-  background-color: $background-color;
+  &:hover, &:focus, &:focus-visible {
+    background-color: $background-color;
+    border: none;
+    outline: none;
+  }
 }
 
 .bottom-line {
