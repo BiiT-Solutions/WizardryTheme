@@ -1,12 +1,12 @@
 import {componentWrapperDecorator, Meta, moduleMetadata, Story} from '@storybook/angular';
-import {BiitFilterComponent} from "biit-ui/filter";
-import {BiitFilterModule} from "biit-ui/filter";
+import {BiitFilterComponent, BiitFilterModule} from "biit-ui/filter";
+import {TranslocoStorybookModule} from "../../app/transloco/transloco-storybook.module";
 
 export default {
   title: 'Basic/Filter',
   decorators: [
     moduleMetadata({
-      imports: [BiitFilterModule],
+      imports: [BiitFilterModule, TranslocoStorybookModule],
     }),
     componentWrapperDecorator(story => `<div style="margin: 3em">${story}</div>`),
   ],
@@ -40,15 +40,20 @@ export default {
   }
 } as Meta;
 
-const Template: Story<BiitFilterComponent> = (args: BiitFilterComponent) => ({
-  props: args,
-  template: `
+const Template: Story<BiitFilterComponent> = (args: BiitFilterComponent, { globals }) =>
+  {
+    TranslocoStorybookModule.setLanguage(globals);
+    return {
+      globals,
+      props: args,
+      template: `
     <biit-filter
       [resetValue]="resetValue"
       [disabled]="disabled"
       (filterChanged)="filterChanged()">
     </biit-filter>`
-});
+    }
+};
 
 export const Default = Template.bind({});
 Default.args = {

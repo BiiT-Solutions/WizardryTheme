@@ -19,6 +19,7 @@ export default {
       providers: [{
         provide: APP_INITIALIZER,
         useFactory: biitIconServiceFactory,
+        multi: true,
         deps: [BiitIconService],
       }]
     }),

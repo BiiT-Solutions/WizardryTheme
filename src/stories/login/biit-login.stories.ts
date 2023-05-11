@@ -1,9 +1,10 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {BiitLoginComponent, BiitLoginModule} from "biit-ui/login";
 import {BiitIconService} from "biit-ui/icon";
 import {completeIconSet} from "biit-icons-collection";
 import {APP_INITIALIZER} from "@angular/core";
 import {BiitLogin} from "biit-ui/models";
+import {translocoServiceInstance, TranslocoStorybookModule} from "../../app/transloco/transloco-storybook.module";
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);
@@ -13,12 +14,14 @@ function biitIconServiceFactory(service: BiitIconService) {
 const login: BiitLogin = new BiitLogin('biit', 'user', true);
 export default {
   title: 'Composed/Login',
+  component: BiitLoginComponent,
   decorators: [
     moduleMetadata({
       imports: [BiitLoginModule],
       providers: [{
         provide: APP_INITIALIZER,
         useFactory: biitIconServiceFactory,
+        multi: true,
         deps: [BiitIconService],
       }]
     }),
@@ -62,15 +65,19 @@ export default {
   }
 } as Meta;
 
-const Template: Story<BiitLoginComponent> = (args: BiitLoginComponent) => ({
-  props: args,
-  template: `
+const Template: Story<BiitLoginComponent> = (args: BiitLoginComponent, { globals }) => {
+  TranslocoStorybookModule.setLanguage(globals);
+  return {
+    globals,
+    props: args,
+    template: `
     <biit-login
      [login]="login"
      (onLogin)="onLogin($event)"
      (onNotRemember)="onNotRemember()"
     ></biit-login>`
-});
+  }
+};
 
 export const Default = Template.bind({});
 Default.args = {
