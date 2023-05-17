@@ -7,6 +7,9 @@
       "biit-ui": [
         "projects/biit-ui/src/public-api"
       ],
+      "biit-ui/utils": [
+        "projects/biit-ui/utils/src/public-api"
+      ],
       "biit-ui/models": [
         "projects/biit-ui/models/src/public-api"
       ],
