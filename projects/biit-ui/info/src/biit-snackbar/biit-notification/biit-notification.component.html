@@ -1,0 +1,22 @@
+<div class="notification-canvas"
+     [class.regular]="notification?.type == 'INFO' ||
+                      notification?.type == 'WARNING'"
+     [class.error]="notification?.type == 'ERROR'"
+     [class.success]="notification?.type == 'SUCCESS'">
+    <biit-icon *ngIf="notification?.type !== 'INFO'"
+      [name]="notification?.type == 'WARNING' ? 'exclamation' :
+              notification?.type == 'ERROR' ? 'cross' : 'thick'"
+      [pathStyle]="{fill: '#EDEDED'}"
+      class="notification-icon"
+    ></biit-icon>
+  <a>
+    {{notification?.message}}
+  </a>
+  <biit-button #action
+               (click)="emitClick()"
+               *ngIf="notification?.actionLabel"
+               color="tertiary"
+  >
+    {{ notification.actionLabel }}
+  </biit-button>
+</div><br>

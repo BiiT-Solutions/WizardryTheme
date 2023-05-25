@@ -14,6 +14,10 @@ export default {
 const Template: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
   props: args,
   template: `
+    <h3 tooltip="Meowth, that's right!"
+        style="position:fixed; top:25%; left:50%; translate: -50% -50%">
+      Hover over buttons to show tooltips
+    </h3>
     <biit-button tooltip="Noticias breves, ya está aquí para ustedes Mr. Quitanieves"
                  style="position: fixed; top: 1rem; left: 1rem;">
       Lawful good

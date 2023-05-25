@@ -1,0 +1,48 @@
+$text-color: #EDEDED;
+$regular-bg: #262626;
+$error-bg: #A1093F;
+$success-bg: #F20D5E;
+
+.notification-canvas {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 25.6rem;
+  padding: 1.05rem 1.4rem;
+  box-sizing: border-box;
+  color: $text-color;
+  text-align: left;
+  user-select: none;
+}
+
+.notification-icon {
+  display: inline-flex;
+  position: absolute;
+  width: 1.4rem;
+  height: 0.7rem;
+  translate: -100%;
+}
+
+::ng-deep biit-notification biit-button {
+  font-size: 0.7rem;
+  margin-left: 1.4rem;
+
+  .button-base.tertiary {
+    color: $text-color !important;
+  }
+  .bar {
+    background: $text-color !important;
+  }
+}
+
+.regular {
+  background: $regular-bg;
+}
+
+.error {
+  background: $error-bg;
+}
+
+.success {
+  background: $success-bg;
+}

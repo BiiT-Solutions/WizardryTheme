@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BiitDropdownComponent} from './biit-dropdown.component';
 import {FormsModule} from '@angular/forms';
-import {BrowserModule} from '@angular/platform-browser';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -9,7 +9,7 @@ import {BrowserModule} from '@angular/platform-browser';
   ],
   imports: [
     FormsModule,
-    BrowserModule
+    CommonModule
   ],
   exports: [
     BiitDropdownComponent

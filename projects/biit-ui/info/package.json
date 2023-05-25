@@ -1,5 +1,5 @@
 {
-  "name": "@biit-ui/button",
+  "name": "@biit-ui/info",
   "peerDependencies": {
     "@angular/material": "^15.1.0"
   }

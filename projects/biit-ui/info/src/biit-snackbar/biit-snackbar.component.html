@@ -1,0 +1,10 @@
+<ng-container>
+  <div class="snackbar-canvas {{snackbarService.verticalPosition}} {{snackbarService.horizontalPosition}}">
+    <div @notificationList
+         *ngFor="let notification of this.notifications"
+         class="snackbar-element"
+    >
+        <biit-notification [notification]="notification" style="display: inline-flex;"></biit-notification>
+    </div>
+  </div>
+</ng-container>

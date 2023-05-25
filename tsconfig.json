@@ -3,6 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "preserveConstEnums": true,
     "paths": {
       "biit-ui": [
         "projects/biit-ui/src/public-api"

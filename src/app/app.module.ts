@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {TranslocoRootModule} from 'biit-ui/i18n';
 import {TranslocoModule} from "@ngneat/transloco";
+import {BiitSnackbarService} from 'biit-ui/info';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {TranslocoModule} from "@ngneat/transloco";
     TranslocoRootModule
   ],
   exports: [TranslocoModule],
-  providers: [],
+  providers: [BiitSnackbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
