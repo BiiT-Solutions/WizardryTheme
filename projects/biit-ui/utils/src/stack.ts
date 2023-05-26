@@ -1,3 +1,5 @@
+import { IStack } from "./i-stack";
+
 export class Stack<T> implements IStack<T> {
   private storage: T[] = [];
 
