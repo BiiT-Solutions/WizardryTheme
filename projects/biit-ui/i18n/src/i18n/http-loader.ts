@@ -7,6 +7,7 @@ import { Observable } from "rxjs"
 export class TranslocoHttpLoader implements TranslocoLoader {
   constructor(private http: HttpClient) {}
 
+  /* For some reason does not compile in Jenkins if you set return as Observable<Translation> */
   public getTranslation(lang: string) {
     return this.http.get<Translation>(`./assets/i18n/${lang}.json`)
   }
