@@ -22,7 +22,7 @@ export class BiitSnackbarService {
   constructor() { }
 
   showNotification(message: string, type?: NotificationType, actionText?: string, duration?: number): Notification {
-    let notification = new Notification(message, type, actionText);
+    let notification = new Notification(message, type, actionText, duration);
 
     if (duration) {
       notification.timeout = setTimeout(() => {

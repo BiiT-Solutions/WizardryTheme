@@ -1,7 +1,7 @@
 $text-color: #EDEDED;
 $regular-bg: #262626;
 $error-bg: #A1093F;
-$success-bg: #F20D5E;
+$warning-bg: #F20D5E;
 
 .notification-canvas {
   display: flex;
@@ -43,6 +43,6 @@ $success-bg: #F20D5E;
   background: $error-bg;
 }
 
-.success {
-  background: $success-bg;
+.warning {
+  background: $warning-bg;
 }

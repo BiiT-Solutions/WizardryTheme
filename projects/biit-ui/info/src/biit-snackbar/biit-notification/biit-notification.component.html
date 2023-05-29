@@ -1,8 +1,8 @@
 <div class="notification-canvas"
      [class.regular]="notification?.type == 'INFO' ||
-                      notification?.type == 'WARNING'"
+                      notification?.type == 'SUCCESS'"
      [class.error]="notification?.type == 'ERROR'"
-     [class.success]="notification?.type == 'SUCCESS'">
+     [class.warning]="notification?.type == 'WARNING'">
     <biit-icon *ngIf="notification?.type !== 'INFO'"
       [name]="notification?.type == 'WARNING' ? 'exclamation' :
               notification?.type == 'ERROR' ? 'cross' : 'thick'"

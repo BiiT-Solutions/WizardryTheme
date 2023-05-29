@@ -10,7 +10,7 @@ export class Notification {
   actionLabel: string;
   onAction$: Subject<void> = new Subject<void>();
 
-  constructor(message?: string, type?: NotificationType, actionLabel?: string, timeout?: NodeJS.Timeout) {
+  constructor(message?: string, type?: NotificationType, actionLabel?: string, timeout?: number) {
     this.id = uuid();
     if (message) {
       this.message = message;
@@ -20,9 +20,6 @@ export class Notification {
     }
     if (actionLabel) {
       this.actionLabel = actionLabel;
-    }
-    if (timeout) {
-      this.timeout = timeout;
     }
     if (!timeout && !actionLabel) {
       this.actionLabel = 'Dismiss';
