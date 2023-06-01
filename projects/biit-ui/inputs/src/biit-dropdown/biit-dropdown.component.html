@@ -1,13 +1,37 @@
-<div id="dropdown-component" [class.disabled]="disabled">
-  <div class="selected" (click)="toggleMenu()">
-    <span *ngIf="selected && selected[label]">{{ selected[label] }}</span>
-    <span [ngClass]="{ 'arrow-down': menuOpen }">&#x27A4;</span>
+<div class="biit-input" aria-haspopup="listbox" aria-labelledby="dropdown-label" [class.compact]="compact">
+  <div class="input-container">
+    <input [ngModel]="currentValue ? currentValue[label] : ''"
+           class="input-object"
+           [class.grey-bg]="dropdownOpen"
+           (click)="openDropdown()"
+           readonly/>
+    <div class="input-show-icon-container"
+         [class.passthrough]="!dropdownOpen"
+         (click)="dropdownOpen ? closeDropdown() : openDropdown()"
+         tabindex="0">
+      <biit-icon [name]="'column_selection'"
+                 class="input-show-icon"
+                 [pathStyle]="{fill: dropdownOpen ? '#F20D5E' : '#262626'}"
+      ></biit-icon>
+    </div>
+    <label class="input-placeholder"
+           [class.compact]="dropdownOpen || currentValue">{{title}}</label>
+    <div class="bottom-line"></div>
   </div>
-  <div class="menu-wrapper">
-    <ul [class.show-menu]="menuOpen">
-      <li *ngFor="let item of items" (click)="onClick(item)">
-        <a>{{ item[label] }}</a>
-      </li>
-    </ul>
+</div>
+<div class="dropdown-list"
+     role="listbox"
+     aria-expanded="false"
+     [class.dropdown-open]="dropdownOpen"
+     [class.compact]="compact"
+>
+  <div *ngFor="let item of data"
+       class="dropdown-item"
+       [class.selected]="currentValue === item"
+       (click)="onModelChange(item)"
+       tabindex="0"
+       role="option"
+  >
+    <a>{{item[label]}}</a>
   </div>
 </div>

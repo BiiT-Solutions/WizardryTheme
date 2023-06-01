@@ -2,16 +2,31 @@ import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {BiitDropdownModule} from 'biit-ui/inputs';
 import {BiitDropdownComponent} from 'biit-ui/inputs';
 import {FormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {APP_INITIALIZER} from '@angular/core';
+import {BiitIconService} from 'biit-ui/icon';
+import {completeIconSet} from 'biit-icons-collection';
+
+function biitIconServiceFactory(service: BiitIconService) {
+  service.registerIcons(completeIconSet);
+  return () => service;
+}
 
 export default {
   title: 'Basic/Inputs/Dropdown',
   decorators: [
     moduleMetadata({
-      imports: [BiitDropdownModule, FormsModule]
+      imports: [BiitDropdownModule, FormsModule, CommonModule],
+      providers: [{
+        provide: APP_INITIALIZER,
+        useFactory: biitIconServiceFactory,
+        multi:true,
+        deps: [BiitIconService],
+      }]
     }),
   ],
   args: {
-    value: {id: 1, name: 'Spring'},
+    value: undefined,
     items: [
       {id: 1, name: 'Spring'},
       {id: 2, name: 'Summer'},
@@ -75,19 +90,32 @@ export default {
   }
 } as Meta;
 
-const Template: Story<BiitDropdownComponent<{id:number, name:string}>> = (args: BiitDropdownComponent<{id:number, name:string}>) => ({
+const TemplateExpanded: Story<BiitDropdownComponent> = (args: BiitDropdownComponent) => ({
   props: args,
   template:`
     <div style="text-align: center; margin-bottom: 10px;">
-      Selected season: {{value.name}}
+      Selected season: {{value?.name}}
     </div>
 
-    <biit-dropdown [(ngModel)]="value"
-                       [items]="items"
-                       [label]="label"
-                       [disabled]="disabled"
+    <biit-dropdown [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+                    style="display:block"
     ></biit-dropdown>
 `
 });
 
-export const Default = Template.bind({});
+export const Expanded = TemplateExpanded.bind({});
+
+const TemplateCompact: Story<BiitDropdownComponent> = (args: BiitDropdownComponent) => ({
+  props: args,
+  template:`
+    <div style="text-align: center; margin-bottom: 10px;">
+      Selected season: {{value?.name}}
+    </div>
+
+    <biit-dropdown [(ngModel)]="value" title="Worst season" [data]="items" value="id" label="name"
+                    style="display:block" [compact]="true"
+    ></biit-dropdown>
+`
+});
+
+export const Compact = TemplateCompact.bind({});
