@@ -26,6 +26,32 @@ button, input[type="submit"], input[type="reset"] {
       }
     }
   }
+
+  &:disabled {
+    pointer-events: none;
+
+    .primary {
+      border: 0.175em solid $light-grey;
+
+      .button-content {
+        background: $light-grey;
+        color: $dark-grey;
+      }
+    }
+
+    .secondary {
+      border: 0.175em solid $light-grey;
+      color: $light-grey;
+    }
+
+    .tertiary {
+      color: $light-grey;
+
+      .bar {
+        background: $light-grey;
+      }
+    }
+  }
 }
 
 .prevent-select {
@@ -94,32 +120,6 @@ button, input[type="submit"], input[type="reset"] {
 
     &:active .bar {
       top: 0;
-    }
-  }
-
-  &.disabled {
-    pointer-events: none;
-
-    &.primary {
-      border: 0.175em solid $light-grey;
-
-      .button-content {
-        background: $light-grey;
-        color: $dark-grey;
-      }
-    }
-
-    &.secondary {
-      border: 0.175em solid $light-grey;
-      color: $light-grey;
-    }
-
-    &.tertiary {
-      color: $light-grey;
-
-      .bar {
-        background: $light-grey;
-      }
     }
   }
 }

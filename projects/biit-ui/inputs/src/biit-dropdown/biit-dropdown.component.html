@@ -1,37 +1,64 @@
-<div class="biit-input" aria-haspopup="listbox" aria-labelledby="dropdown-label" [class.compact]="compact">
-  <div class="input-container">
-    <input [ngModel]="currentValue ? currentValue[label] : ''"
+<div class="biit-input" aria-haspopup="listbox"
+     [class.compact]="compact"
+     [class.disabled]="disabled"
+     (keydown)="!disabled && handleKeyboardEvents($event)"
+     (keydown.enter)="!dropdownOpen && !disabled && openDropdown()"
+>
+  <div class="input-container" #input>
+    <input [ngModel]="dropdownOpen ? filterText : currentValue && currentValue[label] ? currentValue[label] : ''"
+           (ngModelChange)="filterText = $event; handleFilter()"
+           (click)="!dropdownOpen && !disabled && openDropdown()"
+           [placeholder]="dropdownOpen && currentValue && currentValue[label] ? currentValue[label] : ''"
            class="input-object"
            [class.grey-bg]="dropdownOpen"
-           (click)="openDropdown()"
-           readonly/>
+           [class.default-cursor]="dropdownOpen"
+           [disabled]="disabled"
+           [readonly]="!dropdownOpen"/>
     <div class="input-show-icon-container"
          [class.passthrough]="!dropdownOpen"
-         (click)="dropdownOpen ? closeDropdown() : openDropdown()"
-         tabindex="0">
+         (click)="dropdownOpen && closeDropdown()">
       <biit-icon [name]="'column_selection'"
                  class="input-show-icon"
-                 [pathStyle]="{fill: dropdownOpen ? '#F20D5E' : '#262626'}"
+                 [pathStyle]="{fill: disabled ? '#D9D9D9' : dropdownOpen ? '#F20D5E' : '#262626'}"
       ></biit-icon>
     </div>
-    <label class="input-placeholder"
-           [class.compact]="dropdownOpen || currentValue">{{title}}</label>
-    <div class="bottom-line"></div>
+    <label id="dropdown-label"
+           class="input-placeholder"
+           [class.disabled]="disabled"
+           [class.compact]="dropdownOpen || currentValue">
+      {{title}}
+    </label>
+    <div class="bottom-line"
+         [class.disabled]="disabled"
+    ></div>
   </div>
 </div>
-<div class="dropdown-list"
+<div #dropdown
+     [class.disabled]="disabled"
+     class="dropdown-list"
      role="listbox"
      aria-expanded="false"
+     aria-labelledby="dropdown-label"
      [class.dropdown-open]="dropdownOpen"
      [class.compact]="compact"
+     (keydown)="handleKeyboardEvents($event)"
 >
-  <div *ngFor="let item of data"
-       class="dropdown-item"
-       [class.selected]="currentValue === item"
-       (click)="onModelChange(item)"
-       tabindex="0"
-       role="option"
+  <button *ngFor="let item of filteredData; index as i"
+          (click)="onModelChange(item)"
+          [class.selected]="currentValue === item"
+          class="dropdown-item"
+          role="option"
+          aria-selected="false"
+          [id]="i"
+          [tabindex]="i"
+          [disabled]="!dropdownOpen"
   >
     <a>{{item[label]}}</a>
-  </div>
+  </button>
+  <button *ngIf="!filteredData.length"
+          class="dropdown-item no-results"
+          disabled
+  >
+    <a>No results found</a>
+  </button>
 </div>

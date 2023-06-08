@@ -34,7 +34,9 @@ export default {
       {id: 4, name: 'Winter'}
     ],
     label: 'name',
-    disabled: false
+    compact: false,
+    disabled: false,
+    width: 512
   },
   argTypes: {
     value: {
@@ -86,6 +88,35 @@ export default {
       control: {
         type: 'boolean'
       }
+    },
+    compact: {
+      name: 'compact',
+      type: { name: 'boolean', required: false },
+      defaultValue: 'false',
+      description: 'Enables compact mode for a smaller dropdown popup.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'boolean'
+      }
+    },
+    width: {
+      name: 'width',
+      type: { name: 'number', required: false },
+      description: 'Defines selector width (for testing purposes, doesn\'t work with compact mode).',
+      table: {
+        type: { summary: 'number' },
+        category: 'Style'
+      },
+      control: {
+        type: 'range',
+        min: 256,
+        max: 512,
+        step: 1
+      }
     }
   }
 } as Meta;
@@ -93,12 +124,28 @@ export default {
 const TemplateExpanded: Story<BiitDropdownComponent> = (args: BiitDropdownComponent) => ({
   props: args,
   template:`
-    <div style="text-align: center; margin-bottom: 10px;">
+    <div style="display:block; position: fixed; top: 50%; left: 50%; translate: -50% -50%; text-align: center;">
       Selected season: {{value?.name}}
     </div>
 
     <biit-dropdown [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
-                    style="display:block"
+                   style="display:block; position: fixed; top: 1rem; left: 1rem; width: {{width}}px;"
+                   [disabled]="disabled" [compact]="compact"
+    ></biit-dropdown>
+
+    <biit-dropdown [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+                   style="display:block; position: fixed; top: 1rem; right: 1rem; width: {{width}}px;"
+                   [disabled]="disabled" [compact]="compact"
+    ></biit-dropdown>
+
+    <biit-dropdown [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+                   style="display:block; position: fixed; bottom: 1rem; left: 1rem; width: {{width}}px;"
+                   [disabled]="disabled" [compact]="compact"
+    ></biit-dropdown>
+
+    <biit-dropdown [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+                   style="display:block; position: fixed; bottom: 1rem; right: 1rem; width: {{width}}px;"
+                   [disabled]="disabled" [compact]="compact"
     ></biit-dropdown>
 `
 });
@@ -108,12 +155,28 @@ export const Expanded = TemplateExpanded.bind({});
 const TemplateCompact: Story<BiitDropdownComponent> = (args: BiitDropdownComponent) => ({
   props: args,
   template:`
-    <div style="text-align: center; margin-bottom: 10px;">
+    <div style="display:block; position: fixed; top: 50%; left: 50%; translate: -50% -50%; text-align: center;">
       Selected season: {{value?.name}}
     </div>
 
     <biit-dropdown [(ngModel)]="value" title="Worst season" [data]="items" value="id" label="name"
-                    style="display:block" [compact]="true"
+                   style="display:block; position: fixed; top: 1rem; left: 1rem;"
+                   [disabled]="disabled" [compact]="true"
+    ></biit-dropdown>
+
+    <biit-dropdown [(ngModel)]="value" title="Worst season" [data]="items" value="id" label="name"
+                   style="display:block; position: fixed; top: 1rem; right: 1rem;"
+                   [disabled]="disabled" [compact]="true"
+    ></biit-dropdown>
+
+    <biit-dropdown [(ngModel)]="value" title="Worst season" [data]="items" value="id" label="name"
+                   style="display:block; position: fixed; bottom: 1rem; left: 1rem;"
+                   [disabled]="disabled" [compact]="true"
+    ></biit-dropdown>
+
+    <biit-dropdown [(ngModel)]="value" title="Worst season" [data]="items" value="id" label="name"
+                   style="display:block; position: fixed; bottom: 1rem; right: 1rem;"
+                   [disabled]="disabled" [compact]="true"
     ></biit-dropdown>
 `
 });

@@ -8,11 +8,11 @@ import {BiitIconModule} from 'biit-ui/icon';
   declarations: [
     BiitDropdownComponent
   ],
-    imports: [
-        FormsModule,
-        CommonModule,
-        BiitIconModule
-    ],
+  imports: [
+    FormsModule,
+    CommonModule,
+    BiitIconModule
+  ],
   exports: [
     BiitDropdownComponent
   ]

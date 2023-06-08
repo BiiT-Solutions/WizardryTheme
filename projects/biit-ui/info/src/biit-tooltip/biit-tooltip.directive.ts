@@ -54,7 +54,7 @@ export class BiitTooltipDirective {
 
     const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
 
-    // Checking available top screen space
+    // Checking available screen space
     const fitsTop = topCheck(this.ignorePadding);
     const fitsLeft = leftCheck(this.ignorePadding);
     const fitsRight = rightCheck(this.ignorePadding);
