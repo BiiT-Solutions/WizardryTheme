@@ -13,3 +13,5 @@ export * from './biit-snackbar/models/biit-snackbar-vertical-position';
 export * from './biit-snackbar/models/biit-snackbar-horizontal-position';
 export * from './biit-snackbar/models/notification'
 export * from './biit-snackbar/models/notification-type'
+export * from './biit-progress-bar/biit-progress-bar.module';
+export * from './biit-progress-bar/biit-progress-bar.component';

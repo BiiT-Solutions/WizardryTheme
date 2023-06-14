@@ -1,0 +1,7 @@
+<div class="canvas">
+  <div class="dummy">
+    <div class="bar {{type.toLowerCase()}}"
+         [ngStyle]="{'width': type == 'DETERMINATE' ? _value + '%' : null}"
+    ></div>
+  </div>
+</div>
