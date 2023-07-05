@@ -1,5 +1,12 @@
 import {AfterViewInit, Component, ElementRef, forwardRef, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {biitIcon} from 'biit-icons-collection';
+
+export enum BiitMultiselectType {
+  DEFAULT = 'default',
+  ICON = 'icon'
+}
+
 @Component({
   selector: 'biit-multiselect',
   templateUrl: './biit-multiselect.component.html',
@@ -15,14 +22,17 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
     '(document:pointerdown)': 'handleMouseEvents($event)'
   }
 })
+
 export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, AfterViewInit {
 
   @Input() title: string;
   @Input() primitive: boolean = false;
   @Input() compact: boolean = false;
+  @Input() type: BiitMultiselectType = BiitMultiselectType.DEFAULT;
+  @Input() icon: biitIcon = 'column_selection';
   @Input() label: string = '';
-  @Input() value: string;
-  @Input() data: any[];
+  @Input() value: string = '';
+  @Input() data: any[] = [];
   @Input() disabled: boolean = false;
 
   public currentValues: any[] = [];
@@ -42,7 +52,7 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   }
 
   ngAfterViewInit() {
-    this.dropdownElement.querySelectorAll('.disabled').forEach(i => {
+    this.dropdownElement?.querySelectorAll('.disabled').forEach(i => {
       i.classList.remove('disabled');
     });
   }
@@ -80,27 +90,19 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   handleKeyboardEvents($event: KeyboardEvent) {
     switch ($event.key) {
       case 'ArrowUp':
-        if (this.dropdownOpen){
-          if (document.activeElement.tagName == "BIIT-CHECKBOX" && document.activeElement.previousElementSibling) {
-            (document.activeElement.previousElementSibling as HTMLElement)?.focus();
-          } else if (document.activeElement !== this.inputElement) {
-            this.inputElement.focus();
-          }
+        if (document.activeElement.tagName == "BIIT-CHECKBOX") {
+          (document.activeElement.previousElementSibling as HTMLElement)?.focus();
         }
         break;
 
       case 'ArrowDown':
-        if (this.dropdownOpen){
-          if (document.activeElement === this.inputElement && this.filteredData.length) {
-            (this.dropdownElement.firstChild as HTMLElement).focus();
-          } else {
-            (document.activeElement.nextElementSibling as HTMLElement)?.focus();
-          }
+        if (document.activeElement.tagName == "BIIT-CHECKBOX"){
+          (document.activeElement.nextElementSibling as HTMLElement)?.focus();
         }
         break;
 
       case 'Escape':
-        if (document.activeElement.tagName == "BIIT-CHECKBOX") {
+        if (document.activeElement.tagName == "BIIT-CHECKBOX" && this.type == BiitMultiselectType.DEFAULT) {
           this.inputElement.focus();
         } else {
           this.closeDropdown();
@@ -130,7 +132,9 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
 
   openDropdown() {
     this.setTooltipComponentProperties();
-    (this.inputElement as HTMLInputElement).focus();
+    if (this.type == BiitMultiselectType.DEFAULT) {
+      (this.inputElement as HTMLInputElement).focus();
+    }
 
     // Setting a timeout because it doesn't load upwards/downwards css classes on execution time
     setTimeout(() => {
@@ -139,20 +143,22 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
     }, 100);
   }
 
-  closeDropdown(ignoreInputFocus?: boolean) {
+  closeDropdown() {
     this.dropdownOpen = false;
     this.dropdownElement.setAttribute('aria-expanded', "false");
-    setTimeout(() => { this.clearFilter() }, 1000);
-    if (ignoreInputFocus) {
-      this.inputElement.focus();
-    }
+    setTimeout(() => { this.clearFilter(); }, 1000);
   }
 
   private setTooltipComponentProperties() {
+    let button;
     let dropdown = this.dropdownElement;
+    dropdown.style.display = 'block';
 
-    let input = this.inputElement;
-    const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    if (this.type == BiitMultiselectType.DEFAULT) {
+      button = this.inputElement;
+    } else {
+      button = this.elem.nativeElement.querySelector("biit-icon-button");
+    }
 
     // Checking available screen space
     const fitsBottom = bottomCheck();
@@ -160,14 +166,17 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
     const fitsLeft = leftCheck();
 
     if (!fitsRight && fitsLeft) {
-      dropdown.style.marginLeft = input.offsetWidth - dropdown.offsetWidth + 'px';
+      dropdown.style.marginLeft = button.offsetWidth - dropdown.offsetWidth + 'px';
     } else {
       dropdown.style.marginLeft = null;
     }
 
+    dropdown.classList.remove('onwards');
+    dropdown.classList.remove('downwards');
+
     if (!fitsBottom) {
       dropdown.classList.add('onwards');
-      dropdown.style.marginTop = -(dropdown.offsetHeight + input.offsetHeight + 1.05*rem) + 'px';
+      dropdown.style.marginTop = -(dropdown.offsetHeight + button.offsetHeight) + 'px';
     } else {
       dropdown.classList.add('downwards');
       dropdown.style.marginTop = null;
@@ -175,16 +184,16 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
 
     // Support inner functions
     function bottomCheck(): boolean {
-        return input.getBoundingClientRect().bottom + dropdown.offsetHeight <= window.innerHeight &&
-          input.getBoundingClientRect().top - 1.05*rem - dropdown.offsetHeight <= 0;
+        return button.getBoundingClientRect().bottom + dropdown.offsetHeight <= window.innerHeight ||
+          button.getBoundingClientRect().top - dropdown.offsetHeight <= 0;
     }
 
     function rightCheck(): boolean {
-      return input.getBoundingClientRect().right + dropdown.offsetWidth <= window.innerWidth;
+      return button.getBoundingClientRect().right + dropdown.offsetWidth <= window.innerWidth;
     }
 
     function leftCheck(): boolean {
-      return input.getBoundingClientRect().right - dropdown.offsetWidth >= 0;
+      return button.getBoundingClientRect().right - dropdown.offsetWidth >= 0;
     }
   }
 }

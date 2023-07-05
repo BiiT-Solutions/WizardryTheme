@@ -1,128 +1,177 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, PageEvent} from "@angular/material/paginator";
-import {MatSort} from "@angular/material/sort";
-import {BasicTableData} from "./basic-table-data";
-import {DatePipe} from "@angular/common";
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2} from '@angular/core';
+import {BiitPaginatorOptions} from '../biit-paginator/models/biit-paginator-options';
+import {BiitTableColumn} from './models/biit-table-column';
+import {ColumnResizeHandler} from './models/column-resize-handler';
+import {BiitTableResponse} from './models/biit-table-response';
+import {BiitTableData} from './models/biit-table-data';
+import {BiitTableSorting, BiitTableSortingOrder} from './models/biit-table-sorting';
 
 @Component({
   selector: 'biit-table',
   templateUrl: './biit-table.component.html',
-  styleUrls: ['./biit-table.component.scss']
+  styleUrls: ['./biit-table.component.scss'],
 })
-export class BiitTableComponent implements OnInit {
+export class BiitTableComponent implements OnInit, AfterViewInit {
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-
-  @Input() basicTableData: BasicTableData<any>;
-  @Input() locale: string = 'en';
-
-  pipe: DatePipe;
-
-  constructor() {
-
+  @Input('data') set _data(data: BiitTableData) {
+    if (data) {
+      this.data = data;
+      if (this.paginator) {
+        this.paginator = new BiitPaginatorOptions(this.paginator.currentPage, this.paginator.pageSize, this.pageSizes, data.totalItems);
+      }
+    }
   }
+  @Input() columns: BiitTableColumn[] = [];
+  @Input() pageSizes: number[] = [];
+  @Input() defaultPageSize: number;
+  @Input() locale: string = 'en';
+  @Input() selectable: boolean = true;
+  @Input() sortable: boolean = true;
+  @Input() loading: boolean = false;
+
+  @Output() onUpdate: EventEmitter<BiitTableResponse> = new EventEmitter<BiitTableResponse>();
+  @Output() onAddAction: EventEmitter<void> = new EventEmitter<void>();
+  @Output() onDeleteAction: EventEmitter<any[]> = new EventEmitter<any[]>();
+  @Output() onEditAction: EventEmitter<any> = new EventEmitter<any>();
+
+  protected data: BiitTableData;
+  protected paginator;
+  protected sorting: BiitTableSorting;
+  protected selectedRows: Set<any> = new Set<any>();
+  protected columnResize: ColumnResizeHandler = new ColumnResizeHandler();
+  protected search: string = '';
+
+  constructor(private renderer: Renderer2,
+              private elem: ElementRef) { }
 
   ngOnInit(): void {
-    this.setLocale(this.locale);
-    this.basicTableData.dataSource.filterPredicate = (data: any, filter: string): boolean => {
-      filter = filter.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "");
-      const dataSearch = Object.keys(data).reduce((searchTerm: string, key: string) => {
-        return (searchTerm + (data as { [key: string]: any })[key]);
-      }, '').normalize('NFD').replace(/\p{Diacritic}/gu, "").toLowerCase();
-
-      const transformedFilter = filter.trim().normalize('NFD').replace(/\p{Diacritic}/gu, "").toLowerCase();
-
-      return dataSearch.indexOf(transformedFilter) != -1;
-    }
+    this.paginator = new BiitPaginatorOptions(1, this.defaultPageSize, this.pageSizes, this.data ? this.data.totalItems : 1);
   }
 
   ngAfterViewInit() {
-    this.basicTableData.dataSource.paginator = this.paginator;
-    this.basicTableData.dataSource.sort = this.sort;
+    this.setColumnSize();
   }
 
-  private setLocale(locale: string) {
-    if (locale === 'es' || locale === 'ca') {
-      this.pipe = new DatePipe('es');
-    } else if (locale === 'it') {
-      this.pipe = new DatePipe('it');
-    } else if (locale === 'de') {
-      this.pipe = new DatePipe('de');
-    } else if (locale === 'nl') {
-      this.pipe = new DatePipe('nl');
-    } else {
-      this.pipe = new DatePipe('en-US');
-    }
-  }
+  // Fix for resizable columns
+  private setColumnSize() {
+    Array.from(this.elem.nativeElement.querySelector('thead').firstChild.children).forEach(ogColumn => {
+      const column = ogColumn as HTMLElement;
 
-  setSelectedItem(row: any): void {
-    if (row === this.basicTableData.selectedElement) {
-      this.basicTableData.selectedElement = undefined;
-    } else {
-      this.basicTableData.selectedElement = row;
-    }
-  }
-
-  filter(filter: string) {
-    this.basicTableData.dataSource.filter = filter;
-  }
-
-  isColumnVisible(column: string): boolean {
-    return this.basicTableData.visibleColumns.includes(column);
-  }
-
-  toggleColumnVisibility(column: string) {
-    const index: number = this.basicTableData.visibleColumns.indexOf(column);
-    if (index !== -1) {
-      this.basicTableData.visibleColumns.splice(index, 1);
-    } else {
-      let oldVisibleColumns: string[];
-      oldVisibleColumns = [...this.basicTableData.visibleColumns];
-      oldVisibleColumns.push(column);
-      this.basicTableData.visibleColumns.length = 0;
-      //Maintain columns order.
-      for (let tableColumn of this.basicTableData.columns) {
-        if (oldVisibleColumns.includes(tableColumn)) {
-          this.basicTableData.visibleColumns.push(tableColumn);
-        }
+      if (column.style.width != '') {
+        this.columnInnerWordFitCheck(column);
       }
-    }
-  }
+    });
+    Array.from(this.elem.nativeElement.querySelector('thead').firstChild.children).forEach(ogColumn => {
+      const column = ogColumn as HTMLElement;
 
-  getDefaultPageSize(): number {
-    //Get from user session storage
-    return 10;
-  }
-
-
-  onPaginateChange($event: PageEvent) {
-    //Store into user session storage
-  }
-
-  getColumnData(column: any): any {
-    if (typeof column === 'number') {
-      return column;
-    } else if (typeof column === 'boolean') {
-      return column ? 'yes' : 'no';
-    } else if (column instanceof Date && !isNaN(column.getMonth())) {
-      return this.pipe.transform(column, 'dd/MM/yyyy');
-    } else {
-      if (column) {
-        const text: string = (column as string);
-        if (text.toUpperCase() === text) {
-          //probably is an enum
-          return this.snakeToCamel(text.toLowerCase());
-        } else {
-          return text;
-        }
-      } else {
-        return "";
+      if (column.style.width == '' && !column.classList.contains('select')) {
+        column.style.width = column.offsetWidth - 10 + 'px';
       }
+    });
+  }
+
+  columnInnerWordFitCheck(column: HTMLElement) {
+    const minColumnSize = (column.firstElementChild as HTMLElement).offsetWidth
+      + 2.4 * parseFloat(getComputedStyle(document.documentElement).fontSize) * 2;
+
+    // If inner text width plus header paddings are less than the current header width (set by user column properties)
+    if(minColumnSize > column.offsetWidth) {
+      (column as HTMLElement).style.width = minColumnSize + 'px';
     }
+  }
+
+  onTableUpdate() {
+    this.selectedRows.clear();
+    this.onUpdate.emit(new BiitTableResponse(
+      this.paginator.currentPage,
+      this.paginator.pageSize,
+      this.search,
+      this.sorting
+    ));
+  }
+
+  onTableSort(column: BiitTableColumn) {
+    if (this.sorting && this.sorting.name == column.name) {
+      switch (this.sorting.order) {
+        case BiitTableSortingOrder.ASC:
+          this.sorting.order = BiitTableSortingOrder.DESC;
+          break;
+        case BiitTableSortingOrder.DESC:
+          this.sorting = undefined;
+          break;
+      }
+    } else {
+      this.sorting = new BiitTableSorting(column.name, BiitTableSortingOrder.ASC);
+    }
+
+    this.onTableUpdate();
   }
 
   snakeToCamel(string: string): string {
     return string.toLowerCase().replace(/[-_][a-z]/g, (group) => group.slice(-1).toUpperCase());
+  }
+
+  resizeColumn(event, column: BiitTableColumn, index) {
+    this.columnResize.start = event.target;
+    this.columnResize.pressed = true;
+    this.columnResize.startX = event.x;
+    this.columnResize.startWidth = (this.columnResize.start.parentNode as HTMLElement).offsetWidth;
+
+    let columnElem = this.elem.nativeElement.querySelector('thead').firstChild.children[this.selectable ? index + 1 : index];
+    this.columnResize.minWidth = (columnElem.firstElementChild as HTMLElement).offsetWidth
+      + 2.4 * parseFloat(getComputedStyle(document.documentElement).fontSize) * 2;
+
+    this.initResizableColumns(column);
+  }
+
+  private initResizableColumns(column: BiitTableColumn) {
+    const moveListener = this.renderer.listen('window', 'mousemove', (event) => {
+      if(this.columnResize.pressed) {
+        let width = this.columnResize.startWidth + (event.x - this.columnResize.startX);
+        if(width > this.columnResize.minWidth) {
+          column.width = width;
+        }
+      }
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      return false;
+    });
+    const releaseListener = this.renderer.listen('window', 'mouseup', (event) => {
+      if(this.columnResize.pressed) {
+        this.columnResize.pressed = false;
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        moveListener();
+        releaseListener();
+      }
+      return false;
+    });
+  }
+
+  setColumnVisibility(response: BiitTableColumn[]) {
+    this.columns.forEach(c => response.some(e => e.name == c.name) ? c.visible = true : c.visible = false);
+  }
+
+  selectRow(item, holdCtrl) {
+    if (!holdCtrl) {
+      this.selectedRows.clear();
+      this.selectedRows.add(item);
+    } else {
+      if (!this.selectedRows.has(item)) {
+        this.selectedRows.add(item);
+      } else {
+        this.selectedRows.delete(item);
+      }
+    }
+  }
+
+  getSelectedRows(): any[] {
+    return [...this.selectedRows];
+  }
+
+  log(value) {
+    console.log(value);
   }
 }

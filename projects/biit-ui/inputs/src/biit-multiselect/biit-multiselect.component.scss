@@ -12,8 +12,6 @@ input::selection{ background-color:transparent }
   display: flex;
   min-width: 12.8rem;
   max-width: 25.6rem;
-  height: 3.15rem;
-  padding-top: 1.05rem;
 
   &.compact {
     width: 12.8rem;
@@ -138,6 +136,7 @@ input::selection{ background-color:transparent }
   cursor: pointer;
   transform-origin: top;
   opacity: 0;
+  display: none;
   pointer-events: none;
   transform: translate(0, var(--origin));
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -171,14 +170,6 @@ input::selection{ background-color:transparent }
   padding-left: 0.7rem;
 
   &:not(.no-results) {
-
-    &.selected {
-      background: $background-color;
-      width: calc(100% + 0.3rem);
-      margin-left: -0.15rem;
-      padding-left: 0.85rem;
-    }
-
     &:hover, &:focus-visible {
       outline: none;
       background: $hover-color;

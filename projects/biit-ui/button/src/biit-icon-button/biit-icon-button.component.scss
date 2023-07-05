@@ -9,6 +9,7 @@ button, input[type="submit"], input[type="reset"] {
   padding: 0;
   font: inherit;
   outline: inherit;
+  cursor: pointer;
 
   display: flex;
   align-items: center;
@@ -16,17 +17,31 @@ button, input[type="submit"], input[type="reset"] {
   height: 2.1em;
   width: 2.1em;
 
-  &.disabled {
-    pointer-events: none;
-  }
-
-  &:hover, &:focus-visible {
+  &:hover, &:focus-visible, &.checked {
     background-color: $background-color;
   }
-}
 
-.icon-button-canvas {
+  &:active {
+    ::ng-deep biit-icon path {
+      fill: $active-color !important;
+    }
+  }
 
+  &[disabled] {
+    pointer-events: none;
+
+    &:hover, &:focus-visible {
+      background-color: transparent;
+    }
+
+    ::ng-deep biit-icon path {
+      fill: $background-color !important;
+    }
+  }
+
+  &.checked ::ng-deep biit-icon path {
+    fill: $active-color !important;
+  }
 }
 
 .icon-button-svg {

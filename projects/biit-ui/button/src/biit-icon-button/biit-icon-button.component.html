@@ -1,16 +1,10 @@
 <button type="button"
         [disabled]="disabled"
-        (pointerdown)="active=true"
-        (pointerup)="active=false"
-        (mouseleave)="active=false"
         (click)="onClick.emit($event)"
-        (dblclick)="onDblClick.emit($event)">
-  <div class="icon-button-canvas"
-       [class.disabled]="disabled"
-  >
+        (dblclick)="onDblClick.emit($event)"
+        [class.checked]="checked">
     <biit-icon [name]="icon"
-               [pathStyle]="{fill: disabled ? '#D9D9D9' : active ? '#F20D5E' : '#262626'}"
+               [pathStyle]="{fill: '#262626'}"
                class="icon-button-svg"
     ></biit-icon>
-  </div>
 </button>

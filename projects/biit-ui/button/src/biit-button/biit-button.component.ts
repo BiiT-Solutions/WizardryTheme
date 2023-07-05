@@ -10,7 +10,7 @@ export type BiitButtonColor =
   | 'secondary'
   | 'tertiary'
 
-export enum Type {
+export enum BiitButtonType {
   BUTTON = 'BUTTON',
   SUBMIT = 'SUBMIT',
   RESET = 'RESET'
@@ -26,10 +26,10 @@ export class BiitButtonComponent {
 
   @Input() color: BiitButtonColor = 'primary';
   @Input() disabled: boolean = false;
-  @Input() type: Type = Type.BUTTON;
+  @Input() type: BiitButtonType = BiitButtonType.BUTTON;
 
   @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() onDblClick: EventEmitter<Event> = new EventEmitter<Event>();
 
-  protected readonly Type = Type;
+  protected readonly Type = BiitButtonType;
 }

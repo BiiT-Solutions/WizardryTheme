@@ -136,15 +136,15 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
   closeDropdown() {
     this.dropdownOpen = false;
     this.dropdownElement.setAttribute('aria-expanded', "false");
-    setTimeout(() => { this.clearFilter() }, 1000);
+    setTimeout(() => { this.clearFilter(); }, 1000);
     this.inputElement.focus();
   }
 
   private setTooltipComponentProperties() {
     let dropdown = this.dropdownElement;
+    dropdown.style.display = 'block';
 
     let input = this.inputElement;
-    const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
 
     // Checking available screen space
     const fitsBottom = bottomCheck();
@@ -157,9 +157,12 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
       dropdown.style.marginLeft = null;
     }
 
+    dropdown.classList.remove('onwards');
+    dropdown.classList.remove('downwards');
+
     if (!fitsBottom) {
       dropdown.classList.add('onwards');
-      dropdown.style.marginTop = -(dropdown.offsetHeight + input.offsetHeight + 1.05*rem) + 'px';
+      dropdown.style.marginTop = -(dropdown.offsetHeight + input.offsetHeight) + 'px';
     } else {
       dropdown.classList.add('downwards');
       dropdown.style.marginTop = null;
@@ -167,8 +170,8 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
 
     // Support inner functions
     function bottomCheck(): boolean {
-        return input.getBoundingClientRect().bottom + dropdown.offsetHeight <= window.innerHeight &&
-          input.getBoundingClientRect().top - 1.05*rem - dropdown.offsetHeight <= 0;
+        return input.getBoundingClientRect().bottom + dropdown.offsetHeight <= window.innerHeight ||
+          input.getBoundingClientRect().top - dropdown.offsetHeight <= 0;
     }
 
     function rightCheck(): boolean {

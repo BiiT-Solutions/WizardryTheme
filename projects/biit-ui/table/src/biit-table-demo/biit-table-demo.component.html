@@ -1,3 +1,8 @@
 <biit-table
-  [basicTableData]="basicTableData"
+  [data]="filteredData"
+  [columns]="columns"
+  [pageSizes]="[5, 10, 20]"
+  [defaultPageSize]="5"
+  [loading]="loading"
+  (onUpdate)="onUpdate($event)"
   [locale]="'en'"></biit-table>

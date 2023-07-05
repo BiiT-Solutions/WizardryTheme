@@ -10,7 +10,8 @@ import {biitIcon} from 'biit-icons-collection';
 export class BiitIconButtonComponent {
 
   @Input() icon: biitIcon;
-  @Input() disabled: boolean = false;
+  @Input() disabled = false;
+  @Input() checked: boolean = false;
 
   @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();
   @Output() onDblClick: EventEmitter<Event> = new EventEmitter<Event>();

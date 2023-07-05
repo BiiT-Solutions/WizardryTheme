@@ -3,14 +3,14 @@
     <input class="input-object"
            [(ngModel)]="value"
            (ngModelChange)="this.onChange($event);"
-           (keydown.enter)="onActionPerformed.emit()"
+           (keydown.enter)="onActionPerformed.emit(value)"
            [type]="reveal ? Type.TEXT : type" required
            [class.error]="error"
            [class.reveal]="reveal"
     >
     <div *ngIf="type === Type.PASSWORD || icon" class="input-show-icon-container"
-         (click)="reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit()"
-         (keydown.enter)="reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit()"
+         (click)="reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit(value)"
+         (keydown.enter)="reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit(value)"
          tabindex="0">
       <biit-icon [name]="type === Type.PASSWORD ? 'show' : icon"
                  class="input-show-icon"

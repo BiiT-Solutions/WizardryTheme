@@ -3,7 +3,6 @@
          class="checkbox-box"
          [ngModel]="checked"
          (ngModelChange)="onModelChange($event)"
-         [disabled]="disabled"
-         [class.disabled]="disabled"/>
-  <ng-content></ng-content>
+         [disabled]="disabled"/>
+  <a><ng-content></ng-content></a>
 </label>

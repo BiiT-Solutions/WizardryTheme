@@ -1,11 +1,10 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {APP_INITIALIZER} from '@angular/core';
 import {BiitIconService} from 'biit-ui/icon';
 import {completeIconSet} from 'biit-icons-collection';
-import {BiitMultiselectModule} from 'biit-ui/inputs';
-import {BiitMultiselectComponent} from 'biit-ui/inputs';
+import {BiitMultiselectComponent, BiitMultiselectModule, BiitMultiselectType} from 'biit-ui/inputs';
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);
@@ -34,8 +33,9 @@ export default {
       {id: 4, name: 'Winter'}
     ],
     label: 'name',
-    compact: false,
     disabled: false,
+    compact: false,
+    type: BiitMultiselectType.DEFAULT,
     width: 512
   },
   argTypes: {
@@ -103,10 +103,24 @@ export default {
         type: 'boolean'
       }
     },
+    type: {
+      name: 'type',
+      type: { name: 'string', required: false },
+      defaultValue: BiitMultiselectType.DEFAULT,
+      description: 'Defines the selector design.',
+      table: {
+        type: { summary: 'string' },
+        category: 'Style'
+      },
+      options: ['default', 'icon'],
+      control: {
+        type: 'select'
+      }
+    },
     width: {
       name: 'width',
       type: { name: 'number', required: false },
-      description: 'Defines selector width (for testing purposes, doesn\'t work with compact mode).',
+      description: 'Defines selector width (for testing purposes, only for default mode).',
       table: {
         type: { summary: 'number' },
         category: 'Style'
@@ -116,12 +130,16 @@ export default {
         min: 256,
         max: 512,
         step: 1
+      },
+      if: {
+        arg: 'compact',
+        eq: false
       }
     }
   }
 } as Meta;
 
-const TemplateExpanded: Story<BiitMultiselectComponent> = (args: BiitMultiselectComponent) => ({
+const Template: Story<BiitMultiselectComponent> = (args: BiitMultiselectComponent) => ({
   props: args,
   template:`
     <div style="display:block; position: fixed; top: 50%; left: 50%; translate: -50% -50%; text-align: center;">
@@ -132,59 +150,39 @@ const TemplateExpanded: Story<BiitMultiselectComponent> = (args: BiitMultiselect
     </div>
 
     <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
-                   style="display:block; position: fixed; top: 1rem; left: 1rem; width: {{width}}px;"
-                   [disabled]="disabled" [compact]="compact"
+                   style="display:block; position: fixed; top: 1rem; left: 1rem"
+                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
+                   [disabled]="disabled" [type]="type" [compact]="compact"
     ></biit-multiselect>
 
     <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
-                   style="display:block; position: fixed; top: 1rem; right: 1rem; width: {{width}}px;"
-                   [disabled]="disabled" [compact]="compact"
+                   style="display:block; position: fixed; top: 1rem; right: 1rem"
+                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
+                   [disabled]="disabled" [type]="type" [compact]="compact"
     ></biit-multiselect>
 
     <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
-                   style="display:block; position: fixed; bottom: 1rem; left: 1rem; width: {{width}}px;"
-                   [disabled]="disabled" [compact]="compact"
+                   style="display:block; position: fixed; bottom: 1rem; left: 1rem"
+                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
+                   [disabled]="disabled" [type]="type" [compact]="compact"
     ></biit-multiselect>
 
     <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
-                   style="display:block; position: fixed; bottom: 1rem; right: 1rem; width: {{width}}px;"
-                   [disabled]="disabled" [compact]="compact"
+                   style="display:block; position: fixed; bottom: 1rem; right: 1rem"
+                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
+                   [disabled]="disabled" [type]="type" [compact]="compact"
     ></biit-multiselect>
 `
 });
 
-export const Expanded = TemplateExpanded.bind({});
+export const Default = Template.bind({});
 
-const TemplateCompact: Story<BiitMultiselectComponent> = (args: BiitMultiselectComponent) => ({
-  props: args,
-  template:`
-    <div style="display:block; position: fixed; top: 50%; left: 50%; translate: -50% -50%; text-align: center;">
-      Selected seasons:
-      <div *ngFor="let item of value">
-          <li>{{item.name}}</li>
-      </div>
-    </div>
+export const Compact = Template.bind({});
+Compact.args = {
+  compact: true
+}
 
-    <biit-multiselect [(ngModel)]="value" title="Worst season" [data]="items" value="id" label="name"
-                   style="display:block; position: fixed; top: 1rem; left: 1rem;"
-                   [disabled]="disabled" [compact]="true"
-    ></biit-multiselect>
-
-    <biit-multiselect [(ngModel)]="value" title="Worst season" [data]="items" value="id" label="name"
-                   style="display:block; position: fixed; top: 1rem; right: 1rem;"
-                   [disabled]="disabled" [compact]="true"
-    ></biit-multiselect>
-
-    <biit-multiselect [(ngModel)]="value" title="Worst season" [data]="items" value="id" label="name"
-                   style="display:block; position: fixed; bottom: 1rem; left: 1rem;"
-                   [disabled]="disabled" [compact]="true"
-    ></biit-multiselect>
-
-    <biit-multiselect [(ngModel)]="value" title="Worst season" [data]="items" value="id" label="name"
-                   style="display:block; position: fixed; bottom: 1rem; right: 1rem;"
-                   [disabled]="disabled" [compact]="true"
-    ></biit-multiselect>
-`
-});
-
-export const Compact = TemplateCompact.bind({});
+export const Icon = Template.bind({});
+Icon.args = {
+  type: BiitMultiselectType.ICON
+}

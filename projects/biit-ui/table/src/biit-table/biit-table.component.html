@@ -1,37 +1,118 @@
-<div class="options">
-  <biit-filter (filterChanged)="filter($event)" (reset)="filter('')"></biit-filter>
-  <button class="tune-button" mat-button [matMenuTriggerFor]="mainMenuButton" [matTooltipShowDelay]="500"
-          matTooltip="{{'table.fields'}}">
-    <mat-icon>tune</mat-icon>
-  </button>
-</div>
-<mat-menu #mainMenuButton="matMenu" class="table-settings">
-        <span (click)="$event.stopPropagation()" *ngFor="let column of basicTableData.columns">
-          <mat-checkbox class="menu-setting-option" (change)="toggleColumnVisibility(column)"
-                        [checked]="isColumnVisible(column)"></mat-checkbox>
-          <span class="menu-setting-option-text">{{column}}</span>
-          <br>
-        </span>
-</mat-menu>
-<div class="mat-elevation-z8">
-  <div class="basic-table">
-    <table mat-table [dataSource]="basicTableData.dataSource" class="mat-elevation-z8" matSort matSortActive="createdAt"
-           matSortDirection="desc" aria-describedby="List of items on a table view">
-      <ng-container *ngFor="let column of basicTableData.columns; let i = index">
-        <ng-container [matColumnDef]=column>
-          <th mat-header-cell *matHeaderCellDef
-              mat-sort-header={{column}}>{{basicTableData.columnsTags[i]}}</th>
-          <td mat-cell *matCellDef="let data"> {{getColumnData(data[column])}} </td>
-        </ng-container>
-      </ng-container>
+<!--<div class="biit-table">-->
+<!--  <a class="title">Table Name</a>-->
+<!--  <div *ngIf="loading" style="position: relative">-->
+<!--    <biit-progress-bar style="position: absolute; top:0.2rem; left:0.2rem; width: calc(100% - 0.2rem)"></biit-progress-bar>-->
+<!--  </div>-->
+  <div class="canvas">
+    <div class="header">
+      <div class="buttons">
+        <biit-icon-button icon="plus"
+                          (onClick)="onAddAction.emit()"
+        ></biit-icon-button>
+        <biit-icon-button icon="minus"
+                          [disabled]="!selectedRows.size"
+        ></biit-icon-button>
+        <biit-icon-button icon="edit"
+                          (onClick)="onEditAction.emit(getSelectedRows())"
+                          [disabled]="selectedRows.size !== 1"
+        ></biit-icon-button>
+      </div>
+      <div class="forms">
+        <biit-input-text [ngModel]="search"
+                         (onActionPerformed)="
+                           search = $event;
+                           this.paginator.currentPage = 1;
+                           onTableUpdate();
+                         "
+                         (focusout)="$event.target.value = search"
+                         icon="search"
+                         placeholder="Search"
+        ></biit-input-text>
+        <biit-multiselect [ngModel]="columns | visibleColumns"
+                          (ngModelChange)="setColumnVisibility($event)"
+                          [data]="columns"
+                          label="label"
+                          value="visible"
+                          title="Column selector"
+                          type="icon"
+                          [compact]="true"
+        ></biit-multiselect>
+      </div>
+    </div>
 
-      <tr mat-header-row *matHeaderRowDef="basicTableData.visibleColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: basicTableData.visibleColumns;"
-          (click)="basicTableData.selection.toggle(row); setSelectedItem(row)" (mouseover)="row.hovered=true"
-          [ngClass]="{hovered: row.hovered, highlighted: basicTableData.selection.isSelected(row)}"
-          (mouseout)="row.hovered=false"></tr>
-    </table>
-    <mat-paginator [pageSize]="getDefaultPageSize()" [pageSizeOptions]="[10, 20, 50]" (page)="onPaginateChange($event)"
-                   showFirstLastButtons></mat-paginator>
+    <div class="content">
+      <table>
+        <thead>
+          <tr>
+            <th *ngIf="selectable" class="select">
+              <biit-checkbox [ngModel]="data?.data.length && selectedRows.size == data?.data.length"
+                             (ngModelChange)="$event ? data?.data.forEach(selectedRows.add, selectedRows) : selectedRows.clear()"
+              ></biit-checkbox>
+            </th>
+            <th *ngFor="let column of columns, index as i"
+                [class.sortable]="sortable"
+                [style.display]="!column.visible ? 'none' : null"
+                [style.width]="column.width ? column.width + 'px' : ''"
+                (click)="onTableSort(column)"
+            >
+              <div class="label">
+                {{column.label}}
+              </div>
+              <biit-icon *ngIf="sortable"
+                         [name]="sorting?.name == column.name ? 'right_arrow' : 'up_down_arrow'"
+                         [pathStyle]="{fill: '#FFFFFF'}"
+                         class="sort"
+                         [class.asc]="sorting?.name == column.name && sorting?.order == 'asc'"
+                         [class.desc]="sorting?.name == column.name && sorting?.order == 'desc'"
+              ></biit-icon>
+              <div class="column-resizer"
+                   (mousedown)="resizeColumn($event, column, i)"
+                   (click)="$event.preventDefault();
+                            $event.stopPropagation();
+                            $event.stopImmediatePropagation();"
+              ></div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data?.data; index as i"
+              [class.selectable]="selectable"
+              [class.selected]="selectedRows.has(item)"
+          >
+              <td *ngIf="selectable" class="select">
+                <biit-checkbox id="select{{i}}"
+                               [ngModel]="selectedRows.has(item)"
+                               (ngModelChange)="$event ? selectedRows.add(item) : selectedRows.delete(item)"
+                ></biit-checkbox>
+              </td>
+              <td *ngFor="let column of columns"
+                  (pointerdown)="selectRow(item, $event.ctrlKey)"
+                  [style.display]="!column.visible ? 'none' : null"
+                  [style.width]="column.width ? column.width + 'px' : null"
+              >
+                <div *ngIf="column.format == 'default'">
+                  {{item[column.name]}}
+                </div>
+                <div *ngIf="column.format == 'boolean'">
+                  {{item[column.name] ? 'Yes' : 'No'}}
+                </div>
+                <div *ngIf="column.format == 'date'">
+                  {{item[column.name] | localizedDate}}
+                </div>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="footer">
+      <div class="selected">
+        <a style="margin-right: 0.7rem" *ngIf="selectedRows.size">Selected:</a>
+        <a *ngIf="selectedRows.size">{{selectedRows.size}}</a>
+      </div>
+      <biit-paginator *ngIf="paginator"
+        [ngModel]="paginator" (ngModelChange)="paginator = $event; onTableUpdate()"></biit-paginator>
+    </div>
   </div>
-</div>
+<!--</div>-->

@@ -1,0 +1,67 @@
+<div style="display: flex; justify-content: space-between">
+  <!-- PAGE SELECTOR -->
+  <div class="page-selector">
+    <biit-icon-button icon='right_double_arrow'
+                      class="horizontal-flip"
+                      (onClick)="paginator.currentPage = 1; onModelChange();"
+                      [disabled]="paginator?.currentPage <= 1"
+    ></biit-icon-button>
+    <biit-icon-button icon='right_arrow'
+                      class="compact horizontal-flip"
+                      (onClick)="paginator.currentPage = paginator.currentPage - 1; onModelChange();"
+                      [disabled]="paginator?.currentPage <= 1"
+    ></biit-icon-button>
+    <div class="page-display" style="position: relative">
+      <input #pageInput
+             [ngModel]="paginator?.currentPage"
+             (keydown.enter)="paginator.currentPage = $event.target.value; onModelChange()"
+             (focusout)="$event.target.value = paginator.currentPage"
+             class="page-input"/>
+      <a #totalPagesLabel class="total-pages">/</a>
+      <div class="bottom-bar"></div>
+    </div>
+    <biit-icon-button icon='right_arrow'
+                      class="compact"
+                      (onClick)="paginator.currentPage = paginator.currentPage + 1; onModelChange();"
+                      [disabled]="paginator?.currentPage >= totalPages"
+    ></biit-icon-button>
+    <biit-icon-button icon='right_double_arrow'
+                      (onClick)="paginator.currentPage = totalPages; onModelChange();"
+                      [disabled]="paginator?.currentPage >= totalPages"
+    ></biit-icon-button>
+  </div>
+
+  <!-- PAGE SIZE SELECTOR -->
+  <div class="page-size-selector">
+    <a>Rows per page:</a>
+    <button #pageSizeBtn
+            (click)="!dropdownOpen ? openDropdown() : closeDropdown()"
+            (keydown)="handleKeyboardEvents($event)">
+      <a>{{paginator?.pageSize}}</a>
+      <biit-icon class="icon"
+                 [name]="'right_arrow'"
+                 [pathStyle]="{fill: dropdownOpen ? '#F20D5E' : '#262626'}"
+                 [class.rotate]="dropdownOpen"
+      ></biit-icon>
+    </button>
+    <div class="dropdown">
+      <div #pageSizeList
+           class="list"
+           [class.dropdown-open]="dropdownOpen">
+        <button *ngFor="let pageSize of paginator?.pageSizeOptions; index as i"
+                (click)="paginator.currentPage = 1; paginator.pageSize = pageSize; onModelChange()"
+                (keydown)="handleKeyboardEvents($event)"
+                [class.selected]="paginator.pageSize === pageSize"
+                class="item"
+                role="option"
+                aria-selected="false"
+                [id]="i"
+                [tabindex]="!dropdownOpen? -1 : 0"
+                [disabled]="!dropdownOpen"
+        >
+          {{pageSize}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

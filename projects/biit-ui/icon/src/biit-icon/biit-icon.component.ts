@@ -8,7 +8,7 @@ import {biitIcon} from "biit-icons-collection";
   template: `
     <ng-content></ng-content>
   `,
-  styles: [':host::ng-deep svg{width: 50px; height: 50px}'],
+  styles: [':host::ng-deep svg{width: 50px; height: 50px; display: block}'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BiitIconComponent implements OnInit {

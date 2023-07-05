@@ -14,10 +14,20 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatDialogModule} from "@angular/material/dialog";
 import {FormsModule} from "@angular/forms";
+import {BiitIconModule} from 'biit-ui/icon';
+import {BiitPaginatorModule} from '../biit-paginator/biit-paginator.module';
+import {BiitIconButtonModule} from 'biit-ui/button';
+import {BiitCheckboxModule, BiitInputTextModule, BiitMultiselectModule} from 'biit-ui/inputs';
+import {BiitProgressBarModule} from 'biit-ui/info';
+import {LocalizedDatePipeModule} from 'biit-ui/utils';
+import {VisibleColumnsPipe} from './pipes/visible-columns-pipe';
 
 
 @NgModule({
-  declarations: [BiitTableComponent],
+  declarations: [
+    BiitTableComponent,
+    VisibleColumnsPipe
+  ],
   exports: [BiitTableComponent],
   imports: [
     CommonModule,
@@ -33,7 +43,15 @@ import {FormsModule} from "@angular/forms";
     MatTooltipModule,
     BiitFilterModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    BiitIconModule,
+    BiitPaginatorModule,
+    BiitIconButtonModule,
+    BiitMultiselectModule,
+    BiitInputTextModule,
+    BiitCheckboxModule,
+    BiitProgressBarModule,
+    LocalizedDatePipeModule
   ]
 })
 export class BiitTableModule {
