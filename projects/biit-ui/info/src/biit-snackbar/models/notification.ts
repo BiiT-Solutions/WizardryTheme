@@ -3,7 +3,7 @@ import {v4 as uuid} from 'uuid';
 import {Subject} from 'rxjs';
 
 export class Notification {
-  id: uuid;
+  id: string;
   message: string = '';
   type: NotificationType = NotificationType.INFO;
   timeout: NodeJS.Timeout;

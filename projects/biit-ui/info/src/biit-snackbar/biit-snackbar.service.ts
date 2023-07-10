@@ -39,7 +39,7 @@ export class BiitSnackbarService {
     return notification;
   }
 
-  closeNotification(id: uuid): void {
+  closeNotification(id: string): void {
     const index = this.notifications.findIndex(n => n.id == id);
     this.notifications.splice(index, 1);
     this._getNotifications$.next(this.notifications);

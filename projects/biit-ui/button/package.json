@@ -1,6 +1,3 @@
 {
-  "name": "@biit-ui/button",
-  "peerDependencies": {
-    "@angular/material": "^15.1.0"
-  }
+  "name": "@biit-ui/button"
 }

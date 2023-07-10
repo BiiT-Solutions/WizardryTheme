@@ -1,5 +1,6 @@
 import {Component, Input, OnDestroy, ViewChild} from '@angular/core';
 import {Notification} from '../models/notification';
+import {BiitButtonComponent} from "biit-ui/button";
 
 @Component({
   selector: 'biit-notification',
@@ -9,7 +10,7 @@ import {Notification} from '../models/notification';
 
 export class BiitNotificationComponent implements OnDestroy {
   @Input() notification: Notification;
-  @ViewChild('action') button;
+  @ViewChild('action') button: BiitButtonComponent;
 
   // TODO: Not working yet
   // @HostListener('mouseenter')
