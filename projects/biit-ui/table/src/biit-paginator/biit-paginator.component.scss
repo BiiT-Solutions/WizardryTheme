@@ -57,6 +57,18 @@ $background-color: #D9D9D9;
       }
     }
 
+    /* Removes arrow buttons on Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Removes arrow buttons on Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
     .total-pages {
       position: absolute;
       left: calc(50% + 0.35rem);

@@ -14,8 +14,9 @@
     <div class="page-display" style="position: relative">
       <input #pageInput
              [ngModel]="paginator?.currentPage"
-             (keydown.enter)="paginator.currentPage = $event.target.value; onModelChange()"
-             (focusout)="$event.target.value = paginator.currentPage"
+             type="number"
+             (keydown.enter)="setInputValue($event); onModelChange()"
+             (focusout)="resetInputValue($event)"
              class="page-input"/>
       <a #totalPagesLabel class="total-pages">/</a>
       <div class="bottom-bar"></div>

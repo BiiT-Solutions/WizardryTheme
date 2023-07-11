@@ -33,7 +33,7 @@ const Template: Story<BiitTableComponent> = (args: BiitTableComponent) => ({
   props: args,
   template: `
     <biit-table-demo
-      [locale]="locale"
+      style="display: block; height: 500px"
     ></biit-table-demo>`
 });
 

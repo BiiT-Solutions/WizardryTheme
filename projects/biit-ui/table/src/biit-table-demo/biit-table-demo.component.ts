@@ -34,14 +34,6 @@ export class BiitTableDemoComponent implements OnInit {
     new BiitTableColumn('releaseDate', 'release date', undefined, BiitTableColumnFormat.DATE, true),
   ]
 
-  // filteredData = new BiitTableData([
-  //   { id: 1, title: 'Super Metroid', available: true, releaseDate: new Date('1994-03-19') },
-  //   { id: 2, title: 'F-Zero GX', available: false, releaseDate: new Date('2003-07-25') },
-  //   { id: 3, title: 'Paper Mario', available: true, releaseDate: new Date('2000-08-11') },
-  //   { id: 4, title: 'Pokémon SoulSilver', available: false, releaseDate: new Date('2009-09-12') },
-  //   { id: 5, title: "Geoff Crammond's Grand Prix 4", available: false, releaseDate: new Date('2002-12-09') }
-  // ], 12);
-
   filteredData;
   loading = true;
 
@@ -54,7 +46,12 @@ export class BiitTableDemoComponent implements OnInit {
         { id: 2, title: 'F-Zero GX', available: false, releaseDate: new Date('2003-07-25') },
         { id: 3, title: 'Paper Mario', available: true, releaseDate: new Date('2000-08-11') },
         { id: 4, title: 'Pokémon SoulSilver', available: false, releaseDate: new Date('2009-09-12') },
-        { id: 5, title: "Geoff Crammond's Grand Prix 4", available: false, releaseDate: new Date('2002-12-09') }
+        { id: 5, title: "Geoff Crammond's Grand Prix 4", available: false, releaseDate: new Date('2002-12-09') },
+        { id: 6, title: "Alex Kidd in Miracle World", available: false, releaseDate: new Date('1986-11-01') },
+        { id: 7, title: "Tomb Raider", available: true, releaseDate: new Date('1996-10-25') },
+        { id: 8, title: "Rayman 3: Hoodlum Havoc", available: true, releaseDate: new Date('2003-03-18') },
+        { id: 9, title: "God of War", available: true, releaseDate: new Date('2018-04-20') },
+        { id: 10, title: "S4 League", available: false, releaseDate: new Date('2008-10-09') }
       ], 12);
       this.loading = false;
     }, 3000)
@@ -79,12 +76,12 @@ export class BiitTableDemoComponent implements OnInit {
               return a[response.sorting.name] ? 1 : -1;
             }
           case BiitTableColumnFormat.DATE:
-            if (a[response.sorting.name].getTime() == b[response.sorting.name].getTime())
+            if (new Date(a[response.sorting.name]).getTime() == new Date(b[response.sorting.name]).getTime())
               return 0;
             if (response.sorting.order == 'asc') {
-              return a[response.sorting.name].getTime() > b[response.sorting.name].getTime() ? 1 : -1;
+              return (new Date(a[response.sorting.name]).getTime() > new Date(b[response.sorting.name]).getTime()) ? 1 : -1;
             } else {
-              return a[response.sorting.name].getTime() > b[response.sorting.name].getTime() ? -1 : 1;
+              return (new Date(a[response.sorting.name]).getTime() > new Date(b[response.sorting.name]).getTime()) ? -1 : 1;
             }
           default:
             if (a[response.sorting.name] == b[response.sorting.name])

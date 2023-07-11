@@ -5,6 +5,7 @@ import {ColumnResizeHandler} from './models/column-resize-handler';
 import {BiitTableResponse} from './models/biit-table-response';
 import {BiitTableData} from './models/biit-table-data';
 import {BiitTableSorting, BiitTableSortingOrder} from './models/biit-table-sorting';
+import {BiitMultiselectType} from 'biit-ui/inputs';
 
 @Component({
   selector: 'biit-table',
@@ -40,6 +41,7 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   protected selectedRows: Set<any> = new Set<any>();
   protected columnResize: ColumnResizeHandler = new ColumnResizeHandler();
   protected search: string = '';
+  protected readonly BiitMultiselectType = BiitMultiselectType;
 
   constructor(private renderer: Renderer2,
               private elem: ElementRef) { }
@@ -54,6 +56,9 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
 
   // Fix for resizable columns
   private setColumnSize() {
+    // Takes scrollbar padding in mind before hardcoding widths
+    this.elem.nativeElement.querySelector('.content').style.paddingRight = '0.7rem';
+
     Array.from(this.elem.nativeElement.querySelector('thead').firstChild.children).forEach(ogColumn => {
       const column = ogColumn as HTMLElement;
 
@@ -68,6 +73,7 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
         column.style.width = column.offsetWidth - 10 + 'px';
       }
     });
+    this.elem.nativeElement.querySelector('.content').style.paddingRight = null;
   }
 
   columnInnerWordFitCheck(column: HTMLElement) {
@@ -169,6 +175,10 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
 
   getSelectedRows(): any[] {
     return [...this.selectedRows];
+  }
+
+  resetInputValue(event: Event, value: string) {
+    (event.target as HTMLInputElement).value = value;
   }
 
   log(value) {

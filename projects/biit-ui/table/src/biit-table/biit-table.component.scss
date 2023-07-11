@@ -2,170 +2,157 @@ $text-color: #262626;
 $hover-color: #EDEDED;
 $background-color: #D9D9D9;
 
-//.biit-table {
-//  display: flex;
-//  flex-direction: column;
-//
-//  > .title {
-//    display: block;
-//    height: 2.1rem;
-//    box-sizing: border-box;
-//    padding-left: 1.05rem;
-//    margin-bottom: 0.7rem;
-//    font-size: 1.5rem;
-//    font-weight: bolder;
-//    text-transform: uppercase;
-//    vertical-align: center;
-//  }
+.canvas {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  row-gap: 1.05rem;
 
-  //> .canvas {
-  .canvas {
+  > .header {
     display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    //background: white;
-    //border: $text-color solid 0.2rem;
-    //padding: 1.05rem;
-    row-gap: 1.05rem;
+    flex-direction: row;
+    justify-content: space-between;
 
-    > .header {
+    > * {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-
-      > * {
-        display: flex;
-        flex-direction: row;
-      }
-
-      > .forms {
-        column-gap: 0.7rem;
-
-        ::ng-deep biit-input-text .biit-input {
-          min-height: 0;
-          padding-top: 0;
-        }
-      }
     }
 
-    > .content {
-      overflow: auto;
-      width: calc(100% + 0.4rem);
-      height: 100%;
-      margin-left: -0.2rem;
-      display: flex;
+    > .forms {
+      column-gap: 0.7rem;
 
-      * {
-        box-sizing: border-box;
+      ::ng-deep biit-input-text .biit-input {
+        min-height: 0;
+        padding-top: 0;
+      }
+    }
+  }
+
+  > .content {
+    overflow: auto;
+    width: calc(100% + 0.4rem);
+    margin-left: -0.2rem;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    * {
+      box-sizing: border-box;
+    }
+
+    > table {
+      width: 100%;
+      height: fit-content;
+      margin-top: -0.2rem;
+      table-layout: fixed;
+      border-spacing: 0.2rem;
+
+      thead {
+        text-transform: uppercase;
+        position: sticky;
+        top: 0;
+        background: white;
+
+        th {
+          position: relative;
+          height: 2.1rem;
+          color: white;
+          font-weight: 500;
+          background: $text-color;
+          padding: 0.4rem 2.4rem;
+          text-align: center;
+          text-align: -moz-center;
+          text-align: -webkit-center;
+          cursor: default;
+
+          &.select {
+            width: 2.1rem;
+            padding: 0.3rem 0.7rem;
+            background: white;
+          }
+
+          &.sortable {
+            cursor: pointer;
+            user-select: none;
+          }
+
+          > .column-resizer {
+            position: absolute;
+            right: -0.2rem;
+            top: 0;
+            height: 100%;
+            width: 0.6rem;
+            cursor: col-resize;
+          }
+
+          > .label {
+            width: fit-content;
+          }
+
+          > .sort {
+            position: absolute;
+            width: 0.7rem;
+            height: 0.7rem;
+            top: calc(50% - 0.35rem);
+            right: 0.7rem;
+            pointer-events: none;
+
+            &.asc {
+              rotate: -90deg;
+            }
+
+            &.desc {
+              rotate: 90deg;
+            }
+          }
+        }
       }
 
-      > table {
-        width: 100%;
-        table-layout: fixed;
-        border-spacing: 0.2rem;
+      tbody {
+        tr {
+          cursor: default;
 
-        thead {
-          text-transform: uppercase;
+          &.selected {
+            background: $background-color;
+          }
 
-          th {
-            position: relative;
+          &:hover {
+            background: $hover-color;
+
+            &.selectable {
+              cursor:pointer;
+            }
+          }
+
+          > td {
             height: 2.1rem;
-            color: white;
-            font-weight: 500;
-            background: $text-color;
-            padding: 0.4rem 2.4rem;
-            text-align: center;
-            text-align: -moz-center;
-            text-align: -webkit-center;
-            cursor: default;
+            border-bottom: 0.2rem solid $text-color;
+            padding: 0.3rem 0.7rem;
 
             &.select {
               width: 2.1rem;
               padding: 0.3rem 0.7rem;
-              background: transparent;
-            }
-
-            &.sortable {
-              cursor: pointer;
-              user-select: none;
-            }
-
-            > .column-resizer {
-              position: absolute;
-              right: -0.2rem;
-              top: 0;
-              height: 100%;
-              width: 0.6rem;
-              cursor: col-resize;
-            }
-
-            > .label {
-              width: fit-content;
-            }
-
-            > .sort {
-              position: absolute;
-              width: 0.7rem;
-              height: 0.7rem;
-              top: calc(50% - 0.35rem);
-              right: 0.7rem;
-              pointer-events: none;
-
-              &.asc {
-                rotate: -90deg;
-              }
-
-              &.desc {
-                rotate: 90deg;
-              }
             }
           }
         }
-
-        tbody {
-          tr {
-            cursor: default;
-
-            &.selected {
-              background: $background-color;
-            }
-
-            &:hover {
-              background: $hover-color;
-
-              &.selectable {
-                cursor:pointer;
-              }
-            }
-
-            > td {
-              height: 2.1rem;
-              border-bottom: 0.2rem solid $text-color;
-              padding: 0.3rem 0.7rem;
-
-              &.select {
-                width: 2.1rem;
-                padding: 0.3rem 0.7rem;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    > .footer {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-
-      > biit-paginator {
-        width: 50%;
-        display: block;
       }
     }
   }
-//}
+
+  > .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    > biit-paginator {
+      width: 50%;
+      display: block;
+    }
+  }
+}
 
 /*
   PAGE SELECTOR CENTERING FIX
@@ -174,47 +161,3 @@ $background-color: #D9D9D9;
 ::ng-deep .page-selector {
   transform: translateX(-50%);
 }
-
-/*
-  MISC
- */
-
-.options {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: flex-end;
-  margin-bottom: 20px;
-}
-
-.separator {
-  display: inline-block;
-}
-
-table {
-  width: 100%;
-  min-width: 600px;
-}
-
-.menu-setting-option {
-  padding: 5px;
-}
-
-.menu-setting-option-text {
-  color: var(--text-color);
-}
-
-.mat-header-cell {
-  text-align: center;
-  padding: 8px 20px 8px 20px !important;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-  border-right: 1px solid currentColor;
-  font-size: medium;
-}
-
-.disabled {
-  opacity: 0.6;
-}
-

@@ -1,8 +1,10 @@
-<biit-table
-  [data]="filteredData"
-  [columns]="columns"
-  [pageSizes]="[5, 10, 20]"
-  [defaultPageSize]="5"
-  [loading]="loading"
-  (onUpdate)="onUpdate($event)"
-  [locale]="'en'"></biit-table>
+<div style="display: block; height: inherit">
+  <biit-table
+    [data]="filteredData"
+    [columns]="columns"
+    [pageSizes]="[5, 10, 20]"
+    [defaultPageSize]="10"
+    [loading]="loading"
+    (onUpdate)="onUpdate($event)"
+  ></biit-table>
+</div>

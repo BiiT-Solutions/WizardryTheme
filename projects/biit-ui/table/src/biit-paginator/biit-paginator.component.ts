@@ -187,4 +187,12 @@ export class BiitPaginatorComponent {
       }
     }
   }
+
+  setInputValue(event: Event) {
+    this.paginator.currentPage = parseFloat((event.target as HTMLInputElement).value);
+  }
+
+  resetInputValue(event: Event) {
+    (event.target as HTMLInputElement).value = this.paginator.currentPage.toString();
+  }
 }

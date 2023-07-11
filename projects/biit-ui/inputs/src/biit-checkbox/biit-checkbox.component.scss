@@ -29,7 +29,7 @@ label {
     -webkit-appearance: none;
     appearance: none;
     /* For iOS < 15 to remove gradient background */
-    background-color: #fff;
+    background-color: transparent;
 
     font: inherit;
     width: $_14px;
@@ -44,11 +44,9 @@ label {
     -webkit-transition:0.2s ease all;
 
     &:hover {
-      transform: rotate(15deg);
       border: $_3px solid $selected-color;
     }
     &:checked {
-      transform: rotate(45deg);
       border: $_3px solid $selected-color;
       background: $selected-color;
     }
@@ -56,7 +54,6 @@ label {
       border: $_3px solid $disabled-color;
     }
     &:checked:disabled {
-      transform: rotate(45deg);
       border: $_3px solid $disabled-color;
       background: $disabled-color;
     }
