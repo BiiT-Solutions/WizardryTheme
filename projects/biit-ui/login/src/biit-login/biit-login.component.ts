@@ -2,12 +2,16 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Type} from 'biit-ui/inputs';
 import {BiitLogin} from "biit-ui/models";
 import {LoginErrors} from "./models/LoginErrors";
-import {TranslocoService} from "@ngneat/transloco";
+import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
 
 @Component({
   selector: 'biit-login',
   templateUrl: './biit-login.component.html',
-  styleUrls: ['./biit-login.component.scss']
+  styleUrls: ['./biit-login.component.scss'],
+  providers: [{
+    provide: TRANSLOCO_SCOPE,
+    useValue: {scope: 'biit-ui/login', alias: "login"}
+  }]
 })
 export class BiitLoginComponent {
 

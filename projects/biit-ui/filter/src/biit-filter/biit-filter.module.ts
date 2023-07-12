@@ -21,11 +21,7 @@ import {TranslocoRootModule} from "biit-ui/i18n";
     MatButtonModule,
     BrowserAnimationsModule,
     TranslocoRootModule
-  ],
-  providers: [{
-    provide: TRANSLOCO_SCOPE,
-    useValue: {scope: 'biit-ui/filter', alias: "filter"}
-  }]
+  ]
 })
 export class BiitFilterModule {
 }

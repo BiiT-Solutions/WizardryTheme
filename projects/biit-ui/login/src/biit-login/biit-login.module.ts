@@ -25,10 +25,6 @@ import {TranslocoRootModule} from "biit-ui/i18n";
     TranslocoRootModule
   ], exports: [
     BiitLoginComponent
-  ],
-  providers: [{
-    provide: TRANSLOCO_SCOPE,
-    useValue: {scope: 'biit-ui/login', alias: "login"}
-  }]
+  ]
 })
 export class BiitLoginModule { }
