@@ -23,7 +23,9 @@ export class BiitLoginComponent {
   protected loginErrors: Map<LoginErrors, string>;
 
   constructor(public translocoService: TranslocoService) {
-    this.login = new BiitLogin();
+    if (!this.login) {
+      this.login = new BiitLogin();
+    }
     this.onLogin = new EventEmitter<BiitLogin>();
     this.onNotRemember = new EventEmitter<void>();
     this.loginErrors = new Map<LoginErrors, string>();
