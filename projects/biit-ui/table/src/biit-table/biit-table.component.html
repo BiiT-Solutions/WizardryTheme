@@ -21,14 +21,14 @@
                        "
                        (focusout)="resetInputValue($event, search)"
                        icon="search"
-                       placeholder="Search"
+                       placeholder="{{'table.search' | transloco}}"
       ></biit-input-text>
       <biit-multiselect [ngModel]="columns | visibleColumns"
                         (ngModelChange)="setColumnVisibility($event)"
                         [data]="columns"
                         label="label"
                         value="visible"
-                        title="Column selector"
+                        title="{{'table.column-selector' | transloco}}"
                         [type]="BiitMultiselectType.ICON"
                         [compact]="true"
       ></biit-multiselect>

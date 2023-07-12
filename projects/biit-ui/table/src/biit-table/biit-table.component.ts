@@ -26,9 +26,9 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   @Input() pageSizes: number[] = [];
   @Input() defaultPageSize: number;
   @Input() locale: string = 'en';
-  @Input() selectable: boolean = true;
-  @Input() sortable: boolean = true;
   @Input() loading: boolean = false;
+  selectable: boolean = false;
+  sortable: boolean = false;
 
   @Output() onUpdate: EventEmitter<BiitTableResponse> = new EventEmitter<BiitTableResponse>();
   @Output() onAddAction: EventEmitter<void> = new EventEmitter<void>();

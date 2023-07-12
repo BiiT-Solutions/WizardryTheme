@@ -28,6 +28,7 @@ export class BiitPaginatorComponent {
   protected totalPages: number;
   protected dropdownOpen = false;
 
+  @ViewChild('pageSelector') pageSelector: ElementRef;
   @ViewChild('pageSizeBtn') selectorBtn: ElementRef;
   @ViewChild('pageSizeList') selectorList: ElementRef;
   @ViewChild('pageInput') pageInput: ElementRef;
@@ -186,6 +187,8 @@ export class BiitPaginatorComponent {
           + 'px';
       }
     }
+
+    this.refreshCenterStyle();
   }
 
   setInputValue(event: Event) {
@@ -194,5 +197,10 @@ export class BiitPaginatorComponent {
 
   resetInputValue(event: Event) {
     (event.target as HTMLInputElement).value = this.paginator.currentPage.toString();
+  }
+
+  refreshCenterStyle() {
+    const width = this.pageSelector.nativeElement.offsetWidth;
+    this.pageSelector.nativeElement.style.setProperty("--center-fix", -(width/2) + 'px');
   }
 }
