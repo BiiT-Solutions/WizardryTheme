@@ -20,6 +20,7 @@ export class BiitInputTextComponent implements ControlValueAccessor{
   @Input() error: string;
   @Input() type: Type;
   @Input() icon: biitIcon;
+  @Input() name: string;
   @Output() onActionPerformed: EventEmitter<string> = new EventEmitter<string>();
 
   reveal: boolean = false;
