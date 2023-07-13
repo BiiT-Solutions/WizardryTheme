@@ -7,7 +7,7 @@
      </div>
    </div>
    <div class="login-column">
-     <biit-input-text [(ngModel)]="login.username" fieldName="username" [error]="this.loginErrors.get(LoginError.USERNAME)"
+     <biit-input-text [(ngModel)]="login.username" fieldName="username" [type]="Type.TEXT" [error]="this.loginErrors.get(LoginError.USERNAME)"
                       placeholder="{{'login.username' | transloco}}" class="login-input"></biit-input-text>
      <biit-input-text [(ngModel)]="login.password" fieldName="password" [error]="this.loginErrors.get(LoginError.PASSWORD)"
                       (keyup.enter)="performLogin()"
