@@ -5,7 +5,7 @@
            (ngModelChange)="this.onChange($event);"
            (keydown.enter)="onActionPerformed.emit(value)"
            [type]="reveal ? Type.TEXT : type" required
-           [name]="fieldName"
+           [attr.name]="fieldName"
            [class.error]="error"
            [class.reveal]="reveal"
     >
