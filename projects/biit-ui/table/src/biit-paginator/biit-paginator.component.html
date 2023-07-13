@@ -1,15 +1,17 @@
 <div style="display: flex; justify-content: space-between">
   <!-- PAGE SELECTOR -->
-  <div class="page-selector">
+  <div #pageSelector class="page-selector">
     <biit-icon-button icon='right_double_arrow'
                       class="horizontal-flip"
                       (onClick)="paginator.currentPage = 1; onModelChange();"
                       [disabled]="paginator?.currentPage <= 1"
+                      tooltip="{{'table.first-page' | transloco}}"
     ></biit-icon-button>
     <biit-icon-button icon='right_arrow'
                       class="compact horizontal-flip"
                       (onClick)="paginator.currentPage = paginator.currentPage - 1; onModelChange();"
                       [disabled]="paginator?.currentPage <= 1"
+                      tooltip="{{'table.previous-page' | transloco}}"
     ></biit-icon-button>
     <div class="page-display" style="position: relative">
       <input #pageInput
@@ -25,16 +27,19 @@
                       class="compact"
                       (onClick)="paginator.currentPage = paginator.currentPage + 1; onModelChange();"
                       [disabled]="paginator?.currentPage >= totalPages"
+                      tooltip="{{'table.next-page' | transloco}}"
     ></biit-icon-button>
     <biit-icon-button icon='right_double_arrow'
                       (onClick)="paginator.currentPage = totalPages; onModelChange();"
                       [disabled]="paginator?.currentPage >= totalPages"
+                      tooltip="{{'table.last-page' | transloco}}"
     ></biit-icon-button>
   </div>
 
   <!-- PAGE SIZE SELECTOR -->
   <div class="page-size-selector">
-    <a>Rows per page:</a>
+    <a
+      tooltip="Next page">{{'table.rows-per-page' | transloco}}</a>
     <button #pageSizeBtn
             (click)="!dropdownOpen ? openDropdown() : closeDropdown()"
             (keydown)="handleKeyboardEvents($event)">
