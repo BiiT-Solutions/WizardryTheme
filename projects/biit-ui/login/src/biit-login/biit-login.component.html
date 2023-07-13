@@ -7,9 +7,9 @@
      </div>
    </div>
    <div class="login-column">
-     <biit-input-text [(ngModel)]="login.username" name="username" [error]="this.loginErrors.get(LoginError.USERNAME)"
+     <biit-input-text [(ngModel)]="login.username" fieldName="username" [error]="this.loginErrors.get(LoginError.USERNAME)"
                       placeholder="{{'login.username' | transloco}}" class="login-input"></biit-input-text>
-     <biit-input-text [(ngModel)]="login.password" name="password" [error]="this.loginErrors.get(LoginError.PASSWORD)"
+     <biit-input-text [(ngModel)]="login.password" fieldName="password" [error]="this.loginErrors.get(LoginError.PASSWORD)"
                       (keyup.enter)="performLogin()"
                       placeholder="{{'login.password' | transloco}}" [type]="Type.PASSWORD" class="login-input"></biit-input-text>
      <biit-toggle
