@@ -42,13 +42,13 @@
     <table>
       <thead>
         <tr>
-          <th *ngIf="selectable" class="select">
+          <th *ngIf="isSelectable" class="select">
             <biit-checkbox [ngModel]="data?.data.length && selectedRows.size == data?.data.length"
                            (ngModelChange)="$event ? data?.data.forEach(selectedRows.add, selectedRows) : selectedRows.clear()"
             ></biit-checkbox>
           </th>
           <th *ngFor="let column of columns, index as i"
-              [class.sortable]="sortable"
+              [class.sortable]="isSortable"
               [style.display]="!column.visible ? 'none' : null"
               [style.width]="column.width ? column.width + 'px' : ''"
               (click)="onTableSort(column)"
@@ -56,7 +56,7 @@
             <div class="label">
               {{column.label}}
             </div>
-            <biit-icon *ngIf="sortable"
+            <biit-icon *ngIf="isSortable"
                        [name]="sorting?.name == column.name ? 'right_arrow' : 'up_down_arrow'"
                        [pathStyle]="{fill: '#FFFFFF'}"
                        class="sort"
@@ -74,10 +74,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of data?.data; index as i"
-            [class.selectable]="selectable"
+            [class.selectable]="isSelectable"
             [class.selected]="selectedRows.has(item)"
         >
-            <td *ngIf="selectable" class="select">
+            <td *ngIf="isSelectable" class="select">
               <biit-checkbox id="select{{i}}"
                              [ngModel]="selectedRows.has(item)"
                              (ngModelChange)="$event ? selectedRows.add(item) : selectedRows.delete(item)"
