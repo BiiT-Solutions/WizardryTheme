@@ -1,4 +1,14 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Directive,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  Renderer2
+} from '@angular/core';
 import {BiitPaginatorOptions} from '../biit-paginator/models/biit-paginator-options';
 import {BiitTableColumn} from './models/biit-table-column';
 import {ColumnResizeHandler} from './models/column-resize-handler';
@@ -6,6 +16,24 @@ import {BiitTableResponse} from './models/biit-table-response';
 import {BiitTableData} from './models/biit-table-data';
 import {BiitTableSorting, BiitTableSortingOrder} from './models/biit-table-sorting';
 import {BiitMultiselectType} from 'biit-ui/inputs';
+
+@Directive({
+  selector: '[selectable]'
+})
+export class BiitTableSelectableDirective {
+  constructor(private parent: BiitTableComponent) {
+    parent.isSelectable = true;
+  }
+}
+
+@Directive({
+  selector: '[sortable]'
+})
+export class BiitTableSortableDirective {
+  constructor(private parent: BiitTableComponent) {
+    parent.isSortable = true;
+  }
+}
 
 @Component({
   selector: 'biit-table',
@@ -26,9 +54,9 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   @Input() pageSizes: number[] = [];
   @Input() defaultPageSize: number;
   @Input() locale: string = 'en';
-  @Input() selectable: boolean = true;
-  @Input() sortable: boolean = true;
   @Input() loading: boolean = false;
+  isSelectable: boolean = false;
+  isSortable: boolean = false;
 
   @Output() onUpdate: EventEmitter<BiitTableResponse> = new EventEmitter<BiitTableResponse>();
   @Output() onAddAction: EventEmitter<void> = new EventEmitter<void>();
@@ -123,7 +151,7 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
     this.columnResize.startX = event.x;
     this.columnResize.startWidth = (this.columnResize.start.parentNode as HTMLElement).offsetWidth;
 
-    let columnElem = this.elem.nativeElement.querySelector('thead').firstChild.children[this.selectable ? index + 1 : index];
+    let columnElem = this.elem.nativeElement.querySelector('thead').firstChild.children[this.isSelectable ? index + 1 : index];
     this.columnResize.minWidth = (columnElem.firstElementChild as HTMLElement).offsetWidth
       + 2.4 * parseFloat(getComputedStyle(document.documentElement).fontSize) * 2;
 

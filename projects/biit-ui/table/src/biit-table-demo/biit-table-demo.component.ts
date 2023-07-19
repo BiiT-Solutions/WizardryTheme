@@ -29,9 +29,9 @@ export class BiitTableDemoComponent implements OnInit {
 
   columns = [
     new BiitTableColumn('id', 'ID', 50, undefined, true),
-    new BiitTableColumn('title', 'title', undefined, undefined, true),
-    new BiitTableColumn('available', 'available', undefined, BiitTableColumnFormat.BOOLEAN, true),
-    new BiitTableColumn('releaseDate', 'release date', undefined, BiitTableColumnFormat.DATE, true),
+    new BiitTableColumn('title', 'Title', undefined, undefined, true),
+    new BiitTableColumn('available', 'Available', undefined, BiitTableColumnFormat.BOOLEAN, true),
+    new BiitTableColumn('releaseDate', 'Release date', undefined, BiitTableColumnFormat.DATE, true),
   ]
 
   filteredData;

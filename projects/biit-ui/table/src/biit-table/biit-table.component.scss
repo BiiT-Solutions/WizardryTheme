@@ -153,11 +153,3 @@ $background-color: #D9D9D9;
     }
   }
 }
-
-/*
-  PAGE SELECTOR CENTERING FIX
- */
-
-::ng-deep .page-selector {
-  transform: translateX(-50%);
-}

@@ -4,6 +4,7 @@ import {BiitTableDemoModule} from '../../../projects/biit-ui/table/src/biit-tabl
 import {APP_INITIALIZER} from '@angular/core';
 import {completeIconSet} from 'biit-icons-collection';
 import {BiitIconService} from 'biit-ui/icon';
+import {TranslocoStorybookModule} from '../../app/transloco/transloco-storybook.module';
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);
@@ -29,12 +30,16 @@ export default {
   }
 } as Meta;
 
-const Template: Story<BiitTableComponent> = (args: BiitTableComponent) => ({
-  props: args,
-  template: `
+const Template: Story<BiitTableComponent> = (args: BiitTableComponent, { globals }) => {
+  TranslocoStorybookModule.setLanguage(globals);
+  return {
+    globals,
+    props: args,
+    template: `
     <biit-table-demo
       style="display: block; height: 500px"
     ></biit-table-demo>`
-});
+  }
+};
 
 export const Default = Template.bind({});

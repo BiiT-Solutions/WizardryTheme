@@ -2,5 +2,11 @@
   "name": "@biit-ui/table",
   "peerDependencies": {
     "@angular/material": "^15.1.0"
-  }
+  },
+  "i18n": [
+    {
+      "scope": "table",
+      "path": "src/i18n"
+    }
+  ]
 }

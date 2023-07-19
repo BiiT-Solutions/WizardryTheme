@@ -3,19 +3,15 @@ $hover-color: #EDEDED;
 $background-color: #D9D9D9;
 
 /*
-  PAGE SELECTOR CENTERING FIX:
-    To center the page selector, put this on your css:
-      ::ng-deep .page-selector {
-        transform: translateX(-50%);
-      }
- */
-
-/*
   PAGE SELECTOR
  */
 
 .page-selector {
+  --center-fix: 0px;
+
   display: flex;
+  position: relative;
+  left: var(--center-fix);
 
   biit-icon-button {
     &.horizontal-flip {

@@ -1,11 +1,16 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Subject} from "rxjs";
 import {FilterResetService} from "./filter-reset.service";
+import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 
 @Component({
   selector: 'biit-filter',
   templateUrl: './biit-filter.component.html',
   styleUrls: ['./biit-filter.component.scss'],
+  providers: [{
+    provide: TRANSLOCO_SCOPE,
+    useValue: {scope: 'biit-ui/filter', alias: "filter"}
+  }]
 })
 export class BiitFilterComponent implements OnInit {
 
