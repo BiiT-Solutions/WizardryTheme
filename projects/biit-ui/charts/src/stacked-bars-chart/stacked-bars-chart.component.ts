@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -7,12 +7,15 @@ import {
   ApexLegend,
   ApexPlotOptions,
   ApexTitleSubtitle,
+  ApexTooltip,
   ApexXAxis,
   ApexYAxis,
   ChartComponent
 } from "ng-apexcharts";
 import {StackedBarChartData, StackedBarChartDataElement, StackedBarsData} from "./stacked-bars-chart-data";
 import {Colors} from "../colors";
+import {CustomChartComponent} from "../custom-chart-component";
+import {ApexTheme} from "ng-apexcharts/lib/model/apex-types";
 
 
 type StackedBarsChartOptions = {
@@ -21,26 +24,33 @@ type StackedBarsChartOptions = {
   labels: ApexDataLabels;
   fill: ApexFill;
   plotOptions: ApexPlotOptions;
+  tooltip: ApexTooltip;
   xaxis: ApexXAxis;
   yaxis: ApexYAxis;
   title: ApexTitleSubtitle;
   legend: ApexLegend;
+  theme: ApexTheme;
 };
+
+type UpdateBarsChartOptions = {
+  xaxis: ApexXAxis;
+};
+
 
 @Component({
   selector: 'app-stacked-bars-chart',
   templateUrl: './stacked-bars-chart.component.html',
   styleUrls: ['./stacked-bars-chart.component.scss']
 })
-export class StackedBarsChartComponent implements OnInit {
+export class StackedBarsChartComponent extends CustomChartComponent {
 
   @ViewChild('chart')
   chart!: ChartComponent;
 
-  public stackedBarsChartOptions!: StackedBarsChartOptions;
+  public chartOptions: StackedBarsChartOptions;
 
   @Input()
-  public stackedBarChartData: StackedBarChartData;
+  public data: StackedBarChartData;
   @Input()
   public width: number = 500;
   @Input()
@@ -79,87 +89,60 @@ export class StackedBarsChartComponent implements OnInit {
   public stackType: '100%' | 'normal' = "normal";
 
   constructor() {
-    this.stackedBarChartData = StackedBarChartData.fromMultipleDataElements([
+    super();
+    this.data = StackedBarChartData.fromMultipleDataElements([
       new StackedBarChartDataElement([["Value1", 5], ["Value2", 4], ["Value3", 1]], "Group1"),
       new StackedBarChartDataElement([["Value1", 1], ["Value2", 2], ["Value3", 3]], "Group2")]);
   }
 
-  ngOnInit() {
-    this.setProperties();
+  protected setProperties(): void {
+    this.chartOptions = {
+      chart: this.getChart('bar', this.width, this.shadow, this.showToolbar),
+      series: this.setColors(this.data.getData()),
+      labels: this.getLabels(this.showValuesLabels),
+      fill: this.getFill(this.fill),
+      plotOptions: this.getPlotOptions(),
+      tooltip: this.getTooltip(),
+      xaxis: this.getXAxis(this.data.getLabels(), this.xAxisOnTop ? 'top' : 'bottom', this.xAxisTitle),
+      yaxis: this.getYAxis(this.showYAxis, this.yAxisTitle),
+      title: this.getTitle(this.title, this.titleAlignment),
+      legend: this.getLegend(this.legendPosition),
+      theme: this.getTheme()
+    };
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    this.setProperties();
-  }
-
-  private setProperties(): void {
-    this.stackedBarsChartOptions = {
-      chart: {
-        width: this.width,
-        type: "bar",
-        toolbar: {
-          show: this.showToolbar,
-        },
-        stacked: true,
-        stackType: this.stackType,
-        dropShadow: {
-          enabled: this.shadow,
-          color: '#000',
-          top: 0,
-          left: 7,
-          blur: 10,
-          opacity: 0.2
-        },
-      },
-      series: this.setColors(this.stackedBarChartData.getData()),
-      labels: {
-        enabled: this.showValuesLabels
-      },
-      fill: {
-        type: this.fill,
-      },
-      plotOptions: {
-        bar: {
-          distributed: false, // this line is mandatory for using colors
-          horizontal: this.horizontal,
-          barHeight: this.barThicknessPercentage + '%',
-          columnWidth: this.barThicknessPercentage + '%',
-          borderRadius: this.borderRadius,
-          dataLabels: {
-            total: {
-              enabled: this.enableTotals,
-              style: {
-                fontWeight: 900
-              }
+  protected getPlotOptions(): ApexPlotOptions {
+    return {
+      bar: {
+        distributed: false, // this line is mandatory for using colors
+        horizontal: this.horizontal,
+        barHeight: this.barThicknessPercentage + '%',
+        columnWidth: this.barThicknessPercentage + '%',
+        borderRadius: this.borderRadius,
+        dataLabels: {
+          total: {
+            enabled: this.enableTotals,
+            style: {
+              fontWeight: 900
             }
           }
         }
-      },
+      }
+    }
+  }
+
+  update(data: StackedBarChartData) {
+    this.chart.updateSeries(this.setColors(data.getData()), true);
+    const updateOptions: UpdateBarsChartOptions = {
       xaxis: {
-        categories: this.stackedBarChartData.getLabels(),
+        categories: data.getLabels(),
         position: this.xAxisOnTop ? 'top' : 'bottom',
         title: {
           text: this.xAxisTitle
         }
-      },
-      yaxis: {
-        show: this.showYAxis,
-        title: {
-          text: this.yAxisTitle
-        },
-      },
-      title: {
-        text: this.title,
-        align: this.titleAlignment
-      },
-      legend: {
-        position: this.legendPosition
-      },
-    };
-  }
-
-  update(data: StackedBarChartData) {
-    this.chart.updateSeries(data.getData());
+      }
+    }
+    this.chart.updateOptions(updateOptions);
   }
 
   setColors(data: StackedBarsData[]): StackedBarsData[] {

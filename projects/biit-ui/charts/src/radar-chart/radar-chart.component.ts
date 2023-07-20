@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {Component, Input, SimpleChanges, ViewChild} from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -9,12 +9,15 @@ import {
   ApexPlotOptions,
   ApexStroke,
   ApexTitleSubtitle,
+  ApexTooltip,
   ApexXAxis,
   ChartComponent
 } from "ng-apexcharts";
 import {StackedBarsData} from "../stacked-bars-chart/stacked-bars-chart-data";
 import {RadarChartData, RadarChartDataElement} from "./radar-chart-data";
 import {Colors} from "../colors";
+import {CustomChartComponent} from "../custom-chart-component";
+import {ApexTheme} from "ng-apexcharts/lib/model/apex-types";
 
 type RadarChartOptions = {
   series: ApexAxisChartSeries;
@@ -22,11 +25,13 @@ type RadarChartOptions = {
   labels: ApexDataLabels;
   fill: ApexFill;
   plotOptions: ApexPlotOptions;
+  tooltip: ApexTooltip;
   xaxis: ApexXAxis;
   title: ApexTitleSubtitle;
   legend: ApexLegend;
   markers: ApexMarkers;
   stroke: ApexStroke;
+  theme: ApexTheme;
 };
 
 @Component({
@@ -34,15 +39,15 @@ type RadarChartOptions = {
   templateUrl: './radar-chart.component.html',
   styleUrls: ['./radar-chart.component.scss']
 })
-export class RadarChartComponent implements OnInit {
+export class RadarChartComponent extends CustomChartComponent {
 
   @ViewChild('chart')
   chart!: ChartComponent;
 
-  public radarChartOptions!: RadarChartOptions;
+  public chartOptions: RadarChartOptions;
 
   @Input()
-  public radarChartData: RadarChartData;
+  public data: RadarChartData;
   @Input()
   public width: number = 600;
   @Input()
@@ -71,7 +76,8 @@ export class RadarChartComponent implements OnInit {
   public legendPosition: 'left' | 'bottom' | 'right' | 'top' = "bottom"
 
   constructor() {
-    this.radarChartData = RadarChartData.fromMultipleDataElements([
+    super();
+    this.data = RadarChartData.fromMultipleDataElements([
       new RadarChartDataElement([["Value1", 5], ["Value2", 4], ["Value3", 1]], "Group1"),
       new RadarChartDataElement([["Value1", 1], ["Value2", 2], ["Value3", 3]], "Group2"),
       new RadarChartDataElement([["Value1", 4], ["Value2", 3], ["Value3", 3]], "Group3"),
@@ -79,71 +85,39 @@ export class RadarChartComponent implements OnInit {
       new RadarChartDataElement([["Value1", 6], ["Value2", 2], ["Value3", 3]], "Group5")]);
   }
 
-  ngOnInit() {
-    this.setProperties();
+  protected setProperties(): void {
+    this.chartOptions = {
+      chart: this.getChart('radar', this.width, this.shadow, this.showToolbar),
+      series: this.setColors(this.data.getData()),
+      labels: this.getLabels(this.showValuesLabels),
+      fill: this.getFill(this.fill, this.opacity),
+      markers: this.getMarkers(),
+      stroke: this.getStroke(this.strokeWidth),
+      plotOptions: this.getPlotOptions(),
+      tooltip: this.getTooltip(),
+      xaxis: this.getXAxis(this.data.getLabels()),
+      title: this.getTitle(this.title, this.titleAlignment),
+      legend: this.getLegend(this.legendPosition),
+      theme: this.getTheme()
+    };
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    this.setProperties();
-  }
-
-  private setProperties(): void {
-    this.radarChartOptions = {
-      chart: {
-        width: this.width,
-        type: "radar",
-        toolbar: {
-          show: this.showToolbar,
-        },
-        dropShadow: {
-          enabled: this.shadow,
-          color: '#000',
-          blur: 1,
-          left: 1,
-          top: 1
-        },
-      },
-      series: this.setColors(this.radarChartData.getData()),
-      labels: {
-        enabled: this.showValuesLabels
-      },
-      fill: {
-        type: this.fill,
-        opacity: this.opacity,
-      },
-      markers: {
-        size: 0
-      },
-      stroke: {
-        width: this.strokeWidth
-      },
-      plotOptions: {
-        radar: {
-          size: this.radarSize,
-          polygons: {
-            fill: {
-              colors: this.innerColors
-            }
+  protected getPlotOptions(): ApexPlotOptions {
+    return {
+      radar: {
+        size: this.radarSize,
+        polygons: {
+          fill: {
+            colors: this.innerColors
           }
         }
-      },
-      xaxis: {
-        categories: this.radarChartData.getLabels()
-      },
-      title: {
-        text: this.title,
-        align: this.titleAlignment
-      },
-      legend: {
-        position: this.legendPosition
-      },
-    };
+      }
+    }
   }
 
   update(data: RadarChartData) {
     this.chart.updateSeries(data.getData());
   }
-
 
   setColors(data: StackedBarsData[]): StackedBarsData[] {
     for (let i = 0; i < data.length; i++) {

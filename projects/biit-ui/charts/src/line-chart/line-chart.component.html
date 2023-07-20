@@ -1,17 +1,19 @@
-<div id="chart">
+<div class="frame">
   <div class="box shadow">
-    <apx-chart #chart
-               [series]="lineChartOptions.series"
-               [colors]="lineChartOptions.colors"
-               [chart]="lineChartOptions.chart"
-               [dataLabels]="lineChartOptions.labels"
-               [plotOptions]="lineChartOptions.plotOptions"
-               [xaxis]="lineChartOptions.xaxis"
-               [yaxis]="lineChartOptions.yaxis"
-               [title]="lineChartOptions.title"
-               [fill]="lineChartOptions.fill"
-               [stroke]="lineChartOptions.stroke"
-               [markers]="lineChartOptions.markers"
+    <apx-chart #chart [chart]="chartOptions.chart"
+               [colors]="chartOptions.colors"
+               [dataLabels]="chartOptions.labels"
+               [fill]="chartOptions.fill"
+               [markers]="chartOptions.markers"
+               [plotOptions]="chartOptions.plotOptions"
+               [series]="chartOptions.series"
+               [stroke]="chartOptions.stroke"
+               [theme]="chartOptions.theme"
+               [title]="chartOptions.title"
+               [tooltip]="chartOptions.tooltip"
+               [xaxis]="chartOptions.xaxis"
+               [yaxis]="chartOptions.yaxis"
+               id="chart"
     ></apx-chart>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {Component, Input, SimpleChanges, ViewChild} from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -7,12 +7,15 @@ import {
   ApexLegend,
   ApexPlotOptions,
   ApexTitleSubtitle,
+  ApexTooltip,
   ApexXAxis,
   ApexYAxis,
   ChartComponent
 } from "ng-apexcharts";
 import {BarChartData} from "./bar-chart-data";
 import {Colors} from "../colors";
+import {CustomChartComponent} from "../custom-chart-component";
+import {ApexTheme} from "ng-apexcharts/lib/model/apex-types";
 
 
 type BarChartOptions = {
@@ -22,10 +25,12 @@ type BarChartOptions = {
   chart: ApexChart;
   labels: ApexDataLabels;
   plotOptions: ApexPlotOptions;
+  tooltip: ApexTooltip
   xaxis: ApexXAxis;
   yaxis: ApexYAxis;
   title: ApexTitleSubtitle;
   legend: ApexLegend;
+  theme: ApexTheme;
 };
 
 @Component({
@@ -33,15 +38,15 @@ type BarChartOptions = {
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.scss']
 })
-export class BarChartComponent implements OnInit, OnChanges {
+export class BarChartComponent extends CustomChartComponent {
 
   @ViewChild('chart')
   chart!: ChartComponent;
 
-  barChartOptions!: BarChartOptions;
+  chartOptions!: BarChartOptions;
 
   @Input()
-  public barChartData: BarChartData;
+  public data: BarChartData;
   @Input()
   public width: number = 500;
   @Input()
@@ -76,76 +81,40 @@ export class BarChartComponent implements OnInit, OnChanges {
   public shadow: boolean = true;
 
   constructor() {
-    this.barChartData = BarChartData.fromArray([["Value1", 5], ["Value2", 4], ["Value3", 1]]);
+    super();
+    this.data = BarChartData.fromArray([["Value1", 5], ["Value2", 4], ["Value3", 1]]);
   }
 
-
-  ngOnInit() {
-    this.setProperties();
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.setProperties();
-  }
-
-  private setProperties(): void {
-    this.barChartOptions = {
+  protected setProperties(): void {
+    this.chartOptions = {
       colors: this.colors,
-      chart: {
-        width: this.width,
-        type: "bar",
-        toolbar: {
-          show: this.showToolbar,
-        },
-        dropShadow: {
-          enabled: this.shadow,
-          color: '#000',
-          top: 18,
-          left: 7,
-          blur: 10,
-          opacity: 0.2
-        },
-      },
-      series: this.barChartData.getData(),
-      labels: {
-        enabled: this.showValuesLabels
-      },
-      fill: {
-        type: this.fill,
-      },
-      plotOptions: {
-        bar: {
-          distributed: true, // this line is mandatory for using colors
-          horizontal: this.horizontal,
-          barHeight: this.barThicknessPercentage + '%',
-          columnWidth: this.barThicknessPercentage + '%',
-          borderRadius: this.borderRadius
-        }
-      },
-      xaxis: {
-        categories: this.barChartData.getLabels(),
-        position: this.xAxisOnTop ? 'top' : 'bottom',
-        title: {
-          text: this.xAxisTitle
-        }
-      },
-      yaxis: {
-        show: this.showYAxis,
-        title: {
-          text: this.yAxisTitle
-        },
-      },
-      title: {
-        text: this.title,
-        align: this.titleAlignment
-      },
-      legend: {
-        position: this.legendPosition
-      },
+      chart: this.getChart('bar', this.width, this.shadow, this.showToolbar),
+      series: this.data.getData(),
+      labels: this.getLabels(this.showValuesLabels),
+      fill: this.getFill(this.fill),
+      plotOptions: this.getPlotOptions(),
+      tooltip: this.getTooltip(),
+      xaxis: this.getXAxis(this.data.getLabels(), this.xAxisOnTop ? 'top' : 'bottom', this.xAxisTitle),
+      yaxis: this.getYAxis(this.showYAxis, this.yAxisTitle),
+      title: this.getTitle(this.title, this.titleAlignment),
+      legend: this.getLegend(this.legendPosition),
+      theme: this.getTheme()
     };
   }
 
-  update(data: BarChartData){
+  protected getPlotOptions(): ApexPlotOptions {
+    return {
+      bar: {
+        distributed: true, // this line is mandatory for using colors
+        horizontal: this.horizontal,
+        barHeight: this.barThicknessPercentage + '%',
+        columnWidth: this.barThicknessPercentage + '%',
+        borderRadius: this.borderRadius
+      }
+    }
+  }
+
+  update(data: BarChartData) {
     this.chart.updateSeries(data.getData());
   }
 }

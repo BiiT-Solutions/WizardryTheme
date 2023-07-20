@@ -1,33 +1,44 @@
-import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
   ApexDataLabels,
   ApexFill,
+  ApexLegend,
   ApexMarkers,
   ApexPlotOptions,
   ApexStroke,
+  ApexTheme,
   ApexTitleSubtitle,
+  ApexTooltip,
   ApexXAxis,
   ApexYAxis,
   ChartComponent
 } from "ng-apexcharts";
 import {LineChartData, LineChartDataElement} from "./line-chart-data";
 import {Colors} from "../colors";
+import {CustomChartComponent} from "../custom-chart-component";
 
 
-type LineChartOptions = {
+export type LineChartOptions = {
   series: ApexAxisChartSeries;
   colors: string [];
   chart: ApexChart;
   labels: ApexDataLabels;
   fill: ApexFill;
   plotOptions: ApexPlotOptions;
+  tooltip: ApexTooltip;
   stroke: ApexStroke;
   xaxis: ApexXAxis;
   yaxis: ApexYAxis;
   title: ApexTitleSubtitle;
+  legend: ApexLegend;
   markers: ApexMarkers;
+  theme: ApexTheme;
+};
+
+type UpdateLineChartOptions = {
+  xaxis: ApexXAxis;
 };
 
 @Component({
@@ -35,15 +46,15 @@ type LineChartOptions = {
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss']
 })
-export class LineChartComponent implements OnInit {
+export class LineChartComponent extends CustomChartComponent {
 
   @ViewChild('chart')
   chart!: ChartComponent;
 
-  public lineChartOptions!: LineChartOptions;
+  public chartOptions: LineChartOptions;
 
   @Input()
-  public lineChartData: LineChartData;
+  public data: LineChartData;
   @Input()
   public height: number = 250;
   @Input()
@@ -75,88 +86,61 @@ export class LineChartComponent implements OnInit {
   @Input()
   public curve: "straight" | "smooth" | "stepline" = "smooth";
   @Input()
+  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = "bottom";
+  @Input()
   public shadow: boolean = true;
   @Input()
   public strokeWidth: number = 5;
 
   constructor() {
-    this.lineChartData = LineChartData.fromMultipleDataElements([
+    super();
+    this.data = LineChartData.fromMultipleDataElements([
       new LineChartDataElement([["Value1", 5], ["Value2", 4], ["Value3", 1]], "Line1"),
       new LineChartDataElement([["Value1", 2], ["Value2", 3], ["Value3", 5]], "Line2")]);
   }
 
 
-  ngOnInit() {
-    this.setProperties();
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.setProperties();
-  }
-
-  private setProperties(): void {
-    this.lineChartOptions = {
+  protected setProperties(): void {
+    this.chartOptions = {
       colors: this.colors,
-      series: this.lineChartData.getData(),
-      chart: {
-        height: this.height,
-        width: this.width,
-        type: "line",
-        toolbar: {
-          show: this.showToolbar,
-        },
-        dropShadow: {
-          enabled: this.shadow,
-          color: '#000',
-          top: 18,
-          left: 7,
-          blur: 10,
-          opacity: 0.2
-        },
-      },
-      labels: {
-        enabled: this.showValuesLabels
-      },
-      fill: {
-        type: this.fill,
-      },
-      plotOptions: {
-        bar: {
-          distributed: true, // this line is mandatory for using colors
-          horizontal: this.horizontal,
-          barHeight: this.barThicknessPercentage + '%',
-          columnWidth: this.barThicknessPercentage + '%',
-        }
-      },
-      xaxis: {
-        categories: this.lineChartData.getLabels(),
-        position: this.xAxisOnTop ? 'top' : 'bottom',
-        title: {
-          text: this.xAxisTitle
-        }
-        //type: 'datetime'
-      },
-      yaxis: {
-        show: this.showYAxis,
-        title: {
-          text: this.yAxisTitle
-        },
-      },
-      stroke: {
-        curve: this.curve,
-        width: this.strokeWidth,
-      },
-      title: {
-        text: this.title,
-        align: this.titleAlignment
-      },
-      markers: {
-        size: 0
-      },
+      series: this.data.getData(),
+      chart: this.getChart('line', this.width, this.shadow, this.showToolbar),
+      labels: this.getLabels(this.showValuesLabels),
+      fill: this.getFill(this.fill),
+      plotOptions: this.getPlotOptions(),
+      tooltip: this.getTooltip(),
+      xaxis: this.getXAxis(this.data.getLabels(), this.xAxisOnTop ? 'top' : 'bottom', this.xAxisTitle),
+      yaxis: this.getYAxis(this.showYAxis, this.yAxisTitle),
+      stroke: this.getStroke(this.strokeWidth, this.curve),
+      title: this.getTitle(this.title, this.titleAlignment),
+      legend: this.getLegend(this.legendPosition),
+      markers: this.getMarkers(),
+      theme: this.getTheme()
     };
+  }
+
+  protected getPlotOptions(): ApexPlotOptions {
+    return {
+      bar: {
+        distributed: true, // this line is mandatory for using colors
+        horizontal: this.horizontal,
+        barHeight: this.barThicknessPercentage + '%',
+        columnWidth: this.barThicknessPercentage + '%',
+      }
+    }
   }
 
   update(data: LineChartData) {
     this.chart.updateSeries(data.getData());
+    const updateOptions: UpdateLineChartOptions = {
+      xaxis: {
+        categories: data.getLabels(),
+        position: this.xAxisOnTop ? 'top' : 'bottom',
+        title: {
+          text: this.xAxisTitle
+        }
+      }
+    }
+    this.chart.updateOptions(updateOptions);
   }
 }
