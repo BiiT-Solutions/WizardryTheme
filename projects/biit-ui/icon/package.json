@@ -2,8 +2,8 @@
   "name": "@biit-ui/biit-icon",
   "author": "BiiT Sourcing Solutions",
   "peerDependencies": {
-    "@angular/common": "^15.0.0",
-    "@angular/core": "^15.0.0"
+    "@angular/common": "v15-lts",
+    "@angular/core": "v15-lts"
   },
   "dependencies": {
     "tslib": "^2.3.0"

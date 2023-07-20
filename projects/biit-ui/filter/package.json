@@ -7,7 +7,7 @@
     }
   ],
   "peerDependencies": {
-    "@angular/material": "^15.1.0",
+    "@angular/material": "v15-lts",
     "@ngneat/transloco": "^4.2.2"
   }
 }

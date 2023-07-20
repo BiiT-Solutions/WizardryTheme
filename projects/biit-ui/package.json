@@ -6,9 +6,9 @@
     "increase-version": "npm --no-git-tag-version version patch"
   },
   "peerDependencies": {
-    "@angular/common": "^15.0.0",
-    "@angular/core": "^15.0.0",
-    "@angular/material": "^15.1.0",
+    "@angular/common": "v15-lts",
+    "@angular/core": "v15-lts",
+    "@angular/material": "v15-lts",
     "@ngneat/transloco": "^4.2.2",
     "tslib": "^2.3.0"
   }

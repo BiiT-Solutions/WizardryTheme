@@ -1,6 +1,6 @@
 {
   "name": "@biit-ui/info",
   "peerDependencies": {
-    "@angular/material": "^15.1.0"
+    "@angular/material": "v15-lts"
   }
 }
