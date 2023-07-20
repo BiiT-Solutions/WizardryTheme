@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {Component, Input, SimpleChanges, ViewChild} from '@angular/core';
 
 import {
   ApexChart,
@@ -7,10 +7,13 @@ import {
   ApexNonAxisChartSeries,
   ApexResponsive,
   ApexTitleSubtitle,
+  ApexTooltip,
   ChartComponent
 } from "ng-apexcharts";
 import {PieChartData} from "./pie-chart-data";
 import {Colors} from "../colors";
+import {CustomChartComponent} from "../custom-chart-component";
+import {ApexTheme} from "ng-apexcharts/lib/model/apex-types";
 
 
 type PieChartOptions = {
@@ -18,10 +21,12 @@ type PieChartOptions = {
   colors: string [];
   chart: ApexChart;
   fill: ApexFill;
+  tooltip: ApexTooltip;
   responsive: ApexResponsive[];
   labels: string[];
   title: ApexTitleSubtitle;
   legend: ApexLegend;
+  theme: ApexTheme;
 };
 
 @Component({
@@ -29,15 +34,15 @@ type PieChartOptions = {
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.scss']
 })
-export class PieChartComponent implements OnInit {
+export class PieChartComponent extends CustomChartComponent {
 
   @ViewChild('chart')
   private chart!: ChartComponent;
 
-  public pieChartOptions!: PieChartOptions;
+  public chartOptions: PieChartOptions;
 
   @Input()
-  public pieChartData: PieChartData;
+  public data: PieChartData;
   @Input()
   public width: number = 500;
   @Input()
@@ -58,61 +63,27 @@ export class PieChartComponent implements OnInit {
   public legendPosition: 'left' | 'bottom' | 'right' | 'top' = "bottom"
 
   constructor() {
-    this.pieChartData = PieChartData.fromArray([["Value1", 5], ["Value2", 4], ["Value3", 1]]);
+    super();
+    this.data = PieChartData.fromArray([["Value1", 5], ["Value2", 4], ["Value3", 1]]);
   }
 
-  ngOnInit() {
-    this.setProperties();
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.setProperties();
-  }
-
-  private setProperties(): void {
-    this.pieChartOptions = {
+  protected setProperties(): void {
+    this.chartOptions = {
       colors: this.colors,
-      chart: {
-        width: this.width,
-        type: this.isDonut ? "donut" : "pie",
-        dropShadow: {
-          enabled: this.shadow,
-          color: '#000',
-          top: -5,
-          left: 7,
-          blur: 8,
-          opacity: 0.2
-        },
-        toolbar: {
-          show: this.showToolbar,
-        },
-      },
-      series: this.pieChartData.getValues(),
-      labels: this.pieChartData.getLabels(),
-      fill: {
-        type: this.fill,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: this.legendPosition
-            }
-          }
-        }
-      ],
-      title: {
-        text: this.title,
-        align: this.titleAlignment
-      },
-      legend: {
-        position: this.legendPosition
-      },
+      chart: this.getChart(this.isDonut ? "donut" : "pie", this.width, this.shadow, this.showToolbar),
+      series: this.data.getValues(),
+      labels: this.data.getLabels(),
+      fill: this.getFill(this.fill),
+      tooltip: this.getTooltip(),
+      responsive: this.getResponsive(this.legendPosition),
+      title: this.getTitle(this.title, this.titleAlignment),
+      legend: this.getLegend(this.legendPosition),
+      theme: this.getTheme()
     };
+  }
+
+  protected getPlotOptions(): undefined {
+    return undefined;
   }
 
   update(data: PieChartData) {

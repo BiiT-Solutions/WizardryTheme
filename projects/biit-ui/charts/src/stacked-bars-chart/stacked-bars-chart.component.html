@@ -1,15 +1,17 @@
-<div id="chart" *ngIf="stackedBarsChartOptions">
+<div *ngIf="chartOptions" class="frame">
   <div class="box shadow">
-    <apx-chart #chart
-               [series]="stackedBarsChartOptions.series"
-               [chart]="stackedBarsChartOptions.chart"
-               [dataLabels]="stackedBarsChartOptions.labels"
-               [plotOptions]="stackedBarsChartOptions.plotOptions"
-               [xaxis]="stackedBarsChartOptions.xaxis"
-               [yaxis]="stackedBarsChartOptions.yaxis"
-               [title]="stackedBarsChartOptions.title"
-               [fill]="stackedBarsChartOptions.fill"
-               [legend]="stackedBarsChartOptions.legend"
+    <apx-chart #chart [chart]="chartOptions.chart"
+               [dataLabels]="chartOptions.labels"
+               [fill]="chartOptions.fill"
+               [legend]="chartOptions.legend"
+               [plotOptions]="chartOptions.plotOptions"
+               [series]="chartOptions.series"
+               [theme]="chartOptions.theme"
+               [title]="chartOptions.title"
+               [tooltip]="chartOptions.tooltip"
+               [xaxis]="chartOptions.xaxis"
+               [yaxis]="chartOptions.yaxis"
+               id="chart"
     ></apx-chart>
   </div>
 </div>
