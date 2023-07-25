@@ -3,20 +3,85 @@ $dark-grey: #808080;
 $light-grey: #D9D9D9;
 $dark-border: #262626;
 
-button, input[type="submit"], input[type="reset"] {
+* { box-sizing:border-box; }
+
+:host {
   background: none;
   color: inherit;
   border: none;
   padding: 0;
   font: inherit;
-  cursor: pointer;
   outline: inherit;
+
+  .button-base{
+    font-size: inherit;
+    line-height: 1em;
+    width: fit-content;
+    background: transparent;
+    box-sizing: border-box;
+    border: 0.15em solid transparent;
+
+    &:not(.tertiary) {
+      color: $dark-border;
+
+      .button-content {
+        padding: 0.55em 1.4em;
+      }
+
+      &:active .button-content {
+        translate: 0.3em 0.3em;
+      }
+
+      &.primary {
+        background: $default-color;
+
+        &:hover, :focus-visible {
+          background: transparent;
+          border: 0.15em solid $dark-border;
+        }
+
+        &:active {
+          background: transparent;
+          border: 0.15em solid $dark-border;
+        }
+
+        .button-content {
+          background: $default-color;
+        }
+      }
+
+      &.secondary {
+        border: 0.15em solid $dark-border;
+
+        &:hover .button-content, :focus-visible .button-content {
+          background: $light-grey;
+        }
+
+        &:active .button-content {
+          background: $light-grey;
+        }
+      }
+    }
+
+    &.tertiary {
+      color: $default-color;
+      border: 0;
+
+      &:hover .bar, :focus-visible .bar {
+        top: 0.15em;
+      }
+
+      &:active .bar {
+        top: 0;
+      }
+    }
+  }
 
   &:focus-visible {
     &:not(.disabled) {
       .primary {
         background: transparent;
-        border: 0.175em solid $dark-border;
+        border: 0.15em solid $dark-border;
       }
       .secondary .button-content {
         background: $light-grey;
@@ -31,16 +96,16 @@ button, input[type="submit"], input[type="reset"] {
     pointer-events: none;
 
     .primary {
-      border: 0.175em solid $light-grey;
+      border: 0.15em solid $light-grey;
 
       .button-content {
-        background: $light-grey;
+        background: $light-grey !important;
         color: $dark-grey;
       }
     }
 
     .secondary {
-      border: 0.175em solid $light-grey;
+      border: 0.15em solid $light-grey !important;
       color: $light-grey;
     }
 
@@ -60,69 +125,7 @@ button, input[type="submit"], input[type="reset"] {
   user-select: none; /* Standard syntax */
 }
 
-.button-base{
-    font-size: inherit;
-    line-height: 1em;
-    width: fit-content;
-    background: transparent;
-    box-sizing: border-box;
-    border: 0.175em solid transparent;
 
-  &:not(.tertiary) {
-    color: $dark-border;
-
-    .button-content {
-      padding: 0.535em 1.375em;
-    }
-
-    &:active .button-content {
-      translate: 0.3em 0.3em;
-    }
-
-    &.primary {
-      background: $default-color;
-
-      &:hover, :focus-visible {
-        background: transparent;
-        border: 0.175em solid $dark-border;
-      }
-
-      &:active {
-        background: transparent;
-        border: 0.175em solid $dark-border;
-      }
-
-      .button-content {
-        background: $default-color;
-      }
-    }
-
-    &.secondary {
-      border: 0.175em solid $dark-border;
-
-      &:hover .button-content, :focus-visible .button-content {
-        background: $light-grey;
-      }
-
-      &:active .button-content {
-        background: $light-grey;
-      }
-    }
-  }
-
-  &.tertiary {
-    color: $default-color;
-    border: 0;
-
-    &:hover .bar, :focus-visible .bar {
-      top: 0.15em;
-    }
-
-    &:active .bar {
-      top: 0;
-    }
-  }
-}
 
 .button-content {
   width: fit-content;

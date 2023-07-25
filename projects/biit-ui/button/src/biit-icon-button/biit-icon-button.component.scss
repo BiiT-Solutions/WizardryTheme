@@ -2,7 +2,7 @@ $default-color: #262626;
 $background-color: #D9D9D9;
 $active-color: #F20D5E;
 
-button, input[type="submit"], input[type="reset"] {
+:host {
   background: none;
   color: inherit;
   border: none;
@@ -27,11 +27,11 @@ button, input[type="submit"], input[type="reset"] {
     }
   }
 
-  &[disabled] {
+  &:disabled {
     pointer-events: none;
 
     &:hover, &:focus-visible {
-      background-color: transparent;
+      background-color: white;
     }
 
     ::ng-deep biit-icon path {

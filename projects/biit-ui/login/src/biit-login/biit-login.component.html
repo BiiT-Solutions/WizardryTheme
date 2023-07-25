@@ -18,15 +18,19 @@
        {{'login.remember' | transloco}}
      </biit-toggle>
      <div class="margin-top-18 centered">
-       <biit-button (onClick)="performLogin()">{{'login.take_me_in' | transloco}}</biit-button>
+       <button biit-button primary
+               (click)="performLogin()"
+       >
+         {{'login.take_me_in' | transloco}}
+       </button>
      </div>
      <div class="margin-top-18 centered">
-       <biit-button (onClick)="onNotRemember.emit()"
-                    color="tertiary"
-                    class="smaller-text"
+       <button biit-button tertiary
+               (click)="onNotRemember.emit()"
+               class="smaller-text"
        >
          {{'login.forgot' | transloco}}
-       </biit-button>
+       </button>
      </div>
    </div>
  </div>

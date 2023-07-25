@@ -1,21 +1,29 @@
 import {NgModule} from '@angular/core';
-import {BiitButtonComponent} from './biit-button.component';
-import {MatButtonModule} from "@angular/material/button";
-import {NgClass, NgIf, NgStyle, NgTemplateOutlet} from "@angular/common";
+import {
+  BiitButtonComponent,
+  BiitButtonPrimaryDirective,
+  BiitButtonSecondaryDirective,
+  BiitButtonTertiaryDirective
+} from './biit-button.component';
+import {CommonModule} from "@angular/common";
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
-    BiitButtonComponent
+    BiitButtonComponent,
+    BiitButtonPrimaryDirective,
+    BiitButtonSecondaryDirective,
+    BiitButtonTertiaryDirective
   ],
-    imports: [
-        MatButtonModule,
-        NgIf,
-        NgTemplateOutlet,
-        NgClass,
-        NgStyle
-    ],
+  imports: [
+    CommonModule,
+    FormsModule
+  ],
   exports: [
-    BiitButtonComponent
+    BiitButtonComponent,
+    BiitButtonPrimaryDirective,
+    BiitButtonSecondaryDirective,
+    BiitButtonTertiaryDirective
   ]
 })
 export class BiitButtonModule { }

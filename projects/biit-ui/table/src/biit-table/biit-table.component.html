@@ -1,16 +1,17 @@
 <div class="canvas">
   <div class="header">
     <div class="buttons">
-      <biit-icon-button icon="plus"
-                        (onClick)="onAddAction.emit()"
-      ></biit-icon-button>
-      <biit-icon-button icon="minus"
+      <button biit-icon icon="plus"
+                        (click)="onAddAction.emit()"
+      ></button>
+      <button biit-icon icon="minus"
+                        (click)="onDeleteAction.emit(getSelectedRows())"
                         [disabled]="!selectedRows.size"
-      ></biit-icon-button>
-      <biit-icon-button icon="edit"
-                        (onClick)="onEditAction.emit(getSelectedRows())"
+      ></button>
+      <button biit-icon icon="edit"
+                        (click)="onEditAction.emit(getSelectedRows())"
                         [disabled]="selectedRows.size !== 1"
-      ></biit-icon-button>
+      ></button>
     </div>
     <div class="forms">
       <biit-input-text [ngModel]="search"
