@@ -40,12 +40,12 @@
 </div>
 
 <!-- ICON MODE -->
-<biit-icon-button *ngIf="type == 'icon'"
+<button biit-icon *ngIf="type == 'icon'"
                   [icon]="icon"
-                  (onClick)="!dropdownOpen ? openDropdown() : closeDropdown()"
+                  (click)="!dropdownOpen ? openDropdown() : closeDropdown()"
                   [checked]="dropdownOpen"
                   [disabled]="disabled"
-></biit-icon-button>
+></button>
 
 <!-- DROPDOWN -->
 <div #dropdown
