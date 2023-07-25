@@ -157,7 +157,7 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
     if (this.type == BiitMultiselectType.DEFAULT) {
       button = this.inputElement;
     } else {
-      button = this.elem.nativeElement.querySelector("biit-icon-button");
+      button = this.elem.nativeElement.querySelector("button");
     }
 
     // Checking available screen space
