@@ -87,7 +87,7 @@ const Template: Story<BiitSnackbarComponent> = (args: BiitSnackbarComponent) => 
   },
   template: `
     <biit-snackbar></biit-snackbar>
-    <biit-button (click)="addToast(notificationText, notificationType, actionText, timeoutSeconds)">Create Notification</biit-button>
+    <button biit-button (click)="addToast(notificationText, notificationType, actionText, timeoutSeconds)">Create Notification</button>
     <br/>
     <a style="margin-top: 1rem; display: inline-block; margin-right: 0.5rem;">Vertical position: </a>
     <select [(ngModel)]="verticalPos" (ngModelChange)="setVertical($event)" style="font-size: 1rem;">

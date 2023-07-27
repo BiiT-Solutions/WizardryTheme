@@ -1,13 +1,8 @@
-<button [disabled]="disabled"
-        (click)="onClick.emit($event)"
-        (dblclick)="onDblClick.emit($event)"
-        [type]="type">
-  <div class="button-base prevent-select {{color}}">
-    <div class="button-content">
+<div class="button-base prevent-select {{color}}">
+  <div class="button-content">
     <span #text>
       <ng-content></ng-content>
     </span>
-      <div *ngIf="color === 'tertiary'" class="bar" [ngStyle]="{'width.px': text.offsetWidth }"></div>
-    </div>
+    <div *ngIf="color == 'tertiary'" class="bar" [ngStyle]="{'width.px': text.offsetWidth }"></div>
   </div>
-</button>
+</div>

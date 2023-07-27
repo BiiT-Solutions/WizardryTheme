@@ -12,11 +12,11 @@
   <a>
     {{notification?.message}}
   </a>
-  <biit-button #action
+  <button biit-button #action
                (click)="emitClick()"
                *ngIf="notification?.actionLabel"
                color="tertiary"
   >
     {{ notification.actionLabel }}
-  </biit-button>
+  </button>
 </div><br>

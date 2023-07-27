@@ -1,35 +1,40 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core';
+import {Component, Directive} from '@angular/core';
 
-export type BiitButtonColor =
-  | 'primary'
-  | 'secondary'
-  | 'tertiary'
+@Directive({
+  selector: '[primary]'
+})
+export class BiitButtonPrimaryDirective {
+  constructor(private parent: BiitButtonComponent) {
+    parent.color = 'primary';
+  }
+}
 
-export enum BiitButtonType {
-  BUTTON = 'BUTTON',
-  SUBMIT = 'SUBMIT',
-  RESET = 'RESET'
+@Directive({
+  selector: '[secondary]'
+})
+export class BiitButtonSecondaryDirective {
+  constructor(private parent: BiitButtonComponent) {
+    parent.color = 'secondary';
+  }
+}
+
+@Directive({
+  selector: '[tertiary]'
+})
+export class BiitButtonTertiaryDirective {
+  constructor(private parent: BiitButtonComponent) {
+    parent.color = 'tertiary';
+  }
 }
 
 @Component({
-  selector: 'biit-button',
+  selector: 'button[biit-button]',
   templateUrl: 'biit-button.component.html',
   styleUrls: ['biit-button.component.scss'],
 })
 
 export class BiitButtonComponent {
+  color = 'primary';
 
-  @Input() color: BiitButtonColor = 'primary';
-  @Input() disabled: boolean = false;
-  @Input() type: BiitButtonType = BiitButtonType.BUTTON;
-
-  @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();
-  @Output() onDblClick: EventEmitter<Event> = new EventEmitter<Event>();
-
-  protected readonly Type = BiitButtonType;
+  constructor() { }
 }

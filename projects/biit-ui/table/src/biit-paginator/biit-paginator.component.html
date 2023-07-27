@@ -1,18 +1,18 @@
 <div style="display: flex; justify-content: space-between">
   <!-- PAGE SELECTOR -->
   <div #pageSelector class="page-selector">
-    <biit-icon-button icon='right_double_arrow'
+    <button biit-icon icon='right_double_arrow'
                       class="horizontal-flip"
-                      (onClick)="paginator.currentPage = 1; onModelChange();"
+                      (click)="paginator.currentPage = 1; onModelChange();"
                       [disabled]="paginator?.currentPage <= 1"
                       tooltip="{{'table.first-page' | transloco}}"
-    ></biit-icon-button>
-    <biit-icon-button icon='right_arrow'
+    ></button>
+    <button biit-icon icon='right_arrow'
                       class="compact horizontal-flip"
-                      (onClick)="paginator.currentPage = paginator.currentPage - 1; onModelChange();"
+                      (click)="paginator.currentPage = paginator.currentPage - 1; onModelChange();"
                       [disabled]="paginator?.currentPage <= 1"
                       tooltip="{{'table.previous-page' | transloco}}"
-    ></biit-icon-button>
+    ></button>
     <div class="page-display" style="position: relative">
       <input #pageInput
              [ngModel]="paginator?.currentPage"
@@ -23,17 +23,17 @@
       <a #totalPagesLabel class="total-pages">/</a>
       <div class="bottom-bar"></div>
     </div>
-    <biit-icon-button icon='right_arrow'
+    <button biit-icon icon='right_arrow'
                       class="compact"
-                      (onClick)="paginator.currentPage = paginator.currentPage + 1; onModelChange();"
+                      (click)="paginator.currentPage = paginator.currentPage + 1; onModelChange();"
                       [disabled]="paginator?.currentPage >= totalPages"
                       tooltip="{{'table.next-page' | transloco}}"
-    ></biit-icon-button>
-    <biit-icon-button icon='right_double_arrow'
-                      (onClick)="paginator.currentPage = totalPages; onModelChange();"
+    ></button>
+    <button biit-icon icon='right_double_arrow'
+                      (click)="paginator.currentPage = totalPages; onModelChange();"
                       [disabled]="paginator?.currentPage >= totalPages"
                       tooltip="{{'table.last-page' | transloco}}"
-    ></biit-icon-button>
+    ></button>
   </div>
 
   <!-- PAGE SIZE SELECTOR -->

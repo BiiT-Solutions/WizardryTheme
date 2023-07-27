@@ -3,6 +3,7 @@ import { BiitIconButtonComponent, BiitIconButtonModule } from 'biit-ui/button';
 import {BiitIconService} from 'biit-ui/icon';
 import {completeIconSet} from 'biit-icons-collection';
 import {APP_INITIALIZER} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);
@@ -13,7 +14,7 @@ export default {
   title: 'Basic/Button/Icon',
   decorators: [
     moduleMetadata({
-      imports: [BiitIconButtonModule],
+      imports: [BiitIconButtonModule, FormsModule],
       providers: [{
         provide: APP_INITIALIZER,
         useFactory: biitIconServiceFactory,
@@ -64,15 +65,6 @@ export default {
         type: 'Event',
         category: 'Outputs'
       }
-    },
-    onDblClick: {
-      action: 'onDblClick',
-      name: 'onDblClick',
-      description: 'Emits an Event object.',
-      table: {
-        type: 'Event',
-        category: 'Outputs'
-      }
     }
   }
 } as Meta;
@@ -80,14 +72,11 @@ export default {
 const Template: Story<BiitIconButtonComponent> = (args: BiitIconButtonComponent) => ({
   props: args,
   template: `
-    <biit-icon-button
+    <button biit-icon
       [icon]="icon"
       [disabled]="disabled"
-      (onClick)="onClick($event)"
-      (onDblClick)="onDblClick($event)"
-    >
-      {{content}}
-    </biit-icon-button>`
+      (click)="onClick($event)"
+    ></button>`
 });
 
 export const Default = Template.bind({});

@@ -1,10 +1,7 @@
-<button type="button"
-        [disabled]="disabled"
-        (click)="onClick.emit($event)"
-        (dblclick)="onDblClick.emit($event)"
-        [class.checked]="checked">
-    <biit-icon [name]="icon"
-               [pathStyle]="{fill: '#262626'}"
-               class="icon-button-svg"
-    ></biit-icon>
-</button>
+<div [class.checked]="checked" style="display: flex;">
+  <biit-icon [name]="icon"
+             [pathStyle]="{fill: '#262626'}"
+             class="icon-button-svg"
+  ></biit-icon>
+  <ng-content></ng-content>
+</div>

@@ -6,9 +6,9 @@ import {BiitIconModule} from 'biit-ui/icon';
   declarations: [
     BiitIconButtonComponent
   ],
-    imports: [
-      BiitIconModule
-    ],
+  imports: [
+    BiitIconModule
+  ],
   exports: [
     BiitIconButtonComponent
   ]
