@@ -4,11 +4,11 @@ $biit-color: #F20D5E;
 .login-container {
   display: flex;
   font-size: inherit;
+  column-gap: 4.2rem;
 }
 
 .login-column {
   width: 12.8em;
-  padding: 2.1em;
   display: inline-flex;
   flex-direction: column;
 }

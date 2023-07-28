@@ -1,7 +1,23 @@
-<div *ngIf="background" class="popup-background">
+<div [class.dark-bg]="background" class="popup-background" (click)="closable ? onClosed.emit() : false">
 </div>
-<div class="popup-content">
-  <ng-container *ngTemplateOutlet="content"></ng-container>
+<div [class.popup-canvas]="type == Type.DEFAULT"
+     [class.sixty-canvas]="type == Type.SIXTY">
+  <div *ngIf="header"
+       class="header">
+    <a class="title">
+      {{title}}
+    </a>
+    <div class="bar"></div>
+    <biit-icon *ngIf="closable"
+               class="close"
+               [name]="'cross'"
+               [pathStyle]="{fill: '#000000'}"
+               (click)="onClosed.emit()"
+    ></biit-icon>
+  </div>
+  <div class="content">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </div>
 </div>
 
 <ng-template #content>
