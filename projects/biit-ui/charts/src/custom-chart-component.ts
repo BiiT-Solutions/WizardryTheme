@@ -182,7 +182,7 @@ export abstract class CustomChartComponent implements OnInit {
     }
   }
 
-  protected getXAxis(labels: string [], xAxisOnTop?: 'top' | 'bottom', title?: string | undefined): ApexXAxis {
+  protected getXAxis(labels: string [], xAxisOnTop?: 'top' | 'bottom', title?: string | undefined, rotate?: number): ApexXAxis {
     return {
       categories: labels,
       position: xAxisOnTop,
@@ -190,6 +190,8 @@ export abstract class CustomChartComponent implements OnInit {
         text: title
       },
       labels: {
+        rotate: rotate != undefined ? rotate : 0,
+        rotateAlways: !!rotate,
         style: {
           fontFamily: 'Roboto',
           colors: this.axisTextColor

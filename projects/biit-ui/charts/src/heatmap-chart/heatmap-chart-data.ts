@@ -59,5 +59,4 @@ export class HeatmapChartDataElement {
 export class HeatmapData {
   name: string = "";
   data: number[] = [];
-  color: string = "#ff0000"; //Color be set on the chart component
 }

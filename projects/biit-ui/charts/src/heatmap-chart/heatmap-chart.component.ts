@@ -3,28 +3,22 @@ import {
   ApexAxisChartSeries,
   ApexChart,
   ApexDataLabels,
-  ApexFill,
-  ApexLegend,
-  ApexPlotOptions, ApexStroke,
+  ApexPlotOptions,
   ApexTitleSubtitle,
-  ApexTooltip,
   ApexXAxis,
-  ApexYAxis,
   ChartComponent
 } from "ng-apexcharts";
-import {HeatmapChartData, HeatmapChartDataElement, HeatmapData} from "./heatmap-chart-data";
+import {HeatmapChartData, HeatmapChartDataElement} from "./heatmap-chart-data";
 import {Colors} from "../colors";
 import {CustomChartComponent} from "../custom-chart-component";
-import {ApexTheme} from "ng-apexcharts/lib/model/apex-types";
+import {HeatmapChartRange} from "./heatmap-chart-range";
 
 
 type HeatmapChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
   labels: ApexDataLabels;
-  fill: ApexFill;
   colors: string[];
-  stroke: ApexStroke;
   title: ApexTitleSubtitle;
   xaxis: ApexXAxis;
   plotOptions: ApexPlotOptions;
@@ -50,15 +44,14 @@ export class HeatmapChartComponent extends CustomChartComponent {
   @Input()
   public data: HeatmapChartData;
   @Input()
+  //public ranges: [{ from: number, to: number, color: string }] | undefined;
+  public ranges: HeatmapChartRange[] | undefined;
+  @Input()
   public width: number = 500;
   @Input()
   public showToolbar: boolean = true;
   @Input()
   public colors: string[] = Colors.defaultPalette;
-  @Input()
-  public horizontal: boolean = false;
-  @Input()
-  public barThicknessPercentage: number = 75;
   @Input()
   public showValuesLabels: boolean = true;
   @Input()
@@ -74,21 +67,15 @@ export class HeatmapChartComponent extends CustomChartComponent {
   @Input()
   public titleAlignment: "left" | "center" | "right" = "center";
   @Input()
-  public fill: "gradient" | "solid" | "pattern" | "image" = "solid";
-  @Input()
-  public borderRadius: number = 0;
-  @Input()
-  public enableTotals: boolean = true;
+  public radius: number = 30;
   @Input()
   public legendPosition: 'left' | 'bottom' | 'right' | 'top' = "bottom"
   @Input()
   public shadow: boolean = true;
   @Input()
-  public stackType: '100%' | 'normal' = "normal";
+  public singleColor: boolean = false;
   @Input()
-  public strokeWidth: number = 5;
-  @Input()
-  public curve: "straight" | "smooth" | "stepline" = "smooth";
+  public enableColorFading: boolean = true;
 
   constructor() {
     super();
@@ -103,39 +90,26 @@ export class HeatmapChartComponent extends CustomChartComponent {
       series: this.data.getData(),
       chart: this.getChart('heatmap', this.width, this.shadow, this.showToolbar),
       labels: this.getLabels(this.showValuesLabels),
-      fill: this.getFill(this.fill),
-      colors: this.colors,
-      stroke: this.getStroke(this.strokeWidth, this.curve),
+      colors: this.singleColor ? [this.colors[0]] : this.colors,
       title: this.getTitle(this.title, this.titleAlignment),
-      xaxis: this.getXAxis(this.data.getLabels(), this.xAxisOnTop ? 'top' : 'bottom', this.xAxisTitle),
-      plotOptions: this.getPlotOptions()
+      xaxis: this.getXAxis(this.data.getLabels(), this.xAxisOnTop ? 'top' : 'bottom', this.xAxisTitle, 0),
+      plotOptions: this.getPlotOptions(),
     };
   }
 
   protected getPlotOptions(): ApexPlotOptions {
     return {
       heatmap: {
-        radius: 30,
-        enableShades: false,
+        radius: this.radius,
+        enableShades: this.enableColorFading,
         colorScale: {
-          ranges: [
-            {
-              from: 0,
-              to: 50,
-              color: "#008FFB"
-            },
-            {
-              from: 51,
-              to: 100,
-              color: "#00E396"
-            }
-          ]
+          ranges: this.ranges && !this.singleColor ? this.ranges : []
         }
       }
     }
   }
 
-  update(data: HeatmapChartData) {
+  update(data: HeatmapChartData): void {
     this.chart.updateOptions(data.getData());
   }
 }

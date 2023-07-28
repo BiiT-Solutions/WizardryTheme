@@ -1,11 +1,8 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {Colors} from "../../../projects/biit-ui/charts/src/colors";
-import {
-  HeatmapChartModule
-} from "../../../projects/biit-ui/charts/src/heatmap-chart/heatmap-chart.module";
-import {
-  HeatmapChartComponent
-} from "../../../projects/biit-ui/charts/src/heatmap-chart/heatmap-chart.component";
+import {HeatmapChartModule} from "../../../projects/biit-ui/charts/src/heatmap-chart/heatmap-chart.module";
+import {HeatmapChartComponent} from "../../../projects/biit-ui/charts/src/heatmap-chart/heatmap-chart.component";
+import {HeatmapChartRange} from "../../../projects/biit-ui/charts/src/heatmap-chart/heatmap-chart-range";
 
 export default {
   title: 'Charts/Heatmap',
@@ -18,8 +15,7 @@ export default {
     width: 250,
     showToolbar: true,
     colors: Colors.defaultPalette,
-    horizontal: false,
-    barThicknessPercentage: 75,
+    ranges: [new HeatmapChartRange(0, 30, "#ff0000"), new HeatmapChartRange(31, 60, "#0000ff"), new HeatmapChartRange(61, 100, "#00ff00")],
     showValuesLabels: true,
     xAxisOnTop: false,
     xAxisTitle: undefined,
@@ -27,13 +23,11 @@ export default {
     showYAxis: true,
     title: undefined,
     titleAlignment: 'center',
-    fill: 'solid',
-    borderRadius: 0,
-    enableTotals: true,
+    radius: 30,
+    singleColor: false,
+    enableColorFading: true,
     legendPosition: 'bottom',
-    shadow: false,
-    stackType: 'normal',
-    strokeWidth: 0
+    shadow: false
   },
   argTypes: {
     width: {
@@ -64,20 +58,6 @@ export default {
         type: 'boolean'
       }
     },
-    horizontal: {
-      name: 'horizontal',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Shows bars in horizontal mode.',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
     colors: {
       name: 'colors',
       type: {name: 'string', required: false},
@@ -92,32 +72,19 @@ export default {
         type: 'object'
       }
     },
-    barThicknessPercentage: {
-      type: {name: 'number', required: false},
-      defaultValue: 75,
-      description: 'Defines the width of each bar in %',
+    ranges: {
+      name: 'ranges',
+      type: {name: 'string', required: false},
+      //defaultValue: [{from: 0, to: 30, color: "#ff0000"}, {from: 31, to: 60, color: "#0000ff"}, {from: 61, to: 100, color: "#00ff00"}],
+        defaultValue: [new HeatmapChartRange(0, 30, "#ff0000"), new HeatmapChartRange(31, 60, "#0000ff"), new HeatmapChartRange(61, 100, "#00ff00")],
+      description: 'Define the colors of the circles by its value',
       table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 75},
+        type: {summary: 'array'},
+        defaultValue: {summary: 'empty'},
         category: 'Inputs'
       },
       control: {
-        type: 'number',
-        min: 5, max: 100, step: 5,
-      }
-    },
-    showValuesLabels: {
-      name: 'showValuesLabels',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Shows the value on the bars',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
+        type: 'object'
       }
     },
     xAxisOnTop: {
@@ -205,40 +172,39 @@ export default {
         type: 'select'
       }
     },
-    fill: {
-      name: 'fill',
-      type: {name: 'string', required: false},
-      defaultValue: 'default',
-      description: 'Defines how the bars are filled',
-      table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: 'empty'},
-        category: 'Inputs'
-      },
-      options: ['gradient', 'solid', 'pattern'],
-      control: {
-        type: 'select'
-      }
-    },
-    borderRadius: {
+    radius: {
       type: {name: 'number', required: false},
       defaultValue: 0,
-      description: 'Defines the border radius for each bar in %',
+      description: 'Defines the border radius for each dot',
       table: {
         type: {summary: 'number'},
-        defaultValue: {summary: 0},
+        defaultValue: {summary: 30},
         category: 'Inputs'
       },
       control: {
         type: 'number',
-        min: 0, max: 200, step: 5,
+        min: 0, max: 100, step: 5,
       }
     },
-    enableTotals: {
-      name: 'enableTotals',
+    singleColor: {
+      name: 'singleColor',
       type: {name: 'boolean', required: false},
       defaultValue: 'true',
-      description: 'Shows the total amount for a bar',
+      description: 'Use only one color',
+      table: {
+        type: {summary: 'boolean'},
+        defaultValue: {summary: false},
+        category: 'Inputs'
+      },
+      control: {
+        type: 'boolean'
+      }
+    },
+    enableColorFading: {
+      name: 'enableColorFading',
+      type: {name: 'boolean', required: false},
+      defaultValue: 'true',
+      description: 'Fading out circles depending on their value',
       table: {
         type: {summary: 'boolean'},
         defaultValue: {summary: true},
@@ -301,9 +267,8 @@ const Template: Story<HeatmapChartComponent> = (args: HeatmapChartComponent) => 
     <app-heatmap-chart
       [width]="width"
       [showToolbar]="showToolbar"
-      [horizontal]="horizontal"
       [colors]="colors"
-      [barThicknessPercentage]="barThicknessPercentage"
+      [ranges]="ranges"
       [showValuesLabels]="showValuesLabels"
       [xAxisOnTop]="xAxisOnTop"
       [xAxisTitle]="xAxisTitle"
@@ -311,13 +276,11 @@ const Template: Story<HeatmapChartComponent> = (args: HeatmapChartComponent) => 
       [showYAxis]="showYAxis"
       [title]="title"
       [titleAlignment]="titleAlignment"
-      [fill]="fill"
-      [borderRadius]="borderRadius"
-      [enableTotals]="enableTotals"
+      [radius]="radius"
+      [singleColor]="singleColor"
+      [enableColorFading]="enableColorFading"
       [legendPosition]="legendPosition"
       [shadow]="shadow"
-      [stackType]="stackType"
-      [strokeWidth]="strokeWidth"
     >
     </app-heatmap-chart>`
 });
