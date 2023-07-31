@@ -24,7 +24,7 @@ export class HeatmapChartData {
 
       const sortedMap: Map<string, number> = new Map([...values.get(metric).entries()].sort());
       for (const point of sortedMap) {
-        heatmapChartDataElement.data.push(point);
+        heatmapChartDataElement.data.push({x: point[0], y: point[1]});
       }
       heatmapChartDataElements.push(heatmapChartDataElement);
     }
@@ -40,12 +40,9 @@ export class HeatmapChartData {
     return this.elements.map(e => e.name);
   }
 
-  getData(): Data[] {
-    const data: Data[] = [];
-    for (const element of this.elements) {
-      data.push({name: element.name, data: element.data.map(m => m[1])});
-    }
-    return data;
+  getData(): HeatmapChartDataElement[] {
+    debugger
+    return this.elements;
   }
 }
 
@@ -77,8 +74,3 @@ export class HeatmapMetric {
   //Subject value (X Axis + Value in Y)
   data: [string, number][] = [];
 }
-
-type Data = {
-  name: string,
-  data: number[];
-};

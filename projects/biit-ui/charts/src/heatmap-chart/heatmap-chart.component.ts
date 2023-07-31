@@ -17,10 +17,8 @@ import {HeatmapChartRange} from "./heatmap-chart-range";
 type HeatmapChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
-  labels: ApexDataLabels;
   colors: string[];
   title: ApexTitleSubtitle;
-  xaxis: ApexXAxis;
   plotOptions: ApexPlotOptions;
 };
 
@@ -88,13 +86,12 @@ export class HeatmapChartComponent extends CustomChartComponent {
   }
 
   protected setProperties(): void {
+    console.log(this.data.getData());
     this.chartOptions = {
       series: this.data.getData(),
       chart: this.getChart('heatmap', this.width, this.shadow, this.showToolbar),
-      labels: this.getLabels(this.showValuesLabels),
       colors: this.singleColor ? [this.colors[0]] : this.colors,
       title: this.getTitle(this.title, this.titleAlignment),
-      xaxis: this.getXAxis(this.data.getLabels(), this.xAxisOnTop ? 'top' : 'bottom', this.xAxisTitle, 0),
       plotOptions: this.getPlotOptions(),
     };
   }
