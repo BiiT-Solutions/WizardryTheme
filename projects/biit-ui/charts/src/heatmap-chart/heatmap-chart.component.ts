@@ -76,6 +76,8 @@ export class HeatmapChartComponent extends CustomChartComponent {
   public singleColor: boolean = false;
   @Input()
   public enableColorFading: boolean = true;
+  @Input()
+  public distributed: boolean = true;
 
   constructor() {
     super();
@@ -102,6 +104,7 @@ export class HeatmapChartComponent extends CustomChartComponent {
       heatmap: {
         radius: this.radius,
         enableShades: this.enableColorFading,
+        distributed: this.distributed,
         colorScale: {
           ranges: this.ranges && !this.singleColor ? this.ranges : []
         }

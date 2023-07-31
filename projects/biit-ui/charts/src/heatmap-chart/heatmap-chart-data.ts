@@ -1,5 +1,3 @@
-import {HeatmapChartComponent} from './heatmap-chart.component';
-
 export class HeatmapChartData {
   name: string[] | undefined;
   elements: HeatmapChartDataElement[] = [];
@@ -17,6 +15,22 @@ export class HeatmapChartData {
     return barChartData;
   }
 
+  //Values -> metric -> x --> Value
+  public static fromElementsAsMap(values: Map<string, Map<string, number>>): HeatmapChartData {
+    const heatmapChartDataElements: HeatmapChartDataElement[] = [];
+    for (const metric of values.keys()) {
+      const heatmapChartDataElement: HeatmapChartDataElement = new HeatmapChartDataElement();
+      heatmapChartDataElement.name = metric;
+
+      const sortedMap: Map<string, number> = new Map([...values.get(metric).entries()].sort());
+      for (const point of sortedMap) {
+        heatmapChartDataElement.data.push(point);
+      }
+
+    }
+    return HeatmapChartData.fromMultipleDataElements(heatmapChartDataElements);
+  }
+
   constructor(name?: string[]) {
     this.name = name;
     this.elements = [];
@@ -26,28 +40,26 @@ export class HeatmapChartData {
     return this.elements.map(e => e.name);
   }
 
-  getData(): HeatmapData[] {
-    const data: Map<string, HeatmapData> = new Map<string, HeatmapData>();
+  getData(): Data[] {
+    const data: Data[] = [];
     for (const element of this.elements) {
-      for (const point of element.points) {
-        if (data.get(point[0]) === undefined) {
-          data.set(point[0], new HeatmapData());
-        }
-        data.get(point[0])!.name = point[0];
-        data.get(point[0])!.data.push(point[1]);
-      }
+      data.push({name: element.name, data: element.data.map(m => m[1])});
     }
-    return Array.from(data.values());
+    return data;
   }
 }
 
 export class HeatmapChartDataElement {
   name: string;
   //X,Y
-  points: [string, number][];
+  data: [string, number][];
 
-  constructor(points: [string, number][], name?: string) {
-    this.points = points;
+  constructor(points?: [string, number][], name?: string) {
+    if (points) {
+      this.data = points;
+    } else {
+      this.data = []
+    }
     if (name) {
       this.name = name;
     } else {
@@ -56,7 +68,14 @@ export class HeatmapChartDataElement {
   }
 }
 
-export class HeatmapData {
+export class HeatmapMetric {
+  //Metric name (Y Axis)
   name: string = "";
-  data: number[] = [];
+  //Subject value (X Axis + Value in Y)
+  data: [string, number][] = [];
 }
+
+type Data = {
+  name: string,
+  data: number[];
+};

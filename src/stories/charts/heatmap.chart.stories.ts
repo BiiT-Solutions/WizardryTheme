@@ -26,6 +26,7 @@ export default {
     radius: 30,
     singleColor: false,
     enableColorFading: true,
+    distributed: false,
     legendPosition: 'bottom',
     shadow: false
   },
@@ -214,6 +215,20 @@ export default {
         type: 'boolean'
       }
     },
+    distributed: {
+      name: 'distributed',
+      type: {name: 'boolean', required: false},
+      defaultValue: 'true',
+      description: 'In a multi-series heat map chart, each row in a heatmap can have it’s own lowest and highest range and colors will be shaded for each series. Helpful in situations when each series has a big difference in values.',
+      table: {
+        type: {summary: 'boolean'},
+        defaultValue: {summary: true},
+        category: 'Inputs'
+      },
+      control: {
+        type: 'boolean'
+      }
+    },
     legendPosition: {
       name: 'legendPosition',
       type: {name: 'string', required: false},
@@ -279,6 +294,7 @@ const Template: Story<HeatmapChartComponent> = (args: HeatmapChartComponent) => 
       [radius]="radius"
       [singleColor]="singleColor"
       [enableColorFading]="enableColorFading"
+      [distributed]="distributed"
       [legendPosition]="legendPosition"
       [shadow]="shadow"
     >
