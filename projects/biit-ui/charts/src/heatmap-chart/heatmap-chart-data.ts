@@ -18,14 +18,15 @@ export class HeatmapChartData {
   //Values -> metric -> x --> Value
   public static fromElementsAsMap(values: Map<string, Map<string, number>>): HeatmapChartData {
     const heatmapChartDataElements: HeatmapChartDataElement[] = [];
-    const heatmapChartDataElement: HeatmapChartDataElement = new HeatmapChartDataElement();
     for (const metric of values.keys()) {
+      const heatmapChartDataElement: HeatmapChartDataElement = new HeatmapChartDataElement();
       heatmapChartDataElement.name = metric;
 
       const sortedMap: Map<string, number> = new Map([...values.get(metric).entries()].sort());
       for (const point of sortedMap) {
         heatmapChartDataElement.data.push(point);
       }
+      heatmapChartDataElements.push(heatmapChartDataElement);
     }
     return HeatmapChartData.fromMultipleDataElements(heatmapChartDataElements);
   }
