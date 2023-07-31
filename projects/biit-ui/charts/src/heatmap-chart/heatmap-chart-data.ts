@@ -52,11 +52,14 @@ export class HeatmapChartData {
 export class HeatmapChartDataElement {
   name: string;
   //X,Y
-  data: [string, number][];
+  data: { x: string, y: number }[];
 
   constructor(points?: [string, number][], name?: string) {
     if (points) {
-      this.data = points;
+      this.data = points.map(point => {
+          return {x: point[0], y: point[1]}
+        }
+      );
     } else {
       this.data = []
     }
