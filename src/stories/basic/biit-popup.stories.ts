@@ -1,15 +1,30 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {BiitPopupComponent, BiitPopupModule} from "biit-ui/popup";
+import {BiitIconService} from 'biit-ui/icon';
+import {completeIconSet} from 'biit-icons-collection';
+import {APP_INITIALIZER} from '@angular/core';
+
+function biitIconServiceFactory(service: BiitIconService) {
+  service.registerIcons(completeIconSet);
+  return () => service;
+}
 
 export default {
   title: 'Basic/PopUp',
   decorators: [
     moduleMetadata({
       imports: [BiitPopupModule],
+      providers: [{
+        provide: APP_INITIALIZER,
+        useFactory: biitIconServiceFactory,
+        multi: true,
+        deps: [BiitIconService],
+      }]
     }),
   ],
   args: {
-    background: true
+    background: true,
+    title: 'This is a header title'
   },
   argTypes: {
     content: {
@@ -26,7 +41,19 @@ export default {
         type: 'text'
       }
     },
-    background: {
+    title: {
+      name: 'title',
+      type: { name: 'string', required: false },
+      description: 'Defines the header text',
+      table: {
+        type: { summary: 'string' },
+        category: 'Content'
+      },
+      control: {
+        type: 'text'
+      }
+    },
+  background: {
       name: 'background',
       type: { name: 'boolean', required: false },
       defaultValue: true,
@@ -39,6 +66,15 @@ export default {
       control: {
         type: 'boolean'
       }
+    },
+    onClosed: {
+      action: 'onClosed',
+      name: 'onClosed',
+      description: 'Emits an Event object.',
+      table: {
+        type: 'Event',
+        category: 'Outputs'
+      }
     }
   }
 } as Meta;
@@ -46,11 +82,23 @@ export default {
 const Template: Story<BiitPopupComponent> = (args: BiitPopupComponent) => ({
   props: args,
   template: `
-    <biit-popup [background]="background">
-    <div [innerHTML]="content"></div>
-    </biit-popup>`
-});
+    <biit-popup dark-bg closable
+                [title]="title"
+                (onClosed)="onClosed($event)">
+      <div [innerHTML]="content" style="width: 100%"></div>
+    </biit-popup>
+`});
 
 export const Default = Template.bind({});
-Default.args = {
-}
+
+const SixtyTemplate: Story<BiitPopupComponent> = (args: BiitPopupComponent) => ({
+  props: args,
+  template: `
+    <biit-popup sixty-view dark-bg closable
+                [title]="title"
+                (onClosed)="onClosed($event)">
+      <div [innerHTML]="content" style="width: 100%"></div>
+    </biit-popup>
+`});
+
+export const SixtyView = SixtyTemplate.bind({});
