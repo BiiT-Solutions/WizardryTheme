@@ -23,3 +23,7 @@ export * from './radial-chart/radial-chart-data';
 export * from './stacked-bars-chart/stacked-bars-chart.component';
 export * from './stacked-bars-chart/stacked-bars-chart.module';
 export * from './stacked-bars-chart/stacked-bars-chart-data';
+export * from './heatmap-chart/heatmap-chart.component';
+export * from './heatmap-chart/heatmap-chart.module';
+export * from './heatmap-chart/heatmap-chart-data';
+export * from './heatmap-chart/heatmap-chart-range';
