@@ -63,20 +63,30 @@ $error-color: #A1093F;
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   height: 2.1rem;
   width: 100%;
 
   .title {
     display: inline-flex;
     flex-grow: 1;
+    max-width: 90%;
     text-transform: uppercase;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: bolder;
+    position: absolute;
+    left: 0;
+
+    a {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
   .bar {
     position: absolute;
-    bottom: 0.15rem;
+    bottom: 0;
     left: 0;
     height: 0.15rem;
     width: 60%;

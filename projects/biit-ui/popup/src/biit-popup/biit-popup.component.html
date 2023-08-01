@@ -4,9 +4,9 @@
      [class.sixty-canvas]="type == Type.SIXTY">
   <div *ngIf="header"
        class="header">
-    <a class="title">
-      {{title}}
-    </a>
+    <div class="title">
+      <a>{{title}}</a>
+    </div>
     <div class="bar"></div>
     <biit-icon *ngIf="closable"
                class="close"

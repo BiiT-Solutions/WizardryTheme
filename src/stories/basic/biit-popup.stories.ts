@@ -3,6 +3,7 @@ import {BiitPopupComponent, BiitPopupModule} from "biit-ui/popup";
 import {BiitIconService} from 'biit-ui/icon';
 import {completeIconSet} from 'biit-icons-collection';
 import {APP_INITIALIZER} from '@angular/core';
+import {BiitButtonModule} from 'biit-ui/button';
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);
@@ -13,7 +14,7 @@ export default {
   title: 'Basic/PopUp',
   decorators: [
     moduleMetadata({
-      imports: [BiitPopupModule],
+      imports: [BiitPopupModule, BiitButtonModule],
       providers: [{
         provide: APP_INITIALIZER,
         useFactory: biitIconServiceFactory,
@@ -23,48 +24,22 @@ export default {
     }),
   ],
   args: {
-    background: true,
+    showPopup: false,
+    showSixty: false,
+    content: '<center><h1>E</h1><h2>F P</h2><h3>T O Z</h3><h4>L P E D</h4><h5>P E C F D</h5><h6>F E L O P Z D</h6></center>',
     title: 'This is a header title'
   },
   argTypes: {
-    content: {
-      name: 'content',
-      type: { name: 'string', required: false },
-      defaultValue: '<center><h1>E</h1><h2>F P</h2><h3>T O Z</h3><h4>L P E D</h4><h5>P E C F D</h5><h6>F E L O P Z D</h6></center>',
-      description: 'Defines text content',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '<center><h1>E</h1><h2>F P</h2><h3>T O Z</h3><h4>L P E D</h4><h5>P E C F D</h5><h6>F E L O P Z D</h6></center>' },
-        category: 'Content'
-      },
-      control: {
-        type: 'text'
-      }
-    },
     title: {
       name: 'title',
       type: { name: 'string', required: false },
       description: 'Defines the header text',
       table: {
         type: { summary: 'string' },
-        category: 'Content'
-      },
-      control: {
-        type: 'text'
-      }
-    },
-  background: {
-      name: 'background',
-      type: { name: 'boolean', required: false },
-      defaultValue: true,
-      description: 'It shows a background blocking access to components under',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: true },
         category: 'Inputs'
       },
       control: {
-        type: 'boolean'
+        type: 'text'
       }
     },
     onClosed: {
@@ -75,6 +50,53 @@ export default {
         type: 'Event',
         category: 'Outputs'
       }
+    },
+    sixty_view: {
+      name: 'sixty-view',
+      description: 'Styles the popup as a Sixty View.',
+      table: {
+        category: 'Attributes'
+      },
+      control: false
+    },
+    dark_bg: {
+      name: 'dark-bg',
+      description: 'Puts a dark background behind the popup.',
+      table: {
+        category: 'Attributes'
+      },
+      control: false
+    },
+    closable: {
+      name: 'closable',
+      description: 'Allows the user to close the component.',
+      table: {
+        category: 'Attributes'
+      },
+      control: false
+    },
+    no_header: {
+      name: 'no-header',
+      description: 'Hides the whole header for the popup.',
+      table: {
+        category: 'Attributes'
+      },
+      control: false
+    },
+    showPopup: {
+      table: {
+        disable: true
+      }
+    },
+    showSixty: {
+      table: {
+        disable: true
+      }
+    },
+    content: {
+      table: {
+        disable: true
+      }
     }
   }
 } as Meta;
@@ -82,21 +104,41 @@ export default {
 const Template: Story<BiitPopupComponent> = (args: BiitPopupComponent) => ({
   props: args,
   template: `
-    <biit-popup dark-bg closable
+    <button biit-button (click)="showPopup = true">Show Popup</button>
+    <biit-popup *ngIf="showPopup"
+                dark-bg closable
                 [title]="title"
-                (onClosed)="onClosed($event)">
+                (onClosed)="onClosed($event); showPopup = false;">
       <div [innerHTML]="content" style="width: 100%"></div>
     </biit-popup>
 `});
 
 export const Default = Template.bind({});
+Default.parameters = {
+  docs: {
+    source: {
+      code: `
+<biit-popup *ngIf="showPopup"
+            dark-bg closable
+            [title]="title"
+            (onClosed)="onClosed($event)"
+>
+  //Your content here
+</biit-popup>`,
+      language: 'typescript',
+      type: 'auto'
+    }
+  }
+}
 
 const SixtyTemplate: Story<BiitPopupComponent> = (args: BiitPopupComponent) => ({
   props: args,
   template: `
-    <biit-popup sixty-view dark-bg closable
+    <button biit-button (click)="showSixty = true">Show Sixty View</button>
+    <biit-popup *ngIf="showSixty"
+                sixty-view dark-bg closable
                 [title]="title"
-                (onClosed)="onClosed($event)">
+                (onClosed)="onClosed($event); showSixty = false;">
       <div [innerHTML]="content" style="width: 100%"></div>
     </biit-popup>
 `});
