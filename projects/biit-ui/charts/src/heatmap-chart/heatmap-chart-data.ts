@@ -41,7 +41,6 @@ export class HeatmapChartData {
   }
 
   getData(): HeatmapChartDataElement[] {
-    debugger
     return this.elements;
   }
 }
