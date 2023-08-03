@@ -1,0 +1,12 @@
+<div class="tab-group">
+  <div class="tab-header">
+    <div *ngFor="let tab of tabs"
+         (click)="activateTab(tab)"
+         [class.active]="tab.active"
+         class="tab-selector"
+    >
+      <a>{{tab.name}}</a>
+    </div>
+  </div>
+  <div class="content"><ng-content></ng-content></div>
+</div>

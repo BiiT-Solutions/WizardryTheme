@@ -37,6 +37,9 @@
       ],
       "biit-ui/info": [
         "projects/biit-ui/info/src/public-api"
+      ],
+      "biit-ui/navigation": [
+        "projects/biit-ui/navigation/src/public-api"
       ]
     },
     "outDir": "./dist/out-tsc",
