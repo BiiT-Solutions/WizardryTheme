@@ -91,9 +91,10 @@ export abstract class CustomChartComponent implements OnInit {
 
   protected abstract setProperties(): void;
 
-  protected getChart(type: ChartType, width: number, shadow: boolean, showToolbar: boolean): ApexChart {
+  protected getChart(type: ChartType, shadow: boolean, showToolbar: boolean, width?: number|string, height?: number|string): ApexChart {
     return {
       width: width,
+      height: height,
       type: type,
       dropShadow: this.getShadow(shadow),
       toolbar: this.getToolbar(showToolbar),

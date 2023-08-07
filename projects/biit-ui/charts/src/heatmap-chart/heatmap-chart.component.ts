@@ -45,7 +45,9 @@ export class HeatmapChartComponent extends CustomChartComponent {
   //public ranges: [{ from: number, to: number, color: string }] | undefined;
   public ranges: HeatmapChartRange[] | undefined;
   @Input()
-  public width: number = 500;
+  public width: number|string = '100%';
+  @Input()
+  public height: number|string = 'auto';
   @Input()
   public showToolbar: boolean = true;
   @Input()
@@ -65,7 +67,7 @@ export class HeatmapChartComponent extends CustomChartComponent {
   @Input()
   public titleAlignment: "left" | "center" | "right" = "center";
   @Input()
-  public radius: number = 30;
+  public radius: number;
   @Input()
   public legendPosition: 'left' | 'bottom' | 'right' | 'top' = "bottom"
   @Input()
@@ -89,7 +91,7 @@ export class HeatmapChartComponent extends CustomChartComponent {
     console.log(this.data.getData());
     this.chartOptions = {
       series: this.data.getData(),
-      chart: this.getChart('heatmap', this.width, this.shadow, this.showToolbar),
+      chart: this.getChart('heatmap', this.shadow, this.showToolbar, this.width, this.height),
       colors: this.singleColor ? [this.colors[0]] : this.colors,
       title: this.getTitle(this.title, this.titleAlignment),
       plotOptions: this.getPlotOptions(),

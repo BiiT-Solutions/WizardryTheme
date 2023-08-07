@@ -12,7 +12,6 @@ export default {
     }),
   ],
   args: {
-    width: 250,
     showToolbar: true,
     colors: Colors.defaultPalette,
     ranges: [new HeatmapChartRange(0, 30, "#ff0000"), new HeatmapChartRange(31, 60, "#0000ff"), new HeatmapChartRange(61, 100, "#00ff00")],
@@ -23,7 +22,7 @@ export default {
     showYAxis: true,
     title: undefined,
     titleAlignment: 'center',
-    radius: 30,
+    radius: 9999,
     singleColor: false,
     enableColorFading: true,
     distributed: false,
@@ -31,20 +30,6 @@ export default {
     shadow: false
   },
   argTypes: {
-    width: {
-      type: {name: 'number', required: false},
-      defaultValue: 500,
-      description: 'Defines the width of the chart in pixels',
-      table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 500},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'number',
-        min: 300, max: 1000, step: 50,
-      }
-    },
     showToolbar: {
       name: 'showToolbar',
       type: {name: 'boolean', required: false},
@@ -280,7 +265,6 @@ const Template: Story<HeatmapChartComponent> = (args: HeatmapChartComponent) => 
   props: args,
   template: `
     <app-heatmap-chart
-      [width]="width"
       [showToolbar]="showToolbar"
       [colors]="colors"
       [ranges]="ranges"

@@ -56,9 +56,9 @@ export class LineChartComponent extends CustomChartComponent {
   @Input()
   public data: LineChartData;
   @Input()
-  public height: number = 250;
+  public width: number|string = '100%';
   @Input()
-  public width: number = 500;
+  public height: number|string = 'auto';
   @Input()
   public showToolbar: boolean = true;
   @Input()
@@ -104,7 +104,7 @@ export class LineChartComponent extends CustomChartComponent {
     this.chartOptions = {
       colors: this.colors,
       series: this.data.getData(),
-      chart: this.getChart('line', this.width, this.shadow, this.showToolbar),
+      chart: this.getChart('line', this.shadow, this.showToolbar, this.width, this.height),
       labels: this.getLabels(this.showValuesLabels),
       fill: this.getFill(this.fill),
       plotOptions: this.getPlotOptions(),
