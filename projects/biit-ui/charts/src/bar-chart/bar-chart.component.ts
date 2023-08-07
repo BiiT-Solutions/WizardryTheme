@@ -48,7 +48,9 @@ export class BarChartComponent extends CustomChartComponent {
   @Input()
   public data: BarChartData;
   @Input()
-  public width: number = 500;
+  public width: number|string = '100%';
+  @Input()
+  public height: number|string = 'auto';
   @Input()
   public showToolbar: boolean = true;
   @Input()
@@ -88,7 +90,7 @@ export class BarChartComponent extends CustomChartComponent {
   protected setProperties(): void {
     this.chartOptions = {
       colors: this.colors,
-      chart: this.getChart('bar', this.width, this.shadow, this.showToolbar),
+      chart: this.getChart('bar', this.shadow, this.showToolbar, this.width, this.height),
       series: this.data.getData(),
       labels: this.getLabels(this.showValuesLabels),
       fill: this.getFill(this.fill),
