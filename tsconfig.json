@@ -40,6 +40,9 @@
       ],
       "biit-ui/navigation": [
         "projects/biit-ui/navigation/src/public-api"
+      ],
+      "biit-ui/charts": [
+        "projects/biit-ui/charts/src/public-api"
       ]
     },
     "outDir": "./dist/out-tsc",

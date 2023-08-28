@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HeatmapChartComponent} from "./heatmap-chart.component";
 import {NgApexchartsModule} from "ng-apexcharts";
+import {BiitIconButtonModule} from 'biit-ui/button';
 
 
 @NgModule({
@@ -9,7 +10,8 @@ import {NgApexchartsModule} from "ng-apexcharts";
   exports: [HeatmapChartComponent],
   imports: [
     CommonModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    BiitIconButtonModule
   ]
 })
 export class HeatmapChartModule {

@@ -1,5 +1,5 @@
 /*
- * Public API Surface of biit-ui/button
+ * Public API Surface of biit-ui/charts
  */
 
 export * from './bar-chart/bar-chart.component';

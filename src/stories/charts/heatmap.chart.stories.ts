@@ -1,8 +1,5 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {Colors} from "../../../projects/biit-ui/charts/src/colors";
-import {HeatmapChartModule} from "../../../projects/biit-ui/charts/src/heatmap-chart/heatmap-chart.module";
-import {HeatmapChartComponent} from "../../../projects/biit-ui/charts/src/heatmap-chart/heatmap-chart.component";
-import {HeatmapChartRange} from "../../../projects/biit-ui/charts/src/heatmap-chart/heatmap-chart-range";
+import {HeatmapChartModule, HeatmapChartComponent, HeatmapChartRange, HeatmapChartData, HeatmapChartDataElement} from "biit-ui/charts";
 
 export default {
   title: 'Charts/Heatmap',
@@ -12,46 +9,41 @@ export default {
     }),
   ],
   args: {
-    showToolbar: true,
-    colors: Colors.defaultPalette,
+    data: {
+      name: undefined,
+      elements: [
+        new HeatmapChartDataElement([
+          ["Value1", Math.floor(Math.random() * 100)], ["Value2", Math.floor(Math.random() * 100)], ["Value3", Math.floor(Math.random() * 100)], ["Value4", Math.floor(Math.random() * 100)], ["Value5", Math.floor(Math.random() * 100)], ["Value6", Math.floor(Math.random() * 100)], ["Value7", Math.floor(Math.random() * 100)], ["Value8", Math.floor(Math.random() * 100)], ["Value9", Math.floor(Math.random() * 100)], ["Value10", Math.floor(Math.random() * 100)]
+        ], "Group1"),
+        new HeatmapChartDataElement([
+          ["Value1", Math.floor(Math.random() * 100)], ["Value2", Math.floor(Math.random() * 100)], ["Value3", Math.floor(Math.random() * 100)], ["Value4", Math.floor(Math.random() * 100)], ["Value5", Math.floor(Math.random() * 100)], ["Value6", Math.floor(Math.random() * 100)], ["Value7", Math.floor(Math.random() * 100)], ["Value8", Math.floor(Math.random() * 100)], ["Value9", Math.floor(Math.random() * 100)], ["Value10", Math.floor(Math.random() * 100)]
+        ], "Group2"),
+        new HeatmapChartDataElement([
+          ["Value1", Math.floor(Math.random() * 100)], ["Value2", Math.floor(Math.random() * 100)], ["Value3", Math.floor(Math.random() * 100)], ["Value4", Math.floor(Math.random() * 100)], ["Value5", Math.floor(Math.random() * 100)], ["Value6", Math.floor(Math.random() * 100)], ["Value7", Math.floor(Math.random() * 100)], ["Value8", Math.floor(Math.random() * 100)], ["Value9", Math.floor(Math.random() * 100)], ["Value10", Math.floor(Math.random() * 100)]
+        ], "Group3"),
+        new HeatmapChartDataElement([
+          ["Value1", Math.floor(Math.random() * 100)], ["Value2", Math.floor(Math.random() * 100)], ["Value3", Math.floor(Math.random() * 100)], ["Value4", Math.floor(Math.random() * 100)], ["Value5", Math.floor(Math.random() * 100)], ["Value6", Math.floor(Math.random() * 100)], ["Value7", Math.floor(Math.random() * 100)], ["Value8", Math.floor(Math.random() * 100)], ["Value9", Math.floor(Math.random() * 100)], ["Value10", Math.floor(Math.random() * 100)]
+        ], "Group4"),
+        new HeatmapChartDataElement([
+          ["Value1", Math.floor(Math.random() * 100)], ["Value2", Math.floor(Math.random() * 100)], ["Value3", Math.floor(Math.random() * 100)], ["Value4", Math.floor(Math.random() * 100)], ["Value5", Math.floor(Math.random() * 100)], ["Value6", Math.floor(Math.random() * 100)], ["Value7", Math.floor(Math.random() * 100)], ["Value8", Math.floor(Math.random() * 100)], ["Value9", Math.floor(Math.random() * 100)], ["Value10", Math.floor(Math.random() * 100)]
+        ], "Group5"),
+        new HeatmapChartDataElement([
+          ["Value1", Math.floor(Math.random() * 100)], ["Value2", Math.floor(Math.random() * 100)], ["Value3", Math.floor(Math.random() * 100)], ["Value4", Math.floor(Math.random() * 100)], ["Value5", Math.floor(Math.random() * 100)], ["Value6", Math.floor(Math.random() * 100)], ["Value7", Math.floor(Math.random() * 100)], ["Value8", Math.floor(Math.random() * 100)], ["Value9", Math.floor(Math.random() * 100)], ["Value10", Math.floor(Math.random() * 100)]
+        ], "Group6")
+      ]
+    } as HeatmapChartData,
     ranges: [new HeatmapChartRange(0, 30, "#ff0000"), new HeatmapChartRange(31, 60, "#0000ff"), new HeatmapChartRange(61, 100, "#00ff00")],
-    showValuesLabels: true,
-    xAxisOnTop: false,
-    xAxisTitle: undefined,
-    yAxisTitle: undefined,
-    showYAxis: true,
-    title: undefined,
-    titleAlignment: 'center',
-    radius: 9999,
-    singleColor: false,
-    enableColorFading: true,
-    distributed: false,
-    legendPosition: 'bottom',
-    shadow: false
+    title: "Heatmap chart",
+    itemsPerPage: 7
   },
   argTypes: {
-    showToolbar: {
-      name: 'showToolbar',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Disables the toolbar.',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
-    colors: {
-      name: 'colors',
+    data: {
+      name: 'data',
       type: {name: 'string', required: false},
-      defaultValue: '["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7"]',
-      description: 'Change the colors of the bars',
+      description: 'Defines the data of the chart',
       table: {
-        type: {summary: 'array'},
-        defaultValue: {summary: 'empty'},
+        type: {summary: 'HeatmapChartData'},
+        defaultValue: {summary: 'undefined'},
         category: 'Inputs'
       },
       control: {
@@ -61,201 +53,43 @@ export default {
     ranges: {
       name: 'ranges',
       type: {name: 'string', required: false},
-      //defaultValue: [{from: 0, to: 30, color: "#ff0000"}, {from: 31, to: 60, color: "#0000ff"}, {from: 61, to: 100, color: "#00ff00"}],
-        defaultValue: [new HeatmapChartRange(0, 30, "#ff0000"), new HeatmapChartRange(31, 60, "#0000ff"), new HeatmapChartRange(61, 100, "#00ff00")],
-      description: 'Define the colors of the circles by its value',
+      description: 'Defines the ranges of values of the circles and its color',
       table: {
-        type: {summary: 'array'},
-        defaultValue: {summary: 'empty'},
+        type: {summary: 'HeatmapChartRange[]'},
+        defaultValue: {summary: 'undefined'},
         category: 'Inputs'
       },
       control: {
         type: 'object'
       }
     },
-    xAxisOnTop: {
-      name: 'xAxisOnTop',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Shows the x bar at the top of the chart',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
-    xAxisTitle: {
-      name: 'xAxisTitle',
-      type: {name: 'string', required: false},
-      defaultValue: 'undefined',
-      description: 'Shows a text on the X axis',
-      table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'text'
-      }
-    },
-    yAxisTitle: {
-      name: 'yAxisTitle',
-      type: {name: 'string', required: false},
-      defaultValue: 'undefined',
-      description: 'Shows a text on the X axis',
-      table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'text'
-      }
-    },
-    showYAxis: {
-      name: 'showYAxis',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Shows or hides the Y Axis',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
     title: {
       name: 'title',
       type: {name: 'string', required: false},
-      defaultValue: 'undefined',
-      description: 'Shows the title of the chart',
+      description: 'Text of the chart title',
       table: {
         type: {summary: 'string'},
-        defaultValue: {summary: true},
+        defaultValue: {summary: 'empty'},
         category: 'Inputs'
       },
       control: {
         type: 'text'
       }
     },
-    titleAlignment: {
-      name: 'titleAlignment',
-      type: {name: 'string', required: false},
-      defaultValue: 'default',
-      description: 'Defines the alignment of the title',
-      table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: 'empty'},
-        category: 'Inputs'
-      },
-      options: ['left', 'center', 'right'],
-      control: {
-        type: 'select'
-      }
-    },
-    radius: {
+    itemsPerPage: {
+      name: 'itemsPerPage',
       type: {name: 'number', required: false},
-      defaultValue: 0,
-      description: 'Defines the border radius for each dot',
+      description: 'Number of columns to show per page',
       table: {
         type: {summary: 'number'},
-        defaultValue: {summary: 30},
+        defaultValue: {summary: '20'},
         category: 'Inputs'
       },
       control: {
-        type: 'number',
-        min: 0, max: 100, step: 5,
-      }
-    },
-    singleColor: {
-      name: 'singleColor',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Use only one color',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: false},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
-    enableColorFading: {
-      name: 'enableColorFading',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Fading out circles depending on their value',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
-    distributed: {
-      name: 'distributed',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'In a multi-series heat map chart, each row in a heatmap can have it’s own lowest and highest range and colors will be shaded for each series. Helpful in situations when each series has a big difference in values.',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
-    legendPosition: {
-      name: 'legendPosition',
-      type: {name: 'string', required: false},
-      defaultValue: 'right',
-      description: 'Defines where the legend is shown',
-      table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: 'empty'},
-        category: 'Inputs'
-      },
-      options: ['left', 'bottom', 'right', 'top'],
-      control: {
-        type: 'select'
-      }
-    },
-    shadow: {
-      name: 'shadow',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Draws a shadow on the element',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
-    stackType: {
-      name: 'stackType',
-      type: {name: 'string', required: false},
-      defaultValue: 'normal',
-      description: 'Defines the alignment of the title',
-      table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: 'empty'},
-        category: 'Inputs'
-      },
-      options: ['normal', '100%'],
-      control: {
-        type: 'select'
+        type: 'range',
+        min: 1,
+        max: 10,
+        step: 1
       }
     },
   }
@@ -264,25 +98,12 @@ export default {
 const Template: Story<HeatmapChartComponent> = (args: HeatmapChartComponent) => ({
   props: args,
   template: `
-    <app-heatmap-chart
-      [showToolbar]="showToolbar"
-      [colors]="colors"
-      [ranges]="ranges"
-      [showValuesLabels]="showValuesLabels"
-      [xAxisOnTop]="xAxisOnTop"
-      [xAxisTitle]="xAxisTitle"
-      [yAxisTitle]="yAxisTitle"
-      [showYAxis]="showYAxis"
-      [title]="title"
-      [titleAlignment]="titleAlignment"
-      [radius]="radius"
-      [singleColor]="singleColor"
-      [enableColorFading]="enableColorFading"
-      [distributed]="distributed"
-      [legendPosition]="legendPosition"
-      [shadow]="shadow"
+    <biit-heatmap [data]="data"
+                  [ranges]="ranges"
+                  [title]="title"
+                  [itemsPerPage]="itemsPerPage"
     >
-    </app-heatmap-chart>`
+    </biit-heatmap>`
 });
 
 export const Default = Template.bind({});

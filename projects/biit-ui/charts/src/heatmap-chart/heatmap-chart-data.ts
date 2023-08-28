@@ -10,9 +10,9 @@ export class HeatmapChartData {
   }
 
   public static fromMultipleDataElements(elements: HeatmapChartDataElement[]): HeatmapChartData {
-    const barChartData: HeatmapChartData = new HeatmapChartData();
-    barChartData.elements = elements;
-    return barChartData;
+    const heatmapChartData: HeatmapChartData = new HeatmapChartData();
+    heatmapChartData.elements = elements;
+    return heatmapChartData;
   }
 
   //Values -> metric -> x --> Value

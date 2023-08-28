@@ -1,8 +1,33 @@
-<apx-chart #chart id="chart"
-           *ngIf="chartOptions"
-           [series]="chartOptions.series"
-           [chart]="chartOptions.chart"
-           [colors]="chartOptions.colors"
-           [plotOptions]="chartOptions.plotOptions"
-           [title]="chartOptions.title"
-></apx-chart>
+<div id="chart"
+     [style.opacity]="chartOptions ? '1' : '0'">
+  <apx-chart #heatmap
+             *ngIf="chartOptions"
+             [series]="chartOptions.series"
+             [chart]="chartOptions.chart"
+             [dataLabels]="chartOptions.dataLabels"
+             [colors]="chartOptions.colors"
+             [stroke]="chartOptions.stroke"
+             [plotOptions]="chartOptions.plotOptions"
+             [xaxis]="chartOptions.xaxis"
+             [yaxis]="chartOptions.yaxis"
+             [legend]="chartOptions.legend"
+             [title]="chartOptions.title"
+             [tooltip]="chartOptions.tooltip"
+             [grid]="chartOptions.grid"
+             [states]="chartOptions.states"
+  ></apx-chart>
+  <div class="buttons"
+       *ngIf="this.data?.elements[0].data.length > itemsPerPage">
+    <button biit-icon
+            [icon]="'right_arrow'"
+            [disabled]="pageNumber == 1"
+            (click)="pageNumber = pageNumber-1; updateGraph()"
+            style="rotate: 180deg"
+    ></button>
+    <button biit-icon
+            [icon]="'right_arrow'"
+            [disabled]="this.data?.elements[0].data.length <= pageNumber*itemsPerPage"
+            (click)="pageNumber = pageNumber+1; updateGraph()"
+    ></button>
+  </div>
+</div>
