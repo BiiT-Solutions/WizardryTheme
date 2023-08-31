@@ -16,6 +16,7 @@ import {BiitTableResponse} from './models/biit-table-response';
 import {BiitTableData} from './models/biit-table-data';
 import {BiitTableSorting, BiitTableSortingOrder} from './models/biit-table-sorting';
 import {BiitMultiselectType} from 'biit-ui/inputs';
+import {TRANSLOCO_SCOPE} from '@ngneat/transloco';
 
 @Directive({
   selector: '[selectable]'
@@ -39,10 +40,14 @@ export class BiitTableSortableDirective {
   selector: 'biit-table',
   templateUrl: './biit-table.component.html',
   styleUrls: ['./biit-table.component.scss'],
+  providers: [{
+    provide: TRANSLOCO_SCOPE,
+    useValue: {scope: 'biit-ui/table', alias: "table"}
+  }]
 })
 export class BiitTableComponent implements OnInit, AfterViewInit {
 
-  @Input('data') set _data(data: BiitTableData) {
+  @Input('data') set _data(data: BiitTableData<any>) {
     if (data) {
       this.data = data;
       if (this.paginator) {
@@ -53,7 +58,6 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   @Input() columns: BiitTableColumn[] = [];
   @Input() pageSizes: number[] = [];
   @Input() defaultPageSize: number;
-  @Input() locale: string = 'en';
   @Input() loading: boolean = false;
   isSelectable: boolean = false;
   isSortable: boolean = false;
@@ -63,7 +67,7 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   @Output() onDeleteAction: EventEmitter<any[]> = new EventEmitter<any[]>();
   @Output() onEditAction: EventEmitter<any> = new EventEmitter<any>();
 
-  protected data: BiitTableData;
+  protected data: BiitTableData<any>;
   protected paginator;
   protected sorting: BiitTableSorting;
   protected selectedRows: Set<any> = new Set<any>();

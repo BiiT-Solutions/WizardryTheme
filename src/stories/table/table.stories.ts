@@ -24,10 +24,7 @@ export default {
       }]
     })
   ],
-  component: BiitTableComponent,
-  args: {
-    locale: 'en'
-  }
+  component: BiitTableComponent
 } as Meta;
 
 const Template: Story<BiitTableComponent> = (args: BiitTableComponent, { globals }) => {

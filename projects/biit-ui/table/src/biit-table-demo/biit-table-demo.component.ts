@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BiitTableColumn, BiitTableColumnFormat} from '../biit-table/models/biit-table-column';
 import {BiitTableResponse} from '../biit-table/models/biit-table-response';
 import {BiitTableData} from '../biit-table/models/biit-table-data';
@@ -9,8 +9,6 @@ import {BiitTableData} from '../biit-table/models/biit-table-data';
   styleUrls: ['./biit-table-demo.component.scss']
 })
 export class BiitTableDemoComponent implements OnInit {
-
-  @Input() locale: string = 'en';
 
   data = [
     { id: 1, title: 'Super Metroid', available: true, releaseDate: new Date('1994-03-19') },
