@@ -3,7 +3,7 @@
        [routerLink]="[route.path]"
        [routerLinkActive]="['active']"
        *ngFor="let route of routes"
-       [class.disabled]="route.data?.disabled"
+       [class.disabled]="route.data?.['disabled']"
   >
     {{route.title}}
     <div class="submenu"
