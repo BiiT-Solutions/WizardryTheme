@@ -1,5 +1,4 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {FormsModule} from '@angular/forms';
 import {BiitToggleComponent} from 'biit-ui/inputs';
 import {BiitTabGroupModule} from 'biit-ui/navigation';
 
@@ -7,7 +6,7 @@ export default {
   title: 'Navigation/Tab Group',
   decorators: [
     moduleMetadata({
-      imports: [BiitTabGroupModule, FormsModule]
+      imports: [BiitTabGroupModule]
     }),
   ]
 } as Meta;

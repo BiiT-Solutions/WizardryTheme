@@ -1,0 +1,23 @@
+<div class="navbar-menu-canvas">
+  <div class="item"
+       [routerLink]="[route.path]"
+       [routerLinkActive]="['active']"
+       *ngFor="let route of routes"
+       [class.disabled]="route.data?.disabled"
+  >
+    {{route.title}}
+    <div class="submenu"
+         *ngIf="route.children?.length">
+      <div class="item"
+           [routerLink]="[route.path, child.path]"
+           [routerLinkActive]="['active']"
+           [routerLinkActiveOptions]="{exact: true}"
+           *ngFor="let child of route.children"
+           [class.disabled]="child.data?.disabled"
+           (click)="$event.stopPropagation();"
+      >
+        {{child.title}}
+      </div>
+    </div>
+  </div>
+</div>
