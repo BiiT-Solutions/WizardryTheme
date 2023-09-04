@@ -13,7 +13,7 @@
            [routerLinkActive]="['active']"
            [routerLinkActiveOptions]="{exact: true}"
            *ngFor="let child of route.children"
-           [class.disabled]="child.data?.disabled"
+           [class.disabled]="child.data?.['disabled']"
            (click)="$event.stopPropagation();"
       >
         {{child.title}}
