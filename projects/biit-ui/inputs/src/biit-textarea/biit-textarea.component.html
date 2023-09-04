@@ -1,0 +1,21 @@
+<div class="biit-input">
+  <div class="input-container">
+    <textarea class="input-object" required
+           [(ngModel)]="value"
+           (ngModelChange)="this.onChange($event);"
+           (keydown.enter)="onActionPerformed.emit(value)"
+           [attr.name]="fieldName"
+           [attr.maxlength]="maxLength"
+           [class.error]="error"
+           [class.reveal]="reveal"
+           [style.resize]="resize"
+    ></textarea>
+    <label class="input-placeholder">{{placeholder}}</label>
+    <biit-icon *ngIf="error" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
+    <div *ngIf="error" class="input-error-msg">
+      <a>
+        {{error}}
+      </a>
+    </div>
+  </div>
+</div>

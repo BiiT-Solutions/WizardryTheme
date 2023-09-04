@@ -14,3 +14,5 @@ export * from './biit-checkbox/biit-checkbox.module';
 export * from './biit-checkbox/biit-checkbox.component';
 export * from './biit-radio-button/biit-radio-button.module';
 export * from './biit-radio-button/biit-radio-button.component';
+export * from './biit-textarea/biit-textarea.module';
+export * from './biit-textarea/biit-textarea.component';
