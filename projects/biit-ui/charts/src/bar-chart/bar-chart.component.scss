@@ -1,13 +1,48 @@
-.frame {
-  padding: 15px;
-}
+#bar-chart {
+  display: block;
+  height: inherit;
+  width: inherit;
+  overflow: hidden;
+  overflow-x: scroll;
 
-.box {
-  background-color: #fff;
-  padding: 25px 20px;
-  width: fit-content;
-}
+  transition: 0.5s ease-in-out;
 
-.shadow {
-  box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.08);
+  ::ng-deep .apexcharts-tooltip {
+    border: 1px solid #262626;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: 'Montserrat';
+    font-size: 0.7rem;
+    background: white;
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .tooltip-header {
+      background: #262626;
+      color: white;
+      padding: 0.45rem 0.7rem;
+    }
+
+    .tooltip-data {
+      display: flex;
+      align-items: center;
+      padding: 0.45rem 0.7rem;
+
+      .tooltip-square {
+        height: 0.5rem;
+        width: 0.5rem;
+        margin-right: 0.45rem;
+      }
+    }
+    //transform: translateX(-50%) translateY(-80%);
+  }
+
+  ::ng-deep .apexcharts-series {
+    path:hover {
+      box-sizing: border-box;
+      border: 0.15rem solid #262626;
+    }
+  }
 }

@@ -14,7 +14,7 @@ import {completeIconSet} from 'biit-icons-collection';
 import {BiitIconService} from 'biit-ui/icon';
 
 
-export type ChartOptions = {
+export type HeatmapOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
   dataLabels: ApexDataLabels;
@@ -41,7 +41,7 @@ export class HeatmapChartComponent implements OnInit, OnChanges {
 
   @ViewChild("heatmap") chart: ChartComponent;
 
-  chartOptions: Partial<ChartOptions>;
+  heatmapOptions: Partial<HeatmapOptions>;
   pageNumber = 1;
 
   @Input() public data: HeatmapChartData;
@@ -58,7 +58,7 @@ export class HeatmapChartComponent implements OnInit, OnChanges {
       return;
     }
     this.fillDefaultValues();
-    this.createChartOptions();
+    this.createHeatmapOptions();
   }
 
   ngOnChanges() {
@@ -66,7 +66,7 @@ export class HeatmapChartComponent implements OnInit, OnChanges {
       return;
     }
     this.fillDefaultValues();
-    this.createChartOptions();
+    this.createHeatmapOptions();
   }
 
   private fillDefaultValues(): void {
@@ -89,9 +89,9 @@ export class HeatmapChartComponent implements OnInit, OnChanges {
 
   }
 
-  private createChartOptions() {
+  private createHeatmapOptions() {
     // @ts-ignore
-    this.chartOptions = {
+    this.heatmapOptions = {
       series: this.generateSeries(),
       chart: {
         height: 'auto',
@@ -257,14 +257,6 @@ export class HeatmapChartComponent implements OnInit, OnChanges {
     let series: ApexAxisChartSeries = [];
     this.data.elements.forEach(item => {
       series.push({name: item.name, data: item.data})
-    });
-
-    series.forEach(category => {
-      category.data = category.data.slice((this.pageNumber-1)*this.itemsPerPage, this.pageNumber*this.itemsPerPage);
-      while (category.data.length < this.itemsPerPage) {
-        // @ts-ignore
-        category.data.push({x:'', y:-9999});
-      }
     });
 
     return series;

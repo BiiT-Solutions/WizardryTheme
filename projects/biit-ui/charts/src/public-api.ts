@@ -4,7 +4,7 @@
 
 export * from './bar-chart/bar-chart.component';
 export * from './bar-chart/bar-chart.module';
-export * from './bar-chart/bar-chart-data';
+export * from './bar-chart/models/bar-chart-data';
 export * from './gauge-chart/gauge-chart.component';
 export * from './gauge-chart/gauge-chart.module';
 export * from './gauge-chart/gauge-chart-data';

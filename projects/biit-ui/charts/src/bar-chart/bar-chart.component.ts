@@ -1,122 +1,219 @@
-import {Component, Input, SimpleChanges, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit} from '@angular/core';
 import {
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexDataLabels,
-  ApexFill,
-  ApexLegend,
-  ApexPlotOptions,
-  ApexTitleSubtitle,
-  ApexTooltip,
-  ApexXAxis,
-  ApexYAxis,
-  ChartComponent
+  ApexAxisChartSeries, ApexChart,
+  ApexDataLabels, ApexGrid, ApexLegend,
+  ApexPlotOptions, ApexTitleSubtitle,
+  ApexTooltip, ApexXAxis, ApexYAxis
 } from "ng-apexcharts";
-import {BarChartData} from "./bar-chart-data";
-import {Colors} from "../colors";
-import {CustomChartComponent} from "../custom-chart-component";
-import {ApexTheme} from "ng-apexcharts/lib/model/apex-types";
+import {BiitIconService} from 'biit-ui/icon';
+import {BarChartData} from './models/bar-chart-data';
+import {fromEvent} from 'rxjs';
 
 
-type BarChartOptions = {
+export type BarChartOptions = {
   series: ApexAxisChartSeries;
-  colors: string [];
-  fill: ApexFill;
   chart: ApexChart;
-  labels: ApexDataLabels;
-  plotOptions: ApexPlotOptions;
-  tooltip: ApexTooltip
+  dataLabels: ApexDataLabels;
+  fill: any;
+  colors: any;
+  title: ApexTitleSubtitle;
   xaxis: ApexXAxis;
   yaxis: ApexYAxis;
-  title: ApexTitleSubtitle;
   legend: ApexLegend;
-  theme: ApexTheme;
+  plotOptions: ApexPlotOptions;
+  tooltip: ApexTooltip;
+  grid: ApexGrid;
 };
 
+
 @Component({
-  selector: 'app-bar-chart',
+  selector: 'biit-bar-chart',
   templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.scss']
+  styleUrls: ['./bar-chart.component.scss'],
+  host: {
+    '(document:scroll)': 'handleScroll($event)'
+  }
 })
-export class BarChartComponent extends CustomChartComponent {
+export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
 
-  @ViewChild('chart')
-  chart!: ChartComponent;
+  chartOptions: Partial<BarChartOptions>;
+  pageNumber = 1;
 
-  chartOptions!: BarChartOptions;
+  @Input() public data: BarChartData;
+  @Input() public colors: string[];
+  @Input() public title = '';
+  @Input() public width: number;
 
-  @Input()
-  public data: BarChartData;
-  @Input()
-  public width: number|string = '100%';
-  @Input()
-  public height: number|string = 'auto';
-  @Input()
-  public showToolbar: boolean = true;
-  @Input()
-  public colors: string[] = Colors.defaultPalette;
-  @Input()
-  public horizontal: boolean = false;
-  @Input()
-  public barThicknessPercentage: number = 75;
-  @Input()
-  public showValuesLabels: boolean = true;
-  @Input()
-  public xAxisOnTop: boolean = false;
-  @Input()
-  public xAxisTitle: string | undefined = undefined;
-  @Input()
-  public yAxisTitle: string | undefined = undefined;
-  @Input()
-  public showYAxis: boolean = true;
-  @Input()
-  public title: string | undefined = undefined;
-  @Input()
-  public titleAlignment: "left" | "center" | "right" = "center";
-  @Input()
-  public fill: "gradient" | "solid" | "pattern" | "image" = "solid";
-  @Input()
-  public borderRadius: number = 0;
-  @Input()
-  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = "bottom"
-  @Input()
-  public shadow: boolean = true;
+  get titleSvg(): SVGTextElement {return this.ref.nativeElement.querySelector('.apexcharts-title-text')};
+  get toolbarDiv(): HTMLDivElement {return this.ref.nativeElement.querySelector('.apexcharts-toolbar')};
+  get yLegend(): SVGGElement {return this.ref.nativeElement.querySelector('.apexcharts-yaxis')};
+  get yLegendBg(): SVGRectElement {return this.ref.nativeElement.querySelector('#y-legend-bg')};
+  get chartSvg(): SVGSVGElement {return this.ref.nativeElement.querySelector('.apexcharts-svg')};
+  yLegendMargin: number = 0;
+  scroll$;
 
-  constructor() {
-    super();
-    this.data = BarChartData.fromArray([["Value1", 5], ["Value2", 4], ["Value3", 1]]);
+  constructor(private biitIconService: BiitIconService,
+              private ref: ElementRef) {
   }
 
-  protected setProperties(): void {
+  ngOnInit() {
+    if (!this.data?.categories?.length) {
+      return;
+    }
+    this.createChartOptions();
+  }
+
+  ngOnChanges() {
+    if (!this.data?.categories?.length) {
+      return;
+    }
+    this.createChartOptions();
+  }
+
+  ngAfterViewInit() {
+    this.scroll$ = fromEvent(this.ref.nativeElement.firstChild, "scroll");
+
+    this.scroll$.subscribe(element => {
+      this.handleScroll(element);
+    });
+
+    this.toolbarDiv.style.right = this.chartSvg.width.baseVal.value -
+      this.ref.nativeElement.clientWidth + 3 + 'px';
+    console.log(this.ref.nativeElement.clientWidth)
+  }
+
+  handleScroll(event: Event) {
+    if (!this.ref.nativeElement.querySelector('#y-legend-bg')) {
+      let rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      rect.setAttribute("id", "y-legend-bg");
+      rect.setAttribute("x", "0");
+      rect.setAttribute("y", (this.yLegend.firstChild as SVGTextElement).getBBox().y.toString());
+      rect.setAttribute("width", (this.yLegend.getBBox().width + 27).toString());
+      rect.setAttribute("height", (((this.yLegend.parentElement.lastChild as SVGGElement).getBBox().height) + 20).toString());
+      rect.setAttribute("fill", "rgba(255,255,255,1)");
+      this.yLegend.before(rect);
+      rect.before(this.yLegend.parentElement.lastChild);
+    }
+    if (this.yLegendMargin == 0) {
+      this.yLegendMargin = Number.parseFloat(
+        this.yLegend.getAttribute("transform").split("(")[1].split(",")[0]);
+    }
+    this.yLegend.setAttribute("transform",
+      "translate(" + ((event.currentTarget as HTMLElement).scrollLeft + this.yLegendMargin) + ", 0)");
+    this.yLegendBg.setAttribute("x", (event.currentTarget as HTMLElement).scrollLeft.toString());
+    this.titleSvg.setAttribute("x", ((event.currentTarget as HTMLElement).scrollLeft + 10).toString());
+    const right = this.chartSvg.width.baseVal.value -
+    (event.currentTarget as HTMLElement).clientWidth - (event.currentTarget as HTMLElement).scrollLeft + 3;
+    if (right >= 3)
+      this.toolbarDiv.style.right = right + 'px';
+  }
+
+  // Converts a screen Y position to SVG units which have a viewBox transform
+  screenXtoSVGUnits(val) {
+    let pt = this.chartSvg.createSVGPoint();
+    pt.x = val;
+    pt.y = 0;
+    pt = pt.matrixTransform(this.chartSvg.getCTM().inverse());
+    return pt.x.toString();
+  }
+
+  private createChartOptions() {
+    // @ts-ignore
     this.chartOptions = {
-      colors: this.colors,
-      chart: this.getChart('bar', this.shadow, this.showToolbar, this.width, this.height),
-      series: this.data.getData(),
-      labels: this.getLabels(this.showValuesLabels),
-      fill: this.getFill(this.fill),
-      plotOptions: this.getPlotOptions(),
-      tooltip: this.getTooltip(),
-      xaxis: this.getXAxis(this.data.getLabels(), this.xAxisOnTop ? 'top' : 'bottom', this.xAxisTitle),
-      yaxis: this.getYAxis(this.showYAxis, this.yAxisTitle),
-      title: this.getTitle(this.title, this.titleAlignment),
-      legend: this.getLegend(this.legendPosition),
-      theme: this.getTheme()
+      series: this.generateSeries(),
+      chart: {
+        height: '100%',
+        width: this.width ? this.width : '100%',
+        type: "bar"
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: "75%"
+        }
+      },
+      dataLabels: {
+        enabled: true,
+        style: {
+          fontSize: "16px",
+          fontFamily: "Montserrat",
+          fontWeight: "500"
+        }
+      },
+      xaxis: {
+        categories: this.data.legend,
+        labels: {
+          style: {
+            fontSize: '14px',
+            fontFamily: 'Montserrat',
+          },
+        }
+      },
+      yaxis: {
+        labels: {
+          style: {
+            fontSize: '14px',
+            fontFamily: 'Montserrat',
+            colors: ["262626"]
+          },
+        },
+      },
+      fill: {
+        opacity: 1
+      },
+      legend: {
+        fontSize: '16px',
+        fontFamily: 'Montserrat'
+      },
+      title: {
+        text: this.title.toUpperCase(),
+        style: {
+          fontSize: '20px',
+          fontFamily: 'Montserrat',
+          fontWeight: 700,
+        }
+      },
+      grid: {
+        borderColor: '#262626',
+      },
+      tooltip: {
+        custom: function({ series, seriesIndex, dataPointIndex, w }) {
+          return (
+            '<div class="tooltip-base">' +
+            '  <div class="tooltip-header">' +
+                 w.globals.labels[dataPointIndex] +
+            '  </div>' +
+            '  <div class="tooltip-data">' +
+            '    <div class="tooltip-square" style="background:'+ w.globals.colors[seriesIndex] +'"></div>' +
+            '    <a>' + w.globals.seriesNames[seriesIndex] + ': </a>' +
+            '    <a style="margin-left: 0.35rem; font-weight: 500">' + series[seriesIndex][dataPointIndex] + '<a>' +
+            '  </div>' +
+            '</div>'
+          );
+        }
+      },
+      colors: this.data.categories.map(c => c.color)
     };
   }
 
-  protected getPlotOptions(): ApexPlotOptions {
-    return {
-      bar: {
-        distributed: true, // this line is mandatory for using colors
-        horizontal: this.horizontal,
-        barHeight: this.barThicknessPercentage + '%',
-        columnWidth: this.barThicknessPercentage + '%',
-        borderRadius: this.borderRadius
-      }
-    }
-  }
+  generateSeries(): ApexAxisChartSeries {
+    let series: ApexAxisChartSeries = [];
 
-  update(data: BarChartData) {
-    this.chart.updateSeries(data.getData());
+    this.data.categories.forEach(category => {
+      let item: any = {};
+      item.name = category.name;
+      item.data = [];
+
+      category.values.forEach(value => {
+        item.data.push({
+          x: '',
+          y: value
+        });
+      });
+
+      series.push(item);
+    });
+
+    return series;
   }
 }
