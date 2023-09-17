@@ -1,6 +1,6 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {
-  BarChartData, BarChartCategory, BarChartModule, BarChartComponent
+  BarChartData, BarChartModule, BarChartComponent, BarChartSeries, BarChartSeriesData, BarChartGoal
 } from "biit-ui/charts";
 
 export default {
@@ -11,7 +11,7 @@ export default {
     }),
   ],
   args: {
-    data: new BarChartData([new BarChartCategory("Category 1", [3,7,5,9,1,12,10], "#F20D5E")], ["This", "is", "some", "test", "Dunno", "I am just", "trying"]),
+    data: null,
     title: "Bar chart",
     width: 600
   },
@@ -71,13 +71,148 @@ const Template: Story<BarChartComponent> = (args: BarChartComponent) => ({
 });
 
 export const SingleBar = Template.bind({});
-SingleBar.args = {}
+SingleBar.args = {
+  data: new BarChartData([
+      new BarChartSeries(
+        "Rojo",
+        [
+          new BarChartSeriesData(3),
+          new BarChartSeriesData(7),
+          new BarChartSeriesData(5),
+          new BarChartSeriesData(9),
+          new BarChartSeriesData(1),
+          new BarChartSeriesData(12),
+          new BarChartSeriesData(10)
+        ],
+        "#F20D5E"
+      ),
+    ],
+    ["This", "is", "some", "test", "Dunno", "I am just", "trying"])
+}
+
+export const SingleBarWithGoals = Template.bind({});
+SingleBarWithGoals.args = {
+  data: new BarChartData([
+      new BarChartSeries(
+        "Rojo",
+        [
+          new BarChartSeriesData(3, [new BarChartGoal("Goal example", 5, "#262626")]),
+          new BarChartSeriesData(7, [new BarChartGoal("Another goal example", 6, "#262626")]),
+          new BarChartSeriesData(5,[new BarChartGoal("Yet another", 3, "#262626")]),
+          new BarChartSeriesData(9),
+          new BarChartSeriesData(1, [new BarChartGoal("Woah this one really is underperforming", 10, "#262626")]),
+          new BarChartSeriesData(12),
+          new BarChartSeriesData(10)
+        ],
+        "#F20D5E"
+      ),
+    ],
+    ["This", "is", "some", "test", "Dunno", "I am just", "trying"])
+}
 
 export const MultiBar = Template.bind({});
 MultiBar.args = {
   data: new BarChartData([
-    new BarChartCategory("Rojo", [3,7,5,9,1,12,10], "#F20D5E"),
-    new BarChartCategory("Azul", [11,2,6,3,4,9,8], "#1984C8")
+      new BarChartSeries(
+        "Rojo",
+        [
+          new BarChartSeriesData(3),
+          new BarChartSeriesData(7),
+          new BarChartSeriesData(5),
+          new BarChartSeriesData(9),
+          new BarChartSeriesData(1),
+          new BarChartSeriesData(12),
+          new BarChartSeriesData(10)
+        ],
+        "#F20D5E"
+      ),
+      new BarChartSeries(
+        "Azul",
+        [
+          new BarChartSeriesData(11),
+          new BarChartSeriesData(2),
+          new BarChartSeriesData(6),
+          new BarChartSeriesData(3),
+          new BarChartSeriesData(4),
+          new BarChartSeriesData(9),
+          new BarChartSeriesData(8)
+        ],
+        "#1984C8"
+      ),
     ],
-    ["This", "is", "some", "test", "Dunno", "I am just", "trying"])
+    ["This", "is", "some", "test", "Dunno", "I am just", "trying"]
+  ),
+}
+
+export const StackedNormal = Template.bind({});
+StackedNormal.args = {
+  data: new BarChartData([
+      new BarChartSeries(
+        "Rojo",
+        [
+          new BarChartSeriesData(3),
+          new BarChartSeriesData(7),
+          new BarChartSeriesData(5),
+          new BarChartSeriesData(9),
+          new BarChartSeriesData(1),
+          new BarChartSeriesData(12),
+          new BarChartSeriesData(10)
+        ],
+        "#F20D5E"
+      ),
+      new BarChartSeries(
+        "Azul",
+        [
+          new BarChartSeriesData(11),
+          new BarChartSeriesData(2),
+          new BarChartSeriesData(6),
+          new BarChartSeriesData(3),
+          new BarChartSeriesData(4),
+          new BarChartSeriesData(9),
+          new BarChartSeriesData(8)
+        ],
+        "#1984C8"
+      ),
+    ],
+    ["This", "is", "some", "test", "Dunno", "I am just", "trying"],
+    null,
+    true
+  ),
+}
+
+export const StackedFill = Template.bind({});
+StackedFill.args = {
+  data: new BarChartData([
+      new BarChartSeries(
+        "Rojo",
+        [
+          new BarChartSeriesData(3),
+          new BarChartSeriesData(7),
+          new BarChartSeriesData(5),
+          new BarChartSeriesData(9),
+          new BarChartSeriesData(1),
+          new BarChartSeriesData(12),
+          new BarChartSeriesData(10)
+        ],
+        "#F20D5E"
+      ),
+      new BarChartSeries(
+        "Azul",
+        [
+          new BarChartSeriesData(11),
+          new BarChartSeriesData(2),
+          new BarChartSeriesData(6),
+          new BarChartSeriesData(3),
+          new BarChartSeriesData(4),
+          new BarChartSeriesData(9),
+          new BarChartSeriesData(8)
+        ],
+        "#1984C8"
+      ),
+    ],
+    ["This", "is", "some", "test", "Dunno", "I am just", "trying"],
+    null,
+    true,
+    '100%'
+  ),
 }
