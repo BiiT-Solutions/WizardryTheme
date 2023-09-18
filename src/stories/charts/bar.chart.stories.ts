@@ -1,6 +1,12 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {
-  BarChartData, BarChartModule, BarChartComponent, BarChartSeries, BarChartSeriesData, BarChartGoal
+  BarChartComponent,
+  BarChartData,
+  BarChartGoal,
+  BarChartModule,
+  BarChartOrientation,
+  BarChartSeries,
+  BarChartSeriesData
 } from "biit-ui/charts";
 
 export default {
@@ -57,6 +63,13 @@ export default {
         step: 1
       }
     }
+  },
+  parameters: {
+    options: {
+      storySort: {
+        order: [['SingleBar', 'SingleBarWithGoals'], ['MultipleBars', 'MultipleBarsWithGoals']]
+      }
+    }
   }
 } as Meta;
 
@@ -71,6 +84,7 @@ const Template: Story<BarChartComponent> = (args: BarChartComponent) => ({
 });
 
 export const SingleBar = Template.bind({});
+SingleBar.storyName = "Single Bar";
 SingleBar.args = {
   data: new BarChartData([
       new BarChartSeries(
@@ -91,17 +105,18 @@ SingleBar.args = {
 }
 
 export const SingleBarWithGoals = Template.bind({});
+SingleBarWithGoals.storyName = "Single Bar With Goals";
 SingleBarWithGoals.args = {
   data: new BarChartData([
       new BarChartSeries(
         "Rojo",
         [
-          new BarChartSeriesData(3, [new BarChartGoal("Goal example", 5, "#262626")]),
-          new BarChartSeriesData(7, [new BarChartGoal("Another goal example", 6, "#262626")]),
-          new BarChartSeriesData(5,[new BarChartGoal("Yet another", 3, "#262626")]),
+          new BarChartSeriesData(3, [new BarChartGoal("Goal example", 5, "#262626", 4)]),
+          new BarChartSeriesData(7, [new BarChartGoal("Another goal example", 6, "#262626", 4)]),
+          new BarChartSeriesData(5,[new BarChartGoal("Yet another", 3, "#262626", 4)]),
           new BarChartSeriesData(9),
-          new BarChartSeriesData(1, [new BarChartGoal("Woah this one really is underperforming", 10, "#262626")]),
-          new BarChartSeriesData(12),
+          new BarChartSeriesData(1, [new BarChartGoal("Woah this one really is underperforming", 10, "#262626", 4)]),
+          new BarChartSeriesData(12, [new BarChartGoal("This has", 8, "#262626", 5), new BarChartGoal("Multiple goals", 4, "#E6A91A", 4)]),
           new BarChartSeriesData(10)
         ],
         "#F20D5E"
@@ -109,8 +124,9 @@ SingleBarWithGoals.args = {
     ],
     ["This", "is", "some", "test", "Dunno", "I am just", "trying"])
 }
-
 export const MultiBar = Template.bind({});
+
+MultiBar.storyName = "Multi Bar";
 MultiBar.args = {
   data: new BarChartData([
       new BarChartSeries(
@@ -131,6 +147,41 @@ MultiBar.args = {
         [
           new BarChartSeriesData(11),
           new BarChartSeriesData(2),
+          new BarChartSeriesData(6),
+          new BarChartSeriesData(3),
+          new BarChartSeriesData(4),
+          new BarChartSeriesData(9),
+          new BarChartSeriesData(8)
+        ],
+        "#1984C8"
+      ),
+    ],
+    ["This", "is", "some", "test", "Dunno", "I am just", "trying"]
+  ),
+}
+
+export const MultiBarWithGoals = Template.bind({});
+MultiBarWithGoals.storyName = "Multi Bar With Goals";
+MultiBarWithGoals.args = {
+  data: new BarChartData([
+      new BarChartSeries(
+        "Rojo",
+        [
+          new BarChartSeriesData(3, [new BarChartGoal("Goal example", 5, "#262626", 4)]),
+          new BarChartSeriesData(7, [new BarChartGoal("Another goal example", 6, "#262626", 4)]),
+          new BarChartSeriesData(5,[new BarChartGoal("Yet another", 3, "#262626", 4)]),
+          new BarChartSeriesData(9),
+          new BarChartSeriesData(1, [new BarChartGoal("Woah this one really is underperforming", 10, "#262626", 4)]),
+          new BarChartSeriesData(12),
+          new BarChartSeriesData(10, [new BarChartGoal("This has", 8, "#262626", 4), new BarChartGoal("Multiple goals", 4, "#E6A91A", 4)])
+        ],
+        "#F20D5E"
+      ),
+      new BarChartSeries(
+        "Azul",
+        [
+          new BarChartSeriesData(11),
+          new BarChartSeriesData(2, [new BarChartGoal("Goal example", 5, "#262626", 5)]),
           new BarChartSeriesData(6),
           new BarChartSeriesData(3),
           new BarChartSeriesData(4),
@@ -215,4 +266,26 @@ StackedFill.args = {
     true,
     '100%'
   ),
+}
+
+export const Horizontal = Template.bind({});
+Horizontal.args = {
+  data: new BarChartData([
+      new BarChartSeries(
+        "Rojo",
+        [
+          new BarChartSeriesData(3),
+          new BarChartSeriesData(7),
+          new BarChartSeriesData(5),
+          new BarChartSeriesData(9),
+          new BarChartSeriesData(1),
+          new BarChartSeriesData(12),
+          new BarChartSeriesData(10)
+        ],
+        "#F20D5E"
+      ),
+    ],
+    ["This", "is", "some", "test", "Dunno", "I am just", "trying"],
+    BarChartOrientation.HORIZONTAL
+  )
 }

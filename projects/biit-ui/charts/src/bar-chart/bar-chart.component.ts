@@ -6,7 +6,7 @@ import {
   ApexTooltip, ApexXAxis, ApexYAxis
 } from "ng-apexcharts";
 import {BiitIconService} from 'biit-ui/icon';
-import {BarChartData, BarChartOrientation} from './models/bar-chart-data';
+import {BarChartData} from './models/bar-chart-data';
 import {fromEvent} from 'rxjs';
 
 
@@ -192,17 +192,13 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
             '      <a style="margin-left: 0.35rem; font-weight: 500">' + series[seriesIndex][dataPointIndex] + '</a>' +
             '    </div>';
 
-          w.globals.seriesGoals.forEach(goalType => {
-            if (goalType[dataPointIndex]) {
-              goalType[dataPointIndex].forEach(goalItem => {
-                tooltip +=
-                  '<div class="tooltip-data">' +
-                  '  <div class="tooltip-line" style="background:'+ goalItem.strokeColor +'"></div>' +
-                  '  <a>' + goalItem.name + ': </a>' +
-                  '  <a style="margin-left: 0.35rem; font-weight: 500">' + goalItem.value + '</a>' +
-                  '</div>'
-              });
-            }
+          w.globals.seriesGoals[seriesIndex][dataPointIndex].forEach(goalItem => {
+            tooltip +=
+              '<div class="tooltip-data">' +
+              '  <div class="tooltip-line" style="background:'+ goalItem.strokeColor +'"></div>' +
+              '  <a>' + goalItem.name + ': </a>' +
+              '  <a style="margin-left: 0.35rem; font-weight: 500">' + goalItem.value + '</a>' +
+              '</div>'
           });
 
           tooltip +=
@@ -213,26 +209,5 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
       },
       colors: this.data.series.map(c => c.color)
     };
-  }
-
-  generateSeries(): ApexAxisChartSeries {
-    let series: ApexAxisChartSeries = [];
-
-    // this.data.series.forEach(series => {
-    //   let item: any = {};
-    //   item.name = ser.name;
-    //   item.data = [];
-    //
-    //   category.values.forEach(value => {
-    //     item.data.push({
-    //       x: '',
-    //       y: value
-    //     });
-    //   });
-    //
-    //   series.push(item);
-    // });
-
-    return series;
   }
 }

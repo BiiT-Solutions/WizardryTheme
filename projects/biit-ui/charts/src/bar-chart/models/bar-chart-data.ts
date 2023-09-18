@@ -8,9 +8,9 @@ export class BarChartData {
   constructor(series: BarChartSeries[], legend: string[], orientation?: BarChartOrientation, stacked?: boolean, stackType?: '100%' | 'normal') {
     this.series = series;
     this.legend = legend;
-    orientation ? this.orientation = orientation : null;
+    this.orientation = orientation ? orientation : BarChartOrientation.VERTICAL;
     this.stacked = !!stacked;
-    stackType ? this.stackType = stackType : null;
+    this.stackType = stackType ? stackType : undefined;
   }
 }
 
@@ -24,7 +24,7 @@ export class BarChartSeries {
     this.name = name;
     this.data = data;
     this.color = color;
-    group ? this.group = group : null;
+    this.group = group ? group : undefined;
   }
 }
 
@@ -35,7 +35,7 @@ export class BarChartSeriesData {
 
   constructor(value: number, goals?: BarChartGoal[]) {
     this.y = value;
-    goals ? this.goals = goals : null;
+    this.goals = goals ? goals : [];
   }
 }
 
@@ -43,11 +43,15 @@ export class BarChartGoal {
   name: string;
   value: number;
   strokeColor: string; // Color set as '#XXXXXX'
+  strokeHeight: number;
+  strokeWidth: number;
 
-  constructor(name: string, value: number, strokeColor: string) {
+  constructor(name: string, value: number, strokeColor: string, strokeHeight?: number, strokeWidth?: number) {
     this.name = name;
     this.value = value;
     this.strokeColor = strokeColor;
+    this.strokeHeight = strokeHeight;
+    this.strokeWidth = strokeWidth;
   }
 }
 
