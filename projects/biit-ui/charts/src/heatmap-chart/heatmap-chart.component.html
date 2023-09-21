@@ -17,7 +17,7 @@
              [states]="heatmapOptions.states"
   ></apx-chart>
   <div class="buttons"
-       *ngIf="this.data?.elements[0].data.length > itemsPerPage">
+       *ngIf="this.data?.elements[0]?.data.length > itemsPerPage">
     <button biit-icon
             [icon]="'right_arrow'"
             [disabled]="pageNumber == 1"
