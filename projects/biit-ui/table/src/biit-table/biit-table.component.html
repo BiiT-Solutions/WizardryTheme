@@ -17,7 +17,7 @@
       <biit-input-text [ngModel]="search"
                        (onActionPerformed)="
                          search = $event;
-                         this.paginator.currentPage = 1;
+                         paginator.currentPage = 1;
                          onTableUpdate();
                        "
                        (focusout)="resetInputValue($event, search)"

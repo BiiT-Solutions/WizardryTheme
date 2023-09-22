@@ -1,146 +1,200 @@
-import {Component, Input, ViewChild} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexDataLabels,
-  ApexFill,
-  ApexLegend,
-  ApexMarkers,
-  ApexPlotOptions,
-  ApexStroke,
-  ApexTheme,
-  ApexTitleSubtitle,
-  ApexTooltip,
-  ApexXAxis,
-  ApexYAxis,
-  ChartComponent
+  ApexAxisChartSeries, ApexChart,
+  ApexDataLabels, ApexGrid, ApexLegend, ApexMarkers,
+  ApexStroke, ApexTitleSubtitle,
+  ApexTooltip, ApexXAxis, ApexYAxis
 } from "ng-apexcharts";
-import {LineChartData, LineChartDataElement} from "./line-chart-data";
-import {Colors} from "../colors";
-import {CustomChartComponent} from "../custom-chart-component";
+import {LineChartData} from './models/line-chart-data';
 
 
 export type LineChartOptions = {
   series: ApexAxisChartSeries;
-  colors: string [];
   chart: ApexChart;
-  labels: ApexDataLabels;
-  fill: ApexFill;
-  plotOptions: ApexPlotOptions;
-  tooltip: ApexTooltip;
-  stroke: ApexStroke;
+  dataLabels: ApexDataLabels;
+  fill: any;
+  colors: any;
+  title: ApexTitleSubtitle;
   xaxis: ApexXAxis;
   yaxis: ApexYAxis;
-  title: ApexTitleSubtitle;
   legend: ApexLegend;
+  tooltip: ApexTooltip;
+  grid: ApexGrid;
+  stroke: ApexStroke;
   markers: ApexMarkers;
-  theme: ApexTheme;
 };
 
-type UpdateLineChartOptions = {
-  xaxis: ApexXAxis;
-};
 
 @Component({
-  selector: 'app-line-chart',
+  selector: 'biit-line-chart',
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss']
 })
-export class LineChartComponent extends CustomChartComponent {
+export class LineChartComponent implements OnInit, OnChanges {
 
-  @ViewChild('chart')
-  chart!: ChartComponent;
+  chartOptions: Partial<LineChartOptions>;
+  pageNumber = 1;
 
-  public chartOptions: LineChartOptions;
+  @Input() public data: LineChartData;
+  @Input() public title = '';
+  @Input() public xTitle = '';
+  @Input() public yTitle = '';
+  @Input() public min: number;
+  @Input() public max: number;
 
-  @Input()
-  public data: LineChartData;
-  @Input()
-  public width: number|string = '100%';
-  @Input()
-  public height: number|string = 'auto';
-  @Input()
-  public showToolbar: boolean = true;
-  @Input()
-  public colors: string[] = Colors.defaultPalette;
-  @Input()
-  public horizontal: boolean = false;
-  @Input()
-  public barThicknessPercentage: number = 75;
-  @Input()
-  public showValuesLabels: boolean = true;
-  @Input()
-  public xAxisOnTop: boolean = false;
-  @Input()
-  public xAxisTitle: string | undefined = undefined;
-  @Input()
-  public yAxisTitle: string | undefined = undefined;
-  @Input()
-  public showYAxis: boolean = true;
-  @Input()
-  public title: string | undefined = undefined;
-  @Input()
-  public titleAlignment: "left" | "center" | "right" = "center";
-  @Input()
-  public fill: "gradient" | "solid" | "pattern" | "image" = "solid";
-  @Input()
-  public curve: "straight" | "smooth" | "stepline" = "smooth";
-  @Input()
-  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = "bottom";
-  @Input()
-  public shadow: boolean = true;
-  @Input()
-  public strokeWidth: number = 5;
+  constructor() { }
 
-  constructor() {
-    super();
-    this.data = LineChartData.fromMultipleDataElements([
-      new LineChartDataElement([["Value1", 5], ["Value2", 4], ["Value3", 1]], "Line1"),
-      new LineChartDataElement([["Value1", 2], ["Value2", 3], ["Value3", 5]], "Line2")]);
+  ngOnInit() {
+    if (!this.data?.series?.length) {
+      return;
+    }
+    this.createChartOptions();
   }
 
+  ngOnChanges() {
+    if (!this.data?.series?.length) {
+      return;
+    }
+    this.createChartOptions();
+  }
 
-  protected setProperties(): void {
+  private createChartOptions() {
     this.chartOptions = {
-      colors: this.colors,
-      series: this.data.getData(),
-      chart: this.getChart('line', this.shadow, this.showToolbar, this.width, this.height),
-      labels: this.getLabels(this.showValuesLabels),
-      fill: this.getFill(this.fill),
-      plotOptions: this.getPlotOptions(),
-      tooltip: this.getTooltip(),
-      xaxis: this.getXAxis(this.data.getLabels(), this.xAxisOnTop ? 'top' : 'bottom', this.xAxisTitle),
-      yaxis: this.getYAxis(this.showYAxis, this.yAxisTitle),
-      stroke: this.getStroke(this.strokeWidth, this.curve),
-      title: this.getTitle(this.title, this.titleAlignment),
-      legend: this.getLegend(this.legendPosition),
-      markers: this.getMarkers(),
-      theme: this.getTheme()
-    };
-  }
-
-  protected getPlotOptions(): ApexPlotOptions {
-    return {
-      bar: {
-        distributed: true, // this line is mandatory for using colors
-        horizontal: this.horizontal,
-        barHeight: this.barThicknessPercentage + '%',
-        columnWidth: this.barThicknessPercentage + '%',
-      }
-    }
-  }
-
-  update(data: LineChartData) {
-    this.chart.updateSeries(data.getData());
-    const updateOptions: UpdateLineChartOptions = {
-      xaxis: {
-        categories: data.getLabels(),
-        position: this.xAxisOnTop ? 'top' : 'bottom',
-        title: {
-          text: this.xAxisTitle
+      series: this.data.series,
+      chart: {
+        height: '100%',
+        width: '100%',
+        type: "line",
+        toolbar: {
+          show: true
         }
-      }
-    }
-    this.chart.updateOptions(updateOptions);
+      },
+      colors: this.data.series.map(c => c.color),
+      fill: {
+        opacity: 1
+      },
+      dataLabels: {
+        enabled: this.data.series.length > 1,
+        style: {
+          fontSize: "16px",
+          fontFamily: "Montserrat",
+          fontWeight: "500"
+        },
+        background: {
+          opacity: 1,
+          borderWidth: 0,
+          borderRadius: 0
+        }
+      },
+      stroke: {
+        curve: "straight"
+      },
+      title: {
+        text: this.title.toUpperCase(),
+        align: "left",
+        style: {
+          fontSize: '20px',
+          fontFamily: 'Montserrat',
+          fontWeight: 700,
+        }
+      },
+      grid: {
+        borderColor: "#262626",
+        position: 'back',
+        strokeDashArray: 0,
+        padding: {
+          top: 20
+        }
+      },
+      markers: {
+        strokeWidth: 0,
+        fillOpacity: 1,
+        hover: {
+          size: this.data.series.length == 1 ? 7 : 0
+        }
+      },
+      xaxis: {
+        categories: this.data.legend,
+        title: {
+          text: this.xTitle,
+          style: {
+            fontSize: '14px',
+            fontFamily: 'Montserrat',
+            fontWeight: 900,
+            color: "#262626"
+          }
+        },
+        crosshairs : {
+          width: 'tickWidth',
+          position: 'back',
+          stroke: {
+            color: '#EDEDED',
+            dashArray: 0,
+          },
+          opacity: 0.2
+        },
+        tooltip: {
+          enabled: false
+        },
+        labels: {
+          style: {
+            fontSize: '14px',
+            fontFamily: 'Montserrat'
+          },
+          trim: true
+        }
+      },
+      yaxis: {
+        title: {
+          text: this.yTitle,
+          style: {
+            fontSize: '14px',
+            fontFamily: 'Montserrat',
+            fontWeight: 900,
+            color: "#262626"
+          }
+        },
+        labels: {
+          style: {
+            fontSize: '14px',
+            fontFamily: 'Montserrat'
+          }
+        },
+        min: this.min,
+        max: this.max
+      },
+      legend: {
+        position: "top",
+        horizontalAlign: "left",
+        floating: false,
+        offsetY: -5,
+        fontSize: '16px',
+        fontFamily: 'Montserrat'
+      },
+      tooltip: {
+        custom: function({ series, seriesIndex, dataPointIndex, w }) {
+          // debugger;
+          let tooltip =
+            '<div class="tooltip-base">' +
+            '  <div class="tooltip-header">' +
+            w.globals.categoryLabels[dataPointIndex] +
+            '  </div>' +
+            '  <div class="tooltip-content">';
+          series.forEach((seriesItem, i) => {
+            tooltip +=
+              '<div class="tooltip-data">' +
+              '  <div class="tooltip-square" style="background:'+ w.globals.colors[i] +'"></div>' +
+              '  <a>' + w.globals.seriesNames[i] + ': </a>' +
+              '  <a style="margin-left: 0.35rem; font-weight: 500">' + series[i][dataPointIndex] + '</a>' +
+              '</div>';
+          });
+
+          tooltip +=
+            '  </div>' +
+            '</div>';
+          return tooltip;
+        }
+      },
+    };
   }
 }

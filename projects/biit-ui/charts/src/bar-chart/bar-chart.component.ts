@@ -5,7 +5,6 @@ import {
   ApexPlotOptions, ApexTitleSubtitle,
   ApexTooltip, ApexXAxis, ApexYAxis
 } from "ng-apexcharts";
-import {BiitIconService} from 'biit-ui/icon';
 import {BarChartData} from './models/bar-chart-data';
 import {fromEvent} from 'rxjs';
 
@@ -40,7 +39,6 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
   pageNumber = 1;
 
   @Input() public data: BarChartData;
-  @Input() public colors: string[];
   @Input() public title = '';
   @Input() public width: number;
 
@@ -52,9 +50,7 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
   yLegendMargin: number = 0;
   scroll$;
 
-  constructor(private biitIconService: BiitIconService,
-              private ref: ElementRef) {
-  }
+  constructor(private ref: ElementRef) { }
 
   ngOnInit() {
     if (!this.data?.series?.length) {
@@ -76,10 +72,6 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
     this.scroll$.subscribe(element => {
       this.handleScroll(element);
     });
-
-    this.toolbarDiv.style.right = this.chartSvg.width.baseVal.value -
-      this.ref.nativeElement.clientWidth + 3 + 'px';
-    console.log(this.ref.nativeElement.clientWidth)
   }
 
   handleScroll(event: Event) {
@@ -106,15 +98,6 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
     (event.currentTarget as HTMLElement).clientWidth - (event.currentTarget as HTMLElement).scrollLeft + 3;
     if (right >= 3)
       this.toolbarDiv.style.right = right + 'px';
-  }
-
-  // Converts a screen Y position to SVG units which have a viewBox transform
-  screenXtoSVGUnits(val) {
-    let pt = this.chartSvg.createSVGPoint();
-    pt.x = val;
-    pt.y = 0;
-    pt = pt.matrixTransform(this.chartSvg.getCTM().inverse());
-    return pt.x.toString();
   }
 
   private createChartOptions() {
@@ -148,6 +131,7 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
           style: {
             fontSize: '14px',
             fontFamily: 'Montserrat',
+            colors: ["262626"]
           },
         }
       },

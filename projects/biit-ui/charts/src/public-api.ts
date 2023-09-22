@@ -10,7 +10,7 @@ export * from './gauge-chart/gauge-chart.module';
 export * from './gauge-chart/gauge-chart-data';
 export * from './line-chart/line-chart.component';
 export * from './line-chart/line-chart.module';
-export * from './line-chart/line-chart-data';
+export * from './line-chart/models/line-chart-data';
 export * from './pie-chart/pie-chart.component';
 export * from './pie-chart/pie-chart.module';
 export * from './pie-chart/pie-chart-data';
