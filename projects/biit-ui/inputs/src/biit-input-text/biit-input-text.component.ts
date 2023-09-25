@@ -1,4 +1,4 @@
-import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {biitIcon} from 'biit-icons-collection';
 
@@ -14,18 +14,23 @@ import {biitIcon} from 'biit-icons-collection';
     }
   ]
 })
-export class BiitInputTextComponent implements ControlValueAccessor{
+export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
 
   @Input() placeholder: string = '';
   @Input() error: string;
   @Input() type: Type;
   @Input() icon: biitIcon;
   @Input() fieldName: string;
+  @Input() mandatory: boolean;
   @Output() onActionPerformed: EventEmitter<string> = new EventEmitter<string>();
 
   reveal: boolean = false;
   value: string;
   protected readonly Type = Type;
+
+  ngOnInit() {
+    this.mandatory = !!this.mandatory;
+  }
 
   onChange = (_: any) => {};
   onTouch = () => {};

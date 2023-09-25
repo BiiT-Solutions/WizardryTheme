@@ -1,4 +1,4 @@
-import {Component, Input, forwardRef} from '@angular/core';
+import {Component, Input, forwardRef, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
@@ -13,13 +13,17 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
     }
   ]
 })
-export class BiitRadioButtonComponent implements ControlValueAccessor {
+export class BiitRadioButtonComponent implements ControlValueAccessor, OnInit {
   @Input() id: string;
   @Input() name: string;
   @Input() value: string;
-  @Input() disabled = false;
+  @Input() disabled;
   selected: any;
   hover = false;
+
+  ngOnInit() {
+    this.disabled = !!this.disabled;
+  }
 
   onChange = (value: any) => {};
   onTouched = () => {};

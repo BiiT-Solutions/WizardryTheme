@@ -10,7 +10,11 @@
            [class.reveal]="reveal"
            [style.resize]="resize"
     ></textarea>
-    <label class="input-placeholder">{{placeholder}}</label>
+    <div class="input-placeholder">
+      {{placeholder}}
+      <a *ngIf="mandatory"
+         [style.color]="value ? null : 'red'">*</a>
+    </div>
     <biit-icon *ngIf="error" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
     <div *ngIf="error" class="input-error-msg">
       <a>

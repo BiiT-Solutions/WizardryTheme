@@ -28,6 +28,7 @@ export default {
     error: '',
     disabled: false,
     readonly: false,
+    mandatory: false,
     maxLength: 500,
     placeholder: 'Textarea component'
   },
@@ -42,6 +43,7 @@ const Template: Story<BiitTextareaComponent> = (args: BiitTextareaComponent) => 
                    [readonly]="readonly"
                    [maxLength]="maxLength"
                    [placeholder]="placeholder"
+                   [mandatory]="mandatory"
                    resize-x resize-y
                    style="display: block"></biit-textarea>
 `});

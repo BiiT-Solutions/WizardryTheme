@@ -18,12 +18,13 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
 
   @Input() title: string;
-  @Input() primitive: boolean = false;
-  @Input() compact: boolean = false;
+  @Input() primitive: boolean;
+  @Input() compact: boolean;
   @Input() label: string = '';
   @Input() value: string;
   @Input() data: any[];
-  @Input() disabled: boolean = false;
+  @Input() disabled: boolean;
+  @Input() mandatory: boolean;
 
   public currentValue;
   public filterText: string = '';
@@ -37,6 +38,10 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
   ) { }
 
   ngOnInit() {
+    this.primitive = !!this.primitive;
+    this.compact = !!this.compact;
+    this.disabled = !!this.disabled;
+    this.mandatory = !!this.mandatory;
     this.handleFilter();
   }
 

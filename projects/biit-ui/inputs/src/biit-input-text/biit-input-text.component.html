@@ -18,7 +18,11 @@
                  [pathStyle]="{fill: reveal ? '#F20D5E' : '#262626'}"
       ></biit-icon>
     </div>
-    <label class="input-placeholder">{{placeholder}}</label>
+    <div class="input-placeholder">
+      {{placeholder}}
+      <a *ngIf="mandatory"
+         [style.color]="value ? null : 'red'">*</a>
+    </div>
     <biit-icon *ngIf="error" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
     <div class="bottom-line"></div>
     <div *ngIf="error" class="input-error-msg">

@@ -103,6 +103,19 @@ export default {
         type: 'boolean'
       }
     },
+    mandatory: {
+      name: 'mandatory',
+      type: { name: 'boolean', required: false },
+      defaultValue: 'false',
+      description: 'Shows an asterisk for the user to know it\'s a mandatory field',
+      table: {
+        type: { summary: 'boolean' },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'boolean'
+      }
+    },
     width: {
       name: 'width',
       type: { name: 'number', required: false },
@@ -130,22 +143,22 @@ const TemplateExpanded: Story<BiitDropdownComponent> = (args: BiitDropdownCompon
 
     <biit-dropdown [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; top: 1rem; left: 1rem; width: {{width}}px;"
-                   [disabled]="disabled" [compact]="compact"
+                   [disabled]="disabled" [compact]="compact" [mandatory]="mandatory"
     ></biit-dropdown>
 
     <biit-dropdown [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; top: 1rem; right: 1rem; width: {{width}}px;"
-                   [disabled]="disabled" [compact]="compact"
+                   [disabled]="disabled" [compact]="compact" [mandatory]="mandatory"
     ></biit-dropdown>
 
     <biit-dropdown [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; bottom: 1rem; left: 1rem; width: {{width}}px;"
-                   [disabled]="disabled" [compact]="compact"
+                   [disabled]="disabled" [compact]="compact" [mandatory]="mandatory"
     ></biit-dropdown>
 
     <biit-dropdown [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; bottom: 1rem; right: 1rem; width: {{width}}px;"
-                   [disabled]="disabled" [compact]="compact"
+                   [disabled]="disabled" [compact]="compact" [mandatory]="mandatory"
     ></biit-dropdown>
 `
 });
@@ -161,22 +174,22 @@ const TemplateCompact: Story<BiitDropdownComponent> = (args: BiitDropdownCompone
 
     <biit-dropdown [(ngModel)]="value" title="Worst season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; top: 1rem; left: 1rem;"
-                   [disabled]="disabled" [compact]="true"
+                   [disabled]="disabled" [compact]="true" [mandatory]="mandatory"
     ></biit-dropdown>
 
     <biit-dropdown [(ngModel)]="value" title="Worst season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; top: 1rem; right: 1rem;"
-                   [disabled]="disabled" [compact]="true"
+                   [disabled]="disabled" [compact]="true" [mandatory]="mandatory"
     ></biit-dropdown>
 
     <biit-dropdown [(ngModel)]="value" title="Worst season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; bottom: 1rem; left: 1rem;"
-                   [disabled]="disabled" [compact]="true"
+                   [disabled]="disabled" [compact]="true" [mandatory]="mandatory"
     ></biit-dropdown>
 
     <biit-dropdown [(ngModel)]="value" title="Worst season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; bottom: 1rem; right: 1rem;"
-                   [disabled]="disabled" [compact]="true"
+                   [disabled]="disabled" [compact]="true" [mandatory]="mandatory"
     ></biit-dropdown>
 `
 });

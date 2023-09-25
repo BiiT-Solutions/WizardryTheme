@@ -27,12 +27,14 @@
                  [pathStyle]="{fill: disabled ? '#D9D9D9' : dropdownOpen ? '#F20D5E' : '#262626'}"
       ></biit-icon>
     </div>
-    <label id="dropdown-label"
+    <div id="dropdown-label"
            class="input-placeholder"
            [class.disabled]="disabled"
            [class.compact]="dropdownOpen || (currentValues?.length)">
       {{title}}
-    </label>
+      <a *ngIf="mandatory"
+         [style.color]="currentValues.length ? null : 'red'">*</a>
+    </div>
     <div class="bottom-line"
          [class.disabled]="disabled"
     ></div>

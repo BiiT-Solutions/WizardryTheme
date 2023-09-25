@@ -26,14 +26,15 @@ export enum BiitMultiselectType {
 export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, AfterViewInit {
 
   @Input() title: string;
-  @Input() primitive: boolean = false;
-  @Input() compact: boolean = false;
+  @Input() primitive: boolean;
+  @Input() compact: boolean;
   @Input() type: BiitMultiselectType = BiitMultiselectType.DEFAULT;
   @Input() icon: biitIcon = 'column_selection';
   @Input() label: string = '';
   @Input() value: string = '';
   @Input() data: any[] = [];
-  @Input() disabled: boolean = false;
+  @Input() disabled: boolean;
+  @Input() mandatory: boolean;
 
   public currentValues: any[] = [];
   public filterText: string = '';
@@ -48,6 +49,10 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   ) { }
 
   ngOnInit() {
+    this.primitive = !!this.primitive;
+    this.compact = !!this.compact;
+    this.disabled = !!this.disabled;
+    this.mandatory = !!this.mandatory;
     this.handleFilter();
   }
 
