@@ -12,7 +12,7 @@ export class BiitTableColumn {
               visible?: boolean) {
     this.name = name;
     this.label = label;
-    this.width = width;
+    this.width = width ? width : 0;
     this.format = format ? format : BiitTableColumnFormat.DEFAULT;
     this.visible = visible == undefined ? true : visible;
   }

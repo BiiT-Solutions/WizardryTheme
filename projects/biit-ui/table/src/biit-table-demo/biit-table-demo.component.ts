@@ -34,6 +34,7 @@ export class BiitTableDemoComponent implements OnInit {
 
   filteredData;
   loading = true;
+  dropdown;
 
   constructor() {}
 

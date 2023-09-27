@@ -94,16 +94,13 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
     Array.from(this.elem.nativeElement.querySelector('thead').firstChild.children).forEach(ogColumn => {
       const column = ogColumn as HTMLElement;
 
-      if (column.style.width != '') {
-        this.columnInnerWordFitCheck(column);
+      if (column.classList.contains('select')) {
+        return;
       }
-    });
-    Array.from(this.elem.nativeElement.querySelector('thead').firstChild.children).forEach(ogColumn => {
-      const column = ogColumn as HTMLElement;
-
       if (column.style.width == '' && !column.classList.contains('select')) {
         column.style.width = column.offsetWidth - 10 + 'px';
       }
+      this.columnInnerWordFitCheck(column);
     });
     this.elem.nativeElement.querySelector('.content').style.paddingRight = null;
   }

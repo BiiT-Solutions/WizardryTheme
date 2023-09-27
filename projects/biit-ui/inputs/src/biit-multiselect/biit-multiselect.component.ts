@@ -49,11 +49,22 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   ) { }
 
   ngOnInit() {
-    this.primitive = !!this.primitive;
-    this.compact = !!this.compact;
-    this.disabled = !!this.disabled;
-    this.mandatory = !!this.mandatory;
+    this.primitive = this.checkBooleanInput(this.primitive);
+    this.compact = this.checkBooleanInput(this.compact);
+    this.disabled = this.checkBooleanInput(this.disabled);
+    this.mandatory = this.checkBooleanInput(this.mandatory);
     this.handleFilter();
+  }
+
+  checkBooleanInput(value) {
+    switch (value) {
+      case undefined:
+        return false;
+      case false:
+        return false;
+      default:
+        return true;
+    }
   }
 
   ngAfterViewInit() {
@@ -122,9 +133,15 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
 
   handleFilter() {
     if (this.filterText) {
-      this.filteredData = this.data.filter(item =>
-        item[this.label].toLowerCase().includes(
-          this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
+      if (this.primitive) {
+        this.filteredData = this.data.filter(item =>
+          item.toString().toLowerCase().includes(
+            this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
+      } else {
+        this.filteredData = this.data.filter(item =>
+          item[this.label].toLowerCase().includes(
+            this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
+      }
     } else {
       this.filteredData = this.data;
     }

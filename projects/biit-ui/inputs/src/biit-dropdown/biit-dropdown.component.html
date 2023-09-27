@@ -5,10 +5,13 @@
      (keydown.enter)="!dropdownOpen && !disabled && openDropdown()"
 >
   <div class="input-container" #input>
-    <input [ngModel]="dropdownOpen ? filterText : currentValue && currentValue[label] ? currentValue[label] : ''"
+    <input [ngModel]="dropdownOpen ? filterText :
+                      currentValue && primitive ? currentValue :
+                      currentValue && currentValue[label] ? currentValue[label] : ''"
            (ngModelChange)="filterText = $event; handleFilter()"
            (click)="!dropdownOpen && !disabled && openDropdown()"
-           [placeholder]="dropdownOpen && currentValue && currentValue[label] ? currentValue[label] : ''"
+           [placeholder]="dropdownOpen && currentValue && primitive ? currentValue :
+                          dropdownOpen && currentValue && currentValue[label] ? currentValue[label] : ''"
            tabindex="0"
            class="input-object"
            [class.grey-bg]="dropdownOpen"
@@ -57,7 +60,7 @@
           [tabindex]="!dropdownOpen || disabled ? -1 : 0"
           [disabled]="!dropdownOpen || disabled"
   >
-    <a>{{item[label]}}</a>
+    <a>{{primitive ? item : item[label]}}</a>
   </button>
   <button *ngIf="!filteredData.length"
           class="dropdown-item no-results"

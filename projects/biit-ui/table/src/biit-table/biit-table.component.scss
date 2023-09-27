@@ -19,6 +19,14 @@ $background-color: #D9D9D9;
       flex-direction: row;
     }
 
+    > .buttons ::ng-deep > * {
+      height: 2.1rem;
+      min-width: 2.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     > .forms {
       column-gap: 0.7rem;
 
