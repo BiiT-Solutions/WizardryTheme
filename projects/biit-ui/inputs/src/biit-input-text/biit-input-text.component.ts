@@ -21,7 +21,7 @@ export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
   @Input() type: Type;
   @Input() icon: biitIcon;
   @Input() fieldName: string;
-  @Input() mandatory: boolean;
+  @Input() required: boolean;
   @Output() onActionPerformed: EventEmitter<string> = new EventEmitter<string>();
 
   reveal: boolean = false;
@@ -29,7 +29,18 @@ export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
   protected readonly Type = Type;
 
   ngOnInit() {
-    this.mandatory = !!this.mandatory;
+    this.required = this.checkBooleanInput(this.required);
+  }
+
+  checkBooleanInput(value) {
+    switch (value) {
+      case undefined:
+        return false;
+      case false:
+        return false;
+      default:
+        return true;
+    }
   }
 
   onChange = (_: any) => {};

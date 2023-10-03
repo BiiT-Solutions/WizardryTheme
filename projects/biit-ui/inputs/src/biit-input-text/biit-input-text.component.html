@@ -20,7 +20,7 @@
     </div>
     <div class="input-placeholder">
       {{placeholder}}
-      <a *ngIf="mandatory"
+      <a *ngIf="required"
          [style.color]="value ? null : 'red'">*</a>
     </div>
     <biit-icon *ngIf="error" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>

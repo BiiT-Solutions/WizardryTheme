@@ -33,7 +33,7 @@
            [class.disabled]="disabled"
            [class.compact]="dropdownOpen || (currentValues?.length)">
       {{title}}
-      <a *ngIf="mandatory"
+      <a *ngIf="required"
          [style.color]="currentValues.length ? null : 'red'">*</a>
     </div>
     <div class="bottom-line"

@@ -30,7 +30,7 @@ export default {
     type: 'text',
     value: '',
     width: '200px',
-    mandatory: false
+    required: false
   },
   argTypes: {
     placeholder: {
@@ -119,11 +119,11 @@ export default {
         type: 'select'
       }
     },
-    mandatory: {
-      name: 'mandatory',
+    required: {
+      name: 'required',
       type: { name: 'boolean', required: false },
       defaultValue: 'false',
-      description: 'Shows an asterisk for the user to know it\'s a mandatory field',
+      description: 'Shows an asterisk for the user to know it\'s a required field',
       table: {
         type: { summary: 'boolean' },
         category: 'Inputs'
@@ -154,7 +154,7 @@ const Template: Story<BiitInputTextComponent> = (args: BiitInputTextComponent) =
      [icon]="icon"
      [(ngModel)]="value"
      (onActionPerformed)="onActionPerformed()"
-     [mandatory]="mandatory"
+     [required]="required"
      style="width: 256px; display: block;"
      >
 

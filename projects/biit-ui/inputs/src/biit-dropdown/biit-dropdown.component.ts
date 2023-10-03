@@ -24,7 +24,7 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
   @Input() primitive: boolean;
   @Input() compact: boolean;
   @Input() disabled: boolean;
-  @Input() mandatory: boolean;
+  @Input() required: boolean;
 
   public currentValue;
   public filterText: string = '';
@@ -41,7 +41,7 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
     this.primitive = this.checkBooleanInput(this.primitive);
     this.compact = this.checkBooleanInput(this.compact);
     this.disabled = this.checkBooleanInput(this.disabled);
-    this.mandatory = this.checkBooleanInput(this.mandatory);
+    this.required = this.checkBooleanInput(this.required);
     this.handleFilter();
   }
 

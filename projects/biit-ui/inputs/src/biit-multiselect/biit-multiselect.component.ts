@@ -34,7 +34,7 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   @Input() value: string = '';
   @Input() data: any[] = [];
   @Input() disabled: boolean;
-  @Input() mandatory: boolean;
+  @Input() required: boolean;
 
   public currentValues: any[] = [];
   public filterText: string = '';
@@ -52,7 +52,7 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
     this.primitive = this.checkBooleanInput(this.primitive);
     this.compact = this.checkBooleanInput(this.compact);
     this.disabled = this.checkBooleanInput(this.disabled);
-    this.mandatory = this.checkBooleanInput(this.mandatory);
+    this.required = this.checkBooleanInput(this.required);
     this.handleFilter();
   }
 
