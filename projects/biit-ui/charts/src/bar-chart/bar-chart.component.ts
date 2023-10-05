@@ -41,6 +41,8 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() public data: BarChartData;
   @Input() public title = '';
   @Input() public width: number;
+  @Input() public min: number;
+  @Input() public max: number;
 
   get titleSvg(): SVGTextElement {return this.ref.nativeElement.querySelector('.apexcharts-title-text')};
   get toolbarDiv(): HTMLDivElement {return this.ref.nativeElement.querySelector('.apexcharts-toolbar')};
@@ -143,6 +145,8 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
             colors: ["262626"]
           },
         },
+        min: this.min,
+        max: this.max
       },
       fill: {
         opacity: 1
