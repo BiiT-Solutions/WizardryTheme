@@ -4,6 +4,7 @@
        [routerLinkActive]="['active']"
        *ngFor="let route of routes"
        [class.disabled]="route.data?.['disabled']"
+       [style.display]="route.data?.['hidden'] ? 'none' : 'inline-flex'"
   >
     {{route.title}}
     <div class="submenu"
@@ -14,6 +15,7 @@
            [routerLinkActiveOptions]="{exact: true}"
            *ngFor="let child of route.children"
            [class.disabled]="child.data?.['disabled']"
+           [style.display]="child.data?.['hidden'] ? 'none' : 'inline-flex'"
            (click)="$event.stopPropagation();"
       >
         {{child.title}}
