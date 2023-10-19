@@ -11,6 +11,14 @@ $error-color: #A1093F;
   min-width: 12.8rem;
   min-height: 4.2rem;
   padding-top: 1.05rem;
+
+  &.disabled {
+    pointer-events: none;
+
+    .input-object {
+      background: $background-color;
+    }
+  }
 }
 
 .input-container {

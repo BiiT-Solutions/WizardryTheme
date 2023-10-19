@@ -21,6 +21,7 @@ export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
   @Input() type: Type;
   @Input() icon: biitIcon;
   @Input() fieldName: string;
+  @Input() disabled: boolean;
   @Input() required: boolean;
   @Output() onActionPerformed: EventEmitter<string> = new EventEmitter<string>();
 
@@ -29,6 +30,7 @@ export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
   protected readonly Type = Type;
 
   ngOnInit() {
+    this.disabled = this.checkBooleanInput(this.disabled);
     this.required = this.checkBooleanInput(this.required);
   }
 

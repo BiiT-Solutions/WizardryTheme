@@ -30,6 +30,7 @@ export default {
     type: 'text',
     value: '',
     width: '200px',
+    disabled: false,
     required: false
   },
   argTypes: {
@@ -119,6 +120,19 @@ export default {
         type: 'select'
       }
     },
+    disabled: {
+      name: 'disabled',
+      type: { name: 'boolean', required: false },
+      defaultValue: 'false',
+      description: 'Disables the input field',
+      table: {
+        type: { summary: 'boolean' },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'boolean'
+      }
+    },
     required: {
       name: 'required',
       type: { name: 'boolean', required: false },
@@ -155,6 +169,7 @@ const Template: Story<BiitInputTextComponent> = (args: BiitInputTextComponent) =
      [(ngModel)]="value"
      (onActionPerformed)="onActionPerformed()"
      [required]="required"
+     [disabled]="disabled"
      style="width: 256px; display: block;"
      >
 

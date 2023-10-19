@@ -24,6 +24,7 @@ export class BiitTextareaComponent implements ControlValueAccessor, OnInit {
   @Input() readonly: boolean;
   @Input('resize-x') resizeX: boolean;
   @Input('resize-y') resizeY: boolean;
+  @Input() disabled: boolean;
   @Input() required: boolean;
   @Output() onActionPerformed: EventEmitter<string> = new EventEmitter<string>();
 
@@ -35,6 +36,7 @@ export class BiitTextareaComponent implements ControlValueAccessor, OnInit {
     this.readonly = this.checkBooleanInput(this.readonly);
     this.resizeX = this.checkBooleanInput(this.resizeX);
     this.resizeY = this.checkBooleanInput(this.resizeX);
+    this.disabled = this.checkBooleanInput(this.disabled);
     this.required = this.checkBooleanInput(this.required);
 
     if (this.resizeX && this.resizeY) {
