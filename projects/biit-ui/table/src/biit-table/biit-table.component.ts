@@ -50,6 +50,7 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   @Input('data') set _data(data: BiitTableData<any>) {
     if (data) {
       this.data = data;
+      this.selectedRows.clear();
       if (this.paginator) {
         this.paginator = new BiitPaginatorOptions(this.paginator.currentPage, this.paginator.pageSize, this.pageSizes, data.totalItems);
       }
