@@ -17,6 +17,8 @@
       <input #pageInput
              [ngModel]="paginator?.currentPage"
              type="number"
+             [min]="1"
+             [max]="totalPages"
              (keydown.enter)="setInputValue($event); onModelChange()"
              (focusout)="resetInputValue($event)"
              class="page-input"/>
