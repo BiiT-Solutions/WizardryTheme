@@ -19,6 +19,10 @@ $error-color: #A1093F;
       background: $background-color;
     }
   }
+
+  &.readonly {
+    pointer-events: none;
+  }
 }
 
 .input-container {

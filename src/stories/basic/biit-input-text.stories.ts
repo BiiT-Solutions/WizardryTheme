@@ -31,7 +31,8 @@ export default {
     value: '',
     width: '200px',
     disabled: false,
-    required: false
+    required: false,
+    readonly: false
   },
   argTypes: {
     placeholder: {
@@ -146,6 +147,19 @@ export default {
         type: 'boolean'
       }
     },
+    readonly: {
+      name: 'readonly',
+      type: { name: 'boolean', required: false },
+      defaultValue: 'false',
+      description: 'Disables the input field (without visual clues)',
+      table: {
+        type: { summary: 'boolean' },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'boolean'
+      }
+    },
     onActionPerformed: {
       action: 'onActionPerformed',
       name: 'onActionPerformed',
@@ -170,6 +184,7 @@ const Template: Story<BiitInputTextComponent> = (args: BiitInputTextComponent) =
      (onActionPerformed)="onActionPerformed()"
      [required]="required"
      [disabled]="disabled"
+     [readonly]="readonly"
      style="width: 256px; display: block;"
      >
 
