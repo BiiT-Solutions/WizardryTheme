@@ -21,5 +21,9 @@ export class BiitTableColumn {
 export enum BiitTableColumnFormat {
   DEFAULT = 'default',
   BOOLEAN = 'boolean',
-  DATE = 'date'
+  DATE = 'date',
+  BUTTON = 'button',
+  ICON_BUTTON = 'icon_button',
+  ICON = 'icon',
+  CUSTOM_HTML = "custom_html"
 }

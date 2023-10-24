@@ -9,6 +9,7 @@ import {LocalizedDatePipeModule} from 'biit-ui/utils';
 import {VisibleColumnsPipe} from './pipes/visible-columns-pipe';
 import {TranslocoRootModule} from 'biit-ui/i18n';
 import {BiitIconModule} from 'biit-ui/icon';
+import {BiitButtonModule, BiitIconButtonModule} from "biit-ui/button";
 
 
 @NgModule({
@@ -33,7 +34,9 @@ import {BiitIconModule} from 'biit-ui/icon';
     BiitProgressBarModule,
     LocalizedDatePipeModule,
     TranslocoRootModule,
-    BiitIconModule
+    BiitIconModule,
+    BiitButtonModule,
+    BiitIconButtonModule
   ]
 })
 export class BiitTableModule {

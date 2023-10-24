@@ -20,6 +20,7 @@ $dark-border: #262626;
     background: transparent;
     box-sizing: border-box;
     border: 0.15em solid transparent;
+    cursor: pointer;
 
     &:not(.tertiary) {
       color: $dark-border;

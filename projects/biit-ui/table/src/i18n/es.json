@@ -5,5 +5,7 @@
   "next-page": "Siguiente página",
   "last-page": "Última página",
   "search": "Buscar",
-  "column-selector": "Selector de columnas"
+  "column-selector": "Selector de columnas",
+  "yes": "Sí",
+  "no": "No"
 }

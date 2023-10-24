@@ -5,5 +5,7 @@
   "next-page": "Next page",
   "last-page": "Last page",
   "search": "Search",
-  "column-selector": "Column selector"
+  "column-selector": "Column selector",
+  "yes": "Yes",
+  "no": "No"
 }

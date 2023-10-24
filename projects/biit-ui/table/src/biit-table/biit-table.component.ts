@@ -10,13 +10,14 @@ import {
   Renderer2
 } from '@angular/core';
 import {BiitPaginatorOptions} from '../biit-paginator/models/biit-paginator-options';
-import {BiitTableColumn} from './models/biit-table-column';
+import {BiitTableColumn, BiitTableColumnFormat} from './models/biit-table-column';
 import {ColumnResizeHandler} from './models/column-resize-handler';
 import {BiitTableResponse} from './models/biit-table-response';
 import {BiitTableData} from './models/biit-table-data';
 import {BiitTableSorting, BiitTableSortingOrder} from './models/biit-table-sorting';
 import {BiitMultiselectType} from 'biit-ui/inputs';
 import {TRANSLOCO_SCOPE} from '@ngneat/transloco';
+import {BiitTableActionResponse} from "./models/biit-table-action-response";
 
 @Directive({
   selector: '[selectable]'
@@ -56,25 +57,32 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
       }
     }
   }
+  @Input('loading') set _loading(loading: boolean) {
+    if (loading) {
+      this.loading = loading;
+      this.setLoadingBar();
+    } else {
+      this.loading = false;
+    }
+  }
   @Input() columns: BiitTableColumn[] = [];
   @Input() pageSizes: number[] = [];
   @Input() defaultPageSize: number;
-  @Input() loading: boolean = false;
   isSelectable: boolean = false;
   isSortable: boolean = false;
 
   @Output() onUpdate: EventEmitter<BiitTableResponse> = new EventEmitter<BiitTableResponse>();
-  @Output() onAddAction: EventEmitter<void> = new EventEmitter<void>();
-  @Output() onDeleteAction: EventEmitter<any[]> = new EventEmitter<any[]>();
-  @Output() onEditAction: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onCellAction: EventEmitter<BiitTableActionResponse> = new EventEmitter<BiitTableActionResponse>();
 
   protected data: BiitTableData<any>;
   protected paginator;
   protected sorting: BiitTableSorting;
   protected selectedRows: Set<any> = new Set<any>();
   protected columnResize: ColumnResizeHandler = new ColumnResizeHandler();
+  protected loading: boolean = false;
   protected search: string = '';
   protected readonly BiitMultiselectType = BiitMultiselectType;
+  protected readonly BiitTableColumnFormat = BiitTableColumnFormat;
 
   constructor(private renderer: Renderer2,
               private elem: ElementRef) { }
@@ -104,6 +112,8 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
       this.columnInnerWordFitCheck(column);
     });
     this.elem.nativeElement.querySelector('.content').style.paddingRight = null;
+
+    this.setLoadingBar();
   }
 
   columnInnerWordFitCheck(column: HTMLElement) {
@@ -114,6 +124,12 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
     if(minColumnSize > column.offsetWidth) {
       (column as HTMLElement).style.width = minColumnSize + 'px';
     }
+  }
+
+  setLoadingBar(): void {
+    debugger;
+    this.elem.nativeElement.querySelector('biit-progress-bar').style.top =
+      this.elem.nativeElement.querySelector('thead').offsetHeight + 'px';
   }
 
   onTableUpdate() {
@@ -205,6 +221,12 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
 
   getSelectedRows(): any[] {
     return [...this.selectedRows];
+  }
+
+  emitCellAction(item: any, column: string, event: Event) {
+    // event.preventDefault();
+    event.stopPropagation();
+    this.onCellAction.emit(new BiitTableActionResponse(item, column));
   }
 
   resetInputValue(event: Event, value: string) {
