@@ -13,18 +13,18 @@ import {completeIconSet} from "biit-icons-collection";
 export class BiitTableDemoComponent implements OnInit {
 
   data = [
-    { id: 1, title: 'Super Metroid', available: true, releaseDate: new Date('1994-03-19'), icon: 'hat', iconButton: 'search', button: 'Example', customHtml: '<img src="https://anlucas.neocities.org/Winamp.gif"/>' },
-    { id: 2, title: 'F-Zero GX', available: false, releaseDate: new Date('2003-07-25'), icon: 'inkpot', iconButton: 'search', button: 'Example', customHtml: '<img src="https://anlucas.neocities.org/nutscape.gif"/>' },
-    { id: 3, title: 'Paper Mario', available: true, releaseDate: new Date('2000-08-11'), icon: 'mountain', iconButton: 'search', button: 'Example', customHtml: '<img src="https://anlucas.neocities.org/get_esheep_now.gif"/>' },
-    { id: 4, title: 'Pokémon SoulSilver', available: false, releaseDate: new Date('2009-09-12'), icon: 'hat', iconButton: 'search', button: 'Example', customHtml: '<img src="https://anlucas.neocities.org/office97.gif"/>' },
-    { id: 5, title: "Geoff Crammond's Grand Prix 4", available: false, releaseDate: new Date('2002-12-09'), icon: 'inkpot', iconButton: 'search', button: 'Example', customHtml: '<img src="https://anlucas.neocities.org/mysqla.gif"/>' },
-    { id: 6, title: "Alex Kidd in Miracle World", available: false, releaseDate: new Date('1986-11-01'), icon: 'mountain', iconButton: 'search', button: 'Example', customHtml: '<img src="https://anlucas.neocities.org/irfan.gif"/>' },
-    { id: 7, title: "Tomb Raider", available: true, releaseDate: new Date('1996-10-25'), icon: 'hat', iconButton: 'search', button: 'Example', customHtml: '<img src="https://anlucas.neocities.org/mame.gif"/>' },
-    { id: 8, title: "Rayman 3: Hoodlum Havoc", available: true, releaseDate: new Date('2003-03-18'), icon: 'inkpot', iconButton: 'search', button: 'Example', customHtml: '<img src="https://anlucas.neocities.org/cont-now.gif"/>' },
-    { id: 9, title: "God of War", available: true, releaseDate: new Date('2018-04-20'), icon: 'mountain', iconButton: 'search', button: 'Example', customHtml: '<img src="https://anlucas.neocities.org/acrobat.gif"/>' },
-    { id: 10, title: "S4 League", available: false, releaseDate: new Date('2008-10-09'), icon: 'hat', iconButton: 'search', button: 'Example', customHtml: '<img src="https://anlucas.neocities.org/800x600.gif"/>' },
-    { id: 11, title: "Battlefield 2142", available: false, releaseDate: new Date('2006-10-17'), icon: 'inkpot', iconButton: 'search', button: 'Example', customHtml: '<img src="https://anlucas.neocities.org/Button_InternetExplerror.gif"/>' },
-    { id: 12, title: "Lotus III: The Ultimate Challenge", available: false, releaseDate: new Date('1992-06-13'), icon: 'mountain', iconButton: 'search', button: 'Example', customHtml: '<img src="https://anlucas.neocities.org/real.gif"/>' }
+    { id: 1, title: 'Super Metroid', available: true, releaseDate: new Date('1994-03-19'), icon: 'hat', iconButton: 'search', button: 'Example', customHtml: '<img src="assets/images/Winamp.gif"/>' },
+    { id: 2, title: 'F-Zero GX', available: false, releaseDate: new Date('2003-07-25'), icon: 'inkpot', iconButton: 'search', button: 'Example', customHtml: '<img src="assets/images/nutscape.gif"/>' },
+    { id: 3, title: 'Paper Mario', available: true, releaseDate: new Date('2000-08-11'), icon: 'mountain', iconButton: 'search', button: 'Example', customHtml: '<img src="assets/images/get_esheep_now.gif"/>' },
+    { id: 4, title: 'Pokémon SoulSilver', available: false, releaseDate: new Date('2009-09-12'), icon: 'hat', iconButton: 'search', button: 'Example', customHtml: '<img src="assets/images/office97.gif"/>' },
+    { id: 5, title: "Geoff Crammond's Grand Prix 4", available: false, releaseDate: new Date('2002-12-09'), icon: 'inkpot', iconButton: 'search', button: 'Example', customHtml: '<img src="assets/images/mysqla.gif"/>' },
+    { id: 6, title: "Alex Kidd in Miracle World", available: false, releaseDate: new Date('1986-11-01'), icon: 'mountain', iconButton: 'search', button: 'Example', customHtml: '<img src="assets/images/irfan.gif"/>' },
+    { id: 7, title: "Tomb Raider", available: true, releaseDate: new Date('1996-10-25'), icon: 'hat', iconButton: 'search', button: 'Example', customHtml: '<img src="assets/images/mame.gif"/>' },
+    { id: 8, title: "Rayman 3: Hoodlum Havoc", available: true, releaseDate: new Date('2003-03-18'), icon: 'inkpot', iconButton: 'search', button: 'Example', customHtml: '<img src="assets/images/cont-now.gif"/>' },
+    { id: 9, title: "God of War", available: true, releaseDate: new Date('2018-04-20'), icon: 'mountain', iconButton: 'search', button: 'Example', customHtml: '<img src="assets/images/acrobat.gif"/>' },
+    { id: 10, title: "S4 League", available: false, releaseDate: new Date('2008-10-09'), icon: 'hat', iconButton: 'search', button: 'Example', customHtml: '<img src="assets/images/800x600.gif"/>' },
+    { id: 11, title: "Battlefield 2142", available: false, releaseDate: new Date('2006-10-17'), icon: 'inkpot', iconButton: 'search', button: 'Example', customHtml: '<img src="assets/images/Button_InternetExplerror.gif"/>' },
+    { id: 12, title: "Lotus III: The Ultimate Challenge", available: false, releaseDate: new Date('1992-06-13'), icon: 'mountain', iconButton: 'search', button: 'Example', customHtml: '<img src="assets/images/real.gif"/>' }
   ];
 
   columns = [
