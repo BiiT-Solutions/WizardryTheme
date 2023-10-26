@@ -127,9 +127,11 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   }
 
   setLoadingBar(): void {
-    debugger;
-    this.elem.nativeElement.querySelector('biit-progress-bar').style.top =
-      this.elem.nativeElement.querySelector('thead').offsetHeight + 'px';
+    const progressBar = this.elem.nativeElement.querySelector('biit-progress-bar');
+    if (progressBar) {
+      progressBar.style.top =
+        this.elem.nativeElement.querySelector('thead').offsetHeight + 'px';
+    }
   }
 
   onTableUpdate() {

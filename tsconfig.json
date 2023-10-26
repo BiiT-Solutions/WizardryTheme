@@ -20,9 +20,6 @@
       "biit-ui/button": [
         "projects/biit-ui/button/src/public-api"
       ],
-      "biit-ui/filter": [
-        "projects/biit-ui/filter/src/public-api"
-      ],
       "biit-ui/icon": [
         "projects/biit-ui/icon/src/public-api"
       ],

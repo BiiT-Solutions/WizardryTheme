@@ -1,0 +1,4 @@
+{
+  "regex-error": "Value not valid",
+  "minlength-error": "Value does not meet minimum length"
+}

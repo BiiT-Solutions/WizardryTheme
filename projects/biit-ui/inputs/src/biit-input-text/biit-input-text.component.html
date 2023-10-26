@@ -2,14 +2,15 @@
   <div class="input-container">
     <input class="input-object"
            [(ngModel)]="value"
-           (ngModelChange)="this.onChange($event);"
+           (ngModelChange)="onChange($event); validateInput($event);"
            (keydown.enter)="onActionPerformed.emit(value)"
            [type]="reveal ? Type.TEXT : type" required
            [min]="min"
            [max]="max"
+           [minlength]="minLength"
            [maxlength]="maxLength"
            [attr.name]="fieldName"
-           [class.error]="error"
+           [class.error]="error || regExError || minLengthError"
            [class.reveal]="reveal"
     >
     <div *ngIf="type === Type.PASSWORD || icon" class="input-show-icon-container"
@@ -26,11 +27,21 @@
       <a *ngIf="required"
          [style.color]="value ? null : 'red'">*</a>
     </div>
-    <biit-icon *ngIf="error" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
+    <biit-icon *ngIf="error || regExError || minLengthError" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
     <div class="bottom-line"></div>
     <div *ngIf="error" class="input-error-msg">
       <a>
         {{error}}
+      </a>
+    </div>
+    <div *ngIf="regExError" class="input-error-msg">
+      <a>
+        {{'inputs.regex-error' | transloco}}
+      </a>
+    </div>
+    <div *ngIf="minLengthError" class="input-error-msg">
+      <a>
+        {{'inputs.minlength-error' | transloco}}
       </a>
     </div>
   </div>

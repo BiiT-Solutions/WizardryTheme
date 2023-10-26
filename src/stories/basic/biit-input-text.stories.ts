@@ -32,6 +32,7 @@ export default {
     width: '200px',
     min: null,
     max: null,
+    minLength: null,
     maxLength: null,
     disabled: false,
     required: false,
@@ -163,6 +164,19 @@ export default {
         type: 'number'
       }
     },
+    minLength: {
+      name: 'minLength',
+      type: { name: 'number', required: false },
+      defaultValue: 'undefined',
+      description: 'Sets a minimum number of characters',
+      table: {
+        type: { summary: 'number' },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'number'
+      }
+    },
     disabled: {
       name: 'disabled',
       type: { name: 'boolean', required: false },
@@ -226,6 +240,7 @@ const Template: Story<BiitInputTextComponent> = (args: BiitInputTextComponent) =
      (onActionPerformed)="onActionPerformed()"
      [min]="min"
      [max]="max"
+     [minLength]="minLength"
      [maxLength]="maxLength"
      [required]="required"
      [disabled]="disabled"
