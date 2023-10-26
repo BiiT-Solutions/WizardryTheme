@@ -80,7 +80,7 @@ $error-color: #A1093F;
 }
 
 /* active state */
-.input-object:focus ~ .input-placeholder, .input-object:valid ~ .input-placeholder {
+.input-object:focus ~ .input-placeholder, .input-filled {
   top:-0.95rem;
   font-size: 0.7rem;
   font-weight:normal;

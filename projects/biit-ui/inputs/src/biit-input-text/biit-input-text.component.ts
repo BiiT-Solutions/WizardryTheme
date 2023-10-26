@@ -24,6 +24,9 @@ export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
   @Input() disabled: boolean;
   @Input() required: boolean;
   @Input() readonly: boolean;
+  @Input() min: number;
+  @Input() max: number;
+  @Input() maxLength: number;
   @Output() onActionPerformed: EventEmitter<string> = new EventEmitter<string>();
 
   reveal: boolean = false;
@@ -65,5 +68,7 @@ export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
 
 export enum Type {
   TEXT = 'TEXT',
+  NUMBER = 'NUMBER',
+  EMAIL = 'EMAIL',
   PASSWORD = 'PASSWORD'
 }

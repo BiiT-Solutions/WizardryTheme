@@ -5,6 +5,9 @@
            (ngModelChange)="this.onChange($event);"
            (keydown.enter)="onActionPerformed.emit(value)"
            [type]="reveal ? Type.TEXT : type" required
+           [min]="min"
+           [max]="max"
+           [maxlength]="maxLength"
            [attr.name]="fieldName"
            [class.error]="error"
            [class.reveal]="reveal"
@@ -18,7 +21,7 @@
                  [pathStyle]="{fill: reveal ? '#F20D5E' : '#262626'}"
       ></biit-icon>
     </div>
-    <div class="input-placeholder">
+    <div class="input-placeholder" [class.input-filled]="this.value?.length">
       {{placeholder}}
       <a *ngIf="required"
          [style.color]="value ? null : 'red'">*</a>

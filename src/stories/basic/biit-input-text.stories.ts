@@ -30,6 +30,9 @@ export default {
     type: 'text',
     value: '',
     width: '200px',
+    min: null,
+    max: null,
+    maxLength: null,
     disabled: false,
     required: false,
     readonly: false
@@ -121,6 +124,45 @@ export default {
         type: 'select'
       }
     },
+    max: {
+      name: 'max',
+      type: { name: 'string', required: false },
+      defaultValue: 'undefined',
+      description: 'Sets a maximum value (only numeric or date)',
+      table: {
+        type: { summary: 'number | Date' },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'text'
+      }
+    },
+    min: {
+      name: 'min',
+      type: { name: 'number', required: false },
+      defaultValue: 'undefined',
+      description: 'Sets a minimum value (only numeric or date)',
+      table: {
+        type: { summary: 'number | Date' },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'text'
+      }
+    },
+    maxLength: {
+      name: 'maxLength',
+      type: { name: 'number', required: false },
+      defaultValue: 'undefined',
+      description: 'Sets a maximum number of characters',
+      table: {
+        type: { summary: 'number' },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'number'
+      }
+    },
     disabled: {
       name: 'disabled',
       type: { name: 'boolean', required: false },
@@ -182,6 +224,9 @@ const Template: Story<BiitInputTextComponent> = (args: BiitInputTextComponent) =
      [icon]="icon"
      [(ngModel)]="value"
      (onActionPerformed)="onActionPerformed()"
+     [min]="min"
+     [max]="max"
+     [maxLength]="maxLength"
      [required]="required"
      [disabled]="disabled"
      [readonly]="readonly"
