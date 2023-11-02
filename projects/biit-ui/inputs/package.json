@@ -10,7 +10,7 @@
   },
   "i18n": [
     {
-      "scope": "table",
+      "scope": "inputs",
       "path": "src/i18n"
     }
   ]
