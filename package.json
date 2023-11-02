@@ -1,6 +1,6 @@
 {
   "name": "storybook-biit",
-  "version": "1.1.144",
+  "version": "1.1.145",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
