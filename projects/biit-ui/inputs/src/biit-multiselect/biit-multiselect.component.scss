@@ -163,11 +163,11 @@ input::selection{ background-color:transparent }
   font: inherit;
   width: 100%;
   cursor: pointer;
-  line-height: 0.7rem;
-  height: 1.4rem;
+  line-height: 1rem;
+  min-height: 1.4rem;
   display: flex;
   align-items: center;
-  padding-left: 0.7rem;
+  padding: 0.2rem 0.7rem;
 
   &:not(.no-results) {
     &:hover, &:focus-visible {

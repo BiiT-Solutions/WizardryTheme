@@ -10,6 +10,7 @@ import {VisibleColumnsPipe} from './pipes/visible-columns-pipe';
 import {TranslocoRootModule} from 'biit-ui/i18n';
 import {BiitIconModule} from 'biit-ui/icon';
 import {BiitButtonModule, BiitIconButtonModule} from "biit-ui/button";
+import {ColumnDataPipe} from "./pipes/column-data-pipe";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {BiitButtonModule, BiitIconButtonModule} from "biit-ui/button";
     BiitTableComponent,
     BiitTableSelectableDirective,
     BiitTableSortableDirective,
-    VisibleColumnsPipe
+    VisibleColumnsPipe,
+    ColumnDataPipe
   ],
   exports: [
     BiitTableComponent,

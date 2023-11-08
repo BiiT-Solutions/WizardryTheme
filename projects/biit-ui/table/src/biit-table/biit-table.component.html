@@ -80,33 +80,33 @@
                 [style.width]="column.width ? column.width + 'px' : null"
             >
               <div *ngIf="column.format == BiitTableColumnFormat.DEFAULT">
-                {{item[column.name]}}
+                {{item | columnData: column.name}}
               </div>
               <div *ngIf="column.format == BiitTableColumnFormat.BOOLEAN">
-                {{item[column.name] ? ('table.yes' | transloco) : ('table.no' | transloco) }}
+                {{(item | columnData: column.name) ? ('table.yes' | transloco) : ('table.no' | transloco) }}
               </div>
               <div *ngIf="column.format == BiitTableColumnFormat.DATE">
-                {{item[column.name] | localizedDate}}
+                {{(item | columnData: column.name) | localizedDate}}
               </div>
               <div *ngIf="column.format == BiitTableColumnFormat.BUTTON"
                    style="width: auto; text-align: -webkit-center; text-align: -moz-center;">
                 <button biit-button tertiary
                         (pointerdown)="emitCellAction(item, column.name, $event)">
-                  {{item[column.name]}}
+                  {{item | columnData: column.name}}
                 </button>
               </div>
               <div *ngIf="column.format == BiitTableColumnFormat.ICON_BUTTON"
                    style="width: auto; text-align: -webkit-center; text-align: -moz-center;">
-                <button biit-icon [icon]="item[column.name]"
+                <button biit-icon [icon]="item | columnData: column.name"
                         (pointerdown)="emitCellAction(item, column.name, $event);"></button>
               </div>
               <div *ngIf="column.format == BiitTableColumnFormat.ICON"
                    style="width: auto; height: 1.05rem;">
-                <biit-icon [name]="item[column.name]"></biit-icon>
+                <biit-icon [name]="item | columnData: column.name"></biit-icon>
               </div>
               <div *ngIf="column.format == BiitTableColumnFormat.CUSTOM_HTML"
                    style="width: auto; text-align: -webkit-center; text-align: -moz-center;">
-                <div [innerHTML]="item[column.name]"></div>
+                <div [innerHTML]="item | columnData: column.name"></div>
               </div>
             </td>
         </tr>
