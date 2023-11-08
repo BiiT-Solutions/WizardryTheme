@@ -22,6 +22,7 @@ export enum BiitTableColumnFormat {
   DEFAULT = 'default',
   BOOLEAN = 'boolean',
   DATE = 'date',
+  DATETIME = 'datetime',
   BUTTON = 'button',
   ICON_BUTTON = 'icon_button',
   ICON = 'icon',

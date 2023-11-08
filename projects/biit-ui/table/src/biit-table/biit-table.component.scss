@@ -139,6 +139,7 @@ $background-color: #D9D9D9;
             height: 2.1rem;
             border-bottom: 0.2rem solid $text-color;
             padding: 0.3rem 0.7rem;
+            overflow: hidden;
 
             &.select {
               width: 2.1rem;
