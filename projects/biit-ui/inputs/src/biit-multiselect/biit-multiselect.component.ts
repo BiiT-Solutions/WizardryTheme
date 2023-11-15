@@ -132,18 +132,22 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   }
 
   handleFilter() {
-    if (this.filterText) {
-      if (this.primitive) {
-        this.filteredData = this.data.filter(item =>
-          item.toString().toLowerCase().includes(
-            this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
+    if (this.data) {
+      if (this.filterText) {
+        if (this.primitive) {
+          this.filteredData = this.data.filter(item =>
+            item.toString().toLowerCase().includes(
+              this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
+        } else {
+          this.filteredData = this.data.filter(item =>
+            item[this.label].toLowerCase().includes(
+              this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
+        }
       } else {
-        this.filteredData = this.data.filter(item =>
-          item[this.label].toLowerCase().includes(
-            this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
+        this.filteredData = this.data;
       }
     } else {
-      this.filteredData = this.data;
+      this.filteredData = [];
     }
   }
 

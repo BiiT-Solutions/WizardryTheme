@@ -1,6 +1,7 @@
 import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {biitIcon} from 'biit-icons-collection';
+import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 
 @Component({
   selector: 'biit-input-text',
@@ -11,6 +12,10 @@ import {biitIcon} from 'biit-icons-collection';
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => BiitInputTextComponent),
       multi: true
+    },
+    {
+      provide: TRANSLOCO_SCOPE,
+      useValue: {scope: 'biit-ui/inputs', alias: "inputs"}
     }
   ]
 })

@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
-import {TranslocoService} from '@ngneat/transloco';
+import {TranslocoLocaleService} from "@ngneat/transloco-locale";
 
 @Pipe({
   name: 'localizedDate',
@@ -8,11 +8,11 @@ import {TranslocoService} from '@ngneat/transloco';
 })
 export class LocalizedDatePipe implements PipeTransform {
 
-  constructor(private translateService: TranslocoService) {
+  constructor(private translocoLocale: TranslocoLocaleService) {
   }
 
   transform(value: any, pattern: string = 'shortDate'): any {
-    const datePipe: DatePipe = new DatePipe(this.translateService.getActiveLang());
+    const datePipe: DatePipe = new DatePipe(this.translocoLocale.getLocale());
     return datePipe.transform(value, pattern);
   }
 

@@ -1,0 +1,315 @@
+$default-color: #262626;
+$selected-color: #F20D5E;
+$disabled-color: #D9D9D9;
+$error-color: #A1093F;
+$secondary-color: #808080;
+
+$disabled-day: #A1093F;
+$disabled-outer-day: #FBAEC9;
+
+* {
+  box-sizing: border-box;
+}
+
+.popup {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  width: 17.5rem;
+  border: 0.2em solid $default-color;
+  background: white;
+  padding: 0.45rem;
+  user-select: none;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: top;
+  margin-top: -0.2rem;
+  transform: translate(0, var(--origin));
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  &.dropdown-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(0, 0);
+  }
+
+  &.disabled {
+    visibility: hidden;
+  }
+
+  .month-view {
+    .month-selector {
+      display: flex;
+      justify-content: space-between;
+
+      .month-label {
+        width: 12rem;
+
+        ::ng-deep .button-base {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          color: $default-color;
+
+          .bar {
+            background: $default-color;
+          }
+        }
+      }
+
+      ::ng-deep button .icon-button-svg {
+        width: 0.8rem;
+        height: 0.8rem;
+      }
+    }
+
+    .grid {
+      margin-top: 0.3rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .grid-element {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2.1rem;
+        width: 2.1rem;
+
+        &.header {
+          font-weight: 800;
+          cursor: default;
+          text-transform: capitalize;
+        }
+
+        &.day {
+          cursor: pointer;
+          background: none;
+          color: inherit;
+          border: none;
+          padding: 0;
+          font: inherit;
+          outline: inherit;
+
+          &.outer-day {
+            color: $disabled-color;
+
+            &:hover, &:focus-visible {
+              color: $default-color;
+            }
+          }
+
+          &.is-today {
+            border: 0.15rem solid $default-color;
+          }
+
+          &:hover, &:focus-visible {
+            background: $disabled-color;
+          }
+
+          &:active {
+            color: $selected-color
+          }
+
+          &.selected {
+            background: $selected-color;
+
+            &:hover, &:focus-visible {
+              background: $selected-color;
+              color: white;
+            }
+          }
+
+          &.disabled {
+            color: $disabled-day;
+            pointer-events: none;
+
+            &.outer-day {
+              color: $disabled-outer-day;
+            }
+          }
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.3rem 0.85rem;
+      margin-top: 0.3rem;
+
+      .today-btn {
+        ::ng-deep .button-base {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          color: $default-color;
+
+          .bar {
+            background: $default-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.biit-input {
+  display: flex;
+  min-width: 12.8rem;
+  min-height: 4.2rem;
+  padding-top: 1.05rem;
+
+  &.disabled {
+    pointer-events: none;
+
+    .input-object {
+      background: $disabled-color;
+    }
+  }
+
+  &.readonly {
+    pointer-events: none;
+  }
+}
+
+.input-container {
+  position:relative;
+  width: 100%;
+}
+
+.input-object {
+  font-size:1rem;
+  display:block;
+  border:none;
+  color: $default-color;
+  padding: 0.7rem 0.7rem 0.7rem 0.7rem;
+  height: 2.1rem;
+  width: 100%;
+  min-width: 2.1rem;
+  font-weight: normal;
+
+  &:focus, &:hover {
+    outline: none;
+    background: $disabled-color;
+
+    ~ .input-show-icon-container{
+      background: $disabled-color;
+    }
+  }
+
+  &.error {
+    color: $error-color;
+    border-color: $error-color;
+  }
+
+  &.password {
+    padding: 0.7rem 2.1rem 0.55rem 0.7rem;
+
+    &.reveal {
+      -webkit-text-security: none;
+      input-security: none;
+    }
+  }
+}
+
+@-moz-document url-prefix() {
+  .input-object {
+    padding-top:0.55rem !important;
+  }
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+.input-placeholder {
+  color:$default-color;
+  font-size:1rem;
+  font-weight:bolder;
+  text-transform: uppercase;
+  position:absolute;
+  pointer-events:none;
+  left:0.7rem;
+  top: 0.42rem;
+  height: 0.7rem;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+.input-object:focus ~ .input-placeholder, .input-filled {
+  top:-0.95rem;
+  font-size: 0.7rem;
+  font-weight:normal;
+  color:$secondary-color;
+}
+
+.input-error-icon {
+  display: flex;
+  top:0.7rem;
+  position: absolute;
+  width: 0.7rem;
+  height: 0.7rem;
+}
+
+.input-error-msg {
+  display: flex;
+  align-items: center;
+  font-size: 0.7rem;
+  color: $error-color;
+  padding-top: 0.1rem;
+  padding-bottom: 0.15rem;
+  min-height: 1.05rem;
+
+  a {
+    display: block;
+    line-height: 0.7rem;
+  }
+}
+
+.input-show-icon {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.input-show-icon-container {
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 2.1rem;
+  height: 2.1rem;
+  align-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: white;
+
+  &:hover, &:focus, &:focus-visible {
+    background-color: $disabled-color;
+    border: none;
+    outline: none;
+  }
+}
+
+.bottom-line {
+  position: relative;
+  top: -0.2rem;
+  margin-bottom: -0.2rem;
+  width: auto;
+  height: 0.2rem;
+  background: #262626;
+}
+
+.onwards {
+  --origin: 1rem;
+}
+
+.downwards {
+  --origin: -1rem;
+}

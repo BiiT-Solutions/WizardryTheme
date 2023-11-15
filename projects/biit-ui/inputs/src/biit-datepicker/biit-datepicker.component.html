@@ -1,0 +1,99 @@
+<div class="biit-input" [class.disabled]="disabled" [class.readonly]="readonly" >
+  <div class="input-container">
+    <input class="input-object"
+           [ngModel]="value | date: 'yyyy-MM-dd'"
+           (ngModelChange)="onModelChange(parseDate($event))"
+           [type]="timePicker ? 'datetime-local' : 'date'" required
+           [style.background]="dropdownOpen ? '#D9D9D9' : null"
+           [min]="min | date: 'yyyy-MM-dd'"
+           [max]="max | date: 'yyyy-MM-dd'"
+    >
+    <div class="input-show-icon-container"
+         [style.background]="dropdownOpen ? '#D9D9D9' : null"
+         (click)="dropdownOpen ? closeDropdown(): openDropdown()"
+         (keydown.enter)="dropdownOpen ? closeDropdown(): openDropdown()"
+         tabindex="0">
+      <biit-icon [name]="'calendar'"
+                 class="input-show-icon"
+                 [pathStyle]="{fill: dropdownOpen ? '#F20D5E' : '#262626'}"
+      ></biit-icon>
+    </div>
+    <div class="input-placeholder" [class.input-filled]="this.value || dropdownOpen">
+      {{placeholder}}
+      <a *ngIf="required"
+         [style.color]="value ? null : 'red'">*</a>
+    </div>
+    <biit-icon *ngIf="error || (value | isDisabled: disabledDays: disableWeekdays: disableWeekends)"
+               name="exclamation"
+               class="input-error-icon"
+               [pathStyle]="{fill:'#A1093F'}"
+    ></biit-icon>
+
+    <div style="position: relative; height: 0;">
+      <div class="popup"
+           [class.dropdown-open]="dropdownOpen">
+        <div *ngIf="currentView == View.MONTH"
+             class="month-view">
+          <div class="month-selector">
+            <button biit-icon
+                    [icon]="'right_arrow'"
+                    style="rotate: 180deg"
+                    (click)="prevMonth()"
+            ></button>
+            <button biit-button tertiary
+                    class="month-label">
+              {{viewerDate | translocoDate: {month: 'long'} }}
+              {{viewerDate | translocoDate: {year: 'numeric'} }}
+            </button>
+            <button biit-icon
+                    [icon]="'right_arrow'"
+                    (click)="nextMonth()"
+            ></button>
+          </div>
+
+          <div class="grid">
+            <div *ngFor="let day of days | slice:0:7"
+                 class="grid-element header">
+              {{(day | translocoDate: {weekday: 'short'}).substring(0,2) }}
+            </div>
+            <button *ngFor="let day of days"
+                    class="grid-element day"
+                    [class.outer-day]="day | outOfMonth: viewerDate"
+                    [class.is-today]="day | isToday"
+                    [class.selected]="day | isSameDay: value"
+                    [class.disabled]="day | isDisabled: disabledDays: disableWeekdays: disableWeekends"
+                    (click)="onModelChange(day)"
+                    tabindex="0"
+            >
+              {{day | calendarDate}}
+            </button>
+          </div>
+
+          <div class="buttons">
+            <button biit-button tertiary
+                    class="today-btn"
+                    (click)="setToday()">
+              {{'inputs.today' | transloco}}
+            </button>
+            <button biit-button tertiary
+                    (click)="closeDropdown()">
+              {{'inputs.done' | transloco}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-line"></div>
+    <div *ngIf="error" class="input-error-msg">
+      <a>
+        {{error}}
+      </a>
+    </div>
+    <div *ngIf="value | isDisabled: disabledDays: disableWeekdays: disableWeekends" class="input-error-msg">
+      <a>
+        {{'inputs.date-error' | transloco}}
+      </a>
+    </div>
+  </div>
+</div>

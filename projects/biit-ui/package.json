@@ -12,6 +12,8 @@
     "@ngneat/transloco": "^4.2.2",
     "tslib": "^2.3.0",
     "apexcharts": "^3.37.1",
-    "ng-apexcharts": "^1.7.4"
+    "ng-apexcharts": "^1.7.4",
+    "date-fns": "^2.30.0",
+    "@ngneat/transloco-locale": "^5.1.1"
   }
 }

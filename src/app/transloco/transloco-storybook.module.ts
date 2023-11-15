@@ -7,8 +7,9 @@ import {
 } from "@ngneat/transloco"
 import {APP_INITIALIZER, NgModule} from "@angular/core"
 import {DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, TranslocoHttpLoader} from "biit-ui/i18n";
-import {forceReRender, Story} from "@storybook/angular";
+import {forceReRender} from "@storybook/angular";
 import {distinctUntilChanged, tap} from "rxjs";
+import {provideTranslocoLocale, TRANSLOCO_LOCALE_CONFIG} from "@ngneat/transloco-locale";
 
 export let translocoServiceInstance: TranslocoService | null = null;
 
@@ -38,14 +39,28 @@ export let translocoServiceInstance: TranslocoService | null = null;
         prodMode: false,
       }),
     },
-    { provide: TRANSLOCO_LOADER, useClass: TranslocoHttpLoader },
+    {
+      provide: TRANSLOCO_LOADER,
+      useClass: TranslocoHttpLoader
+    },
+    {
+      provide: TRANSLOCO_LOCALE_CONFIG,
+      useFactory: provideTranslocoLocale
+    },
+    provideTranslocoLocale({
+      langToLocaleMapping: {
+        en: 'en-US',
+        es: 'es-ES',
+        nl: 'nl-NL'
+      }
+    })
   ],
 })
 export class TranslocoStorybookModule {
   public static setLanguage(globals: any): void {
     if (globals['language']) {
       // TODO: get reference to the TranslocoService instance
-      translocoServiceInstance?.setActiveLang(globals['language'])
+      translocoServiceInstance?.setActiveLang(globals['language']);
     }
   }
 }
