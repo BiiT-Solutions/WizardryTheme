@@ -1,7 +1,6 @@
-import {Component, Input, forwardRef, OnInit, ElementRef} from '@angular/core';
+import {Component, Input, forwardRef, OnInit, ElementRef, HostListener} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {eachDayOfInterval, add, setDate, startOfWeek, sub, setDefaultOptions, Locale} from 'date-fns'
-import {View} from './models/view'
 import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
 import {enGB, es, nl} from "date-fns/locale";
 
@@ -39,16 +38,19 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
 
   protected value: Date;
   protected dropdownOpen: boolean = false;
-  protected currentView: View = View.MONTH;
+  protected monthSelector: boolean = false;
   protected days: Date[] = [];
   protected headers = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
   protected viewerDate = new Date();
   protected locale: Locale;
 
-  protected readonly View = View;
-
   public get inputElement(): HTMLElement {return this.elem.nativeElement.querySelector('.input-object')}
   public get dropdownElement(): HTMLElement {return this.elem.nativeElement.querySelector('.popup')}
+
+  @HostListener('keydown.esc', ['$event'])
+  onKeyDown(e) {
+    this.closeDropdown();
+  }
 
   constructor(
     private elem: ElementRef,
@@ -127,6 +129,8 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
   }
 
   openDropdown() {
+    this.viewerDate = this.value ? this.value : new Date();
+    this.monthSelector = false;
     this.drawCalendar();
     this.setPopupComponentProperties();
     (this.inputElement as HTMLInputElement).focus();
@@ -209,6 +213,9 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
     this.drawCalendar();
     this.onModelChange(new Date());
   }
+
+  protected readonly add = add;
+  protected readonly sub = sub;
 }
 
 

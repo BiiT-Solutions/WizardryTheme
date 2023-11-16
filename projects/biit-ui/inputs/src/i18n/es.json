@@ -3,5 +3,6 @@
   "minlength-error": "El valor introducido es demasiado corto",
   "date-error": "La fecha seleccionada no es válida",
   "today": "Hoy",
-  "done": "Hecho"
+  "done": "Hecho",
+  "back": "Volver"
 }

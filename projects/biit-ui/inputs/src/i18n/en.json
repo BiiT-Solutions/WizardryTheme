@@ -3,5 +3,6 @@
   "minlength-error": "Value does not meet minimum length",
   "date-error": "Selected date is not valid",
   "today": "Today",
-  "done": "Done"
+  "done": "Done",
+  "back": "Back"
 }

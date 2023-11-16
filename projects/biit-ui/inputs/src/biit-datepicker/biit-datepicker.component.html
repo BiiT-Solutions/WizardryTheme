@@ -7,6 +7,7 @@
            [style.background]="dropdownOpen ? '#D9D9D9' : null"
            [min]="min | date: 'yyyy-MM-dd'"
            [max]="max | date: 'yyyy-MM-dd'"
+           [disabled]="disabled"
     >
     <div class="input-show-icon-container"
          [style.background]="dropdownOpen ? '#D9D9D9' : null"
@@ -18,7 +19,7 @@
                  [pathStyle]="{fill: dropdownOpen ? '#F20D5E' : '#262626'}"
       ></biit-icon>
     </div>
-    <div class="input-placeholder" [class.input-filled]="this.value || dropdownOpen">
+    <div class="input-placeholder input-filled">
       {{placeholder}}
       <a *ngIf="required"
          [style.color]="value ? null : 'red'">*</a>
@@ -32,7 +33,7 @@
     <div style="position: relative; height: 0;">
       <div class="popup"
            [class.dropdown-open]="dropdownOpen">
-        <div *ngIf="currentView == View.MONTH"
+        <div *ngIf="!monthSelector"
              class="month-view">
           <div class="month-selector">
             <button biit-icon
@@ -41,7 +42,8 @@
                     (click)="prevMonth()"
             ></button>
             <button biit-button tertiary
-                    class="month-label">
+                    class="month-label"
+                    (click)="monthSelector = !monthSelector">
               {{viewerDate | translocoDate: {month: 'long'} }}
               {{viewerDate | translocoDate: {year: 'numeric'} }}
             </button>
@@ -78,6 +80,100 @@
             <button biit-button tertiary
                     (click)="closeDropdown()">
               {{'inputs.done' | transloco}}
+            </button>
+          </div>
+        </div>
+
+        <div class="year-view" *ngIf="monthSelector">
+          <div class="month-selector">
+            <button biit-button tertiary
+                    class="month-label"
+                    (click)="monthSelector = !monthSelector">
+              {{viewerDate | translocoDate: {month: 'long'} }}
+              {{viewerDate | translocoDate: {year: 'numeric'} }}
+            </button>
+          </div>
+
+          <div class="selector">
+            <div class="column"
+                 style="min-width: 8em;">
+              <div class="item arrow"
+                   (click)="prevMonth()">
+                <biit-icon [name]="'right_arrow'"
+                           [pathStyle]="{fill: '#262626'}"
+                           class="up"
+                ></biit-icon>
+              </div>
+              <div class="item tertiary"
+                   (click)="viewerDate = sub(viewerDate, {months: 2})">
+                {{sub(viewerDate, {months: 2}) | translocoDate: {month: 'long'} }}
+              </div>
+              <div class="item secondary"
+                   (click)="prevMonth()">
+                {{sub(viewerDate, {months: 1}) | translocoDate: {month: 'long'} }}
+              </div>
+              <div class="item primary">
+                {{viewerDate | translocoDate: {month: 'long'} }}
+              </div>
+              <div class="item secondary"
+                   (click)="nextMonth()">
+                {{add(viewerDate, {months: 1}) | translocoDate: {month: 'long'} }}
+              </div>
+              <div class="item tertiary"
+                   (click)="viewerDate = add(viewerDate, {months: 2})">
+                {{add(viewerDate, {months: 2}) | translocoDate: {month: 'long'} }}
+              </div>
+              <div class="item arrow"
+                   (click)="nextMonth()">
+                <biit-icon [name]="'right_arrow'"
+                           [pathStyle]="{fill: '#262626'}"
+                           class="down"
+                ></biit-icon>
+              </div>
+            </div>
+
+            <div class="column"
+                 style="min-width: 5em;">
+              <div class="item arrow"
+                   (click)="viewerDate = sub(viewerDate, {years: 1})">
+                <biit-icon [name]="'right_arrow'"
+                           [pathStyle]="{fill: '#262626'}"
+                           class="up"
+                ></biit-icon>
+              </div>
+              <div class="item tertiary"
+                   (click)="viewerDate = sub(viewerDate, {years: 2})">
+                {{sub(viewerDate, {years: 2}) | translocoDate: {year: 'numeric'} }}
+              </div>
+              <div class="item secondary"
+                   (click)="viewerDate = sub(viewerDate, {years: 1})">
+                {{sub(viewerDate, {years: 1}) | translocoDate: {year: 'numeric'} }}
+              </div>
+              <div class="item primary">
+                {{viewerDate | translocoDate: {year: 'numeric'} }}
+              </div>
+              <div class="item secondary"
+                   (click)="viewerDate = add(viewerDate, {years: 1})">
+                {{add(viewerDate, {years: 1}) | translocoDate: {year: 'numeric'} }}
+              </div>
+              <div class="item tertiary"
+                   (click)="viewerDate = add(viewerDate, {years: 2})">
+                {{add(viewerDate, {years: 2}) | translocoDate: {year: 'numeric'} }}
+              </div>
+              <div class="item arrow"
+                   (click)="viewerDate = add(viewerDate, {years: 1})">
+                <biit-icon [name]="'right_arrow'"
+                           [pathStyle]="{fill: '#262626'}"
+                           class="down"
+                ></biit-icon>
+              </div>
+            </div>
+          </div>
+
+          <div class="buttons">
+            <button biit-button tertiary
+                    (click)="drawCalendar(); monthSelector = false">
+              {{'inputs.back' | transloco}}
             </button>
           </div>
         </div>

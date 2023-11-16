@@ -3,8 +3,6 @@ $selected-color: #F20D5E;
 $disabled-color: #D9D9D9;
 $error-color: #A1093F;
 $secondary-color: #808080;
-
-$disabled-day: #A1093F;
 $disabled-outer-day: #FBAEC9;
 
 * {
@@ -16,6 +14,7 @@ $disabled-outer-day: #FBAEC9;
   position: absolute;
   z-index: 2;
   width: 17.5rem;
+  height: 20.5rem;
   border: 0.2em solid $default-color;
   background: white;
   padding: 0.45rem;
@@ -38,9 +37,15 @@ $disabled-outer-day: #FBAEC9;
   }
 
   .month-view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     .month-selector {
       display: flex;
       justify-content: space-between;
+      align-items: center;
 
       .month-label {
         width: 12rem;
@@ -64,7 +69,6 @@ $disabled-outer-day: #FBAEC9;
     }
 
     .grid {
-      margin-top: 0.3rem;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -122,7 +126,7 @@ $disabled-outer-day: #FBAEC9;
           }
 
           &.disabled {
-            color: $disabled-day;
+            color: $error-color;
             pointer-events: none;
 
             &.outer-day {
@@ -137,7 +141,6 @@ $disabled-outer-day: #FBAEC9;
       display: flex;
       justify-content: space-between;
       padding: 0.3rem 0.85rem;
-      margin-top: 0.3rem;
 
       .today-btn {
         ::ng-deep .button-base {
@@ -153,6 +156,81 @@ $disabled-outer-day: #FBAEC9;
       }
     }
   }
+
+  .year-view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .month-label {
+      width: 100%;
+      height: 2.1rem;
+      align-items: center;
+
+      ::ng-deep .button-base {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        color: $default-color;
+
+        .bar {
+          background: $default-color;
+        }
+      }
+    }
+
+    .selector {
+      display: flex;
+      justify-content: center;
+
+      .column {
+        display: block;
+
+        .item {
+          width: 100%;
+          height: 1.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+
+          &.primary {
+            height: 1.8rem;
+            color: $default-color;
+            font-weight: 500;
+          }
+          &.secondary {
+            color: $secondary-color;
+          }
+          &.tertiary {
+            color: $disabled-color;
+          }
+
+          &.arrow {
+            display: inline-flex;
+            width: 100%;
+            height: 1.8rem;
+
+            .up {
+              height: 0.7rem;
+              rotate: -90deg;
+            }
+            .down {
+              height: 0.7rem;
+              rotate: 90deg;
+            }
+          }
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0.3rem 0.85rem;
+    }
+  }
 }
 
 .biit-input {
@@ -165,6 +243,10 @@ $disabled-outer-day: #FBAEC9;
     pointer-events: none;
 
     .input-object {
+      background: $disabled-color;
+    }
+
+    .input-show-icon-container {
       background: $disabled-color;
     }
   }
