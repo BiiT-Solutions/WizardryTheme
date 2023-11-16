@@ -4,7 +4,7 @@ import {BiitIconService} from "biit-ui/icon";
 import {completeIconSet} from "biit-icons-collection";
 import {APP_INITIALIZER} from "@angular/core";
 import {BiitLogin} from "biit-ui/models";
-import {translocoServiceInstance, TranslocoStorybookModule} from "../../app/transloco/transloco-storybook.module";
+import {TranslocoStorybookModule} from "../../app/transloco/transloco-storybook.module";
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);
