@@ -27,6 +27,7 @@ export default {
   args: {
     placeholder: 'Start Date',
     date: null,
+    timePicker: false,
     disabled: false,
     disabledDays: [],
     disableWeekdays: false,
@@ -65,6 +66,20 @@ export default {
       type: { name: 'boolean', required: false },
       defaultValue: 'false',
       description: 'Disables component interactions.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'boolean'
+      }
+    },
+    timePicker: {
+      name: 'timePicker',
+      type: { name: 'boolean', required: false },
+      defaultValue: 'false',
+      description: 'Shows the time picker.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -126,11 +141,12 @@ const Template: Story<BiitDatePickerComponent> = (args: BiitDatePickerComponent,
     template: `
         <biit-datepicker [(ngModel)]="date"
                          [placeholder]="placeholder"
+                         [timePicker]="timePicker"
                          [disabled]="disabled"
                          [disabledDays]="disabledDays"
                          [disableWeekdays]="disableWeekdays"
                          [disableWeekends]="disableWeekends"
-                         style="display: block; width: 256px;"></biit-datepicker>
+                         style="display: block; width: 300px;"></biit-datepicker>
     `
   }
 };

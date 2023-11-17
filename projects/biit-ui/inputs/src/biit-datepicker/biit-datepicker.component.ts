@@ -44,8 +44,11 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
   protected viewerDate = new Date();
   protected locale: Locale;
 
-  public get inputElement(): HTMLElement {return this.elem.nativeElement.querySelector('.input-object')}
-  public get dropdownElement(): HTMLElement {return this.elem.nativeElement.querySelector('.popup')}
+  protected get inputElement(): HTMLElement {return this.elem.nativeElement.querySelector('.input-object')}
+  protected get dropdownElement(): HTMLElement {return this.elem.nativeElement.querySelector('.popup')}
+
+  protected readonly add = add;
+  protected readonly sub = sub;
 
   @HostListener('keydown.esc', ['$event'])
   onKeyDown(e) {
@@ -85,6 +88,7 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
 
   onModelChange(value: Date) {
     this.value = new Date(value);
+    this.viewerDate = new Date(value);
     this.onChange(value);
   }
 
@@ -128,8 +132,14 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
     }
   }
 
+  changeView() {
+    this.monthSelector = !this.monthSelector;
+    this.setPopupComponentProperties();
+  }
+
   openDropdown() {
-    this.viewerDate = this.value ? this.value : new Date();
+    if (!this.value) this.value = new Date();
+    this.viewerDate = this.value;
     this.monthSelector = false;
     this.drawCalendar();
     this.setPopupComponentProperties();
@@ -213,9 +223,6 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
     this.drawCalendar();
     this.onModelChange(new Date());
   }
-
-  protected readonly add = add;
-  protected readonly sub = sub;
 }
 
 

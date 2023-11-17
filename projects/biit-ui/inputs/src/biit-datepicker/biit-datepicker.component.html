@@ -1,12 +1,14 @@
 <div class="biit-input" [class.disabled]="disabled" [class.readonly]="readonly" >
   <div class="input-container">
     <input class="input-object"
-           [ngModel]="value | date: 'yyyy-MM-dd'"
+           [ngModel]="value && !timePicker ? (value | date: 'yyyy-MM-dd') :
+                      value && timePicker ? (value | date: 'yyyy-MM-dd\THH:mm') :
+                      undefined"
            (ngModelChange)="onModelChange(parseDate($event))"
            [type]="timePicker ? 'datetime-local' : 'date'" required
            [style.background]="dropdownOpen ? '#D9D9D9' : null"
-           [min]="min | date: 'yyyy-MM-dd'"
-           [max]="max | date: 'yyyy-MM-dd'"
+           [min]="min ? (min | date: 'yyyy-MM-dd') : undefined"
+           [max]="max ? (max | date: 'yyyy-MM-dd') : undefined"
            [disabled]="disabled"
     >
     <div class="input-show-icon-container"
@@ -32,7 +34,8 @@
 
     <div style="position: relative; height: 0;">
       <div class="popup"
-           [class.dropdown-open]="dropdownOpen">
+           [class.dropdown-open]="dropdownOpen"
+           [style.height]="!monthSelector && timePicker ? '29.1rem' : null">
         <div *ngIf="!monthSelector"
              class="month-view">
           <div class="month-selector">
@@ -43,7 +46,7 @@
             ></button>
             <button biit-button tertiary
                     class="month-label"
-                    (click)="monthSelector = !monthSelector">
+                    (click)="changeView()">
               {{viewerDate | translocoDate: {month: 'long'} }}
               {{viewerDate | translocoDate: {year: 'numeric'} }}
             </button>
@@ -84,11 +87,72 @@
           </div>
         </div>
 
+        <div class="time-picker" *ngIf="!monthSelector && timePicker">
+          <div class="selector">
+            <div class="column"
+                 style="min-width: 2em;">
+              <div class="item arrow"
+                   (click)="onModelChange(sub(value, {hours: 1}))">
+                <biit-icon [name]="'right_arrow'"
+                           [pathStyle]="{fill: '#262626'}"
+                           class="up"
+                ></biit-icon>
+              </div>
+              <div class="item secondary"
+                   (click)="onModelChange(sub(value, {hours: 1}))">
+                {{ value ? (sub(value, {hours: 1}) | date: 'H') : '' }}
+              </div>
+              <div class="item primary">
+                {{ value ? (value | date: 'H') : '' }}
+              </div>
+              <div class="item secondary"
+                   (click)="onModelChange(add(value, {hours: 1}))">
+                {{ value ? (add(value, {hours: 1}) | date: 'H') : '' }}
+              </div>
+              <div class="item arrow"
+                   (click)="onModelChange(add(value, {hours: 1}))">
+                <biit-icon [name]="'right_arrow'"
+                           [pathStyle]="{fill: '#262626'}"
+                           class="down"
+                ></biit-icon>
+              </div>
+            </div>
+            <div class="column"
+                 style="min-width: 2em;">
+              <div class="item arrow"
+                   (click)="onModelChange(sub(value, {minutes: 1}))">
+                <biit-icon [name]="'right_arrow'"
+                           [pathStyle]="{fill: '#262626'}"
+                           class="up"
+                ></biit-icon>
+              </div>
+              <div class="item secondary"
+                   (click)="onModelChange(sub(value, {hours: 1}))">
+                {{ value ? (sub(value, {minutes: 1}) | date: 'mm') : '' }}
+              </div>
+              <div class="item primary">
+                {{ value ? (value | date: 'mm') : '' }}
+              </div>
+              <div class="item secondary"
+                   (click)="onModelChange(add(value, {hours: 1}))">
+                {{ value ? (add(value, {minutes: 1}) | date: 'mm') : '' }}
+              </div>
+              <div class="item arrow"
+                   (click)="onModelChange(add(value, {minutes: 1}))">
+                <biit-icon [name]="'right_arrow'"
+                           [pathStyle]="{fill: '#262626'}"
+                           class="down"
+                ></biit-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="year-view" *ngIf="monthSelector">
           <div class="month-selector">
             <button biit-button tertiary
                     class="month-label"
-                    (click)="monthSelector = !monthSelector">
+                    (click)="changeView()">
               {{viewerDate | translocoDate: {month: 'long'} }}
               {{viewerDate | translocoDate: {year: 'numeric'} }}
             </button>
@@ -172,7 +236,7 @@
 
           <div class="buttons">
             <button biit-button tertiary
-                    (click)="drawCalendar(); monthSelector = false">
+                    (click)="drawCalendar(); changeView()">
               {{'inputs.back' | transloco}}
             </button>
           </div>
