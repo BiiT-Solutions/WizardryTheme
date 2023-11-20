@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { BiitInputTextComponent } from './biit-input-text.component';
 import {BiitIconModule} from "biit-ui/icon";
 import {FormsModule} from "@angular/forms";
-import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 import {TranslocoRootModule} from "biit-ui/i18n";
 
 @NgModule({
@@ -18,10 +17,6 @@ import {TranslocoRootModule} from "biit-ui/i18n";
   ],
   exports: [
     BiitInputTextComponent
-  ],
-  providers: [{
-    provide: TRANSLOCO_SCOPE,
-    useValue: {scope: 'biit-ui/inputs', alias: "inputs"}
-  }]
+  ]
 })
 export class BiitInputTextModule { }
