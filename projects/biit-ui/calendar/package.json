@@ -1,0 +1,11 @@
+{
+  "name": "@biit-ui/calendar",
+  "peerDependencies": {
+  },
+  "i18n": [
+    {
+      "scope": "calendar",
+      "path": "src/i18n"
+    }
+  ]
+}
