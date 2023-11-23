@@ -40,6 +40,9 @@
       ],
       "biit-ui/charts": [
         "projects/biit-ui/charts/src/public-api"
+      ],
+      "biit-ui/calendar": [
+        "projects/biit-ui/calendar/src/public-api"
       ]
     },
     "outDir": "./dist/out-tsc",
