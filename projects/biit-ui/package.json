@@ -16,5 +16,8 @@
     "date-fns": "^2.30.0",
     "@ngneat/transloco-locale": "^5.1.1",
     "angular-calendar": "^0.31.0"
-  }
+  },
+  "styles": [
+    "src/angular-calendar.scss"
+  ]
 }
