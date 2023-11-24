@@ -3,6 +3,7 @@ import {TRANSLOCO_CONFIG, TRANSLOCO_LOADER, translocoConfig, TranslocoModule} fr
 import {isDevMode, NgModule} from '@angular/core';
 import {DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES} from "./supported-languages";
 import {TranslocoHttpLoader} from "./http-loader";
+import {provideTranslocoLocale, TRANSLOCO_LOCALE_CONFIG} from "@ngneat/transloco-locale";
 
 @NgModule({
   exports: [ TranslocoModule ],
@@ -20,7 +21,21 @@ import {TranslocoHttpLoader} from "./http-loader";
         prodMode: !isDevMode(),
       })
     },
-    { provide: TRANSLOCO_LOADER, useClass: TranslocoHttpLoader }
+    {
+      provide: TRANSLOCO_LOADER,
+      useClass: TranslocoHttpLoader
+    },
+    {
+      provide: TRANSLOCO_LOCALE_CONFIG,
+      useFactory: provideTranslocoLocale
+    },
+    provideTranslocoLocale({
+      langToLocaleMapping: {
+        en: 'en-US',
+        es: 'es-ES',
+        nl: 'nl-NL'
+      }
+    })
   ]
 })
 export class TranslocoRootModule {}
