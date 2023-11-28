@@ -9,6 +9,23 @@ import {Route} from '@angular/router';
 
 export class BiitNavMenuComponent {
   @Input() routes: Route[] = [];
+  protected hovered: Route;
+  protected submenuHover = false;
+  protected submenuItemHover;
+  protected timeout;
+
+  protected readonly clearTimeout = clearTimeout;
+
+  onMouseMove(route: Route) {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
+    this.timeout = setTimeout(() => {
+      if (!this.submenuHover) {
+        this.hovered = route;
+      }
+    }, 200);
+  }
 
   log(event) {
     console.log("DEVELOPMENT LOG: ", event)

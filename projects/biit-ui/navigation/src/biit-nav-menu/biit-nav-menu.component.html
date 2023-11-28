@@ -1,20 +1,28 @@
-<div class="navbar-menu-canvas">
+<div class="navbar-menu-canvas"
+     (mouseleave)="clearTimeout(timeout); hovered = undefined">
   <div class="item"
+       *ngFor="let route of routes"
+       [class.hover]="route == hovered"
        [routerLink]="[route.path]"
        [routerLinkActive]="['active']"
-       *ngFor="let route of routes"
        [class.disabled]="route.data?.['disabled']"
        [style.display]="route.data?.['hidden'] ? 'none' : 'inline-flex'"
+       (mousemove)="onMouseMove(route)"
   >
     {{route.title}}
     <div class="submenu"
-         *ngIf="route.children?.length">
+         *ngIf="hovered?.children?.length"
+         (mouseover)="submenuHover = true"
+         (mouseleave)="submenuHover = false">
       <div class="item"
+           *ngFor="let child of hovered.children"
            [routerLink]="[route.path, child.path]"
            [routerLinkActive]="['active']"
            [routerLinkActiveOptions]="{exact: true}"
-           *ngFor="let child of route.children"
            [class.disabled]="child.data?.['disabled']"
+           [class.hover]="submenuItemHover == child"
+           (mouseleave)="submenuItemHover = undefined"
+           (mouseover)="submenuItemHover = child"
            [style.display]="child.data?.['hidden'] ? 'none' : 'inline-flex'"
            (click)="$event.stopPropagation();"
       >
