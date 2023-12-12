@@ -12,4 +12,5 @@ export * from './biit-table/models/biit-table-sorting';
 export * from './biit-paginator/biit-paginator.component';
 export * from './biit-paginator/biit-paginator.module';
 export * from './biit-paginator/models/biit-paginator-options';
+export * from './utils/generic-filter';
 
