@@ -1,6 +1,11 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {BiitTableComponent, BiitTableSelectableDirective, BiitTableSortableDirective} from "./biit-table.component";
+import {
+  BiitTableComponent,
+  BiitTableSelectableDirective,
+  BiitTableSortableDirective,
+  BiitTableCompactDirective
+} from "./biit-table.component";
 import {FormsModule} from "@angular/forms";
 import {BiitPaginatorModule} from '../biit-paginator/biit-paginator.module';
 import {BiitCheckboxModule, BiitInputTextModule, BiitMultiselectModule} from 'biit-ui/inputs';
@@ -18,13 +23,15 @@ import {ColumnDataPipe} from "./pipes/column-data-pipe";
     BiitTableComponent,
     BiitTableSelectableDirective,
     BiitTableSortableDirective,
+    BiitTableCompactDirective,
     VisibleColumnsPipe,
     ColumnDataPipe
   ],
   exports: [
     BiitTableComponent,
     BiitTableSelectableDirective,
-    BiitTableSortableDirective
+    BiitTableSortableDirective,
+    BiitTableCompactDirective
   ],
   imports: [
     CommonModule,

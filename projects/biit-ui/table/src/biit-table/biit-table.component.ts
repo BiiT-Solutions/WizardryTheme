@@ -37,6 +37,15 @@ export class BiitTableSortableDirective {
   }
 }
 
+@Directive({
+  selector: '[compact]'
+})
+export class BiitTableCompactDirective {
+  constructor(private parent: BiitTableComponent) {
+    parent.compact = true;
+  }
+}
+
 @Component({
   selector: 'biit-table',
   templateUrl: './biit-table.component.html',
@@ -70,6 +79,7 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   @Input() defaultPageSize: number;
   isSelectable: boolean = false;
   isSortable: boolean = false;
+  compact: boolean = false;
 
   @Output() onUpdate: EventEmitter<BiitTableResponse> = new EventEmitter<BiitTableResponse>();
   @Output() onCellAction: EventEmitter<BiitTableActionResponse> = new EventEmitter<BiitTableActionResponse>();

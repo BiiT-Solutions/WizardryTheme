@@ -1,5 +1,5 @@
 <div class="canvas" slot="{{'empty' | transloco}}">
-  <div class="header">
+  <div class="header" *ngIf="!compact">
     <div class="buttons">
       <ng-content></ng-content>
     </div>
@@ -115,7 +115,7 @@
 
   </div>
 
-  <div class="footer">
+  <div class="footer" *ngIf="!compact">
     <div class="selected">
       <a style="margin-right: 0.7rem" *ngIf="selectedRows.size">Selected:</a>
       <a *ngIf="selectedRows.size">{{selectedRows.size}}</a>
