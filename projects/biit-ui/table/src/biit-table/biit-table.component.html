@@ -1,5 +1,5 @@
 <div class="canvas" slot="{{'empty' | transloco}}">
-  <div class="header" *ngIf="!compact">
+  <div class="header" *ngIf="!hideHeader">
     <div class="buttons">
       <ng-content></ng-content>
     </div>
@@ -33,8 +33,9 @@
     <table>
       <thead>
         <tr>
-          <th *ngIf="isSelectable" class="select">
-            <biit-checkbox [ngModel]="data?.data.length && selectedRows.size == data?.data.length"
+          <th *ngIf="isSelectable || isSelectableSingle" class="select">
+            <biit-checkbox *ngIf="isSelectable"
+                           [ngModel]="data?.data.length && selectedRows.size == data?.data.length"
                            (ngModelChange)="$event ? data?.data.forEach(selectedRows.add, selectedRows) : selectedRows.clear()"
             ></biit-checkbox>
           </th>
@@ -42,7 +43,7 @@
               [class.sortable]="isSortable"
               [style.display]="!column.visible ? 'none' : null"
               [style.width]="column.width ? column.width + 'px' : ''"
-              (click)="onTableSort(column)"
+              (click)="isSortable ? onTableSort(column) : false"
           >
             <div class="label">
               {{column.label}}
@@ -67,11 +68,12 @@
         <tr *ngFor="let item of data?.data; index as i"
             [class.selectable]="isSelectable"
             [class.selected]="selectedRows.has(item)"
+            (pointerdown)="emitRowClick(item)"
         >
-            <td *ngIf="isSelectable" class="select">
+            <td *ngIf="isSelectable || isSelectableSingle" class="select">
               <biit-checkbox id="select{{i}}"
                              [ngModel]="selectedRows.has(item)"
-                             (ngModelChange)="$event ? selectedRows.add(item) : selectedRows.delete(item)"
+                             (ngModelChange)="selectRow(item, true)"
               ></biit-checkbox>
             </td>
             <td *ngFor="let column of columns"
@@ -115,7 +117,7 @@
 
   </div>
 
-  <div class="footer" *ngIf="!compact">
+  <div class="footer" *ngIf="!hideFooter">
     <div class="selected">
       <a style="margin-right: 0.7rem" *ngIf="selectedRows.size">Selected:</a>
       <a *ngIf="selectedRows.size">{{selectedRows.size}}</a>

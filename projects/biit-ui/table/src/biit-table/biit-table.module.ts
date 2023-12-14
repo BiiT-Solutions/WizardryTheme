@@ -1,10 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {
-  BiitTableComponent,
-  BiitTableSelectableDirective,
-  BiitTableSortableDirective,
-  BiitTableCompactDirective
+  BiitTableComponent, BiitTableFooterlessDirective, BiitTableHeaderlessDirective,
+  BiitTableSelectableDirective, BiitTableSelectableSingleDirective,
+  BiitTableSortableDirective
 } from "./biit-table.component";
 import {FormsModule} from "@angular/forms";
 import {BiitPaginatorModule} from '../biit-paginator/biit-paginator.module';
@@ -22,16 +21,20 @@ import {ColumnDataPipe} from "./pipes/column-data-pipe";
   declarations: [
     BiitTableComponent,
     BiitTableSelectableDirective,
+    BiitTableSelectableSingleDirective,
     BiitTableSortableDirective,
-    BiitTableCompactDirective,
+    BiitTableHeaderlessDirective,
+    BiitTableFooterlessDirective,
     VisibleColumnsPipe,
     ColumnDataPipe
   ],
   exports: [
     BiitTableComponent,
     BiitTableSelectableDirective,
+    BiitTableSelectableSingleDirective,
     BiitTableSortableDirective,
-    BiitTableCompactDirective
+    BiitTableHeaderlessDirective,
+    BiitTableFooterlessDirective
   ],
   imports: [
     CommonModule,

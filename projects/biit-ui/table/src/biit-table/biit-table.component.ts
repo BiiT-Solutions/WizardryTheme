@@ -29,6 +29,15 @@ export class BiitTableSelectableDirective {
 }
 
 @Directive({
+  selector: '[selectableSingle]'
+})
+export class BiitTableSelectableSingleDirective {
+  constructor(private parent: BiitTableComponent) {
+    parent.isSelectableSingle = true;
+  }
+}
+
+@Directive({
   selector: '[sortable]'
 })
 export class BiitTableSortableDirective {
@@ -38,11 +47,20 @@ export class BiitTableSortableDirective {
 }
 
 @Directive({
-  selector: '[compact]'
+  selector: '[hideHeader]'
 })
-export class BiitTableCompactDirective {
+export class BiitTableHeaderlessDirective {
   constructor(private parent: BiitTableComponent) {
-    parent.compact = true;
+    parent.hideHeader = true;
+  }
+}
+
+@Directive({
+  selector: '[hideFooter]'
+})
+export class BiitTableFooterlessDirective {
+  constructor(private parent: BiitTableComponent) {
+    parent.hideFooter = true;
   }
 }
 
@@ -78,11 +96,14 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   @Input() pageSizes: number[] = [];
   @Input() defaultPageSize: number;
   isSelectable: boolean = false;
+  isSelectableSingle: boolean = false;
   isSortable: boolean = false;
-  compact: boolean = false;
+  hideHeader: boolean = false;
+  hideFooter: boolean = false;
 
   @Output() onUpdate: EventEmitter<BiitTableResponse> = new EventEmitter<BiitTableResponse>();
   @Output() onCellAction: EventEmitter<BiitTableActionResponse> = new EventEmitter<BiitTableActionResponse>();
+  @Output() onRowClick : EventEmitter<any> = new EventEmitter<any>();
 
   protected data: BiitTableData<any>;
   protected paginator;
@@ -219,7 +240,7 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   }
 
   selectRow(item, holdCtrl) {
-    if (!holdCtrl) {
+    if (!holdCtrl || this.isSelectableSingle) {
       this.selectedRows.clear();
       this.selectedRows.add(item);
     } else {
@@ -236,9 +257,12 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   }
 
   emitCellAction(item: any, column: string, event: Event) {
-    // event.preventDefault();
     event.stopPropagation();
     this.onCellAction.emit(new BiitTableActionResponse(item, column));
+  }
+
+  emitRowClick(item: any) {
+    this.onRowClick.emit(item);
   }
 
   resetInputValue(event: Event, value: string) {
