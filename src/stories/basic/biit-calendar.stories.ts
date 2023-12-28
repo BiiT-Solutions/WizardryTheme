@@ -3,7 +3,7 @@ import {FormsModule} from '@angular/forms';
 import {TranslocoStorybookModule} from "../../app/transloco/transloco-storybook.module";
 import {BiitCalendarComponent, BiitCalendarModule, CalendarEvent, EventColor} from "biit-ui/calendar";
 import {BiitIconButtonModule} from "biit-ui/button";
-import {addWeeks, subWeeks} from "date-fns";
+import {addMonths, addWeeks, subMonths, subWeeks} from "date-fns";
 
 export default {
   title: 'Basic/Calendar',
@@ -40,7 +40,34 @@ export const Weekly: Story<BiitCalendarComponent> = (args: BiitCalendarComponent
             <button (click)="viewDate = subWeek(viewDate)">◀️</button>
             <button (click)="viewDate = addWeek(viewDate)">▶️</button>
           </div>
-          <biit-calendar [viewDate]="viewDate"
+          <biit-calendar [calendarMode]="'WEEK'"
+                         [viewDate]="viewDate"
+                         [events]="events"
+                         ></biit-calendar>
+        </div>
+      </div>
+`
+  }
+};
+
+export const Monthly: Story<BiitCalendarComponent> = (args: BiitCalendarComponent, { globals }) => {
+  TranslocoStorybookModule.setLanguage(globals);
+  return {
+    globals,
+    props: {
+      ...args,
+      addMonth: (value: Date) => addMonths(value, 1),
+      subMonth: (value: Date) => subMonths(value, 1)
+    },
+    template: `
+      <div style="display: flex; width: 100%; height: 90vh; align-items: center; justify-content: center">
+        <div style="display: flex; width: 80%; height: 80%; flex-direction: column;">
+          <div style="display: flex;">
+            <button (click)="viewDate = subMonth(viewDate)">◀️</button>
+            <button (click)="viewDate = addMonth(viewDate)">▶️</button>
+          </div>
+          <biit-calendar [calendarMode]="'MONTH'"
+                         [viewDate]="viewDate"
                          [events]="events"
                          ></biit-calendar>
         </div>

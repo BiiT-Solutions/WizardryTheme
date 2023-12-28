@@ -15,51 +15,9 @@ import {EventColor} from "../utils/event-color";
   }]
 })
 export class BiitCalendarComponent implements OnInit {
+  @Input() calendarMode: CalendarMode = CalendarMode.MONTH;
   @Input() viewDate: Date = new Date();
-  @Input() events: CalendarEvent[] = [
-    {
-      title: 'An all day event',
-      color: EventColor.Blue,
-      start: new Date(),
-      allDay: true,
-      actions: [{label: 'Testing', onClick: ()=>{}}]
-    },
-    {
-      title: 'SUPA DUPA EVENT',
-      color: EventColor.Red,
-      start: new Date(new Date().setDate(24)),
-      allDay: true,
-    },
-    {
-      title: 'SUPA DUPA EVENT 2',
-      color: EventColor.Yellow,
-      start: new Date(new Date().setDate(24)),
-      allDay: true,
-    },
-    {
-      title: 'A non all day event',
-      color: EventColor.Blue,
-      start: new Date(),
-    },
-    {
-      title: 'A non all day event pero el nombre es mas largo',
-      color: EventColor.Red,
-      start: new Date(new Date().setHours(1, 0)),
-      end: new Date(new Date().setHours(2, 0)),
-    },
-    {
-      title: 'A non all day event pero el nombre es mas largo',
-      color: EventColor.Green,
-      start: new Date(new Date().setHours(0, 0)),
-      end: new Date(new Date().setHours(0, 50)),
-    },
-    {
-      title: 'A non all day event pero el nombre es mas largo',
-      color: EventColor.Purple,
-      start: new Date(new Date().setHours(3, 0)),
-      end: new Date(new Date().setHours(5, 0)),
-    },
-  ];
+  @Input() events: CalendarEvent[] = [];
   protected locale: Locale;
 
   constructor(public transloco: TranslocoService) { }
@@ -95,4 +53,11 @@ export class BiitCalendarComponent implements OnInit {
       '--event-tertiary': color.tertiary
     }
   }
+
+  protected readonly CalendarMode = CalendarMode;
+}
+
+export enum CalendarMode {
+  WEEK = 'WEEK',
+  MONTH = 'MONTH'
 }

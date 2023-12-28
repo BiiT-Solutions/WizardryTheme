@@ -1,7 +1,14 @@
+$active-color: #F20D5E;
+$disabled-color: #D9D9D9;
+
 :host {
   width: 100%;
   height: 100%;
 }
+
+/*
+  WEEK VIEW
+ */
 
 ::ng-deep mwl-calendar-week-view .cal-week-view {
   height: inherit;
@@ -195,4 +202,30 @@
   width: 100%;
   height: 1px;
   z-index: 2;
+}
+
+/*
+  MONTH VIEW
+ */
+
+.cell-top {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+
+  .day-number {
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    &.out-month {
+      color: $disabled-color;
+    }
+
+    &.today {
+      color: $active-color;
+    }
+  }
 }
