@@ -127,7 +127,7 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
   }
 
   handleMouseEvents($event: PointerEvent) {
-    if (!this.elem.nativeElement.contains($event.target)) {
+    if (this.dropdownOpen && !this.elem.nativeElement.contains($event.target)) {
       this.closeDropdown();
     }
   }
