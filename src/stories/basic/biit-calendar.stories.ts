@@ -19,7 +19,8 @@ export default {
       new CalendarEvent('1 line event', new Date(new Date().setHours(1, 0)), new Date(new Date().setHours(1, 30))),
       new CalendarEvent('2 line event so this title is longer', new Date(new Date().setHours(2, 0)), new Date(new Date().setHours(2, 45))),
       new CalendarEvent('3 line event so this title is longer', new Date(new Date().setHours(3, 0)), new Date(new Date().setHours(4, 0))),
-      new CalendarEvent('Different color', new Date(), undefined, EventColor.Green)
+      new CalendarEvent('Different color', new Date(), undefined, EventColor.Green),
+      new CalendarEvent('Different color', new Date(new Date().setDate(new Date().getDate() - 1)), undefined, EventColor.Green)
     ]
   },
 } as Meta;

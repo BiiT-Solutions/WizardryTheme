@@ -1,4 +1,5 @@
 $active-color: #F20D5E;
+$weekend-color: #F2F2F2;
 $disabled-color: #D9D9D9;
 
 :host {
@@ -44,7 +45,7 @@ $disabled-color: #D9D9D9;
       }
 
       &.cal-weekend {
-        background-color: #F2F2F2;
+        background-color: $weekend-color;
 
         span {
           color: #262626;
@@ -208,13 +209,47 @@ $disabled-color: #D9D9D9;
   MONTH VIEW
  */
 
+::ng-deep mwl-calendar-month-view .cal-month-view .cal-day-cell.cal-today {
+  background-color: transparent;
+}
+
+::ng-deep mwl-calendar-month-view .cal-month-view .cal-days {
+  border-color: $disabled-color;
+  border-top-width: 0.1rem;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+::ng-deep mwl-calendar-month-view .cal-month-view .cal-header .cal-cell.cal-weekend,
+::ng-deep mwl-calendar-month-view .cal-month-view .cal-day-cell.cal-weekend
+{
+  background-color: $weekend-color;
+}
+
+::ng-deep mwl-calendar-month-view .cal-month-view .cal-days div:last-child .cal-cell-row {
+  border-bottom: 0;
+}
+
+::ng-deep mwl-calendar-month-view .cal-month-view .cal-header .cal-cell {
+  font-weight: normal;
+  font-size: 0.9rem;
+  height: 1.2rem;
+  border: 0;
+
+  &.cal-today {
+    font-weight: bold;
+  }
+}
+
 .cell-top {
-  height: 2rem;
   display: flex;
+  flex: 0 0 2rem;
   align-items: center;
   justify-content: space-between;
   padding: 0 0.5rem;
   box-sizing: border-box;
+  user-select: none;
 
   .day-number {
     font-weight: bold;
@@ -226,6 +261,38 @@ $disabled-color: #D9D9D9;
 
     &.today {
       color: $active-color;
+    }
+  }
+}
+
+.cell-bottom {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  .event {
+    height: 0.9rem;
+    width: 99%;
+    margin-bottom: 1px;
+    box-sizing: border-box;
+    border-left: 0.2rem solid var(--event-primary);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    padding: 0 5px;
+    color: var(--event-tertiary);
+    user-select: none;
+    overflow: hidden;
+
+    &:hover {
+      background-color: var(--event-secondary);
+    }
+
+    &:active {
+      background-color: var(--event-primary);
+      color: #FFFFFF;
     }
   }
 }
