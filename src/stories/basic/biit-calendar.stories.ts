@@ -4,12 +4,22 @@ import {TranslocoStorybookModule} from "../../app/transloco/transloco-storybook.
 import {BiitCalendarComponent, BiitCalendarModule, CalendarEvent, EventColor} from "biit-ui/calendar";
 import {BiitIconButtonModule} from "biit-ui/button";
 import {addMonths, addWeeks, subMonths, subWeeks} from "date-fns";
+import { DragAndDropModule } from 'angular-draggable-droppable';
+import {CalendarEventTimesChangedEvent} from "angular-calendar";
+
+function saveEvent(value: CalendarEventTimesChangedEvent, events: CalendarEvent[]) {
+  let event = events.filter(e => e.id == value.event.id)[0];
+  if (!event.id) {
+    event.id = events.length;
+    event.title = 'haha surprise!';
+  }
+}
 
 export default {
   title: 'Basic/Calendar',
   decorators: [
     moduleMetadata({
-      imports: [BiitCalendarModule, FormsModule, BiitIconButtonModule]
+      imports: [BiitCalendarModule, FormsModule, BiitIconButtonModule, DragAndDropModule]
     }),
   ],
   args: {
@@ -21,7 +31,8 @@ export default {
       new CalendarEvent('3 line event so this title is longer', new Date(new Date().setHours(3, 0)), new Date(new Date().setHours(4, 0))),
       new CalendarEvent('Different color', new Date(), undefined, EventColor.Green),
       new CalendarEvent('Different color', new Date(new Date().setDate(new Date().getDate() - 1)), undefined, EventColor.Green)
-    ]
+    ],
+    dragEvent: new CalendarEvent('Drag Event', new Date(), undefined,  EventColor.Purple)
   },
 } as Meta;
 
@@ -32,7 +43,10 @@ export const Weekly: Story<BiitCalendarComponent> = (args: BiitCalendarComponent
     props: {
       ...args,
       addWeek: (value: Date) => addWeeks(value, 1),
-      subWeek: (value: Date) => subWeeks(value, 1)
+      subWeek: (value: Date) => subWeeks(value, 1),
+      saveEvent: (value: CalendarEventTimesChangedEvent, events: CalendarEvent[]) => {
+
+      }
     },
     template: `
       <div style="display: flex; width: 100%; height: 90vh; align-items: center; justify-content: center">
@@ -44,6 +58,7 @@ export const Weekly: Story<BiitCalendarComponent> = (args: BiitCalendarComponent
           <biit-calendar [calendarMode]="'WEEK'"
                          [viewDate]="viewDate"
                          [events]="events"
+                         (onEventDrop)="saveEvent($event, events)"
                          ></biit-calendar>
         </div>
       </div>
@@ -58,9 +73,24 @@ export const Monthly: Story<BiitCalendarComponent> = (args: BiitCalendarComponen
     props: {
       ...args,
       addMonth: (value: Date) => addMonths(value, 1),
-      subMonth: (value: Date) => subMonths(value, 1)
+      subMonth: (value: Date) => subMonths(value, 1),
+      saveEvent: (value: CalendarEventTimesChangedEvent, events: CalendarEvent[]) => saveEvent(value, events)
     },
     template: `
+      <div
+        class="card"
+        mwlDroppable
+        dragOverClass="drag-over"
+      >
+        <li mwlDraggable
+            [dropData]="{event: dragEvent}"
+            [touchStartLongPress]="{ delay: 300, delta: 30 }"
+            dragActiveClass="drag-active">
+          <a href="javascript:;">
+            Drag Event
+          </a>
+        </li>
+      </div>
       <div style="display: flex; width: 100%; height: 90vh; align-items: center; justify-content: center">
         <div style="display: flex; width: 80%; height: 80%; flex-direction: column;">
           <div style="display: flex;">
@@ -70,6 +100,7 @@ export const Monthly: Story<BiitCalendarComponent> = (args: BiitCalendarComponen
           <biit-calendar [calendarMode]="'MONTH'"
                          [viewDate]="viewDate"
                          [events]="events"
+                         (onEventDrop)="saveEvent($event, events)"
                          ></biit-calendar>
         </div>
       </div>

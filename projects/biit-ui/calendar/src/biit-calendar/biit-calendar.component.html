@@ -7,6 +7,8 @@
                         [hourSegmentTemplate]="hourSegmentTemplate"
                         [eventTemplate]="eventTemplate"
                         [allDayEventsLabelTemplate]="allDayEventsLabelTemplate"
+                        [refresh]="refresh"
+                        (eventTimesChanged)="eventTimesChanged($event)"
                         style="display: flex; flex-direction: column; height: 100%;"
 ></mwl-calendar-week-view>
 
@@ -207,6 +209,8 @@
                          [viewDate]="viewDate"
                          [events]="events"
                          [cellTemplate]="monthCell"
+                         [refresh]="refresh"
+                         (eventTimesChanged)="eventTimesChanged($event)"
                          style="display: flex; flex-direction: column; height: 100%;"
 ></mwl-calendar-month-view>
 
@@ -243,24 +247,24 @@
        *ngIf="day.events.length > 0">
     <div *ngFor="let event of day.events | slice:0:(day.events > 3?2:3); trackBy: trackByEventId"
          class="event"
-         [ngStyle]="eventStyles(event.color)"
-         [mwlCalendarTooltip]="event.title | calendarEventTitle : 'monthTooltip' : event"
+         [ngStyle]="eventStyles($calendarEvent(event).color)"
+         [mwlCalendarTooltip]="$calendarEvent(event).title | calendarEventTitle : 'monthTooltip' : $calendarEvent(event)"
          [tooltipPlacement]="tooltipPlacement"
-         [tooltipEvent]="event"
+         [tooltipEvent]="$calendarEvent(event)"
          [tooltipTemplate]="tooltipTemplate"
          [tooltipAppendToBody]="tooltipAppendToBody"
          [tooltipDelay]="tooltipDelay"
          mwlDraggable
-         [class.cal-draggable]="event.draggable"
+         [class.cal-draggable]="$calendarEvent(event).draggable"
          dragActiveClass="cal-drag-active"
          [dropData]="{ event: event, draggedFrom: day }"
-         [dragAxis]="{ x: event.draggable, y: event.draggable }"
+         [dragAxis]="{ x: $calendarEvent(event).draggable, y: $calendarEvent(event).draggable }"
          [validateDrag]="validateDrag"
          [touchStartLongPress]="{ delay: 300, delta: 30 }"
          (mwlClick)="eventClicked.emit({ event: event, sourceEvent: $event })"
          [attr.aria-hidden]="{} | calendarA11y : 'hideMonthCellEvents'"
     >
-      {{event.title}}
+      {{$calendarEvent(event).title}}
     </div>
   </div>
 </ng-template>

@@ -4,7 +4,6 @@ import { BiitCalendarComponent } from './biit-calendar.component';
 import {TranslocoRootModule} from "biit-ui/i18n";
 import {CalendarModule, DateAdapter} from "angular-calendar";
 import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
-import {NgApexchartsModule} from "ng-apexcharts";
 
 
 @NgModule({
@@ -18,7 +17,6 @@ import {NgApexchartsModule} from "ng-apexcharts";
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
-    NgApexchartsModule,
   ], exports: [
     BiitCalendarComponent
   ]
