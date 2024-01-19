@@ -1,6 +1,5 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {PieChartModule} from "../../../projects/biit-ui/charts/src/pie-chart/pie-chart.module";
-import {Colors} from "../../../projects/biit-ui/charts/src/colors";
+import {PieChartComponent, PieChartData, PieChartModule} from "biit-ui/charts";
 
 export default {
   title: 'Charts/Pie',
@@ -10,53 +9,18 @@ export default {
     }),
   ],
   args: {
-    width: 500,
-    showToolbar: true,
-    colors: Colors.defaultPalette,
-    title: undefined,
-    titleAlignment: 'center',
-    isDonut: false,
-    fill: 'solid',
-    shadow: true,
-    legendPosition: 'bottom',
+    data: null,
+    title: "Pie chart",
+    width: 600
   },
   argTypes: {
-    width: {
-      type: {name: 'number', required: false},
-      defaultValue: 500,
-      description: 'Defines the width of the chart in pixels',
-      table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 500},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'number',
-        min: 300, max: 1000, step: 50,
-      }
-    },
-    showToolbar: {
-      name: 'showToolbar',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Disables the toolbar.',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
-    colors: {
-      name: 'colors',
+    data: {
+      name: 'data',
       type: {name: 'string', required: false},
-      defaultValue: '["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7"]',
-      description: 'Change the colors of the bars',
+      description: 'Defines the data of the chart',
       table: {
-        type: {summary: 'array'},
-        defaultValue: {summary: 'empty'},
+        type: {summary: 'PieChartData'},
+        defaultValue: {summary: 'undefined'},
         category: 'Inputs'
       },
       control: {
@@ -66,111 +30,48 @@ export default {
     title: {
       name: 'title',
       type: {name: 'string', required: false},
-      defaultValue: 'undefined',
-      description: 'Shows the title of the chart',
+      description: 'Text of the chart title',
       table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: true},
+        type: {summary: 'number'},
+        defaultValue: {summary: 'empty'},
         category: 'Inputs'
       },
       control: {
         type: 'text'
       }
     },
-    titleAlignment: {
-      name: 'titleAlignment',
-      type: {name: 'string', required: false},
-      defaultValue: 'default',
-      description: 'Defines the alignment of the title',
+    width: {
+      name: 'width',
+      type: { name: 'number', required: false },
+      description: 'Defines graph width. If empty, it will be 100%',
       table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: 'empty'},
-        category: 'Inputs'
-      },
-      options: ['left', 'center', 'right'],
-      control: {
-        type: 'select'
-      }
-    },
-    isDonut: {
-      name: 'isDonut',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Draws a hole at the center',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
+        type: { summary: 'number' },
+        category: 'Style'
       },
       control: {
-        type: 'boolean'
+        type: 'range',
+        min: 400,
+        max: 1000,
+        step: 1
       }
-    },
-    fill: {
-      name: 'fill',
-      type: {name: 'string', required: false},
-      defaultValue: 'default',
-      description: 'Defines how the bars are filled',
-      table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: 'empty'},
-        category: 'Inputs'
-      },
-      options: ['gradient', 'solid', 'pattern'],
-      control: {
-        type: 'select'
-      }
-    },
-    shadow: {
-      name: 'shadow',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Draws a shadow on the element',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
-    legendPosition: {
-      name: 'legendPosition',
-      type: { name: 'string', required: false },
-      defaultValue: 'default',
-      description: 'Defines where the legend is shown',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'empty' },
-        category: 'Inputs'
-      },
-      options: ['left', 'bottom', 'right', 'top'],
-      control: {
-        type: 'select'
-      }
-    },
+    }
   }
 } as Meta;
 
-const Template: Story<PieChartModule> = (args: PieChartModule) => ({
+const Template: Story<PieChartComponent> = (args: PieChartComponent) => ({
   props: args,
   template: `
-    <app-pie-chart
-      [width]="width"
-      [showToolbar]="showToolbar"
-      [colors]="colors"
-      [title]="title"
-      [titleAlignment]="titleAlignment"
-      [isDonut]="isDonut"
-      [fill]="fill"
-      [shadow]="shadow"
-      [legendPosition]="legendPosition"
-    >
-    </app-pie-chart>`
+    <biit-pie-chart [data]="data"
+                    [title]="title"
+                    [width]="width"
+                    style="display: block; width:600px; height: 500px"
+    ></biit-pie-chart>`
 });
 
 export const Default = Template.bind({});
-Default.args = {}
-
-
+Default.args = {
+  data: new PieChartData(
+    [27, 13, 69, 40, 33],
+    ["This", "is", "some", "test", "dunno"]
+  )
+}

@@ -7,10 +7,10 @@ import {NgApexchartsModule} from "ng-apexcharts";
 @NgModule({
   declarations: [PieChartComponent],
   exports: [PieChartComponent],
-    imports: [
-        CommonModule,
-        NgApexchartsModule
-    ]
+  imports: [
+    CommonModule,
+    NgApexchartsModule
+  ]
 })
 export class PieChartModule {
 }
