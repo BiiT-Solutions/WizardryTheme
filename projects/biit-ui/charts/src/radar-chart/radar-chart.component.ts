@@ -1,130 +1,153 @@
-import {Component, Input, SimpleChanges, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, OnInit} from '@angular/core';
 import {
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexDataLabels,
-  ApexFill,
-  ApexLegend,
-  ApexMarkers,
-  ApexPlotOptions,
-  ApexStroke,
-  ApexTitleSubtitle,
-  ApexTooltip,
-  ApexXAxis,
-  ChartComponent
+  ApexChart, ApexDataLabels, ApexLegend, ApexMarkers,
+  ApexPlotOptions, ApexStates, ApexStroke, ApexTitleSubtitle,
+  ApexTooltip, ApexXAxis, ApexYAxis
 } from "ng-apexcharts";
-import {StackedBarsData} from "../stacked-bars-chart/stacked-bars-chart-data";
-import {RadarChartData, RadarChartDataElement} from "./radar-chart-data";
-import {Colors} from "../colors";
-import {CustomChartComponent} from "../custom-chart-component";
-import {ApexTheme} from "ng-apexcharts/lib/model/apex-types";
+import {RadarChartData, RadarChartSeries} from './models/radar-chart-data';
 
-type RadarChartOptions = {
-  series: ApexAxisChartSeries;
+
+export type RadarChartOptions = {
+  series: RadarChartSeries[];
   chart: ApexChart;
-  labels: ApexDataLabels;
-  fill: ApexFill;
+  dataLabels: ApexDataLabels;
+  fill: any;
+  title: ApexTitleSubtitle;
+  xaxis: ApexXAxis;
+  yaxis: ApexYAxis;
+  legend: ApexLegend;
   plotOptions: ApexPlotOptions;
   tooltip: ApexTooltip;
-  xaxis: ApexXAxis;
-  title: ApexTitleSubtitle;
-  legend: ApexLegend;
+  states: ApexStates;
   markers: ApexMarkers;
   stroke: ApexStroke;
-  theme: ApexTheme;
 };
 
+
 @Component({
-  selector: 'app-radar-chart',
+  selector: 'biit-radar-chart',
   templateUrl: './radar-chart.component.html',
   styleUrls: ['./radar-chart.component.scss']
 })
-export class RadarChartComponent extends CustomChartComponent {
+export class RadarChartComponent implements OnInit, OnChanges {
 
-  @ViewChild('chart')
-  chart!: ChartComponent;
+  chartOptions: Partial<RadarChartOptions>;
+  pageNumber = 1;
 
-  public chartOptions: RadarChartOptions;
+  @Input() public data: RadarChartData;
+  @Input() public title = '';
+  @Input() public width: number;
+  @Input() public min: number;
+  @Input() public max: number;
+  yLegendMargin: number = 0;
 
-  @Input()
-  public data: RadarChartData;
-  @Input()
-  public width: number|string = '100%';
-  @Input()
-  public height: number|string = 'auto';
-  @Input()
-  public radarSize: number = 140;
-  @Input()
-  public showToolbar: boolean = true;
-  @Input()
-  public colors: string[] = Colors.defaultPalette;
-  @Input()
-  public showValuesLabels: boolean = false;
-  @Input()
-  public title: string | undefined = undefined;
-  @Input()
-  public titleAlignment: "left" | "center" | "right" = "center";
-  @Input()
-  public fill: "gradient" | "solid" | "pattern" | "image" = "solid";
-  @Input()
-  public shadow: boolean = true;
-  @Input()
-  public opacity: number = 0.4;
-  @Input()
-  public strokeWidth: number = 5;
-  @Input()
-  public innerColors: string[] = ["#ffffff"]
-  @Input()
-  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = "bottom"
+  constructor(private ref: ElementRef) { }
 
-  constructor() {
-    super();
-    this.data = RadarChartData.fromMultipleDataElements([
-      new RadarChartDataElement([["Value1", 5], ["Value2", 4], ["Value3", 1]], "Group1"),
-      new RadarChartDataElement([["Value1", 1], ["Value2", 2], ["Value3", 3]], "Group2"),
-      new RadarChartDataElement([["Value1", 4], ["Value2", 3], ["Value3", 3]], "Group3"),
-      new RadarChartDataElement([["Value1", 1], ["Value2", 2], ["Value3", 3]], "Group4"),
-      new RadarChartDataElement([["Value1", 6], ["Value2", 2], ["Value3", 3]], "Group5")]);
+  ngOnInit() {
+    if (!this.data?.series?.length) {
+      return;
+    }
+    this.createChartOptions();
   }
 
-  protected setProperties(): void {
+  ngOnChanges() {
+    if (!this.data?.series?.length) {
+      return;
+    }
+    this.createChartOptions();
+  }
+
+  private createChartOptions() {
+    // @ts-ignore
     this.chartOptions = {
-      chart: this.getChart('radar', this.shadow, this.showToolbar, this.width, this.height),
-      series: this.setColors(this.data.getData()),
-      labels: this.getLabels(this.showValuesLabels),
-      fill: this.getFill(this.fill, this.opacity),
-      markers: this.getMarkers(),
-      stroke: this.getStroke(this.strokeWidth),
-      plotOptions: this.getPlotOptions(),
-      tooltip: this.getTooltip(),
-      xaxis: this.getXAxis(this.data.getLabels()),
-      title: this.getTitle(this.title, this.titleAlignment),
-      legend: this.getLegend(this.legendPosition),
-      theme: this.getTheme()
-    };
-  }
+      series: this.data.series,
+      chart: {
+        height: '100%',
+        width: '100%',
+        type: "radar"
+      },
+      dataLabels: {
+        enabled: false
+      },
+      markers: {
+        size: 10,
+        shape: "rect",
+        colors: ["transparent"],
+        radius: 0,
+        strokeWidth: 0,
 
-  protected getPlotOptions(): ApexPlotOptions {
-    return {
-      radar: {
-        size: this.radarSize,
-        polygons: {
-          fill: {
-            colors: this.innerColors
+      },
+      xaxis: {
+        categories: this.data.legend,
+        labels: {
+          style: {
+            fontSize: '16px',
+            fontFamily: 'Montserrat',
+            colors: this.data.legend.map(v => "#000000")
+          },
+        }
+      },
+      yaxis: {
+        labels: {
+          style: {
+            fontSize: '0',
+          },
+        },
+        min: this.min,
+        max: this.max
+      },
+      fill: {
+        opacity: 0.5
+      },
+      stroke: {
+        width: 4
+      },
+      legend: {
+        fontSize: '16px',
+        fontFamily: 'Montserrat',
+        position: 'right',
+        offsetY: 30
+      },
+      title: {
+        text: this.title.toUpperCase(),
+        style: {
+          fontSize: '20px',
+          fontFamily: 'Montserrat',
+          fontWeight: 700,
+        }
+      },
+      tooltip: {
+        custom: function({ series, seriesIndex, dataPointIndex, w }) {
+          let tooltip =
+            '<div class="tooltip-base">' +
+            '  <div class="tooltip-header">' +
+            w.globals.labels[dataPointIndex] +
+            '  </div>' +
+            '  <div class="tooltip-content">' +
+            '    <div class="tooltip-data">' +
+            '      <div class="tooltip-square" style="background:'+ w.globals.colors[seriesIndex] +'"></div>' +
+            '      <a>' + w.globals.seriesNames[seriesIndex] + ': </a>' +
+            '      <a style="margin-left: 0.35rem; font-weight: 500">' + series[seriesIndex][dataPointIndex] + '</a>' +
+            '    </div>' +
+            '  </div>' +
+            '</div>';
+          return tooltip;
+        }
+      },
+      states: {
+        active: {
+          filter: {
+            type: 'none'
           }
         }
+      },
+      plotOptions: {
+        radar: {
+          polygons: {
+            strokeColors: "#e9e9e9"
+          },
+        },
       }
-    }
-  }
-
-  update(data: RadarChartData) {
-    this.chart.updateSeries(data.getData());
-  }
-
-  setColors(data: StackedBarsData[]): StackedBarsData[] {
-    for (let i = 0; i < data.length; i++) {
-      data[i].color = this.colors[i % this.colors.length];
-    }
-    return data;
+    };
   }
 }

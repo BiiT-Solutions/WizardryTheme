@@ -1,18 +1,19 @@
-<div *ngIf="chartOptions" class="frame">
-  <div class="box shadow">
-    <apx-chart #chart [chart]="chartOptions.chart"
-               [dataLabels]="chartOptions.labels"
-               [fill]="chartOptions.fill"
-               [legend]="chartOptions.legend"
-               [markers]="chartOptions.markers"
-               [plotOptions]="chartOptions.plotOptions"
-               [series]="chartOptions.series"
-               [stroke]="chartOptions.stroke"
-               [theme]="chartOptions.theme"
-               [title]="chartOptions.title"
-               [tooltip]="chartOptions.tooltip"
-               [xaxis]="chartOptions.xaxis"
-               id="chart"
-    ></apx-chart>
-  </div>
+<div id="bar-chart"
+     [style.opacity]="chartOptions ? '1' : '0'">
+  <apx-chart *ngIf="chartOptions"
+             [series]="chartOptions.series"
+             [chart]="chartOptions.chart"
+             [dataLabels]="chartOptions.dataLabels"
+             [plotOptions]="chartOptions.plotOptions"
+             [xaxis]="chartOptions.xaxis"
+             [yaxis]="chartOptions.yaxis"
+             [legend]="chartOptions.legend"
+             [title]="chartOptions.title"
+             [tooltip]="chartOptions.tooltip"
+             [fill]="chartOptions.fill"
+             [states]="chartOptions.states"
+             [markers]="chartOptions.markers"
+             [stroke]="chartOptions.stroke"
+             style="display: block; height: 100%;"
+  ></apx-chart>
 </div>
