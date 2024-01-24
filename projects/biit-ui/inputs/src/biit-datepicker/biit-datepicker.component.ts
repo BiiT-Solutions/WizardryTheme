@@ -87,9 +87,11 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
   }
 
   onModelChange(value: Date) {
-    this.value = new Date(value);
-    this.viewerDate = new Date(value);
-    this.onChange(value);
+    if (value) {
+      this.value = new Date(value);
+      this.viewerDate = new Date(value);
+      this.onChange(value);
+    }
   }
 
   ngOnInit(): void {
@@ -119,8 +121,11 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
   }
 
   parseDate(dateString: string): Date {
-    if (dateString) {
-      return new Date(dateString);
+    if (dateString && +dateString.substring(0,4) >= 1000) {
+      // A change in historical timezones makes years <1901 set a day before the one written.
+      const date = new Date(dateString);
+      date.setFullYear(+dateString.substring(0,4), +dateString.substring(5,7)-1, +dateString.substring(8));
+      return date;
     } else {
       return null;
     }
