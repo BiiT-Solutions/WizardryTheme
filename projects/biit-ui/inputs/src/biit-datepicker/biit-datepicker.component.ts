@@ -138,7 +138,8 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
   }
 
   openDropdown() {
-    if (!this.value) this.value = new Date();
+    if (!this.value) this.onModelChange(new Date());
+
     this.viewerDate = this.value;
     this.monthSelector = false;
     this.drawCalendar();
