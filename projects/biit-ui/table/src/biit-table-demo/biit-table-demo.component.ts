@@ -4,6 +4,7 @@ import {BiitTableResponse} from '../biit-table/models/biit-table-response';
 import {BiitTableData} from '../biit-table/models/biit-table-data';
 import {BiitIconService} from "biit-ui/icon";
 import {completeIconSet} from "biit-icons-collection";
+import {GenericSort} from "../utils/generic-sort";
 
 @Component({
   selector: 'biit-table-demo',
@@ -56,41 +57,15 @@ export class BiitTableDemoComponent implements OnInit {
 
   onUpdate(response: BiitTableResponse) {
     let tempData = JSON.parse(JSON.stringify(this.data));
+
+    GenericSort.sort(tempData, response.sorting, this.columns);
+
     if (response.search && response.search.length) {
       tempData = tempData.filter(item =>
         Object.keys(item).some(k => item[k].toString().toLowerCase().includes(
           response.search.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase())));
     }
-    if (response.sorting) {
-      tempData = tempData.sort((a, b) => {
-        switch (this.columns.find(i => i.name == response.sorting.name).format) {
-          case BiitTableColumnFormat.BOOLEAN:
-            if (a[response.sorting.name] == b[response.sorting.name])
-              return 0;
-            if (response.sorting.order == 'asc') {
-              return a[response.sorting.name] ? -1 : 1;
-            } else {
-              return a[response.sorting.name] ? 1 : -1;
-            }
-          case BiitTableColumnFormat.DATE:
-            if (new Date(a[response.sorting.name]).getTime() == new Date(b[response.sorting.name]).getTime())
-              return 0;
-            if (response.sorting.order == 'asc') {
-              return (new Date(a[response.sorting.name]).getTime() > new Date(b[response.sorting.name]).getTime()) ? 1 : -1;
-            } else {
-              return (new Date(a[response.sorting.name]).getTime() > new Date(b[response.sorting.name]).getTime()) ? -1 : 1;
-            }
-          default:
-            if (a[response.sorting.name] == b[response.sorting.name])
-              return 0;
-            if (response.sorting.order == 'asc') {
-              return a[response.sorting.name] > b[response.sorting.name] ? 1 : -1;
-            } else {
-              return a[response.sorting.name] > b[response.sorting.name] ? -1 : 1;
-            }
-        }
-      });
-    }
+
     this.filteredData = new BiitTableData(
       tempData.slice(
         response.currentPage * response.pageSize - response.pageSize,
