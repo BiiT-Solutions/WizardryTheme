@@ -23,4 +23,8 @@ export class BiitTabGroupComponent implements AfterContentInit {
     tab.active = true;
     this.onTabClick.emit(tab);
   }
+
+  getActiveTab(): BiitTabComponent {
+    return this.tabs.find(item => item.active);
+  }
 }
