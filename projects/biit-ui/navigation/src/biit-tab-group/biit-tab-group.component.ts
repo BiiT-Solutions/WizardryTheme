@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, ContentChildren, QueryList} from '@angular/core';
+import {AfterContentInit, Component, ContentChildren, EventEmitter, Output, QueryList} from '@angular/core';
 import {BiitTabComponent} from './biit-tab.component';
 
 @Component({
@@ -9,6 +9,7 @@ import {BiitTabComponent} from './biit-tab.component';
 
 export class BiitTabGroupComponent implements AfterContentInit {
   @ContentChildren(BiitTabComponent) tabs: QueryList<BiitTabComponent>
+  @Output() onTabClick: EventEmitter<BiitTabComponent> = new EventEmitter<BiitTabComponent>();
 
   ngAfterContentInit() {
     let activeTabs = this.tabs.filter(tab => tab.active);
@@ -20,5 +21,6 @@ export class BiitTabGroupComponent implements AfterContentInit {
   activateTab(tab: BiitTabComponent){
     this.tabs.toArray().forEach(item => item.active = false);
     tab.active = true;
+    this.onTabClick.emit(tab);
   }
 }
