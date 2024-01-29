@@ -9,4 +9,5 @@ import {Component, Input} from '@angular/core';
 export class BiitTabComponent {
   @Input() name: string;
   @Input() active = false;
+  @Input() error = false;
 }
