@@ -1,0 +1,17 @@
+<div class="slider">
+  <input #ranger type="range"
+         [(ngModel)]="value"
+         (ngModelChange)="onChange(ranger.value);"
+         [min]="min"
+         [max]="max"
+         [step]="step"
+         (input)="progressScript()"
+  >
+  <div class="ticks">
+    <span *ngFor="let tick of [].constructor(ticks); index as i"
+          [class.no-labels]="!labels.length"
+          (click)="updateValue(i)">
+      {{labels[i]}}
+    </span>
+  </div>
+</div>

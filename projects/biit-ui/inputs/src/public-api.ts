@@ -19,3 +19,5 @@ export * from './biit-textarea/biit-textarea.component';
 export * from './biit-datepicker/biit-datepicker.module';
 export * from './biit-datepicker/biit-datepicker.component';
 export * from './biit-datepicker/models/view'
+export * from './biit-slider/biit-slider.module';
+export * from './biit-slider/biit-slider.component';
