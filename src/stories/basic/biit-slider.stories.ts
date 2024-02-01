@@ -28,7 +28,7 @@ const Template: Story<BiitSliderComponent> = (args: BiitSliderComponent) => ({
                  [step]="step"
                  [ticks]="ticks"
                  [labels]="labels"
-                 style="display: block"></biit-slider>
+                 style="display: block; margin-top: 10px"></biit-slider>
 `
 });
 
