@@ -43,7 +43,7 @@ export class BiitSliderComponent implements ControlValueAccessor, AfterViewCheck
     this.disabled = disabled;
   }
 
-  writeValue(value: any): void {
+  writeValue(value: number): void {
     this.value = value;
   }
 
