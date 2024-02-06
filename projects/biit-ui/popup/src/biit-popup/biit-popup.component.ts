@@ -28,6 +28,15 @@ export class BiitPopupClosableDirective {
 }
 
 @Directive({
+  selector: '[closable-outside]'
+})
+export class BiitPopupClosableOutsideDirective {
+  constructor(private parent: BiitPopupComponent) {
+    parent.closableOutside = true;
+  }
+}
+
+@Directive({
   selector: '[sixty-view]'
 })
 export class BiitPopupSixtyViewDirective {
@@ -50,6 +59,7 @@ export class BiitPopupComponent {
   background: boolean = false;
   header: boolean = true;
   closable: boolean = false;
+  closableOutside: boolean = false;
   type: BiitPopupType = BiitPopupType.DEFAULT;
 
   protected readonly Type = BiitPopupType;

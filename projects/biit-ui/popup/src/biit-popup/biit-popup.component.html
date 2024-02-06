@@ -1,4 +1,4 @@
-<div [class.dark-bg]="background" class="popup-background" (click)="closable ? onClosed.emit() : false">
+<div [class.dark-bg]="background" class="popup-background" (click)="closableOutside ? onClosed.emit() : false">
 </div>
 <div [class.popup-canvas]="type == Type.DEFAULT"
      [class.sixty-canvas]="type == Type.SIXTY">
