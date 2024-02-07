@@ -26,6 +26,10 @@ export class BiitTooltipDirective {
 
   @HostListener('mouseenter')
   public onMouseEnter(): void {
+    if (!this.tooltip || !this.tooltip.length) {
+      return;
+    }
+
     let component: ComponentRef<BiitTooltipComponent> = this.createTooltip();
     let instance = component.instance
 
@@ -61,10 +65,10 @@ export class BiitTooltipDirective {
 
     if (fitsTop) {
       tooltipElement.classList.add('onwards');
-      instance.top = parentCoords.top - rem - tooltipElement.offsetHeight + "px";
+      instance.top = parentCoords.top - (rem/2) - tooltipElement.offsetHeight + "px";
     } else {
       tooltipElement.classList.add('downwards');
-      instance.top = parentCoords.bottom + rem + "px";
+      instance.top = parentCoords.bottom + (rem/2) + "px";
     }
 
     if (!fitsLeft) {

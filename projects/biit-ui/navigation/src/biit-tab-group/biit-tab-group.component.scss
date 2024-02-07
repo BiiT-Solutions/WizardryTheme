@@ -24,9 +24,32 @@ $error: #A1093F;
       justify-content: center;
       cursor: pointer;
       user-select: none;
+      padding: 0 1rem 0 1rem;
+
+      &.compact-mode {
+        &.active {
+          min-width: 20%;
+        }
+
+        &:not(.active) {
+          a {
+            visibility: hidden;
+            height: 1rem;
+            width: 1ch;
+
+            &:first-letter {
+              visibility: visible;
+            }
+          }
+        }
+      }
 
       &.error {
         color: $error;
+      }
+
+      &.active {
+        flex-shrink: 0;
       }
 
       &:not(.active) {
