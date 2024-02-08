@@ -33,12 +33,13 @@ $error: #A1093F;
 
         &:not(.active) {
           a {
-            visibility: hidden;
+            font-size: 0;
             height: 1rem;
-            width: 1ch;
+            width: 1rem;
+            text-align: center;
 
             &:first-letter {
-              visibility: visible;
+              font-size: 1rem;
             }
           }
         }
