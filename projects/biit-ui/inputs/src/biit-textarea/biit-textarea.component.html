@@ -1,5 +1,8 @@
 <div class="biit-input" [class.disabled]="disabled" [class.readonly]="readonly">
   <div class="input-container">
+    <biit-tooltip-icon *ngIf="info"
+                       class="tooltip-icon"
+                       [text]="info"></biit-tooltip-icon>
     <textarea class="input-object" required
            [(ngModel)]="value"
            (ngModelChange)="this.onChange($event);"

@@ -23,6 +23,7 @@ export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
 
   @Input() placeholder: string = '';
   @Input() error: string;
+  @Input() info: string;
   @Input() type: Type;
   @Input() icon: biitIcon;
   @Input() fieldName: string;

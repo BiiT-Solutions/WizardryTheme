@@ -18,6 +18,7 @@ export class BiitTextareaComponent implements ControlValueAccessor, OnInit {
 
   @Input() placeholder: string = '';
   @Input() error: string;
+  @Input() info: string;
   @Input() icon: biitIcon;
   @Input() fieldName: string;
   @Input() maxLength: number;

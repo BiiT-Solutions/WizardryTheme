@@ -25,6 +25,7 @@ export default {
   ],
   args: {
     error: null,
+    info: null,
     icon: null,
     placeholder: 'PlaceHolder',
     type: 'text',
@@ -86,6 +87,20 @@ export default {
       type: { name: 'string', required: false },
       defaultValue: null,
       description: 'Defines a message and error view',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: null },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'text'
+      }
+    },
+    info: {
+      name: 'info',
+      type: { name: 'string', required: false },
+      defaultValue: null,
+      description: 'Defines a message for the tooltip icon',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: null },
@@ -234,6 +249,7 @@ const Template: Story<BiitInputTextComponent> = (args: BiitInputTextComponent) =
     <biit-input-text
      [placeholder]="placeholder"
      [error]="error"
+     [info]="info"
      [type]="type"
      [icon]="icon"
      [(ngModel)]="value"

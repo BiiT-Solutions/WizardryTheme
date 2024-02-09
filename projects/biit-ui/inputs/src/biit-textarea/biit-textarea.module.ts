@@ -5,6 +5,7 @@ import {
 import {CommonModule} from "@angular/common";
 import {FormsModule} from '@angular/forms';
 import {BiitIconModule} from 'biit-ui/icon';
+import {BiitTooltipIconModule} from "biit-ui/info";
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import {BiitIconModule} from 'biit-ui/icon';
   imports: [
     CommonModule,
     FormsModule,
-    BiitIconModule
+    BiitIconModule,
+    BiitTooltipIconModule
   ],
   exports: [
     BiitTextareaComponent,

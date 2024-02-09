@@ -1,5 +1,8 @@
 <div class="biit-input" [class.disabled]="disabled" [class.readonly]="readonly">
   <div class="input-container">
+    <biit-tooltip-icon *ngIf="info"
+                       class="tooltip-icon"
+                       [text]="info"></biit-tooltip-icon>
     <input class="input-object"
            [(ngModel)]="value"
            (ngModelChange)="onChange($event); validateInput($event);"
