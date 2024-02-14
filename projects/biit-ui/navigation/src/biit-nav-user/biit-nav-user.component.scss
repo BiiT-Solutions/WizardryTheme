@@ -28,6 +28,18 @@ $active-color: #EDEDED;
       background: $active-color;
     }
 
+    .titles {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+      line-height: 1rem;
+
+      .subtitle {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+      }
+    }
+
     .avatar {
       height: 1.7rem;
       width: 1.7rem;
@@ -50,6 +62,10 @@ $active-color: #EDEDED;
     .content {
       flex-direction: row-reverse;
       padding: 0.4rem 0.6rem 0.4rem 0.4rem;
+
+      .titles {
+        text-align: left;
+      }
     }
   }
 }
