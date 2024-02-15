@@ -11,5 +11,8 @@
       <a>{{tab.name}}</a>
     </div>
   </div>
+  <biit-progress-bar *ngIf="loading"
+                     [type]="BiitProgressBarType.INDETERMINATE"
+  ></biit-progress-bar>
   <div class="content"><ng-content></ng-content></div>
 </div>

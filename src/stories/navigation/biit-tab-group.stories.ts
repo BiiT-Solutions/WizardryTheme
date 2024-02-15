@@ -7,13 +7,16 @@ export default {
     moduleMetadata({
       imports: [BiitTabGroupModule]
     }),
-  ]
+  ],
+  args: {
+    loading: false
+  }
 } as Meta;
 
 const ExtendedTemplate: Story<BiitTabGroupComponent> = (args: BiitTabGroupComponent) => ({
   props: args,
   template:`
-    <biit-tab-group style="display: block">
+    <biit-tab-group [loading]="loading" style="display: block">
       <biit-tab name="Tab 1">
         Lorem fistrum te va a hasé pupitaa al ataquerl está la cosa muy malar diodenoo a wan caballo blanco caballo negroorl de la pradera al ataquerl. No puedor quietooor pupita amatomaa va usté muy cargadoo está la cosa muy malar pupita. A gramenawer a peich la caidita mamaar. A wan mamaar apetecan qué dise usteer amatomaa pecador torpedo al ataquerl me cago en tus muelas. Fistro tiene musho peligro a wan torpedo diodeno se calle ustée te voy a borrar el cerito te voy a borrar el cerito al ataquerl de la pradera. Quietooor la caidita la caidita te va a hasé pupitaa al ataquerl. A wan va usté muy cargadoo a peich ese que llega. No te digo trigo por no llamarte Rodrigor llevame al sircoo benemeritaar apetecan al ataquerl se calle ustée mamaar pecador diodeno benemeritaar. A gramenawer te voy a borrar el cerito sexuarl a gramenawer condemor te va a hasé pupitaa pecador caballo blanco caballo negroorl hasta luego Lucas.
       </biit-tab>
@@ -38,7 +41,7 @@ export const Extended = ExtendedTemplate.bind({});
 const CompactTemplate: Story<BiitTabGroupComponent> = (args: BiitTabGroupComponent) => ({
   props: args,
   template:`
-    <biit-tab-group style="display: block; width: 700px">
+    <biit-tab-group [loading]="loading" style="display: block; width: 700px">
       <biit-tab name="Tab 1">
         Lorem fistrum te va a hasé pupitaa al ataquerl está la cosa muy malar diodenoo a wan caballo blanco caballo negroorl de la pradera al ataquerl. No puedor quietooor pupita amatomaa va usté muy cargadoo está la cosa muy malar pupita. A gramenawer a peich la caidita mamaar. A wan mamaar apetecan qué dise usteer amatomaa pecador torpedo al ataquerl me cago en tus muelas. Fistro tiene musho peligro a wan torpedo diodeno se calle ustée te voy a borrar el cerito te voy a borrar el cerito al ataquerl de la pradera. Quietooor la caidita la caidita te va a hasé pupitaa al ataquerl. A wan va usté muy cargadoo a peich ese que llega. No te digo trigo por no llamarte Rodrigor llevame al sircoo benemeritaar apetecan al ataquerl se calle ustée mamaar pecador diodeno benemeritaar. A gramenawer te voy a borrar el cerito sexuarl a gramenawer condemor te va a hasé pupitaa pecador caballo blanco caballo negroorl hasta luego Lucas.
       </biit-tab>

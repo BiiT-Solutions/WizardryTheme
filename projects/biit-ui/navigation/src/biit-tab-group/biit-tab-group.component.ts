@@ -3,12 +3,13 @@ import {
   Component,
   ContentChildren,
   ElementRef,
-  EventEmitter,
+  EventEmitter, Input,
   Output,
   QueryList,
   ViewChild
 } from '@angular/core';
 import {BiitTabComponent} from './biit-tab.component';
+import {BiitProgressBarType} from "biit-ui/info";
 
 @Component({
   selector: 'biit-tab-group',
@@ -19,6 +20,7 @@ import {BiitTabComponent} from './biit-tab.component';
 export class BiitTabGroupComponent implements AfterViewInit {
   @ContentChildren(BiitTabComponent) tabs: QueryList<BiitTabComponent>
   @ViewChild('tabHeader') header: ElementRef;
+  @Input() loading: boolean = false;
   @Output() onTabClick: EventEmitter<BiitTabComponent> = new EventEmitter<BiitTabComponent>();
   protected compactMode = false;
 
@@ -48,4 +50,6 @@ export class BiitTabGroupComponent implements AfterViewInit {
       }
     });
   }
+
+  protected readonly BiitProgressBarType = BiitProgressBarType;
 }
