@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'biit-tab',
-  template: '<div [hidden]="!active"><ng-content></ng-content></div>',
+  template: '<div [hidden]="!active" style="display: contents; min-height: 100%"><ng-content></ng-content></div>',
   styleUrls: []
 })
 
