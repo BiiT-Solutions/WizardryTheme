@@ -20,12 +20,15 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
   @Input() title: string;
   @Input() label: string = '';
   @Input() value: string = '';
-  @Input() data: any[];
+  @Input() set data(data: any[]) {
+    this._data = data;
+  }
   @Input() primitive: boolean;
   @Input() compact: boolean;
   @Input() disabled: boolean;
   @Input() required: boolean;
 
+  protected _data: any[];
   public currentValue;
   public filterText: string = '';
   public filteredData: any[];
