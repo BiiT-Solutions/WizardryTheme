@@ -11,7 +11,7 @@
            [min]="min"
            [max]="max"
            [minlength]="minLength"
-           [maxlength]="maxLength"
+           [maxlength]="maxLength ? maxLength : 100"
            [attr.name]="fieldName"
            [class.error]="error || regExError || minLengthError"
            [class.reveal]="reveal"
