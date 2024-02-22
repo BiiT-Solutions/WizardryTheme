@@ -1,4 +1,13 @@
-import {Component, ElementRef, forwardRef, Input, OnInit} from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  ElementRef,
+  forwardRef,
+  Input,
+  IterableDiffer,
+  IterableDiffers,
+  OnInit
+} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 @Component({
   selector: 'biit-dropdown',
@@ -15,20 +24,17 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
     '(document:pointerdown)': 'handleMouseEvents($event)'
   }
 })
-export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
+export class BiitDropdownComponent implements ControlValueAccessor, OnInit, DoCheck {
 
   @Input() title: string;
   @Input() label: string = '';
   @Input() value: string = '';
-  @Input() set data(data: any[]) {
-    this._data = data;
-  }
+  @Input() data: any[] = [];
   @Input() primitive: boolean;
   @Input() compact: boolean;
   @Input() disabled: boolean;
   @Input() required: boolean;
 
-  protected _data: any[];
   public currentValue;
   public filterText: string = '';
   public filteredData: any[];
@@ -36,9 +42,14 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
   public get dropdownElement(): HTMLElement {return this.elem.nativeElement.querySelector('.dropdown-list')}
   public get inputElement(): HTMLElement {return this.elem.nativeElement.querySelector('.input-object')}
 
+  private differ: IterableDiffer<string>;
+
   constructor(
-    private elem: ElementRef
-  ) { }
+    private elem: ElementRef,
+    iDiff: IterableDiffers
+  ) {
+    this.differ = iDiff.find(this.data).create();
+  }
 
   ngOnInit() {
     this.primitive = this.checkBooleanInput(this.primitive);
@@ -46,6 +57,12 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
     this.disabled = this.checkBooleanInput(this.disabled);
     this.required = this.checkBooleanInput(this.required);
     this.handleFilter();
+  }
+
+  ngDoCheck() {
+    if (this.differ.diff(this.data)) {
+      this.handleFilter();
+    }
   }
 
   checkBooleanInput(value) {
@@ -95,8 +112,8 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
           } else if (document.activeElement !== this.inputElement) {
             this.inputElement.focus();
           }
-        } else if (this._data.findIndex(i => i == this.currentValue) > 0) {
-          this.onModelChange(this._data[this._data.findIndex(i => i == this.currentValue) - 1]);
+        } else if (this.data.findIndex(i => i == this.currentValue) > 0) {
+          this.onModelChange(this.data[this.data.findIndex(i => i == this.currentValue) - 1]);
         }
         break;
 
@@ -107,8 +124,8 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
           } else {
             (document.activeElement.nextElementSibling as HTMLElement)?.focus();
           }
-        } else if (this._data.findIndex(i => i == this.currentValue) < this._data.length -1) {
-          this.onModelChange(this._data[this._data.findIndex(i => i == this.currentValue) + 1]);
+        } else if (this.data.findIndex(i => i == this.currentValue) < this.data.length -1) {
+          this.onModelChange(this.data[this.data.findIndex(i => i == this.currentValue) + 1]);
         }
         break;
 
@@ -127,19 +144,19 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
   }
 
   handleFilter() {
-    if (this._data) {
+    if (this.data) {
       if (this.filterText) {
         if (this.primitive) {
-          this.filteredData = this._data.filter(item =>
+          this.filteredData = this.data.filter(item =>
             item.toString().toLowerCase().includes(
               this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
         } else {
-          this.filteredData = this._data.filter(item =>
+          this.filteredData = this.data.filter(item =>
             item[this.label].toLowerCase().includes(
               this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
         }
       } else {
-        this.filteredData = this._data;
+        this.filteredData = this.data;
       }
     } else {
       this.filteredData = [];

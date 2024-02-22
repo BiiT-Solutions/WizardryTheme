@@ -5,9 +5,11 @@ import { Pipe, PipeTransform } from '@angular/core';
   pure: false
 })
 export class MapGetPipe implements PipeTransform {
-
-  transform(value: Map<any, any>, key: any): any {
-    return value.get(key);
+  transform<K, T>(map: Map<K, T>, keys: K | K[]): T {
+    const key: K = keys instanceof Array ? keys.find(key => map.has(key)) : keys;
+    if (!key) {
+      return undefined;
+    }
+    return map.get(key);
   }
-
 }
