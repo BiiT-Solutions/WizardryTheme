@@ -95,8 +95,8 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
           } else if (document.activeElement !== this.inputElement) {
             this.inputElement.focus();
           }
-        } else if (this.data.findIndex(i => i == this.currentValue) > 0) {
-          this.onModelChange(this.data[this.data.findIndex(i => i == this.currentValue) - 1]);
+        } else if (this._data.findIndex(i => i == this.currentValue) > 0) {
+          this.onModelChange(this._data[this._data.findIndex(i => i == this.currentValue) - 1]);
         }
         break;
 
@@ -107,8 +107,8 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
           } else {
             (document.activeElement.nextElementSibling as HTMLElement)?.focus();
           }
-        } else if (this.data.findIndex(i => i == this.currentValue) < this.data.length -1) {
-          this.onModelChange(this.data[this.data.findIndex(i => i == this.currentValue) + 1]);
+        } else if (this._data.findIndex(i => i == this.currentValue) < this._data.length -1) {
+          this.onModelChange(this._data[this._data.findIndex(i => i == this.currentValue) + 1]);
         }
         break;
 
@@ -127,19 +127,19 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
   }
 
   handleFilter() {
-    if (this.data) {
+    if (this._data) {
       if (this.filterText) {
         if (this.primitive) {
-          this.filteredData = this.data.filter(item =>
+          this.filteredData = this._data.filter(item =>
             item.toString().toLowerCase().includes(
               this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
         } else {
-          this.filteredData = this.data.filter(item =>
+          this.filteredData = this._data.filter(item =>
             item[this.label].toLowerCase().includes(
               this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
         }
       } else {
-        this.filteredData = this.data;
+        this.filteredData = this._data;
       }
     } else {
       this.filteredData = [];
