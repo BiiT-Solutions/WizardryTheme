@@ -1,4 +1,14 @@
-import {AfterViewInit, Component, ElementRef, forwardRef, Input, OnInit} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  DoCheck,
+  ElementRef,
+  forwardRef,
+  Input,
+  IterableDiffer,
+  IterableDiffers,
+  OnInit
+} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {biitIcon} from 'biit-icons-collection';
 
@@ -23,7 +33,7 @@ export enum BiitMultiselectType {
   }
 })
 
-export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, AfterViewInit {
+export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, AfterViewInit, DoCheck {
 
   @Input() title: string;
   @Input() primitive: boolean;
@@ -44,9 +54,14 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   public get inputElement(): HTMLElement {return this.elem.nativeElement.querySelector('.input-object')};
   public hover = new MouseEvent('pointerover', { 'bubbles': true });
 
+  private differ: IterableDiffer<string>;
+
   constructor(
-    private elem: ElementRef
-  ) { }
+    private elem: ElementRef,
+    iDiff: IterableDiffers
+  ) {
+    this.differ = iDiff.find(this.data).create();
+  }
 
   ngOnInit() {
     this.primitive = this.checkBooleanInput(this.primitive);
@@ -54,6 +69,12 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
     this.disabled = this.checkBooleanInput(this.disabled);
     this.required = this.checkBooleanInput(this.required);
     this.handleFilter();
+  }
+
+  ngDoCheck() {
+    if (this.differ.diff(this.data)) {
+      this.handleFilter();
+    }
   }
 
   checkBooleanInput(value) {
