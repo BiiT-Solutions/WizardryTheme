@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {biitIcon} from 'biit-icons-collection';
+import {coerceBooleanProperty} from "@angular/cdk/coercion";
 
 export enum BiitMultiselectType {
   DEFAULT = 'default',
@@ -36,15 +37,35 @@ export enum BiitMultiselectType {
 export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, AfterViewInit, DoCheck {
 
   @Input() title: string;
-  @Input() primitive: boolean;
-  @Input() compact: boolean;
   @Input() type: BiitMultiselectType = BiitMultiselectType.DEFAULT;
   @Input() icon: biitIcon = 'column_selection';
   @Input() label: string = '';
   @Input() value: string = '';
   @Input() data: any[] = [];
-  @Input() disabled: boolean;
-  @Input() required: boolean;
+  protected isPrimitive: boolean;
+  @Input() set primitive(primitive: any) {
+    this.isPrimitive = coerceBooleanProperty(primitive);
+  };
+  protected isCompact: boolean;
+  @Input() set compact(compact: any) {
+    this.isCompact = coerceBooleanProperty(compact);
+  };
+  protected isDisabled: boolean;
+  @Input() set disabled(disabled: any) {
+    this.isDisabled = coerceBooleanProperty(disabled);
+  };
+  protected isRequired: boolean;
+  @Input() set required(required: any) {
+    this.isRequired = coerceBooleanProperty(required);
+  };
+  protected isSortAsc: boolean;
+  @Input('sort-asc') set sortAsc(sortAsc: any) {
+    this.isSortAsc = coerceBooleanProperty(sortAsc);
+  };
+  protected isSortDesc: boolean;
+  @Input('sort-desc') set sortDesc(sortDesc: any) {
+    this.isSortDesc = coerceBooleanProperty(sortDesc);
+  };
 
   public currentValues: any[] = [];
   public filterText: string = '';
@@ -64,10 +85,6 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   }
 
   ngOnInit() {
-    this.primitive = this.checkBooleanInput(this.primitive);
-    this.compact = this.checkBooleanInput(this.compact);
-    this.disabled = this.checkBooleanInput(this.disabled);
-    this.required = this.checkBooleanInput(this.required);
     this.handleFilter();
   }
 
@@ -154,8 +171,9 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
 
   handleFilter() {
     if (this.data) {
+      this.sortData();
       if (this.filterText) {
-        if (this.primitive) {
+        if (this.isPrimitive) {
           this.filteredData = this.data.filter(item =>
             item.toString().toLowerCase().includes(
               this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
@@ -175,6 +193,28 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   clearFilter() {
     this.filterText = '';
     this.handleFilter();
+  }
+
+  sortData() {
+    if (this.isPrimitive) {
+      if (this.isSortAsc || this.isSortDesc) {
+        this.data.sort(
+          (a,b) => this.isSortAsc ? (a>b ? 1 : (b>a ? -1 : 0)) : (a>b ? -1 : (b>a ? 1 : 0))
+        );
+      }
+    } else {
+      if (this.isSortAsc || this.isSortDesc) {
+        this.data.sort((a,b) => {
+          if ( a[this.label] < b[this.label] ){
+            return this.isSortAsc ? -1 : 1;
+          } else if ( a[this.label] > b[this.label] ){
+            return this.isSortAsc ? 1 : -1;
+          } else {
+            return 0;
+          }
+        });
+      }
+    }
   }
 
   openDropdown() {

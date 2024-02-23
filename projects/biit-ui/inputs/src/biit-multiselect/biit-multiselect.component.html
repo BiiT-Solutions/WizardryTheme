@@ -1,23 +1,23 @@
 <!-- DEFAULT MODE -->
 <div *ngIf="type != 'icon'"
      class="biit-input" aria-haspopup="listbox"
-     [class.compact]="compact"
-     [class.disabled]="disabled"
-     (keydown)="!disabled && handleKeyboardEvents($event)"
-     (keydown.enter)="!dropdownOpen && !disabled && openDropdown()"
-     (keydown.space)="!dropdownOpen && !disabled && openDropdown()"
+     [class.compact]="isCompact"
+     [class.disabled]="isDisabled"
+     (keydown)="!isDisabled && handleKeyboardEvents($event)"
+     (keydown.enter)="!dropdownOpen && !isDisabled && openDropdown()"
+     (keydown.space)="!dropdownOpen && !isDisabled && openDropdown()"
 >
   <div class="input-container" #input>
     <input [ngModel]="dropdownOpen ? filterText :
                       currentValues && currentValues.length ? currentValues.length + ' selected' : ''"
            (ngModelChange)="filterText = $event; handleFilter()"
-           (click)="!dropdownOpen && !disabled && openDropdown()"
+           (click)="!dropdownOpen && !isDisabled && openDropdown()"
            [placeholder]="dropdownOpen && currentValues && currentValues.length ? currentValues.length + ' selected' : ''"
            tabindex="0"
            class="input-object"
            [class.grey-bg]="dropdownOpen"
            [class.default-cursor]="dropdownOpen"
-           [disabled]="disabled"
+           [disabled]="isDisabled"
            [readonly]="!dropdownOpen"/>
     <div class="input-show-icon-container"
          [class.passthrough]="!dropdownOpen"
@@ -25,19 +25,19 @@
          (click)="dropdownOpen && closeDropdown()">
       <biit-icon [name]="'right_arrow'"
                  class="input-show-icon"
-                 [pathStyle]="{fill: disabled ? '#D9D9D9' : dropdownOpen ? '#F20D5E' : '#262626'}"
+                 [pathStyle]="{fill: isDisabled ? '#D9D9D9' : dropdownOpen ? '#F20D5E' : '#262626'}"
       ></biit-icon>
     </div>
     <div id="dropdown-label"
            class="input-placeholder"
-           [class.disabled]="disabled"
+           [class.disabled]="isDisabled"
            [class.compact]="dropdownOpen || (currentValues?.length)">
       {{title}}
-      <a *ngIf="required"
+      <a *ngIf="isRequired"
          [style.color]="currentValues.length ? null : 'red'">*</a>
     </div>
     <div class="bottom-line"
-         [class.disabled]="disabled"
+         [class.disabled]="isDisabled"
     ></div>
   </div>
 </div>
@@ -47,18 +47,18 @@
                   [icon]="icon"
                   (click)="!dropdownOpen ? openDropdown() : closeDropdown()"
                   [checked]="dropdownOpen"
-                  [disabled]="disabled"
+                  [disabled]="isDisabled"
 ></button>
 
 <!-- DROPDOWN -->
 <div #dropdown
-     [class.disabled]="disabled"
+     [class.disabled]="isDisabled"
      class="dropdown-list"
      role="listbox"
      aria-expanded="false"
      aria-labelledby="dropdown-label"
      [class.dropdown-open]="dropdownOpen"
-     [class.compact]="compact"
+     [class.compact]="isCompact"
      (keydown)="dropdownOpen && handleKeyboardEvents($event)"
 >
   <biit-checkbox *ngFor="let item of filteredData; index as i"
@@ -68,11 +68,11 @@
                  (click)="onModelChange(item); $event.stopPropagation(); $event.preventDefault();"
                  (keydown.enter)="onModelChange(item)"
                  (keydown.space)="onModelChange(item)"
-                 [tabindex]="!dropdownOpen || disabled ? -1 : 0"
+                 [tabindex]="!dropdownOpen || isDisabled ? -1 : 0"
                  role="option"
                  aria-selected="false"
                  [disabled]="false">
-    {{primitive ? item : item[label]}}
+    {{isPrimitive ? item : item[label]}}
   </biit-checkbox>
   <button *ngIf="!filteredData?.length"
           class="dropdown-item no-results"
