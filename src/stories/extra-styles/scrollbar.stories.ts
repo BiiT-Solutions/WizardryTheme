@@ -1,5 +1,4 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {} from 'biit-ui/navigation';
 
 export default {
   title: 'Extra Styles/Scrollbar',
