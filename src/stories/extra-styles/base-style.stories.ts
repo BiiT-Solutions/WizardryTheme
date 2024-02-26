@@ -31,7 +31,12 @@ html, body{
   margin: 0;
   font-family: Montserrat, "Montserrat", sans-serif;
   font-size: 16px;
+  color: #262626;
   background-color: #EDEDED;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 input {
