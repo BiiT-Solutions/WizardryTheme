@@ -17,3 +17,5 @@ export * from './biit-snackbar/models/notification'
 export * from './biit-snackbar/models/notification-type'
 export * from './biit-progress-bar/biit-progress-bar.module';
 export * from './biit-progress-bar/biit-progress-bar.component';
+export * from './biit-gallery-card/biit-gallery-card.module';
+export * from './biit-gallery-card/biit-gallery-card.component';
