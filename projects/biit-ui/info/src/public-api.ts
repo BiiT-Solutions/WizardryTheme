@@ -19,3 +19,5 @@ export * from './biit-progress-bar/biit-progress-bar.module';
 export * from './biit-progress-bar/biit-progress-bar.component';
 export * from './biit-gallery-card/biit-gallery-card.module';
 export * from './biit-gallery-card/biit-gallery-card.component';
+export * from './biit-cookies-consent/biit-cookies-consent.module';
+export * from './biit-cookies-consent/biit-cookies-consent.component';

@@ -6,7 +6,6 @@ import {BiitIconModule} from "biit-ui/icon";
 import {BiitInputTextModule, BiitToggleModule} from "biit-ui/inputs";
 import {FormsModule} from "@angular/forms";
 import {BiitButtonModule} from "biit-ui/button";
-import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 import {TranslocoRootModule} from "biit-ui/i18n";
 
 

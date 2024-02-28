@@ -23,6 +23,10 @@ module.exports = {
     {
       src: './projects/biit-ui/inputs',
       dist: ['./src/assets/i18n/biit-ui']
+    },
+    {
+      src: './projects/biit-ui/info',
+      dist: ['./src/assets/i18n/biit-ui']
     }
   ]
 };

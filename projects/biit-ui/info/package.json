@@ -2,5 +2,11 @@
   "name": "@biit-ui/info",
   "peerDependencies": {
     "@angular/material": "v15-lts"
-  }
+  },
+  "i18n": [
+    {
+      "scope": "info",
+      "path": "src/i18n"
+    }
+  ]
 }

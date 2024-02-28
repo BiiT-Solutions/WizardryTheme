@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+.cookies-canvas {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  padding: 1em;
+  box-sizing: border-box;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+
+  .cookies-popup {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 3px solid #262626;
+    pointer-events: all;
+
+    @media screen and (max-width: 1279px) {
+      width: 20em;
+      padding: 2em;
+      flex-direction: column;
+      gap: 1.25em;
+      text-align: center;
+    }
+    @media screen and (min-width: 1280px) {
+      height: 7em;
+      width: 60%;
+      padding: 1em 2em;
+      gap: 2em;
+      justify-content: space-around;
+    }
+
+    .icon {
+      width: 6em;
+      height: 6em;
+      flex-shrink: 0;
+    }
+
+    .button ::ng-deep span {
+      white-space: nowrap;
+    }
+  }
+}
