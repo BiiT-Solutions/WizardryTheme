@@ -11,4 +11,8 @@ export class BiitActionButtonComponent {
     this.isOverlay = coerceBooleanProperty(value);
   }
   protected isOverlay = false;
+  @Input() set upwards(value) {
+    this.isUpwards = coerceBooleanProperty(value);
+  }
+  protected isUpwards = false;
 }

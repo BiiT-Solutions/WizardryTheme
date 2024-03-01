@@ -1,5 +1,9 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {BiitActionButtonModule, BiitIconButtonComponent, BiitIconButtonModule} from 'biit-ui/button';
+import {
+  BiitActionButtonComponent,
+  BiitActionButtonModule,
+  BiitIconButtonModule
+} from 'biit-ui/button';
 import {BiitIconService} from 'biit-ui/icon';
 import {completeIconSet} from 'biit-icons-collection';
 import {APP_INITIALIZER} from '@angular/core';
@@ -23,40 +27,7 @@ export default {
       }]
     }),
   ],
-  args: {
-    icon: 'edit',
-    disabled: false
-  },
   argTypes: {
-    icon: {
-      name: 'icon',
-      type: {name: "string", required: false},
-      defaultValue: 'edit',
-      description: 'Icon name to be shown.',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'default' },
-        category: 'Content'
-      },
-      options: completeIconSet.map(iconSet => iconSet.name),
-      control: {
-        type: 'select'
-      }
-    },
-    disabled: {
-      name: 'disabled',
-      type: { name: 'boolean', required: false },
-      defaultValue: 'false',
-      description: 'Disables component interactions.',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
     onClick: {
       action: 'onClick',
       name: 'onClick',
@@ -69,12 +40,12 @@ export default {
   }
 } as Meta;
 
-const Template: Story<BiitIconButtonComponent> = (args: BiitIconButtonComponent) => ({
+const Template: Story<BiitActionButtonComponent> = (args: BiitActionButtonComponent) => ({
   props: args,
   template: `
     <biit-action-button overlay style="position: absolute">
       <button biit-icon main
-        [icon]="icon"
+        [icon]="'edit'"
         [disabled]="disabled"
         (click)="onClick($event)"
       ></button>
@@ -93,7 +64,7 @@ const Template: Story<BiitIconButtonComponent> = (args: BiitIconButtonComponent)
 
     <biit-action-button style="display:block; margin-top: 2em">
       <button biit-icon main
-        [icon]="icon"
+        [icon]="'edit'"
         [disabled]="disabled"
         (click)="onClick($event)"
       ></button>
@@ -109,6 +80,24 @@ const Template: Story<BiitIconButtonComponent> = (args: BiitIconButtonComponent)
       ></button>
     </biit-action-button>
     <a>Not Overlay mode</a>
+
+    <biit-action-button upwards style="display:block; position: absolute; bottom: 1em;">
+      <button biit-icon main
+        [icon]="'edit'"
+        [disabled]="disabled"
+        (click)="onClick($event)"
+      ></button>
+      <button biit-icon
+        [icon]="'biit_logo'"
+        [disabled]="disabled"
+        (click)="onClick($event)"
+      ></button>
+      <button biit-icon
+        [icon]="'cauldron'"
+        [disabled]="disabled"
+        (click)="onClick($event)"
+      ></button>
+    </biit-action-button>
 `
 });
 

@@ -19,14 +19,23 @@ $default-color: #262626;
   .secondary {
     display: none;
     position: absolute;
-    flex-direction: column;
-    top: 2.1em;
     left: -3px;
     background: white;
-    border-bottom: 3px solid $default-color;
+    z-index: 1;
     border-left: 3px solid $default-color;
     border-right: 3px solid $default-color;
-    z-index: 1;
+
+    &.upwards {
+      flex-direction: column-reverse;
+      bottom: 2.1em;
+      border-top: 3px solid $default-color;
+    }
+
+    &:not(.upwards) {
+      flex-direction: column;
+      top: 2.1em;
+      border-bottom: 3px solid $default-color;
+    }
   }
 
   ::ng-deep button[biit-icon]:not(button[main]) {
