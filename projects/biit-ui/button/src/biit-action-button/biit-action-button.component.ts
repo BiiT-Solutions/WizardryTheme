@@ -62,5 +62,3 @@ export class BiitActionButtonComponent implements AfterContentInit {
 }
 
 export type FabPosition = 'top-left' | 'top-middle' | 'top-right' | 'middle-left' | 'middle-middle' | 'middle-right' | 'bottom-left' | 'bottom-middle' | 'bottom-right';
-
-export type FabSize = 'small' | 'medium' | 'large';
