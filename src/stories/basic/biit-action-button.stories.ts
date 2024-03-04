@@ -43,61 +43,164 @@ export default {
 const Template: Story<BiitActionButtonComponent> = (args: BiitActionButtonComponent) => ({
   props: args,
   template: `
-    <biit-action-button overlay style="position: absolute">
-      <button biit-icon main
-        [icon]="'edit'"
-        [disabled]="disabled"
-        (click)="onClick($event)"
-      ></button>
-      <button biit-icon
-        [icon]="'biit_logo'"
-        [disabled]="disabled"
-        (click)="onClick($event)"
-      ></button>
-      <button biit-icon
-        [icon]="'cauldron'"
-        [disabled]="disabled"
-        (click)="onClick($event)"
-      ></button>
-    </biit-action-button>
-    <a>Overlay mode</a>
+    <div style="display: block; height: 500px; width: 800px; background: #eeeeee">
+      <biit-action-button position="top-left">
+        <button biit-icon
+          [icon]="'edit'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'biit_logo'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'cauldron'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+      </biit-action-button>
+      <biit-action-button position="top-middle">
+        <button biit-icon
+          [icon]="'edit'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'biit_logo'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'cauldron'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+      </biit-action-button>
+      <biit-action-button position="top-right">
+        <button biit-icon
+          [icon]="'edit'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'biit_logo'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'cauldron'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+      </biit-action-button>
 
-    <biit-action-button style="display:block; margin-top: 2em">
-      <button biit-icon main
-        [icon]="'edit'"
-        [disabled]="disabled"
-        (click)="onClick($event)"
-      ></button>
-      <button biit-icon
-        [icon]="'biit_logo'"
-        [disabled]="disabled"
-        (click)="onClick($event)"
-      ></button>
-      <button biit-icon
-        [icon]="'cauldron'"
-        [disabled]="disabled"
-        (click)="onClick($event)"
-      ></button>
-    </biit-action-button>
-    <a>Not Overlay mode</a>
+      <biit-action-button position="middle-left">
+        <button biit-icon
+          [icon]="'edit'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'biit_logo'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'cauldron'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+      </biit-action-button>
+      <biit-action-button position="middle-middle">
+        <button biit-icon
+          [icon]="'edit'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'biit_logo'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'cauldron'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+      </biit-action-button>
+      <biit-action-button position="middle-right">
+        <button biit-icon
+          [icon]="'edit'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'biit_logo'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'cauldron'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+      </biit-action-button>
 
-    <biit-action-button upwards style="display:block; position: absolute; bottom: 1em;">
-      <button biit-icon main
-        [icon]="'edit'"
-        [disabled]="disabled"
-        (click)="onClick($event)"
-      ></button>
-      <button biit-icon
-        [icon]="'biit_logo'"
-        [disabled]="disabled"
-        (click)="onClick($event)"
-      ></button>
-      <button biit-icon
-        [icon]="'cauldron'"
-        [disabled]="disabled"
-        (click)="onClick($event)"
-      ></button>
-    </biit-action-button>
+      <biit-action-button position="bottom-left">
+        <button biit-icon
+          [icon]="'edit'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'biit_logo'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'cauldron'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+      </biit-action-button>
+      <biit-action-button position="bottom-middle">
+        <button biit-icon
+          [icon]="'edit'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'biit_logo'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'cauldron'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+      </biit-action-button>
+      <biit-action-button position="bottom-right">
+        <button biit-icon
+          [icon]="'edit'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'biit_logo'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+        <button biit-icon
+          [icon]="'cauldron'"
+          [disabled]="disabled"
+          (click)="onClick($event)"
+        ></button>
+      </biit-action-button>
+
+    </div>
 `
 });
 

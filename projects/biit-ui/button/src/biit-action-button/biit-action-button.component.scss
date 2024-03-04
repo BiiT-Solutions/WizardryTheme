@@ -1,73 +1,25 @@
 $default-color: #262626;
 
-.main {
+.floating-action-button {
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 999;
+  opacity: 50%;
+  background: white;
+  border: 3px solid $default-color;
   display: flex;
   flex-direction: column;
-  position: relative;
-  box-sizing: border-box;
-  width: fit-content;
-  background: white;
-
-  &.overlay {
-    opacity: 50%;
-  }
-
-  button[main] {
-    position: relative;
-  }
-
-  .secondary {
-    display: none;
-    position: absolute;
-    left: -3px;
-    background: white;
-    z-index: 1;
-    border-left: 3px solid $default-color;
-    border-right: 3px solid $default-color;
-
-    &.upwards {
-      flex-direction: column-reverse;
-      bottom: 2.1em;
-      border-top: 3px solid $default-color;
-    }
-
-    &:not(.upwards) {
-      flex-direction: column;
-      top: 2.1em;
-      border-bottom: 3px solid $default-color;
-    }
-  }
-
-  ::ng-deep button[biit-icon]:not(button[main]) {
-    display: none;
-  }
-
-  &:first-child {
-    border-top: 3px solid $default-color;
-    border-left: 3px solid $default-color;
-    border-right: 3px solid $default-color;
-  }
-
-  &:last-child {
-    border-bottom: 3px solid $default-color;
-    border-left: 3px solid $default-color;
-    border-right: 3px solid $default-color;
-  }
-
-  &:not(:first-child), &:not(:last-child) {
-    border-left: 3px solid $default-color;
-    border-right: 3px solid $default-color;
-  }
+  justify-content: flex-end;
 
   &:hover {
     opacity: 100%;
 
-    .secondary {
+    ::ng-deep button:not(:first-child) {
       display: flex;
     }
+  }
 
-    ::ng-deep button[biit-icon]:not(button[main]) {
-      display: flex;
-    }
+  ::ng-deep button:not(:first-child) {
+    display: none;
   }
 }
