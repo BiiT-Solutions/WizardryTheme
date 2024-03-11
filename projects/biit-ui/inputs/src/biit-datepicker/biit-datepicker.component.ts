@@ -28,7 +28,7 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
   @Input() disabled: boolean;
   @Input() readonly: boolean;
   @Input() required: boolean;
-  @Input('calendar-mode') set isCalendarMode(value) {
+  @Input('calendar-mode') set isCalendarMode(value: any) {
     this.calendarMode = coerceBooleanProperty(value);
   }
   protected calendarMode: boolean = false;

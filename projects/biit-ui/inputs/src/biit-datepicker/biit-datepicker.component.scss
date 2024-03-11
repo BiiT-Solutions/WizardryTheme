@@ -13,16 +13,16 @@ $disabled-outer-day: #FBAEC9;
   display: block;
   position: absolute;
   z-index: 2;
-  width: 17.5rem;
-  height: 20.5rem;
+  width: 17.5em;
+  height: 20.5em;
   border: 0.2em solid $default-color;
   background: white;
-  padding: 0.45rem;
+  padding: 0.45em;
   user-select: none;
   opacity: 0;
   pointer-events: none;
   transform-origin: top;
-  margin-top: -0.2rem;
+  margin-top: -0.2em;
   transform: translate(0, var(--origin));
   transition: opacity 0.5s ease, transform 0.5s ease;
 
@@ -44,7 +44,7 @@ $disabled-outer-day: #FBAEC9;
   }
 
   .month-view {
-    height: 19.2rem;
+    height: 19.2em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -55,7 +55,7 @@ $disabled-outer-day: #FBAEC9;
       align-items: center;
 
       .month-label {
-        width: 12rem;
+        width: 12em;
 
         ::ng-deep .button-base {
           width: 100%;
@@ -70,8 +70,8 @@ $disabled-outer-day: #FBAEC9;
       }
 
       ::ng-deep button .icon-button-svg {
-        width: 0.8rem;
-        height: 0.8rem;
+        width: 0.8em;
+        height: 0.8em;
       }
     }
 
@@ -85,8 +85,8 @@ $disabled-outer-day: #FBAEC9;
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 2.1rem;
-        width: 2.1rem;
+        height: 2.1em;
+        width: 2.1em;
 
         &.header {
           font-weight: 800;
@@ -112,7 +112,7 @@ $disabled-outer-day: #FBAEC9;
           }
 
           &.is-today {
-            border: 0.15rem solid $default-color;
+            border: 3px solid $default-color;
           }
 
           &:hover, &:focus-visible {
@@ -147,7 +147,7 @@ $disabled-outer-day: #FBAEC9;
     .buttons {
       display: flex;
       justify-content: space-between;
-      padding: 0.3rem 0.85rem;
+      padding: 0.3em 0.85em;
 
       .today-btn {
         ::ng-deep .button-base {
@@ -165,11 +165,11 @@ $disabled-outer-day: #FBAEC9;
   }
 
   .time-picker {
-    width: 17.5rem;
-    margin-left: -0.65rem;
+    width: 17.5em;
+    margin-left: -0.65em;
     box-sizing: border-box;
-    border: 0.2rem solid black;
-    margin-top: 0.45rem;
+    border: 0.2em solid black;
+    margin-top: 0.45em;
   }
 
   .year-view {
@@ -180,7 +180,7 @@ $disabled-outer-day: #FBAEC9;
 
     .month-label {
       width: 100%;
-      height: 2.1rem;
+      height: 2.1em;
       align-items: center;
 
       ::ng-deep .button-base {
@@ -198,7 +198,7 @@ $disabled-outer-day: #FBAEC9;
     .buttons {
       display: flex;
       justify-content: flex-end;
-      padding: 0.3rem 0.85rem;
+      padding: 0.3em 0.85em;
     }
   }
 
@@ -211,14 +211,14 @@ $disabled-outer-day: #FBAEC9;
 
       .item {
         width: 100%;
-        height: 1.5rem;
+        height: 1.5em;
         display: flex;
         justify-content: center;
         align-items: center;
         cursor: pointer;
 
         &.primary {
-          height: 1.8rem;
+          height: 1.8em;
           color: $default-color;
           font-weight: 500;
         }
@@ -232,10 +232,10 @@ $disabled-outer-day: #FBAEC9;
         &.arrow {
           display: inline-flex;
           width: 100%;
-          height: 1.8rem;
+          height: 1.8em;
 
           .up {
-            height: 0.7rem;
+            height: 0.7em;
             rotate: -90deg;
           }
           .down {
@@ -302,7 +302,7 @@ $disabled-outer-day: #FBAEC9;
   }
 
   &.password {
-    padding: 0.7rem 2.1rem 0.55rem 0.7rem;
+    padding: 0.7em 2.1rem 0.55rem 0.7rem;
 
     &.reveal {
       -webkit-text-security: none;
