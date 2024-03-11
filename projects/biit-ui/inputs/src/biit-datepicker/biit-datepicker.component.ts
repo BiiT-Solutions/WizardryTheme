@@ -3,6 +3,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {eachDayOfInterval, add, setDate, startOfWeek, sub, setDefaultOptions, Locale} from 'date-fns'
 import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
 import {enGB, es, nl} from "date-fns/locale";
+import {coerceBooleanProperty} from "@angular/cdk/coercion";
 
 @Component({
   selector: 'biit-datepicker',
@@ -27,6 +28,10 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
   @Input() disabled: boolean;
   @Input() readonly: boolean;
   @Input() required: boolean;
+  @Input('calendar-mode') set isCalendarMode(value) {
+    this.calendarMode = coerceBooleanProperty(value);
+  }
+  protected calendarMode: boolean = false;
   @Input() disabledDays: Date[] = [];
   @Input() disableWeekdays: boolean;
   @Input() disableWeekends: boolean;
@@ -83,7 +88,11 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
   }
 
   writeValue(value: Date): void {
-    this.value = value;
+    if (this.calendarMode && !value) {
+      this.value = new Date();
+    } else {
+      this.value = value;
+    }
   }
 
   onModelChange(value: Date) {
@@ -103,6 +112,8 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
     this.disableWeekdays = this.checkBooleanInput(this.disableWeekdays);
     this.disableWeekends = this.checkBooleanInput(this.disableWeekends);
     this.timePicker = this.checkBooleanInput(this.timePicker);
+
+    this.drawCalendar();
   }
 
   private initLocalization() {
@@ -228,6 +239,10 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
     this.viewerDate = new Date();
     this.drawCalendar();
     this.onModelChange(new Date());
+  }
+
+  log(value) {
+    console.log('DEVELOPMENT LOG: ', value);
   }
 }
 

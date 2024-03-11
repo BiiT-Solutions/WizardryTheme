@@ -152,3 +152,24 @@ const Template: Story<BiitDatePickerComponent> = (args: BiitDatePickerComponent,
 };
 
 export const Default = Template.bind({});
+
+const TemplateCalendar: Story<BiitDatePickerComponent> = (args: BiitDatePickerComponent, { globals }) => {
+  TranslocoStorybookModule.setLanguage(globals);
+  return {
+    globals,
+    props: args,
+    template: `
+        <biit-datepicker [(ngModel)]="date"
+                         [placeholder]="placeholder"
+                         [timePicker]="timePicker"
+                         [disabled]="disabled"
+                         [disabledDays]="disabledDays"
+                         [disableWeekdays]="disableWeekdays"
+                         [disableWeekends]="disableWeekends"
+                         calendar-mode
+                         style="display: block; width: 300px;"></biit-datepicker>
+    `
+  }
+};
+
+export const CalendarMode = TemplateCalendar.bind({});

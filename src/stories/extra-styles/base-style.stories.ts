@@ -43,12 +43,6 @@ input {
   font-family: Montserrat, "Montserrat", sans-serif;
 }
 
-app-root router-outlet + * {
-  display: block;
-  width:100%;
-  min-height: 100%;
-}
-
 @-moz-document url-prefix() {
   * {
     scrollbar-width: thin;
