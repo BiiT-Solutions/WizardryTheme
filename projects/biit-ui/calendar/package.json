@@ -1,6 +1,7 @@
 {
   "name": "@biit-ui/calendar",
   "peerDependencies": {
+    "angular-calendar": "~0.31.0"
   },
   "i18n": [
     {
