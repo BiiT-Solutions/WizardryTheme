@@ -37,7 +37,7 @@ $disabled-color: #EDEDED;
       }
     }
 
-    &:hover {
+    &.hover {
       background: $hover-color;
 
       .submenu {

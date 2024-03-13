@@ -1,94 +1,148 @@
-import {Component, Input, SimpleChanges, ViewChild} from '@angular/core';
-
+import {Component, ElementRef, Input, OnChanges, OnInit} from '@angular/core';
 import {
   ApexChart,
-  ApexFill,
-  ApexLegend,
-  ApexNonAxisChartSeries,
-  ApexResponsive,
-  ApexTitleSubtitle,
-  ApexTooltip,
-  ChartComponent
+  ApexDataLabels, ApexGrid, ApexLegend,
+  ApexPlotOptions, ApexStates, ApexTitleSubtitle,
+  ApexTooltip, ApexXAxis, ApexYAxis
 } from "ng-apexcharts";
-import {PieChartData} from "./pie-chart-data";
-import {Colors} from "../colors";
-import {CustomChartComponent} from "../custom-chart-component";
-import {ApexTheme} from "ng-apexcharts/lib/model/apex-types";
+import {PieChartData} from './models/pie-chart-data';
 
 
-type PieChartOptions = {
-  series: ApexNonAxisChartSeries;
-  colors: string [];
+export type PieChartOptions = {
+  series: number[];
   chart: ApexChart;
-  fill: ApexFill;
-  tooltip: ApexTooltip;
-  responsive: ApexResponsive[];
   labels: string[];
+  dataLabels: ApexDataLabels;
+  fill: any;
+  colors: any;
   title: ApexTitleSubtitle;
+  xaxis: ApexXAxis;
+  yaxis: ApexYAxis;
   legend: ApexLegend;
-  theme: ApexTheme;
+  plotOptions: ApexPlotOptions;
+  tooltip: ApexTooltip;
+  grid: ApexGrid;
+  states: ApexStates;
 };
 
+
 @Component({
-  selector: 'app-pie-chart',
+  selector: 'biit-pie-chart',
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.scss']
 })
-export class PieChartComponent extends CustomChartComponent {
+export class PieChartComponent implements OnInit, OnChanges {
 
-  @ViewChild('chart')
-  private chart!: ChartComponent;
+  chartOptions: Partial<PieChartOptions>;
+  pageNumber = 1;
 
-  public chartOptions: PieChartOptions;
+  @Input() public data: PieChartData;
+  @Input() public title = '';
+  @Input() public width: number;
+  @Input() public min: number;
+  @Input() public max: number;
+  yLegendMargin: number = 0;
 
-  @Input()
-  public data: PieChartData;
-  @Input()
-  public width: number|string = '100%';
-  @Input()
-  public height: number|string = 'auto';
-  @Input()
-  public showToolbar: boolean = true;
-  @Input()
-  public colors: string[] = Colors.defaultPalette;
-  @Input()
-  public title: string | undefined = undefined;
-  @Input()
-  public titleAlignment: "left" | "center" | "right" = "center";
-  @Input()
-  public isDonut: boolean = false;
-  @Input()
-  public fill: "gradient" | "solid" | "pattern" | "image" = "solid";
-  @Input()
-  public shadow: boolean = true;
-  @Input()
-  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = "bottom"
+  constructor(private ref: ElementRef) { }
 
-  constructor() {
-    super();
-    this.data = PieChartData.fromArray([["Value1", 5], ["Value2", 4], ["Value3", 1]]);
+  ngOnInit() {
+    if (!this.data?.data?.length) {
+      return;
+    }
+    this.createChartOptions();
   }
 
-  protected setProperties(): void {
+  ngOnChanges() {
+    if (!this.data?.data?.length) {
+      return;
+    }
+    this.createChartOptions();
+  }
+
+  private createChartOptions() {
+    // @ts-ignore
     this.chartOptions = {
-      colors: this.colors,
-      chart: this.getChart(this.isDonut ? "donut" : "pie", this.shadow, this.showToolbar, this.width, this.height),
-      series: this.data.getValues(),
-      labels: this.data.getLabels(),
-      fill: this.getFill(this.fill),
-      tooltip: this.getTooltip(),
-      responsive: this.getResponsive(this.legendPosition),
-      title: this.getTitle(this.title, this.titleAlignment),
-      legend: this.getLegend(this.legendPosition),
-      theme: this.getTheme()
+      series: this.data.data,
+      chart: {
+        height: '100%',
+        width: '100%',
+        type: "pie"
+      },
+      labels: this.data.legend,
+      dataLabels: {
+        enabled: true,
+        style: {
+          fontSize: "20px",
+          fontFamily: "Montserrat",
+          fontWeight: "700"
+        },
+        dropShadow: {
+          enabled: false
+        }
+      },
+      xaxis: {
+        categories: this.data.legend,
+        labels: {
+          style: {
+            fontSize: '14px',
+            fontFamily: 'Montserrat',
+            colors: ["262626"]
+          },
+        }
+      },
+      yaxis: {
+        labels: {
+          style: {
+            fontSize: '14px',
+            fontFamily: 'Montserrat',
+            colors: ["262626"]
+          },
+        }
+      },
+      fill: {
+        opacity: 1
+      },
+      legend: {
+        fontSize: '16px',
+        fontFamily: 'Montserrat',
+
+      },
+      title: {
+        text: this.title.toUpperCase(),
+        style: {
+          fontSize: '20px',
+          fontFamily: 'Montserrat',
+          fontWeight: 700,
+        }
+      },
+      grid: {
+        borderColor: '#262626',
+      },
+      tooltip: {
+        custom: function({ series, seriesIndex, dataPointIndex, w }) {
+          let tooltip =
+            '<div class="tooltip-base">' +
+            '  <div class="tooltip-content">' +
+            '    <div class="tooltip-data">' +
+            '      <div class="tooltip-square" style="background:'+ w.globals.colors[seriesIndex] +'"></div>' +
+            '      <a>' + w.globals.seriesNames[seriesIndex] + ': </a>' +
+            '      <a style="margin-left: 0.35rem; font-weight: 500">' + series[seriesIndex] + '</a>' +
+            '    </div>';
+
+          tooltip +=
+            '  </div>' +
+            '</div>';
+          return tooltip;
+        }
+      },
+      colors: ['#FF005B', '#5E92DE', '#753A86', '#F0A700', '#00AF77'],
+      states: {
+        active: {
+          filter: {
+            type: 'none'
+          }
+        }
+      }
     };
-  }
-
-  protected getPlotOptions(): undefined {
-    return undefined;
-  }
-
-  update(data: PieChartData) {
-    this.chart.updateSeries(data.getData());
   }
 }

@@ -14,8 +14,8 @@ $active-color: #F20D5E;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 2.1em;
-  width: 2.1em;
+  height: 2.125em;
+  width: 2.125em;
 
   &:hover, &:focus-visible, &.checked {
     background-color: $background-color;

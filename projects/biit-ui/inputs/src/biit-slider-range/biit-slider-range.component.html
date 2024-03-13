@@ -1,0 +1,29 @@
+<div class="slider">
+  <input #ranger1 type="range"
+         [(ngModel)]="value[0]"
+         (ngModelChange)="onChange(value);"
+         [min]="min"
+         [max]="max"
+         [step]="step"
+         (input)="checkValues('ranger1'); progressScript('ranger1')"
+         (pointerdown)="progressScript('ranger1'); showTooltip = true"
+         (pointerup)="showTooltip = false"
+  >
+  <input #ranger2 type="range"
+         [(ngModel)]="value[1]"
+         (ngModelChange)="onChange(value);"
+         [min]="min"
+         [max]="max"
+         [step]="step"
+         (input)="checkValues('ranger2'); progressScript('ranger2')"
+         (pointerdown)="progressScript('ranger2'); showTooltip = true"
+         (pointerup)="showTooltip = false"
+  >
+  <div #tooltip class="tooltip" [style.opacity]="showTooltip ? '100%' : '0%'"></div>
+  <div class="ticks">
+    <span *ngFor="let tick of [].constructor(ticks); index as i"
+          [class.no-labels]="!labels.length">
+      {{labels[i]}}
+    </span>
+  </div>
+</div>

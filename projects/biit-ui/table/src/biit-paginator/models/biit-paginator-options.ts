@@ -16,7 +16,7 @@ export class BiitPaginatorOptions {
     this.pageSize = pageSize;
     this.pageSizeOptions = pageSizeOptions;
     this.totalItems = totalItems;
-    this.hidePageSize = hidePageSize || !totalItems ? true : false;
-    this.hideFirstLastButtons = hideFirstLastButtons ? true : false;
+    this.hidePageSize = hidePageSize || totalItems == undefined;
+    this.hideFirstLastButtons = hideFirstLastButtons;
   }
 }

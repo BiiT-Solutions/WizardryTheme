@@ -6,6 +6,13 @@
     "@angular/forms": "v15-lts",
     "@angular/platform-browser": "v15-lts",
     "biit-icons-collection": "latest",
-    "biit-ui/icon": "latest"
-  }
+    "biit-ui/icon": "latest",
+    "date-fns": "^2.30.0"
+  },
+  "i18n": [
+    {
+      "scope": "inputs",
+      "path": "src/i18n"
+    }
+  ]
 }

@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 
 export class BiitNavUserComponent implements OnInit {
   @Input() title: string = '';
+  @Input() subtitle: string = '';
   @Input('left-align') leftAlign: boolean;
 
   ngOnInit() {

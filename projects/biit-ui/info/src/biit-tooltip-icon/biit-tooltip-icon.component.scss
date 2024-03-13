@@ -1,0 +1,24 @@
+.square {
+  position: relative;
+  height: 1em;
+  width: 1em;
+  background-color: #808080;
+  rotate: -45deg;
+}
+
+.question-mark {
+  position: absolute;
+  font-size: 0.8em;
+  rotate: 45deg;
+  left: 0.35em;
+  color: white;
+  cursor: default;
+  user-select: none;
+}
+
+.inline {
+  position: absolute;
+  margin-left: 0.3em;
+  margin-top: -0.1em;
+  scale: 0.6;
+}

@@ -1,5 +1,15 @@
-import {Component, ElementRef, forwardRef, Input, OnInit} from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  ElementRef,
+  forwardRef,
+  Input,
+  IterableDiffer,
+  IterableDiffers,
+  OnInit
+} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {coerceBooleanProperty} from "@angular/cdk/coercion";
 @Component({
   selector: 'biit-dropdown',
   templateUrl: './biit-dropdown.component.html',
@@ -15,15 +25,36 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
     '(document:pointerdown)': 'handleMouseEvents($event)'
   }
 })
-export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
+export class BiitDropdownComponent implements ControlValueAccessor, OnInit, DoCheck {
 
   @Input() title: string;
-  @Input() primitive: boolean = false;
-  @Input() compact: boolean = false;
   @Input() label: string = '';
-  @Input() value: string;
-  @Input() data: any[];
-  @Input() disabled: boolean = false;
+  @Input() value: string = '';
+  @Input() data: any[] = [];
+  protected isPrimitive: boolean;
+  @Input() set primitive(primitive: any) {
+    this.isPrimitive = coerceBooleanProperty(primitive);
+  };
+  protected isCompact: boolean;
+  @Input() set compact(compact: any) {
+    this.isCompact = coerceBooleanProperty(compact);
+  };
+  protected isDisabled: boolean;
+  @Input() set disabled(disabled: any) {
+    this.isDisabled = coerceBooleanProperty(disabled);
+  };
+  protected isRequired: boolean;
+  @Input() set required(required: any) {
+    this.isRequired = coerceBooleanProperty(required);
+  };
+  protected isSortAsc: boolean;
+  @Input('sort-asc') set sortAsc(sortAsc: any) {
+    this.isSortAsc = coerceBooleanProperty(sortAsc);
+  };
+  protected isSortDesc: boolean;
+  @Input('sort-desc') set sortDesc(sortDesc: any) {
+    this.isSortDesc = coerceBooleanProperty(sortDesc);
+  };
 
   public currentValue;
   public filterText: string = '';
@@ -32,12 +63,23 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
   public get dropdownElement(): HTMLElement {return this.elem.nativeElement.querySelector('.dropdown-list')}
   public get inputElement(): HTMLElement {return this.elem.nativeElement.querySelector('.input-object')}
 
+  private differ: IterableDiffer<string>;
+
   constructor(
-    private elem: ElementRef
-  ) { }
+    private elem: ElementRef,
+    iDiff: IterableDiffers
+  ) {
+    this.differ = iDiff.find(this.data).create();
+  }
 
   ngOnInit() {
     this.handleFilter();
+  }
+
+  ngDoCheck() {
+    if (this.differ.diff(this.data)) {
+      this.handleFilter();
+    }
   }
 
   onChange = (value: any) => {};
@@ -62,7 +104,7 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
   }
 
   handleMouseEvents($event: PointerEvent) {
-    if (!this.elem.nativeElement.contains($event.target)) {
+    if (this.dropdownOpen && !this.elem.nativeElement.contains($event.target)) {
       this.closeDropdown();
     }
   }
@@ -108,18 +150,51 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit {
   }
 
   handleFilter() {
-    if (this.filterText) {
-      this.filteredData = this.data.filter(item =>
-        item[this.label].toLowerCase().includes(
-          this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
+    if (this.data) {
+      this.sortData();
+      if (this.filterText) {
+        if (this.isPrimitive) {
+          this.filteredData = this.data.filter(item =>
+            item.toString().toLowerCase().includes(
+              this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
+        } else {
+          this.filteredData = this.data.filter(item =>
+            item[this.label].toLowerCase().includes(
+              this.filterText.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()));
+        }
+      } else {
+        this.filteredData = this.data;
+      }
     } else {
-      this.filteredData = this.data;
+      this.filteredData = [];
     }
   }
 
   clearFilter() {
     this.filterText = '';
     this.handleFilter();
+  }
+
+  sortData() {
+    if (this.isPrimitive) {
+      if (this.isSortAsc || this.isSortDesc) {
+        this.data.sort(
+          (a,b) => this.isSortAsc ? (a>b ? 1 : (b>a ? -1 : 0)) : (a>b ? -1 : (b>a ? 1 : 0))
+        );
+      }
+    } else {
+      if (this.isSortAsc || this.isSortDesc) {
+        this.data.sort((a,b) => {
+          if ( a[this.label] < b[this.label] ){
+            return this.isSortAsc ? -1 : 1;
+          } else if ( a[this.label] > b[this.label] ){
+            return this.isSortAsc ? 1 : -1;
+          } else {
+            return 0;
+          }
+        });
+      }
+    }
   }
 
   openDropdown() {

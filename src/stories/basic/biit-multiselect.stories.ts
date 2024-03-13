@@ -103,6 +103,19 @@ export default {
         type: 'boolean'
       }
     },
+    required: {
+      name: 'required',
+      type: { name: 'boolean', required: false },
+      defaultValue: 'false',
+      description: 'Shows an asterisk for the user to know it\'s a required field',
+      table: {
+        type: { summary: 'boolean' },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'boolean'
+      }
+    },
     type: {
       name: 'type',
       type: { name: 'string', required: false },
@@ -152,25 +165,25 @@ const Template: Story<BiitMultiselectComponent> = (args: BiitMultiselectComponen
     <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; top: 1rem; left: 1rem"
                    [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
-                   [disabled]="disabled" [type]="type" [compact]="compact"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
     ></biit-multiselect>
 
     <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; top: 1rem; right: 1rem"
                    [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
-                   [disabled]="disabled" [type]="type" [compact]="compact"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
     ></biit-multiselect>
 
     <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; bottom: 1rem; left: 1rem"
                    [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
-                   [disabled]="disabled" [type]="type" [compact]="compact"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
     ></biit-multiselect>
 
     <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; bottom: 1rem; right: 1rem"
                    [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
-                   [disabled]="disabled" [type]="type" [compact]="compact"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
     ></biit-multiselect>
 `
 });

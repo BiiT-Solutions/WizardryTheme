@@ -3,9 +3,9 @@
   height: inherit;
   width: inherit;
   overflow: hidden;
-  overflow-x: scroll;
+  overflow-x: auto;
 
-  transition: 0.5s ease-in-out;
+  transition: 1s ease-in-out;
 
   ::ng-deep .apexcharts-tooltip {
     border: 1px solid #262626;

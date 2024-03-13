@@ -29,6 +29,8 @@ input[type="checkbox"] {
   display: flex;
   align-items: center;
   width: fit-content;
+  height: 1.2em;
+  min-height: 0.7rem;
   cursor: pointer;
 
   transition:0.2s ease all;
@@ -119,6 +121,10 @@ input[type="checkbox"] {
   transition:0.2s ease all;
   -moz-transition:0.2s ease all;
   -webkit-transition:0.2s ease all;
+
+  &:empty {
+    display: none;
+  }
 }
 
 // Fix for Firefox browser (not compatible with :has as May 2023)

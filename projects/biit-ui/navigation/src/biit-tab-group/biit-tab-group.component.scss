@@ -1,6 +1,7 @@
 $light-grey: #EDEDED;
 $unselected: #262626;
 $hover: #D9D9D9;
+$error: #A1093F;
 
 .tab-group {
   width: inherit;
@@ -23,14 +24,50 @@ $hover: #D9D9D9;
       justify-content: center;
       cursor: pointer;
       user-select: none;
+      padding: 0 1rem 0 1rem;
+
+      &.compact-mode {
+        &.active {
+          min-width: 20%;
+        }
+
+        &:not(.active) {
+          a {
+            font-size: 0;
+            height: 1rem;
+            width: 1rem;
+            text-align: center;
+
+            &:first-letter {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+
+      &.error {
+        color: $error;
+      }
+
+      &.active {
+        flex-shrink: 0;
+      }
 
       &:not(.active) {
         background: $unselected;
         color: white;
 
+        &.error {
+          background: $error;
+        }
+
         &:hover {
           background: $hover;
           color: $unselected;
+
+          &.error {
+            color: $error;
+          }
         }
       }
     }
@@ -39,5 +76,6 @@ $hover: #D9D9D9;
   > .content {
     padding: 1.5rem;
     overflow-y: scroll;
+    flex-grow: 1;
   }
 }

@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+}
+
+.gallery-card {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 11em;
+  height: 14em;
+  border: 3px solid #262626;
+  background: white;
+  color: #262626;
+  user-select: none;
+  cursor: pointer;
+
+  &:hover {
+    .card-bottom {
+      background: #EDEDED;
+    }
+  }
+
+
+  &:active {
+    .title {
+      color: #F20D5E;
+    }
+  }
+
+  .card-top {
+    display: flex;
+    flex-grow: 1;
+    padding: 0.45em 0.6em;
+    align-items: center;
+    justify-content: center;
+
+    .icon {
+      display: inline-flex;
+      width: 9.5em;
+      height: 8.3em;
+    }
+  }
+
+  .card-bottom {
+    display: flex;
+    flex-direction: column;
+    height: 4.5em;
+    border-top: 3px solid #262626;
+    padding: 0.45em 0.6em;
+    justify-content: space-between;
+
+    .title {
+      text-transform: uppercase;
+      font-weight: 700;
+      height: 2.2em;
+      line-height: 1.1em;
+      overflow: hidden;
+    }
+
+    .subtitle {
+      font-size: 0.8em;
+      height: 1em;
+      line-height: 1em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

@@ -12,8 +12,7 @@ input::selection{ background-color:transparent }
   display: flex;
   min-width: 12.8rem;
   max-width: 25.6rem;
-  height: 3.15rem;
-  padding-top: 1.05rem;
+  height: 2.1rem;
 
   &.compact {
     width: 12.8rem;
@@ -130,7 +129,7 @@ input::selection{ background-color:transparent }
 .dropdown-list {
   background: white;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   box-sizing: border-box;
   border: 0.175rem solid black;
   margin-top: -0.175rem;
@@ -164,11 +163,11 @@ input::selection{ background-color:transparent }
   font: inherit;
   width: 100%;
   cursor: pointer;
-  line-height: 0.7rem;
-  height: 1.4rem;
+  line-height: 1rem;
+  min-height: 1.4rem;
   display: flex;
   align-items: center;
-  padding-left: 0.7rem;
+  padding: 0.2rem 0.7rem;
 
   &:not(.no-results) {
 

@@ -1,23 +1,13 @@
-<div class="canvas">
-  <div class="header">
+<div class="canvas" slot="{{'empty' | transloco}}">
+  <div class="header" *ngIf="!hideHeader">
     <div class="buttons">
-      <button biit-icon icon="plus"
-                        (click)="onAddAction.emit()"
-      ></button>
-      <button biit-icon icon="minus"
-                        (click)="onDeleteAction.emit(getSelectedRows())"
-                        [disabled]="!selectedRows.size"
-      ></button>
-      <button biit-icon icon="edit"
-                        (click)="onEditAction.emit(getSelectedRows())"
-                        [disabled]="selectedRows.size !== 1"
-      ></button>
+      <ng-content></ng-content>
     </div>
     <div class="forms">
       <biit-input-text [ngModel]="search"
                        (onActionPerformed)="
                          search = $event;
-                         this.paginator.currentPage = 1;
+                         paginator.currentPage = 1;
                          onTableUpdate();
                        "
                        (focusout)="resetInputValue($event, search)"
@@ -43,8 +33,9 @@
     <table>
       <thead>
         <tr>
-          <th *ngIf="isSelectable" class="select">
-            <biit-checkbox [ngModel]="data?.data.length && selectedRows.size == data?.data.length"
+          <th *ngIf="isSelectable || isSelectableSingle" class="select">
+            <biit-checkbox *ngIf="isSelectable"
+                           [ngModel]="data?.data.length && selectedRows.size == data?.data.length"
                            (ngModelChange)="$event ? data?.data.forEach(selectedRows.add, selectedRows) : selectedRows.clear()"
             ></biit-checkbox>
           </th>
@@ -52,7 +43,7 @@
               [class.sortable]="isSortable"
               [style.display]="!column.visible ? 'none' : null"
               [style.width]="column.width ? column.width + 'px' : ''"
-              (click)="onTableSort(column)"
+              (click)="isSortable ? onTableSort(column) : false"
           >
             <div class="label">
               {{column.label}}
@@ -77,11 +68,12 @@
         <tr *ngFor="let item of data?.data; index as i"
             [class.selectable]="isSelectable"
             [class.selected]="selectedRows.has(item)"
+            (pointerdown)="emitRowClick(item)"
         >
-            <td *ngIf="isSelectable" class="select">
+            <td *ngIf="isSelectable || isSelectableSingle" class="select">
               <biit-checkbox id="select{{i}}"
                              [ngModel]="selectedRows.has(item)"
-                             (ngModelChange)="$event ? selectedRows.add(item) : selectedRows.delete(item)"
+                             (ngModelChange)="selectRow(item, true)"
               ></biit-checkbox>
             </td>
             <td *ngFor="let column of columns"
@@ -89,14 +81,34 @@
                 [style.display]="!column.visible ? 'none' : null"
                 [style.width]="column.width ? column.width + 'px' : null"
             >
-              <div *ngIf="column.format == 'default'">
-                {{item[column.name]}}
+              <div *ngIf="column.format == BiitTableColumnFormat.DEFAULT">
+                {{item | columnData: column.name}}
               </div>
-              <div *ngIf="column.format == 'boolean'">
-                {{item[column.name] ? 'Yes' : 'No'}}
+              <div *ngIf="column.format == BiitTableColumnFormat.BOOLEAN">
+                {{(item | columnData: column.name) ? ('table.yes' | transloco) : ('table.no' | transloco) }}
               </div>
-              <div *ngIf="column.format == 'date'">
-                {{item[column.name] | localizedDate}}
+              <div *ngIf="column.format == BiitTableColumnFormat.DATE">
+                {{(item | columnData: column.name) | localizedDate}}
+              </div>
+              <div *ngIf="column.format == BiitTableColumnFormat.BUTTON"
+                   style="width: auto; text-align: -webkit-center; text-align: -moz-center;">
+                <button biit-button tertiary
+                        (pointerdown)="emitCellAction(item, column.name, $event)">
+                  {{item | columnData: column.name}}
+                </button>
+              </div>
+              <div *ngIf="column.format == BiitTableColumnFormat.ICON_BUTTON"
+                   style="width: auto; text-align: -webkit-center; text-align: -moz-center;">
+                <button biit-icon [icon]="item | columnData: column.name"
+                        (pointerdown)="emitCellAction(item, column.name, $event);"></button>
+              </div>
+              <div *ngIf="column.format == BiitTableColumnFormat.ICON"
+                   style="width: auto; height: 1.05rem;">
+                <biit-icon [name]="item | columnData: column.name"></biit-icon>
+              </div>
+              <div *ngIf="column.format == BiitTableColumnFormat.CUSTOM_HTML"
+                   style="width: auto; text-align: -webkit-center; text-align: -moz-center;">
+                <div [innerHTML]="item | columnData: column.name"></div>
               </div>
             </td>
         </tr>
@@ -105,7 +117,7 @@
 
   </div>
 
-  <div class="footer">
+  <div class="footer" *ngIf="!hideFooter">
     <div class="selected">
       <a style="margin-right: 0.7rem" *ngIf="selectedRows.size">Selected:</a>
       <a *ngIf="selectedRows.size">{{selectedRows.size}}</a>

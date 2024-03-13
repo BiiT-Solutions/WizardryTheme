@@ -4,6 +4,7 @@ import {BiitIconService} from 'biit-ui/icon';
 import {completeIconSet} from 'biit-icons-collection';
 import {APP_INITIALIZER} from '@angular/core';
 import {BiitButtonModule} from 'biit-ui/button';
+import {FormsModule} from "@angular/forms";
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);
@@ -14,7 +15,7 @@ export default {
   title: 'Basic/PopUp',
   decorators: [
     moduleMetadata({
-      imports: [BiitPopupModule, BiitButtonModule],
+      imports: [BiitPopupModule, BiitButtonModule, FormsModule],
       providers: [{
         provide: APP_INITIALIZER,
         useFactory: biitIconServiceFactory,
@@ -69,7 +70,15 @@ export default {
     },
     closable: {
       name: 'closable',
-      description: 'Allows the user to close the component.',
+      description: 'Allows the user to close the component from an X icon.',
+      table: {
+        category: 'Attributes'
+      },
+      control: false
+    },
+    closableOutside: {
+      name: 'closableOutside',
+      description: 'Allows the user to close the component clicking outside the popup.',
       table: {
         category: 'Attributes'
       },
@@ -106,7 +115,7 @@ const Template: Story<BiitPopupComponent> = (args: BiitPopupComponent) => ({
   template: `
     <button biit-button (click)="showPopup = true">Show Popup</button>
     <biit-popup *ngIf="showPopup"
-                dark-bg closable
+                dark-bg closable closable-outside
                 [title]="title"
                 (onClosed)="onClosed($event); showPopup = false;">
       <div [innerHTML]="content" style="width: 100%"></div>
@@ -119,7 +128,7 @@ Default.parameters = {
     source: {
       code: `
 <biit-popup *ngIf="showPopup"
-            dark-bg closable
+            dark-bg closable closable-outside
             [title]="title"
             (onClosed)="onClosed($event)"
 >
@@ -136,7 +145,7 @@ const SixtyTemplate: Story<BiitPopupComponent> = (args: BiitPopupComponent) => (
   template: `
     <button biit-button (click)="showSixty = true">Show Sixty View</button>
     <biit-popup *ngIf="showSixty"
-                sixty-view dark-bg closable
+                sixty-view dark-bg closable closable-outside
                 [title]="title"
                 (onClosed)="onClosed($event); showSixty = false;">
       <div [innerHTML]="content" style="width: 100%"></div>

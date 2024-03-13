@@ -20,9 +20,6 @@
       "biit-ui/button": [
         "projects/biit-ui/button/src/public-api"
       ],
-      "biit-ui/filter": [
-        "projects/biit-ui/filter/src/public-api"
-      ],
       "biit-ui/icon": [
         "projects/biit-ui/icon/src/public-api"
       ],
@@ -43,6 +40,9 @@
       ],
       "biit-ui/charts": [
         "projects/biit-ui/charts/src/public-api"
+      ],
+      "biit-ui/calendar": [
+        "projects/biit-ui/calendar/src/public-api"
       ]
     },
     "outDir": "./dist/out-tsc",

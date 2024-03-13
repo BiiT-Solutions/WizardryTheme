@@ -3,13 +3,14 @@ $background-color: #808080;
 
 .tooltip {
   position: fixed;
+  z-index: 1;
   background: #808080;
-  color: #EDEDED;
+  color: white;
   width: fit-content;
   max-width: 25.6rem;
   font-size: 0.7rem;
   text-align: center;
-  padding: 0.5rem 1.05rem;
+  padding: 0.5rem 0.7rem;
   opacity: 0;
   pointer-events: none;
 }

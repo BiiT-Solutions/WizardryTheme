@@ -20,9 +20,9 @@ $dark-border: #262626;
     background: transparent;
     box-sizing: border-box;
     border: 0.15em solid transparent;
+    cursor: pointer;
 
     &:not(.tertiary) {
-      color: $dark-border;
 
       .button-content {
         padding: 0.55em 1.4em;
@@ -33,6 +33,7 @@ $dark-border: #262626;
       }
 
       &.primary {
+        color: white;
         background: $default-color;
 
         &:hover, :focus-visible {
@@ -51,6 +52,7 @@ $dark-border: #262626;
       }
 
       &.secondary {
+        color: $dark-border;
         border: 0.15em solid $dark-border;
 
         &:hover .button-content, :focus-visible .button-content {

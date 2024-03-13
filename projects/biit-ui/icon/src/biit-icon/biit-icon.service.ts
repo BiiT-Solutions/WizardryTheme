@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {biitIcon, BiitIcons} from "biit-icons-collection";
 
 @Injectable({
-  providedIn: 'any'
+  providedIn: 'root'
 })
 export class BiitIconService {
 

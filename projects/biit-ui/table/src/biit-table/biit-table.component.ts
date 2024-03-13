@@ -10,13 +10,14 @@ import {
   Renderer2
 } from '@angular/core';
 import {BiitPaginatorOptions} from '../biit-paginator/models/biit-paginator-options';
-import {BiitTableColumn} from './models/biit-table-column';
+import {BiitTableColumn, BiitTableColumnFormat} from './models/biit-table-column';
 import {ColumnResizeHandler} from './models/column-resize-handler';
 import {BiitTableResponse} from './models/biit-table-response';
 import {BiitTableData} from './models/biit-table-data';
 import {BiitTableSorting, BiitTableSortingOrder} from './models/biit-table-sorting';
 import {BiitMultiselectType} from 'biit-ui/inputs';
 import {TRANSLOCO_SCOPE} from '@ngneat/transloco';
+import {BiitTableActionResponse} from "./models/biit-table-action-response";
 
 @Directive({
   selector: '[selectable]'
@@ -28,11 +29,38 @@ export class BiitTableSelectableDirective {
 }
 
 @Directive({
+  selector: '[selectableSingle]'
+})
+export class BiitTableSelectableSingleDirective {
+  constructor(private parent: BiitTableComponent) {
+    parent.isSelectableSingle = true;
+  }
+}
+
+@Directive({
   selector: '[sortable]'
 })
 export class BiitTableSortableDirective {
   constructor(private parent: BiitTableComponent) {
     parent.isSortable = true;
+  }
+}
+
+@Directive({
+  selector: '[hideHeader]'
+})
+export class BiitTableHeaderlessDirective {
+  constructor(private parent: BiitTableComponent) {
+    parent.hideHeader = true;
+  }
+}
+
+@Directive({
+  selector: '[hideFooter]'
+})
+export class BiitTableFooterlessDirective {
+  constructor(private parent: BiitTableComponent) {
+    parent.hideFooter = true;
   }
 }
 
@@ -50,30 +78,42 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   @Input('data') set _data(data: BiitTableData<any>) {
     if (data) {
       this.data = data;
+      this.selectedRows.clear();
       if (this.paginator) {
         this.paginator = new BiitPaginatorOptions(this.paginator.currentPage, this.paginator.pageSize, this.pageSizes, data.totalItems);
       }
     }
   }
+  @Input('loading') set _loading(loading: boolean) {
+    if (loading) {
+      this.loading = loading;
+      this.setLoadingBar();
+    } else {
+      this.loading = false;
+    }
+  }
   @Input() columns: BiitTableColumn[] = [];
   @Input() pageSizes: number[] = [];
   @Input() defaultPageSize: number;
-  @Input() loading: boolean = false;
   isSelectable: boolean = false;
+  isSelectableSingle: boolean = false;
   isSortable: boolean = false;
+  hideHeader: boolean = false;
+  hideFooter: boolean = false;
 
   @Output() onUpdate: EventEmitter<BiitTableResponse> = new EventEmitter<BiitTableResponse>();
-  @Output() onAddAction: EventEmitter<void> = new EventEmitter<void>();
-  @Output() onDeleteAction: EventEmitter<any[]> = new EventEmitter<any[]>();
-  @Output() onEditAction: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onCellAction: EventEmitter<BiitTableActionResponse> = new EventEmitter<BiitTableActionResponse>();
+  @Output() onRowClick : EventEmitter<any> = new EventEmitter<any>();
 
   protected data: BiitTableData<any>;
   protected paginator;
   protected sorting: BiitTableSorting;
   protected selectedRows: Set<any> = new Set<any>();
   protected columnResize: ColumnResizeHandler = new ColumnResizeHandler();
+  protected loading: boolean = false;
   protected search: string = '';
   protected readonly BiitMultiselectType = BiitMultiselectType;
+  protected readonly BiitTableColumnFormat = BiitTableColumnFormat;
 
   constructor(private renderer: Renderer2,
               private elem: ElementRef) { }
@@ -94,18 +134,17 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
     Array.from(this.elem.nativeElement.querySelector('thead').firstChild.children).forEach(ogColumn => {
       const column = ogColumn as HTMLElement;
 
-      if (column.style.width != '') {
-        this.columnInnerWordFitCheck(column);
+      if (column.classList.contains('select')) {
+        return;
       }
-    });
-    Array.from(this.elem.nativeElement.querySelector('thead').firstChild.children).forEach(ogColumn => {
-      const column = ogColumn as HTMLElement;
-
       if (column.style.width == '' && !column.classList.contains('select')) {
         column.style.width = column.offsetWidth - 10 + 'px';
       }
+      this.columnInnerWordFitCheck(column);
     });
     this.elem.nativeElement.querySelector('.content').style.paddingRight = null;
+
+    this.setLoadingBar();
   }
 
   columnInnerWordFitCheck(column: HTMLElement) {
@@ -115,6 +154,14 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
     // If inner text width plus header paddings are less than the current header width (set by user column properties)
     if(minColumnSize > column.offsetWidth) {
       (column as HTMLElement).style.width = minColumnSize + 'px';
+    }
+  }
+
+  setLoadingBar(): void {
+    const progressBar = this.elem.nativeElement.querySelector('biit-progress-bar');
+    if (progressBar) {
+      progressBar.style.top =
+        this.elem.nativeElement.querySelector('thead').offsetHeight + 'px';
     }
   }
 
@@ -193,7 +240,7 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   }
 
   selectRow(item, holdCtrl) {
-    if (!holdCtrl) {
+    if (!holdCtrl || this.isSelectableSingle) {
       this.selectedRows.clear();
       this.selectedRows.add(item);
     } else {
@@ -207,6 +254,15 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
 
   getSelectedRows(): any[] {
     return [...this.selectedRows];
+  }
+
+  emitCellAction(item: any, column: string, event: Event) {
+    event.stopPropagation();
+    this.onCellAction.emit(new BiitTableActionResponse(item, column));
+  }
+
+  emitRowClick(item: any) {
+    this.onRowClick.emit(item);
   }
 
   resetInputValue(event: Event, value: string) {

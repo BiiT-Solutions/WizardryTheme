@@ -13,15 +13,19 @@ module.exports = {
 */
   scopedLibs: [
     {
-      src: './projects/biit-ui/filter',
-      dist: ['./src/assets/i18n/biit-ui']
-    },
-    {
       src: './projects/biit-ui/login',
       dist: ['./src/assets/i18n/biit-ui']
     },
     {
       src: './projects/biit-ui/table',
+      dist: ['./src/assets/i18n/biit-ui']
+    },
+    {
+      src: './projects/biit-ui/inputs',
+      dist: ['./src/assets/i18n/biit-ui']
+    },
+    {
+      src: './projects/biit-ui/info',
       dist: ['./src/assets/i18n/biit-ui']
     }
   ]

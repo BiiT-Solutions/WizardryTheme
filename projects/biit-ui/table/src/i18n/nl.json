@@ -1,10 +1,11 @@
 {
-  "username-empty": "Username is mandatory.",
-  "password-empty": "Password is mandatory.",
-  "username": "Username",
-  "password": "Password",
-  "take_me_in": "take me in",
-  "forgot": "forgot my password",
-  "cant_remember": "can't remember my password",
-  "remember": "Remember me"
+  "rows-per-page": "Rijen per pagina:",
+  "first-page": "Eerste pagina",
+  "previous-page": "Vorige pagina",
+  "next-page": "Volgende pagina",
+  "last-page": "Laatste pagina",
+  "search": "Doorzoeken",
+  "column-selector": "Kolomselector",
+  "yes": "Ja",
+  "no": "Geen"
 }

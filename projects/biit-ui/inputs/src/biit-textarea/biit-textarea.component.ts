@@ -18,12 +18,15 @@ export class BiitTextareaComponent implements ControlValueAccessor, OnInit {
 
   @Input() placeholder: string = '';
   @Input() error: string;
+  @Input() info: string;
   @Input() icon: biitIcon;
   @Input() fieldName: string;
   @Input() maxLength: number;
   @Input() readonly: boolean;
   @Input('resize-x') resizeX: boolean;
   @Input('resize-y') resizeY: boolean;
+  @Input() disabled: boolean;
+  @Input() required: boolean;
   @Output() onActionPerformed: EventEmitter<string> = new EventEmitter<string>();
 
   reveal: boolean = false;
@@ -31,9 +34,11 @@ export class BiitTextareaComponent implements ControlValueAccessor, OnInit {
   value: string;
 
   ngOnInit() {
-    this.readonly = this.readonly !== undefined;
-    this.resizeX = this.resizeX !== undefined;
-    this.resizeY = this.resizeY !== undefined;
+    this.readonly = this.checkBooleanInput(this.readonly);
+    this.resizeX = this.checkBooleanInput(this.resizeX);
+    this.resizeY = this.checkBooleanInput(this.resizeX);
+    this.disabled = this.checkBooleanInput(this.disabled);
+    this.required = this.checkBooleanInput(this.required);
 
     if (this.resizeX && this.resizeY) {
       this.resize = 'both'
@@ -41,6 +46,17 @@ export class BiitTextareaComponent implements ControlValueAccessor, OnInit {
       this.resize = 'horizontal';
     } else if (this.resizeY) {
       this.resize = 'vertical';
+    }
+  }
+
+  checkBooleanInput(value) {
+    switch (value) {
+      case undefined:
+        return false;
+      case false:
+        return false;
+      default:
+        return true;
     }
   }
 

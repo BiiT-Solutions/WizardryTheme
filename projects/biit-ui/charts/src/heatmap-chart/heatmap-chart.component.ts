@@ -259,6 +259,14 @@ export class HeatmapChartComponent implements OnInit, OnChanges {
       series.push({name: item.name, data: item.data})
     });
 
+    series.forEach(category => {
+      category.data = category.data.slice((this.pageNumber-1)*this.itemsPerPage, this.pageNumber*this.itemsPerPage);
+      while (category.data.length < this.itemsPerPage) {
+        // @ts-ignore
+        category.data.push({x:'', y:-9999});
+      }
+    });
+
     return series;
   }
 }

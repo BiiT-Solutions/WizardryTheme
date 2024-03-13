@@ -192,7 +192,12 @@ export class BiitPaginatorComponent {
   }
 
   setInputValue(event: Event) {
-    this.paginator.currentPage = parseFloat((event.target as HTMLInputElement).value);
+    let selectedPage = parseFloat((event.target as HTMLInputElement).value);
+    if (selectedPage > this.totalPages) {
+      (event.target as HTMLInputElement).value = this.totalPages.toString();
+      selectedPage = this.totalPages;
+    }
+    this.paginator.currentPage = selectedPage;
   }
 
   resetInputValue(event: Event) {

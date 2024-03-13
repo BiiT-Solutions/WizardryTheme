@@ -10,6 +10,18 @@ $error-color: #A1093F;
   min-width: 12.8rem;
   min-height: 4.2rem;
   padding-top: 1.05rem;
+
+  &.disabled {
+    pointer-events: none;
+
+    .input-object {
+      background: $background-color;
+    }
+  }
+
+  &.readonly {
+    pointer-events: none;
+  }
 }
 
 .input-container {
@@ -68,7 +80,7 @@ $error-color: #A1093F;
 }
 
 /* active state */
-.input-object:focus ~ .input-placeholder, .input-object:valid ~ .input-placeholder {
+.input-object:focus ~ .input-placeholder, .input-filled {
   top:-0.95rem;
   font-size: 0.7rem;
   font-weight:normal;
@@ -129,4 +141,10 @@ $error-color: #A1093F;
   width: auto;
   height: 0.175rem;
   background: #262626;
+}
+
+.tooltip-icon {
+  position: absolute;
+  top: -0.5em;
+  left: -0.5em;
 }

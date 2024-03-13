@@ -1,12 +1,19 @@
-<div class="biit-input">
+<div class="biit-input" [class.disabled]="disabled" [class.readonly]="readonly">
   <div class="input-container">
+    <biit-tooltip-icon *ngIf="info"
+                       class="tooltip-icon"
+                       [text]="info"></biit-tooltip-icon>
     <input class="input-object"
            [(ngModel)]="value"
-           (ngModelChange)="this.onChange($event);"
+           (ngModelChange)="onChange($event); validateInput($event);"
            (keydown.enter)="onActionPerformed.emit(value)"
            [type]="reveal ? Type.TEXT : type" required
+           [min]="min"
+           [max]="max"
+           [minlength]="minLength"
+           [maxlength]="maxLength ? maxLength : 100"
            [attr.name]="fieldName"
-           [class.error]="error"
+           [class.error]="error || regExError || minLengthError"
            [class.reveal]="reveal"
     >
     <div *ngIf="type === Type.PASSWORD || icon" class="input-show-icon-container"
@@ -18,12 +25,26 @@
                  [pathStyle]="{fill: reveal ? '#F20D5E' : '#262626'}"
       ></biit-icon>
     </div>
-    <label class="input-placeholder">{{placeholder}}</label>
-    <biit-icon *ngIf="error" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
+    <div class="input-placeholder" [class.input-filled]="this.value?.length">
+      {{placeholder}}
+      <a *ngIf="required"
+         [style.color]="value ? null : 'red'">*</a>
+    </div>
+    <biit-icon *ngIf="error || regExError || minLengthError" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
     <div class="bottom-line"></div>
     <div *ngIf="error" class="input-error-msg">
       <a>
         {{error}}
+      </a>
+    </div>
+    <div *ngIf="regExError" class="input-error-msg">
+      <a>
+        {{'inputs.regex-error' | transloco}}
+      </a>
+    </div>
+    <div *ngIf="minLengthError" class="input-error-msg">
+      <a>
+        {{'inputs.minlength-error' | transloco}}
       </a>
     </div>
   </div>

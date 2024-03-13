@@ -1,0 +1,412 @@
+$default-color: #262626;
+$selected-color: #F20D5E;
+$disabled-color: #D9D9D9;
+$error-color: #A1093F;
+$secondary-color: #808080;
+$disabled-outer-day: #FBAEC9;
+
+* {
+  box-sizing: border-box;
+}
+
+.popup {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  width: 17.5em;
+  height: 20.5em;
+  border: 0.2em solid $default-color;
+  background: white;
+  padding: 0.45em;
+  user-select: none;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: top;
+  margin-top: -0.2em;
+  transform: translate(0, var(--origin));
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  &.calendar-mode {
+    position: relative;
+    opacity: 1;
+    pointer-events: all;
+    margin-top: 0;
+  }
+
+  &.dropdown-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(0, 0);
+  }
+
+  &.disabled {
+    visibility: hidden;
+  }
+
+  .month-view {
+    height: 19.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .month-selector {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .month-label {
+        width: 12em;
+
+        ::ng-deep .button-base {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          color: $default-color;
+
+          .bar {
+            background: $default-color;
+          }
+        }
+      }
+
+      ::ng-deep button .icon-button-svg {
+        width: 0.8em;
+        height: 0.8em;
+      }
+    }
+
+    .grid {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .grid-element {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2.1em;
+        width: 2.1em;
+
+        &.header {
+          font-weight: 800;
+          cursor: default;
+          text-transform: capitalize;
+        }
+
+        &.day {
+          cursor: pointer;
+          background: none;
+          color: inherit;
+          border: none;
+          padding: 0;
+          font: inherit;
+          outline: inherit;
+
+          &.outer-day {
+            color: $disabled-color;
+
+            &:hover, &:focus-visible {
+              color: $default-color;
+            }
+          }
+
+          &.is-today {
+            border: 3px solid $default-color;
+          }
+
+          &:hover, &:focus-visible {
+            background: $disabled-color;
+          }
+
+          &:active {
+            color: $selected-color
+          }
+
+          &.selected {
+            background: $selected-color;
+
+            &:hover, &:focus-visible {
+              background: $selected-color;
+              color: white;
+            }
+          }
+
+          &.disabled {
+            color: $error-color;
+            pointer-events: none;
+
+            &.outer-day {
+              color: $disabled-outer-day;
+            }
+          }
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.3em 0.85em;
+
+      .today-btn {
+        ::ng-deep .button-base {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          color: $default-color;
+
+          .bar {
+            background: $default-color;
+          }
+        }
+      }
+    }
+  }
+
+  .time-picker {
+    width: 17.5em;
+    margin-left: -0.65em;
+    box-sizing: border-box;
+    border: 0.2em solid black;
+    margin-top: 0.45em;
+  }
+
+  .year-view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .month-label {
+      width: 100%;
+      height: 2.1em;
+      align-items: center;
+
+      ::ng-deep .button-base {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        color: $default-color;
+
+        .bar {
+          background: $default-color;
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0.3em 0.85em;
+    }
+  }
+
+  .selector {
+    display: flex;
+    justify-content: center;
+
+    .column {
+      display: block;
+
+      .item {
+        width: 100%;
+        height: 1.5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &.primary {
+          height: 1.8em;
+          color: $default-color;
+          font-weight: 500;
+        }
+        &.secondary {
+          color: $secondary-color;
+        }
+        &.tertiary {
+          color: $disabled-color;
+        }
+
+        &.arrow {
+          display: inline-flex;
+          width: 100%;
+          height: 1.8em;
+
+          .up {
+            height: 0.7em;
+            rotate: -90deg;
+          }
+          .down {
+            height: 0.7em;
+            rotate: 90deg;
+          }
+        }
+      }
+    }
+  }
+}
+
+.biit-input {
+  display: flex;
+  min-width: 12.8em;
+  min-height: 4.2em;
+  padding-top: 1.05em;
+
+  &.disabled {
+    pointer-events: none;
+
+    .input-object {
+      background: $disabled-color;
+    }
+
+    .input-show-icon-container {
+      background: $disabled-color;
+    }
+  }
+
+  &.readonly {
+    pointer-events: none;
+  }
+}
+
+.input-container {
+  position:relative;
+  width: 100%;
+}
+
+.input-object {
+  font-size:1em;
+  display:block;
+  border:none;
+  color: $default-color;
+  padding: 0.7em 0.7em 0.7em 0.7em;
+  height: 2.1em;
+  width: 100%;
+  min-width: 2.1em;
+  font-weight: normal;
+
+  &:focus, &:hover {
+    outline: none;
+    background: $disabled-color;
+
+    ~ .input-show-icon-container{
+      background: $disabled-color;
+    }
+  }
+
+  &.error {
+    color: $error-color;
+    border-color: $error-color;
+  }
+
+  &.password {
+    padding: 0.7em 2.1em 0.55em 0.7em;
+
+    &.reveal {
+      -webkit-text-security: none;
+      input-security: none;
+    }
+  }
+}
+
+@-moz-document url-prefix() {
+  .input-object {
+    padding-top:0.55em !important;
+  }
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+.input-placeholder {
+  color:$default-color;
+  font-size:1em;
+  font-weight:bolder;
+  text-transform: uppercase;
+  position:absolute;
+  pointer-events:none;
+  left:0.7em;
+  top: 0.42em;
+  height: 0.7em;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+.input-object:focus ~ .input-placeholder, .input-filled {
+  top:-0.95em;
+  font-size: 0.7em;
+  font-weight:normal;
+  color:$secondary-color;
+}
+
+.input-error-icon {
+  display: flex;
+  top:0.7em;
+  position: absolute;
+  width: 0.7em;
+  height: 0.7em;
+}
+
+.input-error-msg {
+  display: flex;
+  align-items: center;
+  font-size: 0.7em;
+  color: $error-color;
+  padding-top: 0.1em;
+  padding-bottom: 0.15em;
+  min-height: 1.05em;
+
+  a {
+    display: block;
+    line-height: 0.7em;
+  }
+}
+
+.input-show-icon {
+  width: 1.05em;
+  height: 1.05em;
+}
+
+.input-show-icon-container {
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 2.1em;
+  height: 2.1em;
+  align-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: white;
+
+  &:hover, &:focus, &:focus-visible {
+    background-color: $disabled-color;
+    border: none;
+    outline: none;
+  }
+}
+
+.bottom-line {
+  position: relative;
+  top: -0.2em;
+  margin-bottom: -0.2em;
+  width: auto;
+  height: 0.2em;
+  background: #262626;
+}
+
+.onwards {
+  --origin: 1em;
+}
+
+.downwards {
+  --origin: -1em;
+}
