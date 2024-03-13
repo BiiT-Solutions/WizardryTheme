@@ -34,14 +34,19 @@ export class BiitLoginComponent {
     this.onNotRemember = new EventEmitter<void>();
     this.loginErrors = new Map<LoginErrors, string>();
     const generatedId: number = Math.floor(Math.random() * (20 - 1 + 1) + 1);
-    this.keyId = `${generatedId < 10 ? '0' : '' }${generatedId}`
+    this.keyId = `${generatedId < 10 ? '0' : ''}${generatedId}`
   }
 
   protected performLogin(): void {
     if (this.validate()) {
+      //Trim username
+      if (this.login && this.login.username) {
+        this.login.username = this.login.username.trim();
+      }
       this.onLogin.emit(this.login)
     }
   }
+
   private validate(): boolean {
     this.loginErrors.clear();
     if (!this.login.username || !this.login.username.length) {
