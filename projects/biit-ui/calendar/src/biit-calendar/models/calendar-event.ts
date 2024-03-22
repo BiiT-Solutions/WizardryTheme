@@ -17,7 +17,8 @@ export class CalendarEvent<MetaType = any> {
   draggable?: boolean;
   meta?: MetaType;
 
-  constructor(title: string, start: Date, end?: Date, color?: EventColor, actions?: EventAction[], resizable?: boolean, draggable?: boolean, meta?: MetaType) {
+  constructor(title: string, start: Date, id?: string | number, end?: Date, color?: EventColor, actions?: EventAction[], resizable?: boolean, draggable?: boolean, meta?: MetaType) {
+    this.id = id;
     this.title = title;
     this.start = new Date(start);
     if (end) {
