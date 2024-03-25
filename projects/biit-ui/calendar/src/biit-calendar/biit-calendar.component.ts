@@ -6,6 +6,7 @@ import {Locale, setDefaultOptions} from "date-fns";
 import {EventColor} from "../utils/event-color";
 import {CalendarEventTimesChangedEvent} from "angular-calendar";
 import {Subject} from "rxjs";
+import {coerceBooleanProperty} from "@angular/cdk/coercion";
 
 @Component({
   selector: 'biit-calendar',
@@ -19,7 +20,10 @@ import {Subject} from "rxjs";
 export class BiitCalendarComponent implements OnInit {
   @Input() calendarMode: CalendarMode = CalendarMode.MONTH;
   @Input() viewDate: Date = new Date();
-  @Input() events: CalendarEvent[] = [];
+  protected events: CalendarEvent[] = [];
+  @Input('events') set setEvents(events: CalendarEvent[]) {
+    this.events = events;
+  };
   @Output() onEventDrop: EventEmitter<CalendarEventTimesChangedEvent> = new EventEmitter<CalendarEventTimesChangedEvent>();
   protected locale: Locale;
 
