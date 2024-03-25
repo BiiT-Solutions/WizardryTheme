@@ -56,6 +56,23 @@ export class BiitCalendarComponent implements OnInit {
   refresh = new Subject<void>();
 
   eventTimesChanged(changeEvent: CalendarEventTimesChangedEvent): void {
+    let newEvent = false;
+    let editEvent = this.events.filter(e => e.id == changeEvent.event.id)[0];
+    if (!editEvent) {
+      editEvent = CalendarEvent.clone(changeEvent.event as CalendarEvent);
+      newEvent = true;
+    }
+    editEvent.start = changeEvent.newStart;
+    if (changeEvent.newEnd) {
+      editEvent.end = changeEvent.newEnd;
+    }
+    if (newEvent) {
+      this.events.push(editEvent);
+    }
+    if (this.calendarMode == CalendarMode.MONTH) {
+      this.viewDate = changeEvent.newStart;
+    }
+    this.events = [...this.events];
     this.onEventDrop.emit(changeEvent);
   }
 
