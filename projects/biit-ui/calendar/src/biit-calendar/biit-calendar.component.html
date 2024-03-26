@@ -8,7 +8,8 @@
                         [eventTemplate]="eventTemplate"
                         [allDayEventsLabelTemplate]="allDayEventsLabelTemplate"
                         [refresh]="refresh"
-                        (eventTimesChanged)="eventTimesChanged($event)"
+                        (eventTimesChanged)="onEventDrop.emit($event)"
+                        (eventClicked)="onEventClick.emit({event: $calendarEvent($event.event), sourceEvent: $event.sourceEvent})"
                         style="display: flex; flex-direction: column; height: 100%;"
 ></mwl-calendar-week-view>
 
@@ -107,8 +108,7 @@
                 top: 0.1rem;
                 right: 0;
                 font-size: 0.7rem;
-                width: 70px;"
-         (click)="log(allDayEventsLabelTemplate)">
+                width: 70px;">
       all day
     </div>
   </div>
@@ -157,7 +157,6 @@
     </mwl-calendar-event-actions>
     &ngsp;
     <mwl-calendar-event-title
-      (click)="log(calEvent.offsetHeight)"
       [event]="weekEvent.tempEvent || weekEvent.event"
       [customTemplate]="eventTitleTemplate"
       [view]="daysInWeek === 1 ? 'day' : 'week'"
@@ -210,7 +209,8 @@
                          [events]="events"
                          [cellTemplate]="monthCell"
                          [refresh]="refresh"
-                         (eventTimesChanged)="eventTimesChanged($event)"
+                         (eventTimesChanged)="onEventDrop.emit($event)"
+                         (eventClicked)="onEventClick.emit({event: $calendarEvent($event.event), sourceEvent: $event.sourceEvent})"
                          style="display: flex; flex-direction: column; height: 100%;"
 ></mwl-calendar-month-view>
 
