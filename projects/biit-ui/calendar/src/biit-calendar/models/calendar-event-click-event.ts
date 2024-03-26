@@ -1,4 +1,4 @@
-import {CalendarEvent} from "biit-ui/calendar";
+import {CalendarEvent} from "./calendar-event";
 
 export class CalendarEventClickEvent {
   event: CalendarEvent;
