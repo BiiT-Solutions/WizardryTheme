@@ -17,15 +17,12 @@ export class CalendarEvent<MetaType = any> {
   draggable?: boolean;
   meta?: MetaType;
 
-  constructor(title: string, start: Date, id?: string | number, end?: Date, color?: EventColor, actions?: EventAction[], resizable?: boolean, draggable?: boolean, meta?: MetaType) {
+  constructor(id: string | number | undefined, title: string, startDate: Date, endDate: Date, allDay?: boolean, color?: EventColor, actions?: EventAction[], resizable?: boolean, draggable?: boolean, meta?: MetaType) {
     this.id = id;
     this.title = title;
-    this.start = new Date(start);
-    if (end) {
-      this.end = new Date(end);
-    } else {
-      this.allDay = true;
-    }
+    this.start = new Date(startDate);
+    this.end = new Date(endDate);
+    this.allDay = allDay ? allDay : false;
     this.color = color ? color : EventColor.Red;
     this.actions = actions ? actions : [];
     if (resizable) {
@@ -52,7 +49,7 @@ export class CalendarEvent<MetaType = any> {
   }
 
   public static clone(original: CalendarEvent): CalendarEvent {
-    const event = new CalendarEvent('', new Date())
+    const event = new CalendarEvent(undefined, '', new Date(), new Date())
     return CalendarEvent.copy(original, event);
   }
 }
