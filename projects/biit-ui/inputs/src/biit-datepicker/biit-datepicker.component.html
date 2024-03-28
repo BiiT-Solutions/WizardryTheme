@@ -7,7 +7,7 @@
              [ngModel]="value && !timePicker ? (value | date: 'yyyy-MM-dd') :
                         value && timePicker ? (value | date: 'yyyy-MM-dd\THH:mm') :
                         undefined"
-             (ngModelChange)="onModelChange(parseDate($event))"
+             (ngModelChange)="onModelChange(parseISO($event))"
              [type]="timePicker ? 'datetime-local' : 'date'" required
              [style.background]="dropdownOpen ? '#D9D9D9' : null"
              [min]="min ? (min | date: 'yyyy-MM-dd') : undefined"
@@ -38,7 +38,7 @@
       <div style="position: relative; height: 0;">
         <div class="popup"
              [class.dropdown-open]="dropdownOpen"
-             [style.height]="!monthSelector && timePicker ? '29.1rem' : null">
+             [style.height]="!monthSelector && timePicker ? '29.1em + 3px)' : null">
           <div *ngIf="!monthSelector"
                class="month-view">
             <div class="month-selector">
@@ -88,64 +88,64 @@
                 {{'inputs.done' | transloco}}
               </button>
             </div>
-          </div>
 
-          <div class="time-picker" *ngIf="!monthSelector && timePicker">
-            <div class="selector">
-              <div class="column"
-                   style="min-width: 2em;">
-                <div class="item arrow"
-                     (click)="onModelChange(sub(value, {hours: 1}))">
-                  <biit-icon [name]="'right_arrow'"
-                             [pathStyle]="{fill: '#262626'}"
-                             class="up"
-                  ></biit-icon>
+            <div class="time-picker" *ngIf="!monthSelector && timePicker">
+              <div class="selector">
+                <div class="column"
+                     style="min-width: 2em;">
+                  <div class="item arrow"
+                       (click)="onModelChange(sub(value, {hours: 1}))">
+                    <biit-icon [name]="'right_arrow'"
+                               [pathStyle]="{fill: '#262626'}"
+                               class="up"
+                    ></biit-icon>
+                  </div>
+                  <div class="item secondary"
+                       (click)="onModelChange(sub(value, {hours: 1}))">
+                    {{ value ? (sub(value, {hours: 1}) | date: 'H') : '' }}
+                  </div>
+                  <div class="item primary">
+                    {{ value ? (value | date: 'H') : '' }}
+                  </div>
+                  <div class="item secondary"
+                       (click)="onModelChange(add(value, {hours: 1}))">
+                    {{ value ? (add(value, {hours: 1}) | date: 'H') : '' }}
+                  </div>
+                  <div class="item arrow"
+                       (click)="onModelChange(add(value, {hours: 1}))">
+                    <biit-icon [name]="'right_arrow'"
+                               [pathStyle]="{fill: '#262626'}"
+                               class="down"
+                    ></biit-icon>
+                  </div>
                 </div>
-                <div class="item secondary"
-                     (click)="onModelChange(sub(value, {hours: 1}))">
-                  {{ value ? (sub(value, {hours: 1}) | date: 'H') : '' }}
-                </div>
-                <div class="item primary">
-                  {{ value ? (value | date: 'H') : '' }}
-                </div>
-                <div class="item secondary"
-                     (click)="onModelChange(add(value, {hours: 1}))">
-                  {{ value ? (add(value, {hours: 1}) | date: 'H') : '' }}
-                </div>
-                <div class="item arrow"
-                     (click)="onModelChange(add(value, {hours: 1}))">
-                  <biit-icon [name]="'right_arrow'"
-                             [pathStyle]="{fill: '#262626'}"
-                             class="down"
-                  ></biit-icon>
-                </div>
-              </div>
-              <div class="column"
-                   style="min-width: 2em;">
-                <div class="item arrow"
-                     (click)="onModelChange(sub(value, {minutes: 1}))">
-                  <biit-icon [name]="'right_arrow'"
-                             [pathStyle]="{fill: '#262626'}"
-                             class="up"
-                  ></biit-icon>
-                </div>
-                <div class="item secondary"
-                     (click)="onModelChange(sub(value, {hours: 1}))">
-                  {{ value ? (sub(value, {minutes: 1}) | date: 'mm') : '' }}
-                </div>
-                <div class="item primary">
-                  {{ value ? (value | date: 'mm') : '' }}
-                </div>
-                <div class="item secondary"
-                     (click)="onModelChange(add(value, {hours: 1}))">
-                  {{ value ? (add(value, {minutes: 1}) | date: 'mm') : '' }}
-                </div>
-                <div class="item arrow"
-                     (click)="onModelChange(add(value, {minutes: 1}))">
-                  <biit-icon [name]="'right_arrow'"
-                             [pathStyle]="{fill: '#262626'}"
-                             class="down"
-                  ></biit-icon>
+                <div class="column"
+                     style="min-width: 2em;">
+                  <div class="item arrow"
+                       (click)="onModelChange(sub(value, {minutes: 1}))">
+                    <biit-icon [name]="'right_arrow'"
+                               [pathStyle]="{fill: '#262626'}"
+                               class="up"
+                    ></biit-icon>
+                  </div>
+                  <div class="item secondary"
+                       (click)="onModelChange(sub(value, {hours: 1}))">
+                    {{ value ? (sub(value, {minutes: 1}) | date: 'mm') : '' }}
+                  </div>
+                  <div class="item primary">
+                    {{ value ? (value | date: 'mm') : '' }}
+                  </div>
+                  <div class="item secondary"
+                       (click)="onModelChange(add(value, {hours: 1}))">
+                    {{ value ? (add(value, {minutes: 1}) | date: 'mm') : '' }}
+                  </div>
+                  <div class="item arrow"
+                       (click)="onModelChange(add(value, {minutes: 1}))">
+                    <biit-icon [name]="'right_arrow'"
+                               [pathStyle]="{fill: '#262626'}"
+                               class="down"
+                    ></biit-icon>
+                  </div>
                 </div>
               </div>
             </div>
@@ -264,7 +264,7 @@
 
 <ng-template #calendarModeTemplate>
   <div class="popup calendar-mode"
-       [style.height]="!monthSelector && timePicker ? '29.1rem' : null">
+       [style.height]="!monthSelector && timePicker ? 'calc(29.1em + 3px)' : null">
     <div *ngIf="!monthSelector"
          class="month-view">
       <div class="month-selector">
