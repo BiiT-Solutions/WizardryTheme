@@ -66,8 +66,6 @@
     class="cal-current-time-marker-custom"
     *ngIf="isVisible"
     [style.top.px]="topPx"
-    [style.width.px]="$any(calendar).element.nativeElement.offsetWidth"
-    [style.left.px]="$any(calendar).element.nativeElement.getBoundingClientRect().left - timeMarker.parentElement.parentElement.getBoundingClientRect().left - 1"
   ></div>
 </ng-template>
 
