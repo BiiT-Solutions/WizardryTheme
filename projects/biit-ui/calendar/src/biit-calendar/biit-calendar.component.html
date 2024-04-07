@@ -141,6 +141,7 @@
     [tooltipAppendToBody]="tooltipAppendToBody"
     [tooltipDelay]="tooltipDelay"
     (mwlClick)="eventClicked.emit({ sourceEvent: $event })"
+    (dblclick)="onEventDblClick.emit({event: $calendarEvent(weekEvent.event), sourceEvent: $event})"
     (mwlKeydownEnter)="eventClicked.emit({ sourceEvent: $event })"
     tabindex="0"
     role="application"

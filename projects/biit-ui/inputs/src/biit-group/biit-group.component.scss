@@ -1,0 +1,22 @@
+fieldset {
+  position: relative;
+  border: 3px solid #262626;
+  padding-inline-start: 2.25em;
+  padding-inline-end: 2.25em;
+  padding-block-start: 1.25em;
+  padding-block-end: 1.25em;
+
+  legend {
+    padding: 0 1.25em;
+  }
+
+  button {
+    position: absolute;
+    right: 0;
+    top: -1.65em;
+
+    &:not(:hover) {
+      //background: white;
+    }
+  }
+}
