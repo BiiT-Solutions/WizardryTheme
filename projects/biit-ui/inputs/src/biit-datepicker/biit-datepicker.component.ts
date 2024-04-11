@@ -38,7 +38,10 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
   @Input() timePicker: boolean;
   @Input() min: Date;
   @Input() max: Date;
-  @Input() placeholder: string = "";
+  @Input() set placeholder(placeholder: string) {
+    this._placeholder = placeholder;
+  }
+  protected _placeholder = '';
   @Input() error: string = "";
 
   protected value: Date;
