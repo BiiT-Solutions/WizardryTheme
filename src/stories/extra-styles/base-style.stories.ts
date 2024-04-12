@@ -125,6 +125,11 @@ biit-navbar {
   z-index: 1;
 }
 
+biit-snackbar {
+  position: absolute;
+  z-index: 99999;
+}
+
 .hidden {
   visibility: hidden;
 }

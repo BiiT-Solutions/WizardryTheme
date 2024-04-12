@@ -32,6 +32,7 @@ export default {
     disabledDays: [],
     disableWeekdays: false,
     disableWeekends: false,
+    error: ""
   },
   argTypes: {
     placeholder: {
@@ -42,6 +43,18 @@ export default {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'default' },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'text'
+      }
+    },
+    error: {
+      name: 'error',
+      type: { name: 'string', required: false },
+      description: 'Shows an error message',
+      table: {
+        type: { summary: 'string' },
         category: 'Inputs'
       },
       control: {
@@ -146,6 +159,7 @@ const Template: Story<BiitDatePickerComponent> = (args: BiitDatePickerComponent,
                          [disabledDays]="disabledDays"
                          [disableWeekdays]="disableWeekdays"
                          [disableWeekends]="disableWeekends"
+                         [error]="error"
                          style="display: block; width: 300px;"></biit-datepicker>
     `
   }

@@ -1,4 +1,4 @@
-<biit-popup dark-bg no-header slot="{{'empty' | transloco}}">
+<biit-popup dark-bg no-header *transloco="let t">
  <div class="login-container">
    <div class="login-column">
      <div class="login-icon-square">
@@ -8,20 +8,20 @@
    </div>
    <div class="login-column">
      <biit-input-text [(ngModel)]="login.username" fieldName="username" [type]="Type.TEXT" [error]="this.loginErrors.get(LoginError.USERNAME)"
-                      placeholder="{{'login.username' | transloco}}" class="login-input"></biit-input-text>
+                      placeholder="{{t('login.username')}}" class="login-input"></biit-input-text>
      <biit-input-text [(ngModel)]="login.password" fieldName="password" [error]="this.loginErrors.get(LoginError.PASSWORD)"
                       (keyup.enter)="performLogin()"
-                      placeholder="{{'login.password' | transloco}}" [type]="Type.PASSWORD" class="login-input"></biit-input-text>
+                      placeholder="{{t('login.password')}}" [type]="Type.PASSWORD" class="login-input"></biit-input-text>
      <biit-toggle
        class="margin-vertical-14"
        [(ngModel)]="login.remember">
-       {{'login.remember' | transloco}}
+       {{t('login.remember')}}
      </biit-toggle>
      <div class="margin-top-18 centered">
        <button biit-button primary
                (click)="performLogin()"
        >
-         {{'login.take_me_in' | transloco}}
+         {{t('login.take_me_in')}}
        </button>
      </div>
      <div class="margin-top-18 centered">
@@ -29,7 +29,7 @@
                (click)="onNotRemember.emit()"
                class="smaller-text"
        >
-         {{'login.forgot' | transloco}}
+         {{t('login.forgot')}}
        </button>
      </div>
    </div>
