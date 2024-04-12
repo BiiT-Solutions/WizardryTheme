@@ -95,6 +95,7 @@ $error-color: #A1093F;
 }
 
 .input-error-msg {
+  position: absolute;
   display: flex;
   align-items: center;
   font-size: 0.7em;

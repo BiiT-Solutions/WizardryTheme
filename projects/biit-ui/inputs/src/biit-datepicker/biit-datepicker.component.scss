@@ -353,6 +353,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .input-error-msg {
+  position: absolute;
   display: flex;
   align-items: center;
   font-size: 0.7em;
