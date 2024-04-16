@@ -6,6 +6,7 @@ import {BiitIconButtonModule} from "biit-ui/button";
 import {addMonths, addWeeks, subMonths, subWeeks} from "date-fns";
 import { DragAndDropModule } from 'angular-draggable-droppable';
 import {CalendarEventTimesChangedEvent} from "angular-calendar";
+import {ContextMenuModule} from "@perfectmemory/ngx-contextmenu";
 
 function saveEvent(value: CalendarEventTimesChangedEvent, events: CalendarEvent[]) {
   let event = events.filter(e => e.id == value.event.id)[0];
@@ -19,7 +20,7 @@ export default {
   title: 'Basic/Calendar',
   decorators: [
     moduleMetadata({
-      imports: [BiitCalendarModule, FormsModule, BiitIconButtonModule, DragAndDropModule]
+      imports: [BiitCalendarModule, FormsModule, BiitIconButtonModule, DragAndDropModule, ContextMenuModule]
     }),
   ],
   args: {
@@ -58,10 +59,21 @@ export const Weekly: Story<BiitCalendarComponent> = (args: BiitCalendarComponent
           <biit-calendar [calendarMode]="'WEEK'"
                          [viewDate]="viewDate"
                          [events]="events"
+                         [gridContextMenu]="gridContextMenu"
+                         [eventContextMenu]="eventContextMenu"
                          (onEventDrop)="saveEvent($event, events)"
                          ></biit-calendar>
         </div>
       </div>
+
+      <context-menu #gridContextMenu>
+        <ng-template contextMenuItem>Add Event</ng-template>
+      </context-menu>
+
+      <context-menu #eventContextMenu>
+        <ng-template contextMenuItem>Edit Event</ng-template>
+        <ng-template contextMenuItem>Delete Event</ng-template>
+      </context-menu>
 `
   }
 };

@@ -15,6 +15,7 @@ import {EventColor} from "../utils/event-color";
 import {CalendarEventTimesChangedEvent} from "angular-calendar";
 import {Subject} from "rxjs";
 import {CalendarEventClickEvent} from "./models/calendar-event-click-event";
+import {ContextMenuComponent} from "@perfectmemory/ngx-contextmenu";
 
 @Component({
   selector: 'biit-calendar',
@@ -29,6 +30,8 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit {
   @Input() calendarMode: CalendarMode = CalendarMode.MONTH;
   @Input() viewDate: Date = new Date();
   @Input() events: CalendarEvent[] = [];
+  @Input() gridContextMenu: ContextMenuComponent<any>;
+  @Input() eventContextMenu: ContextMenuComponent<any>;
   @Output() onEventDrop: EventEmitter<CalendarEventTimesChangedEvent> = new EventEmitter<CalendarEventTimesChangedEvent>();
   @Output() onEventClick: EventEmitter<CalendarEventClickEvent> = new EventEmitter<CalendarEventClickEvent>();
   protected locale: Locale;
