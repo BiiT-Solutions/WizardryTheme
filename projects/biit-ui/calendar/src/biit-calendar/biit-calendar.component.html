@@ -91,6 +91,7 @@
     [class.cal-after-hour-start]="!segment.isStart"
     [ngClass]="segment.cssClass"
     [contextMenu]="gridContextMenu"
+    [contextMenuValue]="segment.date"
   >
     <div class="cal-time" *ngIf="isTimeLabel">
       {{segment.displayDate | date: 'HH:mm'}}
@@ -144,6 +145,7 @@
     (mwlClick)="eventClicked.emit({ sourceEvent: $event })"
     (mwlKeydownEnter)="eventClicked.emit({ sourceEvent: $event })"
     [contextMenu]="eventContextMenu"
+    [contextMenuValue]="weekEvent.event"
     tabindex="0"
     role="application"
   >

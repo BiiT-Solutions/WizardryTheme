@@ -15,7 +15,7 @@
     "build-storybook": "npm run transloco:extract && npm run docs:json && build-storybook",
     "prepare-publication": "cp ./README.md ./storybook-static/ && echo \"{\\\"name\\\": \\\"`node -e \"console.log(require('./package.json').name);\"\n`\\\", \\\"version\\\": \\\"`node -e \"console.log(require('./package.json').version);\"\n`\\\"}\" > ./storybook-static/package.json",
     "prepare-translations": "cpx \"./src/assets/i18n/biit-ui/**/*.json\" \"./dist/biit-ui/assets/i18n/\"",
-    "prepare-styles": "cpx \"./src/assets/styles/**/*.json\" \"./dist/biit-ui/assets/styles/\"",
+    "prepare-styles": "cpx \"./src/assets/styles/**/*.*\" \"./dist/biit-ui/assets/styles/\"",
     "generate-zip": "mkdir -p ./dist-zip && tar -zcvf ./dist-zip/storybook.gz ./storybook-static",
     "publish-storybook": "npm run build-storybook && npm run prepare-publication && npm publish ./storybook-static",
     "publish-library": "npm run build-library && npm run prepare-translations && npm run prepare-styles && npm publish ./dist/biit-ui/"
