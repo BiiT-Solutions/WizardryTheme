@@ -20,8 +20,8 @@ export class CalendarEvent<MetaType = any> {
   constructor(id: string | number, title: string, startDate: Date, endDate: Date, allDay?: boolean, color?: EventColor, actions?: EventAction[], resizable?: boolean, draggable?: boolean, meta?: MetaType) {
     this.id = id;
     this.title = title;
-    this.start = new Date(startDate);
-    this.end = new Date(endDate);
+    this.start = startDate ? new Date(startDate) : undefined;
+    this.end = endDate ? new Date(endDate) : undefined;
     this.allDay = allDay ? allDay : false;
     this.color = color ? color : EventColor.Red;
     this.actions = actions ? actions : [];
