@@ -61,8 +61,8 @@ export default {
       control: false
     },
     dark_bg: {
-      name: 'dark-bg',
-      description: 'Puts a dark background behind the popup.',
+      name: 'clear-bg',
+      description: 'Makes the background transparent behind the popup.',
       table: {
         category: 'Attributes'
       },
@@ -115,7 +115,7 @@ const Template: Story<BiitPopupComponent> = (args: BiitPopupComponent) => ({
   template: `
     <button biit-button (click)="showPopup = true">Show Popup</button>
     <biit-popup *ngIf="showPopup"
-                dark-bg closable closable-outside
+                closable closable-outside
                 [title]="title"
                 (onClosed)="onClosed($event); showPopup = false;">
       <div [innerHTML]="content" style="width: 100%"></div>
@@ -128,7 +128,7 @@ Default.parameters = {
     source: {
       code: `
 <biit-popup *ngIf="showPopup"
-            dark-bg closable closable-outside
+            closable closable-outside
             [title]="title"
             (onClosed)="onClosed($event)"
 >
@@ -145,7 +145,7 @@ const SixtyTemplate: Story<BiitPopupComponent> = (args: BiitPopupComponent) => (
   template: `
     <button biit-button (click)="showSixty = true">Show Sixty View</button>
     <biit-popup *ngIf="showSixty"
-                sixty-view dark-bg closable closable-outside
+                sixty-view closable closable-outside
                 [title]="title"
                 (onClosed)="onClosed($event); showSixty = false;">
       <div [innerHTML]="content" style="width: 100%"></div>
