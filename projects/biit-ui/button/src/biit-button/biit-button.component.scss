@@ -19,7 +19,7 @@ $dark-border: #262626;
     width: fit-content;
     background: transparent;
     box-sizing: border-box;
-    border: 0.15em solid transparent;
+    border: 3px solid transparent;
     cursor: pointer;
 
     &:not(.tertiary) {
@@ -38,12 +38,12 @@ $dark-border: #262626;
 
         &:hover, :focus-visible {
           background: transparent;
-          border: 0.15em solid $dark-border;
+          border:3px solid $dark-border;
         }
 
         &:active {
           background: transparent;
-          border: 0.15em solid $dark-border;
+          border: 3px solid $dark-border;
         }
 
         .button-content {
@@ -53,7 +53,7 @@ $dark-border: #262626;
 
       &.secondary {
         color: $dark-border;
-        border: 0.15em solid $dark-border;
+        border: 3px solid $dark-border;
 
         &:hover .button-content, :focus-visible .button-content {
           background: $light-grey;
@@ -83,7 +83,7 @@ $dark-border: #262626;
     &:not(.disabled) {
       .primary {
         background: transparent;
-        border: 0.15em solid $dark-border;
+        border: 3px solid $dark-border;
       }
       .secondary .button-content {
         background: $light-grey;
@@ -98,7 +98,7 @@ $dark-border: #262626;
     pointer-events: none;
 
     .primary {
-      border: 0.15em solid $light-grey;
+      border: 3px solid $light-grey;
 
       .button-content {
         background: $light-grey !important;
@@ -107,7 +107,7 @@ $dark-border: #262626;
     }
 
     .secondary {
-      border: 0.15em solid $light-grey !important;
+      border: 3px solid $light-grey !important;
       color: $light-grey;
     }
 

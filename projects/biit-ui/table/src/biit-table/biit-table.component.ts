@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  AfterViewChecked,
   Component,
   Directive,
   ElementRef,
@@ -73,7 +73,7 @@ export class BiitTableFooterlessDirective {
     useValue: {scope: 'biit-ui/table', alias: "table"}
   }]
 })
-export class BiitTableComponent implements OnInit, AfterViewInit {
+export class BiitTableComponent implements OnInit, AfterViewChecked {
 
   @Input('data') set _data(data: BiitTableData<any>) {
     if (data) {
@@ -122,7 +122,7 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
     this.paginator = new BiitPaginatorOptions(1, this.defaultPageSize, this.pageSizes, this.data ? this.data.totalItems : 1);
   }
 
-  ngAfterViewInit() {
+  ngAfterViewChecked() {
     this.setColumnSize();
   }
 

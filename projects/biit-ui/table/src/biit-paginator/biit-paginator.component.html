@@ -52,7 +52,7 @@
                  [class.rotate]="dropdownOpen"
       ></biit-icon>
     </button>
-    <div class="dropdown">
+    <div class="dropdown" [style.overflow]="dropdownOpen ? 'visible' : 'hidden'">
       <div #pageSizeList
            class="list"
            [class.dropdown-open]="dropdownOpen">
