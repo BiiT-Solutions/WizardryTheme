@@ -30,10 +30,10 @@ export default {
       new CalendarEvent(undefined, '1 line event', new Date(new Date().setHours(1, 0)), new Date(new Date().setHours(1, 30))),
       new CalendarEvent(undefined, '2 line event so this title is longer', new Date(new Date().setHours(2, 0)), new Date(new Date().setHours(2, 45))),
       new CalendarEvent(undefined, '3 line event so this title is longer', new Date(new Date().setHours(3, 0)), new Date(new Date().setHours(4, 0))),
-      new CalendarEvent(undefined, 'Different color', new Date(), new Date(), true, EventColor.Green),
-      new CalendarEvent(undefined, 'Different color', new Date(new Date().setDate(new Date().getDate() - 1)), new Date(new Date().setDate(new Date().getDate() - 1)), true, EventColor.Green)
+      new CalendarEvent(undefined, 'Different color', new Date(), new Date(), true, EventColor.GREEN),
+      new CalendarEvent(undefined, 'Different color', new Date(new Date().setDate(new Date().getDate() - 1)), new Date(new Date().setDate(new Date().getDate() - 1)), true, EventColor.GREEN)
     ],
-    dragEvent: new CalendarEvent(undefined, 'Drag Event', new Date(), new Date(), true, EventColor.Purple)
+    dragEvent: new CalendarEvent(undefined, 'Drag Event', new Date(), new Date(), true, EventColor.PURPLE)
   },
 } as Meta;
 

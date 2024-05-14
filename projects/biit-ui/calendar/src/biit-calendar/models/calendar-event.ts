@@ -23,7 +23,7 @@ export class CalendarEvent<MetaType = any> {
     this.start = startDate ? new Date(startDate) : undefined;
     this.end = endDate ? new Date(endDate) : undefined;
     this.allDay = allDay ? allDay : false;
-    this.color = color ? color : EventColor.Red;
+    this.color = color ? color : EventColor.RED;
     this.actions = actions ? actions : [];
     if (resizable) {
       this.resizable = {beforeStart: true, afterEnd: true}
