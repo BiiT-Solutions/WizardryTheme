@@ -17,7 +17,7 @@ $active-color: #F20D5E;
   height: 2.125em;
   width: 2.125em;
 
-  &:hover, &:focus-visible, &.checked {
+  &:hover, &:focus-visible, &:has(.checked) {
     background-color: $background-color;
   }
 
