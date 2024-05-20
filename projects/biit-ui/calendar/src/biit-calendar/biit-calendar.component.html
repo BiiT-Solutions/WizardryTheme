@@ -1,5 +1,6 @@
 <mwl-calendar-week-view [style.display]="calendarMode != CalendarMode.WEEK ? 'none' : null"
                         #calendar
+                        [locale]="locale"
                         [viewDate]="viewDate"
                         [events]="events"
                         [headerTemplate]="customHeader"
@@ -44,9 +45,9 @@
       tabindex="0"
       role="columnheader"
     >
-      <span>
-        {{ day.date | date: 'EE' }}
-        {{ day.date | date: 'dd' }}
+      <span style="text-transform: capitalize">
+        {{ day.date | translocoDate: {weekday: 'short'}: this.locale }}
+        {{ day.date | translocoDate: {day: '2-digit'}: locale }}
       </span>
     </div>
   </div>
@@ -209,7 +210,9 @@
 <mwl-calendar-month-view [style.display]="calendarMode != CalendarMode.MONTH ? 'none' : null"
                          [viewDate]="viewDate"
                          [events]="events"
+                         [locale]="locale.code"
                          [cellTemplate]="monthCell"
+                         [headerTemplate]="customMonthHeader"
                          [refresh]="refresh"
                          (eventTimesChanged)="onEventDrop.emit($event)"
                          (eventClicked)="onEventClick.emit({event: $calendarEvent($event.event), sourceEvent: $event.sourceEvent})"
@@ -267,6 +270,39 @@
          [attr.aria-hidden]="{} | calendarA11y : 'hideMonthCellEvents'"
     >
       {{$calendarEvent(event).title}}
+    </div>
+  </div>
+</ng-template>
+
+<ng-template
+  #customMonthHeader
+  let-days="days"
+  let-locale="locale"
+  let-columnHeaderClicked="columnHeaderClicked"
+  let-trackByWeekDayHeaderDate="trackByWeekDayHeaderDate"
+>
+  <div class="cal-cell-row cal-header" role="row">
+    <div
+      class="cal-cell"
+      *ngFor="let day of days; trackBy: trackByWeekDayHeaderDate"
+      [class.cal-past]="day.isPast"
+      [class.cal-today]="day.isToday"
+      [class.cal-future]="day.isFuture"
+      [class.cal-weekend]="day.isWeekend"
+      (click)="
+            columnHeaderClicked.emit({
+              isoDayNumber: day.day,
+              sourceEvent: $event
+            })
+          "
+      [ngClass]="day.cssClass"
+      tabindex="0"
+      role="columnheader"
+    >
+      <span>
+        {{ day.date | translocoDate : {weekday:'long'}: locale }}
+      </span>
+
     </div>
   </div>
 </ng-template>
