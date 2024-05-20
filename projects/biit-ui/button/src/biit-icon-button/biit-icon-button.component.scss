@@ -39,7 +39,7 @@ $active-color: #F20D5E;
     }
   }
 
-  &.checked ::ng-deep biit-icon path {
+  &:has(.checked) ::ng-deep biit-icon path {
     fill: $active-color !important;
   }
 }
