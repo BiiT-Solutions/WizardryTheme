@@ -1,6 +1,6 @@
 <mwl-calendar-week-view [style.display]="calendarMode != CalendarMode.WEEK ? 'none' : null"
                         #calendar
-                        [locale]="locale"
+                        [locale]="locale.code"
                         [viewDate]="viewDate"
                         [events]="events"
                         [headerTemplate]="customHeader"
