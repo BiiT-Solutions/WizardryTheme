@@ -148,3 +148,14 @@ $error-color: #A1093F;
   top: -0.5em;
   left: -0.5em;
 }
+
+@media(max-width: 550px) {
+  .popup-canvas {
+    min-width: 0;
+  }
+
+  .login-container {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+}

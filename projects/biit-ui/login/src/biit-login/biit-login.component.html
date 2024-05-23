@@ -1,4 +1,4 @@
-<biit-popup dark-bg no-header *transloco="let t">
+<biit-popup no-header *transloco="let t">
  <div class="login-container">
    <div class="login-column">
      <div class="login-icon-square">
@@ -8,6 +8,7 @@
    </div>
    <div class="login-column">
      <biit-input-text [(ngModel)]="login.username" fieldName="username" [type]="Type.TEXT" [error]="this.loginErrors.get(LoginError.USERNAME)"
+                      (keyup.enter)="performLogin()"
                       placeholder="{{t('login.username')}}" class="login-input"></biit-input-text>
      <biit-input-text [(ngModel)]="login.password" fieldName="password" [error]="this.loginErrors.get(LoginError.PASSWORD)"
                       (keyup.enter)="performLogin()"
