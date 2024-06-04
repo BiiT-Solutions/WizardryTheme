@@ -59,3 +59,14 @@ $biit-color: #F20D5E;
 .smaller-text {
   font-size: 0.9em;
 }
+
+@media (max-width: 600px) {
+  .popup-canvas {
+    min-width: auto;
+
+    .login-container {
+      flex-direction: column-reverse;
+      gap: 1.5rem;
+    }
+  }
+}
