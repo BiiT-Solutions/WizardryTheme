@@ -61,8 +61,8 @@ $biit-color: #F20D5E;
 }
 
 @media (max-width: 600px) {
-  .popup-canvas {
-    min-width: auto;
+  ::ng-deep .popup-canvas {
+    min-width: auto !important;
 
     .login-container {
       flex-direction: column-reverse;
