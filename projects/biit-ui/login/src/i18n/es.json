@@ -1,10 +1,20 @@
 {
   "username-empty": "El nombre de usuario es necesario.",
   "password-empty": "La contraseña es necesaria.",
+  "email-empty": "El email es necesario.",
   "username": "Usuario",
   "password": "Contraseña",
   "take_me_in": "Acceder",
   "forgot": "Olvidé mi contraseña",
   "cant_remember": "No puedo recordar la contraseña",
-  "remember": "Recuérdame"
+  "remember": "Recuérdame",
+  "email": "Email",
+  "reset_password_title": "Restablecer contraseña",
+  "reset_password_subtitle": "Alguien necesita un hechizo de memoria...",
+  "reset_password_body": "Introduce tu correo electrónico para recuperar el acceso a tu cuenta",
+  "update_password_title": "Actualizar contraseña",
+  "update_password_subtitle": "Necesitas un nuevo hechizo...",
+  "update_password_body": "Escoge una contraseña robusta y no la reuses en otras cuentas",
+  "reset": "Restablecer",
+  "i_remember": "¡Ya me acuerdo!"
 }
