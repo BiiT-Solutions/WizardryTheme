@@ -1,6 +1,6 @@
 {
   "name": "biit-ui",
-  "version": "0.0.210",
+  "version": "0.0.211",
   "author": "Biit Sourcing Solutions",
   "scripts": {
     "increase-version": "npm --no-git-tag-version version patch"
