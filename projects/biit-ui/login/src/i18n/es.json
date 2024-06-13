@@ -16,5 +16,7 @@
   "update_password_subtitle": "Necesitas un nuevo hechizo...",
   "update_password_body": "Escoge una contraseña robusta y no la reuses en otras cuentas",
   "reset": "Restablecer",
-  "i_remember": "¡Ya me acuerdo!"
+  "i_remember": "¡Ya me acuerdo!",
+  "success": "Email de recuperación enviado.",
+  "error": "Ha habido un error. Por favor, inténtalo de nuevo."
 }

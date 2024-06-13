@@ -16,5 +16,7 @@
   "update_password_subtitle": "You do need a new spell...",
   "update_password_body": "Choose a powerful password and don't reuse it in other accounts",
   "reset": "Reset",
-  "i_remember": "I remember, I do!"
+  "i_remember": "I remember, I do!",
+  "success": "Recovery email sent.",
+  "error": "There has been an issue, please try again."
 }
