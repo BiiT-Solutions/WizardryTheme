@@ -30,9 +30,9 @@ export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
   @Input() type: Type;
   @Input() icon: biitIcon;
   @Input() fieldName: string;
-  @Input() disabled: boolean;
-  @Input() required: boolean;
-  @Input() readonly: boolean;
+  @Input() disabled;
+  @Input() required;
+  @Input() readonly;
   @Input() min: number;
   @Input() max: number;
   @Input() minLength: number;
