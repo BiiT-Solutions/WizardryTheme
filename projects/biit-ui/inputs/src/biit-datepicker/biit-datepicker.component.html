@@ -69,7 +69,7 @@
                       [class.outer-day]="day | outOfMonth: viewerDate"
                       [class.is-today]="day | isToday"
                       [class.selected]="day | isSameDay: value"
-                      [class.disabled]="day | isDisabled: disabledDays: disableWeekdays: disableWeekends: min: max"
+                      [class.disabled]="day | isDisabled: disabledDays: disableWeekdays: disableWeekends: sub(min, {days: 1}): add(max, {days: 1})"
                       (click)="onModelChange(day)"
                       tabindex="0"
               >
@@ -129,14 +129,14 @@
                     ></biit-icon>
                   </div>
                   <div class="item secondary"
-                       (click)="onModelChange(sub(value, {hours: 1}))">
+                       (click)="onModelChange(sub(value, {minutes: 1}))">
                     {{ value ? (sub(value, {minutes: 1}) | date: 'mm') : '' }}
                   </div>
                   <div class="item primary">
                     {{ value ? (value | date: 'mm') : '' }}
                   </div>
                   <div class="item secondary"
-                       (click)="onModelChange(add(value, {hours: 1}))">
+                       (click)="onModelChange(add(value, {minutes: 1}))">
                     {{ value ? (add(value, {minutes: 1}) | date: 'mm') : '' }}
                   </div>
                   <div class="item arrow"
@@ -295,7 +295,7 @@
                 [class.outer-day]="day | outOfMonth: viewerDate"
                 [class.is-today]="day | isToday"
                 [class.selected]="day | isSameDay: value"
-                [class.disabled]="day | isDisabled: disabledDays: disableWeekdays: disableWeekends: min: max"
+                [class.disabled]="day | isDisabled: disabledDays: disableWeekdays: disableWeekends: sub(min, {days: 1}): add(max, {days: 1})"
                 (click)="onModelChange(day)"
                 tabindex="0"
         >

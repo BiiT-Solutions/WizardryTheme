@@ -101,8 +101,8 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
 
   onModelChange(value: Date) {
     if (value) {
-      if (this.min && new Date(value).getTime() < new Date(this.min).getTime()) value = this.min;
-      if (this.max && new Date(value).getTime() > new Date(this.max).getTime()) value = this.max;
+      if (this.min && new Date(value).getTime() <= (new Date(this.min).getTime())) value = add(this.min, {minutes: 1});
+      if (this.max && new Date(value).getTime() > new Date(this.max).getTime()) value = sub(this.max, {minutes: 1});
 
       this.value = new Date(value);
       this.viewerDate = new Date(value);
