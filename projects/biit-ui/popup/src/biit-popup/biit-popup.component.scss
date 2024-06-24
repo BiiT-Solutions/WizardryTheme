@@ -67,6 +67,7 @@ $error-color: #A1093F;
   justify-content: flex-end;
   height: 2.1rem;
   width: 100%;
+  flex-shrink: 0;
 
   .title {
     display: inline-flex;
