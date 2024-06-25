@@ -112,6 +112,7 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
   protected columnResize: ColumnResizeHandler = new ColumnResizeHandler();
   protected loading: boolean = false;
   protected search: string = '';
+  protected currentSearch: string = '';
   protected readonly BiitMultiselectType = BiitMultiselectType;
   protected readonly BiitTableColumnFormat = BiitTableColumnFormat;
 
@@ -166,6 +167,7 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
   }
 
   onTableUpdate() {
+    this.currentSearch = this.search;
     this.selectedRows.clear();
     this.onUpdate.emit(new BiitTableResponse(
       this.paginator.currentPage,
@@ -266,7 +268,7 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
   }
 
   resetInputValue(event: Event, value: string) {
-    (event.target as HTMLInputElement).value = value;
+    this.search = this.currentSearch;
   }
 
   log(value) {

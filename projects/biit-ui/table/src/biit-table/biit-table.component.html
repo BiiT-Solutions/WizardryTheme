@@ -4,9 +4,8 @@
       <ng-content></ng-content>
     </div>
     <div class="forms">
-      <biit-input-text [ngModel]="search"
+      <biit-input-text [(ngModel)]="search"
                        (onActionPerformed)="
-                         search = $event;
                          paginator.currentPage = 1;
                          onTableUpdate();
                        "
