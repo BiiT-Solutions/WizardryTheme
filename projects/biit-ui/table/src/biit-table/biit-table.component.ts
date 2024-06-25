@@ -267,7 +267,7 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
     this.onRowClick.emit(item);
   }
 
-  resetInputValue(event: Event, value: string) {
+  resetInputValue() {
     this.search = this.currentSearch;
   }
 
