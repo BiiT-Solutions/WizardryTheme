@@ -78,7 +78,7 @@ $error-color: #A1093F;
 }
 
 /* active state */
-.input-object:focus ~ .input-placeholder, .input-filled {
+.input-object:focus ~ .input-placeholder, .input-object:-webkit-autofill, .input-filled {
   top:-0.95em;
   font-size: 0.7em;
   line-height: 0.7em;
