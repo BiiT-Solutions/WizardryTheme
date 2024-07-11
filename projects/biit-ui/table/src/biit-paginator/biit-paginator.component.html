@@ -41,7 +41,7 @@
   <!-- PAGE SIZE SELECTOR -->
   <div class="page-size-selector">
     <a
-      tooltip="Next page">{{t('table.rows-per-page')}}</a>
+      [tooltip]="t('table.rows-per-page')">{{t('table.rows-per-page')}}</a>
     <button #pageSizeBtn
             (click)="!dropdownOpen ? openDropdown() : closeDropdown()"
             (keydown)="handleKeyboardEvents($event)">
