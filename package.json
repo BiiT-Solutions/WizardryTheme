@@ -44,7 +44,7 @@
     "uuid": "^9.0.0",
     "zone.js": "~0.12.0",
     "@perfectmemory/ngx-contextmenu": "^15.0.0",
-    "@siemens/ngx-datatable": "^22.4.0"
+    "@siemens/ngx-datatable": "~21.6.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "v15-lts",
