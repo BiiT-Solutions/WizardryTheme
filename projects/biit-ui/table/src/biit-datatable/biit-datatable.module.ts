@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {BiitDatatableComponent} from "./biit-datatable.component";
 import {BiitCheckboxModule, BiitInputTextModule, BiitMultiselectModule} from 'biit-ui/inputs';
 import {FormsModule} from '@angular/forms';
@@ -27,7 +27,8 @@ import {TranslocoModule} from "@ngneat/transloco";
     BiitMultiselectModule,
     TranslocoModule,
     BiitInputTextModule
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class BiitDatatableModule {
 }
