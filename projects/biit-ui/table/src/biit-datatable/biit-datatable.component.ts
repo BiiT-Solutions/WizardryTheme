@@ -42,11 +42,13 @@ export class BiitDatatableComponent<T> implements OnInit {
     return this.selected;
   }
 
-  @Input() pageSize: number = 10;
-  @Input() pageSizeList: number[] = [5, 10, 20];
+  @Input() pageSize?:number;
+  @Input() pageSizeList: number[] = [];
   @Input() loading = false;
   @Input() selectable?: any;
   @Input() scrollbarH?: any;
+  @Input() hideHeader?: any;
+  @Input() hideFooter?: any;
   search: string = "";
 
   @Output() onSelection: EventEmitter<T[]> = new EventEmitter<T[]>();
@@ -62,6 +64,8 @@ export class BiitDatatableComponent<T> implements OnInit {
   ngOnInit() {
     this.selectable = coerceBooleanProperty(this.selectable);
     this.scrollbarH = coerceBooleanProperty(this.scrollbarH);
+    this.hideHeader = coerceBooleanProperty(this.hideHeader);
+    this.hideFooter = coerceBooleanProperty(this.hideFooter);
   }
 
   onSelect({ selected }) {

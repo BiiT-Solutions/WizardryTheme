@@ -1,5 +1,5 @@
 <div class="table-canvas" *transloco="let t">
-  <div class="top">
+  <div class="top" *ngIf="!hideHeader">
     <div class="action-bar">
       <ng-content></ng-content>
     </div>
@@ -31,7 +31,7 @@
                    [columns]="_columns"
                    [columnMode]="'force'"
                    [headerHeight]="42"
-                   [footerHeight]="42"
+                   [footerHeight]="hideFooter ? 0 : 42"
                    [rowHeight]="42"
                    [reorderable]="false"
                    [selectionType]="SelectionType.checkbox"
@@ -121,7 +121,7 @@
                                   (change)="log($event); table.onFooterPage($event)">
             </biit-datatable-pager>
           </div>
-          <div class="page-items">
+          <div class="page-items" *ngIf="pageSizeList?.length">
             <span>{{ t('t.rows-per-page') }}:</span>
             <select [(ngModel)]="pageSize"
                     (ngModelChange)="pager.size = $event">
