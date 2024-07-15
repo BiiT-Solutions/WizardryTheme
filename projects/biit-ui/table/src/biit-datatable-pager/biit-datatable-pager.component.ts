@@ -1,6 +1,6 @@
 import {
   AfterViewInit, ChangeDetectorRef,
-  Component, ElementRef, QueryList, ViewChild, ViewChildren
+  Component, ElementRef, QueryList, ViewChildren
 } from '@angular/core';
 import {DataTablePagerComponent} from "@siemens/ngx-datatable";
 import {provideTranslocoScope} from "@ngneat/transloco";
@@ -42,6 +42,5 @@ export class BiitDatatablePagerComponent extends DataTablePagerComponent impleme
   }
 
   log(event) {
-    debugger
   }
 }

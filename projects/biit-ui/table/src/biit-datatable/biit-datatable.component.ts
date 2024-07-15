@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {DatatableColumn} from "./models/datatable-column";
 import {ColumnMode, DatatableComponent, SelectionType} from "@siemens/ngx-datatable";
 import {completeIconSet} from "biit-icons-collection";
@@ -46,6 +46,7 @@ export class BiitDatatableComponent<T> implements OnInit {
   @Input() pageSizeList: number[] = [];
   @Input() loading = false;
   @Input() selectable?: any;
+  @Input() singleSelection?: any;
   @Input() scrollbarH?: any;
   @Input() hideHeader?: any;
   @Input() hideFooter?: any;
@@ -63,6 +64,7 @@ export class BiitDatatableComponent<T> implements OnInit {
 
   ngOnInit() {
     this.selectable = coerceBooleanProperty(this.selectable);
+    this.singleSelection = coerceBooleanProperty(this.singleSelection);
     this.scrollbarH = coerceBooleanProperty(this.scrollbarH);
     this.hideHeader = coerceBooleanProperty(this.hideHeader);
     this.hideFooter = coerceBooleanProperty(this.hideFooter);

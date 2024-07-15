@@ -4,15 +4,13 @@
   align-items: center;
 
   button[biit-icon] {
-    height: 42px;
-    width: 42px;
 
     &.horizontal-flip {
       rotate: -180deg;
     }
 
     &.compact ::ng-deep .icon-button-svg {
-      width: 0.6em;
+      width: 10px;
     }
   }
 
@@ -20,7 +18,7 @@
     position: relative;
     display: flex;
     align-items: baseline;
-    padding: 10px 14px;
+    padding: 6px 14px;
     gap: 14px;
     line-height: 100%;
     font-weight: 700;

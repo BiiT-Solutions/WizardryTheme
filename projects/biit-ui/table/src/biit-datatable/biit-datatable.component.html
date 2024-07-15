@@ -31,7 +31,7 @@
                    [columns]="_columns"
                    [columnMode]="'force'"
                    [headerHeight]="42"
-                   [footerHeight]="hideFooter ? 0 : 42"
+                   [footerHeight]="hideFooter ? 0 : 34"
                    [rowHeight]="42"
                    [reorderable]="false"
                    [selectionType]="SelectionType.checkbox"
@@ -43,7 +43,7 @@
                    [limit]="pageSize"
                    [scrollbarH]="scrollbarH"
     >
-      <ngx-datatable-column *ngIf="selectable"
+      <ngx-datatable-column *ngIf="selectable && !singleSelection"
                             #chkbox
                             [width]="42"
                             [sortable]="false"
@@ -121,16 +121,18 @@
                                   (change)="log($event); table.onFooterPage($event)">
             </biit-datatable-pager>
           </div>
-          <div class="page-items" *ngIf="pageSizeList?.length">
-            <span>{{ t('t.rows-per-page') }}:</span>
-            <select [(ngModel)]="pageSize"
-                    (ngModelChange)="pager.size = $event">
-              <option *ngFor="let size of pageSizeList"
-                      [ngValue]="size"
-              >
-                {{size}}
-              </option>
-            </select>
+          <div class="page-items">
+            <div *ngIf="pageSizeList?.length">
+              <span>{{ t('t.rows-per-page') }}:</span>
+              <select [(ngModel)]="pageSize"
+                      (ngModelChange)="pager.size = $event">
+                <option *ngFor="let size of pageSizeList"
+                        [ngValue]="size"
+                >
+                  {{size}}
+                </option>
+              </select>
+            </div>
           </div>
         </ng-template>
       </ngx-datatable-footer>
