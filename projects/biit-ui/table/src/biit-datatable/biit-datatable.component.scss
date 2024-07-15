@@ -89,8 +89,9 @@
             min-height: 42px;
             border-bottom: 3px solid #262626;
             width: calc(100% - 3px);
-            padding: 11px 14px;
-            line-height: 100%;
+            padding: 9px 14px;
+            line-height: 120%;
+            height: 100%;
           }
 
           &:hover .datatable-body-cell-label {
@@ -165,6 +166,17 @@
 
       &:has(datatable-footer) datatable-body {
         height: calc(100% - 48px) !important;
+      }
+    }
+  }
+}
+
+::ng-deep ngx-datatable {
+  .auto-details-height {
+    .datatable-row-wrapper {
+      height: unset !important;
+      .datatable-row-detail {
+        height: unset !important;
       }
     }
   }
