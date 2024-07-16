@@ -42,6 +42,7 @@
                    [scrollbarVDynamic]="true"
                    [limit]="pageSize"
                    [scrollbarH]="scrollbarH"
+                   [messages]="{emptyMessage: t('t.empty-message')}"
     >
       <ngx-datatable-column *ngIf="selectable && !singleSelection"
                             #chkbox

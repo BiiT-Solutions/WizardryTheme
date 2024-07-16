@@ -9,5 +9,6 @@
   "yes": "Yes",
   "no": "No",
   "total": "Total",
-  "selected": "Selected"
+  "selected": "Selected",
+  "empty-message": "No data to display."
 }

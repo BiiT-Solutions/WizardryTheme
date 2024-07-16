@@ -9,5 +9,6 @@
   "yes": "Sí",
   "no": "No",
   "total": "Total",
-  "selected": "Seleccionados"
+  "selected": "Seleccionados",
+  "empty-message": "No hay resultados que mostrar."
 }
