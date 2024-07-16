@@ -113,7 +113,7 @@
             <span>{{ t('t.total') }}: {{rowCount}}</span>
             <span *ngIf="selectedCount">&nbsp;&nbsp;|&nbsp;&nbsp;{{ t('t.selected') }}: {{selectedCount}}</span>
           </div>
-          <div class="pagination">
+          <div class="pagination" [style.display]="!((rowCount / pageSize) > 1) ? 'none' : null">
             <biit-datatable-pager #pager
                                   [page]="curPage"
                                   [size]="pageSizeCurrent"
@@ -122,7 +122,7 @@
                                   (change)="log($event); table.onFooterPage($event)">
             </biit-datatable-pager>
           </div>
-          <div class="page-items">
+          <div class="page-items" *ngIf="!pageSizeList">
             <div *ngIf="pageSizeList?.length">
               <span>{{ t('t.rows-per-page') }}:</span>
               <select [(ngModel)]="pageSize"
