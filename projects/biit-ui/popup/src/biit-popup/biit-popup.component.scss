@@ -47,7 +47,7 @@ $error-color: #A1093F;
   height: 100vh;
   background-color: white;
   z-index: 11;
-  border: solid 0.15rem $default-color;
+  border: 3px solid $default-color;
   box-sizing: border-box;
   padding: 2.1rem 2.1rem 3rem 2.1rem;
 
@@ -90,7 +90,7 @@ $error-color: #A1093F;
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 0.15rem;
+    height: 3px;
     width: 60%;
     background: black;
   }
