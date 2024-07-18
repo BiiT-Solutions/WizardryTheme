@@ -7,7 +7,7 @@
              [ngModel]="value && !timePicker ? (value | date: 'yyyy-MM-dd') :
                         value && timePicker ? (value | date: 'yyyy-MM-dd\THH:mm') :
                         undefined"
-             (ngModelChange)="onModelChange(parseDate($event))"
+             (ngModelChange)="onModelChange(parseISO($event))"
              [type]="timePicker ? 'datetime-local' : 'date'" required
              [style.background]="dropdownOpen ? '#D9D9D9' : null"
              [min]="min ? (min | date: 'yyyy-MM-dd') : undefined"
@@ -25,11 +25,11 @@
         ></biit-icon>
       </div>
       <div class="input-placeholder input-filled">
-        {{placeholder}}
+        {{_placeholder}}
         <a *ngIf="required"
            [style.color]="value ? null : 'red'">*</a>
       </div>
-      <biit-icon *ngIf="error || (value | isDisabled: disabledDays: disableWeekdays: disableWeekends)"
+      <biit-icon *ngIf="error || (value | isDisabled: disabledDays: disableWeekdays: disableWeekends: min: max)"
                  name="exclamation"
                  class="input-error-icon"
                  [pathStyle]="{fill:'#A1093F'}"
@@ -38,7 +38,7 @@
       <div style="position: relative; height: 0;">
         <div class="popup"
              [class.dropdown-open]="dropdownOpen"
-             [style.height]="!monthSelector && timePicker ? '29.1rem' : null">
+             [style.height]="!monthSelector && timePicker ? '29.1em + 3px)' : null">
           <div *ngIf="!monthSelector"
                class="month-view">
             <div class="month-selector">
@@ -69,7 +69,7 @@
                       [class.outer-day]="day | outOfMonth: viewerDate"
                       [class.is-today]="day | isToday"
                       [class.selected]="day | isSameDay: value"
-                      [class.disabled]="day | isDisabled: disabledDays: disableWeekdays: disableWeekends"
+                      [class.disabled]="day | isDisabled: disabledDays: disableWeekdays: disableWeekends: sub(min, {days: 1}): add(max, {days: 1})"
                       (click)="onModelChange(day)"
                       tabindex="0"
               >
@@ -88,64 +88,64 @@
                 {{'inputs.done' | transloco}}
               </button>
             </div>
-          </div>
 
-          <div class="time-picker" *ngIf="!monthSelector && timePicker">
-            <div class="selector">
-              <div class="column"
-                   style="min-width: 2em;">
-                <div class="item arrow"
-                     (click)="onModelChange(sub(value, {hours: 1}))">
-                  <biit-icon [name]="'right_arrow'"
-                             [pathStyle]="{fill: '#262626'}"
-                             class="up"
-                  ></biit-icon>
+            <div class="time-picker" *ngIf="!monthSelector && timePicker">
+              <div class="selector">
+                <div class="column"
+                     style="min-width: 2em;">
+                  <div class="item arrow"
+                       (click)="onModelChange(sub(value, {hours: 1}))">
+                    <biit-icon [name]="'right_arrow'"
+                               [pathStyle]="{fill: '#262626'}"
+                               class="up"
+                    ></biit-icon>
+                  </div>
+                  <div class="item secondary"
+                       (click)="onModelChange(sub(value, {hours: 1}))">
+                    {{ value ? (sub(value, {hours: 1}) | date: 'H') : '' }}
+                  </div>
+                  <div class="item primary">
+                    {{ value ? (value | date: 'H') : '' }}
+                  </div>
+                  <div class="item secondary"
+                       (click)="onModelChange(add(value, {hours: 1}))">
+                    {{ value ? (add(value, {hours: 1}) | date: 'H') : '' }}
+                  </div>
+                  <div class="item arrow"
+                       (click)="onModelChange(add(value, {hours: 1}))">
+                    <biit-icon [name]="'right_arrow'"
+                               [pathStyle]="{fill: '#262626'}"
+                               class="down"
+                    ></biit-icon>
+                  </div>
                 </div>
-                <div class="item secondary"
-                     (click)="onModelChange(sub(value, {hours: 1}))">
-                  {{ value ? (sub(value, {hours: 1}) | date: 'H') : '' }}
-                </div>
-                <div class="item primary">
-                  {{ value ? (value | date: 'H') : '' }}
-                </div>
-                <div class="item secondary"
-                     (click)="onModelChange(add(value, {hours: 1}))">
-                  {{ value ? (add(value, {hours: 1}) | date: 'H') : '' }}
-                </div>
-                <div class="item arrow"
-                     (click)="onModelChange(add(value, {hours: 1}))">
-                  <biit-icon [name]="'right_arrow'"
-                             [pathStyle]="{fill: '#262626'}"
-                             class="down"
-                  ></biit-icon>
-                </div>
-              </div>
-              <div class="column"
-                   style="min-width: 2em;">
-                <div class="item arrow"
-                     (click)="onModelChange(sub(value, {minutes: 1}))">
-                  <biit-icon [name]="'right_arrow'"
-                             [pathStyle]="{fill: '#262626'}"
-                             class="up"
-                  ></biit-icon>
-                </div>
-                <div class="item secondary"
-                     (click)="onModelChange(sub(value, {hours: 1}))">
-                  {{ value ? (sub(value, {minutes: 1}) | date: 'mm') : '' }}
-                </div>
-                <div class="item primary">
-                  {{ value ? (value | date: 'mm') : '' }}
-                </div>
-                <div class="item secondary"
-                     (click)="onModelChange(add(value, {hours: 1}))">
-                  {{ value ? (add(value, {minutes: 1}) | date: 'mm') : '' }}
-                </div>
-                <div class="item arrow"
-                     (click)="onModelChange(add(value, {minutes: 1}))">
-                  <biit-icon [name]="'right_arrow'"
-                             [pathStyle]="{fill: '#262626'}"
-                             class="down"
-                  ></biit-icon>
+                <div class="column"
+                     style="min-width: 2em;">
+                  <div class="item arrow"
+                       (click)="onModelChange(sub(value, {minutes: 1}))">
+                    <biit-icon [name]="'right_arrow'"
+                               [pathStyle]="{fill: '#262626'}"
+                               class="up"
+                    ></biit-icon>
+                  </div>
+                  <div class="item secondary"
+                       (click)="onModelChange(sub(value, {minutes: 1}))">
+                    {{ value ? (sub(value, {minutes: 1}) | date: 'mm') : '' }}
+                  </div>
+                  <div class="item primary">
+                    {{ value ? (value | date: 'mm') : '' }}
+                  </div>
+                  <div class="item secondary"
+                       (click)="onModelChange(add(value, {minutes: 1}))">
+                    {{ value ? (add(value, {minutes: 1}) | date: 'mm') : '' }}
+                  </div>
+                  <div class="item arrow"
+                       (click)="onModelChange(add(value, {minutes: 1}))">
+                    <biit-icon [name]="'right_arrow'"
+                               [pathStyle]="{fill: '#262626'}"
+                               class="down"
+                    ></biit-icon>
+                  </div>
                 </div>
               </div>
             </div>
@@ -253,7 +253,7 @@
           {{error}}
         </a>
       </div>
-      <div *ngIf="value | isDisabled: disabledDays: disableWeekdays: disableWeekends" class="input-error-msg">
+      <div *ngIf="value | isDisabled: disabledDays: disableWeekdays: disableWeekends: min: max" class="input-error-msg">
         <a>
           {{'inputs.date-error' | transloco}}
         </a>
@@ -264,7 +264,7 @@
 
 <ng-template #calendarModeTemplate>
   <div class="popup calendar-mode"
-       [style.height]="!monthSelector && timePicker ? '29.1rem' : null">
+       [style.height]="!monthSelector && timePicker ? 'calc(29.1em + 3px)' : null">
     <div *ngIf="!monthSelector"
          class="month-view">
       <div class="month-selector">
@@ -295,7 +295,7 @@
                 [class.outer-day]="day | outOfMonth: viewerDate"
                 [class.is-today]="day | isToday"
                 [class.selected]="day | isSameDay: value"
-                [class.disabled]="day | isDisabled: disabledDays: disableWeekdays: disableWeekends"
+                [class.disabled]="day | isDisabled: disabledDays: disableWeekdays: disableWeekends: sub(min, {days: 1}): add(max, {days: 1})"
                 (click)="onModelChange(day)"
                 tabindex="0"
         >
@@ -308,10 +308,6 @@
                 class="today-btn"
                 (click)="setToday()">
           {{'inputs.today' | transloco}}
-        </button>
-        <button biit-button tertiary
-                (click)="closeDropdown()">
-          {{'inputs.done' | transloco}}
         </button>
       </div>
     </div>

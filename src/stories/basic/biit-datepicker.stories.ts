@@ -27,11 +27,14 @@ export default {
   args: {
     placeholder: 'Start Date',
     date: null,
+    min: null,
+    max: null,
     timePicker: false,
     disabled: false,
     disabledDays: [],
     disableWeekdays: false,
     disableWeekends: false,
+    error: ""
   },
   argTypes: {
     placeholder: {
@@ -48,10 +51,48 @@ export default {
         type: 'text'
       }
     },
+    error: {
+      name: 'error',
+      type: { name: 'string', required: false },
+      description: 'Shows an error message',
+      table: {
+        type: { summary: 'string' },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'text'
+      }
+    },
     date: {
       name: 'date',
       description: 'Date object to be modified.',
-      type: { name: 'string', required: true },
+      type: { name: 'number', required: true },
+      table: {
+        type: { summary: 'Date' },
+        defaultValue: { summary: undefined },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'date'
+      }
+    },
+    min: {
+      name: 'min',
+      description: 'Maximum date selectable.',
+      type: { name: 'number', required: false },
+      table: {
+        type: { summary: 'Date' },
+        defaultValue: { summary: undefined },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'date'
+      }
+    },
+    max: {
+      name: 'max',
+      description: 'Minimum date selectable.',
+      type: { name: 'number', required: false },
       table: {
         type: { summary: 'Date' },
         defaultValue: { summary: undefined },
@@ -146,6 +187,9 @@ const Template: Story<BiitDatePickerComponent> = (args: BiitDatePickerComponent,
                          [disabledDays]="disabledDays"
                          [disableWeekdays]="disableWeekdays"
                          [disableWeekends]="disableWeekends"
+                         [error]="error"
+                         [min]="min"
+                         [max]="max"
                          style="display: block; width: 300px;"></biit-datepicker>
     `
   }
@@ -166,6 +210,8 @@ const TemplateCalendar: Story<BiitDatePickerComponent> = (args: BiitDatePickerCo
                          [disabledDays]="disabledDays"
                          [disableWeekdays]="disableWeekdays"
                          [disableWeekends]="disableWeekends"
+                         [min]="min"
+                         [max]="max"
                          calendar-mode
                          style="display: block; width: 300px;"></biit-datepicker>
     `

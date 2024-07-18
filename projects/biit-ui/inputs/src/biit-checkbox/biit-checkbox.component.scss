@@ -3,7 +3,7 @@ $selected-color: #F20D5E;
 $disabled-color: #D9D9D9;
 $_3px: 0.2rem;
 $_5px: 0.25rem;
-$_14px: 0.7rem;
+$_14px: 0.75em;
 
 label {
   display: flex;
@@ -21,7 +21,7 @@ label {
   }
 
   a:not(:empty) {
-    margin-left: 0.7rem;
+    margin-left: 0.75em;
   }
 
   input[type="checkbox"] {

@@ -4,7 +4,7 @@ import {EventColor} from "../../utils/event-color"
 export class CalendarEvent<MetaType = any> {
   id?: string | number;
   start: Date;
-  end?: Date;
+  end: Date;
   title: string;
   color?: EventColor;
   actions?: EventAction[];
@@ -17,15 +17,13 @@ export class CalendarEvent<MetaType = any> {
   draggable?: boolean;
   meta?: MetaType;
 
-  constructor(title: string, start: Date, end?: Date, color?: EventColor, actions?: EventAction[], resizable?: boolean, draggable?: boolean, meta?: MetaType) {
+  constructor(id: string | number, title: string, startDate: Date, endDate: Date, allDay?: boolean, color?: EventColor, actions?: EventAction[], resizable?: boolean, draggable?: boolean, meta?: MetaType) {
+    this.id = id;
     this.title = title;
-    this.start = new Date(start);
-    if (end) {
-      this.end = new Date(end);
-    } else {
-      this.allDay = true;
-    }
-    this.color = color ? color : EventColor.Red;
+    this.start = startDate ? new Date(startDate) : undefined;
+    this.end = endDate ? new Date(endDate) : undefined;
+    this.allDay = allDay ? allDay : false;
+    this.color = color ? color : EventColor.RED;
     this.actions = actions ? actions : [];
     if (resizable) {
       this.resizable = {beforeStart: true, afterEnd: true}
@@ -51,7 +49,7 @@ export class CalendarEvent<MetaType = any> {
   }
 
   public static clone(original: CalendarEvent): CalendarEvent {
-    const event = new CalendarEvent('', new Date())
+    const event = new CalendarEvent(undefined, '', new Date(), new Date())
     return CalendarEvent.copy(original, event);
   }
 }

@@ -1,11 +1,13 @@
-<div class="biit-input" [class.disabled]="disabled" [class.readonly]="readonly">
+<div class="biit-input" [class.disabled]="disabled" [class.readonly]="readonly" *transloco="let t">
   <div class="input-container">
     <biit-tooltip-icon *ngIf="info"
                        class="tooltip-icon"
                        [text]="info"></biit-tooltip-icon>
-    <input class="input-object"
+    <input
+           class="input-object"
            [(ngModel)]="value"
-           (ngModelChange)="onChange($event); validateInput($event);"
+           (input)="value"
+           (ngModelChange)="onChange($event); validateInput();"
            (keydown.enter)="onActionPerformed.emit(value)"
            [type]="reveal ? Type.TEXT : type" required
            [min]="min"
@@ -25,8 +27,8 @@
                  [pathStyle]="{fill: reveal ? '#F20D5E' : '#262626'}"
       ></biit-icon>
     </div>
-    <div class="input-placeholder" [class.input-filled]="this.value?.length">
-      {{placeholder}}
+    <div class="input-placeholder" [class.input-filled]="this.value?.toString().length">
+      {{_placeholder}}
       <a *ngIf="required"
          [style.color]="value ? null : 'red'">*</a>
     </div>
@@ -39,12 +41,12 @@
     </div>
     <div *ngIf="regExError" class="input-error-msg">
       <a>
-        {{'inputs.regex-error' | transloco}}
+        {{t('inputs.regex-error')}}
       </a>
     </div>
     <div *ngIf="minLengthError" class="input-error-msg">
       <a>
-        {{'inputs.minlength-error' | transloco}}
+        {{t('inputs.minlength-error')}}
       </a>
     </div>
   </div>

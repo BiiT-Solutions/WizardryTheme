@@ -33,6 +33,14 @@ $active-color: #EDEDED;
       flex-direction: column;
       text-align: right;
       line-height: 1rem;
+      width: 11.5rem;
+
+      * {
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
 
       .subtitle {
         font-size: 0.7rem;
@@ -47,6 +55,7 @@ $active-color: #EDEDED;
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
 
       a {
         text-transform: uppercase;

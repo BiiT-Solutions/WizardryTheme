@@ -8,9 +8,7 @@ $error-color: #A1093F;
 .biit-input {
   display: flex;
   height: inherit;
-  min-width: 12.8rem;
-  min-height: 4.2rem;
-  padding-top: 1.05rem;
+  min-width: 12.8em;
 
   &.disabled {
     pointer-events: none;
@@ -32,17 +30,17 @@ $error-color: #A1093F;
 }
 
 .input-object {
-  font-size:1rem;
+  font-size:1em;
   display:block;
   border:none;
   color: $default-color;
-  padding: 0.45rem 0.7rem 0.45rem 0.7rem;
+  padding: 0.45em 0.7em 0.45em 0.7em;
   height: inherit;
-  min-height: 2.25rem;
+  min-height: 2.25em;
   width: 100%;
-  min-width: 2.1rem;
+  min-width: 2.1em;
   font-weight: normal;
-  border-bottom: 0.15rem solid $default-color;
+  border-bottom: 3px solid $default-color;
 
   &:focus {
     outline: none;
@@ -59,7 +57,7 @@ $error-color: #A1093F;
   }
 
   &.password {
-    padding: 0.7rem 2.1rem 0.55rem 0.7rem;
+    padding: 0.7em 2.1em 0.55em 0.7em;
 
     &.reveal {
       -webkit-text-security: none;
@@ -70,14 +68,14 @@ $error-color: #A1093F;
 
 .input-placeholder {
   color:$default-color;
-  font-size:1rem;
+  font-size:1em;
   font-weight:bolder;
   text-transform: uppercase;
   position:absolute;
   pointer-events:none;
-  left:0.7rem;
-  top: 0.42rem;
-  height: 0.7rem;
+  left:0.7em;
+  top: 0.42em;
+  height: 0.7em;
   transition:0.2s ease all;
   -moz-transition:0.2s ease all;
   -webkit-transition:0.2s ease all;
@@ -85,46 +83,48 @@ $error-color: #A1093F;
 
 /* active state */
 .input-object:focus ~ .input-placeholder, .input-object:valid ~ .input-placeholder {
-  top:-0.95rem;
-  font-size: 0.7rem;
+  top:-0.95em;
+  font-size: 0.7em;
+  line-height: 0.7em;
   font-weight:normal;
   color:$secondary-color;
 }
 
 .input-error-icon {
   display: flex;
-  top:0.7rem;
+  top:0.7em;
   position: absolute;
-  width: 0.7rem;
-  height: 0.7rem;
+  width: 0.7em;
+  height: 0.7em;
 }
 
 .input-error-msg {
+  position: absolute;
   display: flex;
   align-items: center;
-  font-size: 0.7rem;
+  font-size: 0.7em;
   color: $error-color;
-  padding-top: 0.1rem;
-  padding-bottom: 0.15rem;
-  min-height: 1.05rem;
+  padding-top: 0.2em;
+  padding-bottom: 0.15em;
+  min-height: 1.05em;
 
   a {
     display: block;
-    line-height: 0.7rem;
+    line-height: 1.1em;
   }
 }
 
 .input-show-icon {
-  width: 1.05rem;
-  height: 1.05rem;
+  width: 1.05em;
+  height: 1.05em;
 }
 
 .input-show-icon-container {
   top: 0;
   right: 0;
   position: absolute;
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 2.1em;
+  height: 2.1em;
   align-content: center;
   display: inline-flex;
   align-items: center;
@@ -140,10 +140,10 @@ $error-color: #A1093F;
 
 .bottom-line {
   position: relative;
-  top: -0.175rem;
-  margin-bottom: -0.175rem;
+  top: -3px;
+  margin-bottom: -3px;
   width: auto;
-  height: 0.175rem;
+  height: 3px;
   background: #262626;
 }
 

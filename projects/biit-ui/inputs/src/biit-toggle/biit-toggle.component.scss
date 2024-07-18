@@ -27,10 +27,9 @@ input[type="checkbox"] {
 
 .toggle-base {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: fit-content;
-  height: 1.2em;
-  min-height: 0.7rem;
+  min-height: 1.2em;
   cursor: pointer;
 
   transition:0.2s ease all;
@@ -84,6 +83,8 @@ input[type="checkbox"] {
 .toggle-switch {
   display: flex;
   align-items: center;
+  position: relative;
+  height: 1.2em;
 }
 
 .toggle-trail {
@@ -115,7 +116,7 @@ input[type="checkbox"] {
 .toggle-label {
   margin-left: $_14px;
   cursor: inherit;
-  line-height: 0.7em;
+  line-height: 1.2em;
   user-select: none;
 
   transition:0.2s ease all;

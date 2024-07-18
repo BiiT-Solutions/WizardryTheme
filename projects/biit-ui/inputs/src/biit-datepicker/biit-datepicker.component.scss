@@ -11,26 +11,29 @@ $disabled-outer-day: #FBAEC9;
 
 .popup {
   display: block;
-  position: absolute;
-  z-index: 2;
   width: 17.5em;
-  height: 20.5em;
-  border: 0.2em solid $default-color;
+  border: 3px solid $default-color;
   background: white;
   padding: 0.45em;
   user-select: none;
   opacity: 0;
   pointer-events: none;
   transform-origin: top;
-  margin-top: -0.2em;
+  margin-top: -3px;
   transform: translate(0, var(--origin));
   transition: opacity 0.5s ease, transform 0.5s ease;
+
+  &:not(.calendar-mode) {
+    position: absolute;
+    z-index: 2;
+  }
 
   &.calendar-mode {
     position: relative;
     opacity: 1;
     pointer-events: all;
     margin-top: 0;
+    position: relative;
   }
 
   &.dropdown-open {
@@ -44,7 +47,6 @@ $disabled-outer-day: #FBAEC9;
   }
 
   .month-view {
-    height: 19.2em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -166,10 +168,11 @@ $disabled-outer-day: #FBAEC9;
 
   .time-picker {
     width: 17.5em;
-    margin-left: -0.65em;
+    margin-left: calc(-0.45em - 3px);
     box-sizing: border-box;
-    border: 0.2em solid black;
+    border-top: 3px solid $default-color;
     margin-top: 0.45em;
+    margin-bottom: -0.45em;
   }
 
   .year-view {
@@ -251,8 +254,6 @@ $disabled-outer-day: #FBAEC9;
 .biit-input {
   display: flex;
   min-width: 12.8em;
-  min-height: 4.2em;
-  padding-top: 1.05em;
 
   &.disabled {
     pointer-events: none;
@@ -342,6 +343,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .input-object:focus ~ .input-placeholder, .input-filled {
   top:-0.95em;
   font-size: 0.7em;
+  line-height: 0.7em;
   font-weight:normal;
   color:$secondary-color;
 }
@@ -355,17 +357,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .input-error-msg {
+  position: absolute;
   display: flex;
   align-items: center;
   font-size: 0.7em;
   color: $error-color;
-  padding-top: 0.1em;
+  padding-top: 0.2em;
   padding-bottom: 0.15em;
   min-height: 1.05em;
 
   a {
     display: block;
-    line-height: 0.7em;
+    line-height: 1.1em;
   }
 }
 
@@ -396,10 +399,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .bottom-line {
   position: relative;
-  top: -0.2em;
-  margin-bottom: -0.2em;
+  top: -3px;
+  margin-bottom: -3px;
   width: auto;
-  height: 0.2em;
+  height: 3px;
   background: #262626;
 }
 

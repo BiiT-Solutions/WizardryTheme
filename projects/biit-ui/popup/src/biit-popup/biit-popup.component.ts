@@ -1,11 +1,11 @@
 import {Component, Directive, EventEmitter, Input, Output} from '@angular/core';
 
 @Directive({
-  selector: '[dark-bg]'
+  selector: '[clear-bg]'
 })
 export class BiitPopupBackgroundDirective {
   constructor(private parent: BiitPopupComponent) {
-    parent.background = true;
+    parent.background = false;
   }
 }
 
@@ -56,7 +56,7 @@ export class BiitPopupComponent {
   @Input() title: string = '';
   @Output() onClosed: EventEmitter<void> = new EventEmitter<void>();
 
-  background: boolean = false;
+  background: boolean = true;
   header: boolean = true;
   closable: boolean = false;
   closableOutside: boolean = false;
