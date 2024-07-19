@@ -1,7 +1,10 @@
-<div [class.dark-bg]="background" class="popup-background" (click)="closableOutside ? onClosed.emit() : false">
+<div *ngIf="type !== Type.INFO_BOX" [class.dark-bg]="background" class="popup-background" (click)="closableOutside ? onClosed.emit() : false">
 </div>
-<div [class.popup-canvas]="type == Type.DEFAULT"
-     [class.sixty-canvas]="type == Type.SIXTY">
+<div #popup
+     [class.popup-canvas]="type == Type.DEFAULT"
+     [class.sixty-canvas]="type == Type.SIXTY"
+     [class.info-box-canvas]="type == Type.INFO_BOX"
+     [ngStyle]="type == Type.INFO_BOX ? {top: coordinates.y, left: coordinates.x} : undefined">
   <div *ngIf="header"
        class="header">
     <div class="title">

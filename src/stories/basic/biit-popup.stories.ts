@@ -27,6 +27,8 @@ export default {
   args: {
     showPopup: false,
     showSixty: false,
+    showInfoBox: false,
+    mousePosition: undefined,
     content: '<center><h1>E</h1><h2>F P</h2><h3>T O Z</h3><h4>L P E D</h4><h5>P E C F D</h5><h6>F E L O P Z D</h6></center>',
     title: 'This is a header title'
   },
@@ -153,3 +155,19 @@ const SixtyTemplate: Story<BiitPopupComponent> = (args: BiitPopupComponent) => (
 `});
 
 export const SixtyView = SixtyTemplate.bind({});
+
+
+const InfoBoxTemplate: Story<BiitPopupComponent> = (args: BiitPopupComponent) => ({
+  props: args,
+  template: `
+    <button biit-button (click)="mousePosition = $event; showInfoBox = true">Show Info box</button>
+    <biit-popup *ngIf="showInfoBox"
+                info-box closable closable-outside
+                [title]="title"
+                [mouseEvent]="mousePosition"
+                (onClosed)="onClosed($event); showInfoBox = false;">
+      <div [innerHTML]="content" style="width: 100%"></div>
+    </biit-popup>
+`});
+
+export const InfoBox = InfoBoxTemplate.bind({});
