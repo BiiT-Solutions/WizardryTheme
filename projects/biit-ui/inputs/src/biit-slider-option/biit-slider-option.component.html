@@ -11,7 +11,8 @@
   >
   <div #tooltip class="tooltip" [style.opacity]="showTooltip ? '100%' : '0%'"></div>
   <div class="ticks">
-    <span *ngFor="let tick of data; index as i"
+    // ts-lint
+    <span *ngFor="let tick of $any(data); index as i"
           [class.no-labels]="!data.length"
           (click)="value = data[i]; onChange(data[i])">
       {{data[i]}}
