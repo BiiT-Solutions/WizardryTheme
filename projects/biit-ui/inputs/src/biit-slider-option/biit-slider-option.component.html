@@ -1,0 +1,20 @@
+<div class="slider">
+  <input #ranger type="range"
+         [ngModel]="index"
+         (ngModelChange)="onChange(this.data[ranger.value]);"
+         [min]="0"
+         [max]="data.length - 1"
+         [step]="1"
+         (input)="progressScript()"
+         (pointerdown)="showTooltip = true"
+         (pointerup)="showTooltip = false"
+  >
+  <div #tooltip class="tooltip" [style.opacity]="showTooltip ? '100%' : '0%'"></div>
+  <div class="ticks">
+    <span *ngFor="let tick of data; index as i"
+          [class.no-labels]="!data.length"
+          (click)="value = data[i]; onChange(data[i])">
+      {{data[i]}}
+    </span>
+  </div>
+</div>
