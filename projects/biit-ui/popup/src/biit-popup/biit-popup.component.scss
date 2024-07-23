@@ -105,13 +105,13 @@ $error-color: #A1093F;
 
 .info-box-canvas {
   position: fixed;
-  width: 23.5em;
+  width: 23.5rem;
   display: flex;
   flex-direction: column;
-  padding: 1.5em;
+  padding: 1.5rem;
   background: white;
   border: 3px solid #262626;
-  gap: 0.75em;
+  gap: 0.75rem;
 
   .bar {
     display: none;
@@ -125,15 +125,15 @@ $error-color: #A1093F;
       font-weight: bold;
       text-transform: uppercase;
       flex-grow: 1;
-      padding-right: 0.5em;
+      padding-right: 0.5rem;
     }
   }
 
   .close {
-    height: 1em;
-    width: 1em;
+    height: 0.8rem;
+    width: 1rem;
     flex-shrink: 0;
-    margin-top: 0.15em;
+    margin-top: 0.2rem;
     cursor: pointer;
   }
 

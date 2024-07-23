@@ -9,13 +9,20 @@
          (pointerdown)="showTooltip = true"
          (pointerup)="showTooltip = false"
   >
-  <div #tooltip class="tooltip" [style.opacity]="showTooltip ? '100%' : '0%'"></div>
+
   <div class="ticks">
-    // ts-lint
+    <div #tooltip class="tooltip-slider" [style.opacity]="showTooltip ? '100%' : '0%'"></div>
     <span *ngFor="let tick of $any(data); index as i"
           [class.no-labels]="!data.length"
           (click)="value = data[i]; onChange(data[i])">
-      {{data[i]}}
+      <span>
+        <span>
+          {{data[i].value}}
+        </span>
+        <biit-tooltip-icon *ngIf="data[i].description"
+                           [text]="data[i].description"
+        ></biit-tooltip-icon>
+      </span>
     </span>
   </div>
 </div>

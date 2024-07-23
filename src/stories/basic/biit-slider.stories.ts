@@ -72,9 +72,14 @@ const TemplateOption: Story<BiitSliderOptionComponent> = (args: BiitSliderOption
   props: args,
   template:`
     <biit-slider-option [(ngModel)]="valueOption"
-                 [data]="['hola', 'esto', 'es', 'una', 'prueba']"
+                 [data]="[
+                 {value: 'hola esto es una prueba del slider option', description: 'esto es una descripción del slider option'},
+                 {value: 'hay mas opciones para que los textos sean mas largos'},
+                 {value: 'esto no cabe pero ni a la de tres eh'},
+                 {value: 'you came in like a wreeeeeeeeeecking baaaaall', description: 'esto es otra descripción del slider option'}
+                 ]"
                  style="display: block; margin-top: 10px"></biit-slider-option>
-                 <span>Selection: {{valueOption}}</span>
+                 <span>Selection: {{valueOption.value}}</span>
 `
 });
 

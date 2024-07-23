@@ -1,4 +1,13 @@
-import {AfterViewChecked, Component, ElementRef, forwardRef, Input, ViewChild, ViewEncapsulation} from '@angular/core';
+import {
+  AfterViewChecked,
+  Component,
+  ElementRef,
+  forwardRef, HostBinding,
+  Input,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
@@ -14,14 +23,15 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
   ],
   encapsulation: ViewEncapsulation.None
 })
-export class BiitSliderOptionComponent implements ControlValueAccessor, AfterViewChecked {
-  @Input() data: string[] | number[] = [];
+export class BiitSliderOptionComponent implements ControlValueAccessor, AfterViewChecked, OnInit {
+  @Input() data: {value: string|number, description:string}[];
+  @HostBinding('style.--label-percent') labelPercent;
 
   get index() {
     return this.data.findIndex(i => i == this.value);
   }
 
-  protected value: number | string;
+  protected value: {value: string|number, description:string};
   protected disabled: boolean = false;
   protected showTooltip: boolean = false;
 
@@ -43,8 +53,12 @@ export class BiitSliderOptionComponent implements ControlValueAccessor, AfterVie
     this.disabled = disabled;
   }
 
-  writeValue(value: number | string): void {
+  writeValue(value: {value: string|number, description:string}): void {
     this.value = value;
+  }
+
+  ngOnInit() {
+    this.labelPercent = (100 / this.data.length) - 5 + '%';
   }
 
   ngAfterViewChecked() {
@@ -59,15 +73,8 @@ export class BiitSliderOptionComponent implements ControlValueAccessor, AfterVie
     // Set slider bar background colors according to progress
     this.slider.nativeElement.style.background = `linear-gradient(to right, #F20D5E ${progress}%, #D7D7D7 ${progress}%)`;
 
-    // Set slider tooltip position
-    const tooltipPosition = (parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.15) - (progress * 0.2);
-    tooltip.innerHTML = `<span>${this.data[slider.value]}</span>`;
-    tooltip.style.left = `calc(${progress}% + (${tooltipPosition}px))`;
+    tooltip.innerHTML = `<span>${this.data[slider.value].value}</span>`;
+    tooltip.style.left = `${progress}%`;
+    tooltip.style.translate = `-${progress}%`;
   }
-
-  // updateValue(index: number) {
-  //   const result = this.min + ((this.max-this.min)/(this.ticks-1) * index);
-  //   this.writeValue(result);
-  //   this.onChange(this.value);
-  // }
 }
