@@ -25,3 +25,5 @@ export * from './biit-slider-range/biit-slider-range.module';
 export * from './biit-slider-range/biit-slider-range.component';
 export * from './biit-slider-option/biit-slider-option.module';
 export * from './biit-slider-option/biit-slider-option.component';
+export * from './biit-slider-option-vertical/biit-slider-option-vertical.module';
+export * from './biit-slider-option-vertical/biit-slider-option-vertical.component';

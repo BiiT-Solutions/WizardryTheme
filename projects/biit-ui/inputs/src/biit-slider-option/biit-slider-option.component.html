@@ -1,5 +1,6 @@
 <div class="slider">
   <input #ranger type="range"
+         [class.inverted]="inverted"
          [ngModel]="index"
          (ngModelChange)="onChange(this.data[ranger.value]);"
          [min]="0"
@@ -11,13 +12,13 @@
   >
 
   <div class="ticks">
-    <div #tooltip class="tooltip-slider" [style.opacity]="showTooltip ? '100%' : '0%'"></div>
+    <div #tooltip class="tooltip-slider" [style.opacity]="showTooltip && this.data[ranger.value].label ? '100%' : '0%'"></div>
     <span *ngFor="let tick of $any(data); index as i"
-          [class.no-labels]="!data.length"
+          [class.hide-tick]="!tick.label"
           (click)="value = data[i]; onChange(data[i])">
       <span>
         <span>
-          {{data[i].value}}
+          {{data[i].label}}
         </span>
         <biit-tooltip-icon *ngIf="data[i].description"
                            [text]="data[i].description"
