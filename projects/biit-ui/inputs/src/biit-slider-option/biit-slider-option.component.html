@@ -13,15 +13,15 @@
 
   <div class="ticks">
     <div #tooltip class="tooltip-slider" [style.opacity]="showTooltip && this.data[ranger.value].label ? '100%' : '0%'"></div>
-    <span *ngFor="let tick of $any(data); index as i"
-          [class.hide-tick]="!tick.label"
-          (click)="value = data[i]; onChange(data[i])">
+    <span *ngFor="let tick of $any(data); index as i; count as c"
+          [class.hide-tick]="!(!inverted ? data[i] : data[c-i-1]).label"
+          (click)="value = (!inverted ? data[i] : data[c-i-1]); onChange(!inverted ? data[i] : data[c-i-1])">
       <span>
         <span>
-          {{data[i].label}}
+          {{(!inverted ? data[i] : data[c-i-1]).label}}
         </span>
-        <biit-tooltip-icon *ngIf="data[i].description"
-                           [text]="data[i].description"
+        <biit-tooltip-icon *ngIf="(!inverted ? data[i] : data[c-i-1]).description"
+                           [text]="(!inverted ? data[i] : data[c-i-1]).description"
         ></biit-tooltip-icon>
       </span>
     </span>

@@ -140,12 +140,12 @@ input[type="range"]:focus::-moz-range-thumb {
     gap: 3px;
 
     &:nth-child(2) {
-      align-items: start;
+      align-items: end;
       flex: 2;
     }
 
     &:last-child {
-      align-items: end;
+      align-items: start;
       flex: 2;
     }
 
@@ -225,7 +225,7 @@ input[type="range"]:focus::-moz-range-thumb {
   }
 
   &.vertical {
-    flex-direction: column;
+    flex-direction: column-reverse;
     flex: 1;
     height: 100%;
     margin: 2px;
