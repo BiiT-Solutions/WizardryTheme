@@ -1,5 +1,5 @@
 import {
-  AfterViewChecked,
+  AfterViewChecked, ChangeDetectorRef,
   Component,
   ElementRef,
   forwardRef,
@@ -39,6 +39,9 @@ export class BiitSliderOptionComponent implements ControlValueAccessor, AfterVie
   @ViewChild('ranger') slider: ElementRef;
   @ViewChild('tooltip') tooltip: ElementRef;
 
+  constructor(private cdRef: ChangeDetectorRef) {
+  }
+
   onChange = (_: any) => {};
   onTouch = () => {};
 
@@ -67,6 +70,7 @@ export class BiitSliderOptionComponent implements ControlValueAccessor, AfterVie
       this.onChange(this.data[0].value);
     }
     this.progressScript();
+    this.cdRef.detectChanges();
   }
 
   progressScript() {
