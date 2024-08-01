@@ -4,7 +4,7 @@
          class="vertical"
          [class.inverted]="inverted"
          [ngModel]="index"
-         (ngModelChange)="onChange(this.data[ranger.value]);"
+         (ngModelChange)="onChange(this.data[ranger.value].value);"
          [min]="0"
          [max]="data.length - 1"
          [step]="1"
@@ -18,7 +18,7 @@
     <div *ngFor="let tick of $any(data); index as i; count as c"
          class="tick"
          [class.hide-tick]="!(!inverted ? data[i] : data[c-i-1]).label"
-         (click)="value = (!inverted ? data[i] : data[c-i-1]); onChange(!inverted ? data[i] : data[c-i-1])">
+         (click)="value = (!inverted ? data[i] : data[c-i-1]).value; onChange((!inverted ? data[i] : data[c-i-1]).value)">
       <span></span>
       <div class="label" [class.show-desc]="showDescription">
         <span>

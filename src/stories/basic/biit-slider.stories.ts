@@ -21,7 +21,7 @@ export default {
   args: {
     value: 2,
     valueRange: [2,6],
-    valueOption: 'hola',
+    valueOption: 'tick 1',
     min: 0,
     max: 10,
     step: 1,
@@ -89,7 +89,7 @@ const TemplateOption: Story<BiitSliderOptionComponent> = (args: BiitSliderOption
                         [showDescription]="showDescription"
                         [(ngModel)]="valueOption"
                         [data]="optionData"></biit-slider-option>
-    <span>Selection: {{valueOption.value}}</span>
+    <span>Selection: {{valueOption}}</span>
 `
 });
 
@@ -103,7 +103,7 @@ const TemplateOptionVertical: Story<BiitSliderOptionVerticalComponent> = (args: 
                                  [showDescription]="showDescription"
                                  [(ngModel)]="valueOption"
                                  [data]="optionData"></biit-slider-option-vertical>
-    <span>Selection: {{valueOption.value}}</span>
+    <span>Selection: {{valueOption}}</span>
 `
 });
 

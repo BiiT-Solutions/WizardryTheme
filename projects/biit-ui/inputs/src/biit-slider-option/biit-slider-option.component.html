@@ -2,7 +2,7 @@
   <input #ranger type="range"
          [class.inverted]="inverted"
          [ngModel]="index"
-         (ngModelChange)="onChange(this.data[ranger.value]);"
+         (ngModelChange)="onChange(this.data[ranger.value].value);"
          [min]="0"
          [max]="data.length - 1"
          [step]="1"
@@ -15,7 +15,7 @@
     <div #tooltip class="tooltip-slider" [style.opacity]="showTooltip && this.data[ranger.value].label ? '100%' : '0%'"></div>
     <span *ngFor="let tick of $any(data); index as i; count as c"
           [class.hide-tick]="!(!inverted ? data[i] : data[c-i-1]).label"
-          (click)="value = (!inverted ? data[i] : data[c-i-1]); onChange(!inverted ? data[i] : data[c-i-1])">
+          (click)="value = (!inverted ? data[i] : data[c-i-1]).value; onChange((!inverted ? data[i] : data[c-i-1]).value)">
       <span>
         <span>
           {{(!inverted ? data[i] : data[c-i-1]).label}}

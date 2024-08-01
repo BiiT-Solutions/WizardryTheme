@@ -29,10 +29,10 @@ export class BiitSliderOptionComponent implements ControlValueAccessor, AfterVie
   @HostBinding('style.--label-percent') labelPercent;
 
   get index() {
-    return this.data.findIndex(i => i == this.value);
+    return this.data.findIndex(i => i.value == this.value);
   }
 
-  protected value: {value: string|number, label: string, description:string};
+  protected value: string | number;
   protected disabled: boolean = false;
   protected showTooltip: boolean = false;
 
@@ -54,7 +54,7 @@ export class BiitSliderOptionComponent implements ControlValueAccessor, AfterVie
     this.disabled = disabled;
   }
 
-  writeValue(value: {value: string|number, label: string, description:string}): void {
+  writeValue(value: string|number): void {
     this.value = value;
   }
 
@@ -64,7 +64,7 @@ export class BiitSliderOptionComponent implements ControlValueAccessor, AfterVie
 
   ngAfterViewChecked() {
     if (!this.value && this.data?.length) {
-      this.onChange(this.data[0]);
+      this.onChange(this.data[0].value);
     }
     this.progressScript();
   }
