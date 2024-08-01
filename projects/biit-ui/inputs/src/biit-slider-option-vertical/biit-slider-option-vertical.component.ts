@@ -67,9 +67,6 @@ export class BiitSliderOptionVerticalComponent implements ControlValueAccessor, 
   }
 
   ngAfterViewChecked() {
-    if (!this.value && this.data?.length) {
-      this.onChange(this.data[0].value);
-    }
     this.progressScript();
     this.cdRef.detectChanges();
   }
