@@ -14,7 +14,7 @@
   >
 
   <div class="ticks vertical">
-    <div #tooltip class="tooltip-slider" [style.opacity]="showTooltip && this.data[ranger.value].label ? '100%' : '0%'"></div>
+    <div #tooltip class="tooltip-slider" [style.opacity]="showTooltip ? '100%' : '100%'"></div>
     <div *ngFor="let tick of $any(data); index as i; count as c"
          class="tick"
          [class.hide-tick]="!(!inverted ? data[i] : data[c-i-1]).label"

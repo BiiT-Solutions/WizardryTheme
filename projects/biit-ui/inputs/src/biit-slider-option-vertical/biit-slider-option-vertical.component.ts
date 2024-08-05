@@ -85,20 +85,16 @@ export class BiitSliderOptionVerticalComponent implements ControlValueAccessor, 
     }
 
     // Set tooltip text
-    if (this.data[slider.value].label) {
-      tooltip.innerHTML = `<span>${this.data[slider.value].label}</span>`;
-    } else {
-      return;
-    }
+    tooltip.innerHTML = `<span>${this.data[slider.value].value}</span>`;
 
     // Set slider tooltip position
     const tooltipPosition = (-parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.5) - (progress * 0.16);
-    tooltip.firstChild.style.left = '-50%';
+    tooltip.firstChild.style.left = 'calc(-6px + -50%)';
 
     if (!this.inverted) {
       tooltip.style.bottom = `calc(${progress}% + (${tooltipPosition}px) + 2rem)`;
     } else {
-      tooltip.style.top = `calc(${progress}% + (${tooltipPosition}px))`;
+      tooltip.style.top = `calc(${progress}% + (${tooltipPosition}px) - 1.5rem)`;
     }
   }
 }

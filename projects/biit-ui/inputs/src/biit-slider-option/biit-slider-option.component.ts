@@ -84,11 +84,7 @@ export class BiitSliderOptionComponent implements ControlValueAccessor, AfterVie
     }
 
     // Set tooltip text
-    if (this.data[slider.value].label) {
-      tooltip.innerHTML = `<span>${this.data[slider.value].label}</span>`;
-    } else {
-      return;
-    }
+    tooltip.innerHTML = `<span>${this.data[slider.value].value}</span>`;
 
     // Set slider tooltip position
     const tooltipPosition = (parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.5) - (progress * 0.16);
