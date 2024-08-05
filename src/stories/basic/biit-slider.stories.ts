@@ -11,6 +11,82 @@ import {
 } from 'biit-ui/inputs';
 import {FormsModule} from "@angular/forms";
 
+const values = [
+  {
+    "value": "0",
+    "label": "Sophisticated",
+    "description": "Not been defined or only in the discussion phase departments are antonomous without coordiantion discussion phase departments are autonomous without coordination"
+  },
+  {
+    "value": "5"
+  },
+  {
+    "value": "10"
+  },
+  {
+    "value": "15"
+  },
+  {
+    "value": "20"
+  },
+  {
+    "value": "25",
+    "label": "Integrated",
+    "description": "Not been defined or only in the discusión phase departments are autonomous without coordination"
+  },
+  {
+    "value": "30"
+  },
+  {
+    "value": "35"
+  },
+  {
+    "value": "40"
+  },
+  {
+    "value": "45"
+  },
+  {
+    "value": "50",
+    "label": "Implemented",
+    "description": "Not been defined or only in the discusión phase departments are autonomous without coordination"
+  },
+  {
+    "value": "55"
+  },
+  {
+    "value": "60"
+  },
+  {
+    "value": "65"
+  },
+  {
+    "value": "70"
+  },
+  {
+    "value": "75",
+    "label": "Being defined",
+    "description": "Not been defined or only in the discusión phase departments are autonomous without coordination"
+  },
+  {
+    "value": "80"
+  },
+  {
+    "value": "85"
+  },
+  {
+    "value": "90"
+  },
+  {
+    "value": "95"
+  },
+  {
+    "value": "100",
+    "label": "Not very far",
+    "description": "Not been defined or only in the discussion phase departments are autonomous without coordination"
+  }
+];
+
 export default {
   title: 'Basic/Inputs/Slider',
   decorators: [
@@ -28,16 +104,7 @@ export default {
     separator: 1,
     ticks: 6,
     labels: [0,2,4,6,8,10],
-    optionData: [
-      {value: 'tick 1', label: 'hola esto es una prueba del slider option', description: 'esto es una descripción del slider option'},
-      {value: 'tick 1.5'},
-      {value: 'tick 1.7'},
-      {value: 'tick 2'},
-      {value: 'central', label: 'el del medio de los chichos', description: 'se ma apareciiio en sueeeñooos'},
-      {value: 'tick 3'},
-      {value: 'tick 3.5'},
-      {value: 'tick 4', label: 'you came in like a wreeeeeeeeeecking baaaaall', description: 'esto es otra descripción del slider option'}
-    ],
+    optionData: values,
     inverted: false,
     showDescription: false
   },
@@ -98,7 +165,7 @@ export const Option = TemplateOption.bind({});
 const TemplateOptionVertical: Story<BiitSliderOptionVerticalComponent> = (args: BiitSliderOptionVerticalComponent) => ({
   props: args,
   template:`
-    <biit-slider-option-vertical style="display: block; width: 40em; height: 20em; margin-left: 10em; margin-top: 2em"
+    <biit-slider-option-vertical style="display: block; width: 40em; height: 30em; margin-left: 10em; margin-top: 2em"
                                  [inverted]="inverted"
                                  [showDescription]="showDescription"
                                  [(ngModel)]="valueOption"
