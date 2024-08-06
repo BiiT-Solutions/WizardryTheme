@@ -1,8 +1,9 @@
 <div class="slider-option">
-  <input #ranger type="range"
+  <input #rangerHor type="range"
+         orient="horizontal"
          [class.inverted]="inverted"
          [ngModel]="index"
-         (ngModelChange)="onChange(this.data[ranger.value].value);"
+         (ngModelChange)="onChange(this.data[rangerHor.value].value);"
          [min]="0"
          [max]="data.length - 1"
          [step]="1"

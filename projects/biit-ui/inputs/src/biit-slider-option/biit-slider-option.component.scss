@@ -11,73 +11,73 @@ $bar-color: #D7D7D7;
   &.vertical {
     display: flex;
   }
-}
 
-input[type=range] {
-  font-size: 1em;
-  appearance: none;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  width: inherit;
-  height: 0.3em;
-  background: $bar-color;
+  input[type=range] {
+    font-size: 1em;
+    appearance: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: inherit;
+    height: 0.3em;
+    background: $bar-color;
 
-  &.vertical {
-    height: inherit;
-    width: 0.3em;
-    writing-mode: vertical-lr;
-    direction: rtl;
+    &.vertical {
+      height: inherit;
+      width: 0.3em;
+      writing-mode: vertical-lr;
+      direction: rtl;
 
-    &.inverted {
-      direction: ltr;
+      &.inverted {
+        direction: ltr;
+      }
+    }
+
+    &:not(.vertical).inverted {
+      direction: rtl;
     }
   }
 
-  &:not(.vertical).inverted {
-    direction: rtl;
+  input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    box-sizing: border-box;
+    height: 0.9em;
+    width: 0.9em;
+    background-color: $bar-color;
+    border: 0.3em solid $default-color;
+    transition: .2s ease-in-out;
   }
-}
 
-input[type="range"]::-webkit-slider-thumb {
-  appearance: none;
-  box-sizing: border-box;
-  height: 0.9em;
-  width: 0.9em;
-  background-color: $bar-color;
-  border: 0.3em solid $default-color;
-  transition: .2s ease-in-out;
-}
+  input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: $active-color;
+  }
+  input[type="range"]:active::-webkit-slider-thumb {
+    background-color: $active-color;
+  }
+  input[type="range"]:focus::-webkit-slider-thumb {
+    background-color: $active-color;
+  }
 
-input[type="range"]::-webkit-slider-thumb:hover {
-  background-color: $active-color;
-}
-input[type="range"]:active::-webkit-slider-thumb {
-  background-color: $active-color;
-}
-input[type="range"]:focus::-webkit-slider-thumb {
-  background-color: $active-color;
-}
+  input[type="range"]::-moz-range-thumb {
+    appearance: none;
+    box-sizing: border-box;
+    height: 0.9em;
+    width: 0.9em;
+    background-color: $bar-color;
+    border: 0.3em solid $default-color;
+    border-radius: 0;
+    transition: .2s ease-in-out;
+  }
 
-input[type="range"]::-moz-range-thumb {
-  appearance: none;
-  box-sizing: border-box;
-  height: 0.9em;
-  width: 0.9em;
-  background-color: $bar-color;
-  border: 0.3em solid $default-color;
-  border-radius: 0;
-  transition: .2s ease-in-out;
-}
-
-input[type="range"]::-moz-range-thumb:hover {
-  background-color: $active-color;
-}
-input[type="range"]:active::-moz-range-thumb {
-  background-color: $active-color;
-}
-input[type="range"]:focus::-moz-range-thumb {
-  background-color: $active-color;
+  input[type="range"]::-moz-range-thumb:hover {
+    background-color: $active-color;
+  }
+  input[type="range"]:active::-moz-range-thumb {
+    background-color: $active-color;
+  }
+  input[type="range"]:focus::-moz-range-thumb {
+    background-color: $active-color;
+  }
 }
 
 //.ticks {

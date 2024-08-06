@@ -36,7 +36,7 @@ export class BiitSliderOptionComponent implements ControlValueAccessor, AfterVie
   protected disabled: boolean = false;
   protected showTooltip: boolean = false;
 
-  @ViewChild('ranger') slider: ElementRef;
+  @ViewChild('rangerHor') slider: ElementRef;
   @ViewChild('tooltip') tooltip: ElementRef;
 
   constructor(private cdRef: ChangeDetectorRef) {

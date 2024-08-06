@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   forwardRef,
-  HostBinding,
   Input, OnInit,
   ViewChild,
   ViewEncapsulation
@@ -27,7 +26,6 @@ export class BiitSliderOptionVerticalComponent implements ControlValueAccessor, 
   @Input() data: {value: string|number, label: string, description:string}[];
   @Input() inverted = false;
   @Input() showDescription = true;
-  @HostBinding('style.--label-percent') labelPercent;
 
   get index() {
     return this.data.findIndex(i => i.value == this.value);
@@ -37,7 +35,7 @@ export class BiitSliderOptionVerticalComponent implements ControlValueAccessor, 
   protected disabled: boolean = false;
   protected showTooltip: boolean = false;
 
-  @ViewChild('ranger') slider: ElementRef;
+  @ViewChild('rangerVer') slider: ElementRef;
   @ViewChild('tooltip') tooltip: ElementRef;
 
   constructor(private cdRef: ChangeDetectorRef) {
@@ -63,7 +61,6 @@ export class BiitSliderOptionVerticalComponent implements ControlValueAccessor, 
   }
 
   ngOnInit() {
-    this.labelPercent = (100 / this.data.filter(d => d.label).length) - 5 + '%';
   }
 
   ngAfterViewChecked() {

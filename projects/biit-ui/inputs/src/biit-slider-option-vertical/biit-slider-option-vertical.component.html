@@ -1,10 +1,10 @@
 <div class="slider-vertical">
-  <input #ranger type="range"
+  <input #rangerVer type="range"
          orient="vertical"
          class="vertical"
          [class.inverted]="inverted"
          [ngModel]="index"
-         (ngModelChange)="onChange(this.data[ranger.value].value);"
+         (ngModelChange)="onChange(this.data[rangerVer.value].value);"
          [min]="0"
          [max]="data.length - 1"
          [step]="1"
