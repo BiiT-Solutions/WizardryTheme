@@ -20,8 +20,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
       useExisting: forwardRef(() => BiitSliderOptionComponent),
       multi: true
     }
-  ],
-  encapsulation: ViewEncapsulation.None
+  ]
 })
 export class BiitSliderOptionComponent implements ControlValueAccessor, AfterViewChecked, OnInit {
   @Input() data: {value: string|number, label: string, description:string}[];
