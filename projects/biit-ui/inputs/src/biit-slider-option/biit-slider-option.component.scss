@@ -8,10 +8,6 @@ $bar-color: #D7D7D7;
   width: inherit;
   height: inherit;
 
-  &.vertical {
-    display: flex;
-  }
-
   input[type=range] {
     font-size: 1em;
     appearance: none;
@@ -22,18 +18,7 @@ $bar-color: #D7D7D7;
     height: 0.3em;
     background: $bar-color;
 
-    &.vertical {
-      height: inherit;
-      width: 0.3em;
-      writing-mode: vertical-lr;
-      direction: rtl;
-
-      &.inverted {
-        direction: ltr;
-      }
-    }
-
-    &:not(.vertical).inverted {
+    &.inverted {
       direction: rtl;
     }
   }
