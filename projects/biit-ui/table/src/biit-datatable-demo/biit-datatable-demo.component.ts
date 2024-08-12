@@ -27,7 +27,7 @@ export class BiitDatatableDemoComponent {
 
   columns = [
     new DatatableColumn('Nombre', 'name'),
-    new DatatableColumn('Género', 'gender', undefined, 1),
+    new DatatableColumn('Género', 'gender', false),
     new DatatableColumn('Puesto', 'title')
   ];
   selected: any[] = [];

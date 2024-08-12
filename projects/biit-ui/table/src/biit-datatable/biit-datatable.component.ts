@@ -31,7 +31,7 @@ export class BiitDatatableComponent<T> implements OnInit {
   allColumns: DatatableColumn[] = [];
   @Input() set columns(columns: DatatableColumn[]) {
     this.allColumns = columns ?? [];
-    this.setColumnVisibility(columns.filter(c => c.visible));
+    this._columns = columns.filter(c => c.visible);
   }
   get columns(): DatatableColumn[] {
     return this._columns;
