@@ -122,7 +122,7 @@
                                   (change)="log($event); table.onFooterPage($event)">
             </biit-datatable-pager>
           </div>
-          <div class="page-items" *ngIf="!pageSizeList">
+          <div class="page-items" *ngIf="pageSizeList">
             <div *ngIf="pageSizeList?.length">
               <span>{{ t('t.rows-per-page') }}:</span>
               <select [(ngModel)]="pageSize"
