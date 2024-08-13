@@ -97,7 +97,7 @@ export class BiitDatatableComponent<T> implements OnInit {
   }
 
   setColumnVisibility(columns: DatatableColumn[]) {
-    this._columns = this.allColumns.filter(c => columns.find(col => c.$$id == col.$$id))
+    this._columns = this.allColumns.filter(c => columns.includes(c))
   }
 
   log(...event) {
