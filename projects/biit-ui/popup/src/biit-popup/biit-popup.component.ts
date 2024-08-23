@@ -92,11 +92,12 @@ export class BiitPopupComponent implements AfterViewInit {
   ngAfterViewInit() {
     if (this.type == BiitPopupType.INFO_BOX) {
       const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const popupWidth = rem * 26.5 + 6;
 
       // Checking available screen space
       const fitsBottom = this.mouseEvent.y + this.popup.nativeElement.offsetHeight + 0.5*rem < window.innerHeight;
-      const fitsLeft = this.mouseEvent.x - (rem * 23.5)/2 > 0;
-      const fitsRight = this.mouseEvent.x - (rem * 23.5)/2 < window.innerWidth;
+      const fitsLeft = this.mouseEvent.x - popupWidth/2 > 0;
+      const fitsRight = this.mouseEvent.x + popupWidth/2 < window.innerWidth;
 
       if (fitsBottom) {
         this.coordinates.y = this.mouseEvent.y + 0.5*rem + "px";
@@ -107,9 +108,9 @@ export class BiitPopupComponent implements AfterViewInit {
       if (!fitsLeft) {
         this.coordinates.x = "0px";
       } else if (!fitsRight) {
-        this.coordinates.x = window.innerWidth - (rem * 23.5) + "px";
+        this.coordinates.x = window.innerWidth - popupWidth + "px";
       } else {
-        this.coordinates.x = this.mouseEvent.x - (rem * 23.5)/2 + "px";
+        this.coordinates.x = "0px";
       }
 
       this.cdRef.detectChanges();
