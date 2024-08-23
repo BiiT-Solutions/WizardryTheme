@@ -110,7 +110,7 @@ export class BiitPopupComponent implements AfterViewInit {
       } else if (!fitsRight) {
         this.coordinates.x = window.innerWidth - popupWidth + "px";
       } else {
-        this.coordinates.x = "0px";
+        this.coordinates.x = this.mouseEvent.x - popupWidth/2 + "px";
       }
 
       this.cdRef.detectChanges();
