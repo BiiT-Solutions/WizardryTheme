@@ -4,7 +4,7 @@ import {
   Component,
   Directive,
   ElementRef,
-  EventEmitter,
+  EventEmitter, HostListener,
   Input,
   Output,
   ViewChild
@@ -85,6 +85,10 @@ export class BiitPopupComponent implements AfterViewInit {
   coordinates: { x: string, y: string } = { x: undefined, y: undefined };
 
   protected readonly Type = BiitPopupType;
+
+  @HostListener('document:keydown.escape', ['$event']) onEscPress(event: KeyboardEvent) {
+    this.onClosed.emit();
+  }
 
   constructor(private cdRef : ChangeDetectorRef) {
   }
