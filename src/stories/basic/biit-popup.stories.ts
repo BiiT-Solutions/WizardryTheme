@@ -160,7 +160,7 @@ export const SixtyView = SixtyTemplate.bind({});
 const InfoBoxTemplate: Story<BiitPopupComponent> = (args: BiitPopupComponent) => ({
   props: args,
   template: `
-    <button biit-button (click)="mousePosition = $event; showInfoBox = true">Show Info box</button>
+    <button biit-button (click)="mousePosition = $event; showInfoBox = true" style="display: flex; justify-content: end; width: 100%">Show Info box</button>
     <biit-popup *ngIf="showInfoBox"
                 info-box closable closable-outside
                 [title]="title"
