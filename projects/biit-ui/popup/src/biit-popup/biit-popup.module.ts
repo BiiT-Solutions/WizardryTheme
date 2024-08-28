@@ -28,6 +28,7 @@ import {BiitIconModule} from 'biit-ui/icon';
     BiitPopupComponent,
     BiitPopupBackgroundDirective,
     BiitPopupNoHeaderDirective,
+    BiitPopupClosableDirective,
     BiitPopupClosableOutsideDirective,
     BiitPopupSixtyViewDirective,
     BiitPopupInfoBoxDirective
