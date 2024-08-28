@@ -22,6 +22,7 @@ export class BiitDatatableComponent<T> implements OnInit {
   @Input() set data(data: T[]) {
     this._data = data ?? [];
     this.allData = data ?? [];
+    this.selected = [];
   }
   get data(): T[] {
     return this._data;
