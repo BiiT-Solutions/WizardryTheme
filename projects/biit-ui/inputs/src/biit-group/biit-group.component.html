@@ -1,0 +1,24 @@
+<fieldset>
+  <legend *ngIf="legend">
+    {{ legend }}
+  </legend>
+
+  <div class="grp-buttons">
+    <button biit-icon
+            icon="plus"
+            *ngIf="isEnabledPlus"
+            (click)="onPlusClick.emit()"
+    ></button>
+    <button biit-icon
+            icon="minus"
+            *ngIf="isEnabledMinus"
+            (click)="onMinusClick.emit()"
+    ></button>
+  </div>
+
+  <ng-content></ng-content>
+</fieldset>
+<span *ngIf="description"
+      class="grp-description">
+  {{description}}
+</span>

@@ -27,3 +27,5 @@ export * from './biit-slider-option/biit-slider-option.module';
 export * from './biit-slider-option/biit-slider-option.component';
 export * from './biit-slider-option-vertical/biit-slider-option-vertical.module';
 export * from './biit-slider-option-vertical/biit-slider-option-vertical.component';
+export * from './biit-group/biit-group.module';
+export * from './biit-group/biit-group.component';
