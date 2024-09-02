@@ -17,7 +17,7 @@ $active-color: #F20D5E;
   height: 2.125em;
   width: 2.125em;
 
-  &:hover, &:focus-visible, &.checked {
+  &:hover, &:focus-visible, &:has(.checked) {
     background-color: $background-color;
   }
 
@@ -39,7 +39,7 @@ $active-color: #F20D5E;
     }
   }
 
-  &.checked ::ng-deep biit-icon path {
+  &:has(.checked) ::ng-deep biit-icon path {
     fill: $active-color !important;
   }
 }
@@ -47,6 +47,6 @@ $active-color: #F20D5E;
 .icon-button-svg {
   display: inline-flex;
   pointer-events: none;
-  width: 1.05em;
-  height: 1.05em;
+  width: 1em;
+  height: 1em;
 }

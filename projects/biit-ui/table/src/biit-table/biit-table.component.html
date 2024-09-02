@@ -1,25 +1,24 @@
-<div class="canvas" slot="{{'empty' | transloco}}">
+<div class="canvas" *transloco="let t">
   <div class="header" *ngIf="!hideHeader">
     <div class="buttons">
       <ng-content></ng-content>
     </div>
     <div class="forms">
-      <biit-input-text [ngModel]="search"
+      <biit-input-text [(ngModel)]="search"
                        (onActionPerformed)="
-                         search = $event;
                          paginator.currentPage = 1;
                          onTableUpdate();
                        "
-                       (focusout)="resetInputValue($event, search)"
+                       (focusout)="resetInputValue()"
                        icon="search"
-                       placeholder="{{'table.search' | transloco}}"
+                       [placeholder]="t('table.search')"
       ></biit-input-text>
       <biit-multiselect [ngModel]="columns | visibleColumns"
                         (ngModelChange)="setColumnVisibility($event)"
                         [data]="columns"
                         label="label"
                         value="visible"
-                        title="{{'table.column-selector' | transloco}}"
+                        [title]="t('table.column-selector')"
                         [type]="BiitMultiselectType.ICON"
                         [compact]="true"
       ></biit-multiselect>
@@ -85,7 +84,7 @@
                 {{item | columnData: column.name}}
               </div>
               <div *ngIf="column.format == BiitTableColumnFormat.BOOLEAN">
-                {{(item | columnData: column.name) ? ('table.yes' | transloco) : ('table.no' | transloco) }}
+                {{(item | columnData: column.name) ? t('table.yes') : t('table.no') }}
               </div>
               <div *ngIf="column.format == BiitTableColumnFormat.DATE">
                 {{(item | columnData: column.name) | localizedDate}}

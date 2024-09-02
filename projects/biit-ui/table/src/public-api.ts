@@ -15,3 +15,7 @@ export * from './biit-paginator/models/biit-paginator-options';
 export * from './utils/generic-filter';
 export * from './utils/generic-sort';
 
+
+export * from './biit-datatable/biit-datatable.component';
+export * from './biit-datatable/biit-datatable.module';
+export * from './biit-datatable/models/datatable-column';

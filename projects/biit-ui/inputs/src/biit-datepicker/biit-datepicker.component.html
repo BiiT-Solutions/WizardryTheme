@@ -25,11 +25,11 @@
         ></biit-icon>
       </div>
       <div class="input-placeholder input-filled">
-        {{placeholder}}
+        {{_placeholder}}
         <a *ngIf="required"
            [style.color]="value ? null : 'red'">*</a>
       </div>
-      <biit-icon *ngIf="error || (value | isDisabled: disabledDays: disableWeekdays: disableWeekends)"
+      <biit-icon *ngIf="error || (value | isDisabled: disabledDays: disableWeekdays: disableWeekends: min: max)"
                  name="exclamation"
                  class="input-error-icon"
                  [pathStyle]="{fill:'#A1093F'}"
@@ -69,7 +69,7 @@
                       [class.outer-day]="day | outOfMonth: viewerDate"
                       [class.is-today]="day | isToday"
                       [class.selected]="day | isSameDay: value"
-                      [class.disabled]="day | isDisabled: disabledDays: disableWeekdays: disableWeekends"
+                      [class.disabled]="day | isDisabled: disabledDays: disableWeekdays: disableWeekends: sub(min, {days: 1}): add(max, {days: 1})"
                       (click)="onModelChange(day)"
                       tabindex="0"
               >
@@ -129,14 +129,14 @@
                     ></biit-icon>
                   </div>
                   <div class="item secondary"
-                       (click)="onModelChange(sub(value, {hours: 1}))">
+                       (click)="onModelChange(sub(value, {minutes: 1}))">
                     {{ value ? (sub(value, {minutes: 1}) | date: 'mm') : '' }}
                   </div>
                   <div class="item primary">
                     {{ value ? (value | date: 'mm') : '' }}
                   </div>
                   <div class="item secondary"
-                       (click)="onModelChange(add(value, {hours: 1}))">
+                       (click)="onModelChange(add(value, {minutes: 1}))">
                     {{ value ? (add(value, {minutes: 1}) | date: 'mm') : '' }}
                   </div>
                   <div class="item arrow"
@@ -253,7 +253,7 @@
           {{error}}
         </a>
       </div>
-      <div *ngIf="value | isDisabled: disabledDays: disableWeekdays: disableWeekends" class="input-error-msg">
+      <div *ngIf="value | isDisabled: disabledDays: disableWeekdays: disableWeekends: min: max" class="input-error-msg">
         <a>
           {{'inputs.date-error' | transloco}}
         </a>
@@ -295,7 +295,7 @@
                 [class.outer-day]="day | outOfMonth: viewerDate"
                 [class.is-today]="day | isToday"
                 [class.selected]="day | isSameDay: value"
-                [class.disabled]="day | isDisabled: disabledDays: disableWeekdays: disableWeekends"
+                [class.disabled]="day | isDisabled: disabledDays: disableWeekdays: disableWeekends: sub(min, {days: 1}): add(max, {days: 1})"
                 (click)="onModelChange(day)"
                 tabindex="0"
         >
@@ -308,10 +308,6 @@
                 class="today-btn"
                 (click)="setToday()">
           {{'inputs.today' | transloco}}
-        </button>
-        <button biit-button tertiary
-                (click)="closeDropdown()">
-          {{'inputs.done' | transloco}}
         </button>
       </div>
     </div>

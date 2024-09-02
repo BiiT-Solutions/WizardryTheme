@@ -11,8 +11,6 @@ $disabled-outer-day: #FBAEC9;
 
 .popup {
   display: block;
-  position: absolute;
-  z-index: 2;
   width: 17.5em;
   border: 3px solid $default-color;
   background: white;
@@ -25,11 +23,17 @@ $disabled-outer-day: #FBAEC9;
   transform: translate(0, var(--origin));
   transition: opacity 0.5s ease, transform 0.5s ease;
 
+  &:not(.calendar-mode) {
+    position: absolute;
+    z-index: 2;
+  }
+
   &.calendar-mode {
     position: relative;
     opacity: 1;
     pointer-events: all;
     margin-top: 0;
+    position: relative;
   }
 
   &.dropdown-open {
@@ -353,17 +357,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .input-error-msg {
+  position: absolute;
   display: flex;
   align-items: center;
   font-size: 0.7em;
   color: $error-color;
-  padding-top: 0.1em;
+  padding-top: 0.2em;
   padding-bottom: 0.15em;
   min-height: 1.05em;
 
   a {
     display: block;
-    line-height: 0.7em;
+    line-height: 1.1em;
   }
 }
 

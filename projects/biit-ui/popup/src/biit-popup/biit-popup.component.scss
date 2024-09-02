@@ -27,7 +27,7 @@ $error-color: #A1093F;
   min-width: 30rem;
   background-color: white;
   z-index: 12;
-  border: solid 0.15rem $default-color;
+  border: 3px solid $default-color;
   box-sizing: border-box;
   padding: 2.1rem;
 
@@ -47,7 +47,7 @@ $error-color: #A1093F;
   height: 100vh;
   background-color: white;
   z-index: 11;
-  border: solid 0.15rem $default-color;
+  border: 3px solid $default-color;
   box-sizing: border-box;
   padding: 2.1rem 2.1rem 3rem 2.1rem;
 
@@ -56,16 +56,18 @@ $error-color: #A1093F;
     width: 100%;
     height: fit-content;
     flex-grow: 1;
+    overflow-y: auto;
   }
 }
 
-.header {
+.popup-canvas .header, .sixty-canvas .header {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   height: 2.1rem;
   width: 100%;
+  flex-shrink: 0;
 
   .title {
     display: inline-flex;
@@ -88,7 +90,7 @@ $error-color: #A1093F;
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 0.15rem;
+    height: 3px;
     width: 60%;
     background: black;
   }
@@ -98,5 +100,44 @@ $error-color: #A1093F;
     height: 0.9rem;
     width: 0.9rem;
     cursor: pointer;
+  }
+}
+
+.info-box-canvas {
+  position: fixed;
+  width: 23.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: white;
+  border: 3px solid #262626;
+  gap: 0.75rem;
+
+  .bar {
+    display: none;
+  }
+
+  .header {
+    display: flex;
+    align-items: start;
+
+    .title {
+      font-weight: bold;
+      text-transform: uppercase;
+      flex-grow: 1;
+      padding-right: 0.5rem;
+    }
+  }
+
+  .close {
+    height: 0.8rem;
+    width: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    cursor: pointer;
+  }
+
+  > .content {
+    display: inline-flex;
   }
 }

@@ -64,10 +64,12 @@ textarea {
 }
 
 ::-webkit-scrollbar {
-  width: 0.7rem;
+  width: 11px;
+  height: 11px;
 }
+
 ::-webkit-scrollbar-thumb {
-  border: 0.2rem solid rgba(0, 0, 0, 0);
+  border: 3px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
   background-color: #262626;
 }
@@ -123,6 +125,11 @@ biit-navbar {
   position: sticky;
   width: 100%;
   z-index: 1;
+}
+
+biit-snackbar {
+  position: absolute;
+  z-index: 99999;
 }
 
 .hidden {

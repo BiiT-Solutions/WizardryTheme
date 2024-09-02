@@ -1,10 +1,22 @@
 {
   "username-empty": "Username is mandatory.",
   "password-empty": "Password is mandatory.",
+  "email-empty": "Email is mandatory.",
   "username": "Username",
   "password": "Password",
   "take_me_in": "take me in",
   "forgot": "I forgot my password",
   "cant_remember": "can't remember my password",
-  "remember": "Remember me"
+  "remember": "Remember me",
+  "email": "Email",
+  "reset_password_title": "Reset password",
+  "reset_password_subtitle": "Someone needs a memory spell...",
+  "reset_password_body": "Enter your email to regain access to your account",
+  "update_password_title": "Update password",
+  "update_password_subtitle": "You do need a new spell...",
+  "update_password_body": "Choose a powerful password and don't reuse it in other accounts",
+  "reset": "Reset",
+  "i_remember": "I remember, I do!",
+  "success": "Recovery email sent.",
+  "error": "There has been an issue, please try again."
 }

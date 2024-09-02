@@ -6,6 +6,7 @@ import {BiitIconButtonModule} from "biit-ui/button";
 import {addMonths, addWeeks, subMonths, subWeeks} from "date-fns";
 import { DragAndDropModule } from 'angular-draggable-droppable';
 import {CalendarEventTimesChangedEvent} from "angular-calendar";
+import {ContextMenuModule} from "@perfectmemory/ngx-contextmenu";
 
 function saveEvent(value: CalendarEventTimesChangedEvent, events: CalendarEvent[]) {
   let event = events.filter(e => e.id == value.event.id)[0];
@@ -19,7 +20,7 @@ export default {
   title: 'Basic/Calendar',
   decorators: [
     moduleMetadata({
-      imports: [BiitCalendarModule, FormsModule, BiitIconButtonModule, DragAndDropModule]
+      imports: [BiitCalendarModule, FormsModule, BiitIconButtonModule, DragAndDropModule, ContextMenuModule]
     }),
   ],
   args: {
@@ -29,10 +30,10 @@ export default {
       new CalendarEvent(undefined, '1 line event', new Date(new Date().setHours(1, 0)), new Date(new Date().setHours(1, 30))),
       new CalendarEvent(undefined, '2 line event so this title is longer', new Date(new Date().setHours(2, 0)), new Date(new Date().setHours(2, 45))),
       new CalendarEvent(undefined, '3 line event so this title is longer', new Date(new Date().setHours(3, 0)), new Date(new Date().setHours(4, 0))),
-      new CalendarEvent(undefined, 'Different color', new Date(), new Date(), true, EventColor.Green),
-      new CalendarEvent(undefined, 'Different color', new Date(new Date().setDate(new Date().getDate() - 1)), new Date(new Date().setDate(new Date().getDate() - 1)), true, EventColor.Green)
+      new CalendarEvent(undefined, 'Different color', new Date(), new Date(), true, EventColor.GREEN),
+      new CalendarEvent(undefined, 'Different color', new Date(new Date().setDate(new Date().getDate() - 1)), new Date(new Date().setDate(new Date().getDate() - 1)), true, EventColor.GREEN)
     ],
-    dragEvent: new CalendarEvent(undefined, 'Drag Event', new Date(), new Date(), true, EventColor.Purple)
+    dragEvent: new CalendarEvent(undefined, 'Drag Event', new Date(), new Date(), true, EventColor.PURPLE)
   },
 } as Meta;
 
@@ -58,10 +59,21 @@ export const Weekly: Story<BiitCalendarComponent> = (args: BiitCalendarComponent
           <biit-calendar [calendarMode]="'WEEK'"
                          [viewDate]="viewDate"
                          [events]="events"
+                         [gridContextMenu]="gridContextMenu"
+                         [eventContextMenu]="eventContextMenu"
                          (onEventDrop)="saveEvent($event, events)"
                          ></biit-calendar>
         </div>
       </div>
+
+      <context-menu #gridContextMenu>
+        <ng-template contextMenuItem>Add Event</ng-template>
+      </context-menu>
+
+      <context-menu #eventContextMenu>
+        <ng-template contextMenuItem>Edit Event</ng-template>
+        <ng-template contextMenuItem>Delete Event</ng-template>
+      </context-menu>
 `
   }
 };

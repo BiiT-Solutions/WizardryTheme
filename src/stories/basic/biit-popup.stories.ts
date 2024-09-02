@@ -27,6 +27,8 @@ export default {
   args: {
     showPopup: false,
     showSixty: false,
+    showInfoBox: false,
+    mousePosition: undefined,
     content: '<center><h1>E</h1><h2>F P</h2><h3>T O Z</h3><h4>L P E D</h4><h5>P E C F D</h5><h6>F E L O P Z D</h6></center>',
     title: 'This is a header title'
   },
@@ -61,8 +63,8 @@ export default {
       control: false
     },
     dark_bg: {
-      name: 'dark-bg',
-      description: 'Puts a dark background behind the popup.',
+      name: 'clear-bg',
+      description: 'Makes the background transparent behind the popup.',
       table: {
         category: 'Attributes'
       },
@@ -115,7 +117,7 @@ const Template: Story<BiitPopupComponent> = (args: BiitPopupComponent) => ({
   template: `
     <button biit-button (click)="showPopup = true">Show Popup</button>
     <biit-popup *ngIf="showPopup"
-                dark-bg closable closable-outside
+                closable closable-outside
                 [title]="title"
                 (onClosed)="onClosed($event); showPopup = false;">
       <div [innerHTML]="content" style="width: 100%"></div>
@@ -128,7 +130,7 @@ Default.parameters = {
     source: {
       code: `
 <biit-popup *ngIf="showPopup"
-            dark-bg closable closable-outside
+            closable closable-outside
             [title]="title"
             (onClosed)="onClosed($event)"
 >
@@ -145,7 +147,7 @@ const SixtyTemplate: Story<BiitPopupComponent> = (args: BiitPopupComponent) => (
   template: `
     <button biit-button (click)="showSixty = true">Show Sixty View</button>
     <biit-popup *ngIf="showSixty"
-                sixty-view dark-bg closable closable-outside
+                sixty-view closable closable-outside
                 [title]="title"
                 (onClosed)="onClosed($event); showSixty = false;">
       <div [innerHTML]="content" style="width: 100%"></div>
@@ -153,3 +155,19 @@ const SixtyTemplate: Story<BiitPopupComponent> = (args: BiitPopupComponent) => (
 `});
 
 export const SixtyView = SixtyTemplate.bind({});
+
+
+const InfoBoxTemplate: Story<BiitPopupComponent> = (args: BiitPopupComponent) => ({
+  props: args,
+  template: `
+    <button biit-button (click)="mousePosition = $event; showInfoBox = true" style="display: flex; justify-content: end; width: 100%">Show Info box</button>
+    <biit-popup *ngIf="showInfoBox"
+                info-box closable closable-outside
+                [title]="title"
+                [mouseEvent]="mousePosition"
+                (onClosed)="onClosed($event); showInfoBox = false;">
+      <div [innerHTML]="content" style="width: 100%"></div>
+    </biit-popup>
+`});
+
+export const InfoBox = InfoBoxTemplate.bind({});

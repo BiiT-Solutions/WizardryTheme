@@ -1,5 +1,5 @@
 {
-  "rows-per-page": "Rows per page:",
+  "rows-per-page": "Rows per page",
   "first-page": "First page",
   "previous-page": "Previous page",
   "next-page": "Next page",
@@ -7,5 +7,8 @@
   "search": "Search",
   "column-selector": "Column selector",
   "yes": "Yes",
-  "no": "No"
+  "no": "No",
+  "total": "Total",
+  "selected": "Selected",
+  "empty-message": "No data to display."
 }

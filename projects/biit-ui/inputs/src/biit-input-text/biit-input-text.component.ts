@@ -1,7 +1,8 @@
-import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {biitIcon} from 'biit-icons-collection';
 import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
+import {coerceBooleanProperty} from "@angular/cdk/coercion";
 
 @Component({
   selector: 'biit-input-text',
@@ -21,15 +22,18 @@ import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 })
 export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
 
-  @Input() placeholder: string = '';
+  @Input() set placeholder(placeholder: string) {
+    this._placeholder = placeholder;
+  }
+  protected _placeholder = '';
   @Input() error: string;
   @Input() info: string;
   @Input() type: Type;
   @Input() icon: biitIcon;
   @Input() fieldName: string;
-  @Input() disabled: boolean;
-  @Input() required: boolean;
-  @Input() readonly: boolean;
+  @Input() disabled;
+  @Input() required;
+  @Input() readonly;
   @Input() min: number;
   @Input() max: number;
   @Input() minLength: number;
@@ -44,30 +48,19 @@ export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
   protected readonly Type = Type;
 
   ngOnInit() {
-    this.disabled = this.checkBooleanInput(this.disabled);
-    this.required = this.checkBooleanInput(this.required);
-    this.readonly = this.checkBooleanInput(this.readonly);
+    this.disabled = coerceBooleanProperty(this.disabled);
+    this.required = coerceBooleanProperty(this.required);
+    this.readonly = coerceBooleanProperty(this.readonly);
 
     if (this.type == Type.EMAIL) {
       this.regEx = new RegExp("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\\])");
     }
   }
 
-  checkBooleanInput(value) {
-    switch (value) {
-      case undefined:
-        return false;
-      case false:
-        return false;
-      default:
-        return true;
-    }
-  }
-
-  validateInput(event) {
-    if (this.value.length) {
+  validateInput() {
+    if (this.value !== undefined) {
       if (this.regEx) {
-        this.regExError = !this.regEx.test(event);
+        this.regExError = !this.regEx.test(this.value);
       }
       if (this.minLength) {
         this.minLengthError = this.value.length < this.minLength;

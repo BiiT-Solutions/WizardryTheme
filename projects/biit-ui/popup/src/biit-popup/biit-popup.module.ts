@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  BiitPopupBackgroundDirective, BiitPopupClosableDirective,
-  BiitPopupComponent,
+  BiitPopupBackgroundDirective, BiitPopupClosableDirective, BiitPopupClosableOutsideDirective,
+  BiitPopupComponent, BiitPopupInfoBoxDirective,
   BiitPopupNoHeaderDirective,
   BiitPopupSixtyViewDirective
 } from './biit-popup.component';
@@ -16,7 +16,9 @@ import {BiitIconModule} from 'biit-ui/icon';
     BiitPopupBackgroundDirective,
     BiitPopupNoHeaderDirective,
     BiitPopupClosableDirective,
-    BiitPopupSixtyViewDirective
+    BiitPopupClosableOutsideDirective,
+    BiitPopupSixtyViewDirective,
+    BiitPopupInfoBoxDirective
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,9 @@ import {BiitIconModule} from 'biit-ui/icon';
     BiitPopupBackgroundDirective,
     BiitPopupNoHeaderDirective,
     BiitPopupClosableDirective,
-    BiitPopupSixtyViewDirective
+    BiitPopupClosableOutsideDirective,
+    BiitPopupSixtyViewDirective,
+    BiitPopupInfoBoxDirective
   ]
 })
 export class BiitPopupModule { }

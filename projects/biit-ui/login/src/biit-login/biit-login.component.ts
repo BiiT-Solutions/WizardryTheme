@@ -15,14 +15,18 @@ import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
 })
 export class BiitLoginComponent {
 
-  @Input() login: BiitLogin
+  @Input() login: BiitLogin;
 
-  @Output() onLogin: EventEmitter<BiitLogin>
-  @Output() onNotRemember: EventEmitter<void>
+  @Output() onLogin: EventEmitter<BiitLogin>;
+  @Output() onNotRemember: EventEmitter<void>;
+  @Output() onResetPassword: EventEmitter<string>;
 
   protected readonly keyId: string;
   protected readonly Type = Type;
   protected readonly LoginError = LoginErrors;
+
+  protected resetView = false;
+  protected resetEmail = "";
 
   protected loginErrors: Map<LoginErrors, string>;
 
@@ -32,13 +36,14 @@ export class BiitLoginComponent {
     }
     this.onLogin = new EventEmitter<BiitLogin>();
     this.onNotRemember = new EventEmitter<void>();
+    this.onResetPassword = new EventEmitter<string>();
     this.loginErrors = new Map<LoginErrors, string>();
     const generatedId: number = Math.floor(Math.random() * (20 - 1 + 1) + 1);
     this.keyId = `${generatedId < 10 ? '0' : ''}${generatedId}`
   }
 
   protected performLogin(): void {
-    if (this.validate()) {
+    if (this.validateLogin()) {
       //Trim username
       if (this.login && this.login.username) {
         this.login.username = this.login.username.trim();
@@ -47,7 +52,7 @@ export class BiitLoginComponent {
     }
   }
 
-  private validate(): boolean {
+  private validateLogin(): boolean {
     this.loginErrors.clear();
     if (!this.login.username || !this.login.username.length) {
       this.loginErrors.set(LoginErrors.USERNAME, this.translocoService.translate('login.username-empty'));
@@ -56,6 +61,26 @@ export class BiitLoginComponent {
       this.loginErrors.set(LoginErrors.PASSWORD, this.translocoService.translate('login.password-empty'));
     }
     return !this.loginErrors.size;
+  }
+
+  protected performResetPassword(): void {
+    if (this.validateResetPassword()) {
+      this.onResetPassword.emit(this.resetEmail);
+      this.restartView();
+    }
+  }
+
+  private validateResetPassword(): boolean {
+    this.loginErrors.clear();
+    if (!this.resetEmail.length) {
+      this.loginErrors.set(LoginErrors.EMAIL, this.translocoService.translate('login.email-empty'));
+    }
+    return !this.loginErrors.get(LoginErrors.EMAIL);
+  }
+
+  restartView() {
+    this.resetView = false;
+    this.resetEmail = "";
   }
 
   protected readonly LoginErrors = LoginErrors;

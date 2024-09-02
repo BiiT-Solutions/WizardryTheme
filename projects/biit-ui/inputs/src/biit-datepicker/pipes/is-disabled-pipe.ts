@@ -9,7 +9,7 @@ export class IsDisabledPipe implements PipeTransform {
 
   constructor() {
   }
-  transform(date: Date, disabledDates: Date[], disableWeekdays: boolean, disableWeekends: boolean): boolean {
+  transform(date: Date, disabledDates: Date[], disableWeekdays: boolean, disableWeekends: boolean, min: Date, max: Date): boolean {
     let disabled = false;
 
     disabledDates.forEach(target => {
@@ -24,6 +24,9 @@ export class IsDisabledPipe implements PipeTransform {
     if (disableWeekends && isWeekend(date)) {
       disabled = true;
     }
+
+    if (min && date.getTime() < min.getTime()) disabled = true;
+    if (max && date.getTime() > max.getTime()) disabled = true;
 
     return disabled;
   }

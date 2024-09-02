@@ -40,7 +40,7 @@ $error-color: #A1093F;
   width: 100%;
   min-width: 2.1em;
   font-weight: normal;
-  border-bottom: 0.15em solid $default-color;
+  border-bottom: 3px solid $default-color;
 
   &:focus {
     outline: none;
@@ -99,17 +99,18 @@ $error-color: #A1093F;
 }
 
 .input-error-msg {
+  position: absolute;
   display: flex;
   align-items: center;
   font-size: 0.7em;
   color: $error-color;
-  padding-top: 0.1em;
+  padding-top: 0.2em;
   padding-bottom: 0.15em;
   min-height: 1.05em;
 
   a {
     display: block;
-    line-height: 0.7em;
+    line-height: 1.1em;
   }
 }
 
