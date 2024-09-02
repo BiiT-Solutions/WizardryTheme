@@ -1,8 +1,6 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {
-  BiitActionButtonComponent,
-  BiitActionButtonModule,
-  BiitIconButtonModule
+  BiitActionButtonComponent
 } from 'biit-ui/button';
 import {BiitIconService} from 'biit-ui/icon';
 import {completeIconSet} from 'biit-icons-collection';
@@ -28,18 +26,28 @@ export default {
       }]
     }),
   ],
-
+  args: {
+    legend: 'Título',
+    description: 'There is actually extraterrestrial life in the universe, they\'re just not stupid enough to invade a planet with Chuck Norris on it.',
+    enablePlus: true,
+    enableMinus: false
+  }
 } as Meta;
 
 const Template: Story<BiitActionButtonComponent> = (args: BiitActionButtonComponent) => ({
   props: args,
   template: `
-    <div style="display: block; height: 500px; width: 800px; background: #eeeeee">
-      <biit-group>
-        <a>Chuck Norris doesn't read books. He stares them down until he gets the information he wants.</a>
-        <hr style="border: 1px solid #262626">
-        <biit-input-text placeholder="testing field"></biit-input-text>
-        <biit-input-text placeholder="testing field"></biit-input-text>
+    <div style="display: block; height: 500px; width: 700px;">
+      <biit-group [legend]="legend"
+                  [description]="description"
+                  [enablePlus]="enablePlus"
+                  [enableMinus]="enableMinus"
+      >
+        <div style="display: flex; flex-direction: column; gap: 1em;">
+          <a>Chuck Norris doesn't read books. He stares them down until he gets the information he wants.</a>
+          <biit-input-text placeholder="testing field"></biit-input-text>
+          <biit-input-text placeholder="testing field"></biit-input-text>
+        </div>
       </biit-group>
     </div>
 `

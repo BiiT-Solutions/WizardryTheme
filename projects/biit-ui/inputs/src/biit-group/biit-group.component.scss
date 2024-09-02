@@ -3,15 +3,14 @@ fieldset {
   border: 3px solid #262626;
   padding-inline-start: 2.25em;
   padding-inline-end: 2.25em;
-  padding-block-start: 1.25em;
-  padding-block-end: 1.25em;
+  padding-block-start: 1.75em;
+  padding-block-end: 2.75em;
 
   legend {
     padding: 0 1.25em;
   }
 
   button {
-    position: absolute;
     right: 0;
     top: -1.65em;
 
@@ -19,4 +18,20 @@ fieldset {
       //background: white;
     }
   }
+
+  .grp-buttons {
+    position: absolute;
+    right: 0;
+    top: -8px;
+    display: flex;
+  }
+}
+
+.grp-description {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.9rem;
+  color: #262626;
+  text-align: left;
 }
