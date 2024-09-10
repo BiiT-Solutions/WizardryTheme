@@ -12,7 +12,7 @@ function biitIconServiceFactory(service: BiitIconService) {
 }
 
 export default {
-  title: 'Navigation/Context Menu',
+  title: 'Extra Styles/Context Menu',
   decorators: [
     moduleMetadata({
       imports: [ContextMenuModule, BiitButtonModule, BiitIconModule],
