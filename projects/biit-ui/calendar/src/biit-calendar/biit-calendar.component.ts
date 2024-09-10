@@ -34,6 +34,7 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit {
   @Input() eventContextMenu: ContextMenuComponent<any>;
   @Output() onEventDrop: EventEmitter<CalendarEventTimesChangedEvent> = new EventEmitter<CalendarEventTimesChangedEvent>();
   @Output() onEventClick: EventEmitter<CalendarEventClickEvent> = new EventEmitter<CalendarEventClickEvent>();
+  @Output() onEventDblClick: EventEmitter<CalendarEventClickEvent> = new EventEmitter<CalendarEventClickEvent>();
   protected locale: Locale;
 
   $calendarEvent = castTo<CalendarEvent>();

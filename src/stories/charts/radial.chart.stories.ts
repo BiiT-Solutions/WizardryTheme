@@ -1,65 +1,27 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {Colors} from "../../../projects/biit-ui/charts/src/colors";
-import {RadialChartModule} from "../../../projects/biit-ui/charts/src/radial-chart/radial-chart.module";
+import {RadialChartComponent, RadialChartData, RadialChartModule} from "biit-ui/charts";
 
 export default {
-  title: 'Charts/Radial',
+  title: 'Charts/Radial - Gauge',
   decorators: [
     moduleMetadata({
       imports: [RadialChartModule],
     }),
   ],
   args: {
-    width: 500,
-    showToolbar: true,
-    colors: Colors.defaultPalette,
-    title: undefined,
-    titleAlignment: 'center',
-    fill: 'solid',
-    legendPosition: 'bottom',
-    shadow: true,
-
-    innerCirclePercentage: 40,
-    startAngle: 0,
-    endAngle: 360
+    data: null,
+    title: "Radial / gauge chart",
+    gauge: false,
+    width: 600
   },
   argTypes: {
-    width: {
-      type: {name: 'number', required: false},
-      defaultValue: 500,
-      description: 'Defines the width of the chart in pixels',
-      table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 500},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'number',
-        min: 300, max: 1000, step: 50,
-      }
-    },
-    showToolbar: {
-      name: 'showToolbar',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Disables the toolbar.',
-      table: {
-        type: {summary: 'boolean'},
-        defaultValue: {summary: true},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'boolean'
-      }
-    },
-    colors: {
-      name: 'colors',
+    data: {
+      name: 'data',
       type: {name: 'string', required: false},
-      defaultValue: '["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7"]',
-      description: 'Change the colors of the bars',
+      description: 'Defines the data of the chart',
       table: {
-        type: {summary: 'array'},
-        defaultValue: {summary: 'empty'},
+        type: {summary: 'PieChartData'},
+        defaultValue: {summary: 'undefined'},
         category: 'Inputs'
       },
       control: {
@@ -69,141 +31,74 @@ export default {
     title: {
       name: 'title',
       type: {name: 'string', required: false},
-      defaultValue: 'undefined',
-      description: 'Shows the title of the chart',
+      description: 'Text of the chart title',
       table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: true},
+        type: {summary: 'number'},
+        defaultValue: {summary: 'empty'},
         category: 'Inputs'
       },
       control: {
         type: 'text'
       }
     },
-    titleAlignment: {
-      name: 'titleAlignment',
+    gauge: {
+      name: 'gauge',
       type: {name: 'string', required: false},
-      defaultValue: 'default',
-      description: 'Defines the alignment of the title',
-      table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: 'empty'},
-        category: 'Inputs'
-      },
-      options: ['left', 'center', 'right'],
-      control: {
-        type: 'select'
-      }
-    },
-    fill: {
-      name: 'fill',
-      type: {name: 'string', required: false},
-      defaultValue: 'default',
-      description: 'Defines how the bars are filled',
-      table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: 'empty'},
-        category: 'Inputs'
-      },
-      options: ['gradient', 'solid', 'pattern'],
-      control: {
-        type: 'select'
-      }
-    },
-    shadow: {
-      name: 'shadow',
-      type: {name: 'boolean', required: false},
-      defaultValue: 'true',
-      description: 'Draws a shadow on the element',
+      description: 'Show a half circle (gauge) instead of the full radius',
       table: {
         type: {summary: 'boolean'},
-        defaultValue: {summary: true},
+        defaultValue: {summary: 'false'},
         category: 'Inputs'
       },
       control: {
         type: 'boolean'
       }
     },
-    legendPosition: {
-      name: 'legendPosition',
-      type: {name: 'string', required: false},
-      defaultValue: 'default',
-      description: 'Defines where the legend is shown',
+    width: {
+      name: 'width',
+      type: { name: 'number', required: false },
+      description: 'Defines graph width. If empty, it will be 100%',
       table: {
-        type: {summary: 'string'},
-        defaultValue: {summary: 'empty'},
-        category: 'Inputs'
-      },
-      options: ['left', 'bottom', 'right', 'top'],
-      control: {
-        type: 'select'
-      }
-    },
-    innerCirclePercentage: {
-      type: {name: 'number', required: false},
-      defaultValue: 40,
-      description: 'Defines the inner circle size as a %',
-      table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 1},
-        category: 'Inputs'
+        type: { summary: 'number' },
+        category: 'Style'
       },
       control: {
-        type: 'number',
-        min: 5, max: 100, step: 5,
+        type: 'range',
+        min: 400,
+        max: 1000,
+        step: 1
       }
-    },
-    startAngle: {
-      type: {name: 'number', required: false},
-      defaultValue: 0,
-      description: 'Defines the starting angle of the arc (on 360º)',
-      table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 1},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'number',
-        min: 5, max: 100, step: 5,
-      }
-    },
-    endAngle: {
-      type: {name: 'number', required: false},
-      defaultValue: 360,
-      description: 'Defines the ending angle of the arc (on 360º)',
-      table: {
-        type: {summary: 'number'},
-        defaultValue: {summary: 1},
-        category: 'Inputs'
-      },
-      control: {
-        type: 'number',
-        min: 5, max: 100, step: 5,
-      }
-    },
+    }
   }
 } as Meta;
 
-const Template: Story<RadialChartModule> = (args: RadialChartModule) => ({
+const Template: Story<RadialChartComponent> = (args: RadialChartComponent) => ({
   props: args,
   template: `
-    <app-radial-chart
-      [width]="width"
-      [showToolbar]="showToolbar"
-      [colors]="colors"
-      [title]="title"
-      [titleAlignment]="titleAlignment"
-      [fill]="fill"
-      [shadow]="shadow"
-      [legendPosition]="legendPosition"
-      [innerCirclePercentage]="innerCirclePercentage"
-      [startAngle]="startAngle"
-      [endAngle]="endAngle"
-    >
-    </app-radial-chart>`
+    <biit-radial-chart [data]="data"
+                       [title]="title"
+                       [width]="width"
+                       [gauge]="gauge"
+                       style="display: block; width:600px; height: 500px"
+    ></biit-radial-chart>`
 });
 
-export const Default = Template.bind({});
-Default.args = {}
+export const Radial = Template.bind({});
+Radial.args = {
+  title: 'Radial chart',
+  data: new RadialChartData(
+    [27, 13, 69, 40, 33],
+    ["This", "is", "some", "test", "dunno"]
+  ),
+  gauge: false
+}
 
-
+export const Gauge = Template.bind({});
+Gauge.args = {
+  title: 'Gauge chart',
+  data: new RadialChartData(
+    [27, 13, 69, 40, 33],
+    ["This", "is", "some", "test", "dunno"]
+  ),
+  gauge: true
+}

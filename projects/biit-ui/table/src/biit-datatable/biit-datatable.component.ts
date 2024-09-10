@@ -22,6 +22,7 @@ export class BiitDatatableComponent<T> implements OnInit {
   @Input() set data(data: T[]) {
     this._data = data ?? [];
     this.allData = data ?? [];
+    this.selected = [];
   }
   get data(): T[] {
     return this._data;
@@ -31,7 +32,7 @@ export class BiitDatatableComponent<T> implements OnInit {
   allColumns: DatatableColumn[] = [];
   @Input() set columns(columns: DatatableColumn[]) {
     this.allColumns = columns ?? [];
-    this.setColumnVisibility(columns.filter(c => c.visible));
+    this._columns = columns.filter(c => c.visible);
   }
   get columns(): DatatableColumn[] {
     return this._columns;
@@ -97,7 +98,7 @@ export class BiitDatatableComponent<T> implements OnInit {
   }
 
   setColumnVisibility(columns: DatatableColumn[]) {
-    this._columns = this.allColumns.filter(c => columns.some(col => c.$$id == col.$$id))
+    this._columns = this.allColumns.filter(c => columns.includes(c))
   }
 
   log(...event) {

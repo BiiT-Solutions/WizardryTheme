@@ -19,6 +19,10 @@ import {provideTranslocoLocale, TRANSLOCO_LOCALE_CONFIG} from "@ngneat/transloco
         // Remove this option if your application doesn't support changing language in runtime.
         reRenderOnLangChange: true,
         prodMode: !isDevMode(),
+        fallbackLang: DEFAULT_LANGUAGE.code,
+        missingHandler: {
+          useFallbackTranslation: true
+        }
       })
     },
     {

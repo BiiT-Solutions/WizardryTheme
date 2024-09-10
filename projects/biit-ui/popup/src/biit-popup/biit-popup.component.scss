@@ -60,7 +60,7 @@ $error-color: #A1093F;
   }
 }
 
-.header {
+.popup-canvas .header, .sixty-canvas .header {
   position: relative;
   display: flex;
   align-items: center;
@@ -100,5 +100,44 @@ $error-color: #A1093F;
     height: 0.9rem;
     width: 0.9rem;
     cursor: pointer;
+  }
+}
+
+.info-box-canvas {
+  position: fixed;
+  width: 23.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: white;
+  border: 3px solid #262626;
+  gap: 0.75rem;
+
+  .bar {
+    display: none;
+  }
+
+  .header {
+    display: flex;
+    align-items: start;
+
+    .title {
+      font-weight: bold;
+      text-transform: uppercase;
+      flex-grow: 1;
+      padding-right: 0.5rem;
+    }
+  }
+
+  .close {
+    height: 0.8rem;
+    width: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    cursor: pointer;
+  }
+
+  > .content {
+    display: inline-flex;
   }
 }

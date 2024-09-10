@@ -8,7 +8,6 @@ import {
 import {BarChartData} from './models/bar-chart-data';
 import {fromEvent} from 'rxjs';
 
-
 export type BarChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
@@ -23,7 +22,6 @@ export type BarChartOptions = {
   tooltip: ApexTooltip;
   grid: ApexGrid;
 };
-
 
 @Component({
   selector: 'biit-bar-chart',

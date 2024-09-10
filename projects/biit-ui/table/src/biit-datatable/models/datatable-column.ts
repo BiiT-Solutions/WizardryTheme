@@ -224,6 +224,7 @@ export class DatatableColumn implements TableColumn {
     this.prop = prop;
     this.visible = visible ?? true;
     this.width = width ?? undefined;
+    this.minWidth = width ?? undefined;
     this.sortable = sortable ?? true;
     this.pipe = pipe ?? undefined;
     this.cellTemplate  = cellTemplate ?? undefined;

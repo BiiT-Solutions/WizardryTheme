@@ -1,115 +1,157 @@
-import {Component, Input, ViewChild} from '@angular/core';
-import {ApexChart, ApexFill, ApexLegend, ApexPlotOptions, ApexTitleSubtitle, ChartComponent, ApexTooltip} from "ng-apexcharts";
-import {RadialChartData} from "./radial-chart-data";
-import {Colors} from "../colors";
-import {CustomChartComponent} from "../custom-chart-component";
-import {ApexTheme} from "ng-apexcharts/lib/model/apex-types";
+import {Component, ElementRef, Input, OnChanges, OnInit} from '@angular/core';
+import {
+  ApexChart,
+  ApexDataLabels, ApexGrid, ApexLegend,
+  ApexPlotOptions, ApexStates, ApexTitleSubtitle,
+  ApexTooltip, ApexXAxis, ApexYAxis
+} from "ng-apexcharts";
+import {RadialChartData} from './models/radial-chart-data';
 
-type RadialChartOptions = {
+export type RadialChartOptions = {
   series: number[];
-  colors: string [];
-  labels: string[];
-  fill: ApexFill;
   chart: ApexChart;
+  labels: string[];
+  dataLabels: ApexDataLabels;
+  fill: any;
+  colors: any;
+  title: ApexTitleSubtitle;
+  xaxis: ApexXAxis;
+  yaxis: ApexYAxis;
+  legend: ApexLegend;
   plotOptions: ApexPlotOptions;
   tooltip: ApexTooltip;
-  title: ApexTitleSubtitle;
-  legend: ApexLegend;
-  theme: ApexTheme;
+  grid: ApexGrid;
+  states: ApexStates;
 };
 
-
 @Component({
-  selector: 'app-radial-chart',
+  selector: 'biit-radial-chart',
   templateUrl: './radial-chart.component.html',
   styleUrls: ['./radial-chart.component.scss']
 })
-export class RadialChartComponent extends CustomChartComponent {
+export class RadialChartComponent implements OnInit, OnChanges {
 
-  @ViewChild('chart')
-  chart!: ChartComponent;
+  chartOptions: Partial<RadialChartOptions>;
+  pageNumber = 1;
 
-  public chartOptions: RadialChartOptions;
+  @Input() data: RadialChartData;
+  @Input() title = '';
+  @Input() width: number;
+  @Input() min: number;
+  @Input() max: number;
+  @Input() gauge = false;
+  yLegendMargin: number = 0;
 
-  @Input()
-  public data: RadialChartData;
-  @Input()
-  public width: number|string = '100%';
-  @Input()
-  public height: number|string = 'auto';
-  @Input()
-  public showToolbar: boolean = true;
-  @Input()
-  public colors: string[] = Colors.defaultPalette;
-  @Input()
-  public title: string | undefined = undefined;
-  @Input()
-  public titleAlignment: "left" | "center" | "right" = "center";
-  @Input()
-  public fill: "gradient" | "solid" | "pattern" | "image" = "gradient";
-  @Input()
-  public legendPosition: 'left' | 'bottom' | 'right' | 'top' = "bottom"
-  @Input()
-  public shadow: boolean = true;
-  @Input()
-  public innerCirclePercentage: number = 40;
-  @Input()
-  public startAngle: number = 0;
-  @Input()
-  public endAngle: number = 360;
+  constructor(private ref: ElementRef) { }
 
-  constructor() {
-    super();
-    this.data = RadialChartData.fromArray([["Value1", 85], ["Value2", 49], ["Value3", 36]]);
+  ngOnInit() {
+    if (!this.data?.data?.length) {
+      return;
+    }
+    this.createChartOptions();
   }
 
+  ngOnChanges() {
+    if (!this.data?.data?.length) {
+      return;
+    }
+    this.createChartOptions();
+  }
 
-  protected setProperties(): void {
+  private createChartOptions() {
+    // @ts-ignore
     this.chartOptions = {
-      colors: this.colors,
-      chart: this.getChart('radialBar', this.shadow, this.showToolbar, this.width, this.height),
-      series: this.data.getValues(),
-      labels: this.data.getLabels(),
-      fill: this.getFill(this.fill),
-      plotOptions: this.getPlotOptions(),
-      tooltip: this.getTooltip(),
-      title: this.getTitle(this.title, this.titleAlignment),
-      legend: this.getLegend(this.legendPosition),
-      theme: this.getTheme()
-    };
-  }
-
-
-  protected getPlotOptions(): ApexPlotOptions {
-    return {
-      radialBar: {
-        startAngle: this.startAngle,
-        endAngle: this.endAngle,
-        dataLabels: {
-          name: {
-            fontSize: "22px"
+      series: this.data.data,
+      chart: {
+        height: '100%',
+        width: '100%',
+        type: "radialBar"
+      },
+      plotOptions: {
+        radialBar: {
+          hollow: {
+            size: '50%'
           },
-          value: {
-            offsetY: 5,
-            fontSize: "16px"
-          },
-          total: {
-            show: true,
-            label: "Total",
-            color: "#000000",
-            formatter: (w: any) => {
-              return (Math.round((this.data.getTotal() / this.data.getValues().length) * 100) / 100).toFixed(2) + "%";
-            }
-          }
+          startAngle: this.gauge ? -90: 0,
+          endAngle: this.gauge ? 90 : 360
+        }
+      },
+      labels: this.data.legend,
+      dataLabels: {
+        enabled: true,
+        style: {
+          fontSize: "20px",
+          fontFamily: "Montserrat",
+          fontWeight: "700"
         },
-        hollow: {
-          size: this.innerCirclePercentage + "%"
+        dropShadow: {
+          enabled: false
+        }
+      },
+      xaxis: {
+        categories: this.data.legend,
+        labels: {
+          style: {
+            fontSize: '14px',
+            fontFamily: 'Montserrat',
+            colors: ["262626"]
+          },
+        }
+      },
+      yaxis: {
+        labels: {
+          style: {
+            fontSize: '14px',
+            fontFamily: 'Montserrat',
+            colors: ["262626"]
+          },
+        }
+      },
+      fill: {
+        opacity: 1
+      },
+      legend: {
+        show: true,
+        fontSize: '16px',
+        fontFamily: 'Montserrat',
+
+      },
+      title: {
+        text: this.title.toUpperCase(),
+        style: {
+          fontSize: '20px',
+          fontFamily: 'Montserrat',
+          fontWeight: 700,
+        }
+      },
+      grid: {
+        borderColor: '#262626',
+      },
+      tooltip: {
+        custom: function({ series, seriesIndex, dataPointIndex, w }) {
+          let tooltip =
+            '<div class="tooltip-base">' +
+            '  <div class="tooltip-content">' +
+            '    <div class="tooltip-data">' +
+            '      <div class="tooltip-square" style="background:'+ w.globals.colors[seriesIndex] +'"></div>' +
+            '      <a>' + w.globals.seriesNames[seriesIndex] + ': </a>' +
+            '      <a style="margin-left: 0.35rem; font-weight: 500">' + series[seriesIndex] + '</a>' +
+            '    </div>';
+
+          tooltip +=
+            '  </div>' +
+            '</div>';
+          return tooltip;
+        }
+      },
+      colors: ['#FF005B', '#5E92DE', '#753A86', '#F0A700', '#00AF77'],
+      states: {
+        active: {
+          filter: {
+            type: 'none'
+          }
         }
       }
-    }
-  }
-
-  update(data: RadialChartData) {
-    this.chart.updateSeries(data.getData());
+    };
   }
 }
