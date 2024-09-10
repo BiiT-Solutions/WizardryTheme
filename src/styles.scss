@@ -5,3 +5,33 @@
 html, body { height: 100%; font-size: 16px}
 body { margin: 0;
   font-family: Montserrat, "Montserrat", sans-serif; }
+
+.ngx-contextmenu {
+  --ngx-contextmenu-font-family: Montserrat, "Montserrat", sans-serif;
+  --ngx-contextmenu-font-size: 1rem;
+  --ngx-contextmenu-text-color: #262626;
+  --ngx-contextmenu-border: none;
+  --ngx-contextmenu-border-radius: none;
+  --ngx-contextmenu-padding: none;
+  --ngx-contextmenu-min-width: 12.5rem;
+  --ngx-contextmenu-item-padding: 0.6rem 1rem 0.6rem 2rem;
+  --ngx-contextmenu-item-separator-color: #262626;
+  --ngx-contextmenu-item-separator-padding: 8px;
+  --ngx-contextmenu-item-background-hover-color: #D9D9D9;
+
+  li {
+    position: relative;
+
+    button:active {
+      color: #f20d5e !important;
+    }
+
+    biit-icon {
+      height: 0.875rem;
+      width: 0.875rem;
+      position: absolute;
+      left: 0.6rem;
+      top: 0.8rem
+    }
+  }
+}
