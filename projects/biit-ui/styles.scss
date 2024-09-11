@@ -23,6 +23,10 @@ textarea {
   font-family: Montserrat, "Montserrat", sans-serif;
 }
 
+/*
+  Scrollbar styles
+ */
+
 @-moz-document url-prefix() {
   * {
     scrollbar-width: thin;
@@ -51,6 +55,10 @@ textarea {
   background-color: #F20D5E;
 }
 
+/*
+  Text extra styles
+ */
+
 .biit-general-text {
   font-size: 1rem;
   color: #262626;
@@ -64,14 +72,18 @@ textarea {
   text-align: left;
 }
 
-//
+/*
+  Context menu styles
+ */
 
 .ngx-contextmenu {
   --ngx-contextmenu-font-family: Montserrat, "Montserrat", sans-serif;
   --ngx-contextmenu-font-size: 1rem;
   --ngx-contextmenu-text-color: #262626;
-  --ngx-contextmenu-border: none;
+  --ngx-contextmenu-box-shadow: none;
+  --ngx-contextmenu-border: 2px solid #EDEDED;
   --ngx-contextmenu-border-radius: none;
+  --ngx-contextmenu-margin: none;
   --ngx-contextmenu-padding: none;
   --ngx-contextmenu-min-width: 12.5rem;
   --ngx-contextmenu-item-padding: 0.6rem 1rem 0.6rem 2rem;
@@ -92,6 +104,15 @@ textarea {
       position: absolute;
       left: 0.6rem;
       top: 0.8rem
+    }
+  }
+
+  &[dir="rtl"] {
+    --ngx-contextmenu-item-padding: 0.6rem 2rem 0.6rem 1rem;
+
+    biit-icon {
+      left: unset;
+      right: 0.6rem
     }
   }
 }
