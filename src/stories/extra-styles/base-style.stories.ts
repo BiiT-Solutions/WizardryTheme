@@ -25,7 +25,7 @@ Default.parameters = {
     source: {
       code: `
 /* SCSS - BASE HTML (usually styles.scss) */
-@import "../node_modules/angular-calendar/css/angular-calendar.css";
+@import "angular-calendar/scss/angular-calendar";
 
 html, body{
   height: 100%;

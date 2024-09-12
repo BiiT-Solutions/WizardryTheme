@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import "../node_modules/angular-calendar/css/angular-calendar.css";
-@import "src/assets/styles/context-menu/base";
+@import "angular-calendar/scss/angular-calendar";
+@import "@perfectmemory/ngx-contextmenu/src/assets/stylesheets/base";
 
 html, body { height: 100%; font-size: 16px}
 body { margin: 0;
