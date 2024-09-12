@@ -9,5 +9,52 @@
   "logout": "Su sessión se ha cerrado correctamente.",
 
   "request_success": "Tu petición ha sido completada satisfactoriamente.",
-  "request_failed": "Tu petición ha fallado. Por favor, inténtalo más tarde."
+  "request_failed": "Tu petición ha fallado. Por favor, inténtalo más tarde.",
+
+  "user_expired": "This user has expired.",
+  "action_not_allowed": "This action is not allowed.",
+  "database_integrity_violation": "There seems to be an issue. Please report the next issue code: ERR_DBIV",
+  "jwt_revoked": "There seems to be an issue. Please report the next issue code: ERR_JWTR",
+  "method_not_allowed": "There seems to be an issue. Please report the next issue code: ERR_MTA0",
+  "ip_blocked": "There seems to be an issue. Please report the next issue code: ERR_IPB0",
+  "invalid_request": "There seems to be an issue. Please report the next issue code: ERR_IVR0",
+  "user_blocked": "This user is blocked.",
+  "access_denied": "Access denied.",
+  "unsupported_media_type": "Please, select a supported media type.",
+  "bad_request": "There seems to be an issue. Please report the next issue code: ERR_BDR0",
+  "internal_server_error": "There seems to be an issue. Please report the next issue code: ERR_ISE0",
+  "message_not_readable": "There seems to be an issue. Please report the next issue code: ERR_MNR0",
+  "not_found": "There seems to be an issue. Please report the next issue code: ERR_NFE0",
+  "invalid_credentials": "The credentials are invalid. Please check them and try again.",
+
+  "user_already_exists": "El usuario ya existe.",
+  "invalid_password": "La contraseña es inválida.",
+  "role_without_backend_service_role": "Esta combinación de aplicación/rol no tiene roles de backend asignados. Por favor, añade un rol de backend en la vista 'Servicios' primero.",
+  "organization_already_exists": "La organización ya existe.",
+  "team_already_exists": "El equipo ya existe.",
+  "token_expired": "El token ha expirado.",
+  "application_backend_role_not_found": "No se pudo encontrar el rol de aplicación.",
+  "email_not_sent": "El email no ha sido enviado.",
+
+  "invalid_recurrence": "La recurrencia es inválida.",
+  "recurrence_not_found": "No se pudo encontrar la recurrencia.",
+  "examination_type_not_found": "No se pudo encontrar el tipo de examinación.",
+  "appointment_not_found": "No se pudo encontrar la cita.",
+  "professional_specialization_not_found": "No se pudo encontrar la examinación profesional.",
+  "invalid_parameter": "Parámetro inválido.",
+  "invalid_format": "Formato inválido.",
+  "user_not_in_appointment": "El usuario no está registrado en la cita.",
+  "user_already_in_appointment": "El usuario ya está registrado en la cita.",
+  "attendance_not_found": "No se pudo encontrar la asistencia.",
+
+  "malformed_profile": "Perfil malformado.",
+  "profile_not_found": "No se pudo encontrar el perfil.",
+  "candidate_not_found": "No se pudo encontrar el candidato.",
+  "comment_too_long": "El comentario es demasiado largo. Por favor, mantenlo por debajo de 10.000 caracteres.",
+
+  "fact_not_found": "No se pudo encontrar el fact.",
+  "template_not_found": "No se pudo encontrar el template.",
+  "form_not_found": "No se pudo encontrar el form.",
+  "error_generating_pdf": "Ha habido un error al generar el PDF.",
+  "element_does_not_exists": "Este elemento no existe."
 }
