@@ -27,6 +27,7 @@
   "not_found": "There seems to be an issue. Please report the next issue code: ERR_NFE0",
   "invalid_credentials": "The credentials are invalid. Please check them and try again.",
 
+  "email_already_exists": "The email is already in use.",
   "user_already_exists": "The user already exists.",
   "invalid_password": "The password is invalid.",
   "role_without_backend_service_role": "This application/role combo has no backend roles assigned. Please, add a backend role on 'Services' view first.",
