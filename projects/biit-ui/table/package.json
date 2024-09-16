@@ -2,7 +2,7 @@
   "name": "@biit-ui/table",
   "peerDependencies": {
     "@angular/material": "^15.1.0",
-    "@siemens/ngx-datatable": "~21.6.0"
+    "@siemens/ngx-datatable": "latest"
   },
   "i18n": [
     {
