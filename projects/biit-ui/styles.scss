@@ -96,8 +96,16 @@ textarea {
   li {
     position: relative;
 
-    button:active {
-      color: #f20d5e !important;
+    button {
+      &:active {
+        color: #f20d5e !important;
+      }
+      &:has(.active) {
+        background: #EDEDED;
+      }
+      &:not(.disabled) {
+        cursor: pointer;
+      }
     }
 
     biit-icon {

@@ -15,38 +15,12 @@ $disabled-color: #EDEDED;
     user-select: none;
     cursor: pointer;
 
-    .submenu {
-      display: none;
-      position: fixed;
-      top: 2.7rem;
-      left: 0;
-      height: 2.5rem;
-      width: 100%;
-      background: white;
-      box-sizing: border-box;
-      padding-left: 2.5rem;
-      padding-right: 2.5rem;
-
-      &::before {
-        position: absolute;
-        height: 0.2rem;
-        width: 100%;
-        top: -0.2rem;
-        left: 0;
-        content: "";
-      }
-    }
-
-    &.hover {
-      background: $hover-color;
-
-      .submenu {
-        display: flex;
-      }
-    }
-
-    &:active, &.active {
+    &:active, &.active, &.open {
       background: $active-color;
+    }
+
+    &:hover, &.hover {
+      background: $hover-color;
     }
   }
 }
