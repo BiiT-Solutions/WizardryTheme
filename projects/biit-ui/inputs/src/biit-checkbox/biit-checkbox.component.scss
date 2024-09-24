@@ -1,13 +1,13 @@
 $default-color: #262626;
 $selected-color: #F20D5E;
 $disabled-color: #D9D9D9;
-$_3px: 0.2rem;
-$_5px: 0.25rem;
+$_3px: 0.2em;
+$_5px: 0.25em;
 $_14px: 0.75em;
 
 label {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: fit-content;
   cursor: pointer;
 
@@ -20,7 +20,9 @@ label {
     color: $disabled-color;
   }
 
-  a:not(:empty) {
+  div {
+    display: flex;
+    flex-direction: column;
     margin-left: 0.75em;
   }
 
@@ -38,6 +40,7 @@ label {
     box-sizing: border-box;
     margin: 0;
     cursor: pointer;
+    margin-top: $_5px;
 
     transition:0.2s ease all;
     -moz-transition:0.2s ease all;
@@ -57,5 +60,16 @@ label {
       border: $_3px solid $disabled-color;
       background: $disabled-color;
     }
+  }
+
+  a {
+    line-height: 120%;
+  }
+
+  .description {
+    font-size: 0.75em;
+    color: #808080;
+    line-height: 120%;
+    font-style: italic;
   }
 }

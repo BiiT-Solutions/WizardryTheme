@@ -26,7 +26,7 @@ export default {
   ],
   args: {
     items: [
-      {id: 1, name: 'Spring', checked: false},
+      {id: 1, name: 'Spring', checked: false, description: 'This item has a description'},
       {id: 2, name: 'Summer', checked: false},
       {id: 3, name: 'Autumn', checked: false},
       {id: 4, name: 'Winter', checked: false}
@@ -113,6 +113,7 @@ const Template: Story<BiitRadioButtonComponent> = (args: BiitRadioButtonComponen
                          [id]="name + item.id"
                          [name]="name"
                          [value]="item.name"
+                         [description]="item.description"
                          [disabled]="disabled">
         {{item.name}}
       </biit-radio-button>

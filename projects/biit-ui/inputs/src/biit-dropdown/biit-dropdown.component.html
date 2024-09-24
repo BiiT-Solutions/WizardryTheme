@@ -39,6 +39,7 @@
     <div class="bottom-line"
          [class.disabled]="isDisabled"
     ></div>
+    <span class="description">{{description}}</span>
   </div>
 </div>
 <button biit-icon
@@ -69,7 +70,10 @@
           [tabindex]="!dropdownOpen || isDisabled ? -1 : 0"
           [disabled]="!dropdownOpen || isDisabled"
   >
-    <a>{{isPrimitive ? item : item[label]}}</a>
+    <div>
+      <a>{{isPrimitive ? item : item[label]}}</a>
+      <span *ngIf="descriptionLabel && item[descriptionLabel]" class="description">{{item[descriptionLabel]}}</span>
+    </div>
   </button>
   <button *ngIf="!filteredData.length"
           class="dropdown-item no-results"

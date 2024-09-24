@@ -1,5 +1,4 @@
 <div class="navbar-menu-canvas">
-<!--     (mouseleave)="clearTimeout(timeout); hovered = undefined">-->
   <div class="item" #navItem
        *ngFor="let route of routes"
        [routerLink]="route.children ? null : [route.path]"
@@ -11,25 +10,6 @@
        (click)="route.children ? onContextMenu(route, navItem) : null; log(hovered == route); "
   >
     {{route.title}}
-<!--    <div class="submenu"-->
-<!--         *ngIf="hovered?.children?.length"-->
-<!--         (mouseover)="submenuHover = true"-->
-<!--         (mouseleave)="submenuHover = false">-->
-<!--      <div class="item"-->
-<!--           *ngFor="let child of hovered.children"-->
-<!--           [routerLink]="[route.path, child.path]"-->
-<!--           [routerLinkActive]="['active']"-->
-<!--           [routerLinkActiveOptions]="{exact: true}"-->
-<!--           [class.disabled]="child.data?.['disabled']"-->
-<!--           [class.hover]="submenuItemHover == child"-->
-<!--           (mouseleave)="submenuItemHover = undefined"-->
-<!--           (mouseover)="submenuItemHover = child"-->
-<!--           [style.display]="child.data?.['hidden'] ? 'none' : 'inline-flex'"-->
-<!--           (click)="$event.stopPropagation();"-->
-<!--      >-->
-<!--        {{child.title}}-->
-<!--      </div>-->
-<!--    </div>-->
 
     <context-menu #navbarMenu>
       <ng-template contextMenuItem

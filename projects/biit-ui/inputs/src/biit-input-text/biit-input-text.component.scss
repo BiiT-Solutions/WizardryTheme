@@ -98,11 +98,11 @@ $error-color: #A1093F;
   position: absolute;
   display: flex;
   align-items: center;
-  font-size: 0.7em;
+  font-size: 0.75em;
   color: $error-color;
   padding-top: 0.2em;
-  padding-bottom: 0.15em;
   min-height: 1.05em;
+  line-height: 120%;
 
   a {
     display: block;
@@ -131,6 +131,23 @@ $error-color: #A1093F;
     background-color: $background-color;
     border: none;
     outline: none;
+  }
+}
+
+.input-description {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  font-size: 0.75em;
+  color: #808080;
+  padding-top: 1.4em;
+  min-height: 1.05em;
+  line-height: 120%;
+  font-style: italic;
+
+  a {
+    display: block;
+    line-height: 1.1em;
   }
 }
 

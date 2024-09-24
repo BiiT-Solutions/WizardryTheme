@@ -27,7 +27,7 @@ export default {
   args: {
     value: [],
     items: [
-      {id: 1, name: 'Spring'},
+      {id: 1, name: 'Spring', description: 'This item has a description'},
       {id: 2, name: 'Summer'},
       {id: 3, name: 'Autumn'},
       {id: 4, name: 'Winter'}
@@ -36,7 +36,8 @@ export default {
     disabled: false,
     compact: false,
     type: BiitMultiselectType.DEFAULT,
-    width: 512
+    width: 512,
+    description: 'This field has a description',
   },
   argTypes: {
     value: {
@@ -162,28 +163,28 @@ const Template: Story<BiitMultiselectComponent> = (args: BiitMultiselectComponen
       </div>
     </div>
 
-    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name" descriptionField="description"
                    style="display:block; position: fixed; top: 1rem; left: 1rem"
                    [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
-                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required" [description]="description"
     ></biit-multiselect>
 
-    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name" descriptionField="description"
                    style="display:block; position: fixed; top: 1rem; right: 1rem"
                    [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
-                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required" [description]="description"
     ></biit-multiselect>
 
-    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name" descriptionField="description"
                    style="display:block; position: fixed; bottom: 1rem; left: 1rem"
                    [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
-                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required" [description]="description"
     ></biit-multiselect>
 
-    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name" descriptionField="description"
                    style="display:block; position: fixed; bottom: 1rem; right: 1rem"
                    [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
-                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required" [description]="description"
     ></biit-multiselect>
 `
 });

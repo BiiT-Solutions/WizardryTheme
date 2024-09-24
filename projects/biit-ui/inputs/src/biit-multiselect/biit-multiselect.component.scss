@@ -212,3 +212,15 @@ input::selection{ background-color:transparent }
 .downwards {
   --origin: -1rem;
 }
+
+.description {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  font-size: 0.75em;
+  color: #808080;
+  padding-top: 0.2em;
+  min-height: 1.05em;
+  line-height: 120%;
+  font-style: italic;
+}

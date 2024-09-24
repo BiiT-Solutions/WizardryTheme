@@ -4,5 +4,8 @@
          [ngModel]="checked"
          (ngModelChange)="onModelChange($event)"
          [disabled]="disabled"/>
-  <a><ng-content></ng-content></a>
+  <div>
+    <a><ng-content></ng-content></a>
+    <span class="description">{{ description }}</span>
+  </div>
 </label>

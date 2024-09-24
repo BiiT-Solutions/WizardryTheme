@@ -12,5 +12,8 @@
              [class.checked]="value == selected"
              [class.disabled]="disabled"
   ></biit-icon>
-  <ng-content></ng-content>
+  <div>
+    <ng-content></ng-content>
+    <span class="description">{{ description }}</span>
+  </div>
 </label>

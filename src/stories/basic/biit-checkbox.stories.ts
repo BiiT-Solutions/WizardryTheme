@@ -12,7 +12,7 @@ export default {
   ],
   args: {
     items: [
-      {id: 1, name: 'Spring', checked: false},
+      {id: 1, name: 'Spring', checked: false, description: 'This item has a description'},
       {id: 2, name: 'Summer', checked: false},
       {id: 3, name: 'Autumn', checked: false},
       {id: 4, name: 'Winter', checked: false}
@@ -46,6 +46,20 @@ export default {
       control: {
         type: 'boolean'
       }
+    },
+    description: {
+      name: 'description',
+      type: { name: 'string', required: false },
+      defaultValue: 'undefined',
+      description: 'Adds a description to the checkbox label.',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: false },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'text'
+      }
     }
   }
 } as Meta;
@@ -55,7 +69,8 @@ const Template: Story<BiitCheckboxComponent> = (args: BiitCheckboxComponent) => 
   template:`
     <div *ngFor="let item of items">
       <biit-checkbox [(ngModel)]="item.checked"
-                         [disabled]="disabled">
+                     [disabled]="disabled"
+                     [description]="item.description">
         {{item.name}}
       </biit-checkbox>
     </div>

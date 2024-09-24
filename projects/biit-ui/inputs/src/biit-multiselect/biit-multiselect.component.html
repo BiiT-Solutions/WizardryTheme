@@ -39,6 +39,7 @@
     <div class="bottom-line"
          [class.disabled]="isDisabled"
     ></div>
+    <span class="description">{{description}}</span>
   </div>
 </div>
 
@@ -65,6 +66,7 @@
                  class="dropdown-item"
                  [class.selected]="currentValues && currentValues.includes(item)"
                  [ngModel]="currentValues && currentValues.includes(item)"
+                 [description]="descriptionField && item[descriptionField]"
                  (click)="onModelChange(item); $event.stopPropagation(); $event.preventDefault();"
                  (keydown.enter)="onModelChange(item)"
                  (keydown.space)="onModelChange(item)"

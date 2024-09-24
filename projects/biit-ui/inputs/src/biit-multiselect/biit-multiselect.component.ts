@@ -41,6 +41,8 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   @Input() icon: biitIcon = 'column_selection';
   @Input() label: string = '';
   @Input() value: string = '';
+  @Input() descriptionField: string = '';
+  @Input() description: string = '';
   @Input() data: any[] = [];
   protected isPrimitive: boolean;
   @Input() set primitive(primitive: any) {

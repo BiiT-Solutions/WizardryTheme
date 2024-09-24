@@ -33,6 +33,8 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit, DoCh
   @Input() title: string;
   @Input() label: string = '';
   @Input() value: string = '';
+  @Input() descriptionLabel: string = '';
+  @Input() description: string = '';
   @Input() data: any[] = [];
   protected isPrimitive: boolean;
   @Input() set primitive(primitive: any) {

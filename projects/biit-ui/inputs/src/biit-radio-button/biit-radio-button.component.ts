@@ -17,6 +17,7 @@ export class BiitRadioButtonComponent implements ControlValueAccessor, OnInit {
   @Input() id: string;
   @Input() name: string;
   @Input() value: string;
+  @Input() description: string;
   @Input() disabled;
   selected: any;
   hover = false;

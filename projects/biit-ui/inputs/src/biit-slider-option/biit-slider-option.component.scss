@@ -131,7 +131,7 @@ $bar-color: #D7D7D7;
   transition: opacity .2s ease-in-out;
   pointer-events: none;
 
-  span {
+  ::ng-deep span {
     font-size: 1em;
     background: white;
     padding: 0.1em 0.2em;
