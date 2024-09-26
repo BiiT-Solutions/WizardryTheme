@@ -34,6 +34,11 @@
                  class="input-error-icon"
                  [pathStyle]="{fill:'#A1093F'}"
       ></biit-icon>
+      <div *ngIf="description" class="input-description">
+        <a>
+          {{description}}
+        </a>
+      </div>
 
       <div style="position: relative; height: 0;">
         <div class="popup"
