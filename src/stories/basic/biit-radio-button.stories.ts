@@ -101,7 +101,21 @@ export default {
       control: {
         type: 'boolean'
       }
-    }
+    },
+    showAlwaysDescription: {
+      name: 'showAlwaysDescription',
+      type: { name: 'boolean', required: false },
+      defaultValue: 'false',
+      description: 'Shows description as an underneath text.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'boolean'
+      }
+    },
   }
 } as Meta;
 
@@ -114,6 +128,7 @@ const Template: Story<BiitRadioButtonComponent> = (args: BiitRadioButtonComponen
                          [name]="name"
                          [value]="item.name"
                          [description]="item.description"
+                         [showAlwaysDescription]="showAlwaysDescription"
                          [disabled]="disabled">
         {{item.name}}
       </biit-radio-button>

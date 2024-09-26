@@ -20,10 +20,14 @@ label {
     color: $disabled-color;
   }
 
-  div {
+  > div {
     display: flex;
     flex-direction: column;
     margin-left: 0.75em;
+
+    div {
+      display: flex;
+    }
   }
 
   input[type="checkbox"] {

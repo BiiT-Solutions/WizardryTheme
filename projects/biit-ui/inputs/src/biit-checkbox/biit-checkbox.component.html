@@ -5,7 +5,10 @@
          (ngModelChange)="onModelChange($event)"
          [disabled]="disabled"/>
   <div>
-    <a><ng-content></ng-content></a>
-    <span class="description">{{ description }}</span>
+    <div>
+      <a><ng-content></ng-content></a>
+      <biit-tooltip-icon *ngIf="description && !showAlwaysDescription" inline [text]="description"/>
+    </div>
+    <span class="description" *ngIf="description && showAlwaysDescription">{{ description }}</span>
   </div>
 </label>

@@ -37,6 +37,15 @@ label {
     }
   }
 
+  > div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.75em;
+
+    div {
+      display: flex;
+    }
+  }
 }
 
 input[type="radio"] {
@@ -58,12 +67,6 @@ input[type="radio"] {
   transition:0.2s ease all;
   -moz-transition:0.2s ease all;
   -webkit-transition:0.2s ease all;
-}
-
-div {
-  display: flex;
-  flex-direction: column;
-  margin-left: 0.75em;
 }
 
 .description {

@@ -3,6 +3,7 @@ import {BiitRadioButtonComponent} from './biit-radio-button.component';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {BiitIconModule} from 'biit-ui/icon';
+import {BiitTooltipIconModule} from "biit-ui/info";
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import {BiitIconModule} from 'biit-ui/icon';
   imports: [
     CommonModule,
     FormsModule,
-    BiitIconModule
+    BiitIconModule,
+    BiitTooltipIconModule
   ],
   exports: [
     BiitRadioButtonComponent

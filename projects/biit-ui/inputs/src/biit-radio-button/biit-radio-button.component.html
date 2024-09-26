@@ -13,7 +13,10 @@
              [class.disabled]="disabled"
   ></biit-icon>
   <div>
-    <ng-content></ng-content>
-    <span class="description">{{ description }}</span>
+    <div>
+      <a><ng-content></ng-content></a>
+      <biit-tooltip-icon *ngIf="description && !showAlwaysDescription" inline [text]="description"/>
+    </div>
+    <span class="description" *ngIf="description && showAlwaysDescription">{{ description }}</span>
   </div>
 </label>

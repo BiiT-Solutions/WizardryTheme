@@ -60,7 +60,21 @@ export default {
       control: {
         type: 'text'
       }
-    }
+    },
+    showAlwaysDescription: {
+      name: 'showAlwaysDescription',
+      type: { name: 'boolean', required: false },
+      defaultValue: 'false',
+      description: 'Shows description as an underneath text.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'boolean'
+      }
+    },
   }
 } as Meta;
 
@@ -70,6 +84,7 @@ const Template: Story<BiitCheckboxComponent> = (args: BiitCheckboxComponent) => 
     <div *ngFor="let item of items">
       <biit-checkbox [(ngModel)]="item.checked"
                      [disabled]="disabled"
+                     [showAlwaysDescription]="showAlwaysDescription"
                      [description]="item.description">
         {{item.name}}
       </biit-checkbox>
