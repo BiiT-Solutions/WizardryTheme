@@ -237,25 +237,25 @@ export const Chips: Story<BiitMultiselectComponent> = (args: BiitMultiselectComp
       </div>
     </div>
 
-    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name" descriptionField="description"
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; top: 1rem; left: 1rem"
                    [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'" (onCreate)="onCreate($event)"
                    [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
     ></biit-multiselect>
 
-    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name" descriptionField="description"
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; top: 1rem; right: 1rem"
                    [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'" (onCreate)="onCreate($event)"
                    [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
     ></biit-multiselect>
 
-    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name" descriptionField="description"
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; bottom: 1rem; left: 1rem"
                    [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'" (onCreate)="onCreate($event)"
                    [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
     ></biit-multiselect>
 
-    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name" descriptionField="description"
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
                    style="display:block; position: fixed; bottom: 1rem; right: 1rem"
                    [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'" (onCreate)="onCreate($event)"
                    [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
