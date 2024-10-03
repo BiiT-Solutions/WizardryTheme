@@ -12,6 +12,7 @@
                       currentValues && currentValues.length ? currentValues.length + ' selected' : ''"
            (ngModelChange)="filterText = $event; handleFilter()"
            (click)="!dropdownOpen && !isDisabled && openDropdown()"
+           (keydown.enter)="filterText.length ? onCreate.emit(filterText) : false; clearFilter();"
            [placeholder]="dropdownOpen && currentValues && currentValues.length ? currentValues.length + ' selected' : ''"
            tabindex="0"
            class="input-object"
@@ -82,4 +83,19 @@
   >
     <a>No results found</a>
   </button>
+</div>
+
+<div *ngIf="type == 'chips'"
+     class="chips">
+  <span
+    *ngFor="let item of currentValues"
+    (click)="onModelChange(item)"
+    class="chips-item"
+  >
+    {{item[label]}}
+    <biit-icon
+      [name]="'cross_wide'"
+      [pathStyle]="{fill: '#ffffff'}"
+    ></biit-icon>
+  </span>
 </div>
