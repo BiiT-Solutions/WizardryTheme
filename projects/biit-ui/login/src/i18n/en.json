@@ -1,7 +1,11 @@
 {
+  "name-empty": "Name is mandatory.",
+  "lastname-empty": "Lastname is mandatory.",
   "username-empty": "Username is mandatory.",
   "password-empty": "Password is mandatory.",
   "email-empty": "Email is mandatory.",
+  "name": "Name",
+  "lastname": "Lastname",
   "username": "Username",
   "password": "Password",
   "take_me_in": "take me in",
@@ -18,5 +22,8 @@
   "reset": "Reset",
   "i_remember": "I remember, I do!",
   "success": "Recovery email sent.",
-  "error": "There has been an issue, please try again."
+  "error": "There has been an issue, please try again.",
+  "log_in": "Log in",
+  "sign_up": "Sign up",
+  "sign_me_up": "Sign me up"
 }

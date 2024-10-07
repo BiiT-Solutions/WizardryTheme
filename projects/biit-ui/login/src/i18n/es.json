@@ -1,7 +1,11 @@
 {
+  "name-empty": "El nombre es necesario.",
+  "lastname-empty": "El apellido es necesario.",
   "username-empty": "El nombre de usuario es necesario.",
   "password-empty": "La contraseña es necesaria.",
   "email-empty": "El email es necesario.",
+  "name": "Nombre",
+  "lastname": "Apellidos",
   "username": "Usuario",
   "password": "Contraseña",
   "take_me_in": "Acceder",
@@ -18,5 +22,8 @@
   "reset": "Restablecer",
   "i_remember": "¡Ya me acuerdo!",
   "success": "Email de recuperación enviado.",
-  "error": "Ha habido un error. Por favor, inténtalo de nuevo."
+  "error": "Ha habido un error. Por favor, inténtalo de nuevo.",
+  "log_in": "Login",
+  "sign_up": "Registro",
+  "sign_me_up": "Registrarse"
 }

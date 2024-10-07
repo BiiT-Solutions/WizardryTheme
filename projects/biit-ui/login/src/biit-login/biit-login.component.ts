@@ -16,15 +16,20 @@ import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
 export class BiitLoginComponent {
 
   @Input() login: BiitLogin;
+  @Input() allowSignUp = false;
+  @Input() signUpGeneratedPassword = false;
 
   @Output() onLogin: EventEmitter<BiitLogin>;
   @Output() onNotRemember: EventEmitter<void>;
   @Output() onResetPassword: EventEmitter<string>;
+  @Output() onSignUp: EventEmitter<{name: string, lastname: string, email: string, password: string}>;
 
   protected readonly keyId: string;
   protected readonly Type = Type;
   protected readonly LoginError = LoginErrors;
 
+  protected signUpView = false;
+  protected signUpData = {name: "", lastname: "", email: "", password: ""};
   protected resetView = false;
   protected resetEmail = "";
 
@@ -79,8 +84,37 @@ export class BiitLoginComponent {
   }
 
   restartView() {
+    this.loginErrors.clear();
+
     this.resetView = false;
     this.resetEmail = "";
+
+    this.signUpView = false;
+    this.signUpData = {name: "", lastname: "", email: "", password: ""};
+  }
+
+  protected performSignUp(): void {
+    if (this.validateSignUp()) {
+      this.onSignUp.emit(this.signUpData);
+      this.restartView();
+    }
+  }
+
+  private validateSignUp(): boolean {
+    this.loginErrors.clear();
+    if (!this.signUpData.name || !this.signUpData.name.length) {
+      this.loginErrors.set(LoginErrors.NAME, this.translocoService.translate('login.name-empty'));
+    }
+    if (!this.signUpData.lastname || !this.signUpData.lastname.length) {
+      this.loginErrors.set(LoginErrors.LASTNAME, this.translocoService.translate('login.lastname-empty'));
+    }
+    if (!this.signUpData.email || !this.signUpData.email.length) {
+      this.loginErrors.set(LoginErrors.EMAIL, this.translocoService.translate('login.email-empty'));
+    }
+    if (!this.signUpData.password || !this.signUpData.password.length) {
+      this.loginErrors.set(LoginErrors.PASSWORD, this.translocoService.translate('login.password-empty'));
+    }
+    return !this.loginErrors.size;
   }
 
   protected readonly LoginErrors = LoginErrors;

@@ -80,5 +80,20 @@ const Template: Story<BiitLoginComponent> = (args: BiitLoginComponent, { globals
 };
 
 export const Default = Template.bind({});
-Default.args = {
-}
+
+const SignUpTemplate: Story<BiitLoginComponent> = (args: BiitLoginComponent, { globals }) => {
+  TranslocoStorybookModule.setLanguage(globals);
+  return {
+    globals,
+    props: args,
+    template: `
+    <biit-login
+     [login]="login"
+     [allowSignUp]="true"
+     (onLogin)="onLogin($event)"
+     (onNotRemember)="onNotRemember()"
+    ></biit-login>`
+  }
+};
+
+export const SignUp = SignUpTemplate.bind({});
