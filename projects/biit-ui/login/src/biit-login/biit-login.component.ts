@@ -45,6 +45,7 @@ export class BiitLoginComponent {
     this.onLogin = new EventEmitter<BiitLogin>();
     this.onNotRemember = new EventEmitter<void>();
     this.onResetPassword = new EventEmitter<string>();
+    this.onSignUp = new EventEmitter<{name: string, lastname: string, email: string, password: string}>();
     this.loginErrors = new Map<LoginErrors, string>();
     const generatedId: number = Math.floor(Math.random() * (20 - 1 + 1) + 1);
     this.keyId = `${generatedId < 10 ? '0' : ''}${generatedId}`
