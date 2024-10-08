@@ -34,6 +34,9 @@ export class BiitLoginComponent {
   protected resetEmail = "";
 
   protected loginErrors: Map<LoginErrors, string>;
+  protected readonly LoginErrors = LoginErrors;
+  protected readonly PWD_MIN_LENGTH = 12
+  protected readonly PWD_MAX_LENGTH = 25
 
   constructor(public translocoService: TranslocoService) {
     if (!this.login) {
@@ -95,6 +98,9 @@ export class BiitLoginComponent {
 
   protected performSignUp(): void {
     if (this.validateSignUp()) {
+      if (this.signUpGeneratedPassword) {
+        this.signUpData.password = this.generatePassword();
+      }
       this.onSignUp.emit(this.signUpData);
       this.restartView();
     }
@@ -111,11 +117,33 @@ export class BiitLoginComponent {
     if (!this.signUpData.email || !this.signUpData.email.length) {
       this.loginErrors.set(LoginErrors.EMAIL, this.translocoService.translate('login.email-empty'));
     }
-    if (!this.signUpData.password || !this.signUpData.password.length) {
+    if (!this.signUpGeneratedPassword && (!this.signUpData.password || !this.signUpData.password.length)) {
       this.loginErrors.set(LoginErrors.PASSWORD, this.translocoService.translate('login.password-empty'));
     }
     return !this.loginErrors.size;
   }
 
-  protected readonly LoginErrors = LoginErrors;
+  public generatePassword(): string {
+    const pattern: RegExp = /[A-Za-z\d@$!%*?&]/;
+    const randomSize: number = Math.floor(Math.random() * (this.PWD_MAX_LENGTH - this.PWD_MIN_LENGTH + 1))
+      + this.PWD_MIN_LENGTH;
+    let password: string = '';
+    while (password.length < randomSize) {
+      const result: string = String.fromCharCode(this.randomChar());
+      if (pattern.test(result)) {
+        password += result;
+      }
+    }
+    return password;
+  }
+
+  private randomChar(): number {
+    if (window.crypto && window.crypto.getRandomValues) {
+      const buffer: Uint8Array = new Uint8Array(1);
+      window.crypto.getRandomValues(buffer);
+      return buffer[0];
+    } else {
+      return Math.floor(Math.random() * 256);
+    }
+  }
 }

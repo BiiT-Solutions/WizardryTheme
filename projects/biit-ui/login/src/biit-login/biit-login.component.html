@@ -97,7 +97,7 @@
                      (keyup.enter)="performLogin()"
                      placeholder="{{t('login.email')}}" class="login-input"></biit-input-text>
     <biit-input-text [(ngModel)]="signUpData.password" fieldName="password" [error]="this.loginErrors.get(LoginError.PASSWORD)"
-                     (keyup.enter)="performLogin()"
+                     (keyup.enter)="performLogin()" *ngIf="!signUpGeneratedPassword"
                      placeholder="{{t('login.password')}}" [type]="Type.PASSWORD" class="login-input"></biit-input-text>
     <div class="margin-top-18 centered">
       <button biit-button primary
