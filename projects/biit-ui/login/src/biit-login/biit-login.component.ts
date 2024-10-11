@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Type} from 'biit-ui/inputs';
 import {BiitLogin} from "biit-ui/models";
 import {LoginErrors} from "./models/LoginErrors";
@@ -13,7 +13,7 @@ import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
     useValue: {scope: 'biit-ui/login', alias: "login"}
   }]
 })
-export class BiitLoginComponent {
+export class BiitLoginComponent implements OnInit {
 
   @Input() login: BiitLogin;
   @Input() allowSignUp = false;
@@ -49,6 +49,12 @@ export class BiitLoginComponent {
     this.loginErrors = new Map<LoginErrors, string>();
     const generatedId: number = Math.floor(Math.random() * (20 - 1 + 1) + 1);
     this.keyId = `${generatedId < 10 ? '0' : ''}${generatedId}`
+  }
+
+  ngOnInit() {
+    if (this.allowSignUp) {
+      this.signUpView = true;
+    }
   }
 
   protected performLogin(): void {
