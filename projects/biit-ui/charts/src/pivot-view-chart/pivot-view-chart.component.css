@@ -3,3 +3,19 @@ biit-pivot-board {
   width: 100%;
   height: 100%;
 }
+.pivot-view-chart-board{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  & > :not(:nth-child(2)) {
+    flex: 0;
+  }
+  & > :nth-child(2) {
+    flex: 1;
+  }
+}
+.pivot-view-filter-place {
+  font-size: 1rem;
+  border-right: 2px solid #EDEDED;
+  min-width: 12ch;
+}

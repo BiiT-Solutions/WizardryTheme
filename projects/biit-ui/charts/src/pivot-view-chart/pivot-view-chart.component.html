@@ -1,1 +1,11 @@
-<biit-pivot-board></biit-pivot-board>
+<div class="pivot-view-chart-board">
+  <div class="pivot-view-filter-place">FILTER VIEW</div>
+  <biit-pivot-board
+    [data]="elements"
+    (elementClick)="onElementClick($event)"
+  />
+  <div>
+    <div>NODE VIEW</div>
+    <div>{{selectedElement | json}}</div>
+  </div>
+</div>

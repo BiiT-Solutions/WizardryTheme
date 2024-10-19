@@ -1,4 +1,11 @@
-<div class="pivot-board">
-  <biit-pivot-element style=" display: block"
-    *ngFor="let i of [].constructor(100); let index = index" styles="background-color: red; border-radius:100% ">{{index}}</biit-pivot-element>
+<div class="pivot-board"
+     [style.grid-template-columns]="'repeat(auto-fill, minmax(' + this.size + ', 1fr))'"
+>
+  <biit-pivot-element style=" display: block;" [style.width]="this.size"
+    *ngFor="let element of data; let index = index"
+                      [styles]="element.styles"
+                      [classes]="element.classes"
+                      [icon]="element.icon"
+                      (click)="onElementClick(element)"
+  ><div *ngIf="element.custom" [innerHTML]="element.custom.innerHTML"></div></biit-pivot-element>
 </div>
