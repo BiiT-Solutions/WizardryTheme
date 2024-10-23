@@ -109,7 +109,6 @@ export class BiitLoginComponent implements OnInit {
         this.signUpData.password = this.generatePassword();
       }
       this.onSignUp.emit(this.signUpData);
-      this.restartView();
     }
   }
 
