@@ -11,12 +11,13 @@
 
 .sorter-container {
   height: 100%;
-  display: grid;
+  display: flex;
+  flex-direction: column;
 }
 .sorter-sections {
   overflow-y: auto;
   height: 100%;
-  padding: 0.2em 0;
+  padding: 0.2em 0.2em;
 }
 .sorter-section {
   padding: 0.2em 0.3em;
