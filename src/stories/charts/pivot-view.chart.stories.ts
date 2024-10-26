@@ -1,14 +1,14 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {
-  PivotViewChartComponent,
-  PivotViewChartModule
+  MetaViewChartComponent,
+  MetaViewChartModule
 } from "biit-ui/charts";
 
 export default {
-  title: 'Charts/Pivot View',
+  title: 'Charts/Meta View',
   decorators: [
     moduleMetadata({
-      imports: [PivotViewChartModule],
+      imports: [MetaViewChartModule],
     }),
   ],
   args: {
@@ -20,12 +20,12 @@ export default {
   }
 } as Meta;
 
-const Template: Story<PivotViewChartComponent> = (args: PivotViewChartComponent) => ({
+const Template: Story<MetaViewChartComponent> = (args: MetaViewChartComponent) => ({
   props: args,
   template: `
-    <biit-pivot-view-chart
+    <biit-meta-view-chart
                     style="display: block; width:100%; height: 100%;"
-    ></biit-pivot-view-chart>`
+    ></biit-meta-view-chart>`
 });
 
 export const Default = Template.bind({});

@@ -24,5 +24,5 @@ export * from './heatmap-chart/heatmap-chart.component';
 export * from './heatmap-chart/heatmap-chart.module';
 export * from './heatmap-chart/heatmap-chart-data';
 export * from './heatmap-chart/heatmap-chart-range';
-export  * from './pivot-view-chart/pivot-view-chart.module';
-export * from './pivot-view-chart/pivot-view-chart.component';
+export  * from './meta-view-chart/meta-view-chart.module';
+export * from './meta-view-chart/meta-view-chart.component';

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PivotElementComponent } from './pivot-element.component';
+import { MetaElementComponent } from './meta-element.component';
 
-describe('PivotElementComponent', () => {
-  let component: PivotElementComponent;
-  let fixture: ComponentFixture<PivotElementComponent>;
+describe('MetaElementComponent', () => {
+  let component: MetaElementComponent;
+  let fixture: ComponentFixture<MetaElementComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PivotElementComponent ]
+      declarations: [ MetaElementComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PivotElementComponent);
+    fixture = TestBed.createComponent(MetaElementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

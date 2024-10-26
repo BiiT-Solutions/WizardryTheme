@@ -1,20 +1,20 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {PivotElementComponent} from './pivot-element.component';
+import {MetaElementComponent} from './meta-element.component';
 import {PipesModule} from "../../pipes/pipes.module";
 
 
 @NgModule({
   declarations: [
-    PivotElementComponent,
+    MetaElementComponent,
   ],
   exports: [
-    PivotElementComponent
+    MetaElementComponent
   ],
   imports: [
     CommonModule,
     PipesModule
   ]
 })
-export class PivotElementModule {
+export class MetaElementModule {
 }

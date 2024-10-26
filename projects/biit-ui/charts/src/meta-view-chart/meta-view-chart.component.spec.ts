@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PivotViewChartComponent } from './pivot-view-chart.component';
+import { MetaViewChartComponent } from './meta-view-chart.component';
 
-describe('PivotViewComponent', () => {
-  let component: PivotViewChartComponent;
-  let fixture: ComponentFixture<PivotViewChartComponent>;
+describe('MetaViewComponent', () => {
+  let component: MetaViewChartComponent;
+  let fixture: ComponentFixture<MetaViewChartComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PivotViewChartComponent ]
+      declarations: [ MetaViewChartComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PivotViewChartComponent);
+    fixture = TestBed.createComponent(MetaViewChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

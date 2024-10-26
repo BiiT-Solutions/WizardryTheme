@@ -1,4 +1,4 @@
-export class PivotViewElementData {
+export class MetaViewElementData {
   data: any;
   styles: string;
   classes: string;

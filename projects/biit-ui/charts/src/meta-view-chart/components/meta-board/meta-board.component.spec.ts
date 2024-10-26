@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PivotBoardComponent } from './pivot-board.component';
+import { MetaBoardComponent } from './meta-board.component';
 
-describe('PivotBoardComponent', () => {
-  let component: PivotBoardComponent;
-  let fixture: ComponentFixture<PivotBoardComponent>;
+describe('MetaBoardComponent', () => {
+  let component: MetaBoardComponent;
+  let fixture: ComponentFixture<MetaBoardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PivotBoardComponent ]
+      declarations: [ MetaBoardComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PivotBoardComponent);
+    fixture = TestBed.createComponent(MetaBoardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
