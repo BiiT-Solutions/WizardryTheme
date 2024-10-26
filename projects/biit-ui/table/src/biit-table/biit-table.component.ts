@@ -75,7 +75,7 @@ export class BiitTableFooterlessDirective {
 })
 export class BiitTableComponent implements OnInit, AfterViewInit {
 
-  @Input('data') set _data(data: BiitTableData<any>) {
+  @Input('metadata') set _data(data: BiitTableData<any>) {
     if (data) {
       this.data = data;
       this.selectedRows.clear();

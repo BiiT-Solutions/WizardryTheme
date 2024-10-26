@@ -6,7 +6,7 @@ biit-meta-board {
 .meta-view-chart-board{
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 1em;
   height: 100%;
   & > :not(:nth-child(2)) {
     flex: 0;
@@ -16,7 +16,5 @@ biit-meta-board {
   }
 }
 .meta-view-filter-place {
-  font-size: 1rem;
-  border-right: 2px solid #EDEDED;
-  min-width: 12ch;
+  min-width: 15ch;
 }

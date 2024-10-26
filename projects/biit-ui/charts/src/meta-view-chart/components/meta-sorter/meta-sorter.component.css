@@ -1,0 +1,32 @@
+.sorter-view {
+  font-size: 1em;
+  border: 2px solid #EDEDED;
+  border-radius: 0.3em;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.sorter-container {
+  height: 100%;
+  display: grid;
+}
+.sorter-sections {
+  overflow-y: auto;
+  height: 100%;
+  padding: 0.2em 0;
+}
+.sorter-section {
+  padding: 0.2em 0.3em;
+  cursor: pointer;
+  user-select: none;
+  &>div:first-child {
+    font-size: 0.8em;
+  }
+  border-bottom: 1px solid #EDEDED;
+}
+::ng-deep.biit-input {
+  min-width: unset !important;
+}

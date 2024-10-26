@@ -182,7 +182,7 @@ export class LineChartComponent implements OnInit, OnChanges {
             '  <div class="tooltip-content">';
           series.forEach((seriesItem, i) => {
             tooltip +=
-              '<div class="tooltip-data">' +
+              '<div class="tooltip-metadata">' +
               '  <div class="tooltip-square" style="background:'+ w.globals.colors[i] +'"></div>' +
               '  <a>' + w.globals.seriesNames[i] + ': </a>' +
               '  <a style="margin-left: 0.35rem; font-weight: 500">' + series[i][dataPointIndex] + '</a>' +

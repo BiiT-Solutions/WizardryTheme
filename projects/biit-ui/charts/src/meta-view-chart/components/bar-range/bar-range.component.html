@@ -1,0 +1,8 @@
+<biit-bar-chart [data]="items | metaElementToBarChart : field" />
+{{items | metaElementMinValue : field}} - {{items | metaElementMaxValue : field}}
+<biit-slider
+  [min]="items | metaElementMinValue : field"
+  [max]="items | metaElementMaxValue : field"
+  [step]="1"
+/>
+

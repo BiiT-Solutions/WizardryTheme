@@ -1,10 +1,12 @@
 <div class="meta-view-chart-board">
-  <div class="meta-view-filter-place">FILTER VIEW</div>
+  <div class="meta-view-filter-place">
+    <biit-meta-sorter [metadata]="data"/>
+  </div>
   <biit-meta-board
     [data]="elements"
     (elementClick)="onElementClick($event)"
   />
-  <div>
+  <div *ngIf="selectedElement">
     <div>NODE VIEW</div>
     <div>{{selectedElement | json}}</div>
   </div>
