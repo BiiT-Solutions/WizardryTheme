@@ -61,11 +61,11 @@ export default {
 const Template: Story<PieChartComponent> = (args: PieChartComponent) => ({
   props: args,
   template: `
-    <biit-pie-chart [data]="data"
+    <biit-radial-chart [data]="data"
                     [title]="title"
                     [width]="width"
                     style="display: block; width:600px; height: 500px"
-    ></biit-pie-chart>`
+    ></biit-radial-chart>`
 });
 
 export const Default = Template.bind({});

@@ -11,7 +11,6 @@ input::selection{ background-color:transparent }
 .biit-input {
   display: flex;
   min-width: 12.8rem;
-  max-width: 25.6rem;
 
   &.compact {
     width: 12.8rem;
@@ -114,10 +113,10 @@ input::selection{ background-color:transparent }
 
 .bottom-line {
   position: relative;
-  top: -0.175rem;
-  margin-bottom: -0.175rem;
+  top: -3px;
+  margin-bottom: -3px;
   width: auto;
-  height: 0.175rem;
+  height: 3px;
   background: #262626;
 
   &.disabled {
@@ -130,9 +129,10 @@ input::selection{ background-color:transparent }
   position: absolute;
   z-index: 2;
   box-sizing: border-box;
-  border: 0.175rem solid black;
-  margin-top: -0.175rem;
-  width: 25.6rem;
+  border: 3px solid black;
+  margin-top: -3px;
+  min-width: 100%;
+  width: inherit;
   cursor: pointer;
   transform-origin: top;
   opacity: 0;
@@ -173,9 +173,9 @@ input::selection{ background-color:transparent }
     &:hover, &:focus-visible {
       outline: none;
       background: $hover-color;
-      width: calc(100% + 0.3rem);
-      margin-left: -0.15rem;
-      padding-left: 0.85rem;
+      width: calc(100% + 6px);
+      margin-left: -3px;
+      padding-left: calc(0.7rem + 3px);
     }
   }
 
@@ -211,4 +211,45 @@ input::selection{ background-color:transparent }
 
 .downwards {
   --origin: -1rem;
+}
+
+.description {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  font-size: 0.75em;
+  color: #808080;
+  padding-top: 0.2em;
+  min-height: 1.05em;
+  line-height: 120%;
+  font-style: italic;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-top: 2px;
+
+  .chips-item {
+    font-size: 0.75rem;
+    color: #fff;
+    background: #f20D5e;
+    padding: 0.25rem 0.75rem;
+    position: relative;
+    cursor: pointer;
+
+    biit-icon {
+      display: none;
+    }
+
+    &:hover biit-icon {
+      display: block;
+      height: 100%;
+      width: 5px;
+      position: absolute;
+      top: 0;
+      right: 4px;
+    }
+  }
 }

@@ -1,5 +1,6 @@
 <mwl-calendar-week-view [style.display]="calendarMode != CalendarMode.WEEK ? 'none' : null"
                         #calendar
+                        [locale]="locale.code"
                         [viewDate]="viewDate"
                         [events]="events"
                         [headerTemplate]="customHeader"
@@ -8,7 +9,8 @@
                         [eventTemplate]="eventTemplate"
                         [allDayEventsLabelTemplate]="allDayEventsLabelTemplate"
                         [refresh]="refresh"
-                        (eventTimesChanged)="eventTimesChanged($event)"
+                        (eventTimesChanged)="onEventDrop.emit($event)"
+                        (eventClicked)="onEventClick.emit({event: $calendarEvent($event.event), sourceEvent: $event.sourceEvent})"
                         style="display: flex; flex-direction: column; height: 100%;"
 ></mwl-calendar-week-view>
 
@@ -43,9 +45,9 @@
       tabindex="0"
       role="columnheader"
     >
-      <span>
-        {{ day.date | date: 'EE' }}
-        {{ day.date | date: 'dd' }}
+      <span style="text-transform: capitalize">
+        {{ day.date | translocoDate: {weekday: 'short'}: this.locale }}
+        {{ day.date | translocoDate: {day: '2-digit'}: locale }}
       </span>
     </div>
   </div>
@@ -65,8 +67,6 @@
     class="cal-current-time-marker-custom"
     *ngIf="isVisible"
     [style.top.px]="topPx"
-    [style.width.px]="$any(calendar).element.nativeElement.offsetWidth"
-    [style.left.px]="$any(calendar).element.nativeElement.getBoundingClientRect().left - timeMarker.parentElement.parentElement.getBoundingClientRect().left - 1"
   ></div>
 </ng-template>
 
@@ -91,6 +91,8 @@
     [class.cal-hour-start]="segment.isStart"
     [class.cal-after-hour-start]="!segment.isStart"
     [ngClass]="segment.cssClass"
+    [contextMenu]="gridContextMenu"
+    [contextMenuValue]="segment.date"
   >
     <div class="cal-time" *ngIf="isTimeLabel">
       {{segment.displayDate | date: 'HH:mm'}}
@@ -105,10 +107,9 @@
                 text-align: center;
                 position: absolute;
                 top: 0.1rem;
-                right: 0;
+                right: -36px;
                 font-size: 0.7rem;
-                width: 70px;"
-         (click)="log(allDayEventsLabelTemplate)">
+                width: 70px;">
       all day
     </div>
   </div>
@@ -143,7 +144,10 @@
     [tooltipAppendToBody]="tooltipAppendToBody"
     [tooltipDelay]="tooltipDelay"
     (mwlClick)="eventClicked.emit({ sourceEvent: $event })"
+    (dblclick)="onEventDblClick.emit({event: $calendarEvent(weekEvent.event), sourceEvent: $event})"
     (mwlKeydownEnter)="eventClicked.emit({ sourceEvent: $event })"
+    [contextMenu]="eventContextMenu"
+    [contextMenuValue]="weekEvent.event"
     tabindex="0"
     role="application"
   >
@@ -157,7 +161,6 @@
     </mwl-calendar-event-actions>
     &ngsp;
     <mwl-calendar-event-title
-      (click)="log(calEvent.offsetHeight)"
       [event]="weekEvent.tempEvent || weekEvent.event"
       [customTemplate]="eventTitleTemplate"
       [view]="daysInWeek === 1 ? 'day' : 'week'"
@@ -208,9 +211,12 @@
 <mwl-calendar-month-view [style.display]="calendarMode != CalendarMode.MONTH ? 'none' : null"
                          [viewDate]="viewDate"
                          [events]="events"
+                         [locale]="locale.code"
                          [cellTemplate]="monthCell"
+                         [headerTemplate]="customMonthHeader"
                          [refresh]="refresh"
-                         (eventTimesChanged)="eventTimesChanged($event)"
+                         (eventTimesChanged)="onEventDrop.emit($event)"
+                         (eventClicked)="onEventClick.emit({event: $calendarEvent($event.event), sourceEvent: $event.sourceEvent})"
                          style="display: flex; flex-direction: column; height: 100%;"
 ></mwl-calendar-month-view>
 
@@ -265,6 +271,39 @@
          [attr.aria-hidden]="{} | calendarA11y : 'hideMonthCellEvents'"
     >
       {{$calendarEvent(event).title}}
+    </div>
+  </div>
+</ng-template>
+
+<ng-template
+  #customMonthHeader
+  let-days="days"
+  let-locale="locale"
+  let-columnHeaderClicked="columnHeaderClicked"
+  let-trackByWeekDayHeaderDate="trackByWeekDayHeaderDate"
+>
+  <div class="cal-cell-row cal-header" role="row">
+    <div
+      class="cal-cell"
+      *ngFor="let day of days; trackBy: trackByWeekDayHeaderDate"
+      [class.cal-past]="day.isPast"
+      [class.cal-today]="day.isToday"
+      [class.cal-future]="day.isFuture"
+      [class.cal-weekend]="day.isWeekend"
+      (click)="
+            columnHeaderClicked.emit({
+              isoDayNumber: day.day,
+              sourceEvent: $event
+            })
+          "
+      [ngClass]="day.cssClass"
+      tabindex="0"
+      role="columnheader"
+    >
+      <span>
+        {{ day.date | translocoDate : {weekday:'long'}: locale }}
+      </span>
+
     </div>
   </div>
 </ng-template>

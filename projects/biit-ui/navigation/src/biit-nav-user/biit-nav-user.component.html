@@ -2,7 +2,7 @@
   <div class="content">
     <div class="titles">
       <a *ngIf="subtitle?.length" class="subtitle">{{subtitle}}</a>
-      <a>{{title?.length ? title : ''}}</a>
+      <a>{{title?.length ? (title.length > 16 && title.split(" ").length > 1 ? title.split(" ")[0].substring(0, 1) + '. ' + title.split(" ")[1] : title) : ''}}</a>
     </div>
     <div class="avatar">
       <a>{{title?.length ? title.substring(0,1) + title.split(" ")[1]?.substring(0,1) : ''}}</a>

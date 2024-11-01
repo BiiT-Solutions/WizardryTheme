@@ -25,7 +25,7 @@ Default.parameters = {
     source: {
       code: `
 /* SCSS - BASE HTML (usually styles.scss) */
-@import "../node_modules/angular-calendar/css/angular-calendar.css";
+@import "angular-calendar/scss/angular-calendar";
 
 html, body{
   height: 100%;
@@ -45,6 +45,10 @@ input {
   font-family: Montserrat, "Montserrat", sans-serif;
 }
 
+textarea {
+  font-family: Montserrat, "Montserrat", sans-serif;
+}
+
 @-moz-document url-prefix() {
   * {
     scrollbar-width: thin;
@@ -60,10 +64,12 @@ input {
 }
 
 ::-webkit-scrollbar {
-  width: 0.7rem;
+  width: 11px;
+  height: 11px;
 }
+
 ::-webkit-scrollbar-thumb {
-  border: 0.2rem solid rgba(0, 0, 0, 0);
+  border: 3px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
   background-color: #262626;
 }
@@ -119,6 +125,11 @@ biit-navbar {
   position: sticky;
   width: 100%;
   z-index: 1;
+}
+
+biit-snackbar {
+  position: absolute;
+  z-index: 99999;
 }
 
 .hidden {

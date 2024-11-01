@@ -3,16 +3,18 @@ import {BiitDropdownComponent} from './biit-dropdown.component';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {BiitIconModule} from 'biit-ui/icon';
+import {BiitIconButtonModule} from "biit-ui/button";
 
 @NgModule({
   declarations: [
     BiitDropdownComponent
   ],
-  imports: [
-    FormsModule,
-    CommonModule,
-    BiitIconModule
-  ],
+    imports: [
+        FormsModule,
+        CommonModule,
+        BiitIconModule,
+        BiitIconButtonModule
+    ],
   exports: [
     BiitDropdownComponent
   ]

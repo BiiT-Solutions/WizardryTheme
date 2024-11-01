@@ -37,7 +37,8 @@ export default {
     maxLength: null,
     disabled: false,
     required: false,
-    readonly: false
+    readonly: false,
+    description: null
   },
   argTypes: {
     placeholder: {
@@ -88,7 +89,21 @@ export default {
       defaultValue: null,
       description: 'Defines a message and error view',
       table: {
-        type: { summary: 'boolean' },
+        type: { summary: 'string' },
+        defaultValue: { summary: null },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'text'
+      }
+    },
+    description: {
+      name: 'description',
+      type: { name: 'string', required: false },
+      defaultValue: null,
+      description: 'Defines a message for the bottom description',
+      table: {
+        type: { summary: 'string' },
         defaultValue: { summary: null },
         category: 'Inputs'
       },
@@ -261,6 +276,7 @@ const Template: Story<BiitInputTextComponent> = (args: BiitInputTextComponent) =
      [required]="required"
      [disabled]="disabled"
      [readonly]="readonly"
+     [description]="description"
      style="width: 256px; display: block;"
      >
 

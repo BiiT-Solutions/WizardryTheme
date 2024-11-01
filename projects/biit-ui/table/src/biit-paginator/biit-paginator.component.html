@@ -1,17 +1,17 @@
-<div style="display: flex; justify-content: space-between">
+<div style="display: flex; justify-content: space-between" *transloco="let t">
   <!-- PAGE SELECTOR -->
   <div #pageSelector class="page-selector">
     <button biit-icon icon='right_double_arrow'
                       class="horizontal-flip"
                       (click)="paginator.currentPage = 1; onModelChange();"
                       [disabled]="paginator?.currentPage <= 1"
-                      tooltip="{{'table.first-page' | transloco}}"
+                      tooltip="{{t('table.first-page')}}"
     ></button>
     <button biit-icon icon='right_arrow'
                       class="compact horizontal-flip"
                       (click)="paginator.currentPage = paginator.currentPage - 1; onModelChange();"
                       [disabled]="paginator?.currentPage <= 1"
-                      tooltip="{{'table.previous-page' | transloco}}"
+                      tooltip="{{t('table.previous-page')}}"
     ></button>
     <div class="page-display" style="position: relative">
       <input #pageInput
@@ -29,19 +29,19 @@
                       class="compact"
                       (click)="paginator.currentPage = paginator.currentPage + 1; onModelChange();"
                       [disabled]="paginator?.currentPage >= totalPages"
-                      tooltip="{{'table.next-page' | transloco}}"
+                      tooltip="{{t('table.next-page')}}"
     ></button>
     <button biit-icon icon='right_double_arrow'
                       (click)="paginator.currentPage = totalPages; onModelChange();"
                       [disabled]="paginator?.currentPage >= totalPages"
-                      tooltip="{{'table.last-page' | transloco}}"
+                      tooltip="{{t('table.last-page')}}"
     ></button>
   </div>
 
   <!-- PAGE SIZE SELECTOR -->
   <div class="page-size-selector">
     <a
-      tooltip="Next page">{{'table.rows-per-page' | transloco}}</a>
+      [tooltip]="t('table.rows-per-page')">{{t('table.rows-per-page')}}</a>
     <button #pageSizeBtn
             (click)="!dropdownOpen ? openDropdown() : closeDropdown()"
             (keydown)="handleKeyboardEvents($event)">
@@ -52,7 +52,7 @@
                  [class.rotate]="dropdownOpen"
       ></biit-icon>
     </button>
-    <div class="dropdown">
+    <div class="dropdown" [style.overflow]="dropdownOpen ? 'visible' : 'hidden'">
       <div #pageSizeList
            class="list"
            [class.dropdown-open]="dropdownOpen">

@@ -7,7 +7,6 @@ import {
 } from "ng-apexcharts";
 import {PieChartData} from './models/pie-chart-data';
 
-
 export type PieChartOptions = {
   series: number[];
   chart: ApexChart;
@@ -24,7 +23,6 @@ export type PieChartOptions = {
   grid: ApexGrid;
   states: ApexStates;
 };
-
 
 @Component({
   selector: 'biit-pie-chart',

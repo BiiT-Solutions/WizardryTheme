@@ -10,6 +10,9 @@ import {
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
+import {biitIcon} from "biit-icons-collection";
+import {BiitMultiselectType} from "../biit-multiselect/biit-multiselect.component";
+
 @Component({
   selector: 'biit-dropdown',
   templateUrl: './biit-dropdown.component.html',
@@ -30,6 +33,8 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit, DoCh
   @Input() title: string;
   @Input() label: string = '';
   @Input() value: string = '';
+  @Input() descriptionLabel: string = '';
+  @Input() description: string = '';
   @Input() data: any[] = [];
   protected isPrimitive: boolean;
   @Input() set primitive(primitive: any) {
@@ -55,6 +60,7 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit, DoCh
   @Input('sort-desc') set sortDesc(sortDesc: any) {
     this.isSortDesc = coerceBooleanProperty(sortDesc);
   };
+  @Input() icon: biitIcon;
 
   public currentValue;
   public filterText: string = '';
@@ -199,7 +205,9 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit, DoCh
 
   openDropdown() {
     this.setTooltipComponentProperties();
-    (this.inputElement as HTMLInputElement).focus();
+    if (!this.icon) {
+      (this.inputElement as HTMLInputElement).focus();
+    }
 
     // Setting a timeout because it doesn't load upwards/downwards css classes on execution time
     setTimeout(() => {
@@ -212,14 +220,18 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit, DoCh
     this.dropdownOpen = false;
     this.dropdownElement.setAttribute('aria-expanded', "false");
     setTimeout(() => { this.clearFilter(); }, 1000);
-    this.inputElement.focus();
   }
 
   private setTooltipComponentProperties() {
+    let button;
     let dropdown = this.dropdownElement;
     dropdown.style.display = 'block';
 
-    let input = this.inputElement;
+    if (!this.icon) {
+      button = this.inputElement;
+    } else {
+      button = this.elem.nativeElement.querySelector("button");
+    }
 
     // Checking available screen space
     const fitsBottom = bottomCheck();
@@ -227,7 +239,7 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit, DoCh
     const fitsLeft = leftCheck();
 
     if (!fitsRight && fitsLeft) {
-      dropdown.style.marginLeft = input.offsetWidth - dropdown.offsetWidth + 'px';
+      dropdown.style.marginLeft = button.offsetWidth - dropdown.offsetWidth + 'px';
     } else {
       dropdown.style.marginLeft = null;
     }
@@ -237,7 +249,7 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit, DoCh
 
     if (!fitsBottom) {
       dropdown.classList.add('onwards');
-      dropdown.style.marginTop = -(dropdown.offsetHeight + input.offsetHeight) + 'px';
+      dropdown.style.marginTop = -(dropdown.offsetHeight + button.offsetHeight) + 'px';
     } else {
       dropdown.classList.add('downwards');
       dropdown.style.marginTop = null;
@@ -245,16 +257,16 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit, DoCh
 
     // Support inner functions
     function bottomCheck(): boolean {
-        return input.getBoundingClientRect().bottom + dropdown.offsetHeight <= window.innerHeight ||
-          input.getBoundingClientRect().top - dropdown.offsetHeight <= 0;
+        return button.getBoundingClientRect().bottom + dropdown.offsetHeight <= window.innerHeight ||
+          button.getBoundingClientRect().top - dropdown.offsetHeight <= 0;
     }
 
     function rightCheck(): boolean {
-      return input.getBoundingClientRect().right + dropdown.offsetWidth <= window.innerWidth;
+      return button.getBoundingClientRect().right + dropdown.offsetWidth <= window.innerWidth;
     }
 
     function leftCheck(): boolean {
-      return input.getBoundingClientRect().right - dropdown.offsetWidth >= 0;
+      return button.getBoundingClientRect().right - dropdown.offsetWidth >= 0;
     }
   }
 }

@@ -1,3 +1,9 @@
 {
-  "name": "@biit-ui/utils"
+  "name": "@biit-ui/utils",
+  "i18n": [
+    {
+      "scope": "utils",
+      "path": "src/i18n"
+    }
+  ]
 }

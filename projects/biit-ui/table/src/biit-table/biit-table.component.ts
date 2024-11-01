@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  AfterViewChecked,
   Component,
   Directive,
   ElementRef,
@@ -73,7 +73,7 @@ export class BiitTableFooterlessDirective {
     useValue: {scope: 'biit-ui/table', alias: "table"}
   }]
 })
-export class BiitTableComponent implements OnInit, AfterViewInit {
+export class BiitTableComponent implements OnInit, AfterViewChecked {
 
   @Input('metadata') set _data(data: BiitTableData<any>) {
     if (data) {
@@ -112,6 +112,7 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   protected columnResize: ColumnResizeHandler = new ColumnResizeHandler();
   protected loading: boolean = false;
   protected search: string = '';
+  protected currentSearch: string = '';
   protected readonly BiitMultiselectType = BiitMultiselectType;
   protected readonly BiitTableColumnFormat = BiitTableColumnFormat;
 
@@ -122,7 +123,7 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
     this.paginator = new BiitPaginatorOptions(1, this.defaultPageSize, this.pageSizes, this.data ? this.data.totalItems : 1);
   }
 
-  ngAfterViewInit() {
+  ngAfterViewChecked() {
     this.setColumnSize();
   }
 
@@ -166,6 +167,7 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
   }
 
   onTableUpdate() {
+    this.currentSearch = this.search;
     this.selectedRows.clear();
     this.onUpdate.emit(new BiitTableResponse(
       this.paginator.currentPage,
@@ -265,8 +267,8 @@ export class BiitTableComponent implements OnInit, AfterViewInit {
     this.onRowClick.emit(item);
   }
 
-  resetInputValue(event: Event, value: string) {
-    (event.target as HTMLInputElement).value = value;
+  resetInputValue() {
+    this.search = this.currentSearch;
   }
 
   log(value) {

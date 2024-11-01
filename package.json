@@ -1,6 +1,6 @@
 {
   "name": "storybook-biit",
-  "version": "1.1.217",
+  "version": "1.1.345",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -15,9 +15,10 @@
     "build-storybook": "npm run transloco:extract && npm run docs:json && build-storybook",
     "prepare-publication": "cp ./README.md ./storybook-static/ && echo \"{\\\"name\\\": \\\"`node -e \"console.log(require('./package.json').name);\"\n`\\\", \\\"version\\\": \\\"`node -e \"console.log(require('./package.json').version);\"\n`\\\"}\" > ./storybook-static/package.json",
     "prepare-translations": "cpx \"./src/assets/i18n/biit-ui/**/*.json\" \"./dist/biit-ui/assets/i18n/\"",
+    "prepare-styles": "cpx \"./src/assets/styles/**/*.*\" \"./dist/biit-ui/assets/styles/\"",
     "generate-zip": "mkdir -p ./dist-zip && tar -zcvf ./dist-zip/storybook.gz ./storybook-static",
     "publish-storybook": "npm run build-storybook && npm run prepare-publication && npm publish ./storybook-static",
-    "publish-library": "npm run build-library && npm run prepare-translations && npm publish ./dist/biit-ui/"
+    "publish-library": "npm run build-library && npm run prepare-translations && npm run prepare-styles && npm publish ./dist/biit-ui/"
   },
   "private": false,
   "dependencies": {
@@ -41,7 +42,9 @@
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "uuid": "^9.0.0",
-    "zone.js": "~0.12.0"
+    "zone.js": "~0.12.0",
+    "@perfectmemory/ngx-contextmenu": "^15.0.0",
+    "@siemens/ngx-datatable": "v21-3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "v15-lts",

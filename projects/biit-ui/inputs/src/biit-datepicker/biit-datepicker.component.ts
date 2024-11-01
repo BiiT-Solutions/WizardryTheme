@@ -1,6 +1,6 @@
 import {Component, Input, forwardRef, OnInit, ElementRef, HostListener} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {eachDayOfInterval, add, setDate, startOfWeek, sub, setDefaultOptions, Locale} from 'date-fns'
+import {eachDayOfInterval, add, setDate, startOfWeek, sub, setDefaultOptions, Locale, parseISO} from 'date-fns'
 import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
 import {enGB, es, nl} from "date-fns/locale";
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
@@ -38,8 +38,12 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
   @Input() timePicker: boolean;
   @Input() min: Date;
   @Input() max: Date;
-  @Input() placeholder: string = "";
+  @Input() set placeholder(placeholder: string) {
+    this._placeholder = placeholder;
+  }
+  protected _placeholder = '';
   @Input() error: string = "";
+  @Input() description: string = 'this is an example description';
 
   protected value: Date;
   protected dropdownOpen: boolean = false;
@@ -54,6 +58,7 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
 
   protected readonly add = add;
   protected readonly sub = sub;
+  protected readonly parseISO = parseISO;
 
   @HostListener('keydown.esc', ['$event'])
   onKeyDown(e) {
@@ -97,6 +102,9 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
 
   onModelChange(value: Date) {
     if (value) {
+      if (this.min && new Date(value).getTime() <= (new Date(this.min).getTime())) value = add(this.min, {minutes: 1});
+      if (this.max && new Date(value).getTime() > new Date(this.max).getTime()) value = sub(this.max, {minutes: 1});
+
       this.value = new Date(value);
       this.viewerDate = new Date(value);
       this.onChange(value);
@@ -129,17 +137,6 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
     }
 
     setDefaultOptions({locale: this.locale});
-  }
-
-  parseDate(dateString: string): Date {
-    if (dateString && +dateString.substring(0,4) >= 1000) {
-      // A change in historical timezones makes years <1901 set a day before the one written.
-      const date = new Date(dateString);
-      date.setFullYear(+dateString.substring(0,4), +dateString.substring(5,7)-1, +dateString.substring(8));
-      return date;
-    } else {
-      return null;
-    }
   }
 
   handleMouseEvents($event: PointerEvent) {

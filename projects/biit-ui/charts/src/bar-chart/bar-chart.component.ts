@@ -8,7 +8,6 @@ import {
 import {BarChartData} from './models/bar-chart-data';
 import {fromEvent} from 'rxjs';
 
-
 export type BarChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
@@ -23,7 +22,6 @@ export type BarChartOptions = {
   tooltip: ApexTooltip;
   grid: ApexGrid;
 };
-
 
 @Component({
   selector: 'biit-bar-chart',
@@ -43,6 +41,7 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() public width: number;
   @Input() public min: number;
   @Input() public max: number;
+  @Input() public compact = false;
 
   get titleSvg(): SVGTextElement {return this.ref.nativeElement.querySelector('.apexcharts-title-text')};
   get toolbarDiv(): HTMLDivElement {return this.ref.nativeElement.querySelector('.apexcharts-toolbar')};
@@ -111,7 +110,10 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
         width: this.width ? this.width : '100%',
         type: "bar",
         stacked: this.data.stacked,
-        stackType: this.data.stackType
+        stackType: this.data.stackType,
+        sparkline: {
+          enabled: this.compact ? true : undefined
+        }
       },
       plotOptions: {
         bar: {
@@ -120,7 +122,7 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
         }
       },
       dataLabels: {
-        enabled: true,
+        enabled: !this.compact,
         style: {
           fontSize: "16px",
           fontFamily: "Montserrat",
@@ -156,7 +158,7 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
         fontFamily: 'Montserrat'
       },
       title: {
-        text: this.title.toUpperCase(),
+        text: this.compact ? undefined : this.title.toUpperCase(),
         style: {
           fontSize: '20px',
           fontFamily: 'Montserrat',
