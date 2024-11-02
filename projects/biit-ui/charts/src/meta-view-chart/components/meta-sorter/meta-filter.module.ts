@@ -6,6 +6,7 @@ import {FormsModule} from "@angular/forms";
 import {PipesModule} from "../../pipes/pipes.module";
 import {BarRangeModule} from "../bar-range/bar-range.module";
 import {BiitIconModule} from "biit-ui/icon";
+import {DateFilterSelectorModule} from "../date-filter-selector/date-filter-selector.module";
 
 
 
@@ -16,13 +17,14 @@ import {BiitIconModule} from "biit-ui/icon";
   exports: [
     MetaFilterComponent
   ],
-  imports: [
-    CommonModule,
-    BiitInputTextModule,
-    FormsModule,
-    PipesModule,
-    BarRangeModule,
-    BiitIconModule
-  ]
+    imports: [
+        CommonModule,
+        BiitInputTextModule,
+        FormsModule,
+        PipesModule,
+        BarRangeModule,
+        BiitIconModule,
+        DateFilterSelectorModule
+    ]
 })
 export class MetaFilterModule { }

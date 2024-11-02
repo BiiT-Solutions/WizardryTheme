@@ -8,6 +8,7 @@ import { MetaElementMaxValuePipe } from './meta-element-max-value.pipe';
 import { MetaElementMinValuePipe } from './meta-element-min-value.pipe';
 import { StepValueExtractorPipe } from './step-value-extractor.pipe';
 import { HasPipe } from './has.pipe';
+import { MonthNamePipe } from './month-name.pipe';
 
 
 
@@ -20,7 +21,8 @@ import { HasPipe } from './has.pipe';
     MetaElementMaxValuePipe,
     MetaElementMinValuePipe,
     StepValueExtractorPipe,
-    HasPipe
+    HasPipe,
+    MonthNamePipe
   ],
   exports: [
     SafeHtmlPipe,
@@ -30,7 +32,8 @@ import { HasPipe } from './has.pipe';
     MetaElementMinValuePipe,
     MetaElementMaxValuePipe,
     StepValueExtractorPipe,
-    HasPipe
+    HasPipe,
+    MonthNamePipe
   ],
   imports: [
     CommonModule

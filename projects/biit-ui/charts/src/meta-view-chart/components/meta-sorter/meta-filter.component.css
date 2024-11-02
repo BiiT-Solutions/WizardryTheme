@@ -41,6 +41,9 @@
   }
   border-bottom: 1px solid #EDEDED;
 }
+biit-date-filter-selector {
+  font-size: 0.8em;
+}
 ::ng-deep.biit-input {
   min-width: unset !important;
 }

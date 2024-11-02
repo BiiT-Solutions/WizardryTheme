@@ -48,7 +48,7 @@ export class MetaViewChartComponent implements OnInit {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
   private randomDate(): Date {
-    return new Date(+(new Date()) - Math.floor(Math.random() * 10000000000));
+    return new Date(+(new Date()) - Math.floor(Math.random() * 1000000000) *100 );
   }
   private randomString(length: number, chars: string = 'abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ'): string {
     let result = '';
@@ -74,7 +74,6 @@ export class MetaViewChartComponent implements OnInit {
   }
 
   private filter(filters: Map<string, any>): void {
-    console.log("Running filter");
     this.elements = this.data.data.filter((element: MetaViewElementData) => {
       return !Array.from(filters.entries()).map(filter =>  this.resolveFilter(filter[1], element.data[filter[0]])).some(result => !result);
     });

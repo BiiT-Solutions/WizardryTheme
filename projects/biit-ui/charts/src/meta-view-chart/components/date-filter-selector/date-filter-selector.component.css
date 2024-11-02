@@ -1,0 +1,45 @@
+.year-arrow {
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow-rotate {
+  transform: rotate(90deg);
+}
+
+biit-checkbox {
+  display: block;
+  width: 100%;
+  &>label {
+    width: 100%;
+    &>div {
+      width: 100%;
+      &>div>a {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.year-title {
+  display: flex;
+  align-items: center;
+  &>div:first-child {
+    flex-grow: 1;
+  }
+}
+
+.title-counter {
+  display: flex;
+  &>div:first-child {
+    flex-grow: 1;
+  }
+  &>div:last-child {
+    font-size: 0.8em;
+    color: #8a909a;
+    margin-right: 0.5em;
+  }
+}

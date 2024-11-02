@@ -19,6 +19,10 @@
                           [items]="metadata.data"
                           [range]="filter.get(field)"
                           (rangeChange)="onRangeChanged(field, $event)"/>
+          <biit-date-filter-selector *ngSwitchCase="FieldType.DATE"
+                          [field]="field"
+                          [items]="metadata.data"
+          />
           <div *ngSwitchDefault>Unknown</div>
         </div>
       </div>
