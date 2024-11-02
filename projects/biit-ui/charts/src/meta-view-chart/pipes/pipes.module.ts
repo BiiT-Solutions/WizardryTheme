@@ -6,6 +6,8 @@ import { FieldTypePipe } from './field-type.pipe';
 import { MetaElementToBarChartPipe } from './meta-element-to-bar-chart.pipe';
 import { MetaElementMaxValuePipe } from './meta-element-max-value.pipe';
 import { MetaElementMinValuePipe } from './meta-element-min-value.pipe';
+import { StepValueExtractorPipe } from './step-value-extractor.pipe';
+import { HasPipe } from './has.pipe';
 
 
 
@@ -16,7 +18,9 @@ import { MetaElementMinValuePipe } from './meta-element-min-value.pipe';
     FieldTypePipe,
     MetaElementToBarChartPipe,
     MetaElementMaxValuePipe,
-    MetaElementMinValuePipe
+    MetaElementMinValuePipe,
+    StepValueExtractorPipe,
+    HasPipe
   ],
   exports: [
     SafeHtmlPipe,
@@ -24,7 +28,9 @@ import { MetaElementMinValuePipe } from './meta-element-min-value.pipe';
     FieldTypePipe,
     MetaElementToBarChartPipe,
     MetaElementMinValuePipe,
-    MetaElementMaxValuePipe
+    MetaElementMaxValuePipe,
+    StepValueExtractorPipe,
+    HasPipe
   ],
   imports: [
     CommonModule

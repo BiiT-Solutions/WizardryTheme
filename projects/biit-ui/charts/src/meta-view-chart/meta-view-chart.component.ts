@@ -14,6 +14,9 @@ export class MetaViewChartComponent implements OnInit {
   protected elements: MetaViewElementData[] = [];
   protected selectedElement: MetaViewElementData;
 
+  private delayedFilter: NodeJS.Timeout;
+  private static FILTER_DELAY: number = 500;
+
   ngOnInit(): void {
     const gaussianList = this.generateGaussianList(100, 70, 0.05);
     for (let i = 0; i < 100; i++) {
@@ -59,4 +62,32 @@ export class MetaViewChartComponent implements OnInit {
   protected onElementClick(element: MetaViewElementData) {
     this.selectedElement = element;
   }
+
+  protected onFilter(filters: Map<string, any>): void {
+    if (this.delayedFilter != null) {
+      clearTimeout(this.delayedFilter);
+    }
+    this.delayedFilter = setTimeout(() => {
+      this.filter(filters);
+      this.delayedFilter = null;
+    }, MetaViewChartComponent.FILTER_DELAY);
+  }
+
+  private filter(filters: Map<string, any>): void {
+    console.log("Running filter");
+    this.elements = this.data.data.filter((element: MetaViewElementData) => {
+      return !Array.from(filters.entries()).map(filter =>  this.resolveFilter(filter[1], element.data[filter[0]])).some(result => !result);
+    });
+  }
+
+  private resolveFilter(restriction:  any, value: any): boolean {
+    console.log(restriction, value);
+    if (Array.isArray(restriction)) {
+      return value >= restriction[0] && value <= restriction[1];
+    }
+    return value === restriction;
+  }
+
 }
+
+

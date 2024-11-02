@@ -1,6 +1,6 @@
 <div class="meta-view-chart-board">
   <div class="meta-view-filter-place">
-    <biit-meta-sorter [metadata]="data"/>
+    <biit-meta-filter [metadata]="data" (filterChange)="onFilter($event)"/>
   </div>
   <biit-meta-board
     [data]="elements"

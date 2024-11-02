@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { BarRangeComponent } from './bar-range.component';
 import {BarChartModule} from "biit-ui/charts";
 import {PipesModule} from "../../pipes/pipes.module";
-import {BiitSliderModule} from "biit-ui/inputs";
+import {BiitSliderModule, BiitSliderRangeModule} from "biit-ui/inputs";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -18,7 +19,9 @@ import {BiitSliderModule} from "biit-ui/inputs";
     CommonModule,
     BarChartModule,
     PipesModule,
-    BiitSliderModule
+    BiitSliderModule,
+    FormsModule,
+    BiitSliderRangeModule
   ]
 })
 export class BarRangeModule { }

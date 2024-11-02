@@ -1,15 +1,24 @@
-<div class="sorter-view">
-  <div class="sorter-container">
+<div class="filter-view">
+  <div class="filter-container">
     <biit-input-text
       placeholder="search"
       icon="search"
       [(ngModel)]="search"
     />
-    <div class="sorter-sections">
-      <div *ngFor="let field of (metadata.fields | filterBy: search)" class="sorter-section">
-        <div (click)="onFieldClick(field)">{{field}}</div>
+    <div class="filter-sections">
+      <div *ngFor="let field of (metadata.fields | filterBy: search)" class="filter-section">
+        <div class="filter-title" (click)="onFieldClick(field)">
+          <div>{{field}}</div>
+          <div *ngIf="filter | has : field" class="filter-remove" (click)="$event.stopImmediatePropagation(); removeFilter(field)">
+            <biit-icon name="cross_wide" />
+          </div>
+        </div>
         <div *ngIf="field === selectedField" [ngSwitch]="field | fieldType: metadata.data">
-          <biit-bar-range *ngSwitchCase="FieldType.NUMBER" [field]="field" [items]="metadata.data" (rangeChange)="onRangeChanged(field, $event)"/>
+          <biit-bar-range *ngSwitchCase="FieldType.NUMBER"
+                          [field]="field"
+                          [items]="metadata.data"
+                          [range]="filter.get(field)"
+                          (rangeChange)="onRangeChanged(field, $event)"/>
           <div *ngSwitchDefault>Unknown</div>
         </div>
       </div>

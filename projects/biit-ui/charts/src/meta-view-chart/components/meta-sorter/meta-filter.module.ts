@@ -1,26 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MetaSorterComponent } from './meta-sorter.component';
+import { MetaFilterComponent } from './meta-filter.component';
 import {BiitInputTextModule} from "biit-ui/inputs";
 import {FormsModule} from "@angular/forms";
 import {PipesModule} from "../../pipes/pipes.module";
 import {BarRangeModule} from "../bar-range/bar-range.module";
+import {BiitIconModule} from "biit-ui/icon";
 
 
 
 @NgModule({
   declarations: [
-    MetaSorterComponent
+    MetaFilterComponent
   ],
   exports: [
-    MetaSorterComponent
+    MetaFilterComponent
   ],
   imports: [
     CommonModule,
     BiitInputTextModule,
     FormsModule,
     PipesModule,
-    BarRangeModule
+    BarRangeModule,
+    BiitIconModule
   ]
 })
-export class MetaSorterModule { }
+export class MetaFilterModule { }

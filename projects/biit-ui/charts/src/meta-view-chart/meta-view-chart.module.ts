@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MetaViewChartComponent } from './meta-view-chart.component';
 import {MetaElementModule} from "./components/meta-element/meta-element.module";
 import {MetaBoardModule} from "./components/meta-board/meta-board.module";
-import {MetaSorterModule} from "./components/meta-sorter/meta-sorter.module";
+import {MetaFilterModule} from "./components/meta-sorter/meta-filter.module";
 
 
 
@@ -16,7 +16,7 @@ import {MetaSorterModule} from "./components/meta-sorter/meta-sorter.module";
     CommonModule,
     MetaElementModule,
     MetaBoardModule,
-    MetaSorterModule
+    MetaFilterModule
   ],
   exports: [
     MetaViewChartComponent

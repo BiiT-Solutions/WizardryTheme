@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MetaSorterComponent } from './meta-sorter.component';
+import { MetaFilterComponent } from './meta-filter.component';
 
 describe('MetaSorterComponent', () => {
-  let component: MetaSorterComponent;
-  let fixture: ComponentFixture<MetaSorterComponent>;
+  let component: MetaFilterComponent;
+  let fixture: ComponentFixture<MetaFilterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MetaSorterComponent ]
+      declarations: [ MetaFilterComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MetaSorterComponent);
+    fixture = TestBed.createComponent(MetaFilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
