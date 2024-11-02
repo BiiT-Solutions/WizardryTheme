@@ -22,4 +22,8 @@ export class MetaSorterComponent {
   }
 
   protected readonly FieldType = FieldType;
+
+  protected onRangeChanged(field: string, range: number[]) {
+
+  }
 }

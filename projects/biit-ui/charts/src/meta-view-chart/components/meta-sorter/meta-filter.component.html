@@ -9,7 +9,7 @@
       <div *ngFor="let field of (metadata.fields | filterBy: search)" class="sorter-section">
         <div (click)="onFieldClick(field)">{{field}}</div>
         <div *ngIf="field === selectedField" [ngSwitch]="field | fieldType: metadata.data">
-          <biit-bar-range *ngSwitchCase="FieldType.NUMBER" [field]="field" [items]="metadata.data"/>
+          <biit-bar-range *ngSwitchCase="FieldType.NUMBER" [field]="field" [items]="metadata.data" (rangeChange)="onRangeChanged(field, $event)"/>
           <div *ngSwitchDefault>Unknown</div>
         </div>
       </div>
