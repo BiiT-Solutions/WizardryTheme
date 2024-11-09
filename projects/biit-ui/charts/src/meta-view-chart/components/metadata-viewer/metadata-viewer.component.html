@@ -1,0 +1,24 @@
+<div class="metadata-view">
+  <div class="metadata-header" [class.justify-center]="!titleField">
+    <div class="data-icon">
+      <biit-meta-element
+        [styles]="data.styles"
+        [classes]="data.classes"
+        [icon]="data.icon"
+      />
+    </div>
+    <div *ngIf="titleField" class="data-title" [tooltip]="data.data[titleField]">
+      {{data.data[titleField]}}
+    </div>
+  </div>
+  <div class="metadata-info">
+    <div *ngFor="let field of fields" class="colorField">
+      <div class="metadata-info-row">
+        <div class="field-title">{{field}}</div>
+        <div class="field-value">
+          {{data.data[field] | autoFormat}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

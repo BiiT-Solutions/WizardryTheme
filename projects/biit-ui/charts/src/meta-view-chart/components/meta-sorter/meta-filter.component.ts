@@ -1,11 +1,13 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MetaViewData} from "../../model/meta-view-data";
 import {FieldType} from "./model/FieldType";
+import {FieldTypePipe} from "../../pipes/field-type.pipe";
 
 @Component({
   selector: 'biit-meta-filter',
   templateUrl: './meta-filter.component.html',
-  styleUrls: ['./meta-filter.component.css']
+  styleUrls: ['./meta-filter.component.css'],
+  providers: [FieldTypePipe]
 })
 export class MetaFilterComponent {
   @Input() metadata: MetaViewData;
@@ -15,7 +17,13 @@ export class MetaFilterComponent {
   protected filter: Map<string, any> = new Map<string, any>();
   protected readonly FieldType = FieldType;
 
+
+  constructor(private fieldType: FieldTypePipe) {  }
+
   protected onFieldClick(field: string): void {
+    if (this.fieldType.transform(field, this.metadata.data) === FieldType.BOOLEAN) {
+      return;
+    }
     if (this.selectedField === field) {
       this.selectedField = null;
       return;
@@ -30,6 +38,11 @@ export class MetaFilterComponent {
 
   protected onDateRangeChanged(field: string, range: Date[][]): void {
     range ? this.filter.set(field, range) : this.filter.delete(field);
+    this.detectFilter();
+  }
+
+  protected onBooleanFilterChanged(field: string, value: boolean): void {
+    this.filter.set(field, value);
     this.detectFilter();
   }
 

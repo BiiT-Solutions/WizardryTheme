@@ -1,0 +1,60 @@
+.metadata-view {
+  font-size: 1em;
+  transition: 0.3s;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.metadata-header {
+  margin: 1em 1em 0.5em;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  &.justify-center>.data-icon {
+    width: 3em;
+    height: 3em;
+  }
+  &:not(.justify-center)>.data-icon {
+    width: 1em;
+    height: 1em;
+  }
+}
+.data-icon {
+  min-width: 1em;
+  min-height: 1em;
+}
+.data-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-content: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+.metadata-info {
+  overflow-y: auto;
+  height: 100%;
+  margin: 0.5em;
+  >:nth-child(odd) {
+    background-color: #c3c3c3;
+  }
+  >:nth-child(even) {
+    background-color: #EDEDED;
+  }
+}
+
+.metadata-info-row {
+  font-size: 0.8em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 0.1em 0.2em;
+  :first-child {
+    font-weight: bold;
+  }
+  :not(:first-child) {
+    padding-left: 0.5em;
+  }
+}

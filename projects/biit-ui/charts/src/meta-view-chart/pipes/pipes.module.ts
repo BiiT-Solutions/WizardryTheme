@@ -9,6 +9,7 @@ import { MetaElementMinValuePipe } from './meta-element-min-value.pipe';
 import { StepValueExtractorPipe } from './step-value-extractor.pipe';
 import { HasPipe } from './has.pipe';
 import { MonthNamePipe } from './month-name.pipe';
+import { AutoFormatPipe } from './auto-format.pipe';
 
 
 
@@ -22,19 +23,21 @@ import { MonthNamePipe } from './month-name.pipe';
     MetaElementMinValuePipe,
     StepValueExtractorPipe,
     HasPipe,
-    MonthNamePipe
+    MonthNamePipe,
+    AutoFormatPipe
   ],
-  exports: [
-    SafeHtmlPipe,
-    FilterByPipe,
-    FieldTypePipe,
-    MetaElementToBarChartPipe,
-    MetaElementMinValuePipe,
-    MetaElementMaxValuePipe,
-    StepValueExtractorPipe,
-    HasPipe,
-    MonthNamePipe
-  ],
+    exports: [
+        SafeHtmlPipe,
+        FilterByPipe,
+        FieldTypePipe,
+        MetaElementToBarChartPipe,
+        MetaElementMinValuePipe,
+        MetaElementMaxValuePipe,
+        StepValueExtractorPipe,
+        HasPipe,
+        MonthNamePipe,
+        AutoFormatPipe
+    ],
   imports: [
     CommonModule
   ]

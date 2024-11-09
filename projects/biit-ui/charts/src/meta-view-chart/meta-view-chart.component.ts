@@ -10,7 +10,7 @@ import {MetaViewData} from "./model/meta-view-data";
 })
 export class MetaViewChartComponent implements OnInit {
   @Input() data: MetaViewData;
-  protected fields: string[] = ['name', 'date', 'v1', 'v2', 'v3'];
+  protected fields: string[] = ['name', 'date', 'v1', 'v2', 'v3', 'b1'];
   protected elements: MetaViewElementData[] = [];
   protected selectedElement: MetaViewElementData;
 
@@ -20,7 +20,14 @@ export class MetaViewChartComponent implements OnInit {
   ngOnInit(): void {
     const gaussianList = this.generateGaussianList(100, 70, 0.05);
     for (let i = 0; i < 100; i++) {
-      const data = {name: this.randomString(10), date: this.randomDate(), v1: this.randomInt(50, 84), v2: gaussianList[i], v3: this.randomPercentage()};
+      const data = {
+        name: this.randomString(10),
+        date: this.randomDate(),
+        v1: this.randomInt(50, 84),
+        v2: gaussianList[i],
+        v3: this.randomPercentage(),
+        b1: this.randomBoolean()
+      };
       this.elements.push(new MetaViewElementData(data,`border-radius: 100%; background-color: ${this.getRandomColor()} `));
       this.data = new MetaViewData(this.elements, this.fields);
     }
@@ -55,7 +62,9 @@ export class MetaViewChartComponent implements OnInit {
     for (let i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
     return result;
   }
-
+  private randomBoolean(): boolean {
+    return Math.random() >= 0.5;
+  }
   private getRandomColor(): string {
     return '#' + Math.floor(Math.random()*16777215).toString(16);
   }
@@ -91,7 +100,6 @@ export class MetaViewChartComponent implements OnInit {
     const regex: RegExp = new RegExp(restriction, 'i');
     return regex.test(value);
   }
-
 }
 
 

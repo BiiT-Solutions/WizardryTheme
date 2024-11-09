@@ -16,9 +16,9 @@ export class DateFilterSelectorComponent {
     this.sortValues();
   }
   @Input('range') set _range(value: Date[][]) {
-    if (!value) {return;}
     this.periodRange = value;
     this.selectedRanges = {};
+    if (!value) {return;}
     this.periodRange.forEach(range => {
       const startDate: Date = range[0];
       const endDate: Date = range[1];

@@ -9,12 +9,26 @@ biit-meta-board {
   gap: 1em;
   height: 100%;
   & > :not(:nth-child(2)) {
-    flex: 0;
+    flex: 0 1 auto;
   }
   & > :nth-child(2) {
     flex: 1;
   }
 }
-.meta-view-filter-place {
+.meta-view-column {
   min-width: 15ch;
+  width: 15ch;
+  flex: 0 1 auto;
+  resize: horizontal;
+  overflow: auto;
+  border: 2px solid #EDEDED;
+  border-radius: 0.3em;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.rtl {
+  direction: rtl;
+}
+.ltr {
+  direction: ltr;
 }

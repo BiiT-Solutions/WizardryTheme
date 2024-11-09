@@ -6,7 +6,6 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   styleUrls: ['./text-filter.component.css']
 })
 export class TextFilterComponent {
-  @Input() field!: string;
   @Input() set filter(value: string) {
     this.search = value;
   }
