@@ -37,11 +37,17 @@
   overflow-y: auto;
   height: 100%;
   margin: 0.5em;
+  >:first-child {
+    border-radius:  0 10px 0 0;
+  }
   >:nth-child(odd) {
     background-color: #c3c3c3;
   }
   >:nth-child(even) {
     background-color: #EDEDED;
+  }
+  >:last-child {
+    border-radius: 0 0 0 10px;
   }
 }
 

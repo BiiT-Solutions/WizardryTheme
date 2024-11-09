@@ -29,8 +29,10 @@ export class MetaViewChartComponent implements OnInit {
         b1: this.randomBoolean()
       };
       const elementData: MetaViewElementData = new MetaViewElementData(data, `border-radius: 100%; background-color: ${this.getRandomColor()} `);
-      elementData.custom = document.createElement('div');
-      elementData.custom.innerHTML = `<div class="padding-1"><div class="heart"></div></div>`;
+      if (this.randomBoolean()) {
+        elementData.custom = document.createElement('div');
+        elementData.custom.innerHTML = `<div class="padding-1"><div class="heart"></div></div>`;
+      }
       this.elements.push(elementData);
       this.data = new MetaViewData(this.elements, this.fields);
     }
