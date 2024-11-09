@@ -1,19 +1,18 @@
 <div>
   <div *ngFor="let year of sortByYear.keys()">
-    <biit-checkbox [(ngModel)]="selectedRanges[year + '']" (ngModelChange)="onYearSelected(year)" >
+    <biit-checkbox [(ngModel)]="selectedRanges[year + '']" (ngModelChange)="onYearSelected(year, $event)" >
       <div class="year-title">
         <div class="title-counter">
           <div> {{year}} </div>
           <div> ({{sortByYear.get(year).length}})</div>
         </div>
         <biit-icon
-          [pathStyle]="selectedRanges[year + ''] ? {fill: '#ababab'} : undefined"
-          name="right_arrow" class="year-arrow" [class.arrow-rotate]="!selectedRanges[year + ''] && selectedYear === year"
+          name="right_arrow" class="year-arrow" [class.arrow-rotate]="selectedYear === year"
           (click)="$event.preventDefault(); onDisplayYear(year)" />
       </div>
-      <div *ngIf="!selectedRanges[year + ''] && selectedYear === year">
+      <div *ngIf="selectedYear === year">
         <div *ngFor="let month of sortByMonth.keys()">
-          <biit-checkbox [(ngModel)]="selectedRanges[year + '-' + month]" >
+          <biit-checkbox [(ngModel)]="selectedRanges[year + '-' + month]" (ngModelChange)="onMonthSelected(year, month, $event)" >
             <div class="title-counter">
               <div>
                 {{month | monthName}}

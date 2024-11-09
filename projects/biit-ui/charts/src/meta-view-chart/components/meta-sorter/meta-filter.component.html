@@ -22,7 +22,8 @@
           <biit-date-filter-selector *ngSwitchCase="FieldType.DATE"
                           [field]="field"
                           [items]="metadata.data"
-          />
+                          [range]="filter.get(field)"
+                          (rangeChange)="onDateRangeChanged(field, $event)"/>
           <div *ngSwitchDefault>Unknown</div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MetaViewElementData} from "../../model/meta-view-element-data";
 
 @Component({
@@ -15,6 +15,24 @@ export class DateFilterSelectorComponent {
     this.field = value;
     this.sortValues();
   }
+  @Input('range') set _range(value: Date[][]) {
+    if (!value) {return;}
+    this.periodRange = value;
+    this.selectedRanges = {};
+    this.periodRange.forEach(range => {
+      const startDate: Date = range[0];
+      const endDate: Date = range[1];
+      if (
+        startDate.getTime() === new Date(range[0].getFullYear(), 0, 1).getTime()
+        && endDate.getTime() === new Date(range[0].getFullYear(), 11, 31, 23, 59, 59, 999).getTime()) {
+        this.selectedRanges[startDate.getFullYear().toString()] = true;
+        this.selectedAllMonths(startDate.getFullYear())
+      } else {
+        this.selectedRanges[startDate.getFullYear() + '-' + startDate.getMonth()] = true;
+      }
+    });
+  }
+  @Output() rangeChange: EventEmitter<Date[][]> = new EventEmitter<Date[][]>();
 
   protected items: MetaViewElementData[] = [];
   protected field: string;
@@ -45,9 +63,6 @@ export class DateFilterSelectorComponent {
   }
 
   protected onDisplayYear(year: number) {
-    if (this.selectedRanges[year + '']) {
-      return;
-    }
     if (year === this.selectedYear) {
       this.selectedYear = undefined;
       return;
@@ -68,26 +83,67 @@ export class DateFilterSelectorComponent {
     });
   }
 
-  protected onYearSelected(year: number) {
+  protected onYearSelected(year: number, selected: boolean) {
     if (this.selectedYear === year) {
       this.selectedYear = undefined;
     }
+    this.loadMonthlyData(year);
+    selected ? this.selectedAllMonths(year) : this.removeSelectedRanges(year);
     this.convertSelectedRanges();
-    this.emitSelextedRanges();
+    this.emitSelectedRanges();
+  }
+
+  private selectedAllMonths(year: number): void {
+    this.sortByMonth.forEach((months, month) => {
+      const date: string = year + '-' + month;
+      this.selectedRanges[date] = true;
+    });
+  }
+
+  private removeSelectedRanges(year: number): void {
+    for(let date in this.selectedRanges) {
+      if (date.startsWith(year.toString())) {
+        delete this.selectedRanges[date];
+      }
+    }
   }
 
   private convertSelectedRanges() {
-    for(let date in this.selectedRanges) {
-      if (this.selectedRanges[date]) {
+    this.periodRange = [];
+    const selectedRanges = {...this.selectedRanges}
+    const years = Object.keys(selectedRanges).filter(date => !date.toString().includes('-'));
+    years.forEach(year => {
+      for (const key in selectedRanges) {
+        if (key.startsWith(year + '-')) {
+          delete selectedRanges[key];
+        }
+      }
+    });
+    for(let date in selectedRanges) {
+      if (selectedRanges[date]) {
         const splitDate: string[] = date.split('-');
         const startDate: Date = splitDate.length === 1 ? new Date(+splitDate[0], 0, 1) : new Date(+splitDate[0], +splitDate[1], 1);
-        const endDate: Date = splitDate.length === 1 ? new Date(+splitDate[0], 11, 31) : new Date(+splitDate[0], +splitDate[1] + 1, 0);
+        const endDate: Date = splitDate.length === 1
+          ? new Date(+splitDate[0], 11, 31, 23, 59, 59, 999)
+          : new Date(+splitDate[0], +splitDate[1] + 1, 0, 23, 59, 59, 999);
         this.periodRange.push([startDate, endDate]);
       }
     }
   }
 
-  private emitSelextedRanges() {
-    console.log(this.periodRange);
+  private emitSelectedRanges(): void {
+    if (this.periodRange.length === 0) {
+      this.rangeChange.emit(null);
+      return;
+    }
+    this.rangeChange.emit(this.periodRange);
+  }
+
+  onMonthSelected(year: number, month: number, selected: boolean): void {
+    if (!selected && this.selectedRanges[year]) {
+      delete this.selectedRanges[year];
+    }
+    this.convertSelectedRanges();
+    this.emitSelectedRanges();
   }
 }

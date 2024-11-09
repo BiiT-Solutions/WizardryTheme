@@ -80,9 +80,13 @@ export class MetaViewChartComponent implements OnInit {
   }
 
   private resolveFilter(restriction:  any, value: any): boolean {
-    console.log(restriction, value);
-    if (Array.isArray(restriction)) {
+    if (Array.isArray(restriction) && !restriction.some(Array.isArray) && restriction.length === 2) {
       return value >= restriction[0] && value <= restriction[1];
+    }
+    if (Array.isArray(restriction) && restriction.every(Array.isArray)) {
+      if (value instanceof Date) {
+        return restriction.some(range => (range[0] as Date).getTime() <= value.getTime() && value.getTime() <= (range[1] as Date).getTime());
+      }
     }
     return value === restriction;
   }

@@ -28,6 +28,11 @@ export class MetaFilterComponent {
     this.detectFilter();
   }
 
+  protected onDateRangeChanged(field: string, range: Date[][]) {
+    range ? this.filter.set(field, range) : this.filter.delete(field);
+    this.detectFilter();
+  }
+
   protected removeFilter(field: string) {
     this.filter.delete(field);
     this.detectFilter();
