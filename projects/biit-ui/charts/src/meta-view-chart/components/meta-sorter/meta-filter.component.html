@@ -24,6 +24,10 @@
                           [items]="metadata.data"
                           [range]="filter.get(field)"
                           (rangeChange)="onDateRangeChanged(field, $event)"/>
+          <biit-text-filter *ngSwitchCase="FieldType.STRING"
+                            [field]="field"
+                            [filter]="filter.get(field)"
+                            (filterChange)="onFilterChanged(field, $event)"/>
           <div *ngSwitchDefault>Unknown</div>
         </div>
       </div>

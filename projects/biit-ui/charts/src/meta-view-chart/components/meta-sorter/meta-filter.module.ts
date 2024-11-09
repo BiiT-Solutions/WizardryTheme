@@ -7,6 +7,7 @@ import {PipesModule} from "../../pipes/pipes.module";
 import {BarRangeModule} from "../bar-range/bar-range.module";
 import {BiitIconModule} from "biit-ui/icon";
 import {DateFilterSelectorModule} from "../date-filter-selector/date-filter-selector.module";
+import {TextFilterModule} from "../text-filter/text-filter.module";
 
 
 
@@ -24,7 +25,8 @@ import {DateFilterSelectorModule} from "../date-filter-selector/date-filter-sele
         PipesModule,
         BarRangeModule,
         BiitIconModule,
-        DateFilterSelectorModule
+        DateFilterSelectorModule,
+        TextFilterModule
     ]
 })
 export class MetaFilterModule { }

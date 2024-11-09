@@ -23,23 +23,32 @@ export class MetaFilterComponent {
     this.selectedField = field;
   }
 
-  protected onRangeChanged(field: string, range: number[]) {
+  protected onRangeChanged(field: string, range: number[]): void {
     this.filter.set(field, range);
     this.detectFilter();
   }
 
-  protected onDateRangeChanged(field: string, range: Date[][]) {
+  protected onDateRangeChanged(field: string, range: Date[][]): void {
     range ? this.filter.set(field, range) : this.filter.delete(field);
     this.detectFilter();
   }
 
-  protected removeFilter(field: string) {
+  protected removeFilter(field: string): void {
     this.filter.delete(field);
     this.detectFilter();
   }
 
-  private detectFilter() {
+  private detectFilter(): void {
     this.filter = new Map(this.filter);
     this.filterChange.emit(this.filter);
+  }
+
+  onFilterChanged(field: string, value: string): void {
+    if (!value) {
+      this.filter.delete(field);
+    } else {
+      this.filter.set(field, value);
+    }
+    this.detectFilter();
   }
 }

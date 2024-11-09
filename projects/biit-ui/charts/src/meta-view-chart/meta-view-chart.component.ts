@@ -88,7 +88,8 @@ export class MetaViewChartComponent implements OnInit {
         return restriction.some(range => (range[0] as Date).getTime() <= value.getTime() && value.getTime() <= (range[1] as Date).getTime());
       }
     }
-    return value === restriction;
+    const regex: RegExp = new RegExp(restriction, 'i');
+    return regex.test(value);
   }
 
 }
