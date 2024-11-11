@@ -4,8 +4,6 @@ import { BooleanFilterComponent } from './boolean-filter.component';
 import {BiitToggleModule} from "biit-ui/inputs";
 import {FormsModule} from "@angular/forms";
 
-
-
 @NgModule({
   declarations: [
     BooleanFilterComponent

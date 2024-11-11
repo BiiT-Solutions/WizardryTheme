@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import {MetaViewElementData} from "../model/meta-view-element-data";
-import {BarChartData, BarChartSeries, BarChartSeriesData} from "biit-ui/charts";
+import {BarChartData, BarChartSeries, BarChartSeriesData} from "../../bar-chart/models/bar-chart-data";
 
 @Pipe({
   name: 'metaElementToBarChart'
