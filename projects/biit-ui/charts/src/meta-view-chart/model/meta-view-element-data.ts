@@ -6,6 +6,7 @@ export class MetaViewElementData {
   custom: HTMLDivElement;
 
 
+
   constructor(data: any, styles: string) {
     this.data = data;
     this.styles = styles;
