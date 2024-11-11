@@ -1,0 +1,65 @@
+biit-meta-board {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.meta-view-chart-board{
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  height: 100%;
+  & > :not(:nth-child(2)) {
+    flex: 0 1 auto;
+  }
+  & > :nth-child(2) {
+    flex: 1;
+  }
+}
+.meta-view-column {
+  min-width: 15ch;
+  width: 15ch;
+  flex: 0 1 auto;
+  resize: horizontal;
+  overflow: auto;
+  border: 2px solid #EDEDED;
+  border-radius: 0.3em;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.rtl {
+  direction: rtl;
+}
+.ltr {
+  direction: ltr;
+}
+
+.heart {
+  position: relative;
+  width: 10px;
+  height: 9px;
+}
+
+.heart::before, .heart::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 5px;
+  height: 8px;
+  border-radius: 5px 5px 0 0;
+  background: red;
+}
+
+.heart::before {
+  left: 5px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+.padding-1 {
+  padding: 0.1em;
+}

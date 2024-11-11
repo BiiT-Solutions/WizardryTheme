@@ -124,7 +124,7 @@ export class RadarChartComponent implements OnInit, OnChanges {
             w.globals.labels[dataPointIndex] +
             '  </div>' +
             '  <div class="tooltip-content">' +
-            '    <div class="tooltip-data">' +
+            '    <div class="tooltip-metadata">' +
             '      <div class="tooltip-square" style="background:'+ w.globals.colors[seriesIndex] +'"></div>' +
             '      <a>' + w.globals.seriesNames[seriesIndex] + ': </a>' +
             '      <a style="margin-left: 0.35rem; font-weight: 500">' + series[seriesIndex][dataPointIndex] + '</a>' +

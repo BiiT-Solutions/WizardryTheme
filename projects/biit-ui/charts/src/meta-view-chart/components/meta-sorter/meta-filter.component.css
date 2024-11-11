@@ -1,0 +1,49 @@
+.filter-view {
+  font-size: 1em;
+  transition: 0.3s;
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.filter-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.filter-sections {
+  overflow-y: auto;
+  height: 100%;
+  padding: 0.2em 0.2em;
+}
+.filter-title {
+  display: flex;
+  flex-direction: row;
+  & > div:first-child {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+  }
+}
+.filter-remove {
+  align-content: center;
+  & > biit-icon {
+    display: block; width: 1em; height: 1em
+  }
+}
+.filter-section {
+  padding: 0.2em 0.3em;
+  cursor: pointer;
+  user-select: none;
+  &>div:first-child {
+    font-size: 0.8em;
+  }
+  border-bottom: 1px solid #EDEDED;
+}
+biit-date-filter-selector {
+  font-size: 0.8em;
+}
+::ng-deep.biit-input {
+  min-width: unset !important;
+}

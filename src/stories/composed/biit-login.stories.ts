@@ -47,7 +47,7 @@ export default {
     onLogin: {
       action: 'onLogin',
       name: 'onLogin',
-      description: 'Emits an event containing data introduced by the user.',
+      description: 'Emits an event containing metadata introduced by the user.',
       table: {
         type: 'Event',
         category: 'Outputs'

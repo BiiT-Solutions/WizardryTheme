@@ -21,3 +21,5 @@ export * from './heatmap-chart/heatmap-chart.component';
 export * from './heatmap-chart/heatmap-chart.module';
 export * from './heatmap-chart/heatmap-chart-data';
 export * from './heatmap-chart/heatmap-chart-range';
+export  * from './meta-view-chart/meta-view-chart.module';
+export * from './meta-view-chart/meta-view-chart.component';

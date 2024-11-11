@@ -1,0 +1,43 @@
+<div class="filter-view">
+  <div class="filter-container">
+    <biit-input-text
+      placeholder="search"
+      icon="search"
+      [(ngModel)]="search"
+    />
+    <div class="filter-sections">
+      <div *ngFor="let field of (metadata.fields | filterBy: search)" class="filter-section">
+        <div class="filter-title" (click)="onFieldClick(field)">
+          <div>
+            <div>{{field}}</div>
+            <div *ngIf="(field | fieldType: metadata.data) === FieldType.BOOLEAN">
+              <biit-boolean-filter
+                [filter]="filter.get(field)"
+                (filterChange)="onBooleanFilterChanged(field, $event)"/>
+            </div>
+          </div>
+          <div *ngIf="filter | has : field" class="filter-remove" (click)="$event.stopImmediatePropagation(); removeFilter(field)">
+            <biit-icon name="cross_wide" />
+          </div>
+        </div>
+        <div *ngIf="field === selectedField && (field | fieldType: metadata.data) !== FieldType.BOOLEAN" [ngSwitch]="field | fieldType: metadata.data">
+          <biit-bar-range *ngSwitchCase="FieldType.NUMBER"
+                          [field]="field"
+                          [items]="metadata.data"
+                          [range]="filter.get(field)"
+                          (rangeChange)="onRangeChanged(field, $event)"/>
+          <biit-date-filter-selector *ngSwitchCase="FieldType.DATE"
+                          [field]="field"
+                          [items]="metadata.data"
+                          [range]="filter.get(field)"
+                          (rangeChange)="onDateRangeChanged(field, $event)"/>
+          <biit-text-filter *ngSwitchCase="FieldType.STRING"
+                            [filter]="filter.get(field)"
+                            (filterChange)="onFilterChanged(field, $event)"/>
+          <div *ngSwitchDefault>Unknown</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
