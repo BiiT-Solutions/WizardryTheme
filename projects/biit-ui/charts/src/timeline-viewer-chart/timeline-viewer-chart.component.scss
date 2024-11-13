@@ -1,0 +1,59 @@
+#bar-chart {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  width: inherit;
+
+  transition: 1s ease-in-out;
+
+  ::ng-deep .apexcharts-tooltip {
+    border: 1px solid #262626;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: 'Montserrat';
+    font-size: 0.7rem;
+    background: white;
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .tooltip-header {
+      background: #262626;
+      color: white;
+      padding: 0.45rem 0.7rem;
+    }
+
+    .tooltip-content {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.2rem;
+      padding: 0.45rem 0.7rem;
+
+      .tooltip-data {
+        display: flex;
+        align-items: center;
+
+        .tooltip-square {
+          height: 0.5rem;
+          width: 0.5rem;
+          margin-right: 0.45rem;
+        }
+
+        .tooltip-line {
+          height: 0.1rem;
+          width: 0.5rem;
+          margin-right: 0.45rem;
+        }
+      }
+
+    }
+  }
+
+  ::ng-deep .apexcharts-series {
+    path:hover {
+      box-sizing: border-box;
+      border: 0.15rem solid #262626;
+    }
+  }
+}
