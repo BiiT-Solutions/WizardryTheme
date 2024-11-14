@@ -30,10 +30,10 @@ type ChartOptions = {
   templateUrl: './timeline-viewer-chart.component.html',
   styleUrls: ['./timeline-viewer-chart.component.scss']
 })
-export class TimelineViewerChartComponent<T> implements OnInit, OnChanges {
+export class TimelineViewerChartComponent implements OnInit, OnChanges {
 
-  @Input() data: TimelineViewerChartData<T>[] = [];
-  @Output() onItemClick: EventEmitter<TimelineViewerChartData<any>> = new EventEmitter<TimelineViewerChartData<any>>();
+  @Input() data: TimelineViewerChartData[] = [];
+  @Output() onItemClick: EventEmitter<TimelineViewerChartData> = new EventEmitter<TimelineViewerChartData>();
 
   scatterChartOptions: Partial<ChartOptions>;
   areaChartOptions: Partial<ChartOptions>;

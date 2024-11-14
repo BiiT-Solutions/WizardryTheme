@@ -6,7 +6,7 @@ import {NgApexchartsModule} from "ng-apexcharts";
 
 @NgModule({
   declarations: [TimelineViewerChartComponent],
-  exports: [TimelineViewerChartComponent<any>],
+  exports: [TimelineViewerChartComponent],
   imports: [
     CommonModule,
     NgApexchartsModule

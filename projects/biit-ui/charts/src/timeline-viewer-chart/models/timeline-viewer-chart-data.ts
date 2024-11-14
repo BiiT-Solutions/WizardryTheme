@@ -1,4 +1,4 @@
-export class TimelineViewerChartData<T> {
+export class TimelineViewerChartData {
   x: number;
   y: number;
   color: string;
@@ -9,7 +9,7 @@ export class TimelineViewerChartData<T> {
   tooltipValue2: string;
   tooltipTitle3: string;
   tooltipValue3: string;
-  meta: T;
+  meta: Object;
 
   constructor(x: Date,
               y: number,
@@ -17,7 +17,7 @@ export class TimelineViewerChartData<T> {
               tooltipTitle1: string,
               tooltipValue1: string,
               color?: string,
-              meta?: T,
+              meta?: Object,
               tooltipTitle2?: string,
               tooltipValue2?: string,
               tooltipTitle3?: string,
@@ -45,12 +45,12 @@ export class TimelineViewerChartData<T> {
     tooltipValue2?: string,
     tooltipTitle3?: string,
     tooltipValue3?: string
-  }): TimelineViewerChartData<Object>[] {
-    const chartData: TimelineViewerChartData<Object>[] = [];
+  }): TimelineViewerChartData[] {
+    const chartData: TimelineViewerChartData[] = [];
     data.forEach(value => {
       const datetime = new Date(value[variableNames.date]).setHours(0,0,0,0);
       const count = chartData.filter(d => d.x == datetime).length;
-      chartData.push(new TimelineViewerChartData<Object>(
+      chartData.push(new TimelineViewerChartData(
         new Date(datetime),
         count + 1,
         value[variableNames.tooltipHeader],
