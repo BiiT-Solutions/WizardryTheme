@@ -1,8 +1,7 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {
   TimelineViewerChartModule,
-  TimelineViewerChartComponent,
-  TimelineViewerChartData
+  TimelineViewerChartComponent
 } from "biit-ui/charts";
 
 export default {
@@ -45,6 +44,7 @@ const Template: Story<TimelineViewerChartComponent> = (args: TimelineViewerChart
   props: args,
   template: `
     <biit-timeline-viewer-chart [data]="data"
+                                [options]="options"
                                 (onItemClick)="onItemClick($event)"
                                 style="display: block; width:1200px; height: 700px"
     ></biit-timeline-viewer-chart>`
@@ -53,95 +53,81 @@ const Template: Story<TimelineViewerChartComponent> = (args: TimelineViewerChart
 export const SingleBar = Template.bind({});
 SingleBar.storyName = "Single Bar";
 SingleBar.args = {
-  data: TimelineViewerChartData.generate(
-    [
-      {
-        date: new Date('2024-11-16'),
-        color: '#FF0000',
-        name: 'Perico Palotes',
-        title: 'Total Score',
-        value: '33'
-      },
-      {
-        date: new Date('2024-11-16'),
-        color: '#00FF00',
-        name: 'Paco Gonzalez',
-        title: 'Total Score',
-        value: '69'
-      },
-      {
-        date: new Date('2024-11-16'),
-        color: '#0000FF',
-        name: 'Manolo Lama',
-        title: 'Total Score',
-        value: '96'
-      },
-      {
-        date: new Date('2024-11-11'),
-        color: '#FF0000',
-        name: 'Perico Palotes',
-        title: 'Total Score',
-        value: '33'
-      },
-      {
-        date: new Date('2024-11-11'),
-        color: '#00FF00',
-        name: 'Paco Gonzalez',
-        title: 'Total Score',
-        value: '69'
-      },
-      {
-        date: new Date('2024-11-11'),
-        color: '#0000FF',
-        name: 'Manolo Lama',
-        title: 'Total Score',
-        value: '96'
-      },
-      {
-        date: new Date('2024-11-3'),
-        color: '#FF0000',
-        name: 'Perico Palotes',
-        title: 'Total Score',
-        value: '33'
-      },
-      {
-        date: new Date('2024-11-3'),
-        color: '#00FF00',
-        name: 'Paco Gonzalez',
-        title: 'Total Score',
-        value: '69'
-      },
-      {
-        date: new Date('2024-11-3'),
-        color: '#0000FF',
-        name: 'Manolo Lama',
-        title: 'Total Score',
-        value: '96'
-      },
-      {
-        date: new Date('2024-11-3'),
-        name: 'Silvester Stallone',
-        title: 'Total Score',
-        value: '33'
-      },
-      {
-        date: new Date('2024-11-3'),
-        name: 'Arnold Schwarzenegger',
-        title: 'Total Score',
-        value: '69'
-      },
-      {
-        date: new Date('2024-11-3'),
-        name: 'Jason Statham',
-        title: 'Total Score',
-        value: '96'
-      },
-    ],
+  data: [
     {
-      date: 'date',
-      color: 'color',
-      tooltipHeader: 'name',
-      tooltipTitle1: 'title',
-      tooltipValue1: 'value'
-    })
+      date: new Date('2024-11-16'),
+      color: '#FF0000',
+      name: 'Perico Palotes',
+      score: '33'
+    },
+    {
+      date: new Date('2024-11-16'),
+      color: '#00FF00',
+      name: 'Paco Gonzalez',
+      score: '69'
+    },
+    {
+      date: new Date('2024-11-16'),
+      color: '#0000FF',
+      name: 'Manolo Lama',
+      score: '96'
+    },
+    {
+      date: new Date('2024-11-11'),
+      color: '#FF0000',
+      name: 'Perico Palotes',
+      score: '33'
+    },
+    {
+      date: new Date('2024-11-11'),
+      color: '#00FF00',
+      name: 'Paco Gonzalez',
+      score: '69'
+    },
+    {
+      date: new Date('2024-11-11'),
+      color: '#0000FF',
+      name: 'Manolo Lama',
+      score: '96'
+    },
+    {
+      date: new Date('2024-11-3'),
+      color: '#FF0000',
+      name: 'Perico Palotes',
+      score: '33'
+    },
+    {
+      date: new Date('2024-11-3'),
+      color: '#00FF00',
+      name: 'Paco Gonzalez',
+      score: '69'
+    },
+    {
+      date: new Date('2024-11-3'),
+      color: '#0000FF',
+      name: 'Manolo Lama',
+      score: '96'
+    },
+    {
+      date: new Date('2024-11-3'),
+      name: 'Silvester Stallone',
+      score: '33'
+    },
+    {
+      date: new Date('2024-11-3'),
+      name: 'Arnold Schwarzenegger',
+      score: '69'
+    },
+    {
+      date: new Date('2024-11-3'),
+      name: 'Jason Statham',
+      score: '96'
+    },
+  ],
+  options: {
+    date: 'date',
+    color: 'color',
+    tooltipHeader: 'name',
+    tooltipInfo: [{title: 'Total Score', value: 'score'}]
+  }
 }

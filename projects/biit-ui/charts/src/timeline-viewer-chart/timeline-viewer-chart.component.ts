@@ -7,6 +7,8 @@ import {
 } from "ng-apexcharts";
 import {TimelineViewerChartData} from './models/timeline-viewer-chart-data';
 import {subMonths} from "date-fns";
+import {TimelineViewerChartOptions} from "./models/timeline-viewer-chart-options";
+import {DatePipe} from "@angular/common";
 
 type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -32,28 +34,32 @@ type ChartOptions = {
 })
 export class TimelineViewerChartComponent implements OnInit, OnChanges {
 
-  @Input() data: TimelineViewerChartData[] = [];
+  @Input() data: any[] = [];
+  @Input() options: TimelineViewerChartOptions;
   @Output() onItemClick: EventEmitter<TimelineViewerChartData> = new EventEmitter<TimelineViewerChartData>();
 
   scatterChartOptions: Partial<ChartOptions>;
   areaChartOptions: Partial<ChartOptions>;
   pageNumber = 1;
 
+  constructor(private datePipe: DatePipe) {}
+
   ngOnInit() {
-    if (!this.data?.length) {
+    if (!this.data?.length || !this.options) {
       return;
     }
     this.createChartOptions();
   }
 
   ngOnChanges() {
-    if (!this.data?.length) {
+    if (!this.data?.length || !this.options) {
       return;
     }
     this.createChartOptions();
   }
 
   private createChartOptions() {
+    const series = TimelineViewerChartData.generate(this.data, this.options);
     const timeValues = this.data.sort((a, b) => a.x - b.x);
     const max = timeValues[timeValues.length-1].x;
     const min = subMonths(timeValues[timeValues.length-1].x, 1).getTime();
@@ -85,7 +91,7 @@ export class TimelineViewerChartComponent implements OnInit, OnChanges {
       series: [
         {
           name: 'series',
-          data: this.data
+          data: series
         }
       ],
       chart: {
@@ -152,7 +158,7 @@ export class TimelineViewerChartComponent implements OnInit, OnChanges {
       series: [
         {
           name: 'series',
-          data: this.data
+          data: series
         }
       ],
       chart: {
@@ -193,54 +199,26 @@ export class TimelineViewerChartComponent implements OnInit, OnChanges {
         )
       },
       tooltip: {
-        custom: function({ series, seriesIndex, dataPointIndex, w }) {
+        custom: ({ series, seriesIndex, dataPointIndex, w }) => {
           const data = w.globals.initialSeries[seriesIndex].data[dataPointIndex];
           let tooltip =
             `<div class="tooltip-base">` +
             `  <div class="tooltip-header">${data.tooltipHeader}</div>` +
             `  <div class="tooltip-content">`;
 
-          if (data.tooltipValue1) {
-            tooltip +=
-              `    <div class="tooltip-data">`;
-            if (data.tooltipTitle1) {
+          this.options.tooltipInfo.forEach(info => {
+            if (data.meta[info.value]) {
               tooltip +=
-                `      <a>${data.tooltipTitle1}: </a>`;
+                `    <div class="tooltip-data">` +
+                `      <a>${info.title}: </a>` +
+                `      <a style="font-weight: 500">${data.meta[info.value]}</a>` +
+                `    </div>`;
             }
-            tooltip +=
-              `      <a style="font-weight: 500">${data.tooltipValue1}</a>` +
-              `    </div>`;
-          }
-
-          if (data.tooltipValue2) {
-            tooltip +=
-              `    <div class="tooltip-data">`;
-            if (data.tooltipTitle2) {
-              tooltip +=
-                `      <a>${data.tooltipTitle2}: </a>`;
-            }
-            tooltip +=
-              `      <a style="font-weight: 500">${data.tooltipValue2}</a>` +
-              `    </div>`;
-          }
-
-          if (data.tooltipValue3) {
-            tooltip +=
-              `    <div class="tooltip-data">`;
-            if (data.tooltipTitle3) {
-              tooltip +=
-                `      <a>${data.tooltipTitle3}: </a>`;
-            }
-            tooltip +=
-              `      <a style="font-weight: 500">${data.tooltipValue3}</a>` +
-              `    </div>`;
-          }
+          });
 
           tooltip +=
             `    <div class="tooltip-data">` +
-            `      <a style="font-weight: 500">${new Date(w.globals.seriesX[seriesIndex][dataPointIndex]).getDate()}
-            / ${new Date(w.globals.seriesX[seriesIndex][dataPointIndex]).getMonth()}
-            / ${new Date(w.globals.seriesX[seriesIndex][dataPointIndex]).getFullYear()}</a>` +
+            `      <a style="font-weight: 500">${this.datePipe.transform(w.globals.seriesX[seriesIndex][dataPointIndex], 'dd/MM/yyyy')}</a>` +
             `    </div>`;
 
           tooltip +=
