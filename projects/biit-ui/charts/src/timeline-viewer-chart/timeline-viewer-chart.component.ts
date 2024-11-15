@@ -34,7 +34,7 @@ type ChartOptions = {
 })
 export class TimelineViewerChartComponent implements OnInit, OnChanges {
 
-  @Input() data: any[] = [];
+  @Input() data: Object[] = [];
   @Input() options: TimelineViewerChartOptions;
   @Output() onItemClick: EventEmitter<TimelineViewerChartData> = new EventEmitter<TimelineViewerChartData>();
 
@@ -60,7 +60,7 @@ export class TimelineViewerChartComponent implements OnInit, OnChanges {
 
   private createChartOptions() {
     const series = TimelineViewerChartData.generate(this.data, this.options);
-    const timeValues = this.data.sort((a, b) => a.x - b.x);
+    const timeValues = series.sort((a, b) => a.x - b.x);
     const max = timeValues[timeValues.length-1].x;
     const min = subMonths(timeValues[timeValues.length-1].x, 1).getTime();
 
@@ -188,7 +188,7 @@ export class TimelineViewerChartComponent implements OnInit, OnChanges {
         strokeColors: ["#000000"],
         strokeOpacity: 1,
         colors: ["#FFFFFF"],
-        discrete: this.data.map((value, dataPointIndex) =>
+        discrete: series.map((value, dataPointIndex) =>
           ({
             seriesIndex: 0,
             dataPointIndex: dataPointIndex,
