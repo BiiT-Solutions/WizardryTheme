@@ -9,6 +9,7 @@ import {BiitIconModule} from "biit-ui/icon";
 import {DateFilterSelectorModule} from "../date-filter-selector/date-filter-selector.module";
 import {TextFilterModule} from "../text-filter/text-filter.module";
 import {BooleanFilterModule} from "../boolean-filter/boolean-filter.module";
+import {BiitIconButtonModule} from "biit-ui/button";
 
 
 
@@ -29,6 +30,7 @@ import {BooleanFilterModule} from "../boolean-filter/boolean-filter.module";
     DateFilterSelectorModule,
     TextFilterModule,
     BooleanFilterModule,
+    BiitIconButtonModule,
   ]
 })
 export class MetaFilterModule { }

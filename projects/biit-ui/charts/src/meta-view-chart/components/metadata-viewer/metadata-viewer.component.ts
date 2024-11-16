@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MetaViewElementData} from "../../model/meta-view-element-data";
 
 @Component({
@@ -10,4 +10,9 @@ export class MetadataViewerComponent {
   @Input() data: MetaViewElementData;
   @Input() fields: string[];
   @Input() titleField: string;
+  @Output() onClose: EventEmitter<void> = new EventEmitter<void>();
+
+  protected close(): void {
+    this.onClose.emit();
+  }
 }

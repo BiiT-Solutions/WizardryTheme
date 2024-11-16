@@ -8,6 +8,7 @@ biit-meta-board {
   flex-direction: row;
   gap: 1em;
   height: 100%;
+  transition: transform 0.3s ease-in-out;
   & > :not(:nth-child(2)) {
     flex: 0 1 auto;
   }
@@ -16,14 +17,13 @@ biit-meta-board {
   }
 }
 .meta-view-column {
-  min-width: 15ch;
-  width: 15ch;
+  min-width: 14em;
+  max-width: 23em;
+  width: 18em;
   flex: 0 1 auto;
   resize: horizontal;
   overflow: auto;
-  border: 2px solid #EDEDED;
-  border-radius: 0.3em;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border: 3px solid #262626;
 }
 
 .rtl {
@@ -37,6 +37,7 @@ biit-meta-board {
   position: relative;
   width: 10px;
   height: 9px;
+  transform: translateX(-4px);
 }
 
 .heart::before, .heart::after {

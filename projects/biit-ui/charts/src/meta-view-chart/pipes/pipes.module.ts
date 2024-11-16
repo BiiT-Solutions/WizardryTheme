@@ -10,6 +10,7 @@ import { StepValueExtractorPipe } from './step-value-extractor.pipe';
 import { HasPipe } from './has.pipe';
 import { MonthNamePipe } from './month-name.pipe';
 import { AutoFormatPipe } from './auto-format.pipe';
+import { RemoveFromArrayPipe } from './remove-from-array.pipe';
 
 
 
@@ -24,20 +25,22 @@ import { AutoFormatPipe } from './auto-format.pipe';
     StepValueExtractorPipe,
     HasPipe,
     MonthNamePipe,
-    AutoFormatPipe
+    AutoFormatPipe,
+    RemoveFromArrayPipe
   ],
-    exports: [
-        SafeHtmlPipe,
-        FilterByPipe,
-        FieldTypePipe,
-        MetaElementToBarChartPipe,
-        MetaElementMinValuePipe,
-        MetaElementMaxValuePipe,
-        StepValueExtractorPipe,
-        HasPipe,
-        MonthNamePipe,
-        AutoFormatPipe
-    ],
+  exports: [
+    SafeHtmlPipe,
+    FilterByPipe,
+    FieldTypePipe,
+    MetaElementToBarChartPipe,
+    MetaElementMinValuePipe,
+    MetaElementMaxValuePipe,
+    StepValueExtractorPipe,
+    HasPipe,
+    MonthNamePipe,
+    AutoFormatPipe,
+    RemoveFromArrayPipe
+  ],
   imports: [
     CommonModule
   ]

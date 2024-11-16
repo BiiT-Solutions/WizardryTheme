@@ -51,6 +51,11 @@ export class MetaFilterComponent {
     this.detectFilter();
   }
 
+  protected clearFilters(): void {
+    this.filter.clear();
+    this.detectFilter();
+  }
+
   private detectFilter(): void {
     this.filter = new Map(this.filter);
     this.filterChange.emit(this.filter);

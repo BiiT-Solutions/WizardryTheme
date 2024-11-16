@@ -7,6 +7,6 @@
     (elementClick)="onElementClick($event)"
   />
   <div class="meta-view-column rtl" *ngIf="selectedElement">
-    <biit-metadata-viewer class="ltr" [data]="selectedElement" [fields]="data.fields" titleField="name"/>
+    <biit-metadata-viewer class="ltr" [data]="selectedElement" [fields]="data.fields" titleField="name" (onClose)="selectedElement = undefined"/>
   </div>
 </div>
