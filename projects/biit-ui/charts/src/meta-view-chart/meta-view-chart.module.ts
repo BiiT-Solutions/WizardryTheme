@@ -5,6 +5,8 @@ import {MetaElementModule} from "./components/meta-element/meta-element.module";
 import {MetaBoardModule} from "./components/meta-board/meta-board.module";
 import {MetaFilterModule} from "./components/meta-sorter/meta-filter.module";
 import {MetadataViewerModule} from "./components/metadata-viewer/metadata-viewer.module";
+import {TimelineViewerChartModule} from "../timeline-viewer-chart/timeline-viewer-chart.module";
+import {PipesModule} from "./pipes/pipes.module";
 
 
 
@@ -18,7 +20,9 @@ import {MetadataViewerModule} from "./components/metadata-viewer/metadata-viewer
     MetaElementModule,
     MetaBoardModule,
     MetaFilterModule,
-    MetadataViewerModule
+    MetadataViewerModule,
+    TimelineViewerChartModule,
+    PipesModule
   ],
   exports: [
     MetaViewChartComponent

@@ -32,35 +32,6 @@ biit-meta-board {
 .ltr {
   direction: ltr;
 }
-
-.heart {
-  position: relative;
-  width: 10px;
-  height: 9px;
-  transform: translateX(-4px);
-}
-
-.heart::before, .heart::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 5px;
-  height: 8px;
-  border-radius: 5px 5px 0 0;
-  background: red;
-}
-
-.heart::before {
-  left: 5px;
-  transform: rotate(-45deg);
-  transform-origin: 0 100%;
-}
-
-.heart::after {
-  left: 0;
-  transform: rotate(45deg);
-  transform-origin: 100% 100%;
-}
 .padding-1 {
   padding: 0.1em;
 }

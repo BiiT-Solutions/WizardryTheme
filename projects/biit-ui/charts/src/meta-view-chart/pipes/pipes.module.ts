@@ -11,6 +11,7 @@ import { HasPipe } from './has.pipe';
 import { MonthNamePipe } from './month-name.pipe';
 import { AutoFormatPipe } from './auto-format.pipe';
 import { RemoveFromArrayPipe } from './remove-from-array.pipe';
+import { ExtractDataPipe } from './extract-data.pipe';
 
 
 
@@ -26,7 +27,8 @@ import { RemoveFromArrayPipe } from './remove-from-array.pipe';
     HasPipe,
     MonthNamePipe,
     AutoFormatPipe,
-    RemoveFromArrayPipe
+    RemoveFromArrayPipe,
+    ExtractDataPipe
   ],
   exports: [
     SafeHtmlPipe,
@@ -39,7 +41,8 @@ import { RemoveFromArrayPipe } from './remove-from-array.pipe';
     HasPipe,
     MonthNamePipe,
     AutoFormatPipe,
-    RemoveFromArrayPipe
+    RemoveFromArrayPipe,
+    ExtractDataPipe
   ],
   imports: [
     CommonModule

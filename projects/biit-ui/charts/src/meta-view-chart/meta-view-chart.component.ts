@@ -1,6 +1,10 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {MetaViewElementData} from "./model/meta-view-element-data";
 import {MetaViewData} from "./model/meta-view-data";
+import {View} from "./model/view";
+import {TimelineViewerChartOptions} from "../timeline-viewer-chart/models/timeline-viewer-chart-options";
+import {TimelineViewerChartData} from "../timeline-viewer-chart/models/timeline-viewer-chart-data";
+import {v4 as uuid} from 'uuid';
 
 @Component({
   selector: 'biit-meta-view-chart',
@@ -8,73 +12,43 @@ import {MetaViewData} from "./model/meta-view-data";
   styleUrls: ['./meta-view-chart.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class MetaViewChartComponent implements OnInit {
-  @Input() data: MetaViewData;
+export class MetaViewChartComponent {
+  @Input('data') set _data(data: MetaViewData) {
+    this.data = data;
+    this.data.data.forEach(element => {
+      {
+        element.data['_id'] = uuid();
+        element.data['_color'] = element.statusColor;
+      }
+    });
+    this.elements = this.data.data;
+    this.timelineOptions = {
+      date: 'date',
+      color: 'color',
+      tooltipHeader: data.titleField,
+      tooltipInfo: []
+    };
+  }
+  @Input() view: View = View.GRID;
+
+  protected readonly View = View;
+
+  protected data: MetaViewData;
   protected fields: string[] = ['name', 'date', 'v1', 'v2', 'v3', 'b1'];
   protected elements: MetaViewElementData[] = [];
   protected selectedElement: MetaViewElementData;
 
+  protected timelineOptions: TimelineViewerChartOptions;
   private delayedFilter: NodeJS.Timeout;
   private static FILTER_DELAY: number = 500;
 
-  ngOnInit(): void {
-    const gaussianList = this.generateGaussianList(100, 70, 0.05);
-    for (let i = 0; i < 100; i++) {
-      const data = {
-        name: this.randomString(10),
-        date: this.randomDate(),
-        v1: this.randomInt(50, 84),
-        v2: gaussianList[i],
-        v3: this.randomPercentage(),
-        b1: this.randomBoolean()
-      };
-      const elementData: MetaViewElementData = new MetaViewElementData(data, `border-radius: 100%; background-color: ${this.getRandomColor()} `);
-      if (this.randomBoolean()) {
-        elementData.custom = document.createElement('div');
-        elementData.custom.innerHTML = `<div class="padding-1"><div class="heart"></div></div>`;
-      }
-      this.elements.push(elementData);
-      this.data = new MetaViewData(this.elements, this.fields);
-    }
-  }
-
-  private generateGaussianRandom(mean: number = 0, stdDev: number = 1): number {
-    let u = 0, v = 0;
-    while (u === 0) u = Math.random(); // Convert [0,1) to (0,1)
-    while (v === 0) v = Math.random();
-    return mean + Math.floor((stdDev * Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v))*100);
-  }
-
-  private generateGaussianList(size: number, mean: number = 0, stdDev: number = 1): number[] {
-    const list: number[] = [];
-    for (let i = 0; i < size; i++) {
-      list.push(this.generateGaussianRandom(mean, stdDev));
-    }
-    return list;
-  }
-
-  private randomPercentage(precision: number = 2): number {
-    return +Math.random().toFixed(precision);
-  }
-  private randomInt(min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-  private randomDate(): Date {
-    return new Date(+(new Date()) - Math.floor(Math.random() * 1000000000) *100 );
-  }
-  private randomString(length: number, chars: string = 'abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ'): string {
-    let result = '';
-    for (let i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
-    return result;
-  }
-  private randomBoolean(): boolean {
-    return Math.random() >= 0.5;
-  }
-  private getRandomColor(): string {
-    return '#' + Math.floor(Math.random()*16777215).toString(16);
-  }
   protected onElementClick(element: MetaViewElementData) {
     this.selectedElement = element;
+  }
+  protected onTimeLineElementClick(element: TimelineViewerChartData) {
+    const selected = this.data.data.find(e => e.data['_id'] === element.meta['_id']);
+    console.log('Selected element:', selected);
+    this.selectedElement = {...selected};
   }
 
   protected onFilter(filters: Map<string, any>): void {

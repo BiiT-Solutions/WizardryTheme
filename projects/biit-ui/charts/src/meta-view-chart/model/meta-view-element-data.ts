@@ -1,11 +1,12 @@
 export class MetaViewElementData {
-  data: any;
+  data: Object;
+  statusColor: string;
   styles: string;
   classes: string;
   icon: SVGElement;
   custom: HTMLDivElement;
 
-  constructor(data: any, styles: string) {
+  constructor(data: Object, styles: string) {
     this.data = data;
     this.styles = styles;
   }

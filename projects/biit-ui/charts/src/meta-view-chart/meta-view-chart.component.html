@@ -2,11 +2,21 @@
   <div class="meta-view-column">
     <biit-meta-filter [metadata]="data" (filterChange)="onFilter($event)"/>
   </div>
-  <biit-meta-board
+  <biit-meta-board *ngIf="view === View.GRID"
     [data]="elements"
     (elementClick)="onElementClick($event)"
   />
+  <biit-timeline-viewer-chart *ngIf="view === View.TIMELINE && timelineOptions"
+    [data]="elements | extractData"
+    [options]="timelineOptions"
+    (onItemClick)="onTimeLineElementClick($event)"
+  />
   <div class="meta-view-column rtl" *ngIf="selectedElement">
-    <biit-metadata-viewer class="ltr" [data]="selectedElement" [fields]="data.fields" titleField="name" (onClose)="selectedElement = undefined"/>
+    <biit-metadata-viewer class="ltr"
+      [data]="selectedElement"
+      [fields]="data.fields"
+      [titleField]="data.titleField"
+      (onClose)="selectedElement = undefined"/>
   </div>
 </div>
+selected : {{selectedElement || 'undefined' | json}}

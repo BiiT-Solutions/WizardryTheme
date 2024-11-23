@@ -1,9 +1,13 @@
-export class MetaViewData {
-  data: any[] = [];
-  fields: string[] = [];
+import {MetaViewElementData} from "./meta-view-element-data";
 
-  constructor(data: any[] = [], fields: string[] = []) {
+export class MetaViewData {
+  data: MetaViewElementData[] = [];
+  fields: string[] = [];
+  titleField: string;
+
+  constructor(data: MetaViewElementData[] = [], fields: string[] = [], titleField: string = undefined) {
     this.data = data;
     this.fields = fields;
+    this.titleField = titleField;
   }
 }
