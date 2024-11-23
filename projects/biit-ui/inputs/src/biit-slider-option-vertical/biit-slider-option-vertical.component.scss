@@ -102,6 +102,7 @@ $bar-color: #D7D7D7;
       font-weight: 500;
       flex: 1;
       cursor: pointer;
+      gap: 0.5em;
 
       &.show-desc {
         flex-direction: column;
