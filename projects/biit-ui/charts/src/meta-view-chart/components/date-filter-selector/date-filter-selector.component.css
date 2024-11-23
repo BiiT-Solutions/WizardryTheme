@@ -36,17 +36,12 @@ biit-checkbox {
   flex-direction: column;
   gap: 0.25em;
   font-size: 0.75em;
-  transform: translateX(-1em);
 }
 .date-filter-row {
   margin: 0.5em 0;
   align-content: center;
 }
-::ng-deep .date-filter-row > *  > * > input[type="checkbox"] {
-  width: 1em !important;
-  height: 1em !important;
-  margin-top: 0.05em !important;
-}
+
 .title-counter {
   display: flex;
   &>div:first-child {
