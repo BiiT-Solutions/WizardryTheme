@@ -24,7 +24,7 @@ export class MetaViewChartComponent {
     this.elements = this.data.data;
     this.timelineOptions = {
       date: 'date',
-      color: 'color',
+      color: '_color',
       tooltipHeader: data.titleField,
       tooltipInfo: []
     };
@@ -44,11 +44,12 @@ export class MetaViewChartComponent {
 
   protected onElementClick(element: MetaViewElementData) {
     this.selectedElement = element;
+    console.log('Selected element 2:', this.selectedElement);
   }
   protected onTimeLineElementClick(element: TimelineViewerChartData) {
     const selected = this.data.data.find(e => e.data['_id'] === element.meta['_id']);
-    console.log('Selected element:', selected);
     this.selectedElement = {...selected};
+    console.log('Selected element:', this.selectedElement);
   }
 
   protected onFilter(filters: Map<string, any>): void {
