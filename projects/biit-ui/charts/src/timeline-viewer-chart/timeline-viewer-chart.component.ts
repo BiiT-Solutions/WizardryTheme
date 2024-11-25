@@ -91,7 +91,7 @@ export class TimelineViewerChartComponent implements OnInit, OnChanges {
       series: [
         {
           name: 'series',
-          data: series
+          data: series ?? []
         }
       ],
       chart: {
@@ -158,7 +158,7 @@ export class TimelineViewerChartComponent implements OnInit, OnChanges {
       series: [
         {
           name: 'series',
-          data: series
+          data: series ?? []
         }
       ],
       chart: {
@@ -185,7 +185,7 @@ export class TimelineViewerChartComponent implements OnInit, OnChanges {
         width: 5,
         shape: "square",
         strokeWidth: 5,
-        strokeColors: ["#000000"],
+        strokeColors: "#000000",
         strokeOpacity: 1,
         colors: ["#FFFFFF"],
         discrete: series.map((value, dataPointIndex) =>
@@ -193,7 +193,7 @@ export class TimelineViewerChartComponent implements OnInit, OnChanges {
             seriesIndex: 0,
             dataPointIndex: dataPointIndex,
             fillColor: '#fff',
-            strokeColor: value.color ? value.color : '#262626',
+            strokeColor: value.color ?? '#262626',
             size: 7
           })
         )

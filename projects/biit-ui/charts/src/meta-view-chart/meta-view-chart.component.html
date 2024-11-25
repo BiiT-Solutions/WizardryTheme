@@ -10,13 +10,14 @@
     [data]="elements | extractData"
     [options]="timelineOptions"
     (onItemClick)="onTimeLineElementClick($event)"
+    style="overflow: hidden"
   />
   <div class="meta-view-column rtl" *ngIf="selectedElement">
     <biit-metadata-viewer class="ltr"
       [data]="selectedElement"
       [fields]="data.fields"
       [titleField]="data.titleField"
-      (onClose)="selectedElement = undefined"/>
+      (onClose)="selectedElement = undefined; cdRef.detectChanges()"/>
   </div>
 </div>
 selected : {{selectedElement || 'undefined' | json}}
