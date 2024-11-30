@@ -101,7 +101,7 @@ Default.args = {
       "statusColor": "#2d9d62"
     }, {
       "data": {"name": "XjcJbdsMrx", "date": new Date("2024-02-28T00:22:23.772Z"), "v1": 61, "v2": 67, "v3": 0.76, "b1": true},
-      "styles": "border-radius: 100%; background-color: #36451",
+      "styles": "border-radius: 100%; background-color: #364510",
       "statusColor": "#364510"
     }, {
       "data": {"name": "TRMbfpJxcU", "date": new Date("2021-12-14T11:25:51.372Z"), "v1": 55, "v2": 68, "v3": 0.39, "b1": true},

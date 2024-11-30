@@ -4,6 +4,7 @@
   </div>
   <biit-meta-board *ngIf="view === View.GRID"
     [data]="elements"
+    [selected]="selectedElement"
     (elementClick)="onElementClick($event)"
   />
   <biit-timeline-viewer-chart *ngIf="view === View.TIMELINE && timelineOptions"

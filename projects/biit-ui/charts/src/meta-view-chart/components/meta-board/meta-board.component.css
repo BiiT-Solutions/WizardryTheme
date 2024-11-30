@@ -7,4 +7,15 @@
   height: 100%;
   width: 100%;
   padding-right: 0.2em;
+  & > biit-meta-element {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    justify-self: center;
+  }
+}
+
+.selected {
+  box-sizing: border-box;
+  border: 2px solid #262626;
 }

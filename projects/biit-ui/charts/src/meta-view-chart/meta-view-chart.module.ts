@@ -9,9 +9,6 @@ import {TimelineViewerChartModule} from "../timeline-viewer-chart/timeline-viewe
 import {PipesModule} from "./pipes/pipes.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
-
-
-
 @NgModule({
   declarations: [
     MetaViewChartComponent,

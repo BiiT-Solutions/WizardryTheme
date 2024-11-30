@@ -15,12 +15,12 @@ import {animate, style, transition, trigger} from "@angular/animations";
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [
-        style({ width: 0, 'min-width': 'auto', opacity: 0 }),
-        animate('300ms ease-in', style({ width: '*', 'min-width': '*', opacity: 1 }))
+        style({ opacity: 0 }),
+        animate('300ms ease-in', style({ opacity: 1 }))
       ]),
       transition(':leave', [
-        style({ width: '*', 'min-width': '*', opacity: 1 }),
-        animate('300ms ease-out', style({ width: 0, 'min-width': 'auto', opacity: 0 }))
+        style({ opacity: 1 }),
+        animate('300ms ease-out', style({ opacity: 0 }))
       ])
     ])
   ]
