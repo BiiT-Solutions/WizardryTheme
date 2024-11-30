@@ -5,12 +5,25 @@ import {View} from "./model/view";
 import {TimelineViewerChartOptions} from "../timeline-viewer-chart/models/timeline-viewer-chart-options";
 import {TimelineViewerChartData} from "../timeline-viewer-chart/models/timeline-viewer-chart-data";
 import {v4 as uuid} from 'uuid';
+import {animate, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'biit-meta-view-chart',
   templateUrl: './meta-view-chart.component.html',
   styleUrls: ['./meta-view-chart.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ width: 0, 'min-width': 'auto', opacity: 0 }),
+        animate('300ms ease-in', style({ width: '*', 'min-width': '*', opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ width: '*', 'min-width': '*', opacity: 1 }),
+        animate('300ms ease-out', style({ width: 0, 'min-width': 'auto', opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class MetaViewChartComponent {
   @Input('data') set _data(data: MetaViewData) {
