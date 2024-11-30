@@ -7,7 +7,10 @@ import {MetaViewElementData} from "../../model/meta-view-element-data";
   styleUrls: ['./metadata-viewer.component.css']
 })
 export class MetadataViewerComponent {
-  @Input() data: MetaViewElementData;
+  @Input() set data(data: MetaViewElementData) {
+    this._data = data;
+  }
+  _data: MetaViewElementData;
   @Input() fields: string[];
   @Input() titleField: string;
   @Output() onClose: EventEmitter<void> = new EventEmitter<void>();

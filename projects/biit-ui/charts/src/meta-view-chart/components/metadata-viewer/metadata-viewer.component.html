@@ -2,15 +2,15 @@
   <div class="metadata-header" [class.justify-center]="!titleField">
     <div class="data-icon">
       <biit-meta-element
-        [styles]="data.styles"
-        [classes]="data.classes"
-        [icon]="data.icon"
+        [styles]="_data.styles"
+        [classes]="_data.classes"
+        [icon]="_data.icon"
       >
-        <div *ngIf="data.custom" [innerHTML]="data.custom.innerHTML"></div>
+        <div *ngIf="_data.custom" [innerHTML]="_data.custom.innerHTML"></div>
       </biit-meta-element>
     </div>
-    <div *ngIf="titleField" class="data-title" [tooltip]="data.data[titleField]">
-      {{data.data[titleField]}}
+    <div *ngIf="titleField" class="data-title" [tooltip]="_data.data[titleField]">
+      {{_data.data[titleField]}}
     </div>
     <div>
       <button biit-icon
@@ -25,7 +25,7 @@
         <div class="field-value">
           <biit-input-text
             [placeholder]="field"
-            [ngModel]="data.data[field] | autoFormat"
+            [ngModel]="_data.data[field] | autoFormat"
             [disabled]="true"
           />
         </div>

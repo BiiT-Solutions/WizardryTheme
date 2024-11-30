@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, ViewEncapsulation} from '@angular/core';
 import {MetaViewElementData} from "./model/meta-view-element-data";
 import {MetaViewData} from "./model/meta-view-data";
 import {View} from "./model/view";
@@ -21,13 +21,14 @@ export class MetaViewChartComponent {
         element.data['_color'] = element.statusColor;
       }
     });
-    this.elements = this.data.data;
+    this.cdRef.detectChanges();
     this.timelineOptions = {
       date: 'date',
       color: '_color',
       tooltipHeader: data.titleField,
       tooltipInfo: []
     };
+    this.elements = this.data.data;
   }
   @Input() view: View = View.GRID;
 
@@ -42,14 +43,15 @@ export class MetaViewChartComponent {
   private delayedFilter: NodeJS.Timeout;
   private static FILTER_DELAY: number = 500;
 
+  constructor(protected cdRef: ChangeDetectorRef) {
+  }
+
   protected onElementClick(element: MetaViewElementData) {
     this.selectedElement = element;
-    console.log('Selected element 2:', this.selectedElement);
   }
   protected onTimeLineElementClick(element: TimelineViewerChartData) {
-    const selected = this.data.data.find(e => e.data['_id'] === element.meta['_id']);
-    this.selectedElement = {...selected};
-    console.log('Selected element:', this.selectedElement);
+    this.selectedElement = this.data.data.find(e => e.data['_id'] === element.meta['_id']);
+    this.cdRef.detectChanges();
   }
 
   protected onFilter(filters: Map<string, any>): void {
