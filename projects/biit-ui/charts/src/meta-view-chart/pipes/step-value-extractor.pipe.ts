@@ -16,7 +16,7 @@ export class StepValueExtractorPipe implements PipeTransform {
     if (maxDecimals === 0) {
       return 1;
     }
-    return  +('0.' + (maxDecimals === 1 ? '1' : '0'.repeat(maxDecimals - 1)) + '1');
+    return  +('0.' + (maxDecimals === 1 ? '1' : ('0'.repeat(maxDecimals - 1)) + '1'));
   }
 
   private getDecimalCount(value: number): number {
