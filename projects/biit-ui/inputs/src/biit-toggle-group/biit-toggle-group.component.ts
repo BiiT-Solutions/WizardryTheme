@@ -19,6 +19,7 @@ export class BiitToggleGroupComponent implements OnInit, ControlValueAccessor {
   @ContentChildren(BiitToggleButtonComponent) buttons: QueryList<BiitToggleButtonComponent>
   @Input() disabled;
   @Input() multiple;
+  @Input() defaultValue;
 
   value: any | any[];
 
@@ -28,6 +29,7 @@ export class BiitToggleGroupComponent implements OnInit, ControlValueAccessor {
   ngOnInit() {
     this.disabled = coerceBooleanProperty(this.disabled);
     this.multiple = coerceBooleanProperty(this.multiple);
+    this.onToggle(this.defaultValue ?? this.value);
   }
 
   onToggle(value: any) {
