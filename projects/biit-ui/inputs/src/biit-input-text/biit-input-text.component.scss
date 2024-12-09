@@ -18,12 +18,8 @@ $error-color: #A1093F;
     }
   }
 
-  &.readonly {
-    pointer-events: none;
-
-    .input-object {
-      color: $secondary-color;
-    }
+  &.readonly .input-object {
+    color: $secondary-color;
   }
 }
 

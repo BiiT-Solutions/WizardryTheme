@@ -119,7 +119,7 @@
                                   [size]="pageSizeCurrent"
                                   [count]="rowCount"
                                   [hidden]="!((rowCount / pageSize) > 1)"
-                                  (change)="log($event); table.onFooterPage($event)">
+                                  (change)="table.onFooterPage($event)">
             </biit-datatable-pager>
           </div>
           <div class="page-items" *ngIf="pageSizeList">
