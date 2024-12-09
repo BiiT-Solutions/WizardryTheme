@@ -25,7 +25,7 @@ export default {
   ],
   args: {
     multiple: false,
-    value: null,
+    value: ['patata'],
     label: 'Toggle',
     disabled: false
   },
@@ -65,7 +65,8 @@ const Template: Story<BiitToggleGroupComponent> = (args: BiitToggleGroupComponen
   template:`
     <biit-toggle-group [(ngModel)]="value"
                        [multiple]="multiple"
-                       [disabled]="disabled">
+                       [disabled]="disabled"
+                       >
         <biit-toggle-button
           [text]="'Patata'"
           [value]="'patata'"

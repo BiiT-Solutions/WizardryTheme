@@ -1,4 +1,11 @@
-import {Component, Input, forwardRef, ContentChildren, QueryList, OnInit} from '@angular/core';
+import {
+  Component,
+  Input,
+  forwardRef,
+  ContentChildren,
+  QueryList,
+  OnInit
+} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {BiitToggleButtonComponent} from "./biit-toggle-button.component";
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
@@ -19,8 +26,6 @@ export class BiitToggleGroupComponent implements OnInit, ControlValueAccessor {
   @ContentChildren(BiitToggleButtonComponent) buttons: QueryList<BiitToggleButtonComponent>
   @Input() disabled;
   @Input() multiple;
-  @Input() defaultValue;
-
   value: any | any[];
 
   onChange = (value: any) => {};
@@ -29,7 +34,6 @@ export class BiitToggleGroupComponent implements OnInit, ControlValueAccessor {
   ngOnInit() {
     this.disabled = coerceBooleanProperty(this.disabled);
     this.multiple = coerceBooleanProperty(this.multiple);
-    this.onToggle(this.defaultValue ?? this.value);
   }
 
   onToggle(value: any) {
@@ -52,7 +56,6 @@ export class BiitToggleGroupComponent implements OnInit, ControlValueAccessor {
 
   registerOnChange(fn: any): void {
     this.onChange = fn;
-    this.onChange(this.value);
   }
 
   registerOnTouched(fn: any): void {
