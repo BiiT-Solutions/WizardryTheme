@@ -1,9 +1,29 @@
-<biit-datatable [data]="rows"
+<biit-datatable *ngIf="!serverSide"
+                [data]="rows"
                 [columns]="columns"
                 [pageSize]="10"
                 [pageSizeList]="[5, 10, 20]"
                 selectable
                 scrollbarH
+>
+  <button biit-icon
+          icon="plus"
+  ></button>
+  <button biit-icon
+          icon="minus"
+  ></button>
+</biit-datatable>
+
+<biit-datatable *ngIf="serverSide"
+                [data]="_rows"
+                [columns]="columns"
+                [pageSize]="page.pageSize"
+                [pageSizeList]="[5, 10, 20]"
+                selectable
+                scrollbarH
+                serverSide
+                [page]="page"
+                (onPageChange)="onPageChange($event)"
 >
   <button biit-icon
           icon="plus"

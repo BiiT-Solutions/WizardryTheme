@@ -28,6 +28,16 @@ label {
     div {
       display: flex;
     }
+
+    &:has(div a:empty) {
+      display: none;
+    }
+  }
+
+  &:has(div div a:empty) {
+    input {
+      margin-top: 0;
+    }
   }
 
   input[type="checkbox"] {
@@ -63,6 +73,10 @@ label {
     &:checked:disabled {
       border: $_3px solid $disabled-color;
       background: $disabled-color;
+    }
+
+    div:has(a:empty) {
+      display: none;
     }
   }
 
