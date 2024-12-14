@@ -7,7 +7,6 @@ import {MetaFilterModule} from "./components/meta-sorter/meta-filter.module";
 import {MetadataViewerModule} from "./components/metadata-viewer/metadata-viewer.module";
 import {TimelineViewerChartModule} from "../timeline-viewer-chart/timeline-viewer-chart.module";
 import {PipesModule} from "./pipes/pipes.module";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
