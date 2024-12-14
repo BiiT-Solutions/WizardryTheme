@@ -42,3 +42,18 @@ const Template: Story<BiitDatatableComponent<any>> = (args: BiitDatatableCompone
 };
 
 export const Default = Template.bind({});
+
+const ServerSideTemplate: Story<BiitDatatableComponent<any>> = (args: BiitDatatableComponent<any>, { globals }) => {
+  TranslocoStorybookModule.setLanguage(globals);
+  return {
+    globals,
+    props: args,
+    template: `
+    <biit-datatable-demo
+      [serverSide]="true"
+      style="display: block; height: 500px"
+    ></biit-datatable-demo>`
+  }
+};
+
+export const ServerSide = ServerSideTemplate.bind({});

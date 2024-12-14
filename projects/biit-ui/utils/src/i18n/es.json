@@ -27,6 +27,7 @@
   "not_found": "Parece que ha habido un problema. Por favor, reporta el siguiente código de error: ERR_NFE0",
   "invalid_credentials": "Las credenciales son inválidas. Por favor, compruébalas e inténtalo de nuevo.",
 
+  "email_does_not_exists": "El correo electrónico no existe.",
   "email_already_exists": "El correo electrónico ya está en uso.",
   "user_already_exists": "El usuario ya existe.",
   "invalid_password": "La contraseña es inválida.",

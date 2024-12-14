@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {BiitIconService} from "biit-ui/icon";
 import {ColumnMode, SelectionType} from '@siemens/ngx-datatable';
 import {DatatableColumn} from "../biit-datatable/models/datatable-column";
+import {Page} from "../biit-datatable/models/page";
 
 @Component({
   selector: 'biit-datatable-demo',
@@ -9,6 +10,8 @@ import {DatatableColumn} from "../biit-datatable/models/datatable-column";
   styleUrls: ['./biit-datatable-demo.component.scss']
 })
 export class BiitDatatableDemoComponent {
+  @Input() serverSide = false;
+
   rows = [
     {name: "Dwight Schrute",gender: "male",title: "Assistant to the Regional Manager"},
     {name: "James Halpert",gender: "male",title: "Regional Co-Manager"},
@@ -23,6 +26,14 @@ export class BiitDatatableDemoComponent {
     {name: "Creed Bratton",gender: "male",title: "Head of Quality Assurance"},
     {name: "Stanley Hudson",gender: "male",title: "Sales Representative"},
   ];
+  _rows = [
+    {name: "Dwight Schrute",gender: "male",title: "Assistant to the Regional Manager"},
+    {name: "James Halpert",gender: "male",title: "Regional Co-Manager"},
+    {name: "Andy Bernard",gender: "male",title: "Sales Representative"},
+    {name: "Michael Scott",gender: "male",title: "Regional Manager"},
+    {name: "Pam Beesly",gender: "female",title: "Office Administrator"},
+  ]
+
   loadingIndicator = true;
 
   columns = [
@@ -31,11 +42,18 @@ export class BiitDatatableDemoComponent {
     new DatatableColumn('Puesto', 'title')
   ];
   selected: any[] = [];
+  page = new Page(0, 5, 12);
 
+  SelectionType = SelectionType;
   ColumnMode = ColumnMode;
+  pageSize = 5
 
   constructor(private biitIconService: BiitIconService) {
   }
 
-  protected readonly SelectionType = SelectionType;
+  onPageChange(newPage: Page) {
+    this.page = newPage;
+    const pointer = this.page.pageNumber * this.page.pageSize;
+    this._rows = this.rows.slice(pointer, pointer + this.page.pageSize);
+  }
 }
