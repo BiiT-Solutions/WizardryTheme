@@ -14,7 +14,11 @@ import {BiitSnackbarService} from 'biit-ui/info';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    /*
+    * BrowserAnimationsModule imports BrowserModule
+    * This is necessary for animations to work but libraries should not import it because it will cause the application to load the module twice.
+    * */
+    BrowserAnimationsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
