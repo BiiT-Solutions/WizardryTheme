@@ -3,6 +3,8 @@ import {
   TimelineViewerChartModule,
   TimelineViewerChartComponent
 } from "biit-ui/charts";
+import {BrowserModule} from "@angular/platform-browser";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 export default {
   title: 'Charts/Timeline Viewer',
