@@ -3,6 +3,7 @@ import {Type} from 'biit-ui/inputs';
 import {BiitLogin} from "biit-ui/models";
 import {LoginErrors} from "./models/LoginErrors";
 import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
+import {SignUpRequest} from "./models/sign-up-request";
 
 @Component({
   selector: 'biit-login',
@@ -18,18 +19,19 @@ export class BiitLoginComponent implements OnInit {
   @Input() login: BiitLogin;
   @Input() allowSignUp = false;
   @Input() signUpGeneratedPassword = false;
+  @Input() teams: {key: any, label: string}[];
 
   @Output() onLogin: EventEmitter<BiitLogin>;
   @Output() onNotRemember: EventEmitter<void>;
   @Output() onResetPassword: EventEmitter<string>;
-  @Output() onSignUp: EventEmitter<{name: string, lastname: string, email: string, password: string}>;
+  @Output() onSignUp: EventEmitter<SignUpRequest>;
 
   protected readonly keyId: string;
   protected readonly Type = Type;
   protected readonly LoginError = LoginErrors;
 
   protected signUpView = false;
-  protected signUpData = {name: "", lastname: "", email: "", password: ""};
+  protected signUpData: SignUpRequest = new SignUpRequest();
   protected resetView = false;
   protected resetEmail = "";
 
@@ -45,7 +47,7 @@ export class BiitLoginComponent implements OnInit {
     this.onLogin = new EventEmitter<BiitLogin>();
     this.onNotRemember = new EventEmitter<void>();
     this.onResetPassword = new EventEmitter<string>();
-    this.onSignUp = new EventEmitter<{name: string, lastname: string, email: string, password: string}>();
+    this.onSignUp = new EventEmitter<SignUpRequest>();
     this.loginErrors = new Map<LoginErrors, string>();
     const generatedId: number = Math.floor(Math.random() * (20 - 1 + 1) + 1);
     this.keyId = `${generatedId < 10 ? '0' : ''}${generatedId}`
@@ -100,7 +102,7 @@ export class BiitLoginComponent implements OnInit {
     this.resetEmail = "";
 
     this.signUpView = false;
-    this.signUpData = {name: "", lastname: "", email: "", password: ""};
+    this.signUpData = new SignUpRequest();
   }
 
   protected performSignUp(): void {

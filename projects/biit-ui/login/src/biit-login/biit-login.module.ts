@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BiitLoginComponent } from './biit-login.component';
 import {BiitPopupModule} from "biit-ui/popup";
 import {BiitIconModule} from "biit-ui/icon";
-import {BiitInputTextModule, BiitToggleModule} from "biit-ui/inputs";
+import {BiitDropdownModule, BiitInputTextModule, BiitToggleModule} from "biit-ui/inputs";
 import {FormsModule} from "@angular/forms";
 import {BiitButtonModule} from "biit-ui/button";
 import {TranslocoRootModule} from "biit-ui/i18n";
@@ -21,7 +21,8 @@ import {TranslocoRootModule} from "biit-ui/i18n";
     FormsModule,
     BiitToggleModule,
     BiitButtonModule,
-    TranslocoRootModule
+    TranslocoRootModule,
+    BiitDropdownModule
   ], exports: [
     BiitLoginComponent
   ]
