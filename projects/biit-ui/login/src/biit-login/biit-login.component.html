@@ -106,6 +106,7 @@
                    [data]="teams"
                    value="key"
                    label="label"
+                   [primitive]="true"
                    (keyup.enter)="performLogin()"
                    title="{{t('login.team')}}" class="login-input"/>
     <biit-input-text [(ngModel)]="signUpData.password" fieldName="password"
