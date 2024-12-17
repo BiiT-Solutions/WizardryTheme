@@ -69,6 +69,10 @@ export class BiitLoginComponent implements OnInit {
     }
   }
 
+  protected onTeamSelected(team: {key: any, label: string}): void {
+    this.signUpData.team = team.key
+  }
+
   private validateLogin(): boolean {
     this.loginErrors.clear();
     if (!this.login.username || !this.login.username.length) {

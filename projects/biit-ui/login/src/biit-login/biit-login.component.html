@@ -103,7 +103,7 @@
                      (keyup.enter)="performLogin()"
                      placeholder="{{t('login.email')}}" class="login-input"></biit-input-text>
     <biit-dropdown [ngModel]="signUpData.team" *ngIf="teams && teams.length"
-                    (ngModelChange)="signUpData.team = $event"
+                    (ngModelChange)="onTeamSelected($event)"
                    [data]="teams"
                    value="key"
                    label="label"
