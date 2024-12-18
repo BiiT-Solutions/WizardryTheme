@@ -34,6 +34,7 @@ export class BiitLoginComponent implements OnInit {
   protected signUpData: SignUpRequest = new SignUpRequest();
   protected resetView = false;
   protected resetEmail = "";
+  protected dumbTeam: {key: any, label: string};
 
   protected loginErrors: Map<LoginErrors, string>;
   protected readonly LoginErrors = LoginErrors;
@@ -67,10 +68,6 @@ export class BiitLoginComponent implements OnInit {
       }
       this.onLogin.emit(this.login)
     }
-  }
-
-  protected onTeamSelected(team: {key: any, label: string}): void {
-    this.signUpData.team = team.key
   }
 
   private validateLogin(): boolean {
@@ -110,9 +107,13 @@ export class BiitLoginComponent implements OnInit {
   }
 
   protected performSignUp(): void {
+    this.signUpData.team = this.dumbTeam?.key;
     if (this.validateSignUp()) {
       if (this.signUpGeneratedPassword) {
         this.signUpData.password = this.generatePassword();
+      }
+      if (this.dumbTeam) {
+        this.signUpData.team = this.dumbTeam.key;
       }
       this.onSignUp.emit(this.signUpData);
     }

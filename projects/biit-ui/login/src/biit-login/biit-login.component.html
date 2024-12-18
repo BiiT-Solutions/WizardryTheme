@@ -102,13 +102,13 @@
                      [error]="this.loginErrors.get(LoginError.EMAIL)"
                      (keyup.enter)="performLogin()"
                      placeholder="{{t('login.email')}}" class="login-input"></biit-input-text>
-    <biit-dropdown [ngModel]="signUpData.team" *ngIf="teams && teams.length"
-                    (ngModelChange)="onTeamSelected($event)"
-                   [data]="teams"
-                   value="key"
-                   label="label"
-                   (keyup.enter)="performLogin()"
-                   title="{{t('login.team')}}" class="login-input"/>
+    <biit-dropdown
+                    *ngIf="teams && teams.length"
+                    [(ngModel)]="dumbTeam"
+                    [data]="teams"
+                    value="key"
+                    label="label"
+                    title="{{t('login.team')}}" class="login-input"/>
     <biit-input-text [(ngModel)]="signUpData.password" fieldName="password"
                      [error]="this.loginErrors.get(LoginError.PASSWORD)"
                      (keyup.enter)="performLogin()" *ngIf="!signUpGeneratedPassword"
