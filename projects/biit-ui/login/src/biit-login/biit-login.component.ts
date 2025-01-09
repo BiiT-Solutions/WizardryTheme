@@ -19,6 +19,7 @@ export class BiitLoginComponent implements OnInit {
   @Input() login: BiitLogin;
   @Input() allowSignUp = false;
   @Input() signUpGeneratedPassword = false;
+  @Input() signUpGeneratedUsername = true;
   @Input() teams: {key: any, label: string}[];
 
   @Output() onLogin: EventEmitter<BiitLogin>;
@@ -132,6 +133,9 @@ export class BiitLoginComponent implements OnInit {
     }
     if (!this.signUpGeneratedPassword && (!this.signUpData.password || !this.signUpData.password.length)) {
       this.loginErrors.set(LoginErrors.PASSWORD, this.translocoService.translate('login.password-empty'));
+    }
+    if (!this.signUpGeneratedUsername && (!this.signUpData.username || !this.signUpData.username.length)) {
+      this.loginErrors.set(LoginErrors.PASSWORD, this.translocoService.translate('login.username-empty'));
     }
     return !this.loginErrors.size;
   }

@@ -90,6 +90,10 @@
 
 <ng-template #signUpForm>
   <div class="login-column" *transloco="let t">
+    <biit-input-text [(ngModel)]="signUpData.username" fieldName="username" [type]="Type.TEXT"
+                     [error]="this.loginErrors.get(LoginError.USERNAME)"
+                     (keyup.enter)="performLogin()"
+                     placeholder="{{t('login.username')}}" class="login-input"></biit-input-text>
     <biit-input-text [(ngModel)]="signUpData.name" fieldName="name" [type]="Type.TEXT"
                      [error]="this.loginErrors.get(LoginError.NAME)"
                      (keyup.enter)="performLogin()"
