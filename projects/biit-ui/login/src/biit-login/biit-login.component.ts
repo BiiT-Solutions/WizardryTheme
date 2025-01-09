@@ -169,7 +169,7 @@ export class BiitLoginComponent implements OnInit {
 
 
   protected checkUsernameExists(): void {
-    if (!this.signUpGeneratedUsername && (!this.signUpData.username || !this.signUpData.username.length)) {
+    if (this.signUpGeneratedUsername && this.signUpData.username && this.signUpData.username.length) {
       this.checkUserName(this.signUpData.username).subscribe({
         next: (): void => {
         },
@@ -178,7 +178,7 @@ export class BiitLoginComponent implements OnInit {
             switch (error.status) {
               case 409:
               case 400:
-                  this.loginErrors.set(this.LoginError.USERNAME, this.translocoService.translate('login.username-exists'));
+                this.loginErrors.set(this.LoginError.USERNAME, this.translocoService.translate('login.username-exists'));
                 break;
               default:
                 throw error;
