@@ -14,9 +14,8 @@ import {BiitSnackbarService} from 'biit-ui/info';
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     HttpClientModule,
     TranslocoRootModule
   ],

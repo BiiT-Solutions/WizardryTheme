@@ -27,7 +27,8 @@ export default {
     }),
   ],
   args: {
-    login: login
+    login: login,
+    teams: [{key: 'team1', label: 'Team 1'}, {key: 'team2', label: 'Team 2'}]
   },
   argTypes: {
     login: {
@@ -41,13 +42,14 @@ export default {
         category: 'Input'
       },
       control: {
-        type: 'object'
+        type: 'Object'
       }
     },
+    teams: Object,
     onLogin: {
       action: 'onLogin',
       name: 'onLogin',
-      description: 'Emits an event containing data introduced by the user.',
+      description: 'Emits an event containing metadata introduced by the user.',
       table: {
         type: 'Event',
         category: 'Outputs'
@@ -80,5 +82,21 @@ const Template: Story<BiitLoginComponent> = (args: BiitLoginComponent, { globals
 };
 
 export const Default = Template.bind({});
-Default.args = {
-}
+
+const SignUpTemplate: Story<BiitLoginComponent> = (args: BiitLoginComponent, { globals }) => {
+  TranslocoStorybookModule.setLanguage(globals);
+  return {
+    globals,
+    props: args,
+    template: `
+    <biit-login
+     [login]="login"
+     [allowSignUp]="true"
+     [teams]="teams"
+     (onLogin)="onLogin($event)"
+     (onNotRemember)="onNotRemember()"
+    ></biit-login>`
+  }
+};
+
+export const SignUp = SignUpTemplate.bind({});

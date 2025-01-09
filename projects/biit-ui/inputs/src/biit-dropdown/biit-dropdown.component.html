@@ -39,6 +39,7 @@
     <div class="bottom-line"
          [class.disabled]="isDisabled"
     ></div>
+    <span class="description">{{description}}</span>
   </div>
 </div>
 <button biit-icon
@@ -48,33 +49,38 @@
         [checked]="dropdownOpen"
         [disabled]="isDisabled"
 ></button>
-<div #dropdown
-     [class.disabled]="isDisabled"
-     [style.overflow]="dropdownOpen ? 'visible' : 'hidden'"
-     class="dropdown-list"
-     role="listbox"
-     aria-expanded="false"
-     aria-labelledby="dropdown-label"
-     [class.dropdown-open]="dropdownOpen"
-     [class.compact]="isCompact"
-     (keydown)="handleKeyboardEvents($event)"
->
-  <button *ngFor="let item of filteredData; index as i"
-          (click)="onModelChange(item)"
-          [class.selected]="currentValue === item"
-          class="dropdown-item"
-          role="option"
-          aria-selected="false"
-          [id]="i"
-          [tabindex]="!dropdownOpen || isDisabled ? -1 : 0"
-          [disabled]="!dropdownOpen || isDisabled"
+<div style="position: relative; height: 0">
+  <div #dropdown
+       [class.disabled]="isDisabled"
+       [style.overflow]="dropdownOpen ? 'visible' : 'hidden'"
+       class="dropdown-list"
+       role="listbox"
+       aria-expanded="false"
+       aria-labelledby="dropdown-label"
+       [class.dropdown-open]="dropdownOpen"
+       [class.compact]="isCompact"
+       (keydown)="handleKeyboardEvents($event)"
   >
-    <a>{{isPrimitive ? item : item[label]}}</a>
-  </button>
-  <button *ngIf="!filteredData.length"
-          class="dropdown-item no-results"
-          disabled
-  >
-    <a>No results found</a>
-  </button>
+    <button *ngFor="let item of filteredData; index as i"
+            (click)="onModelChange(item)"
+            [class.selected]="currentValue === item"
+            class="dropdown-item"
+            role="option"
+            aria-selected="false"
+            [id]="i"
+            [tabindex]="!dropdownOpen || isDisabled ? -1 : 0"
+            [disabled]="!dropdownOpen || isDisabled"
+    >
+      <div>
+        <a>{{isPrimitive ? item : item[label]}}</a>
+        <span *ngIf="descriptionLabel && item[descriptionLabel]" class="description">{{item[descriptionLabel]}}</span>
+      </div>
+    </button>
+    <button *ngIf="!filteredData.length"
+            class="dropdown-item no-results"
+            disabled
+    >
+      <a>No results found</a>
+    </button>
+  </div>
 </div>

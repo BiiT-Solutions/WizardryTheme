@@ -33,7 +33,7 @@ export class BiitTableDemoComponent implements OnInit {
     new BiitTableColumn('title', 'Title', undefined, undefined, true),
     new BiitTableColumn('available', 'Available', undefined, BiitTableColumnFormat.BOOLEAN, true),
     new BiitTableColumn('releaseDate', 'Release date', undefined, BiitTableColumnFormat.DATE, true),
-    new BiitTableColumn('nested.data', 'Nested data', undefined, undefined, true),
+    new BiitTableColumn('nested.metadata', 'Nested metadata', undefined, undefined, true),
     new BiitTableColumn('icon', 'Icon', 50, BiitTableColumnFormat.ICON, true),
     new BiitTableColumn('iconButton', 'Button (icon)', 50, BiitTableColumnFormat.ICON_BUTTON , true),
     new BiitTableColumn('button', 'Button', 50, BiitTableColumnFormat.BUTTON , true),

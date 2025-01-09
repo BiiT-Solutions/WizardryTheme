@@ -1,0 +1,28 @@
+<div id="bar-chart"
+>
+  <apx-chart *ngIf="scatterChartOptions"
+             [dataLabels]="scatterChartOptions.dataLabels"
+             [fill]="scatterChartOptions.fill"
+             [xaxis]="scatterChartOptions.xaxis"
+             [yaxis]="scatterChartOptions.yaxis"
+             [stroke]="scatterChartOptions.stroke"
+             [series]="scatterChartOptions.series"
+             [chart]="scatterChartOptions.chart"
+             [colors]="scatterChartOptions.colors"
+             [legend]="scatterChartOptions.legend"
+             [markers]="scatterChartOptions.markers"
+             [tooltip]="scatterChartOptions.tooltip"
+             style="display: block; width: 100%; height: 100%"
+  ></apx-chart>
+  <apx-chart *ngIf="areaChartOptions"
+             [dataLabels]="areaChartOptions.dataLabels"
+             [fill]="areaChartOptions.fill"
+             [xaxis]="areaChartOptions.xaxis"
+             [stroke]="areaChartOptions.stroke"
+             [series]="areaChartOptions.series"
+             [chart]="areaChartOptions.chart"
+             [colors]="areaChartOptions.colors"
+             [yaxis]="areaChartOptions.yaxis"
+             style="display: block; width: 100%"
+  ></apx-chart>
+</div>

@@ -15,6 +15,8 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 })
 export class BiitCheckboxComponent implements ControlValueAccessor {
   @Input() disabled = false;
+  @Input() description: string;
+  @Input() showAlwaysDescription = false;
   checked: any;
 
   onChange = (value: any) => {};

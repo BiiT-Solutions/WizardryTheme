@@ -1,33 +1,52 @@
 <biit-popup no-header *transloco="let t">
- <div class="login-container">
-   <div class="login-column">
-     <div class="login-icon-square">
-       <div class="login-keyring"></div>
-       <biit-icon [name]="$any('key_' + keyId)" class="login-key-icon"></biit-icon>
-     </div>
-   </div>
-  <ng-container *ngTemplateOutlet="resetView ? resetForm : loginForm"></ng-container>
- </div>
+  <div
+    *ngIf="allowSignUp && !resetView"
+    class="tab-buttons"
+  >
+    <div
+      [class.selected]="!signUpView"
+      (click)="signUpView = false"
+    >
+      {{ t('login.log_in') }}
+    </div>
+    <div
+      [class.selected]="signUpView"
+      (click)="signUpView = true"
+    >
+      {{ t('login.sign_up') }}
+    </div>
+  </div>
+  <div class="login-container" [class.allow-signup]="allowSignUp">
+    <div class="login-column">
+      <div class="login-icon-square">
+        <div class="login-keyring"></div>
+        <biit-icon [name]="$any('key_' + keyId)" class="login-key-icon"></biit-icon>
+      </div>
+    </div>
+    <ng-container *ngTemplateOutlet="resetView ? resetForm : signUpView ? signUpForm : loginForm"></ng-container>
+  </div>
 </biit-popup>
 
 <ng-template #loginForm>
   <div class="login-column" *transloco="let t">
-    <biit-input-text [(ngModel)]="login.username" fieldName="username" [type]="Type.TEXT" [error]="this.loginErrors.get(LoginError.USERNAME)"
+    <biit-input-text [(ngModel)]="login.username" fieldName="username" [type]="Type.TEXT"
+                     [error]="this.loginErrors.get(LoginError.USERNAME)"
                      (keyup.enter)="performLogin()"
                      placeholder="{{t('login.username')}}" class="login-input"></biit-input-text>
-    <biit-input-text [(ngModel)]="login.password" fieldName="password" [error]="this.loginErrors.get(LoginError.PASSWORD)"
+    <biit-input-text [(ngModel)]="login.password" fieldName="password"
+                     [error]="this.loginErrors.get(LoginError.PASSWORD)"
                      (keyup.enter)="performLogin()"
                      placeholder="{{t('login.password')}}" [type]="Type.PASSWORD" class="login-input"></biit-input-text>
     <biit-toggle
       class="margin-vertical-14"
       [(ngModel)]="login.remember">
-      {{t('login.remember')}}
+      {{ t('login.remember') }}
     </biit-toggle>
     <div class="margin-top-18 centered">
       <button biit-button primary
               (click)="performLogin()"
       >
-        {{t('login.take_me_in')}}
+        {{ t('login.take_me_in') }}
       </button>
     </div>
     <div class="margin-top-18 centered">
@@ -35,7 +54,7 @@
               (click)="resetView = true"
               class="smaller-text"
       >
-        {{t('login.forgot')}}
+        {{ t('login.forgot') }}
       </button>
     </div>
   </div>
@@ -44,25 +63,61 @@
 <ng-template #resetForm>
   <div class="login-column-expanded" *transloco="let t">
     <span class="title">
-      {{t('login.reset_password_title')}}
+      {{ t('login.reset_password_title') }}
     </span>
     <span class="subtitle"
           style="margin-top: 1em;">
-      {{t('login.reset_password_subtitle')}}
+      {{ t('login.reset_password_subtitle') }}
     </span>
     <span class="body"
           style="margin-top: 0.5em">
-      {{t('login.reset_password_body')}}
+      {{ t('login.reset_password_body') }}
     </span>
-    <biit-input-text [(ngModel)]="resetEmail"  fieldName="username" [type]="Type.EMAIL" [error]="this.loginErrors.get(LoginError.EMAIL)"
+    <biit-input-text [(ngModel)]="resetEmail" fieldName="email" [type]="Type.EMAIL"
+                     [error]="this.loginErrors.get(LoginError.EMAIL)"
                      (keyup.enter)="performResetPassword()" style="margin-top: 2em; margin-bottom: 2.5em"
                      placeholder="{{t('login.email')}}" class="login-input"></biit-input-text>
     <div class="buttons">
       <button biit-button (click)="performResetPassword()">
-        {{t('login.reset')}}
+        {{ t('login.reset') }}
       </button>
       <button biit-button tertiary (click)="restartView()" class="smaller-text">
-        {{t('login.i_remember')}}
+        {{ t('login.i_remember') }}
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #signUpForm>
+  <div class="login-column" *transloco="let t">
+    <biit-input-text [(ngModel)]="signUpData.name" fieldName="name" [type]="Type.TEXT"
+                     [error]="this.loginErrors.get(LoginError.NAME)"
+                     (keyup.enter)="performLogin()"
+                     placeholder="{{t('login.name')}}" class="login-input"></biit-input-text>
+    <biit-input-text [(ngModel)]="signUpData.lastname" fieldName="lastname" [type]="Type.TEXT"
+                     [error]="this.loginErrors.get(LoginError.LASTNAME)"
+                     (keyup.enter)="performLogin()"
+                     placeholder="{{t('login.lastname')}}" class="login-input"></biit-input-text>
+    <biit-input-text [(ngModel)]="signUpData.email" fieldName="email" [type]="Type.TEXT"
+                     [error]="this.loginErrors.get(LoginError.EMAIL)"
+                     (keyup.enter)="performLogin()"
+                     placeholder="{{t('login.email')}}" class="login-input"></biit-input-text>
+    <biit-dropdown
+                    *ngIf="teams && teams.length"
+                    [(ngModel)]="dumbTeam"
+                    [data]="teams"
+                    value="key"
+                    label="label"
+                    title="{{t('login.team')}}" class="login-input"/>
+    <biit-input-text [(ngModel)]="signUpData.password" fieldName="password"
+                     [error]="this.loginErrors.get(LoginError.PASSWORD)"
+                     (keyup.enter)="performLogin()" *ngIf="!signUpGeneratedPassword"
+                     placeholder="{{t('login.password')}}" [type]="Type.PASSWORD" class="login-input"></biit-input-text>
+    <div class="margin-top-18 centered">
+      <button biit-button primary
+              (click)="performSignUp()"
+      >
+        {{ t('login.sign_me_up') }}
       </button>
     </div>
   </div>

@@ -1,0 +1,128 @@
+@import "angular-calendar/scss/angular-calendar";
+@import "@siemens/ngx-datatable/assets/icons";
+@import '@angular/cdk/overlay-prebuilt';
+@import "@perfectmemory/ngx-contextmenu/src/assets/stylesheets/base";
+
+html, body{
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Montserrat, "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #262626;
+  background-color: #EDEDED;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input {
+  font-family: Montserrat, "Montserrat", sans-serif;
+}
+
+textarea {
+  font-family: Montserrat, "Montserrat", sans-serif;
+}
+
+/*
+  Scrollbar styles
+ */
+
+@-moz-document url-prefix() {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #262626 #EDEDED;
+  }
+  *:hover {
+    scrollbar-color: #F20D5E #EDEDED;
+  }
+
+  *:active {
+    scrollbar-color: #F20D5E #EDEDED;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  background-color: #262626;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #F20D5E;
+}
+
+/*
+  Text extra styles
+ */
+
+.biit-general-text {
+  font-size: 1rem;
+  color: #262626;
+  text-align: left;
+}
+
+.biit-extra-comment {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.7rem;
+  color: #262626;
+  text-align: left;
+}
+
+/*
+  Context menu styles
+ */
+
+.ngx-contextmenu {
+  --ngx-contextmenu-font-family: Montserrat, "Montserrat", sans-serif;
+  --ngx-contextmenu-font-size: 1rem;
+  --ngx-contextmenu-text-color: #262626;
+  --ngx-contextmenu-box-shadow: none;
+  --ngx-contextmenu-border: 2px solid #EDEDED;
+  --ngx-contextmenu-border-radius: none;
+  --ngx-contextmenu-margin: none;
+  --ngx-contextmenu-padding: none;
+  --ngx-contextmenu-min-width: 12.5rem;
+  --ngx-contextmenu-item-padding: 0.6rem 1rem 0.6rem 2rem;
+  --ngx-contextmenu-item-separator-color: #262626;
+  --ngx-contextmenu-item-separator-padding: 8px;
+  --ngx-contextmenu-item-background-hover-color: #D9D9D9;
+
+  li {
+    position: relative;
+
+    button {
+      &:active {
+        color: #f20d5e !important;
+      }
+      &:has(.active) {
+        background: #EDEDED;
+      }
+      &:not(.disabled) {
+        cursor: pointer;
+      }
+    }
+
+    biit-icon {
+      height: 0.875rem;
+      width: 0.875rem;
+      position: absolute;
+      left: 0.6rem;
+      top: 0.8rem
+    }
+  }
+
+  &[dir="rtl"] {
+    --ngx-contextmenu-item-padding: 0.6rem 2rem 0.6rem 1rem;
+
+    biit-icon {
+      left: unset;
+      right: 0.6rem
+    }
+  }
+}

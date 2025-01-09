@@ -1,0 +1,21 @@
+<div class="toggle-group">
+  <button
+    *ngFor="let button of buttons"
+    [class.active]="multiple ? value && value.includes(button.value) : value == button.value"
+    [disabled]="disabled || button.disabled"
+    (click)="onToggle(button.value)"
+  >
+    <biit-icon
+      *ngIf="button.icon"
+      [name]="button.icon"
+      [pathStyle]="{fill: '#262626'}"
+      style="display: block; height: 1em; width: 1em;"
+    ></biit-icon>
+    <span
+      *ngIf="button.text"
+      style="display: block"
+    >
+      {{button.text}}
+    </span>
+  </button>
+</div>

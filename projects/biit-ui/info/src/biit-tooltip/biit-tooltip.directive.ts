@@ -35,7 +35,7 @@ export class BiitTooltipDirective {
 
     // Sets text
     instance.text = this.tooltip;
-    // Refreshes data in ComponentRef
+    // Refreshes metadata in ComponentRef
     component.changeDetectorRef.detectChanges();
 
     // HTMLElements of both tooltip and target elements

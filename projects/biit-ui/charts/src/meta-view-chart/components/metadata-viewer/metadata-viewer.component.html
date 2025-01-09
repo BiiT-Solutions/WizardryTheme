@@ -1,0 +1,35 @@
+<div class="metadata-view">
+  <div class="metadata-header" [class.justify-center]="!titleField">
+    <div class="data-icon">
+      <biit-meta-element
+        [styles]="_data.styles"
+        [classes]="_data.classes"
+        [icon]="_data.icon"
+      >
+        <div *ngIf="_data.custom" [innerHTML]="_data.custom.innerHTML"></div>
+      </biit-meta-element>
+    </div>
+    <div *ngIf="titleField" class="data-title" [tooltip]="_data.data[titleField]">
+      {{_data.data[titleField]}}
+    </div>
+    <div>
+      <button biit-icon
+              [icon]="'cross_wide'"
+              (click)="close()"
+      ></button>
+    </div>
+  </div>
+  <div class="metadata-info">
+    <div *ngFor="let field of (fields | removeFromArray: [titleField]) " class="field">
+      <div class="metadata-info-row">
+        <div class="field-value">
+          <biit-input-text
+            [placeholder]="field"
+            [ngModel]="_data.data[field] | autoFormat"
+            [readonly]="true"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 {
   "name": "storybook-biit",
-  "version": "1.1.323",
+  "version": "1.1.384",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -44,7 +44,7 @@
     "uuid": "^9.0.0",
     "zone.js": "~0.12.0",
     "@perfectmemory/ngx-contextmenu": "^15.0.0",
-    "@siemens/ngx-datatable": "latest"
+    "@siemens/ngx-datatable": "v21-3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "v15-lts",

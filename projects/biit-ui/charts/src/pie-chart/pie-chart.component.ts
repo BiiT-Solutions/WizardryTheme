@@ -121,7 +121,7 @@ export class PieChartComponent implements OnInit, OnChanges {
           let tooltip =
             '<div class="tooltip-base">' +
             '  <div class="tooltip-content">' +
-            '    <div class="tooltip-data">' +
+            '    <div class="tooltip-metadata">' +
             '      <div class="tooltip-square" style="background:'+ w.globals.colors[seriesIndex] +'"></div>' +
             '      <a>' + w.globals.seriesNames[seriesIndex] + ': </a>' +
             '      <a style="margin-left: 0.35rem; font-weight: 500">' + series[seriesIndex] + '</a>' +

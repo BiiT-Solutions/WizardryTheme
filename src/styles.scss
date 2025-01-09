@@ -1,7 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
-@import "../node_modules/angular-calendar/css/angular-calendar.css";
-@import "src/assets/styles/context-menu/base";
+@import "angular-calendar/scss/angular-calendar";
+@import "@perfectmemory/ngx-contextmenu/src/assets/stylesheets/base";
 
 html, body { height: 100%; font-size: 16px}
 body { margin: 0;
   font-family: Montserrat, "Montserrat", sans-serif; }
+
+.ngx-contextmenu {
+  --ngx-contextmenu-font-family: Montserrat, "Montserrat", sans-serif;
+  --ngx-contextmenu-font-size: 1rem;
+  --ngx-contextmenu-text-color: #262626;
+  --ngx-contextmenu-box-shadow: none;
+  --ngx-contextmenu-border: 2px solid #EDEDED;
+  --ngx-contextmenu-border-radius: none;
+  --ngx-contextmenu-margin: none;
+  --ngx-contextmenu-padding: none;
+  --ngx-contextmenu-min-width: 12.5rem;
+  --ngx-contextmenu-item-padding: 0.6rem 1rem 0.6rem 2rem;
+  --ngx-contextmenu-item-separator-color: #262626;
+  --ngx-contextmenu-item-separator-padding: 8px;
+  --ngx-contextmenu-item-background-hover-color: #D9D9D9;
+
+  li {
+    position: relative;
+
+    button {
+      &:active {
+        color: #f20d5e !important;
+      }
+      &:has(.active) {
+        background: #EDEDED;
+      }
+      &:not(.disabled) {
+        cursor: pointer;
+      }
+    }
+
+    biit-icon {
+      height: 0.875rem;
+      width: 0.875rem;
+      position: absolute;
+      left: 0.6rem;
+      top: 0.8rem
+    }
+  }
+
+  &[dir="rtl"] {
+    --ngx-contextmenu-item-padding: 0.6rem 2rem 0.6rem 1rem;
+
+    biit-icon {
+      left: unset;
+      right: 0.6rem
+    }
+  }
+}

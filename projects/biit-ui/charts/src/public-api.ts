@@ -21,3 +21,8 @@ export * from './heatmap-chart/heatmap-chart.component';
 export * from './heatmap-chart/heatmap-chart.module';
 export * from './heatmap-chart/heatmap-chart-data';
 export * from './heatmap-chart/heatmap-chart-range';
+export * from './meta-view-chart/meta-view-chart.module';
+export * from './meta-view-chart/meta-view-chart.component';
+export * from './timeline-viewer-chart/timeline-viewer-chart.component';
+export * from './timeline-viewer-chart/timeline-viewer-chart.module';
+export * from './timeline-viewer-chart/models/timeline-viewer-chart-options';

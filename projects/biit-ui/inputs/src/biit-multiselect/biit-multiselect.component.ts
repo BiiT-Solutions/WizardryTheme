@@ -2,12 +2,12 @@ import {
   AfterViewInit,
   Component,
   DoCheck,
-  ElementRef,
+  ElementRef, EventEmitter,
   forwardRef,
   Input,
   IterableDiffer,
   IterableDiffers,
-  OnInit
+  OnInit, Output
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {biitIcon} from 'biit-icons-collection';
@@ -15,7 +15,8 @@ import {coerceBooleanProperty} from "@angular/cdk/coercion";
 
 export enum BiitMultiselectType {
   DEFAULT = 'default',
-  ICON = 'icon'
+  ICON = 'icon',
+  CHIPS = 'chips'
 }
 
 @Component({
@@ -41,6 +42,8 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   @Input() icon: biitIcon = 'column_selection';
   @Input() label: string = '';
   @Input() value: string = '';
+  @Input() descriptionField: string = '';
+  @Input() description: string = '';
   @Input() data: any[] = [];
   protected isPrimitive: boolean;
   @Input() set primitive(primitive: any) {
@@ -66,6 +69,8 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   @Input('sort-desc') set sortDesc(sortDesc: any) {
     this.isSortDesc = coerceBooleanProperty(sortDesc);
   };
+
+  @Output() onCreate: EventEmitter<string> = new EventEmitter<string>();
 
   public currentValues: any[] = [];
   public filterText: string = '';
@@ -166,7 +171,6 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
       default:
         break;
     }
-    $event.stopPropagation();
   }
 
   handleFilter() {
@@ -205,6 +209,8 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
     } else {
       if (this.isSortAsc || this.isSortDesc) {
         this.data.sort((a,b) => {
+          if ( this.currentValues.includes(a) && !this.currentValues.includes(b)) return -1;
+          if ( !this.currentValues.includes(a) && this.currentValues.includes(b)) return 1;
           if ( a[this.label] < b[this.label] ){
             return this.isSortAsc ? -1 : 1;
           } else if ( a[this.label] > b[this.label] ){
@@ -213,13 +219,19 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
             return 0;
           }
         });
+      } else {
+        this.data.sort((a, b) => {
+          if ( this.currentValues.includes(a) && !this.currentValues.includes(b)) return -1;
+          if ( !this.currentValues.includes(a) && this.currentValues.includes(b)) return 1;
+          return 0;
+        })
       }
     }
   }
 
   openDropdown() {
     this.setTooltipComponentProperties();
-    if (this.type == BiitMultiselectType.DEFAULT) {
+    if (this.type !== BiitMultiselectType.ICON) {
       (this.inputElement as HTMLInputElement).focus();
     }
 
@@ -233,7 +245,7 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   closeDropdown() {
     this.dropdownOpen = false;
     this.dropdownElement.setAttribute('aria-expanded', "false");
-    setTimeout(() => { this.clearFilter(); }, 1000);
+    setTimeout(() => { this.clearFilter(); }, 100);
   }
 
   private setTooltipComponentProperties() {
@@ -241,7 +253,7 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
     let dropdown = this.dropdownElement;
     dropdown.style.display = 'block';
 
-    if (this.type == BiitMultiselectType.DEFAULT) {
+    if (this.type !== BiitMultiselectType.ICON) {
       button = this.inputElement;
     } else {
       button = this.elem.nativeElement.querySelector("button");
@@ -283,4 +295,6 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
       return button.getBoundingClientRect().right - dropdown.offsetWidth >= 0;
     }
   }
+
+  protected readonly BiitMultiselectType = BiitMultiselectType;
 }

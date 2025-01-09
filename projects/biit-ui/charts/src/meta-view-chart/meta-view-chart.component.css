@@ -1,0 +1,37 @@
+biit-meta-board {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.meta-view-chart-board{
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+  & > :not(:nth-child(2)) {
+    flex: 0 1 auto;
+  }
+  & > :nth-child(2) {
+    flex: 1;
+  }
+}
+.meta-view-column {
+  min-width: 14em;
+  max-width: 23em;
+  width: 18em;
+  flex: 0 1 auto;
+  resize: horizontal;
+  overflow: auto;
+  border: 3px solid #262626;
+}
+
+.rtl {
+  direction: rtl;
+}
+.ltr {
+  direction: ltr;
+}
+.padding-1 {
+  padding: 0.1em;
+}

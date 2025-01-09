@@ -26,6 +26,7 @@ export default {
   args: {
     text: '',
     error: '',
+    description: '',
     info: '',
     disabled: false,
     readonly: false,
@@ -40,6 +41,7 @@ const Template: Story<BiitTextareaComponent> = (args: BiitTextareaComponent) => 
   template: `
     <biit-textarea [(ngModel)]="text"
                    [error]="error"
+                   [description]="description"
                    [info]="info"
                    [disabled]="disabled"
                    [readonly]="readonly"

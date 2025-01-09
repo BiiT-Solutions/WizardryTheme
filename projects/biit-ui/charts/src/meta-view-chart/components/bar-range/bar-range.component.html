@@ -1,0 +1,12 @@
+<div class="bar-range-body">
+  <biit-bar-chart [data]="items | metaElementToBarChart : field" [compact]="true"/>
+  <biit-slider-range
+    [min]="items | metaElementMinValue : field"
+    [max]="items | metaElementMaxValue : field"
+    [step]="items | stepValueExtractor : field"
+    [separator]="items | stepValueExtractor : field"
+    [ticks]="0"
+    [(ngModel)]="range"
+    (ngModelChange)="onRangeChange($event)"
+  />
+</div>

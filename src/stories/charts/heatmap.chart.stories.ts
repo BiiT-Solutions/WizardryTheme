@@ -40,7 +40,7 @@ export default {
     data: {
       name: 'data',
       type: {name: 'string', required: false},
-      description: 'Defines the data of the chart',
+      description: 'Defines the metadata of the chart',
       table: {
         type: {summary: 'HeatmapChartData'},
         defaultValue: {summary: 'undefined'},

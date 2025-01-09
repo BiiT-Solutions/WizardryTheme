@@ -6,6 +6,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterTestingModule} from "@angular/router/testing";
 import {Router, RouterModule} from "@angular/router";
 import {ENVIRONMENT_INITIALIZER, inject} from "@angular/core";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 setCompodocJson(docJson);
 
@@ -38,7 +39,12 @@ export const globalTypes = {
 };
 
 const globalModuleImports = moduleMetadata({
-  imports: [RouterTestingModule, RouterModule.forRoot([], {enableTracing: true}), HttpClientModule],
+  imports: [
+    RouterTestingModule,
+    RouterModule.forRoot([], {enableTracing: true}),
+    HttpClientModule,
+    BrowserAnimationsModule
+  ],
   providers: [Router],
 });
 

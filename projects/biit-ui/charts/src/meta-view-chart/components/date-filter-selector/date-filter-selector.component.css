@@ -1,0 +1,58 @@
+.year-arrow {
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow-rotate {
+  transform: rotate(90deg);
+}
+
+biit-checkbox {
+  display: block;
+  width: 100%;
+  &>label {
+    width: 100%;
+    &>div {
+      width: 100%;
+      &>div>a {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.year-title {
+  display: flex;
+  align-items: center;
+  &>div:first-child {
+    flex-grow: 1;
+  }
+}
+.month-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  font-size: 0.75em;
+}
+.date-filter-row {
+  margin: 0.5em 0;
+  align-content: center;
+}
+
+.title-counter {
+  display: flex;
+  &>div:first-child {
+    flex-grow: 1;
+  }
+  &>div:last-child {
+    color: #808080;
+    margin-right: 0.5em;
+    font-size: 0.75em;
+  }
+}
+.month-body .title-counter > div:last-child {
+  margin-right: 1.2em;
+}

@@ -12,5 +12,11 @@
              [class.checked]="value == selected"
              [class.disabled]="disabled"
   ></biit-icon>
-  <ng-content></ng-content>
+  <div>
+    <div>
+      <a><ng-content></ng-content></a>
+      <biit-tooltip-icon *ngIf="description && !showAlwaysDescription" inline [text]="description"/>
+    </div>
+    <span class="description" *ngIf="description && showAlwaysDescription">{{ description }}</span>
+  </div>
 </label>

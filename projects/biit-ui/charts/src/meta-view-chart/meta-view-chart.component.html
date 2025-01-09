@@ -1,0 +1,23 @@
+<div class="meta-view-chart-board">
+  <div class="meta-view-column">
+    <biit-meta-filter [metadata]="data" (filterChange)="onFilter($event)"/>
+  </div>
+  <biit-meta-board *ngIf="view === View.GRID"
+    [data]="elements"
+    [selected]="selectedElement"
+    (elementClick)="onElementClick($event)"
+  />
+  <biit-timeline-viewer-chart *ngIf="view === View.TIMELINE && timelineOptions"
+    [data]="elements | extractData"
+    [options]="timelineOptions"
+    (onItemClick)="onTimeLineElementClick($event)"
+    style="overflow: hidden"
+  />
+  <div class="meta-view-column rtl" *ngIf="selectedElement" @fadeInOut>
+    <biit-metadata-viewer class="ltr"
+      [data]="selectedElement"
+      [fields]="data.fields"
+      [titleField]="data.titleField"
+      (onClose)="selectedElement = undefined; cdRef.detectChanges()"/>
+  </div>
+</div>

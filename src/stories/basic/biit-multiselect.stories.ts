@@ -5,10 +5,34 @@ import {APP_INITIALIZER} from '@angular/core';
 import {BiitIconService} from 'biit-ui/icon';
 import {completeIconSet} from 'biit-icons-collection';
 import {BiitMultiselectComponent, BiitMultiselectModule, BiitMultiselectType} from 'biit-ui/inputs';
+import {TranslocoStorybookModule} from "../../app/transloco/transloco-storybook.module";
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);
   return () => service;
+}
+
+let _items = [
+  {id: 1, name: 'Spring', description: 'This item has a description'},
+  {id: 2, name: 'Summer'},
+  {id: 3, name: 'Autumn'},
+  {id: 4, name: 'Winter'}
+];
+
+let _value = [];
+
+function onCreate(string: string) {
+  const search = _items.find(i => i.name.toLowerCase() === string.toLowerCase());
+  if (search) {
+    _value.push(search);
+    _value = [..._value];
+  } else {
+    const item = {id: Math.trunc(Math.random() * 1000), name: string, description: undefined};
+    _items.push(item);
+    _value.push(item);
+    _items = [..._items];
+    _value = [..._value];
+  }
 }
 
 export default {
@@ -25,18 +49,14 @@ export default {
     }),
   ],
   args: {
-    value: [],
-    items: [
-      {id: 1, name: 'Spring'},
-      {id: 2, name: 'Summer'},
-      {id: 3, name: 'Autumn'},
-      {id: 4, name: 'Winter'}
-    ],
+    value: _value,
+    items: _items,
     label: 'name',
     disabled: false,
     compact: false,
     type: BiitMultiselectType.DEFAULT,
-    width: 512
+    width: 512,
+    description: 'This field has a description'
   },
   argTypes: {
     value: {
@@ -125,7 +145,7 @@ export default {
         type: { summary: 'string' },
         category: 'Style'
       },
-      options: ['default', 'icon'],
+      options: ['default', 'icon', 'chips'],
       control: {
         type: 'select'
       }
@@ -162,28 +182,28 @@ const Template: Story<BiitMultiselectComponent> = (args: BiitMultiselectComponen
       </div>
     </div>
 
-    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name" descriptionField="description"
                    style="display:block; position: fixed; top: 1rem; left: 1rem"
-                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
-                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
+                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'" (onCreate)="onCreate($event)"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required" [description]="description"
     ></biit-multiselect>
 
-    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name" descriptionField="description"
                    style="display:block; position: fixed; top: 1rem; right: 1rem"
-                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
-                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
+                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'" (onCreate)="onCreate($event)"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required" [description]="description"
     ></biit-multiselect>
 
-    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name" descriptionField="description"
                    style="display:block; position: fixed; bottom: 1rem; left: 1rem"
-                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
-                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
+                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'" (onCreate)="onCreate($event)"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required" [description]="description"
     ></biit-multiselect>
 
-    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name" descriptionField="description"
                    style="display:block; position: fixed; bottom: 1rem; right: 1rem"
-                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'"
-                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
+                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'" (onCreate)="onCreate($event)"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required" [description]="description"
     ></biit-multiselect>
 `
 });
@@ -199,3 +219,47 @@ export const Icon = Template.bind({});
 Icon.args = {
   type: BiitMultiselectType.ICON
 }
+
+export const Chips: Story<BiitMultiselectComponent> = (args: BiitMultiselectComponent, { globals }) => {
+  TranslocoStorybookModule.setLanguage(globals);
+  return {
+    globals,
+    props: {
+      ...args,
+      type: BiitMultiselectType.CHIPS,
+      onCreate: (value: string) => onCreate(value)
+    },
+    template: `
+    <div style="display:block; position: fixed; top: 50%; left: 50%; translate: -50% -50%; text-align: center;">
+      Selected seasons:
+      <div *ngFor="let item of value">
+          <li>{{item.name}}</li>
+      </div>
+    </div>
+
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+                   style="display:block; position: fixed; top: 1rem; left: 1rem"
+                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'" (onCreate)="onCreate($event)"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
+    ></biit-multiselect>
+
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+                   style="display:block; position: fixed; top: 1rem; right: 1rem"
+                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'" (onCreate)="onCreate($event)"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
+    ></biit-multiselect>
+
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+                   style="display:block; position: fixed; bottom: 1rem; left: 1rem"
+                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'" (onCreate)="onCreate($event)"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
+    ></biit-multiselect>
+
+    <biit-multiselect [(ngModel)]="value" title="Favorite season" [data]="items" value="id" label="name"
+                   style="display:block; position: fixed; bottom: 1rem; right: 1rem"
+                   [style.width]="type == 'default' && !compact ? width + 'px' : 'fit-content'" (onCreate)="onCreate($event)"
+                   [disabled]="disabled" [type]="type" [compact]="compact" [required]="required"
+    ></biit-multiselect>
+`,
+  }
+};

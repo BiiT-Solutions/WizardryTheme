@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BiitNavMenuComponent} from './biit-nav-menu.component';
 import {RouterModule} from '@angular/router';
+import {ContextMenuModule} from "@perfectmemory/ngx-contextmenu";
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import {RouterModule} from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ContextMenuModule
   ],
   exports: [
     BiitNavMenuComponent

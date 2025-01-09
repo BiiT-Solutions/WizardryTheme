@@ -12,6 +12,7 @@
                       currentValues && currentValues.length ? currentValues.length + ' selected' : ''"
            (ngModelChange)="filterText = $event; handleFilter()"
            (click)="!dropdownOpen && !isDisabled && openDropdown()"
+           (keydown.enter)="filterText.length ? onCreate.emit(filterText) : false; clearFilter();"
            [placeholder]="dropdownOpen && currentValues && currentValues.length ? currentValues.length + ' selected' : ''"
            tabindex="0"
            class="input-object"
@@ -39,6 +40,7 @@
     <div class="bottom-line"
          [class.disabled]="isDisabled"
     ></div>
+    <span class="description">{{description}}</span>
   </div>
 </div>
 
@@ -51,33 +53,51 @@
 ></button>
 
 <!-- DROPDOWN -->
-<div #dropdown
-     [class.disabled]="isDisabled"
-     class="dropdown-list"
-     role="listbox"
-     aria-expanded="false"
-     aria-labelledby="dropdown-label"
-     [class.dropdown-open]="dropdownOpen"
-     [class.compact]="isCompact"
-     (keydown)="dropdownOpen && handleKeyboardEvents($event)"
->
-  <biit-checkbox *ngFor="let item of filteredData; index as i"
-                 class="dropdown-item"
-                 [class.selected]="currentValues && currentValues.includes(item)"
-                 [ngModel]="currentValues && currentValues.includes(item)"
-                 (click)="onModelChange(item); $event.stopPropagation(); $event.preventDefault();"
-                 (keydown.enter)="onModelChange(item)"
-                 (keydown.space)="onModelChange(item)"
-                 [tabindex]="!dropdownOpen || isDisabled ? -1 : 0"
-                 role="option"
-                 aria-selected="false"
-                 [disabled]="false">
-    {{isPrimitive ? item : item[label]}}
-  </biit-checkbox>
-  <button *ngIf="!filteredData?.length"
-          class="dropdown-item no-results"
-          disabled
+<div style="position: relative; height: 0">
+  <div #dropdown
+       [class.disabled]="isDisabled"
+       class="dropdown-list"
+       role="listbox"
+       aria-expanded="false"
+       aria-labelledby="dropdown-label"
+       [class.dropdown-open]="dropdownOpen"
+       [class.compact]="isCompact"
+       (keydown)="dropdownOpen && handleKeyboardEvents($event)"
   >
-    <a>No results found</a>
-  </button>
+    <biit-checkbox *ngFor="let item of filteredData; index as i"
+                   class="dropdown-item"
+                   [class.selected]="currentValues && currentValues.includes(item)"
+                   [ngModel]="currentValues && currentValues.includes(item)"
+                   [description]="descriptionField && item[descriptionField]"
+                   (click)="onModelChange(item); $event.stopPropagation(); $event.preventDefault();"
+                   (keydown.enter)="onModelChange(item)"
+                   (keydown.space)="onModelChange(item)"
+                   [tabindex]="!dropdownOpen || isDisabled ? -1 : 0"
+                   role="option"
+                   aria-selected="false"
+                   [disabled]="false">
+      {{isPrimitive ? item : item[label]}}
+    </biit-checkbox>
+    <button *ngIf="!filteredData?.length"
+            class="dropdown-item no-results"
+            disabled
+    >
+      <a>No results found</a>
+    </button>
+  </div>
+</div>
+
+<div *ngIf="type == 'chips'"
+     class="chips">
+  <span
+    *ngFor="let item of currentValues"
+    (click)="onModelChange(item)"
+    class="chips-item"
+  >
+    {{item[label]}}
+    <biit-icon
+      [name]="'cross_wide'"
+      [pathStyle]="{fill: '#ffffff'}"
+    ></biit-icon>
+  </span>
 </div>

@@ -99,21 +99,24 @@ $bar-color: #D7D7D7;
 
     .label {
       display: flex;
-      gap: 5px;
       font-weight: 500;
       flex: 1;
       cursor: pointer;
+      gap: 0.5em;
 
       &.show-desc {
         flex-direction: column;
       }
 
       span {
-        line-height: 100%;
+        line-height: 120%;
       }
 
       .description {
-        font-size: 14px;
+        font-size: 0.75em;
+        color: #808080;
+        line-height: 120%;
+        font-style: italic;
         font-weight: 400;
       }
     }
@@ -189,7 +192,7 @@ $bar-color: #D7D7D7;
   transition: opacity .2s ease-in-out;
   pointer-events: none;
 
-  span {
+  ::ng-deep span {
     font-size: 1em;
     background: white;
     padding: 0.1em 0.2em;

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {biitIcon} from 'biit-icons-collection';
 import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
@@ -27,6 +27,7 @@ export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
   }
   protected _placeholder = '';
   @Input() error: string;
+  @Input() description: string;
   @Input() info: string;
   @Input() type: Type;
   @Input() icon: biitIcon;

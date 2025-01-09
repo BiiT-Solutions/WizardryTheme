@@ -7,6 +7,7 @@ import {BiitMultiselectType} from "biit-ui/inputs";
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
 import {GenericFilter} from "../utils/generic-filter";
 import {provideTranslocoScope} from "@ngneat/transloco";
+import {Page} from "./models/page";
 
 @Component({
   selector: 'biit-datatable',
@@ -51,9 +52,12 @@ export class BiitDatatableComponent<T> implements OnInit {
   @Input() scrollbarH?: any;
   @Input() hideHeader?: any;
   @Input() hideFooter?: any;
+  @Input() serverSide?: any;
+  @Input() page?: Page;
   search: string = "";
 
   @Output() onSelection: EventEmitter<T[]> = new EventEmitter<T[]>();
+  @Output() onPageChange: EventEmitter<Page> = new EventEmitter<Page>();
 
   protected readonly ColumnMode = ColumnMode;
   protected readonly SelectionType = SelectionType;
@@ -69,6 +73,7 @@ export class BiitDatatableComponent<T> implements OnInit {
     this.scrollbarH = coerceBooleanProperty(this.scrollbarH);
     this.hideHeader = coerceBooleanProperty(this.hideHeader);
     this.hideFooter = coerceBooleanProperty(this.hideFooter);
+    this.serverSide = coerceBooleanProperty(this.serverSide);
   }
 
   onSelect({ selected }) {
@@ -95,6 +100,13 @@ export class BiitDatatableComponent<T> implements OnInit {
     this._data = temp;
     // Whenever the filter changes, always go back to the first page
     this.table.offset = 0;
+  }
+
+  onFooterPageChange(event: any) {
+    const page = new Page(event.offset, event.pageSize, event.count);
+    console.log(event)
+    console.log(page)
+    this.onPageChange.emit(page);
   }
 
   setColumnVisibility(columns: DatatableColumn[]) {
