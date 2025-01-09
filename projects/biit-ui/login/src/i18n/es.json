@@ -2,6 +2,7 @@
   "name-empty": "El nombre es necesario.",
   "lastname-empty": "El apellido es necesario.",
   "username-empty": "El nombre de usuario es necesario.",
+  "username-exists": "El nombre de usuario está en uso.",
   "password-empty": "La contraseña es necesaria.",
   "team-mandatory": "Necesitas pertenecer a un equipo",
   "email-empty": "El email es necesario.",

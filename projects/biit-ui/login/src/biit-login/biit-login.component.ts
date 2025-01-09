@@ -4,6 +4,8 @@ import {BiitLogin} from "biit-ui/models";
 import {LoginErrors} from "./models/LoginErrors";
 import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
 import {SignUpRequest} from "./models/sign-up-request";
+import {Observable} from "rxjs";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'biit-login',
@@ -20,7 +22,8 @@ export class BiitLoginComponent implements OnInit {
   @Input() allowSignUp = false;
   @Input() signUpGeneratedPassword = false;
   @Input() signUpGeneratedUsername = true;
-  @Input() teams: {key: any, label: string}[];
+  @Input() teams: { key: any, label: string }[];
+  @Input() checkUserName: (username: string) => Observable<void>;
 
   @Output() onLogin: EventEmitter<BiitLogin>;
   @Output() onNotRemember: EventEmitter<void>;
@@ -35,7 +38,7 @@ export class BiitLoginComponent implements OnInit {
   protected signUpData: SignUpRequest = new SignUpRequest();
   protected resetView = false;
   protected resetEmail = "";
-  protected dumbTeam: {key: any, label: string};
+  protected dumbTeam: { key: any, label: string };
 
   protected loginErrors: Map<LoginErrors, string>;
   protected readonly LoginErrors = LoginErrors;
@@ -161,6 +164,28 @@ export class BiitLoginComponent implements OnInit {
       return buffer[0];
     } else {
       return Math.floor(Math.random() * 256);
+    }
+  }
+
+
+  protected checkUsernameExists(): void {
+    if (!this.signUpGeneratedUsername && (!this.signUpData.username || !this.signUpData.username.length)) {
+      this.checkUserName(this.signUpData.username).subscribe({
+        next: (): void => {
+        },
+        error: (error): void => {
+          if (error instanceof HttpErrorResponse) {
+            switch (error.status) {
+              case 409:
+              case 400:
+                  this.loginErrors.set(this.LoginError.USERNAME, this.translocoService.translate('login.username-exists'));
+                break;
+              default:
+                throw error;
+            }
+          }
+        }
+      });
     }
   }
 }
