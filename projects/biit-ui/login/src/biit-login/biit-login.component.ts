@@ -1,11 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Type} from 'biit-ui/inputs';
 import {BiitLogin} from "biit-ui/models";
 import {LoginErrors} from "./models/LoginErrors";
 import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
 import {SignUpRequest} from "./models/sign-up-request";
-import {debounceTime, Observable} from "rxjs";
-import {HttpErrorResponse} from "@angular/common/http";
+import {debounceTime, Observable, Subject, Subscription} from "rxjs";
 
 @Component({
   selector: 'biit-login',
@@ -16,7 +15,7 @@ import {HttpErrorResponse} from "@angular/common/http";
     useValue: {scope: 'biit-ui/login', alias: "login"}
   }]
 })
-export class BiitLoginComponent implements OnInit {
+export class BiitLoginComponent implements OnInit, OnDestroy {
 
   @Input() login: BiitLogin;
   @Input() allowSignUp = false;
@@ -29,6 +28,9 @@ export class BiitLoginComponent implements OnInit {
   @Output() onNotRemember: EventEmitter<void>;
   @Output() onResetPassword: EventEmitter<string>;
   @Output() onSignUp: EventEmitter<SignUpRequest>;
+  @Output() onUsernameDefined: EventEmitter<string>;
+  private userNameDefinitionSubject = new Subject();
+  private userNameDefinitionSubscription: Subscription;
 
   protected readonly keyId: string;
   protected readonly Type = Type;
@@ -53,16 +55,27 @@ export class BiitLoginComponent implements OnInit {
     this.onNotRemember = new EventEmitter<void>();
     this.onResetPassword = new EventEmitter<string>();
     this.onSignUp = new EventEmitter<SignUpRequest>();
+    this.onUsernameDefined = new EventEmitter<string>();
     this.loginErrors = new Map<LoginErrors, string>();
     const generatedId: number = Math.floor(Math.random() * (20 - 1 + 1) + 1);
     this.keyId = `${generatedId < 10 ? '0' : ''}${generatedId}`
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+
+    //debounce events to only get one by second
+    this.userNameDefinitionSubscription = this.userNameDefinitionSubject.pipe(debounceTime(1000)).subscribe((username: string): void =>
+      this.onUsernameDefined.emit(username));
+
     if (this.allowSignUp) {
       this.signUpView = true;
     }
   }
+
+  public ngOnDestroy(): void {
+    this.userNameDefinitionSubscription.unsubscribe();
+  }
+
 
   protected performLogin(): void {
     if (this.validateLogin()) {
@@ -170,23 +183,7 @@ export class BiitLoginComponent implements OnInit {
 
   protected checkUsernameExists(): void {
     if (this.signUpGeneratedUsername && this.signUpData.username && this.signUpData.username.length) {
-      this.checkUserName(this.signUpData.username).pipe(debounceTime(1000)).subscribe({
-        next: (): void => {
-          console.log('Calling the endpoint!')
-        },
-        error: (error): void => {
-          if (error instanceof HttpErrorResponse) {
-            switch (error.status) {
-              case 409:
-              case 400:
-                this.loginErrors.set(this.LoginError.USERNAME, this.translocoService.translate('login.username-exists'));
-                break;
-              default:
-                throw error;
-            }
-          }
-        }
-      });
+      this.onUsernameDefined.emit(this.signUpData.username);
     }
   }
 }
