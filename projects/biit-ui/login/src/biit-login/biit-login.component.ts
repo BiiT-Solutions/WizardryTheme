@@ -4,7 +4,7 @@ import {BiitLogin} from "biit-ui/models";
 import {LoginErrors} from "./models/LoginErrors";
 import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
 import {SignUpRequest} from "./models/sign-up-request";
-import {Observable} from "rxjs";
+import {debounceTime, Observable} from "rxjs";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
@@ -170,8 +170,9 @@ export class BiitLoginComponent implements OnInit {
 
   protected checkUsernameExists(): void {
     if (this.signUpGeneratedUsername && this.signUpData.username && this.signUpData.username.length) {
-      this.checkUserName(this.signUpData.username).subscribe({
+      this.checkUserName(this.signUpData.username).pipe(debounceTime(1000)).subscribe({
         next: (): void => {
+          console.log('Calling the endpoint!')
         },
         error: (error): void => {
           if (error instanceof HttpErrorResponse) {
