@@ -6,6 +6,7 @@ import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
 import {SignUpRequest} from "./models/sign-up-request";
 import {debounceTime, Observable} from "rxjs";
 import {HttpErrorResponse} from "@angular/common/http";
+import {BiitLoginServiceSupport} from "./models/biit-login-service-support";
 
 @Component({
   selector: 'biit-login',
@@ -23,7 +24,7 @@ export class BiitLoginComponent implements OnInit {
   @Input() signUpGeneratedPassword = false;
   @Input() signUpGeneratedUsername = true;
   @Input() teams: { key: any, label: string }[];
-  @Input() checkUserName: (username: string) => Promise<boolean>;
+  @Input() biitLoginServiceSupport: BiitLoginServiceSupport;
 
   @Output() onLogin: EventEmitter<BiitLogin>;
   @Output() onNotRemember: EventEmitter<void>;
@@ -170,7 +171,7 @@ export class BiitLoginComponent implements OnInit {
 
   protected checkUsernameExists(): void {
     if (this.signUpGeneratedUsername && this.signUpData.username && this.signUpData.username.length) {
-      this.checkUserName(this.signUpData.username).then((exists: boolean) => {
+      this.biitLoginServiceSupport.checkUserName(this.signUpData.username).then((exists: boolean) => {
         if (exists) {
           this.loginErrors.set(this.LoginError.USERNAME, this.translocoService.translate('login.username-exists'));
         } else {
