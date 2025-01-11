@@ -23,7 +23,7 @@ export class BiitLoginComponent implements OnInit {
   @Input() signUpGeneratedPassword = false;
   @Input() signUpGeneratedUsername = true;
   @Input() teams: { key: any, label: string }[];
-  @Input() checkUserName: (username: string) => Observable<void>;
+  @Input() checkUserName: (username: string) => Promise<boolean>;
 
   @Output() onLogin: EventEmitter<BiitLogin>;
   @Output() onNotRemember: EventEmitter<void>;
@@ -170,11 +170,13 @@ export class BiitLoginComponent implements OnInit {
 
   protected checkUsernameExists(): void {
     if (this.signUpGeneratedUsername && this.signUpData.username && this.signUpData.username.length) {
-      this.checkUserName(this.signUpData.username).pipe(debounceTime(1000)).subscribe({
-        next: (): void => {
-          console.log('Calling the endpoint!')
-        },
-        error: (error): void => {
+      this.checkUserName(this.signUpData.username).then((exists: boolean) => {
+        if (exists) {
+          this.loginErrors.set(this.LoginError.USERNAME, this.translocoService.translate('login.username-exists'));
+        } else {
+          console.log(`Username '${this.signUpData.username}' is available`);
+        }
+      }).catch((error: HttpErrorResponse) => {
           if (error instanceof HttpErrorResponse) {
             switch (error.status) {
               case 409:
@@ -185,7 +187,6 @@ export class BiitLoginComponent implements OnInit {
                 throw error;
             }
           }
-        }
       });
     }
   }
