@@ -4,9 +4,9 @@ import {BiitLogin} from "biit-ui/models";
 import {LoginErrors} from "./models/LoginErrors";
 import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
 import {SignUpRequest} from "./models/sign-up-request";
-import {debounceTime, Observable} from "rxjs";
 import {HttpErrorResponse} from "@angular/common/http";
 import {BiitLoginServiceSupport} from "./models/biit-login-service-support";
+import {debounceTime, Subject} from "rxjs";
 
 @Component({
   selector: 'biit-login',
@@ -46,10 +46,13 @@ export class BiitLoginComponent implements OnInit {
   protected readonly PWD_MIN_LENGTH = 12
   protected readonly PWD_MAX_LENGTH = 25
 
+  protected usernameSearch: Subject<string> = new Subject();
+
   constructor(public translocoService: TranslocoService) {
     if (!this.login) {
       this.login = new BiitLogin();
     }
+    this.usernameSearch.pipe(debounceTime(500)).subscribe(() => this.checkUsernameExists());
     this.onLogin = new EventEmitter<BiitLogin>();
     this.onNotRemember = new EventEmitter<void>();
     this.onResetPassword = new EventEmitter<string>();
