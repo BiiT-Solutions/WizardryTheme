@@ -175,6 +175,7 @@ export class BiitLoginComponent implements OnInit {
         if (exists) {
           this.loginErrors.set(this.LoginError.USERNAME, this.translocoService.translate('login.username-exists'));
         } else {
+          this.loginErrors.delete(this.LoginError.USERNAME);
           console.log(`Username '${this.signUpData.username}' is available`);
         }
       }).catch((error: HttpErrorResponse) => {
