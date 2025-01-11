@@ -48,13 +48,13 @@ export class BiitLoginComponent implements OnInit {
   protected readonly PWD_MIN_LENGTH = 12
   protected readonly PWD_MAX_LENGTH = 25
 
-
   protected usernameSearch: Subject<string> = new Subject();
 
   constructor(public translocoService: TranslocoService) {
     if (!this.login) {
       this.login = new BiitLogin();
     }
+
     this.usernameSearch.pipe(debounceTime(CALL_BETWEEN_WAITING_TIME)).subscribe(() => this.checkUsernameExists());
     this.onLogin = new EventEmitter<BiitLogin>();
     this.onNotRemember = new EventEmitter<void>();
