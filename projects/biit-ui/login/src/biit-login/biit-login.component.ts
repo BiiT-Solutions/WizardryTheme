@@ -4,8 +4,11 @@ import {BiitLogin} from "biit-ui/models";
 import {LoginErrors} from "./models/LoginErrors";
 import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
 import {SignUpRequest} from "./models/sign-up-request";
-import {debounceTime, Observable} from "rxjs";
 import {HttpErrorResponse} from "@angular/common/http";
+import {BiitLoginServiceSupport} from "./models/biit-login-service-support";
+import {debounceTime, Subject} from "rxjs";
+
+const  CALL_BETWEEN_WAITING_TIME = 1000;
 
 @Component({
   selector: 'biit-login',
@@ -23,7 +26,7 @@ export class BiitLoginComponent implements OnInit {
   @Input() signUpGeneratedPassword = false;
   @Input() signUpGeneratedUsername = true;
   @Input() teams: { key: any, label: string }[];
-  @Input() checkUserName: (username: string) => Observable<void>;
+  @Input() biitLoginServiceSupport: BiitLoginServiceSupport;
 
   @Output() onLogin: EventEmitter<BiitLogin>;
   @Output() onNotRemember: EventEmitter<void>;
@@ -45,10 +48,14 @@ export class BiitLoginComponent implements OnInit {
   protected readonly PWD_MIN_LENGTH = 12
   protected readonly PWD_MAX_LENGTH = 25
 
+  protected usernameSearch: Subject<string> = new Subject();
+
   constructor(public translocoService: TranslocoService) {
     if (!this.login) {
       this.login = new BiitLogin();
     }
+
+    this.usernameSearch.pipe(debounceTime(CALL_BETWEEN_WAITING_TIME)).subscribe(() => this.checkUsernameExists());
     this.onLogin = new EventEmitter<BiitLogin>();
     this.onNotRemember = new EventEmitter<void>();
     this.onResetPassword = new EventEmitter<string>();
@@ -170,11 +177,14 @@ export class BiitLoginComponent implements OnInit {
 
   protected checkUsernameExists(): void {
     if (this.signUpGeneratedUsername && this.signUpData.username && this.signUpData.username.length) {
-      this.checkUserName(this.signUpData.username).pipe(debounceTime(1000)).subscribe({
-        next: (): void => {
-          console.log('Calling the endpoint!')
-        },
-        error: (error): void => {
+      this.biitLoginServiceSupport.checkUserName(this.signUpData.username).then((exists: boolean) => {
+        if (exists) {
+          this.loginErrors.set(this.LoginError.USERNAME, this.translocoService.translate('login.username-exists'));
+        } else {
+          this.loginErrors.delete(this.LoginError.USERNAME);
+          console.log(`Username '${this.signUpData.username}' is available`);
+        }
+      }).catch((error: HttpErrorResponse) => {
           if (error instanceof HttpErrorResponse) {
             switch (error.status) {
               case 409:
@@ -185,7 +195,6 @@ export class BiitLoginComponent implements OnInit {
                 throw error;
             }
           }
-        }
       });
     }
   }

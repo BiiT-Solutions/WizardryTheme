@@ -29,7 +29,7 @@
 
 <ng-template #loginForm>
   <div class="login-column" *transloco="let t">
-    <biit-input-text [(ngModel)]="login.username" fieldName="username" [type]="Type.TEXT"
+    <biit-input-text [(ngModel)]="login.username" fieldName="username" *ngIf="!signUpGeneratedUsername" [type]="Type.TEXT"
                      [error]="this.loginErrors.get(LoginError.USERNAME)"
                      (keyup.enter)="performLogin()"
                      placeholder="{{t('login.username')}}" class="login-input"></biit-input-text>
@@ -93,7 +93,7 @@
     <biit-input-text [(ngModel)]="signUpData.username" fieldName="username" [type]="Type.TEXT"
                      [error]="this.loginErrors.get(LoginError.USERNAME)"
                      (keyup.enter)="performLogin()"
-                     (ngModelChange)="checkUsernameExists()"
+                     (ngModelChange)="usernameSearch.next($event)"
                      placeholder="{{t('login.username')}}" class="login-input"></biit-input-text>
     <biit-input-text [(ngModel)]="signUpData.name" fieldName="name" [type]="Type.TEXT"
                      [error]="this.loginErrors.get(LoginError.NAME)"
