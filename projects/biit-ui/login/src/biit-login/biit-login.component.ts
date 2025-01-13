@@ -174,8 +174,8 @@ export class BiitLoginComponent implements OnInit {
 
 
   protected checkUsernameExists(): void {
-    console.log("Checking username exists");
-    if (this.signUpGeneratedUsername && this.signUpData.username && this.signUpData.username.length) {
+    console.log("Checking if username exists");
+    if (this.signUpData.username && this.signUpData.username.length) {
       this.biitLoginServiceSupport.checkUserName(this.signUpData.username).then((exists: boolean) => {
         if (exists) {
           this.loginErrors.set(this.LoginError.USERNAME, this.translocoService.translate('login.username-exists'));
