@@ -57,6 +57,7 @@
   "fact_not_found": "Couldn't find the fact.",
   "template_not_found": "Couldn't find the template.",
   "form_not_found": "Couldn't find the form.",
+  "report_not_found": "Couldn't find the report.",
   "error_generating_pdf": "There has been an error generating the PDF.",
   "element_does_not_exists": "This element does not exist."
 }
