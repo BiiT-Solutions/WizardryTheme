@@ -206,7 +206,8 @@ export class HeatmapChartComponent implements OnInit, OnChanges {
           horizontal: 20
         },
         formatter: function(value) {
-          return value.replace(" - ", " / ")
+          // Remove decimals on legend
+          return Number.parseInt(value.substring(0, value.indexOf(" - "))) + ' / ' + Number.parseInt(value.substring(value.indexOf(" - ")+3, value.length));
         },
         markers: {
           offsetY: -1
