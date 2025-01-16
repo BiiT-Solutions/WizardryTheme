@@ -10,6 +10,7 @@
 
   "request_success": "Your request has been completed successfully.",
   "request_failed": "Your request failed. Please, try again later.",
+  "request_unsuccessful": "Your request failed. Please, try again later.",
 
   "user_expired": "This user has expired.",
   "action_not_allowed": "This action is not allowed.",
