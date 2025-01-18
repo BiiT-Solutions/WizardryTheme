@@ -24,6 +24,7 @@ export * from './heatmap-chart/heatmap-chart-range';
 export * from './meta-view-chart/meta-view-chart.module';
 export * from './meta-view-chart/meta-view-chart.component';
 export * from './meta-view-chart/components/metadata-viewer/metadata-viewer.module';
+export * from './meta-view-chart/components/metadata-viewer/metadata-viewer.component';
 export * from './meta-view-chart/model/meta-view-data';
 export * from './meta-view-chart/model/meta-view-element-data';
 export * from './meta-view-chart/model/view';
