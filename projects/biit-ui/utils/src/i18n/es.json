@@ -10,6 +10,7 @@
 
   "request_success": "Tu petición ha sido completada satisfactoriamente.",
   "request_failed": "Tu petición ha fallado. Por favor, inténtalo más tarde.",
+  "request_unsuccessful": "Tu petición ha fallado. Por favor, inténtalo más tarde.",
 
   "user_expired": "Este usuario ha expirado.",
   "action_not_allowed": "Esta acción no está permitida.",
@@ -57,6 +58,7 @@
   "fact_not_found": "No se pudo encontrar el fact.",
   "template_not_found": "No se pudo encontrar el template.",
   "form_not_found": "No se pudo encontrar el form.",
+  "report_not_found": "No se pudo encontrar el report.",
   "error_generating_pdf": "Ha habido un error al generar el PDF.",
   "element_does_not_exists": "Este elemento no existe."
 }

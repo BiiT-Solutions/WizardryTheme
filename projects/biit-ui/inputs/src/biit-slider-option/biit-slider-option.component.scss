@@ -15,6 +15,7 @@ $bar-color: #D7D7D7;
     width: 100%;
     height: 0.3em;
     background: $bar-color;
+    margin-left: 0;
 
     &.inverted {
       direction: rtl;
@@ -66,7 +67,6 @@ $bar-color: #D7D7D7;
 .slider-option .ticks {
   display: flex;
   justify-content: space-between;
-  padding: 0 0 0 3px;
   margin-top: 5px;
   position: relative;
 
