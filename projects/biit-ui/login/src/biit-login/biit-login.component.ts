@@ -130,12 +130,12 @@ export class BiitLoginComponent implements OnInit {
 
   private validateSignUp(): boolean {
     this.loginErrors.clear();
-    if (!this.signUpData.name || !this.signUpData.name.length) {
-      this.loginErrors.set(LoginErrors.NAME, this.translocoService.translate('login.name-empty'));
-    }
-    if (!this.signUpData.lastname || !this.signUpData.lastname.length) {
-      this.loginErrors.set(LoginErrors.LASTNAME, this.translocoService.translate('login.lastname-empty'));
-    }
+    // if (!this.signUpData.name || !this.signUpData.name.length) {
+    //   this.loginErrors.set(LoginErrors.NAME, this.translocoService.translate('login.name-empty'));
+    // }
+    // if (!this.signUpData.lastname || !this.signUpData.lastname.length) {
+    //   this.loginErrors.set(LoginErrors.LASTNAME, this.translocoService.translate('login.lastname-empty'));
+    // }
     if (!this.signUpData.email || !this.signUpData.email.length) {
       this.loginErrors.set(LoginErrors.EMAIL, this.translocoService.translate('login.email-empty'));
     }
