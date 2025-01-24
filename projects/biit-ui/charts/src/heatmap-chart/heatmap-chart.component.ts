@@ -270,4 +270,10 @@ export class HeatmapChartComponent implements OnInit, OnChanges {
 
     return series;
   }
+
+  public async getPngBlob(): Promise<Blob> {
+    const base64 = await this.chart.dataURI();
+    const decode = await fetch(base64.imgURI);
+    return decode.blob();
+  }
 }

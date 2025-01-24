@@ -1,9 +1,9 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild} from '@angular/core';
 import {
   ApexAxisChartSeries, ApexChart, ApexDataLabels,
   ApexGrid, ApexLegend, ApexMarkers,
   ApexStroke, ApexTitleSubtitle, ApexTooltip,
-  ApexXAxis, ApexYAxis
+  ApexXAxis, ApexYAxis, ChartComponent
 } from "ng-apexcharts";
 import {TimelineViewerChartData} from './models/timeline-viewer-chart-data';
 import {subMonths} from "date-fns";
@@ -33,6 +33,7 @@ type ChartOptions = {
   styleUrls: ['./timeline-viewer-chart.component.scss']
 })
 export class TimelineViewerChartComponent implements OnInit, OnChanges {
+  @ViewChild('apexChart') apexChart: ChartComponent;
 
   @Input() data: Object[] = [];
   @Input() options: TimelineViewerChartOptions;
@@ -228,5 +229,11 @@ export class TimelineViewerChartComponent implements OnInit, OnChanges {
         }
       },
     }
+  }
+
+  public async getPngBlob(): Promise<Blob> {
+    const base64 = await this.apexChart.dataURI();
+    const decode = await fetch(base64.imgURI);
+    return decode.blob();
   }
 }
