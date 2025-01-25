@@ -66,7 +66,8 @@ const Template: Story<MetaViewChartComponent> = (args: MetaViewChartComponent) =
 export const Default = Template.bind({});
 Default.args = {
   data: {
-    "data": [{
+    "data": [
+      {
       "data": {
         "name": "pOslwVXrhr",
         "date": new Date("2024-08-16T16:47:42.972Z"),
@@ -111,7 +112,10 @@ Default.args = {
       "data": {"name": "oQkrcVdBMf", "date": new Date("2024-09-09T04:25:16.372Z"), "v1": 57, "v2": 71, "v3": 0.55, "b1": true},
       "styles": "border-radius: 100%; background-color: #480c24",
       "statusColor": "#480c24"
-    }], "fields": ["name", "date", "v1", "v2", "v3", "b1"], "titleField": "name"
+    }], "fields": ["name", "date", "v1", "v2", "v3", "b1"], "titleField": "name",
+    "preselection": [
+      {key: "b1", value: true}
+    ]
   },
   view: View.GRID
 }
