@@ -1,9 +1,9 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {
   ApexAxisChartSeries, ApexChart,
   ApexDataLabels, ApexGrid, ApexLegend, ApexMarkers,
   ApexStroke, ApexTitleSubtitle,
-  ApexTooltip, ApexXAxis, ApexYAxis
+  ApexTooltip, ApexXAxis, ApexYAxis, ChartComponent
 } from "ng-apexcharts";
 import {LineChartData} from './models/line-chart-data';
 
@@ -31,6 +31,7 @@ export type LineChartOptions = {
   styleUrls: ['./line-chart.component.scss']
 })
 export class LineChartComponent implements OnInit, OnChanges {
+  @ViewChild('apexChart') apexChart: ChartComponent;
 
   chartOptions: Partial<LineChartOptions>;
   pageNumber = 1;
@@ -196,5 +197,11 @@ export class LineChartComponent implements OnInit, OnChanges {
         }
       },
     };
+  }
+
+  public async getPngBlob(): Promise<Blob> {
+    const base64 = await this.apexChart.dataURI();
+    const decode = await fetch(base64.imgURI);
+    return decode.blob();
   }
 }

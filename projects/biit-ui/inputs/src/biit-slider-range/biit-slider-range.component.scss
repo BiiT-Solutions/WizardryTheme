@@ -17,6 +17,7 @@ input[type=range] {
   height: 0.3em;
   background: $bar-color;
   pointer-events: none;
+  margin-left: 0;
 
   &:nth-child(2) {
     position: absolute;
@@ -76,7 +77,6 @@ input[type="range"]:focus::-moz-range-thumb {
 .ticks {
   display: flex;
   justify-content: space-between;
-  padding: 0 0 0 0.15em;
   margin-top: 0.25em;
 
   span {

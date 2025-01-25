@@ -4,6 +4,7 @@
   display: flex;
   height: 100%;
   flex-direction: column;
+  background-color: white;
 }
 .metadata-header {
   margin: 1em 1em 0;

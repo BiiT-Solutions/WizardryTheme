@@ -1,9 +1,9 @@
-import {Component, ElementRef, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {
   ApexChart,
   ApexDataLabels, ApexGrid, ApexLegend,
   ApexPlotOptions, ApexStates, ApexTitleSubtitle,
-  ApexTooltip, ApexXAxis, ApexYAxis
+  ApexTooltip, ApexXAxis, ApexYAxis, ChartComponent
 } from "ng-apexcharts";
 import {RadialChartData} from './models/radial-chart-data';
 
@@ -30,6 +30,7 @@ export type RadialChartOptions = {
   styleUrls: ['./radial-chart.component.scss']
 })
 export class RadialChartComponent implements OnInit, OnChanges {
+  @ViewChild('apexChart') apexChart: ChartComponent;
 
   chartOptions: Partial<RadialChartOptions>;
   pageNumber = 1;
@@ -153,5 +154,11 @@ export class RadialChartComponent implements OnInit, OnChanges {
         }
       }
     };
+  }
+
+  public async getPngBlob(): Promise<Blob> {
+    const base64 = await this.apexChart.dataURI();
+    const decode = await fetch(base64.imgURI);
+    return decode.blob();
   }
 }

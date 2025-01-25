@@ -3,6 +3,10 @@ import {Type} from 'biit-ui/inputs';
 import {BiitLogin} from "biit-ui/models";
 import {LoginErrors} from "./models/LoginErrors";
 import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
+import {SignUpRequest} from "./models/sign-up-request";
+import {HttpErrorResponse} from "@angular/common/http";
+import {BiitLoginServiceSupport} from "./models/biit-login-service-support";
+import {debounceTime, Subject} from "rxjs";
 
 @Component({
   selector: 'biit-login',
@@ -18,34 +22,42 @@ export class BiitLoginComponent implements OnInit {
   @Input() login: BiitLogin;
   @Input() allowSignUp = false;
   @Input() signUpGeneratedPassword = false;
+  @Input() signUpGeneratedUsername = true;
+  @Input() teams: { key: any, label: string }[];
+  @Input() biitLoginServiceSupport: BiitLoginServiceSupport;
 
   @Output() onLogin: EventEmitter<BiitLogin>;
   @Output() onNotRemember: EventEmitter<void>;
   @Output() onResetPassword: EventEmitter<string>;
-  @Output() onSignUp: EventEmitter<{name: string, lastname: string, email: string, password: string}>;
+  @Output() onSignUp: EventEmitter<SignUpRequest>;
 
   protected readonly keyId: string;
   protected readonly Type = Type;
   protected readonly LoginError = LoginErrors;
 
   protected signUpView = false;
-  protected signUpData = {name: "", lastname: "", email: "", password: ""};
+  protected signUpData: SignUpRequest = new SignUpRequest();
   protected resetView = false;
   protected resetEmail = "";
+  protected dumbTeam: { key: any, label: string };
 
   protected loginErrors: Map<LoginErrors, string>;
   protected readonly LoginErrors = LoginErrors;
   protected readonly PWD_MIN_LENGTH = 12
   protected readonly PWD_MAX_LENGTH = 25
 
+  protected usernameSearch: Subject<string> = new Subject();
+
   constructor(public translocoService: TranslocoService) {
     if (!this.login) {
       this.login = new BiitLogin();
     }
+    console.log("Setting up login component");
+    this.usernameSearch.pipe(debounceTime(1000)).subscribe(() => this.checkUsernameExists());
     this.onLogin = new EventEmitter<BiitLogin>();
     this.onNotRemember = new EventEmitter<void>();
     this.onResetPassword = new EventEmitter<string>();
-    this.onSignUp = new EventEmitter<{name: string, lastname: string, email: string, password: string}>();
+    this.onSignUp = new EventEmitter<SignUpRequest>();
     this.loginErrors = new Map<LoginErrors, string>();
     const generatedId: number = Math.floor(Math.random() * (20 - 1 + 1) + 1);
     this.keyId = `${generatedId < 10 ? '0' : ''}${generatedId}`
@@ -100,13 +112,17 @@ export class BiitLoginComponent implements OnInit {
     this.resetEmail = "";
 
     this.signUpView = false;
-    this.signUpData = {name: "", lastname: "", email: "", password: ""};
+    this.signUpData = new SignUpRequest();
   }
 
   protected performSignUp(): void {
+    this.signUpData.team = this.dumbTeam?.key;
     if (this.validateSignUp()) {
       if (this.signUpGeneratedPassword) {
         this.signUpData.password = this.generatePassword();
+      }
+      if (this.dumbTeam) {
+        this.signUpData.team = this.dumbTeam.key;
       }
       this.onSignUp.emit(this.signUpData);
     }
@@ -114,17 +130,20 @@ export class BiitLoginComponent implements OnInit {
 
   private validateSignUp(): boolean {
     this.loginErrors.clear();
-    if (!this.signUpData.name || !this.signUpData.name.length) {
-      this.loginErrors.set(LoginErrors.NAME, this.translocoService.translate('login.name-empty'));
-    }
-    if (!this.signUpData.lastname || !this.signUpData.lastname.length) {
-      this.loginErrors.set(LoginErrors.LASTNAME, this.translocoService.translate('login.lastname-empty'));
-    }
+    // if (!this.signUpData.name || !this.signUpData.name.length) {
+    //   this.loginErrors.set(LoginErrors.NAME, this.translocoService.translate('login.name-empty'));
+    // }
+    // if (!this.signUpData.lastname || !this.signUpData.lastname.length) {
+    //   this.loginErrors.set(LoginErrors.LASTNAME, this.translocoService.translate('login.lastname-empty'));
+    // }
     if (!this.signUpData.email || !this.signUpData.email.length) {
       this.loginErrors.set(LoginErrors.EMAIL, this.translocoService.translate('login.email-empty'));
     }
     if (!this.signUpGeneratedPassword && (!this.signUpData.password || !this.signUpData.password.length)) {
       this.loginErrors.set(LoginErrors.PASSWORD, this.translocoService.translate('login.password-empty'));
+    }
+    if (!this.signUpGeneratedUsername && (!this.signUpData.username || !this.signUpData.username.length)) {
+      this.loginErrors.set(LoginErrors.PASSWORD, this.translocoService.translate('login.username-empty'));
     }
     return !this.loginErrors.size;
   }
@@ -150,6 +169,32 @@ export class BiitLoginComponent implements OnInit {
       return buffer[0];
     } else {
       return Math.floor(Math.random() * 256);
+    }
+  }
+
+
+  protected checkUsernameExists(): void {
+    console.log("Checking if username exists");
+    if (this.signUpData.username && this.signUpData.username.length) {
+      this.biitLoginServiceSupport.checkUserName(this.signUpData.username).then((exists: boolean) => {
+        if (exists) {
+          this.loginErrors.set(this.LoginError.USERNAME, this.translocoService.translate('login.username-exists'));
+        } else {
+          this.loginErrors.delete(this.LoginError.USERNAME);
+          console.log(`Username '${this.signUpData.username}' is available`);
+        }
+      }).catch((error: HttpErrorResponse) => {
+          if (error instanceof HttpErrorResponse) {
+            switch (error.status) {
+              case 409:
+              case 400:
+                this.loginErrors.set(this.LoginError.USERNAME, this.translocoService.translate('login.username-exists'));
+                break;
+              default:
+                throw error;
+            }
+          }
+      });
     }
   }
 }

@@ -1,7 +1,4 @@
-import {
-  AfterViewInit, ChangeDetectorRef,
-  Component, ElementRef, QueryList, ViewChildren
-} from '@angular/core';
+import {Component} from '@angular/core';
 import {DataTablePagerComponent} from "@siemens/ngx-datatable";
 import {provideTranslocoScope} from "@ngneat/transloco";
 import {BiitIconService} from "biit-ui/icon";
@@ -13,21 +10,11 @@ import {completeIconSet} from "biit-icons-collection";
   styleUrls: ['./biit-datatable-pager.component.scss'],
   providers: [provideTranslocoScope({scope:'biit-ui/table', alias:'t'})]
 })
-export class BiitDatatablePagerComponent extends DataTablePagerComponent implements AfterViewInit {
-  @ViewChildren('label') label: QueryList<ElementRef>;
-  inputWidth: number;
+export class BiitDatatablePagerComponent extends DataTablePagerComponent {
 
-  constructor(biitIconService: BiitIconService,
-              private changeDetectorRef: ChangeDetectorRef) {
+  constructor(biitIconService: BiitIconService) {
     super();
     biitIconService.registerIcons(completeIconSet);
-  }
-
-  ngAfterViewInit() {
-    this.label.changes.subscribe(elem => {
-      this.inputWidth = elem.first.nativeElement.offsetWidth;
-      this.changeDetectorRef.detectChanges();
-    })
   }
 
   enforceMinMax(el) {

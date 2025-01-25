@@ -27,7 +27,8 @@ export default {
     }),
   ],
   args: {
-    login: login
+    login: login,
+    teams: [{key: 'team1', label: 'Team 1'}, {key: 'team2', label: 'Team 2'}]
   },
   argTypes: {
     login: {
@@ -41,9 +42,10 @@ export default {
         category: 'Input'
       },
       control: {
-        type: 'object'
+        type: 'Object'
       }
     },
+    teams: Object,
     onLogin: {
       action: 'onLogin',
       name: 'onLogin',
@@ -90,6 +92,7 @@ const SignUpTemplate: Story<BiitLoginComponent> = (args: BiitLoginComponent, { g
     <biit-login
      [login]="login"
      [allowSignUp]="true"
+     [teams]="teams"
      (onLogin)="onLogin($event)"
      (onNotRemember)="onNotRemember()"
     ></biit-login>`
