@@ -45,6 +45,7 @@ export class MetaViewChartComponent {
   }
   @Input() view: View = View.GRID;
   @Output() selected: EventEmitter<MetaViewElementData>= new EventEmitter<MetaViewElementData>();
+  @Output() unselected: EventEmitter<void>= new EventEmitter<void>();
 
   protected readonly View = View;
 
@@ -64,8 +65,16 @@ export class MetaViewChartComponent {
     this.selectedElement = element;
     this.selected.emit(element);
   }
+
+  protected unselectElement() {
+    this.selectedElement = undefined;
+    this.unselected.emit();
+    this.cdRef.detectChanges()
+  }
+
   protected onTimeLineElementClick(element: TimelineViewerChartData) {
     this.selectedElement = this.data.data.find(e => e.data['_id'] === element.meta['_id']);
+    this.selected.emit(this.selectedElement);
     this.cdRef.detectChanges();
   }
 
