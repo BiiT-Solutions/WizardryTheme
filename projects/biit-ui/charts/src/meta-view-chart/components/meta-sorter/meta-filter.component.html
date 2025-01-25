@@ -25,7 +25,7 @@
         <div class="filter-title" (click)="onFieldClick(field)">
           <div>
             <div>{{field}}</div>
-            <div *ngIf="(field | fieldType: metadata.data) === FieldType.BOOLEAN">
+            <div class="align-content-center" *ngIf="(field | fieldType: metadata.data) === FieldType.BOOLEAN">
               <biit-boolean-filter
                 [filter]="filter.get(field)"
                 (filterChange)="onBooleanFilterChanged(field, $event)"/>

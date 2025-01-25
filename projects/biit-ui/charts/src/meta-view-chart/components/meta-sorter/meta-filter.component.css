@@ -68,3 +68,6 @@ biit-date-filter-selector {
 ::ng-deep .filter-search > biit-input-text > .biit-input {
   min-width: unset !important;
 }
+.align-content-center {
+  align-content: center;
+}
