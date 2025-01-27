@@ -143,7 +143,7 @@ export class BiitLoginComponent implements OnInit {
       this.loginErrors.set(LoginErrors.PASSWORD, this.translocoService.translate('login.password-empty'));
     }
     if (!this.signUpGeneratedUsername && (!this.signUpData.username || !this.signUpData.username.length)) {
-      this.loginErrors.set(LoginErrors.PASSWORD, this.translocoService.translate('login.username-empty'));
+      this.loginErrors.set(LoginErrors.USERNAME, this.translocoService.translate('login.username-empty'));
     }
     return !this.loginErrors.size;
   }
