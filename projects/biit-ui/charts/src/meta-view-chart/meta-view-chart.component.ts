@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, Input, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
 import {MetaViewElementData} from "./model/meta-view-element-data";
 import {MetaViewData} from "./model/meta-view-data";
 import {View} from "./model/view";
@@ -44,6 +44,8 @@ export class MetaViewChartComponent {
     this.elements = this.data.data;
   }
   @Input() view: View = View.GRID;
+  @Output() selected: EventEmitter<MetaViewElementData>= new EventEmitter<MetaViewElementData>();
+  @Output() unselected: EventEmitter<void>= new EventEmitter<void>();
 
   protected readonly View = View;
 
@@ -61,9 +63,18 @@ export class MetaViewChartComponent {
 
   protected onElementClick(element: MetaViewElementData) {
     this.selectedElement = element;
+    this.selected.emit(element);
   }
+
+  protected unselectElement() {
+    this.selectedElement = undefined;
+    this.unselected.emit();
+    this.cdRef.detectChanges()
+  }
+
   protected onTimeLineElementClick(element: TimelineViewerChartData) {
     this.selectedElement = this.data.data.find(e => e.data['_id'] === element.meta['_id']);
+    this.selected.emit(this.selectedElement);
     this.cdRef.detectChanges();
   }
 

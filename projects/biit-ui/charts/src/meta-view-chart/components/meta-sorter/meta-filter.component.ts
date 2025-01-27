@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MetaViewData} from "../../model/meta-view-data";
 import {FieldType} from "./model/FieldType";
 import {FieldTypePipe} from "../../pipes/field-type.pipe";
@@ -9,7 +9,7 @@ import {FieldTypePipe} from "../../pipes/field-type.pipe";
   styleUrls: ['./meta-filter.component.css'],
   providers: [FieldTypePipe]
 })
-export class MetaFilterComponent {
+export class MetaFilterComponent implements OnInit{
   @Input() metadata: MetaViewData;
   @Output() filterChange: EventEmitter<Map<string, any>> = new EventEmitter<Map<string, any>>();
   protected selectedField: string = '';
@@ -19,6 +19,13 @@ export class MetaFilterComponent {
 
 
   constructor(private fieldType: FieldTypePipe) {  }
+
+  ngOnInit(): void {
+    this.metadata.preselection.forEach(preset => {
+      this.filter.set(preset.key, preset.value);
+    });
+    this.detectFilter();
+  }
 
   protected onFieldClick(field: string): void {
     if (this.fieldType.transform(field, this.metadata.data) === FieldType.BOOLEAN) {
