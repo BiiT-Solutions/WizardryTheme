@@ -9,10 +9,9 @@ import {FieldTypePipe} from "../../pipes/field-type.pipe";
   styleUrls: ['./meta-filter.component.css'],
   providers: [FieldTypePipe]
 })
-export class MetaFilterComponent {
+export class MetaFilterComponent implements OnInit {
   @Input('metadata') set _metadata(data: MetaViewData) {
     this.metadata = data;
-    this.setFilters();
   }
   @Output() filterChange: EventEmitter<Map<string, any>> = new EventEmitter<Map<string, any>>();
   protected metadata: MetaViewData;
@@ -23,6 +22,10 @@ export class MetaFilterComponent {
 
 
   constructor(private fieldType: FieldTypePipe) {  }
+
+  ngOnInit(): void {
+    this.setFilters();
+  }
 
   private setFilters() {
     this.metadata.preselection.forEach(preset => {

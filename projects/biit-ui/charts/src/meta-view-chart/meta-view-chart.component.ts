@@ -47,6 +47,7 @@ export class MetaViewChartComponent {
       tooltipInfo: []
     };
     this.elements = this.data.data;
+    this.onFilter(null);
   }
   @Input() view: View = View.GRID;
   @Output() selected: EventEmitter<MetaViewElementData>= new EventEmitter<MetaViewElementData>();
@@ -58,6 +59,7 @@ export class MetaViewChartComponent {
   protected fields: string[] = ['name', 'date', 'v1', 'v2', 'v3', 'b1'];
   protected elements: MetaViewElementData[] = [];
   protected selectedElement: MetaViewElementData;
+  protected latestFilter: Map<string, any>;
 
   protected timelineOptions: TimelineViewerChartOptions;
   private delayedFilter: NodeJS.Timeout;
@@ -87,8 +89,9 @@ export class MetaViewChartComponent {
     if (this.delayedFilter != null) {
       clearTimeout(this.delayedFilter);
     }
+    this.latestFilter = filters;
     this.delayedFilter = setTimeout(() => {
-      this.filter(filters);
+      this.filter(filters || this.latestFilter);
       this.delayedFilter = null;
     }, MetaViewChartComponent.FILTER_DELAY);
   }
