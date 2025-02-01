@@ -93,16 +93,20 @@ export class MetaViewChartComponent {
     if (filters) {
       this.latestFilter = filters;
       this.delayedFilter = setTimeout(() => {
-        this.filter(filters || this.latestFilter);
+        this.filter(filters);
         this.delayedFilter = null;
       }, MetaViewChartComponent.FILTER_DELAY);
     } else {
-      this.filter(filters || this.latestFilter);
+      this.filter(this.latestFilter);
     }
 
   }
 
   private filter(filters: Map<string, any>): void {
+    if (!filters || filters.size === 0) {
+      this.elements = this.data.data;
+      return;
+    }
     this.elements = this.data.data.filter((element: MetaViewElementData) => {
       return !Array.from(filters.entries()).map(filter =>  this.resolveFilter(filter[1], element.data[filter[0]])).some(result => !result);
     });
