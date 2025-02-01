@@ -89,7 +89,9 @@ export class MetaViewChartComponent {
     if (this.delayedFilter != null) {
       clearTimeout(this.delayedFilter);
     }
-    this.latestFilter = filters;
+    if (filters) {
+      this.latestFilter = filters;
+    }
     this.delayedFilter = setTimeout(() => {
       this.filter(filters || this.latestFilter);
       this.delayedFilter = null;
