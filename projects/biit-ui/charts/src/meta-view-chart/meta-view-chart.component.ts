@@ -6,12 +6,17 @@ import {TimelineViewerChartOptions} from "../timeline-viewer-chart/models/timeli
 import {TimelineViewerChartData} from "../timeline-viewer-chart/models/timeline-viewer-chart-data";
 import {v4 as uuid} from 'uuid';
 import {animate, style, transition, trigger} from "@angular/animations";
+import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 
 @Component({
   selector: 'biit-meta-view-chart',
   templateUrl: './meta-view-chart.component.html',
   styleUrls: ['./meta-view-chart.component.css'],
   encapsulation: ViewEncapsulation.None,
+  providers: [{
+    provide: TRANSLOCO_SCOPE,
+    useValue: {scope: 'biit-ui/chart', alias: "charts"}
+  }],
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [
@@ -36,7 +41,7 @@ export class MetaViewChartComponent {
     });
     this.cdRef.detectChanges();
     this.timelineOptions = {
-      date: 'date',
+      date: data.timelineDateField,
       color: '_color',
       tooltipHeader: data.titleField,
       tooltipInfo: []
