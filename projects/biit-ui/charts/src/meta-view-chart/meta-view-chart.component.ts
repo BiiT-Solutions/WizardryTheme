@@ -89,13 +89,17 @@ export class MetaViewChartComponent {
     if (this.delayedFilter != null) {
       clearTimeout(this.delayedFilter);
     }
+    /* This avoids to load all data if it comes from an update */
     if (filters) {
       this.latestFilter = filters;
-    }
-    this.delayedFilter = setTimeout(() => {
+      this.delayedFilter = setTimeout(() => {
+        this.filter(filters || this.latestFilter);
+        this.delayedFilter = null;
+      }, MetaViewChartComponent.FILTER_DELAY);
+    } else {
       this.filter(filters || this.latestFilter);
-      this.delayedFilter = null;
-    }, MetaViewChartComponent.FILTER_DELAY);
+    }
+
   }
 
   private filter(filters: Map<string, any>): void {
