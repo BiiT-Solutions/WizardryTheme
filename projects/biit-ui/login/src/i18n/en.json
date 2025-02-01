@@ -4,7 +4,7 @@
   "username-empty": "Username is mandatory.",
   "username-exists": "Username already exists.",
   "password-empty": "Password is mandatory.",
-  "team-mandatory": "You need to be part of a team",
+  "team-mandatory": "You need to be part of a team.",
   "email-empty": "Email is mandatory.",
   "name": "Name",
   "lastname": "Lastname",

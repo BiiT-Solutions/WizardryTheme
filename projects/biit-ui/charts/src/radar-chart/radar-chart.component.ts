@@ -1,8 +1,8 @@
-import {Component, ElementRef, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {
   ApexChart, ApexDataLabels, ApexLegend, ApexMarkers,
   ApexPlotOptions, ApexStates, ApexStroke, ApexTitleSubtitle,
-  ApexTooltip, ApexXAxis, ApexYAxis
+  ApexTooltip, ApexXAxis, ApexYAxis, ChartComponent
 } from "ng-apexcharts";
 import {RadarChartData, RadarChartSeries} from './models/radar-chart-data';
 
@@ -30,6 +30,7 @@ export type RadarChartOptions = {
   styleUrls: ['./radar-chart.component.scss']
 })
 export class RadarChartComponent implements OnInit, OnChanges {
+  @ViewChild('apexChart') apexChart: ChartComponent;
 
   chartOptions: Partial<RadarChartOptions>;
   pageNumber = 1;
@@ -149,5 +150,11 @@ export class RadarChartComponent implements OnInit, OnChanges {
         },
       }
     };
+  }
+
+  public async getPngBlob(): Promise<Blob> {
+    const base64 = await this.apexChart.dataURI();
+    const decode = await fetch(base64.imgURI);
+    return decode.blob();
   }
 }

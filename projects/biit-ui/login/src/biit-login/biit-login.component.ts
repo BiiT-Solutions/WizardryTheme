@@ -8,8 +8,6 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {BiitLoginServiceSupport} from "./models/biit-login-service-support";
 import {debounceTime, Subject} from "rxjs";
 
-const  CALL_BETWEEN_WAITING_TIME = 1000;
-
 @Component({
   selector: 'biit-login',
   templateUrl: './biit-login.component.html',
@@ -54,8 +52,8 @@ export class BiitLoginComponent implements OnInit {
     if (!this.login) {
       this.login = new BiitLogin();
     }
-
-    this.usernameSearch.pipe(debounceTime(CALL_BETWEEN_WAITING_TIME)).subscribe(() => this.checkUsernameExists());
+    console.log("Setting up login component");
+    this.usernameSearch.pipe(debounceTime(1000)).subscribe(() => this.checkUsernameExists());
     this.onLogin = new EventEmitter<BiitLogin>();
     this.onNotRemember = new EventEmitter<void>();
     this.onResetPassword = new EventEmitter<string>();
@@ -132,12 +130,12 @@ export class BiitLoginComponent implements OnInit {
 
   private validateSignUp(): boolean {
     this.loginErrors.clear();
-    if (!this.signUpData.name || !this.signUpData.name.length) {
-      this.loginErrors.set(LoginErrors.NAME, this.translocoService.translate('login.name-empty'));
-    }
-    if (!this.signUpData.lastname || !this.signUpData.lastname.length) {
-      this.loginErrors.set(LoginErrors.LASTNAME, this.translocoService.translate('login.lastname-empty'));
-    }
+    // if (!this.signUpData.name || !this.signUpData.name.length) {
+    //   this.loginErrors.set(LoginErrors.NAME, this.translocoService.translate('login.name-empty'));
+    // }
+    // if (!this.signUpData.lastname || !this.signUpData.lastname.length) {
+    //   this.loginErrors.set(LoginErrors.LASTNAME, this.translocoService.translate('login.lastname-empty'));
+    // }
     if (!this.signUpData.email || !this.signUpData.email.length) {
       this.loginErrors.set(LoginErrors.EMAIL, this.translocoService.translate('login.email-empty'));
     }
@@ -145,7 +143,7 @@ export class BiitLoginComponent implements OnInit {
       this.loginErrors.set(LoginErrors.PASSWORD, this.translocoService.translate('login.password-empty'));
     }
     if (!this.signUpGeneratedUsername && (!this.signUpData.username || !this.signUpData.username.length)) {
-      this.loginErrors.set(LoginErrors.PASSWORD, this.translocoService.translate('login.username-empty'));
+      this.loginErrors.set(LoginErrors.USERNAME, this.translocoService.translate('login.username-empty'));
     }
     return !this.loginErrors.size;
   }
@@ -176,7 +174,8 @@ export class BiitLoginComponent implements OnInit {
 
 
   protected checkUsernameExists(): void {
-    if (this.signUpGeneratedUsername && this.signUpData.username && this.signUpData.username.length) {
+    console.log("Checking if username exists");
+    if (this.signUpData.username && this.signUpData.username.length) {
       this.biitLoginServiceSupport.checkUserName(this.signUpData.username).then((exists: boolean) => {
         if (exists) {
           this.loginErrors.set(this.LoginError.USERNAME, this.translocoService.translate('login.username-exists'));

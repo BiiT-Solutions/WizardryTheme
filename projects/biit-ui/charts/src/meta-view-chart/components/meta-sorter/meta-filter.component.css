@@ -10,6 +10,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 .filter-sections {
   overflow-y: auto;
@@ -64,6 +65,9 @@
 biit-date-filter-selector {
   font-size: 1em;
 }
-::ng-deep.biit-input {
+::ng-deep .filter-search > biit-input-text > .biit-input {
   min-width: unset !important;
+}
+.align-content-center {
+  align-content: center;
 }

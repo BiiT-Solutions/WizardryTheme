@@ -1,9 +1,9 @@
-import {Component, ElementRef, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {
   ApexChart,
   ApexDataLabels, ApexGrid, ApexLegend,
   ApexPlotOptions, ApexStates, ApexTitleSubtitle,
-  ApexTooltip, ApexXAxis, ApexYAxis
+  ApexTooltip, ApexXAxis, ApexYAxis, ChartComponent
 } from "ng-apexcharts";
 import {PieChartData} from './models/pie-chart-data';
 
@@ -30,6 +30,7 @@ export type PieChartOptions = {
   styleUrls: ['./pie-chart.component.scss']
 })
 export class PieChartComponent implements OnInit, OnChanges {
+  @ViewChild('apexChart') apexChart: ChartComponent;
 
   chartOptions: Partial<PieChartOptions>;
   pageNumber = 1;
@@ -142,5 +143,11 @@ export class PieChartComponent implements OnInit, OnChanges {
         }
       }
     };
+  }
+
+  public async getPngBlob(): Promise<Blob> {
+    const base64 = await this.apexChart.dataURI();
+    const decode = await fetch(base64.imgURI);
+    return decode.blob();
   }
 }

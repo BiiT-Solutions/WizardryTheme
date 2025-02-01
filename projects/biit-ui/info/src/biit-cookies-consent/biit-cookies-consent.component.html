@@ -1,7 +1,7 @@
 <div class="cookies-canvas" *ngIf="!consent">
-  <div class="cookies-popup">
+  <div class="cookies-popup" *transloco="let t">
     <biit-icon name="cookies" class="icon"></biit-icon>
-    <a [innerHTML]="'info.consent-text' | transloco"></a>
-    <button biit-button class="button" (click)="acceptCookies()">{{'info.understand' | transloco}}</button>
+    <a [innerHTML]="t('info.consent-text')"></a>
+    <button biit-button class="button" (click)="acceptCookies()">{{ t('info.understand') }}</button>
   </div>
 </div>

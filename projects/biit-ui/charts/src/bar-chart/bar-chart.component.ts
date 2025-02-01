@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {
   ApexAxisChartSeries, ApexChart,
   ApexDataLabels, ApexGrid, ApexLegend,
   ApexPlotOptions, ApexTitleSubtitle,
-  ApexTooltip, ApexXAxis, ApexYAxis
+  ApexTooltip, ApexXAxis, ApexYAxis, ChartComponent
 } from "ng-apexcharts";
 import {BarChartData} from './models/bar-chart-data';
 import {fromEvent} from 'rxjs';
@@ -32,7 +32,7 @@ export type BarChartOptions = {
   }
 })
 export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
-
+  @ViewChild('apexChart') apexChart: ChartComponent;
   chartOptions: Partial<BarChartOptions>;
   pageNumber = 1;
 
@@ -199,5 +199,11 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
       },
       colors: this.data.series.map(c => c.color)
     };
+  }
+
+  public async getPngBlob(): Promise<Blob> {
+    const base64 = await this.apexChart.dataURI();
+    const decode = await fetch(base64.imgURI);
+    return decode.blob();
   }
 }

@@ -1340,7 +1340,10 @@ Default.args = {
       "TradesmanScore",
       "AdaptabilityActionScore",
       "StructureInspirationScore"
-    ], "titleField": "name"
+    ], "titleField": "name",
+    "preselection": [
+      {key: "ReceptiveScore", value: [33, 55]}
+    ]
   },
   view: View.GRID
 }

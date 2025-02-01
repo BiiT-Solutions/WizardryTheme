@@ -24,6 +24,6 @@
       [data]="selectedElement"
       [fields]="data.fields"
       [titleField]="data.titleField"
-      (onClose)="selectedElement = undefined; cdRef.detectChanges()"/>
+      (onClose)="unselectElement()"/>
   </div>
 </div>
