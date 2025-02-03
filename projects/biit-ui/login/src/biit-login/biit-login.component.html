@@ -110,6 +110,7 @@
     <biit-dropdown
                     *ngIf="teams && teams.length"
                     [(ngModel)]="dumbTeam"
+                    [required]="true"
                     [data]="teams"
                     value="key"
                     label="label"
