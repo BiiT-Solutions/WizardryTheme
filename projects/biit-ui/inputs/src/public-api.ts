@@ -10,6 +10,8 @@ export * from './biit-multiselect/biit-multiselect.module';
 export * from './biit-multiselect/biit-multiselect.component';
 export * from './biit-toggle/biit-toggle.module';
 export * from './biit-toggle/biit-toggle.component';
+export * from './biit-ternary-togle/biit-ternary-toggle.module';
+export * from './biit-ternary-togle/biit-ternary-toggle.component';
 export * from './biit-toggle-group/biit-toggle-group.module';
 export * from './biit-toggle-group/biit-toggle-group.component';
 export * from './biit-toggle-group/biit-toggle-button.component';
