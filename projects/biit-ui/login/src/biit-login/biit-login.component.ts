@@ -70,6 +70,10 @@ export class BiitLoginComponent implements OnInit {
     if (this.allowSignUp) {
       this.signUpView = true;
     }
+    if (this.teams && this.teams.length) {
+      this.dumbTeam = this.teams[0];
+      this.signUpData.team = this.dumbTeam.key;
+    }
   }
 
   protected performLogin(): void {
@@ -147,6 +151,9 @@ export class BiitLoginComponent implements OnInit {
     }
     if (!this.signUpGeneratedUsername && (!this.signUpData.username || !this.signUpData.username.length)) {
       this.loginErrors.set(LoginErrors.USERNAME, this.translocoService.translate('login.username-empty'));
+    }
+    if (this.teams && (!this.signUpData.team || !this.signUpData.team.length)) {
+      this.loginErrors.set(LoginErrors.TEAM, this.translocoService.translate('login.team-mandatory'));
     }
     return !this.loginErrors.size;
   }
