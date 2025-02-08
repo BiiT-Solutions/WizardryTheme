@@ -25,6 +25,8 @@ export class BiitLoginComponent implements OnInit {
   @Input() signUpGeneratedUsername = true;
   @Input() teams: { key: any, label: string }[];
   @Input() biitLoginServiceSupport: BiitLoginServiceSupport;
+  @Input() notification: string;
+  @Input() notificationTitle: string;
 
   @Output() onLogin: EventEmitter<BiitLogin>;
   @Output() onNotRemember: EventEmitter<void>;
@@ -47,6 +49,7 @@ export class BiitLoginComponent implements OnInit {
   protected readonly PWD_MAX_LENGTH = 25
 
   protected usernameSearch: Subject<string> = new Subject();
+  protected showNotification: boolean = true;
 
   constructor(public translocoService: TranslocoService) {
     if (!this.login) {

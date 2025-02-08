@@ -46,6 +46,30 @@ export default {
       }
     },
     teams: Object,
+    notificationTitle: {
+      name: 'title',
+      type: { name: 'string', required: false },
+      description: 'Defines the header text of notification popup',
+      table: {
+        type: { summary: 'string' },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'text'
+      }
+    },
+    notification: {
+      name: 'title',
+      type: { name: 'string', required: false },
+      description: 'Defines the body of notification popup',
+      table: {
+        type: { summary: 'string' },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'text'
+      }
+    },
     onLogin: {
       action: 'onLogin',
       name: 'onLogin',
@@ -93,6 +117,9 @@ const SignUpTemplate: Story<BiitLoginComponent> = (args: BiitLoginComponent, { g
      [login]="login"
      [allowSignUp]="true"
      [teams]="teams"
+     notificationTitle="This is a notification title example"
+     notification="<h1>This is a notification example</h1><br><p>With HTML Injected</p><a href='https://www.biit-solutions.com'>
+     <img src='https://www.biit-solutions.com/images/Version2/BIITlogo.svg' alt='Biit Logo' /></a>"
      (onLogin)="onLogin($event)"
      (onNotRemember)="onNotRemember()"
     ></biit-login>`
