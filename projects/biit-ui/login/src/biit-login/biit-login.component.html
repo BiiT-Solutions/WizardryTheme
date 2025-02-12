@@ -130,10 +130,10 @@
   </div>
   <div *transloco="let t">
     <biit-popup *ngIf="notification && showNotification"
-                [title]="t('login.warning_window.tittle')"
+                [title]="t('login-welcome.warning_window.tittle')"
                 closable
                 (onClosed)="showNotification = false">
-      <div [innerHTML]="t('login.warning_window.content')"></div>
+      <div [innerHTML]="t('login-welcome.warning_window.content')"></div>
     </biit-popup>
   </div>
 </ng-template>

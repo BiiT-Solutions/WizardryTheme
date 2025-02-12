@@ -14,7 +14,7 @@ import {debounceTime, Subject} from "rxjs";
   styleUrls: ['./biit-login.component.scss'],
   providers: [{
     provide: TRANSLOCO_SCOPE,
-    useValue: {scope: ['biit-ui/login', 'biit-ui/login-welcome'], alias: "login"}
+    useValue: {scope: ['biit-ui/login', 'biit-ui/login-welcome'], alias: ["login", "login-welcome"]},
   }]
 })
 export class BiitLoginComponent implements OnInit {
