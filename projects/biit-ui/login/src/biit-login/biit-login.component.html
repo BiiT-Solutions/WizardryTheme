@@ -90,7 +90,8 @@
 
 <ng-template #signUpForm>
   <div class="login-column" *transloco="let t">
-    <biit-input-text [(ngModel)]="signUpData.username" fieldName="username" *ngIf="!signUpGeneratedUsername" [type]="Type.TEXT"
+    <biit-input-text [(ngModel)]="signUpData.username" fieldName="username" *ngIf="!signUpGeneratedUsername"
+                     [type]="Type.TEXT"
                      [error]="this.loginErrors.get(LoginError.USERNAME)"
                      (keyup.enter)="performLogin()"
                      (ngModelChange)="usernameSearch.next($event)"
@@ -108,13 +109,13 @@
                      (keyup.enter)="performLogin()"
                      placeholder="{{t('login.email')}}" class="login-input"></biit-input-text>
     <biit-dropdown
-                    *ngIf="teams && teams.length"
-                    [(ngModel)]="dumbTeam"
-                    [required]="true"
-                    [data]="teams"
-                    value="key"
-                    label="label"
-                    title="{{t('login.team')}}" class="login-input"/>
+      *ngIf="teams && teams.length"
+      [(ngModel)]="dumbTeam"
+      [required]="true"
+      [data]="teams"
+      value="key"
+      label="label"
+      title="{{t('login.team')}}" class="login-input"/>
     <biit-input-text [(ngModel)]="signUpData.password" fieldName="password"
                      [error]="this.loginErrors.get(LoginError.PASSWORD)"
                      (keyup.enter)="performLogin()" *ngIf="!signUpGeneratedPassword"
@@ -127,10 +128,12 @@
       </button>
     </div>
   </div>
-  <biit-popup *ngIf="notification && showNotification"
-              [title]="notificationTitle"
-              closable
-              (onClosed)="showNotification = false">
-    <div [innerHTML]="notification"></div>
-  </biit-popup>
+  <div *transloco="let t">
+    <biit-popup *ngIf="notification && showNotification"
+                [title]="t('login.warning_window.tittle')"
+                closable
+                (onClosed)="showNotification = false">
+      <div [innerHTML]="t('login.warning_window.content')"></div>
+    </biit-popup>
+  </div>
 </ng-template>

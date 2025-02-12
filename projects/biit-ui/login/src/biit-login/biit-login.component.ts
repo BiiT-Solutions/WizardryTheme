@@ -14,7 +14,7 @@ import {debounceTime, Subject} from "rxjs";
   styleUrls: ['./biit-login.component.scss'],
   providers: [{
     provide: TRANSLOCO_SCOPE,
-    useValue: {scope: 'biit-ui/login', alias: "login"}
+    useValue: {scope: ['biit-ui/login', 'biit-ui/login-welcome'], alias: "login"}
   }]
 })
 export class BiitLoginComponent implements OnInit {
@@ -25,7 +25,7 @@ export class BiitLoginComponent implements OnInit {
   @Input() signUpGeneratedUsername = true;
   @Input() teams: { key: any, label: string }[];
   @Input() biitLoginServiceSupport: BiitLoginServiceSupport;
-  @Input() notification: string;
+  @Input() notification: boolean;
   @Input() notificationTitle: string;
 
   @Output() onLogin: EventEmitter<BiitLogin>;
