@@ -25,7 +25,7 @@ export class BiitLoginComponent implements OnInit {
   @Input() signUpGeneratedUsername = true;
   @Input() teams: { key: any, label: string }[];
   @Input() biitLoginServiceSupport: BiitLoginServiceSupport;
-  @Input() notification: boolean;
+  @Input() notification: boolean = false;
   @Input() notificationTitle: string;
 
   @Output() onLogin: EventEmitter<BiitLogin>;
