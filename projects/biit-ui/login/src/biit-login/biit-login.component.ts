@@ -25,6 +25,8 @@ export class BiitLoginComponent implements OnInit {
   @Input() signUpGeneratedUsername = true;
   @Input() teams: { key: any, label: string }[];
   @Input() biitLoginServiceSupport: BiitLoginServiceSupport;
+  @Input() notification: string;
+  @Input() notificationTitle: string;
 
   @Output() onLogin: EventEmitter<BiitLogin>;
   @Output() onNotRemember: EventEmitter<void>;
@@ -47,6 +49,7 @@ export class BiitLoginComponent implements OnInit {
   protected readonly PWD_MAX_LENGTH = 25
 
   protected usernameSearch: Subject<string> = new Subject();
+  protected showNotification: boolean = true;
 
   constructor(public translocoService: TranslocoService) {
     if (!this.login) {
@@ -66,6 +69,10 @@ export class BiitLoginComponent implements OnInit {
   ngOnInit() {
     if (this.allowSignUp) {
       this.signUpView = true;
+    }
+    if (this.teams && this.teams.length) {
+      this.dumbTeam = this.teams[0];
+      this.signUpData.team = this.dumbTeam.key;
     }
   }
 
@@ -144,6 +151,9 @@ export class BiitLoginComponent implements OnInit {
     }
     if (!this.signUpGeneratedUsername && (!this.signUpData.username || !this.signUpData.username.length)) {
       this.loginErrors.set(LoginErrors.USERNAME, this.translocoService.translate('login.username-empty'));
+    }
+    if (this.teams && (!this.signUpData.team || !this.signUpData.team.length)) {
+      this.loginErrors.set(LoginErrors.TEAM, this.translocoService.translate('login.team-mandatory'));
     }
     return !this.loginErrors.size;
   }

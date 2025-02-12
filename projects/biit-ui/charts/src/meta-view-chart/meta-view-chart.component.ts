@@ -6,12 +6,17 @@ import {TimelineViewerChartOptions} from "../timeline-viewer-chart/models/timeli
 import {TimelineViewerChartData} from "../timeline-viewer-chart/models/timeline-viewer-chart-data";
 import {v4 as uuid} from 'uuid';
 import {animate, style, transition, trigger} from "@angular/animations";
+import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 
 @Component({
   selector: 'biit-meta-view-chart',
   templateUrl: './meta-view-chart.component.html',
   styleUrls: ['./meta-view-chart.component.css'],
   encapsulation: ViewEncapsulation.None,
+  providers: [{
+    provide: TRANSLOCO_SCOPE,
+    useValue: {scope: 'biit-ui/chart', alias: "charts"}
+  }],
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [
@@ -36,12 +41,13 @@ export class MetaViewChartComponent {
     });
     this.cdRef.detectChanges();
     this.timelineOptions = {
-      date: 'date',
+      date: data.timelineDateField,
       color: '_color',
       tooltipHeader: data.titleField,
       tooltipInfo: []
     };
     this.elements = this.data.data;
+    this.onFilter(null);
   }
   @Input() view: View = View.GRID;
   @Output() selected: EventEmitter<MetaViewElementData>= new EventEmitter<MetaViewElementData>();
@@ -53,6 +59,7 @@ export class MetaViewChartComponent {
   protected fields: string[] = ['name', 'date', 'v1', 'v2', 'v3', 'b1'];
   protected elements: MetaViewElementData[] = [];
   protected selectedElement: MetaViewElementData;
+  protected latestFilter: Map<string, any>;
 
   protected timelineOptions: TimelineViewerChartOptions;
   private delayedFilter: NodeJS.Timeout;
@@ -82,13 +89,24 @@ export class MetaViewChartComponent {
     if (this.delayedFilter != null) {
       clearTimeout(this.delayedFilter);
     }
-    this.delayedFilter = setTimeout(() => {
-      this.filter(filters);
-      this.delayedFilter = null;
-    }, MetaViewChartComponent.FILTER_DELAY);
+    /* This avoids to load all data if it comes from an update */
+    if (filters) {
+      this.latestFilter = filters;
+      this.delayedFilter = setTimeout(() => {
+        this.filter(filters);
+        this.delayedFilter = null;
+      }, MetaViewChartComponent.FILTER_DELAY);
+    } else {
+      this.filter(this.latestFilter);
+    }
+
   }
 
   private filter(filters: Map<string, any>): void {
+    if (!filters || filters.size === 0) {
+      this.elements = this.data.data;
+      return;
+    }
     this.elements = this.data.data.filter((element: MetaViewElementData) => {
       return !Array.from(filters.entries()).map(filter =>  this.resolveFilter(filter[1], element.data[filter[0]])).some(result => !result);
     });

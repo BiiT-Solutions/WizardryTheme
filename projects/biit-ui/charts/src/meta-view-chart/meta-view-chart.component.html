@@ -1,4 +1,4 @@
-<div class="meta-view-chart-board">
+<div class="meta-view-chart-board" *transloco="let t">
   <div class="meta-view-column">
     <biit-meta-filter [metadata]="data" (filterChange)="onFilter($event)"/>
   </div>
@@ -7,12 +7,18 @@
     [selected]="selectedElement"
     (elementClick)="onElementClick($event)"
   />
-  <biit-timeline-viewer-chart *ngIf="view === View.TIMELINE && timelineOptions"
+  <biit-timeline-viewer-chart *ngIf="view === View.TIMELINE && timelineOptions && timelineOptions.date"
     [data]="elements | extractData"
     [options]="timelineOptions"
     (onItemClick)="onTimeLineElementClick($event)"
     style="overflow: hidden"
   />
+  <div class="error-view" *ngIf="view === View.TIMELINE && !timelineOptions?.date">
+    <div>
+      <biit-icon name="exclamation" style="display:block; width: 1rem;" />
+    </div>
+    <div>{{ t('charts.configuration-not-meets-requirements') }}</div>
+  </div>
   <div class="meta-view-column rtl" *ngIf="selectedElement" @fadeInOut>
     <biit-metadata-viewer class="ltr"
       [data]="selectedElement"
