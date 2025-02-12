@@ -145,15 +145,19 @@ export class BiitLoginComponent implements OnInit {
     // }
     if (!this.signUpData.email || !this.signUpData.email.length) {
       this.loginErrors.set(LoginErrors.EMAIL, this.translocoService.translate('login.email-empty'));
+      console.error("Email is mandatory");
     }
     if (!this.signUpGeneratedPassword && (!this.signUpData.password || !this.signUpData.password.length)) {
       this.loginErrors.set(LoginErrors.PASSWORD, this.translocoService.translate('login.password-empty'));
+      console.error("Password is mandatory");
     }
     if (!this.signUpGeneratedUsername && (!this.signUpData.username || !this.signUpData.username.length)) {
       this.loginErrors.set(LoginErrors.USERNAME, this.translocoService.translate('login.username-empty'));
+      console.error("Username is mandatory");
     }
-    if (this.teams && (!this.signUpData.team || !this.signUpData.team.length)) {
+    if ((this.teams && this.teams.length) && (!this.signUpData.team || !this.signUpData.team.length)) {
       this.loginErrors.set(LoginErrors.TEAM, this.translocoService.translate('login.team-mandatory'));
+      console.error("Team is mandatory");
     }
     return !this.loginErrors.size;
   }
