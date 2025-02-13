@@ -14,7 +14,12 @@ import {debounceTime, Subject} from "rxjs";
   styleUrls: ['./biit-login.component.scss'],
   providers: [{
     provide: TRANSLOCO_SCOPE,
-    useValue: {scope: ['biit-ui/login', 'biit-ui/login-welcome'], alias: ["login", "login-welcome"]},
+    useValue: {scope: 'biit-ui/login', alias: "login"},
+    multi: true
+  }, {
+    provide: TRANSLOCO_SCOPE,
+    useValue: {scope: 'biit-ui/login-welcome', alias: "login-welcome"},
+    multi: true
   }]
 })
 export class BiitLoginComponent implements OnInit {
@@ -197,16 +202,16 @@ export class BiitLoginComponent implements OnInit {
           console.log(`Username '${this.signUpData.username}' is available`);
         }
       }).catch((error: HttpErrorResponse) => {
-          if (error instanceof HttpErrorResponse) {
-            switch (error.status) {
-              case 409:
-              case 400:
-                this.loginErrors.set(this.LoginError.USERNAME, this.translocoService.translate('login.username-exists'));
-                break;
-              default:
-                throw error;
-            }
+        if (error instanceof HttpErrorResponse) {
+          switch (error.status) {
+            case 409:
+            case 400:
+              this.loginErrors.set(this.LoginError.USERNAME, this.translocoService.translate('login.username-exists'));
+              break;
+            default:
+              throw error;
           }
+        }
       });
     }
   }
