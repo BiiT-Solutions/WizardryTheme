@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BooleanFilterComponent } from './boolean-filter.component';
-import {BiitToggleModule} from "biit-ui/inputs";
+import {BiitTernaryToggleModule, BiitToggleModule} from "biit-ui/inputs";
 import {FormsModule} from "@angular/forms";
 
 @NgModule({
@@ -11,10 +11,11 @@ import {FormsModule} from "@angular/forms";
   exports: [
     BooleanFilterComponent
   ],
-  imports: [
-    CommonModule,
-    BiitToggleModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        BiitToggleModule,
+        FormsModule,
+        BiitTernaryToggleModule
+    ]
 })
 export class BooleanFilterModule { }

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {MetaViewData} from "../../model/meta-view-data";
+import {MetaViewData} from "biit-ui/charts";
 import {FieldType} from "./model/FieldType";
 import {FieldTypePipe} from "../../pipes/field-type.pipe";
 
@@ -56,7 +56,7 @@ export class MetaFilterComponent implements OnInit {
   }
 
   protected onBooleanFilterChanged(field: string, value: boolean): void {
-    this.filter.set(field, value);
+    value === undefined ? this.filter.delete(field) : this.filter.set(field, value);
     this.detectFilter();
   }
 

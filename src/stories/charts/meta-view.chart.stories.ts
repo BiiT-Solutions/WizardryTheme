@@ -6,9 +6,8 @@ import {
 import {BiitIconService} from "biit-ui/icon";
 import {completeIconSet} from "biit-icons-collection";
 import {APP_INITIALIZER} from "@angular/core";
-import {MetaViewData} from "../../../projects/biit-ui/charts/src/meta-view-chart/model/meta-view-data";
+import {MetaViewData} from "biit-ui/charts";
 import {View} from 'projects/biit-ui/charts/src/meta-view-chart/model/view';
-import {Type} from "biit-ui/inputs";
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);
@@ -80,7 +79,8 @@ Default.args = {
           "ScientistScore": 70.1,
           "TradesmanScore": 55.2,
           "AdaptabilityActionScore": 60.0,
-          "StructureInspirationScore": 50.4
+          "StructureInspirationScore": 50.4,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,0,0, 0); border: 11px solid rgb(255,0,0); box-sizing: border-box;",
         "statusColor": "rgb(255,0,0)"
@@ -98,7 +98,8 @@ Default.args = {
           "ScientistScore": 68.1,
           "TradesmanScore": 53.2,
           "AdaptabilityActionScore": 59.0,
-          "StructureInspirationScore": 51.4
+          "StructureInspirationScore": 51.4,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,0,0, 0); border: 11px solid rgb(255,0,0); box-sizing: border-box;",
         "statusColor": "rgb(255,0,0)"
@@ -116,7 +117,8 @@ Default.args = {
           "ScientistScore": 68.1,
           "TradesmanScore": 53.2,
           "AdaptabilityActionScore": 59.0,
-          "StructureInspirationScore": 51.4
+          "StructureInspirationScore": 51.4,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,0,0, 0); border: 11px solid rgb(255,0,0); box-sizing: border-box;",
         "statusColor": "rgb(255,0,0)"
@@ -134,7 +136,8 @@ Default.args = {
           "ScientistScore": 70.1,
           "TradesmanScore": 55.2,
           "AdaptabilityActionScore": 60.0,
-          "StructureInspirationScore": 50.4
+          "StructureInspirationScore": 50.4,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,0,0, 0); border: 11px solid rgb(255,0,0); box-sizing: border-box;",
         "statusColor": "rgb(255,0,0)"
@@ -152,7 +155,8 @@ Default.args = {
           "ScientistScore": 85.0,
           "TradesmanScore": 15.0,
           "AdaptabilityActionScore": 75.0,
-          "StructureInspirationScore": 25.0
+          "StructureInspirationScore": 25.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,0,0, 0); border: 11px solid rgb(255,0,0); box-sizing: border-box;",
         "statusColor": "rgb(255,0,0)"
@@ -170,7 +174,8 @@ Default.args = {
           "ScientistScore": 68.1,
           "TradesmanScore": 53.2,
           "AdaptabilityActionScore": 59.0,
-          "StructureInspirationScore": 51.4
+          "StructureInspirationScore": 51.4,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,0,0, 0); border: 11px solid rgb(255,0,0); box-sizing: border-box;",
         "statusColor": "rgb(255,0,0)"
@@ -188,7 +193,8 @@ Default.args = {
           "ScientistScore": 70.1,
           "TradesmanScore": 55.2,
           "AdaptabilityActionScore": 60.0,
-          "StructureInspirationScore": 50.4
+          "StructureInspirationScore": 50.4,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,0,0, 0); border: 11px solid rgb(255,0,0); box-sizing: border-box;",
         "statusColor": "rgb(255,0,0)"
@@ -206,7 +212,8 @@ Default.args = {
           "ScientistScore": 55.0,
           "TradesmanScore": 60.0,
           "AdaptabilityActionScore": 50.0,
-          "StructureInspirationScore": 45.0
+          "StructureInspirationScore": 45.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,51,0, 0); border: 11px solid rgb(255,51,0); box-sizing: border-box;",
         "statusColor": "rgb(255,51,0)"
@@ -224,7 +231,8 @@ Default.args = {
           "ScientistScore": 54.0,
           "TradesmanScore": 61.0,
           "AdaptabilityActionScore": 51.0,
-          "StructureInspirationScore": 46.0
+          "StructureInspirationScore": 46.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,51,0, 0); border: 11px solid rgb(255,51,0); box-sizing: border-box;",
         "statusColor": "rgb(255,51,0)"
@@ -242,7 +250,8 @@ Default.args = {
           "ScientistScore": 54.0,
           "TradesmanScore": 61.0,
           "AdaptabilityActionScore": 51.0,
-          "StructureInspirationScore": 46.0
+          "StructureInspirationScore": 46.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,51,0, 0); border: 11px solid rgb(255,51,0); box-sizing: border-box;",
         "statusColor": "rgb(255,51,0)"
@@ -260,7 +269,8 @@ Default.args = {
           "ScientistScore": 54.0,
           "TradesmanScore": 61.0,
           "AdaptabilityActionScore": 51.0,
-          "StructureInspirationScore": 46.0
+          "StructureInspirationScore": 46.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,51,0, 0); border: 11px solid rgb(255,51,0); box-sizing: border-box;",
         "statusColor": "rgb(255,51,0)"
@@ -278,7 +288,8 @@ Default.args = {
           "ScientistScore": 55.0,
           "TradesmanScore": 60.0,
           "AdaptabilityActionScore": 50.0,
-          "StructureInspirationScore": 45.0
+          "StructureInspirationScore": 45.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,51,0, 0); border: 11px solid rgb(255,51,0); box-sizing: border-box;",
         "statusColor": "rgb(255,51,0)"
@@ -296,7 +307,8 @@ Default.args = {
           "ScientistScore": 55.0,
           "TradesmanScore": 60.0,
           "AdaptabilityActionScore": 50.0,
-          "StructureInspirationScore": 45.0
+          "StructureInspirationScore": 45.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,51,0, 0); border: 11px solid rgb(255,51,0); box-sizing: border-box;",
         "statusColor": "rgb(255,51,0)"
@@ -314,7 +326,8 @@ Default.args = {
           "ScientistScore": 40.0,
           "TradesmanScore": 60.0,
           "AdaptabilityActionScore": 50.0,
-          "StructureInspirationScore": 55.0
+          "StructureInspirationScore": 55.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,51,0, 0); border: 11px solid rgb(255,51,0); box-sizing: border-box;",
         "statusColor": "rgb(255,51,0)"
@@ -332,7 +345,8 @@ Default.args = {
           "ScientistScore": 45.0,
           "TradesmanScore": 55.0,
           "AdaptabilityActionScore": 60.0,
-          "StructureInspirationScore": 50.0
+          "StructureInspirationScore": 50.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,102,0, 0); border: 11px solid rgb(255,102,0); box-sizing: border-box;",
         "statusColor": "rgb(255,102,0)"
@@ -350,7 +364,8 @@ Default.args = {
           "ScientistScore": 45.0,
           "TradesmanScore": 55.0,
           "AdaptabilityActionScore": 60.0,
-          "StructureInspirationScore": 50.0
+          "StructureInspirationScore": 50.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,102,0, 0); border: 11px solid rgb(255,102,0); box-sizing: border-box;",
         "statusColor": "rgb(255,102,0)"
@@ -368,7 +383,8 @@ Default.args = {
           "ScientistScore": 46.0,
           "TradesmanScore": 56.0,
           "AdaptabilityActionScore": 61.0,
-          "StructureInspirationScore": 51.0
+          "StructureInspirationScore": 51.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,102,0, 0); border: 11px solid rgb(255,102,0); box-sizing: border-box;",
         "statusColor": "rgb(255,102,0)"
@@ -386,7 +402,8 @@ Default.args = {
           "ScientistScore": 46.0,
           "TradesmanScore": 56.0,
           "AdaptabilityActionScore": 61.0,
-          "StructureInspirationScore": 51.0
+          "StructureInspirationScore": 51.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,102,0, 0); border: 11px solid rgb(255,102,0); box-sizing: border-box;",
         "statusColor": "rgb(255,102,0)"
@@ -404,7 +421,8 @@ Default.args = {
           "ScientistScore": 46.0,
           "TradesmanScore": 56.0,
           "AdaptabilityActionScore": 61.0,
-          "StructureInspirationScore": 51.0
+          "StructureInspirationScore": 51.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,102,0, 0); border: 11px solid rgb(255,102,0); box-sizing: border-box;",
         "statusColor": "rgb(255,102,0)"
@@ -422,7 +440,8 @@ Default.args = {
           "ScientistScore": 45.0,
           "TradesmanScore": 55.0,
           "AdaptabilityActionScore": 60.0,
-          "StructureInspirationScore": 50.0
+          "StructureInspirationScore": 50.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,102,0, 0); border: 11px solid rgb(255,102,0); box-sizing: border-box;",
         "statusColor": "rgb(255,102,0)"
@@ -440,7 +459,8 @@ Default.args = {
           "ScientistScore": 55.0,
           "TradesmanScore": 45.0,
           "AdaptabilityActionScore": 95.0,
-          "StructureInspirationScore": 5.0
+          "StructureInspirationScore": 5.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,102,0, 0); border: 11px solid rgb(255,102,0); box-sizing: border-box;",
         "statusColor": "rgb(255,102,0)"
@@ -458,7 +478,8 @@ Default.args = {
           "ScientistScore": 50.0,
           "TradesmanScore": 45.0,
           "AdaptabilityActionScore": 55.0,
-          "StructureInspirationScore": 60.0
+          "StructureInspirationScore": 60.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,153,0, 0); border: 11px solid rgb(255,153,0); box-sizing: border-box;",
         "statusColor": "rgb(255,153,0)"
@@ -476,7 +497,8 @@ Default.args = {
           "ScientistScore": 51.0,
           "TradesmanScore": 46.0,
           "AdaptabilityActionScore": 56.0,
-          "StructureInspirationScore": 61.0
+          "StructureInspirationScore": 61.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,153,0, 0); border: 11px solid rgb(255,153,0); box-sizing: border-box;",
         "statusColor": "rgb(255,153,0)"
@@ -494,7 +516,8 @@ Default.args = {
           "ScientistScore": 50.0,
           "TradesmanScore": 45.0,
           "AdaptabilityActionScore": 55.0,
-          "StructureInspirationScore": 60.0
+          "StructureInspirationScore": 60.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,153,0, 0); border: 11px solid rgb(255,153,0); box-sizing: border-box;",
         "statusColor": "rgb(255,153,0)"
@@ -512,7 +535,8 @@ Default.args = {
           "ScientistScore": 51.0,
           "TradesmanScore": 46.0,
           "AdaptabilityActionScore": 56.0,
-          "StructureInspirationScore": 61.0
+          "StructureInspirationScore": 61.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,153,0, 0); border: 11px solid rgb(255,153,0); box-sizing: border-box;",
         "statusColor": "rgb(255,153,0)"
@@ -530,7 +554,8 @@ Default.args = {
           "ScientistScore": 50.0,
           "TradesmanScore": 45.0,
           "AdaptabilityActionScore": 55.0,
-          "StructureInspirationScore": 60.0
+          "StructureInspirationScore": 60.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,153,0, 0); border: 11px solid rgb(255,153,0); box-sizing: border-box;",
         "statusColor": "rgb(255,153,0)"
@@ -548,7 +573,8 @@ Default.args = {
           "ScientistScore": 51.0,
           "TradesmanScore": 46.0,
           "AdaptabilityActionScore": 56.0,
-          "StructureInspirationScore": 61.0
+          "StructureInspirationScore": 61.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,153,0, 0); border: 11px solid rgb(255,153,0); box-sizing: border-box;",
         "statusColor": "rgb(255,153,0)"
@@ -566,7 +592,8 @@ Default.args = {
           "ScientistScore": 50.0,
           "TradesmanScore": 55.0,
           "AdaptabilityActionScore": 10.0,
-          "StructureInspirationScore": 90.0
+          "StructureInspirationScore": 90.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,153,0, 0); border: 11px solid rgb(255,153,0); box-sizing: border-box;",
         "statusColor": "rgb(255,153,0)"
@@ -584,7 +611,8 @@ Default.args = {
           "ScientistScore": 60.0,
           "TradesmanScore": 50.0,
           "AdaptabilityActionScore": 45.0,
-          "StructureInspirationScore": 55.0
+          "StructureInspirationScore": 55.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,204,0, 0); border: 11px solid rgb(255,204,0); box-sizing: border-box;",
         "statusColor": "rgb(255,204,0)"
@@ -602,7 +630,8 @@ Default.args = {
           "ScientistScore": 61.0,
           "TradesmanScore": 51.0,
           "AdaptabilityActionScore": 46.0,
-          "StructureInspirationScore": 56.0
+          "StructureInspirationScore": 56.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,204,0, 0); border: 11px solid rgb(255,204,0); box-sizing: border-box;",
         "statusColor": "rgb(255,204,0)"
@@ -620,7 +649,8 @@ Default.args = {
           "ScientistScore": 60.0,
           "TradesmanScore": 50.0,
           "AdaptabilityActionScore": 45.0,
-          "StructureInspirationScore": 55.0
+          "StructureInspirationScore": 55.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,204,0, 0); border: 11px solid rgb(255,204,0); box-sizing: border-box;",
         "statusColor": "rgb(255,204,0)"
@@ -638,7 +668,8 @@ Default.args = {
           "ScientistScore": 61.0,
           "TradesmanScore": 51.0,
           "AdaptabilityActionScore": 46.0,
-          "StructureInspirationScore": 56.0
+          "StructureInspirationScore": 56.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,204,0, 0); border: 11px solid rgb(255,204,0); box-sizing: border-box;",
         "statusColor": "rgb(255,204,0)"
@@ -656,7 +687,8 @@ Default.args = {
           "ScientistScore": 60.0,
           "TradesmanScore": 50.0,
           "AdaptabilityActionScore": 45.0,
-          "StructureInspirationScore": 55.0
+          "StructureInspirationScore": 55.0,
+          "Pass": false
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,204,0, 0); border: 11px solid rgb(255,204,0); box-sizing: border-box;",
         "statusColor": "rgb(255,204,0)"
@@ -674,7 +706,8 @@ Default.args = {
           "ScientistScore": 61.0,
           "TradesmanScore": 51.0,
           "AdaptabilityActionScore": 46.0,
-          "StructureInspirationScore": 56.0
+          "StructureInspirationScore": 56.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,204,0, 0); border: 11px solid rgb(255,204,0); box-sizing: border-box;",
         "statusColor": "rgb(255,204,0)"
@@ -692,7 +725,8 @@ Default.args = {
           "ScientistScore": 85.0,
           "TradesmanScore": 15.0,
           "AdaptabilityActionScore": 95.0,
-          "StructureInspirationScore": 5.0
+          "StructureInspirationScore": 5.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,204,0, 0); border: 11px solid rgb(255,204,0); box-sizing: border-box;",
         "statusColor": "rgb(255,204,0)"
@@ -710,7 +744,8 @@ Default.args = {
           "ScientistScore": 55.0,
           "TradesmanScore": 60.0,
           "AdaptabilityActionScore": 50.0,
-          "StructureInspirationScore": 45.0
+          "StructureInspirationScore": 45.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,255,0, 0); border: 11px solid rgb(255,255,0); box-sizing: border-box;",
         "statusColor": "rgb(255,255,0)"
@@ -728,7 +763,8 @@ Default.args = {
           "ScientistScore": 55.0,
           "TradesmanScore": 60.0,
           "AdaptabilityActionScore": 50.0,
-          "StructureInspirationScore": 45.0
+          "StructureInspirationScore": 45.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,255,0, 0); border: 11px solid rgb(255,255,0); box-sizing: border-box;",
         "statusColor": "rgb(255,255,0)"
@@ -746,7 +782,8 @@ Default.args = {
           "ScientistScore": 56.0,
           "TradesmanScore": 61.0,
           "AdaptabilityActionScore": 51.0,
-          "StructureInspirationScore": 46.0
+          "StructureInspirationScore": 46.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,255,0, 0); border: 11px solid rgb(255,255,0); box-sizing: border-box;",
         "statusColor": "rgb(255,255,0)"
@@ -764,7 +801,8 @@ Default.args = {
           "ScientistScore": 56.0,
           "TradesmanScore": 61.0,
           "AdaptabilityActionScore": 51.0,
-          "StructureInspirationScore": 46.0
+          "StructureInspirationScore": 46.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,255,0, 0); border: 11px solid rgb(255,255,0); box-sizing: border-box;",
         "statusColor": "rgb(255,255,0)"
@@ -782,7 +820,8 @@ Default.args = {
           "ScientistScore": 55.0,
           "TradesmanScore": 60.0,
           "AdaptabilityActionScore": 50.0,
-          "StructureInspirationScore": 45.0
+          "StructureInspirationScore": 45.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,255,0, 0); border: 11px solid rgb(255,255,0); box-sizing: border-box;",
         "statusColor": "rgb(255,255,0)"
@@ -800,7 +839,8 @@ Default.args = {
           "ScientistScore": 20.0,
           "TradesmanScore": 80.0,
           "AdaptabilityActionScore": 10.0,
-          "StructureInspirationScore": 90.0
+          "StructureInspirationScore": 90.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,255,0, 0); border: 11px solid rgb(255,255,0); box-sizing: border-box;",
         "statusColor": "rgb(255,255,0)"
@@ -818,7 +858,8 @@ Default.args = {
           "ScientistScore": 56.0,
           "TradesmanScore": 61.0,
           "AdaptabilityActionScore": 51.0,
-          "StructureInspirationScore": 46.0
+          "StructureInspirationScore": 46.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(255,255,0, 0); border: 11px solid rgb(255,255,0); box-sizing: border-box;",
         "statusColor": "rgb(255,255,0)"
@@ -836,7 +877,8 @@ Default.args = {
           "ScientistScore": 45.0,
           "TradesmanScore": 55.0,
           "AdaptabilityActionScore": 60.0,
-          "StructureInspirationScore": 50.0
+          "StructureInspirationScore": 50.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(204,255,0, 0); border: 11px solid rgb(204,255,0); box-sizing: border-box;",
         "statusColor": "rgb(204,255,0)"
@@ -854,7 +896,8 @@ Default.args = {
           "ScientistScore": 46.0,
           "TradesmanScore": 56.0,
           "AdaptabilityActionScore": 61.0,
-          "StructureInspirationScore": 51.0
+          "StructureInspirationScore": 51.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(204,255,0, 0); border: 11px solid rgb(204,255,0); box-sizing: border-box;",
         "statusColor": "rgb(204,255,0)"
@@ -872,7 +915,8 @@ Default.args = {
           "ScientistScore": 45.0,
           "TradesmanScore": 55.0,
           "AdaptabilityActionScore": 60.0,
-          "StructureInspirationScore": 50.0
+          "StructureInspirationScore": 50.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(204,255,0, 0); border: 11px solid rgb(204,255,0); box-sizing: border-box;",
         "statusColor": "rgb(204,255,0)"
@@ -890,7 +934,8 @@ Default.args = {
           "ScientistScore": 46.0,
           "TradesmanScore": 56.0,
           "AdaptabilityActionScore": 61.0,
-          "StructureInspirationScore": 51.0
+          "StructureInspirationScore": 51.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(204,255,0, 0); border: 11px solid rgb(204,255,0); box-sizing: border-box;",
         "statusColor": "rgb(204,255,0)"
@@ -908,7 +953,8 @@ Default.args = {
           "ScientistScore": 45.0,
           "TradesmanScore": 55.0,
           "AdaptabilityActionScore": 60.0,
-          "StructureInspirationScore": 50.0
+          "StructureInspirationScore": 50.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(204,255,0, 0); border: 11px solid rgb(204,255,0); box-sizing: border-box;",
         "statusColor": "rgb(204,255,0)"
@@ -926,7 +972,8 @@ Default.args = {
           "ScientistScore": 46.0,
           "TradesmanScore": 56.0,
           "AdaptabilityActionScore": 61.0,
-          "StructureInspirationScore": 51.0
+          "StructureInspirationScore": 51.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(204,255,0, 0); border: 11px solid rgb(204,255,0); box-sizing: border-box;",
         "statusColor": "rgb(204,255,0)"
@@ -944,7 +991,8 @@ Default.args = {
           "ScientistScore": 95.0,
           "TradesmanScore": 5.0,
           "AdaptabilityActionScore": 85.0,
-          "StructureInspirationScore": 15.0
+          "StructureInspirationScore": 15.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(204,255,0, 0); border: 11px solid rgb(204,255,0); box-sizing: border-box;",
         "statusColor": "rgb(204,255,0)"
@@ -962,7 +1010,8 @@ Default.args = {
           "ScientistScore": 50.0,
           "TradesmanScore": 45.0,
           "AdaptabilityActionScore": 55.0,
-          "StructureInspirationScore": 60.0
+          "StructureInspirationScore": 60.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(153,255,0, 0); border: 11px solid rgb(153,255,0); box-sizing: border-box;",
         "statusColor": "rgb(153,255,0)"
@@ -980,7 +1029,8 @@ Default.args = {
           "ScientistScore": 50.0,
           "TradesmanScore": 45.0,
           "AdaptabilityActionScore": 55.0,
-          "StructureInspirationScore": 60.0
+          "StructureInspirationScore": 60.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(153,255,0, 0); border: 11px solid rgb(153,255,0); box-sizing: border-box;",
         "statusColor": "rgb(153,255,0)"
@@ -998,7 +1048,8 @@ Default.args = {
           "ScientistScore": 51.0,
           "TradesmanScore": 46.0,
           "AdaptabilityActionScore": 56.0,
-          "StructureInspirationScore": 61.0
+          "StructureInspirationScore": 61.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(153,255,0, 0); border: 11px solid rgb(153,255,0); box-sizing: border-box;",
         "statusColor": "rgb(153,255,0)"
@@ -1016,7 +1067,8 @@ Default.args = {
           "ScientistScore": 50.0,
           "TradesmanScore": 45.0,
           "AdaptabilityActionScore": 55.0,
-          "StructureInspirationScore": 60.0
+          "StructureInspirationScore": 60.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(153,255,0, 0); border: 11px solid rgb(153,255,0); box-sizing: border-box;",
         "statusColor": "rgb(153,255,0)"
@@ -1034,7 +1086,8 @@ Default.args = {
           "ScientistScore": 51.0,
           "TradesmanScore": 46.0,
           "AdaptabilityActionScore": 56.0,
-          "StructureInspirationScore": 61.0
+          "StructureInspirationScore": 61.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(153,255,0, 0); border: 11px solid rgb(153,255,0); box-sizing: border-box;",
         "statusColor": "rgb(153,255,0)"
@@ -1052,7 +1105,8 @@ Default.args = {
           "ScientistScore": 51.0,
           "TradesmanScore": 46.0,
           "AdaptabilityActionScore": 56.0,
-          "StructureInspirationScore": 61.0
+          "StructureInspirationScore": 61.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(153,255,0, 0); border: 11px solid rgb(153,255,0); box-sizing: border-box;",
         "statusColor": "rgb(153,255,0)"
@@ -1070,7 +1124,8 @@ Default.args = {
           "ScientistScore": 35.0,
           "TradesmanScore": 75.0,
           "AdaptabilityActionScore": 25.0,
-          "StructureInspirationScore": 85.0
+          "StructureInspirationScore": 85.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(153,255,0, 0); border: 11px solid rgb(153,255,0); box-sizing: border-box;",
         "statusColor": "rgb(153,255,0)"
@@ -1088,7 +1143,8 @@ Default.args = {
           "ScientistScore": 55.0,
           "TradesmanScore": 50.0,
           "AdaptabilityActionScore": 45.0,
-          "StructureInspirationScore": 55.0
+          "StructureInspirationScore": 55.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(153,255,0, 0); border: 11px solid rgb(153,255,0); box-sizing: border-box;",
         "statusColor": "rgb(102,255,0)"
@@ -1106,7 +1162,8 @@ Default.args = {
           "ScientistScore": 55.0,
           "TradesmanScore": 50.0,
           "AdaptabilityActionScore": 45.0,
-          "StructureInspirationScore": 55.0
+          "StructureInspirationScore": 55.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(153,255,0, 0); border: 11px solid rgb(153,255,0); box-sizing: border-box;",
         "statusColor": "rgb(102,255,0)"
@@ -1124,7 +1181,8 @@ Default.args = {
           "ScientistScore": 56.0,
           "TradesmanScore": 51.0,
           "AdaptabilityActionScore": 46.0,
-          "StructureInspirationScore": 56.0
+          "StructureInspirationScore": 56.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(153,255,0, 0); border: 11px solid rgb(153,255,0); box-sizing: border-box;",
         "statusColor": "rgb(102,255,0)"
@@ -1142,7 +1200,8 @@ Default.args = {
           "ScientistScore": 55.0,
           "TradesmanScore": 50.0,
           "AdaptabilityActionScore": 45.0,
-          "StructureInspirationScore": 55.0
+          "StructureInspirationScore": 55.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(153,255,0, 0); border: 11px solid rgb(153,255,0); box-sizing: border-box;",
         "statusColor": "rgb(102,255,0)"
@@ -1160,7 +1219,8 @@ Default.args = {
           "ScientistScore": 56.0,
           "TradesmanScore": 51.0,
           "AdaptabilityActionScore": 46.0,
-          "StructureInspirationScore": 56.0
+          "StructureInspirationScore": 56.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(153,255,0, 0); border: 11px solid rgb(153,255,0); box-sizing: border-box;",
         "statusColor": "rgb(102,255,0)"
@@ -1178,7 +1238,8 @@ Default.args = {
           "ScientistScore": 56.0,
           "TradesmanScore": 51.0,
           "AdaptabilityActionScore": 46.0,
-          "StructureInspirationScore": 56.0
+          "StructureInspirationScore": 56.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(153,255,0, 0); border: 11px solid rgb(153,255,0); box-sizing: border-box;",
         "statusColor": "rgb(102,255,0)"
@@ -1196,7 +1257,8 @@ Default.args = {
           "ScientistScore": 85.0,
           "TradesmanScore": 15.0,
           "AdaptabilityActionScore": 95.0,
-          "StructureInspirationScore": 5.0
+          "StructureInspirationScore": 5.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(153,255,0, 0); border: 11px solid rgb(153,255,0); box-sizing: border-box;",
         "statusColor": "rgb(102,255,0)"
@@ -1214,7 +1276,8 @@ Default.args = {
           "ScientistScore": 61.0,
           "TradesmanScore": 56.0,
           "AdaptabilityActionScore": 51.0,
-          "StructureInspirationScore": 46.0
+          "StructureInspirationScore": 46.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(102,255,0, 0); border: 11px solid rgb(102,255,0); box-sizing: border-box;",
         "statusColor": "rgb(51,255,0)"
@@ -1232,7 +1295,8 @@ Default.args = {
           "ScientistScore": 61.0,
           "TradesmanScore": 56.0,
           "AdaptabilityActionScore": 51.0,
-          "StructureInspirationScore": 46.0
+          "StructureInspirationScore": 46.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(102,255,0, 0); border: 11px solid rgb(102,255,0); box-sizing: border-box;",
         "statusColor": "rgb(51,255,0)"
@@ -1250,7 +1314,8 @@ Default.args = {
           "ScientistScore": 60.0,
           "TradesmanScore": 55.0,
           "AdaptabilityActionScore": 50.0,
-          "StructureInspirationScore": 45.0
+          "StructureInspirationScore": 45.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(102,255,0, 0); border: 11px solid rgb(102,255,0); box-sizing: border-box;",
         "statusColor": "rgb(51,255,0)"
@@ -1268,7 +1333,8 @@ Default.args = {
           "ScientistScore": 61.0,
           "TradesmanScore": 56.0,
           "AdaptabilityActionScore": 51.0,
-          "StructureInspirationScore": 46.0
+          "StructureInspirationScore": 46.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(102,255,0, 0); border: 11px solid rgb(102,255,0); box-sizing: border-box;",
         "statusColor": "rgb(51,255,0)"
@@ -1286,7 +1352,8 @@ Default.args = {
           "ScientistScore": 60.0,
           "TradesmanScore": 55.0,
           "AdaptabilityActionScore": 50.0,
-          "StructureInspirationScore": 45.0
+          "StructureInspirationScore": 45.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(102,255,0, 0); border: 11px solid rgb(102,255,0); box-sizing: border-box;",
         "statusColor": "rgb(51,255,0)"
@@ -1304,7 +1371,8 @@ Default.args = {
           "ScientistScore": 60.0,
           "TradesmanScore": 55.0,
           "AdaptabilityActionScore": 50.0,
-          "StructureInspirationScore": 45.0
+          "StructureInspirationScore": 45.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(102,255,0, 0); border: 11px solid rgb(102,255,0); box-sizing: border-box;",
         "statusColor": "rgb(51,255,0)"
@@ -1322,7 +1390,8 @@ Default.args = {
           "ScientistScore": 50.0,
           "TradesmanScore": 50.0,
           "AdaptabilityActionScore": 50.0,
-          "StructureInspirationScore": 50.0
+          "StructureInspirationScore": 50.0,
+          "Pass": true
         },
         "styles": "clip-path: polygon(10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%, 0% 10%, 10% 10%); background-color: rgb(102,255,0, 0); border: 11px solid rgb(102,255,0); box-sizing: border-box;",
         "statusColor": "rgb(51,255,0)"
@@ -1339,7 +1408,8 @@ Default.args = {
       "ScientistScore",
       "TradesmanScore",
       "AdaptabilityActionScore",
-      "StructureInspirationScore"
+      "StructureInspirationScore",
+      "Pass"
     ], "titleField": "name",
     "preselection": [
       {key: "ReceptiveScore", value: [33, 55]}
