@@ -12,22 +12,6 @@ $_24px: 1.2em;
 $_28px: 1.4em;
 $_44px: 2.2em;
 
-input[type="checkbox"] {
-  /* Add if not using autoprefixer */
-  -webkit-appearance: none;
-  appearance: none;
-  /* For iOS < 15 to remove gradient background */
-  background-color: #fff;
-  /* Not removed via appearance */
-  margin: 0;
-
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  cursor: pointer;
-  font-size: inherit;
-}
-
 .toggle-base {
   display: flex;
   align-items: flex-start;
@@ -40,46 +24,37 @@ input[type="checkbox"] {
   -webkit-transition:0.2s ease all;
 
   &:hover .toggle-box{
-    transform: translate($_24px) rotate(15deg);
-    border: $_5px solid $box-selected-color;
-  }
-
-  &.checked {
-
-    .toggle-trail {
-      background: $trail-selected-color;
+    &:not(.checked):not(.unchecked) {
+      transform: translate($_24px) rotate(15deg);
+      border: $_5px solid $box-selected-color;
     }
-
-    .toggle-box {
+    &.checked {
       transform: translate($_44px, 0) rotate(45deg);
       border: $_5px solid $box-selected-color;
-      background: $box-selected-color;
     }
+    &.unchecked {
+      transform: translate($_2px, 0) rotate(45deg);
+      border: $_5px solid $box-selected-color;
+      background: $default-color;
+    }
+
   }
+}
 
-  &:has(input:disabled) {
-    pointer-events: none;
-    cursor: default;
-
-    .toggle-trail {
-      background: $trail-color;
-    }
-
-    .toggle-box {
-      border: $_5px solid $disabled-color;
-      background: none;
-    }
-
-    .toggle-label {
-      color: $disabled-color;
-    }
-
-    &.checked {
-
-      .toggle-box {
-        background: $disabled-color;
-      }
-    }
+.checked {
+  &.toggle-trail {
+    background: $trail-selected-color;
+  }
+  &.toggle-box {
+    transform: translate($_44px, 0) rotate(45deg);
+    border: $_5px solid $box-selected-color;
+    background: $box-selected-color;
+  }
+}
+.unchecked {
+  &.toggle-box {
+    transform: translate($_2px, 0) rotate(45deg);
+    background: $box-selected-color;
   }
 }
 
@@ -131,42 +106,7 @@ input[type="checkbox"] {
     display: none;
   }
 }
-
-// Fix for Firefox browser (not compatible with :has as May 2023)
-@-moz-document url-prefix() {
-  input:checked ~ .toggle-switch {
-    .toggle-trail {
-      background: $trail-selected-color;
-    }
-
-    .toggle-box {
-      transform: translate($_44px, 0) rotate(45deg) !important;
-      border: $_5px solid $box-selected-color;
-      background: $box-selected-color;
-    }
-  }
-
-  input:disabled ~ .toggle-switch {
-    pointer-events: none;
-    cursor: default;
-
-    .toggle-trail {
-      background: $trail-color;
-    }
-
-    .toggle-box {
-      border: $_5px solid $disabled-color;
-      background: none;
-    }
-
-    .toggle-label {
-      color: $disabled-color;
-    }
-  }
-
-  input:checked:disabled ~ .toggle-switch {
-    .toggle-box {
-      background: $disabled-color;
-    }
-  }
+.ternary-toggle-container {
+  display: flex;
+  gap: 0.5rem;
 }

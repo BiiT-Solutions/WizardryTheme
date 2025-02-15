@@ -1,13 +1,13 @@
-<label class="toggle-base" [class.checked]="checked">
-  <input type="checkbox"
-         [ngModel]="checked"
-         [disabled]="disabled"/>
-  <div class="toggle-switch">
-    <div class="toggle-trail" (click)="onToggle(false)"></div>
-    <div class="toggle-box" (click)="onToggle(undefined)"></div>
-    <div class="toggle-trail" (click)="onToggle(true)"></div>
-  </div>
-  <a class="toggle-label">
-    <ng-content></ng-content>
-  </a>
-</label>
+<div class="ternary-toggle-container">
+  <label><ng-content select="[appended-text]"></ng-content></label>
+  <label class="toggle-base">
+    <div class="toggle-switch" (click)="onToggle()">
+      <div class="toggle-trail" [class.checked]="checked" [class.unchecked]="checked === false"></div>
+      <div class="toggle-box" [class.checked]="checked" [class.unchecked]="checked === false"></div>
+      <div class="toggle-trail" [class.checked]="checked" [class.unchecked]="checked === false"></div>
+    </div>
+    <a class="toggle-label">
+      <ng-content></ng-content>
+    </a>
+  </label>
+</div>

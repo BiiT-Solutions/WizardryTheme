@@ -11,8 +11,9 @@ export default {
     }),
   ],
   args: {
-    value: false,
+    value: undefined,
     label: 'Ternary Toggle',
+    appended_text: 'Appended text',
     disabled: false
   },
   argTypes: {
@@ -32,6 +33,19 @@ export default {
     label: {
       name: 'label',
       description: 'Defines the label that will get printed alongside the toggle.',
+      type: { name: 'string', required: true },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: undefined },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'text'
+      }
+    },
+    appended_text: {
+      name: 'appended_text',
+      description: 'Defines the appended text that will get printed before the toggle.',
       type: { name: 'string', required: true },
       table: {
         type: { summary: 'string' },
@@ -64,6 +78,7 @@ const Template: Story<BiitTernaryToggleComponent> = (args: BiitTernaryToggleComp
   template:`
     <biit-ternary-togle [(ngModel)]="value"
                      [disabled]="disabled">
+                     <label appended-text> {{appended_text}} </label>
         {{label}}
     </biit-ternary-togle>
 `

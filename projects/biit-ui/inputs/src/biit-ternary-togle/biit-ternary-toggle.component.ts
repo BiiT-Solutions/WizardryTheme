@@ -16,13 +16,35 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 export class BiitTernaryToggleComponent implements ControlValueAccessor{
   @Input() disabled = false;
   checked: boolean | undefined;
+  private clickTimer: NodeJS.Timeout | undefined;
 
   onChange = (value: any) => {};
   onTouched = () => {};
 
-  onToggle(item: boolean) {
-    this.checked = item;
-    this.onChange(this.checked);
+  onToggle() {
+    if (this.disabled) {
+      return;
+    }
+    switch (this.checked) {
+      case true:
+        this.checked = false;
+        break;
+      case false:
+        this.checked = undefined;
+        break;
+      case undefined:
+        this.checked = true;
+        break;
+    }
+    if (this.clickTimer) {
+      clearTimeout(this.clickTimer);
+      this.clickTimer = undefined;
+    }
+    this.clickTimer = setTimeout(() => {
+      this.onChange(this.checked);
+      clearTimeout(this.clickTimer);
+      this.clickTimer = undefined;
+    }, 1000);
   }
 
   registerOnChange(fn: any): void {
@@ -33,7 +55,7 @@ export class BiitTernaryToggleComponent implements ControlValueAccessor{
     this.onTouched = fn;
   }
 
-  writeValue(obj: boolean): void {
+  writeValue(obj: boolean | undefined): void {
     this.checked = obj;
   }
 }
