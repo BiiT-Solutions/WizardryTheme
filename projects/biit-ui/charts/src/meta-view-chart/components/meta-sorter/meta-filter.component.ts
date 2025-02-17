@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {MetaViewData} from "biit-ui/charts";
+import {MetaViewData} from "../../model/meta-view-data";
 import {FieldType} from "./model/FieldType";
 import {FieldTypePipe} from "../../pipes/field-type.pipe";
 
