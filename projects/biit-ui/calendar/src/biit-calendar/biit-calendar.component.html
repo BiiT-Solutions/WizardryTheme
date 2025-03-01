@@ -46,8 +46,13 @@
       role="columnheader"
     >
       <span style="text-transform: capitalize">
-        {{ day.date | translocoDate: {weekday: 'short'}: this.locale }}
-        {{ day.date | translocoDate: {day: '2-digit'}: locale }}
+        <div *ngIf="!calendarUtility?.customHeaderDate; else customHeaderDate">
+          {{ day.date | translocoDate: {weekday: 'short'}: this.locale }}
+          {{ day.date | translocoDate: {day: '2-digit'}: locale }}
+        </div>
+        <ng-template #customHeaderDate>
+          {{calendarUtility?.customHeaderDate(day.date)}}
+        </ng-template>
       </span>
     </div>
   </div>
@@ -79,6 +84,7 @@
   let-daysInWeek="daysInWeek"
 >
   <div
+    #hourSegmentElement
     [attr.aria-hidden]="
           {}
             | calendarA11y
@@ -93,6 +99,7 @@
     [ngClass]="segment.cssClass"
     [contextMenu]="gridContextMenu"
     [contextMenuValue]="segment.date"
+    (mousedown)="startDragToCreate(segment, hourSegmentElement)"
   >
     <div class="cal-time" *ngIf="isTimeLabel">
       {{segment.displayDate | date: 'HH:mm'}}
@@ -129,6 +136,7 @@
 >
   <div #calEvent
     class="cal-event"
+    [class.barred]="configuration.barred"
     [ngStyle]="eventStyles(weekEvent.event.color)"
     [mwlCalendarTooltip]="
           !tooltipDisabled
