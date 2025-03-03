@@ -51,7 +51,7 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit {
   @Output() onEventDblClick: EventEmitter<CalendarEventClickEvent> = new EventEmitter<CalendarEventClickEvent>();
   @Output() onCreatedEvent: EventEmitter<CalendarEvent> = new EventEmitter<CalendarEvent>();
   protected locale: Locale;
-  private weekStartsOn: 6 = 6;
+  private weekStartsOn: 1 = 1;
 
   $calendarEvent = castTo<CalendarEvent>();
 
