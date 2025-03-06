@@ -56,7 +56,7 @@ export class MetaFilterComponent implements OnInit {
   }
 
   protected onBooleanFilterChanged(field: string, value: boolean): void {
-    this.filter.set(field, value);
+    value === undefined ? this.filter.delete(field) : this.filter.set(field, value);
     this.detectFilter();
   }
 
