@@ -123,7 +123,7 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit {
       id: this.events.length,
       title: undefined,
       start: segment.date,
-      end: addMinutes(startOfHour(segment.date), 30),
+      end: segment.date,
       meta: {
         tmpEvent: true,
       },
@@ -138,6 +138,7 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit {
     fromEvent(document, 'mousemove')
       .pipe(
         finalize(() => {
+          this.onCreatedEvent.emit(dragToSelectEvent);
           delete dragToSelectEvent.meta.tmpEvent;
           this.refreshCalendar();
         }),
@@ -159,7 +160,6 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit {
         if (newEnd > segment.date && newEnd < endOfView) {
           dragToSelectEvent.end = newEnd;
         }
-        this.onCreatedEvent.emit(dragToSelectEvent);
         this.refreshCalendar();
       });
   }
