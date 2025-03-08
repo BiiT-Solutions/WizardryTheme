@@ -1,5 +1,3 @@
-export abstract class CalendarUtility {
-  customHeaderDate(date: Date): string {
-    return null;
-  };
+export interface CalendarUtility {
+  customHeaderDate(date: Date): Promise<string>;
 }
