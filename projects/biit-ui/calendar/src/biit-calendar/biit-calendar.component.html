@@ -51,7 +51,7 @@
           {{ day.date | translocoDate: {day: '2-digit'}: locale }}
         </div>
         <ng-template #customHeaderDate>
-          {{calendarUtility?.customHeaderDate(day.date)}}
+          {{calendarUtility?.customHeaderDate(day.date) | async}}
         </ng-template>
       </span>
     </div>
