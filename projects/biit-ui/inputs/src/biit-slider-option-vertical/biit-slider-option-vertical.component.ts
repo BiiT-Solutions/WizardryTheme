@@ -1,11 +1,12 @@
 import {
-  AfterViewChecked, ChangeDetectorRef,
+  AfterViewChecked,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   forwardRef,
-  Input, OnInit,
-  ViewChild,
-  ViewEncapsulation
+  Input,
+  OnInit,
+  ViewChild
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
@@ -22,9 +23,10 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
   ]
 })
 export class BiitSliderOptionVerticalComponent implements ControlValueAccessor, AfterViewChecked, OnInit {
-  @Input() data: {value: string|number, label: string, description:string}[];
+  @Input() data: { value: string | number, label: string, description: string }[];
   @Input() inverted = false;
   @Input() showDescription = true;
+  @Input() showTooltip: boolean = true;
 
   get index() {
     return this.data.findIndex(i => i.value == this.value);
@@ -32,7 +34,7 @@ export class BiitSliderOptionVerticalComponent implements ControlValueAccessor, 
 
   protected value: string | number;
   protected disabled: boolean = false;
-  protected showTooltip: boolean = false;
+  protected tooltipBoxVisible: boolean = false;
 
   @ViewChild('rangerVer') slider: ElementRef;
   @ViewChild('tooltip') tooltip: ElementRef;
@@ -40,8 +42,10 @@ export class BiitSliderOptionVerticalComponent implements ControlValueAccessor, 
   constructor(private cdRef: ChangeDetectorRef) {
   }
 
-  onChange = (_: any) => {};
-  onTouch = () => {};
+  onChange = (_: any) => {
+  };
+  onTouch = () => {
+  };
 
   registerOnChange(fn: any): void {
     this.onChange = fn;
