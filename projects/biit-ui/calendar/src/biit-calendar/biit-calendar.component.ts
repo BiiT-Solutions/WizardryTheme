@@ -115,7 +115,10 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit {
   private ceilToNearest(amount: number, precision: number) {
     return Math.ceil(amount / precision) * precision;
   }
-  startDragToCreate(segment: any, segmentElement: HTMLElement) {
+  startDragToCreate(segment: any, segmentElement: HTMLElement, event: MouseEvent) {
+    if (event.button !== 0 /* left click */) {
+      return;
+    }
     if (!this.configuration.createOnDrag) {
       return;
     }

@@ -99,7 +99,7 @@
     [ngClass]="segment.cssClass"
     [contextMenu]="gridContextMenu"
     [contextMenuValue]="segment.date"
-    (mousedown)="startDragToCreate(segment, hourSegmentElement)"
+    (mousedown)="startDragToCreate(segment, hourSegmentElement, $event)"
   >
     <div class="cal-time" *ngIf="isTimeLabel">
       {{segment.displayDate | date: 'HH:mm'}}
