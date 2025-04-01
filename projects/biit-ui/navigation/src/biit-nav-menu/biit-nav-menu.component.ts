@@ -52,6 +52,6 @@ export class BiitNavMenuComponent {
   }
 
   log(event) {
-    console.log("DEVELOPMENT LOG: ", event)
+    console.debug("DEVELOPMENT LOG: ", event)
   }
 }

@@ -60,7 +60,7 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit {
               private elem: ElementRef) { }
 
   log(event) {
-    console.log("DEVELOPMENT LOG: ", event)
+    console.debug("DEVELOPMENT LOG: ", event)
   }
 
   ngOnInit(): void {
