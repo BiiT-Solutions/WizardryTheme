@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MetaViewElementData} from "../../model/meta-view-element-data";
+import {typeofExpr} from "@angular/compiler";
 
 @Component({
   selector: 'biit-metadata-viewer',
@@ -18,4 +19,6 @@ export class MetadataViewerComponent {
   protected close(): void {
     this.onClose.emit();
   }
+
+  protected readonly typeofExpr = typeofExpr;
 }
