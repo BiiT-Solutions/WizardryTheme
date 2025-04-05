@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PrintfPipe implements PipeTransform {
 
-  transform(value: string | function): string {
+  transform(value: string | Function): string {
     if (typeof value === 'function') {
       return value();
     }
