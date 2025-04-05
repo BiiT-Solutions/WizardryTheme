@@ -239,7 +239,7 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
   }
 
   log(value) {
-    console.log('DEVELOPMENT LOG: ', value);
+    console.debug('DEVELOPMENT LOG: ', value);
   }
 }
 
