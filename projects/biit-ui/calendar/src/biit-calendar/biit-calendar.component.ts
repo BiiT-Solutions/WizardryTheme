@@ -15,7 +15,7 @@ import {
   addDays,
   addMinutes,
   differenceInMinutes,
-  endOfWeek,
+  endOfWeek, isSameDay,
   Locale,
   setDefaultOptions,
   startOfDay,
@@ -23,7 +23,7 @@ import {
 } from "date-fns";
 import {EventColor} from "../utils/event-color";
 import {CalendarEventTimesChangedEvent} from "angular-calendar";
-import {finalize, fromEvent, Subject, takeUntil} from "rxjs";
+import {finalize, fromEvent, merge, Subject, takeUntil} from "rxjs";
 import {CalendarEventClickEvent} from "./models/calendar-event-click-event";
 import {ContextMenuComponent} from "@perfectmemory/ngx-contextmenu";
 import {CalendarUtility} from "./calendar-utility";
@@ -151,7 +151,7 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit {
         const minutesDiff = this.ceilToNearest(
           mouseMoveEvent.clientY - segmentPosition.top,
           30
-        );
+        ) -1;
 
         const daysDiff =
           this.floorToNearest(
@@ -160,6 +160,11 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit {
           ) / segmentPosition.width;
 
         const newEnd = addDays(addMinutes(segment.date, minutesDiff), daysDiff);
+
+        if (!isSameDay(newEnd, segment.date)) {
+          return;
+        }
+
         if (newEnd > segment.date && newEnd < endOfView) {
           dragToSelectEvent.end = newEnd;
         }

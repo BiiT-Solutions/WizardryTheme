@@ -1,8 +1,8 @@
 export class CalendarConfiguration {
-  createOnDrag: boolean = false;
-  barred: boolean = false;
+  createOnDrag: boolean = true;
+  barred: boolean = true;
 
-  constructor(createdOnDrag: boolean = false, barred: boolean = false) {
+  constructor(createdOnDrag: boolean = true, barred: boolean = true) {
     this.createOnDrag = createdOnDrag;
     this.barred = barred;
   }
