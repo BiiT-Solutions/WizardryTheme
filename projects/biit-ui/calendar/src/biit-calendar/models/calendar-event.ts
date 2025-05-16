@@ -16,8 +16,9 @@ export class CalendarEvent<MetaType = any> {
   };
   draggable?: boolean;
   meta?: MetaType;
+  readonly ?: boolean;
 
-  constructor(id: string | number, title: string, startDate: Date, endDate: Date, allDay?: boolean, color?: EventColor, actions?: EventAction[], resizable?: boolean, draggable?: boolean, meta?: MetaType) {
+  constructor(id: string | number, title: string, startDate: Date, endDate: Date, readonly?: boolean, allDay?: boolean, color?: EventColor, actions?: EventAction[], resizable?: boolean, draggable?: boolean, meta?: MetaType) {
     this.id = id;
     this.title = title;
     this.start = startDate ? new Date(startDate) : undefined;
@@ -25,11 +26,12 @@ export class CalendarEvent<MetaType = any> {
     this.allDay = allDay ? allDay : false;
     this.color = color ? color : EventColor.RED;
     this.actions = actions ? actions : [];
-    if (resizable) {
+    if (resizable && !readonly) {
       this.resizable = {beforeStart: true, afterEnd: true}
     }
-    this.draggable = draggable ? draggable : true;
+    this.draggable = draggable ? draggable : !readonly;
     this.meta = meta;
+    this.readonly = readonly;
   }
 
   public static copy(original: CalendarEvent, target: CalendarEvent): CalendarEvent {
@@ -44,6 +46,7 @@ export class CalendarEvent<MetaType = any> {
     target.resizable = original.resizable;
     target.draggable = original.draggable;
     target.meta = original.meta;
+    target.readonly = original.readonly;
 
     return target;
   }
