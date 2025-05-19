@@ -1,0 +1,10 @@
+{
+  "username-empty": "Der Benutzername ist erforderlich.",
+  "password-empty": "Das Passwort ist erforderlich.",
+  "username": "Benutzername",
+  "password": "Passwort",
+  "take_me_in": "Nehmen Sie mich mit",
+  "forgot": "Mein Passwort vergessen",
+  "cant_remember": "Ich kann mich nicht an mein Passwort erinnern",
+  "remember": "Erinnere dich an mich"
+}

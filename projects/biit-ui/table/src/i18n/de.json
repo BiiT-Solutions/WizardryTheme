@@ -1,0 +1,14 @@
+{
+  "rows-per-page": "Zeilen pro Seite",
+  "first-page": "Erste Seite",
+  "previous-page": "Vorherige Seite",
+  "next-page": "Nächste Seite",
+  "last-page": "Letzte Seite",
+  "search": "Suchen",
+  "column-selector": "Spaltenauswahl",
+  "yes": "Ja",
+  "no": "Nein",
+  "total": "Gesamt",
+  "selected": "Ausgewählt",
+  "empty-message": "Keine Daten zum Anzeigen."
+}

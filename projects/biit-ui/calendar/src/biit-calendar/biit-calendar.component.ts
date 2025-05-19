@@ -38,7 +38,7 @@ import {CalendarConfiguration} from "./models/calendar-configuration";
     useValue: {scope: 'biit-ui/calendar', alias: "calendar"}
   }]
 })
-export class BiitCalendarComponent implements OnInit, AfterViewInit {
+export class BiitCalendarComponent implements OnInit, AfterViewInit, CalendarUtility{
   @Input() calendarMode: CalendarMode = CalendarMode.MONTH;
   @Input() viewDate: Date = new Date();
   @Input() events: CalendarEvent[] = [];
@@ -58,6 +58,10 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit {
   constructor(private transloco: TranslocoService,
               private cdr: ChangeDetectorRef,
               private elem: ElementRef) { }
+
+  customHeaderDate(date: Date): string {
+        throw new Error('Method not implemented.');
+    }
 
   log(event) {
     console.log("DEVELOPMENT LOG: ", event)
