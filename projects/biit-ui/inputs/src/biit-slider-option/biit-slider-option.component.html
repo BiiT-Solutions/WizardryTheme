@@ -8,12 +8,12 @@
          [max]="data.length - 1"
          [step]="1"
          (input)="progressScript()"
-         (pointerdown)="showTooltip = true"
-         (pointerup)="showTooltip = false"
+         (pointerdown)="tooltipBoxVisible = true"
+         (pointerup)="tooltipBoxVisible = false"
   >
 
   <div class="ticks">
-    <div #tooltip class="tooltip-slider" [style.opacity]="showTooltip ? '100%' : '0%'"></div>
+    <div #tooltip class="tooltip-slider" [style.opacity]="tooltipBoxVisible && showTooltip ? '100%' : '0%'"></div>
     <span *ngFor="let tick of $any(data); index as i; count as c"
           [class.hide-tick]="!(!inverted ? data[i] : data[c-i-1]).label">
       <span (click)="value = (!inverted ? data[i] : data[c-i-1]).value; onChange((!inverted ? data[i] : data[c-i-1]).value)">

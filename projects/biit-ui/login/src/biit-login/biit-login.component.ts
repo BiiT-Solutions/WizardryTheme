@@ -59,7 +59,6 @@ export class BiitLoginComponent implements OnInit {
     if (!this.login) {
       this.login = new BiitLogin();
     }
-    console.log("Setting up login component");
     this.usernameSearch.pipe(debounceTime(1000)).subscribe(() => this.checkUsernameExists());
     this.onLogin = new EventEmitter<BiitLogin>();
     this.onNotRemember = new EventEmitter<void>();

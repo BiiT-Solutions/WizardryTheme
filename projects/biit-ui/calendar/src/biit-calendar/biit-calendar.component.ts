@@ -15,7 +15,7 @@ import {
   addDays,
   addMinutes,
   differenceInMinutes,
-  endOfWeek,
+  endOfWeek, isSameDay,
   Locale,
   setDefaultOptions,
   startOfDay,
@@ -23,7 +23,7 @@ import {
 } from "date-fns";
 import {EventColor} from "../utils/event-color";
 import {CalendarEventTimesChangedEvent} from "angular-calendar";
-import {finalize, fromEvent, Subject, takeUntil} from "rxjs";
+import {finalize, fromEvent, merge, Subject, takeUntil} from "rxjs";
 import {CalendarEventClickEvent} from "./models/calendar-event-click-event";
 import {ContextMenuComponent} from "@perfectmemory/ngx-contextmenu";
 import {CalendarUtility} from "./calendar-utility";
@@ -64,7 +64,7 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit, CalendarUti
     }
 
   log(event) {
-    console.log("DEVELOPMENT LOG: ", event)
+    console.debug("DEVELOPMENT LOG: ", event)
   }
 
   ngOnInit(): void {
@@ -119,7 +119,10 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit, CalendarUti
   private ceilToNearest(amount: number, precision: number) {
     return Math.ceil(amount / precision) * precision;
   }
-  startDragToCreate(segment: any, segmentElement: HTMLElement) {
+  startDragToCreate(segment: any, segmentElement: HTMLElement, event: MouseEvent) {
+    if (event.button !== 0 /* left click */) {
+      return;
+    }
     if (!this.configuration.createOnDrag) {
       return;
     }
@@ -127,7 +130,7 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit, CalendarUti
       id: this.events.length,
       title: undefined,
       start: segment.date,
-      end: addMinutes(startOfHour(segment.date), 30),
+      end: segment.date,
       meta: {
         tmpEvent: true,
       },
@@ -142,6 +145,7 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit, CalendarUti
     fromEvent(document, 'mousemove')
       .pipe(
         finalize(() => {
+          this.onCreatedEvent.emit(dragToSelectEvent);
           delete dragToSelectEvent.meta.tmpEvent;
           this.refreshCalendar();
         }),
@@ -151,7 +155,7 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit, CalendarUti
         const minutesDiff = this.ceilToNearest(
           mouseMoveEvent.clientY - segmentPosition.top,
           30
-        );
+        ) -1;
 
         const daysDiff =
           this.floorToNearest(
@@ -160,10 +164,14 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit, CalendarUti
           ) / segmentPosition.width;
 
         const newEnd = addDays(addMinutes(segment.date, minutesDiff), daysDiff);
+
+        if (!isSameDay(newEnd, segment.date)) {
+          return;
+        }
+
         if (newEnd > segment.date && newEnd < endOfView) {
           dragToSelectEvent.end = newEnd;
         }
-        this.onCreatedEvent.emit(dragToSelectEvent);
         this.refreshCalendar();
       });
   }

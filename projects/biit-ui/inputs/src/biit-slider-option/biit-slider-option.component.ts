@@ -1,12 +1,13 @@
 import {
-  AfterViewChecked, ChangeDetectorRef,
+  AfterViewChecked,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   forwardRef,
   HostBinding,
-  Input, OnInit,
-  ViewChild,
-  ViewEncapsulation
+  Input,
+  OnInit,
+  ViewChild
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
@@ -23,8 +24,10 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
   ]
 })
 export class BiitSliderOptionComponent implements ControlValueAccessor, AfterViewChecked, OnInit {
-  @Input() data: {value: string|number, label: string, description:string}[];
+  @Input() data: { value: string | number, label: string, description: string }[];
   @Input() inverted = false;
+  @Input() showTooltip: boolean = true;
+
   @HostBinding('style.--label-percent') labelPercent;
 
   get index() {
@@ -33,7 +36,7 @@ export class BiitSliderOptionComponent implements ControlValueAccessor, AfterVie
 
   protected value: string | number;
   protected disabled: boolean = false;
-  protected showTooltip: boolean = false;
+  protected tooltipBoxVisible: boolean = false;
 
   @ViewChild('rangerHor') slider: ElementRef;
   @ViewChild('tooltip') tooltip: ElementRef;
@@ -41,8 +44,10 @@ export class BiitSliderOptionComponent implements ControlValueAccessor, AfterVie
   constructor(private cdRef: ChangeDetectorRef) {
   }
 
-  onChange = (_: any) => {};
-  onTouch = () => {};
+  onChange = (_: any) => {
+  };
+  onTouch = () => {
+  };
 
   registerOnChange(fn: any): void {
     this.onChange = fn;
@@ -56,7 +61,7 @@ export class BiitSliderOptionComponent implements ControlValueAccessor, AfterVie
     this.disabled = disabled;
   }
 
-  writeValue(value: string|number): void {
+  writeValue(value: string | number): void {
     this.value = value;
   }
 

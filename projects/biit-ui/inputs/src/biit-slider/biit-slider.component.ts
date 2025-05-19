@@ -20,16 +20,19 @@ export class BiitSliderComponent implements ControlValueAccessor, AfterViewCheck
   @Input() step: number;
   @Input() ticks: number;
   @Input() labels: string[] = [];
+  @Input() showTooltip: boolean = true;
 
   protected value: number;
   protected disabled: boolean = false;
-  protected showTooltip: boolean = false;
+  protected tooltipBoxVisible: boolean = false;
 
   @ViewChild('ranger') slider: ElementRef;
   @ViewChild('tooltip') tooltip: ElementRef;
 
-  onChange = (_: any) => {};
-  onTouch = () => {};
+  onChange = (_: any) => {
+  };
+  onTouch = () => {
+  };
 
   registerOnChange(fn: any): void {
     this.onChange = fn;
@@ -66,7 +69,7 @@ export class BiitSliderComponent implements ControlValueAccessor, AfterViewCheck
   }
 
   updateValue(index: number) {
-    const result = this.min + ((this.max-this.min)/(this.ticks-1) * index);
+    const result = this.min + ((this.max - this.min) / (this.ticks - 1) * index);
     this.writeValue(result);
     this.onChange(this.value);
   }

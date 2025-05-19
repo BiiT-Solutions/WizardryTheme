@@ -12,6 +12,7 @@ import { MonthNamePipe } from './month-name.pipe';
 import { AutoFormatPipe } from './auto-format.pipe';
 import { RemoveFromArrayPipe } from './remove-from-array.pipe';
 import { ExtractDataPipe } from './extract-data.pipe';
+import { PrintfPipe } from './printf.pipe';
 
 
 
@@ -28,7 +29,8 @@ import { ExtractDataPipe } from './extract-data.pipe';
     MonthNamePipe,
     AutoFormatPipe,
     RemoveFromArrayPipe,
-    ExtractDataPipe
+    ExtractDataPipe,
+    PrintfPipe
   ],
   exports: [
     SafeHtmlPipe,
@@ -42,7 +44,8 @@ import { ExtractDataPipe } from './extract-data.pipe';
     MonthNamePipe,
     AutoFormatPipe,
     RemoveFromArrayPipe,
-    ExtractDataPipe
+    ExtractDataPipe,
+    PrintfPipe
   ],
   imports: [
     CommonModule

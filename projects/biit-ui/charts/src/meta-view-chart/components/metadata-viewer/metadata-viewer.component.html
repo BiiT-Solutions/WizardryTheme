@@ -9,8 +9,8 @@
         <div *ngIf="_data.custom" [innerHTML]="_data.custom.innerHTML"></div>
       </biit-meta-element>
     </div>
-    <div *ngIf="titleField" class="data-title" [tooltip]="_data.data[titleField]">
-      {{_data.data[titleField]}}
+    <div *ngIf="titleField" class="data-title" [tooltip]="_data.data[titleField] | printf">
+      {{_data.data[titleField] | printf}}
     </div>
     <div>
       <button biit-icon

@@ -6,10 +6,10 @@
          [max]="max"
          [step]="step"
          (input)="progressScript()"
-         (pointerdown)="showTooltip = true"
-         (pointerup)="showTooltip = false"
+         (pointerdown)="tooltipBoxVisible = true"
+         (pointerup)="tooltipBoxVisible = false"
   >
-  <div #tooltip class="tooltip" [style.opacity]="showTooltip ? '100%' : '0%'"></div>
+  <div #tooltip class="tooltip" [style.opacity]="tooltipBoxVisible && showTooltip ? '100%' : '0%'"></div>
   <div class="ticks">
     <span *ngFor="let tick of [].constructor(ticks); index as i"
           [class.no-labels]="!labels.length"

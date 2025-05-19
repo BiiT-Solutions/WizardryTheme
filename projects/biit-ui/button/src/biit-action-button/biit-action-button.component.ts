@@ -57,8 +57,10 @@ export class BiitActionButtonComponent implements AfterContentInit {
         return {top: topBottom, left: leftMid, 'flex-direction': 'column-reverse'};
       case 'bottom-right':
         return {top: topBottom, left: leftRight, 'flex-direction': 'column-reverse'};
+      default:
+        return {};
     }
   }
 }
 
-export type FabPosition = 'top-left' | 'top-middle' | 'top-right' | 'middle-left' | 'middle-middle' | 'middle-right' | 'bottom-left' | 'bottom-middle' | 'bottom-right';
+export type FabPosition = 'top-left' | 'top-middle' | 'top-right' | 'middle-left' | 'middle-middle' | 'middle-right' | 'bottom-left' | 'bottom-middle' | 'bottom-right' | 'custom';
