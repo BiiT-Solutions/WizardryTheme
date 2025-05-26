@@ -1,4 +1,4 @@
-<div class="navbar-menu-canvas">
+<div class="navbar-menu-canvas" id="nav-menu">
   <div class="item" #navItem
        *ngFor="let route of routes"
        [routerLink]="route.children ? null : [route.path]"
@@ -14,6 +14,7 @@
     <context-menu #navbarMenu>
       <ng-template contextMenuItem
                    *ngFor="let item of contextMenuItems"
+                   [attr.id]="'item-' + item"
                    [disabled]="item.disabled"
                    [visible]="item.visible"
                    (execute)="router.navigate([item.parent, item.path])"

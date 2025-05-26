@@ -1,6 +1,7 @@
-<div class="tab-group">
+<div class="tab-group" id="tabs">
   <div class="tab-header" #tabHeader>
     <div *ngFor="let tab of tabs"
+         [attr.id]="'tab-' + tab"
          (click)="activateTab(tab)"
          [class.active]="tab.active"
          [class.error]="tab.error"
@@ -8,11 +9,13 @@
          class="tab-selector"
          [tooltip]="compactMode && !tab.active ? tab.name : null"
     >
-      <a>{{tab.name}}</a>
+      <a>{{ tab.name }}</a>
     </div>
   </div>
   <biit-progress-bar *ngIf="loading"
                      [type]="BiitProgressBarType.INDETERMINATE"
   ></biit-progress-bar>
-  <div class="content"><ng-content></ng-content></div>
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
 </div>
