@@ -2,6 +2,6 @@
   <div class="cookies-popup" *transloco="let t">
     <biit-icon name="cookies" class="icon"></biit-icon>
     <a [innerHTML]="t('info.consent-text')"></a>
-    <button biit-button class="button" (click)="acceptCookies()">{{ t('info.understand') }}</button>
+    <button biit-button class="button" #cookiesButton (click)="acceptCookies()">{{ t('info.understand') }}</button>
   </div>
 </div>
