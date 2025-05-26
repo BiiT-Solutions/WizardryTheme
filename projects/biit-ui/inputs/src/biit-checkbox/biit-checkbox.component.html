@@ -1,4 +1,4 @@
-<label [class.disabled]="disabled">
+<label [class.disabled]="disabled" id="biit-checkbox">
   <input type="checkbox"
          class="checkbox-box"
          [ngModel]="checked"
@@ -6,7 +6,9 @@
          [disabled]="disabled"/>
   <div>
     <div>
-      <a><ng-content></ng-content></a>
+      <a>
+        <ng-content></ng-content>
+      </a>
       <biit-tooltip-icon *ngIf="description && !showAlwaysDescription" inline [text]="description"/>
     </div>
     <span class="description" *ngIf="description && showAlwaysDescription">{{ description }}</span>
