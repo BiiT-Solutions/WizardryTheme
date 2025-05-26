@@ -28,12 +28,12 @@
 </biit-popup>
 
 <ng-template #loginForm>
-  <div #loginColumn class="login-column" *transloco="let t">
-    <biit-input-text #username [(ngModel)]="login.username" fieldName="username" [type]="Type.TEXT"
+  <div id="login-column" class="login-column" *transloco="let t">
+    <biit-input-text id="login-username" [(ngModel)]="login.username" fieldName="username" [type]="Type.TEXT"
                      [error]="this.loginErrors.get(LoginError.USERNAME)"
                      (keyup.enter)="performLogin()"
                      placeholder="{{t('login.username')}}" class="login-input"></biit-input-text>
-    <biit-input-text #password [(ngModel)]="login.password" fieldName="password"
+    <biit-input-text id="login-password" [(ngModel)]="login.password" fieldName="password"
                      [error]="this.loginErrors.get(LoginError.PASSWORD)"
                      (keyup.enter)="performLogin()"
                      placeholder="{{t('login.password')}}" [type]="Type.PASSWORD" class="login-input"></biit-input-text>
@@ -43,7 +43,7 @@
       {{ t('login.remember') }}
     </biit-toggle>
     <div class="margin-top-18 centered">
-      <button #loginButton biit-button primary
+      <button id="login-button" biit-button primary
               (click)="performLogin()"
       >
         {{ t('login.take_me_in') }}
@@ -89,22 +89,22 @@
 </ng-template>
 
 <ng-template #signUpForm>
-  <div #signUpColumn class="login-column" *transloco="let t">
-    <biit-input-text #username [(ngModel)]="signUpData.username" fieldName="username" *ngIf="!signUpGeneratedUsername"
+  <div id="signup-column" class="login-column" *transloco="let t">
+    <biit-input-text id="signup-username" [(ngModel)]="signUpData.username" fieldName="username" *ngIf="!signUpGeneratedUsername"
                      [type]="Type.TEXT"
                      [error]="this.loginErrors.get(LoginError.USERNAME)"
                      (keyup.enter)="performLogin()"
                      (ngModelChange)="usernameSearch.next($event)"
                      placeholder="{{t('login.username')}}" class="login-input"></biit-input-text>
-    <biit-input-text #name [(ngModel)]="signUpData.name" fieldName="name" [type]="Type.TEXT"
+    <biit-input-text id="signup-name" [(ngModel)]="signUpData.name" fieldName="name" [type]="Type.TEXT"
                      [error]="this.loginErrors.get(LoginError.NAME)"
                      (keyup.enter)="performLogin()"
                      placeholder="{{t('login.name')}}" class="login-input"></biit-input-text>
-    <biit-input-text #lastname [(ngModel)]="signUpData.lastname" fieldName="lastname" [type]="Type.TEXT"
+    <biit-input-text id="signup-lastname" [(ngModel)]="signUpData.lastname" fieldName="lastname" [type]="Type.TEXT"
                      [error]="this.loginErrors.get(LoginError.LASTNAME)"
                      (keyup.enter)="performLogin()"
                      placeholder="{{t('login.lastname')}}" class="login-input"></biit-input-text>
-    <biit-input-text #email [(ngModel)]="signUpData.email" fieldName="email" [type]="Type.TEXT"
+    <biit-input-text id="signup-email" [(ngModel)]="signUpData.email" fieldName="email" [type]="Type.TEXT"
                      [error]="this.loginErrors.get(LoginError.EMAIL)" [required]="true"
                      (keyup.enter)="performLogin()"
                      placeholder="{{t('login.email')}}" class="login-input"></biit-input-text>
@@ -116,12 +116,12 @@
       value="key"
       label="label"
       title="{{t('login.team')}}" class="login-input"/>
-    <biit-input-text #password [(ngModel)]="signUpData.password" fieldName="password"
+    <biit-input-text id="signup-password" [(ngModel)]="signUpData.password" fieldName="password"
                      [error]="this.loginErrors.get(LoginError.PASSWORD)"
                      (keyup.enter)="performLogin()" *ngIf="!signUpGeneratedPassword"
                      placeholder="{{t('login.password')}}" [type]="Type.PASSWORD" class="login-input"></biit-input-text>
     <div class="margin-top-18 centered">
-      <button #signUpButton biit-button primary
+      <button id="signup-button" biit-button primary
               (click)="performSignUp()"
       >
         {{ t('login.sign_me_up') }}
