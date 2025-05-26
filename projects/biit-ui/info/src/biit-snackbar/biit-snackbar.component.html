@@ -4,7 +4,7 @@
     <div @notificationList
          *ngFor="let notification of this.notifications"
          class="snackbar-element"
-         [attr.id]="'snackbar-element-' + notification"
+         [attr.id]="'snackbar-element-' + notification.type"
     >
       <biit-notification [notification]="notification" style="display: inline-flex;"></biit-notification>
     </div>
