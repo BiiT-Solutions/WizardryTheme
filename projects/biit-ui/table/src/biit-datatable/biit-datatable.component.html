@@ -1,9 +1,9 @@
-<div class="table-canvas" *transloco="let t">
+<div id="biit-table" class="table-canvas" *transloco="let t">
   <div class="top" *ngIf="!hideHeader">
-    <div class="action-bar">
+    <div id="menu" class="action-bar">
       <ng-content></ng-content>
     </div>
-    <div class="options">
+    <div id="options" class="options">
       <biit-input-text #searchInput
                        [ngModel]="search"
                        (onActionPerformed)="
@@ -24,7 +24,7 @@
       ></biit-multiselect>
     </div>
   </div>
-  <div class="table">
+  <div id="content" class="table">
     <biit-progress-bar *ngIf="loading"></biit-progress-bar>
     <ng-container *ngIf="!serverSide">
       <ngx-datatable #table
