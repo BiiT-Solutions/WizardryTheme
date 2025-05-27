@@ -1,6 +1,7 @@
 <div class="navbar-menu-canvas" id="nav-menu">
   <div class="item" #navItem
        *ngFor="let route of routes"
+       [attr.id]="'nav-item-' + route"
        [routerLink]="route.children ? null : [route.path]"
        [routerLinkActive]="['active']"
        [class.active]="router.url.includes('/'+route.path)"
@@ -9,7 +10,7 @@
        [style.display]="route.data?.['hidden'] ? 'none' : 'inline-flex'"
        (click)="route.children ? onContextMenu(route, navItem) : null; log(hovered == route); "
   >
-    {{route.title}}
+    {{ route.title }}
 
     <context-menu #navbarMenu>
       <ng-template contextMenuItem
@@ -20,7 +21,7 @@
                    (execute)="router.navigate([item.parent, item.path])"
       >
         <div [class.active]="router.url.includes('/'+item.parent+'/'+item.path)">
-          {{item.title}}
+          {{ item.title }}
         </div>
       </ng-template>
     </context-menu>
