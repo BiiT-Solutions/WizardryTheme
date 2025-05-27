@@ -3,7 +3,8 @@
     <biit-tooltip-icon *ngIf="info"
                        class="tooltip-icon"
                        [text]="info"></biit-tooltip-icon>
-    <textarea class="input-object" required
+    <textarea id="input"
+              class="input-object" required
            [(ngModel)]="value"
            (ngModelChange)="this.onChange($event);"
            (keydown.enter)="onActionPerformed.emit(value)"
