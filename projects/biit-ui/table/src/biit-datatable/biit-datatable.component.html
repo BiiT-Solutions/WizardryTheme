@@ -4,7 +4,7 @@
       <ng-content></ng-content>
     </div>
     <div id="options" class="options">
-      <biit-input-text #searchInput
+      <biit-input-text id="search" #searchInput
                        [ngModel]="search"
                        (onActionPerformed)="
                          onFilter($event);
@@ -13,7 +13,7 @@
                        icon="search"
                        [placeholder]="t('t.search')"
       ></biit-input-text>
-      <biit-multiselect [ngModel]="_columns"
+      <biit-multiselect id="column-selector" [ngModel]="_columns"
                         (ngModelChange)="setColumnVisibility($event)"
                         [data]="allColumns"
                         label="name"
