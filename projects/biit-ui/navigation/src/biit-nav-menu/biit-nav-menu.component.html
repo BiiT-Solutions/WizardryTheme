@@ -1,7 +1,7 @@
 <div class="navbar-menu-canvas" id="nav-menu">
   <div class="item" #navItem
        *ngFor="let route of routes"
-       [attr.id]="'nav-item-' + route.path"
+       [attr.id]="'nav-item-' + route.title"
        [routerLink]="route.children ? null : [route.path]"
        [routerLinkActive]="['active']"
        [class.active]="router.url.includes('/'+route.path)"
