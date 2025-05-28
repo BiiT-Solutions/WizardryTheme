@@ -5,8 +5,8 @@
      (keydown)="!isDisabled && handleKeyboardEvents($event)"
      (keydown.enter)="!dropdownOpen && !isDisabled && openDropdown()"
 >
-  <div class="input-container" #input id="input">
-    <input [ngModel]="dropdownOpen ? filterText :
+  <div class="input-container" #input>
+    <input  id="input" [ngModel]="dropdownOpen ? filterText :
                       currentValue && isPrimitive ? currentValue :
                       currentValue && currentValue[label] ? currentValue[label] : ''"
            (ngModelChange)="filterText = $event; handleFilter()"
