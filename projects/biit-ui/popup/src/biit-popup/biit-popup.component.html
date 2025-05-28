@@ -6,7 +6,7 @@
      [class.sixty-canvas]="type == Type.SIXTY"
      [class.info-box-canvas]="type == Type.INFO_BOX"
      [ngStyle]="type == Type.INFO_BOX ? {top: coordinates.y, left: coordinates.x} : undefined">
-  <div *ngIf="header"
+  <div *ngIf="header" id="header"
        class="header">
     <div class="title">
       <a>{{ title }}</a>
