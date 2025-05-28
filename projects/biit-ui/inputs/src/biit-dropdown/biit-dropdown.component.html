@@ -68,11 +68,11 @@
       class="dropdown-item"
       role="option"
       aria-selected="false"
-      [id]="'item-'+i"
+      [id]="i"
       [tabindex]="!dropdownOpen || isDisabled ? -1 : 0"
       [disabled]="!dropdownOpen || isDisabled"
     >
-      <div>
+      <div id="content">
         <a>{{ isPrimitive ? item : item[label] }}</a>
         <span *ngIf="descriptionLabel && item[descriptionLabel]" class="description">{{ item[descriptionLabel] }}</span>
       </div>
