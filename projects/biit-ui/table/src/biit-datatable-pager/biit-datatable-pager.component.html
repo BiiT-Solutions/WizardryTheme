@@ -1,19 +1,22 @@
 <ng-container *transloco="let t">
   <div class="page-selector">
-    <button biit-icon icon='right_double_arrow'
+    <button biit-icon id="arrow-first"
+            icon='right_double_arrow'
             class="horizontal-flip"
             (click)="selectPage(1)"
             [disabled]="!canPrevious()"
             tooltip="{{t('t.first-page')}}"
     ></button>
-    <button biit-icon icon='right_arrow'
+    <button biit-icon id="arrow-previous"
+            icon='right_arrow'
             class="compact horizontal-flip"
             (click)="prevPage()"
             [disabled]="!canPrevious()"
             tooltip="{{t('t.previous-page')}}"
     ></button>
     <div class="page-display" (click)="input.focus()">
-      <input [ngModel]="page" #input
+      <input id="current-page" #input
+             [ngModel]="page"
              readonly
              (keydown.arrowUp)="nextPage(); $event.stopPropagation(); $event.preventDefault();"
              (keydown.arrowRight)="nextPage(); $event.stopPropagation(); $event.preventDefault();"
@@ -23,15 +26,17 @@
              [min]="1"
              [max]="totalPages"
              style="width: 2.5rem">
-      <span #label>/{{totalPages}}</span>
+      <span #label id="total-pages">/{{ totalPages }}</span>
     </div>
-    <button biit-icon icon='right_arrow'
+    <button biit-icon id="arrow-next"
+            icon='right_arrow'
             class="compact"
             (click)="nextPage()"
             [disabled]="!canNext()"
             tooltip="{{t('t.next-page')}}"
     ></button>
-    <button biit-icon icon='right_double_arrow'
+    <button biit-icon id="arrow-last"
+            icon='right_double_arrow'
             (click)="selectPage(totalPages)"
             [disabled]="!canNext()"
             tooltip="{{t('t.last-page')}}"

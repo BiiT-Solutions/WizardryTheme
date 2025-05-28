@@ -1,20 +1,22 @@
 <div style="display: flex; justify-content: space-between" *transloco="let t">
   <!-- PAGE SELECTOR -->
-  <div #pageSelector class="page-selector">
-    <button biit-icon icon='right_double_arrow'
-                      class="horizontal-flip"
-                      (click)="paginator.currentPage = 1; onModelChange();"
-                      [disabled]="paginator?.currentPage <= 1"
-                      tooltip="{{t('table.first-page')}}"
+  <div #pageSelector class="page-selector"  id="page-selector">
+    <button biit-icon id="arrow-first"
+            icon='right_double_arrow'
+            class="horizontal-flip"
+            (click)="paginator.currentPage = 1; onModelChange();"
+            [disabled]="paginator?.currentPage <= 1"
+            tooltip="{{t('table.first-page')}}"
     ></button>
-    <button biit-icon icon='right_arrow'
-                      class="compact horizontal-flip"
-                      (click)="paginator.currentPage = paginator.currentPage - 1; onModelChange();"
-                      [disabled]="paginator?.currentPage <= 1"
-                      tooltip="{{t('table.previous-page')}}"
+    <button biit-icon id="arrow-previous"
+            icon='right_arrow'
+            class="compact horizontal-flip"
+            (click)="paginator.currentPage = paginator.currentPage - 1; onModelChange();"
+            [disabled]="paginator?.currentPage <= 1"
+            tooltip="{{t('table.previous-page')}}"
     ></button>
     <div class="page-display" style="position: relative">
-      <input #pageInput
+      <input #pageInput id="current-page"
              [ngModel]="paginator?.currentPage"
              type="number"
              [min]="1"
@@ -25,27 +27,29 @@
       <a #totalPagesLabel class="total-pages">/</a>
       <div class="bottom-bar"></div>
     </div>
-    <button biit-icon icon='right_arrow'
-                      class="compact"
-                      (click)="paginator.currentPage = paginator.currentPage + 1; onModelChange();"
-                      [disabled]="paginator?.currentPage >= totalPages"
-                      tooltip="{{t('table.next-page')}}"
+    <button biit-icon id="arrow-next"
+            icon='right_arrow'
+            class="compact"
+            (click)="paginator.currentPage = paginator.currentPage + 1; onModelChange();"
+            [disabled]="paginator?.currentPage >= totalPages"
+            tooltip="{{t('table.next-page')}}"
     ></button>
-    <button biit-icon icon='right_double_arrow'
-                      (click)="paginator.currentPage = totalPages; onModelChange();"
-                      [disabled]="paginator?.currentPage >= totalPages"
-                      tooltip="{{t('table.last-page')}}"
+    <button biit-icon id="arrow-last"
+            icon='right_double_arrow'
+            (click)="paginator.currentPage = totalPages; onModelChange();"
+            [disabled]="paginator?.currentPage >= totalPages"
+            tooltip="{{t('table.last-page')}}"
     ></button>
   </div>
 
   <!-- PAGE SIZE SELECTOR -->
   <div class="page-size-selector">
     <a
-      [tooltip]="t('table.rows-per-page')">{{t('table.rows-per-page')}}</a>
+      [tooltip]="t('table.rows-per-page')">{{ t('table.rows-per-page') }}</a>
     <button #pageSizeBtn
             (click)="!dropdownOpen ? openDropdown() : closeDropdown()"
             (keydown)="handleKeyboardEvents($event)">
-      <a>{{paginator?.pageSize}}</a>
+      <a>{{ paginator?.pageSize }}</a>
       <biit-icon class="icon"
                  [name]="'right_arrow'"
                  [pathStyle]="{fill: dropdownOpen ? '#F20D5E' : '#262626'}"
@@ -67,7 +71,7 @@
                 [tabindex]="!dropdownOpen? -1 : 0"
                 [disabled]="!dropdownOpen"
         >
-          {{pageSize}}
+          {{ pageSize }}
         </button>
       </div>
     </div>

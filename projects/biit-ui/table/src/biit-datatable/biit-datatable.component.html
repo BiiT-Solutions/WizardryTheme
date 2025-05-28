@@ -229,7 +229,7 @@
             let-curPage="curPage"
             let-offset="offset"
           >
-            <div class="label">
+            <div class="label" id="total-elements">
               <span>{{ t('t.total') }}: {{rowCount}}</span>
               <span *ngIf="selectedCount">&nbsp;&nbsp;|&nbsp;&nbsp;{{ t('t.selected') }}: {{selectedCount}}</span>
             </div>
