@@ -1,5 +1,6 @@
 <label [class.disabled]="disabled" id="biit-checkbox">
-  <input type="checkbox"
+  <input [attr.id]="checked?'checked':'unchecked'"
+         type="checkbox"
          class="checkbox-box"
          [ngModel]="checked"
          (ngModelChange)="onModelChange($event)"
