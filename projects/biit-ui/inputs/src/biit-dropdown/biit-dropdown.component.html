@@ -63,7 +63,7 @@
   >
     <button
       *ngFor="let item of filteredData; index as i"
-      [attr.id]="'item-'+item"
+      [attr.id]="'item-'+item.name"
       (click)="onModelChange(item)"
       [class.selected]="currentValue === item"
       class="dropdown-item"
