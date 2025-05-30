@@ -101,7 +101,7 @@
                               [summaryTemplate]="column.summaryTemplate"
         ></ngx-datatable-column>
 
-        <ngx-datatable-footer>
+        <ngx-datatable-footer id="datatable-footer">
           <ng-template
             ngx-datatable-footer-template
             let-rowCount="rowCount"
@@ -111,8 +111,8 @@
             let-offset="offset"
           >
             <div class="label">
-              <span>{{ t('t.total') }}: {{rowCount}}</span>
-              <span *ngIf="selectedCount">&nbsp;&nbsp;|&nbsp;&nbsp;{{ t('t.selected') }}: {{selectedCount}}</span>
+              <span>{{ t('t.total') }}: </span><span id="total-number-of-items">{{rowCount}}</span>
+              <span *ngIf="selectedCount">&nbsp;&nbsp;|&nbsp;&nbsp;{{ t('t.selected') }}: </span><span id="number-of-items-selected">{{selectedCount}}</span>
             </div>
             <div class="pagination" [style.display]="!((rowCount / pageSize) > 1) ? 'none' : null">
               <biit-datatable-pager #pager
