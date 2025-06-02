@@ -3,19 +3,19 @@
                       notification?.type == 'SUCCESS'"
      [class.error]="notification?.type == 'ERROR'"
      [class.warning]="notification?.type == 'WARNING'">
-    <biit-icon *ngIf="notification?.type !== 'INFO'"
-      [name]="notification?.type == 'WARNING' ? 'exclamation' :
+  <biit-icon *ngIf="notification?.type !== 'INFO'"
+             [name]="notification?.type == 'WARNING' ? 'exclamation' :
               notification?.type == 'ERROR' ? 'cross' : 'thick'"
-      [pathStyle]="{fill: '#EDEDED'}"
-      class="notification-icon"
-    ></biit-icon>
-  <a>
-    {{notification?.message}}
+             [pathStyle]="{fill: '#EDEDED'}"
+             class="notification-icon"
+  ></biit-icon>
+  <a id="message">
+    {{ notification?.message }}
   </a>
   <button biit-button #action
-               (click)="emitClick()"
-               *ngIf="notification?.actionLabel"
-               color="tertiary"
+          (click)="emitClick()"
+          *ngIf="notification?.actionLabel"
+          color="tertiary"
   >
     {{ notification.actionLabel }}
   </button>
