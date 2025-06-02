@@ -136,7 +136,7 @@
 >
   <div #calEvent
     class="cal-event"
-    [class.barred]="configuration.barred"
+    [class.barred]="configuration.barred || weekEvent.event.color.barred"
     [ngStyle]="eventStyles(weekEvent.event.color)"
     [mwlCalendarTooltip]="
           !tooltipDisabled
