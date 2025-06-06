@@ -1,7 +1,7 @@
 <div class="tab-group" id="tabs">
   <div class="tab-header" #tabHeader>
     <div *ngFor="let tab of tabs"
-         [attr.id]="'tab-' + tab"
+         [attr.id]="'tab-' + tab.name"
          (click)="activateTab(tab)"
          [class.active]="tab.active"
          [class.error]="tab.error"
