@@ -39,6 +39,7 @@
   "application_backend_role_not_found": "No se pudo encontrar el rol de aplicación.",
   "email_not_sent": "El email no ha sido enviado.",
   "role_already_exists": "El rol ya existe o ya ha sido asignado.",
+  "user_group_already_exists": "Ya existe un grupo con este nombre.",
 
   "invalid_recurrence": "La recurrencia es inválida.",
   "recurrence_not_found": "No se pudo encontrar la recurrencia.",
