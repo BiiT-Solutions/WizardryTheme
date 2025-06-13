@@ -38,6 +38,7 @@
   "token_expired": "The token has expired.",
   "application_backend_role_not_found": "Couldn't find this application role.",
   "email_not_sent": "The email has not been sent.",
+  "role_already_exists": "This role already exists or it is already assigned to the entity.",
 
   "invalid_recurrence": "The recurrence is invalid.",
   "recurrence_not_found": "Couldn't find this recurrence.",
