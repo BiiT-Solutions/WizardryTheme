@@ -77,6 +77,7 @@ export class LineChartComponent implements OnInit, OnChanges {
       },
       dataLabels: {
         enabled: this.data.series.length > 1,
+        enabledOnSeries: this.enabledLabelsOnSeries,
         style: {
           fontSize: "16px",
           fontFamily: "Montserrat",
