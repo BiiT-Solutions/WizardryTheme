@@ -1,7 +1,7 @@
 import {Component, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {
   ApexAxisChartSeries, ApexChart,
-  ApexDataLabels, ApexGrid, ApexLegend, ApexMarkers, ApexPlotOptions,
+  ApexDataLabels, ApexGrid, ApexLegend, ApexMarkers,
   ApexStroke, ApexTitleSubtitle,
   ApexTooltip, ApexXAxis, ApexYAxis, ChartComponent
 } from "ng-apexcharts";
@@ -77,7 +77,6 @@ export class LineChartComponent implements OnInit, OnChanges {
       },
       dataLabels: {
         enabled: this.data.series.length > 1,
-        enabledOnSeries: this.enabledLabelsOnSeries || undefined,
         style: {
           fontSize: "16px",
           fontFamily: "Montserrat",
