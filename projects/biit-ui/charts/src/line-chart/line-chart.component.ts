@@ -42,7 +42,7 @@ export class LineChartComponent implements OnInit, OnChanges {
   @Input() public yTitle = '';
   @Input() public min: number;
   @Input() public max: number;
-  @Input() public plotOptions: ApexPlotOptions;
+  @Input() public enabledLabelsOnSeries: number[];
 
   constructor() { }
 
@@ -77,6 +77,7 @@ export class LineChartComponent implements OnInit, OnChanges {
       },
       dataLabels: {
         enabled: this.data.series.length > 1,
+        enabledOnSeries: this.enabledLabelsOnSeries || undefined,
         style: {
           fontSize: "16px",
           fontFamily: "Montserrat",
