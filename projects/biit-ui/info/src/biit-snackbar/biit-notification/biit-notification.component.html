@@ -2,7 +2,8 @@
      [class.regular]="notification?.type == 'INFO' ||
                       notification?.type == 'SUCCESS'"
      [class.error]="notification?.type == 'ERROR'"
-     [class.warning]="notification?.type == 'WARNING'">
+     [class.warning]="notification?.type == 'WARNING'"
+     (click)="emitClick(notification?.actionLabel == undefined)">
   <biit-icon *ngIf="notification?.type !== 'INFO'"
              [name]="notification?.type == 'WARNING' ? 'exclamation' :
               notification?.type == 'ERROR' ? 'cross' : 'thick'"
@@ -13,7 +14,7 @@
     {{ notification?.message }}
   </a>
   <button biit-button #action
-          (click)="emitClick()"
+          (click)="emitClick(true)"
           *ngIf="notification?.actionLabel"
           color="tertiary"
   >
