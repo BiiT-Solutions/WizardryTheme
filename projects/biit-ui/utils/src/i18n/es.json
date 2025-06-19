@@ -12,6 +12,9 @@
   "request_failed": "Tu petición ha fallado. Por favor, inténtalo más tarde.",
   "request_unsuccessful": "Tu petición ha fallado. Por favor, inténtalo más tarde.",
 
+  "delete_request_success": "El element ha sido borrado correctamente.",
+  "update_request_success": "El elemento ha sido actualiazado.",
+
   "user_expired": "Este usuario ha expirado.",
   "action_not_allowed": "Esta acción no está permitida.",
   "database_integrity_violation": "Parece que ha habido un problema. Por favor, reporta el siguiente código de error: ERR_DBIV",

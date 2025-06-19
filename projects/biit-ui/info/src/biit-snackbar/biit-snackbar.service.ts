@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {v4 as uuid} from 'uuid';
 import {Notification} from './models/notification';
 import {NotificationType} from './models/notification-type';
 import {BiitSnackbarVerticalPosition} from './models/biit-snackbar-vertical-position';
@@ -19,7 +18,8 @@ export class BiitSnackbarService {
   public verticalPosition: BiitSnackbarVerticalPosition = BiitSnackbarVerticalPosition.TOP;
   public horizontalPosition: BiitSnackbarHorizontalPosition = BiitSnackbarHorizontalPosition.CENTER;
 
-  constructor() { }
+  constructor() {
+  }
 
   showNotification(message: string, type?: NotificationType, actionText?: string, duration?: number): Notification {
     let notification = new Notification(message, type, actionText, duration);
@@ -27,7 +27,7 @@ export class BiitSnackbarService {
     if (duration) {
       notification.timeout = setTimeout(() => {
         this.closeNotification(notification.id);
-      }, duration*1000);
+      }, duration * 1000);
     }
 
     notification.onAction$.subscribe(() => {
