@@ -24,7 +24,7 @@ export class BiitSnackbarService {
   showNotification(message: string, type?: NotificationType, actionText?: string, duration?: number): Notification {
     let notification = new Notification(message, type, actionText, duration);
 
-    if (!duration) {
+    if (!duration && actionText == null) {
       if (!type) {
         duration = 5;
       } else if (type === NotificationType.SUCCESS || type === NotificationType.WARNING || type === NotificationType.INFO) {
