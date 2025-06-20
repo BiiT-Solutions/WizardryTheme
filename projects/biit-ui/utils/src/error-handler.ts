@@ -6,12 +6,12 @@ export class ErrorHandler {
   public static notify(error: HttpErrorResponse, translocoService: TranslocoService, snackbarService: BiitSnackbarService) {
     if (error?.error?.code) {
       translocoService.selectTranslate(error.error.code, {}, {scope:'biit-ui/utils'}).subscribe(msg => {
-        snackbarService.showNotification(msg, NotificationType.ERROR);
+        snackbarService.showNotification(msg, NotificationType.ERROR, undefined);
       });
       return;
     }
     translocoService.selectTranslate('request_unsuccessful', {}, {scope:'biit-ui/utils'}).subscribe(msg => {
-      snackbarService.showNotification(msg, NotificationType.ERROR);
+      snackbarService.showNotification(msg, NotificationType.ERROR, null);
     });
   }
 }
