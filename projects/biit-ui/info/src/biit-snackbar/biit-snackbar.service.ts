@@ -24,8 +24,10 @@ export class BiitSnackbarService {
   showNotification(message: string, type?: NotificationType, actionText?: string, duration?: number): Notification {
     let notification = new Notification(message, type, actionText, duration);
 
-    if (!duration && type) {
-      if (type === NotificationType.SUCCESS || type === NotificationType.WARNING || type === NotificationType.INFO) {
+    if (!duration) {
+      if (!type) {
+        duration = 5;
+      } else if (type === NotificationType.SUCCESS || type === NotificationType.WARNING || type === NotificationType.INFO) {
         duration = 5;
       } else if (type === NotificationType.ERROR) {
         duration = 10;
@@ -49,8 +51,10 @@ export class BiitSnackbarService {
 
   closeNotification(id: string): void {
     const index = this.notifications.findIndex(n => n.id == id);
-    this.notifications.splice(index, 1);
-    this._getNotifications$.next(this.notifications);
+    if (index >= 0) {
+      this.notifications.splice(index, 1);
+      this._getNotifications$.next(this.notifications);
+    }
   }
 
   setPosition(vertical: BiitSnackbarVerticalPosition, horizontal: BiitSnackbarHorizontalPosition) {
