@@ -22,8 +22,6 @@ export class BiitSnackbarService {
   }
 
   showNotification(message: string, type?: NotificationType, actionText?: string, duration?: number): Notification {
-    let notification = new Notification(message, type, actionText, duration);
-
     if (!duration && actionText == null) {
       if (!type) {
         duration = 5;
@@ -33,6 +31,8 @@ export class BiitSnackbarService {
         duration = 10;
       }
     }
+
+    let notification = new Notification(message, type, actionText, duration);
 
     if (duration) {
       notification.timeout = setTimeout(() => {
