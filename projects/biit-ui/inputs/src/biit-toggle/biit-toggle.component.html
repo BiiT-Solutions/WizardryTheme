@@ -1,9 +1,9 @@
 <label class="toggle-base">
-  <input type="checkbox"
+  <input type="checkbox" id="checkbox"
          [ngModel]="checked"
          (ngModelChange)="onToggle($event)"
          [disabled]="disabled"/>
-  <div class="toggle-switch">
+  <div class="toggle-switch" id="switch">
     <div class="toggle-trail"></div>
     <div class="toggle-box"></div>
   </div>
