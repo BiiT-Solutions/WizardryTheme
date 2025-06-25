@@ -67,5 +67,7 @@
   "error_generating_pdf": "Ha habido un error al generar el PDF.",
   "element_does_not_exists": "Este elemento no existe.",
   "temporal_token_does_not_exists": "El token utilizado no existe o ha expirado.",
-  "invalid_availability_range": "¡El rango seleccionado es invalido!"
+  "invalid_availability_range": "¡El rango seleccionado es invalido!",
+
+  "input_data_is_invalid": "Los datos enviados al servidor son inválidos."
 }
