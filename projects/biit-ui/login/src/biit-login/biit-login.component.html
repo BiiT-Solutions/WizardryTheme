@@ -1,17 +1,17 @@
 <biit-popup no-header *transloco="let t">
-  <div
-    *ngIf="allowSignUp && !resetView"
-    class="tab-buttons"
+  <div id="login-tabs"
+       *ngIf="allowSignUp && !resetView"
+       class="tab-buttons"
   >
-    <div
-      [class.selected]="!signUpView"
-      (click)="signUpView = false"
+    <div id="tab-login"
+         [class.selected]="!signUpView"
+         (click)="signUpView = false"
     >
       {{ t('login.log_in') }}
     </div>
-    <div
-      [class.selected]="signUpView"
-      (click)="signUpView = true"
+    <div id="tab-signup"
+         [class.selected]="signUpView"
+         (click)="signUpView = true"
     >
       {{ t('login.sign_up') }}
     </div>
@@ -90,7 +90,8 @@
 
 <ng-template #signUpForm>
   <div id="signup-column" class="login-column" *transloco="let t">
-    <biit-input-text id="signup-username" [(ngModel)]="signUpData.username" fieldName="username" *ngIf="!signUpGeneratedUsername"
+    <biit-input-text id="signup-username" [(ngModel)]="signUpData.username" fieldName="username"
+                     *ngIf="!signUpGeneratedUsername"
                      [type]="Type.TEXT"
                      [error]="this.loginErrors.get(LoginError.USERNAME)"
                      (keyup.enter)="performLogin()"
