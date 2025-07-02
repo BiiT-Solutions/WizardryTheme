@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {InputLimits, MapGetPipe} from "biit-ui/utils";
+import {InputLimits} from "./input-limits";
 
 
 
 @NgModule({
   declarations: [],
   exports: [InputLimits],
-  imports: []
+  imports: [CommonModule]
 })
 export class ConstsModule { }
