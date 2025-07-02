@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {InputLimits} from "./input-limits";
-
 
 
 @NgModule({
@@ -9,4 +8,5 @@ import {InputLimits} from "./input-limits";
   exports: [InputLimits],
   imports: [CommonModule]
 })
-export class ConstsModule { }
+export class ConstsModule {
+}
