@@ -7,6 +7,6 @@ import {InputLimits, MapGetPipe} from "biit-ui/utils";
 @NgModule({
   declarations: [],
   exports: [InputLimits],
-  imports: [CommonModule]
+  imports: []
 })
 export class ConstsModule { }
