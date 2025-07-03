@@ -20,7 +20,7 @@
          [style.color]="value ? null : 'red'">*</a>
     </div>
     <biit-icon *ngIf="error" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
-    <div *ngIf="error" class="input-error-msg">
+    <div *ngIf="error" class="input-error-msg" id="error-message">
       <a>
         {{error}}
       </a>
