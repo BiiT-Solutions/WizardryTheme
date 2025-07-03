@@ -28,32 +28,33 @@
       ></biit-icon>
     </div>
     <div class="input-placeholder" [class.input-filled]="this.value?.toString().length">
-      {{_placeholder}}
+      {{ _placeholder }}
       <a *ngIf="required"
          [style.color]="value ? null : 'red'">*</a>
     </div>
-    <biit-icon *ngIf="error || regExError || minLengthError" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
+    <biit-icon *ngIf="error || regExError || minLengthError" id="exclamation" name="exclamation"
+               class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
     <div class="bottom-line"
          [class.disabled]="disabled"
          [class.readonly]="readonly"
     ></div>
-    <div *ngIf="error" class="input-error-msg">
-      <a>
-        {{error}}
+    <div *ngIf="error" class="input-error-msg" id="error-message">
+      <a id="message">
+        {{ error }}
       </a>
     </div>
-    <div *ngIf="regExError" class="input-error-msg">
-      <a>
-        {{t('inputs.regex-error')}}
+    <div *ngIf="regExError" id="regex-error-message" class="input-error-msg">
+      <a id="regex-message">
+        {{ t('inputs.regex-error') }}
       </a>
     </div>
-    <div *ngIf="minLengthError" class="input-error-msg">
-      <a>
-        {{t('inputs.minlength-error')}}
+    <div *ngIf="minLengthError" id="length-error-message" class="input-error-msg">
+      <a id="length-message">
+        {{ t('inputs.minlength-error') }}
       </a>
     </div>
-    <span *ngIf="description" class="input-description">
-      {{description}}
+    <span *ngIf="description" id="description" class="input-description">
+      {{ description }}
     </span>
   </div>
 </div>
