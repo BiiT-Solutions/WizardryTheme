@@ -51,8 +51,8 @@
   "professional_specialization_not_found": "Couldn't find this professional specialization.",
   "invalid_parameter": "Invalid parameter.",
   "invalid_format": "Invalid format.",
-  "user_not_in_appointment": "The user is not registered to the appointment.",
-  "user_already_in_appointment": "The user is already registered to the appointment.",
+  "user_not_in_appointment": "The user is not registered in the appointment.",
+  "user_already_in_appointment": "The user is already registered in this appointment.",
   "attendance_not_found": "Couldn't find the attendance.",
 
   "malformed_profile": "Malformed profile.",
