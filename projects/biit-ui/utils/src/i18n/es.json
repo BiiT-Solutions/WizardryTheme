@@ -71,5 +71,7 @@
 
   "input_data_is_invalid": "Los datos enviados al servidor son inválidos.",
 
-  "invalid_number_of_organizations": "El usuario debe pertenecer a una única organización."
+  "invalid_number_of_organizations": "El usuario debe pertenecer a una única organización.",
+
+  "conflicting_data": "Los datos a insertar entran en conflicto con aquellos almacenados en la base de datos."
 }

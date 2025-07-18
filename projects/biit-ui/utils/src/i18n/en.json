@@ -69,8 +69,9 @@
   "temporal_token_does_not_exists": "This token does not exist or has expired.",
   "invalid_availability_range": "Selected range is not valid!",
 
-
   "input_data_is_invalid": "Provided data are invalid!",
 
-  "invalid_number_of_organizations": "User must only pertain to one organization."
+  "invalid_number_of_organizations": "User must only pertain to one organization.",
+
+  "conflicting_data": "Inserted data conflicts with already existing data on database."
 }
