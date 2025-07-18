@@ -69,5 +69,7 @@
   "temporal_token_does_not_exists": "El token utilizado no existe o ha expirado.",
   "invalid_availability_range": "¡El rango seleccionado es invalido!",
 
-  "input_data_is_invalid": "Los datos enviados al servidor son inválidos."
+  "input_data_is_invalid": "Los datos enviados al servidor son inválidos.",
+
+  "invalid_number_of_organizations": "El usuario debe pertenecer a una única organización."
 }

@@ -70,5 +70,7 @@
   "invalid_availability_range": "Selected range is not valid!",
 
 
-  "input_data_is_invalid": "Provided data are invalid!"
+  "input_data_is_invalid": "Provided data are invalid!",
+
+  "invalid_number_of_organizations": "User must only pertain to one organization."
 }
