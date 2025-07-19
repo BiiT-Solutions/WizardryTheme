@@ -12,6 +12,9 @@
   "request_failed": "Your request failed. Please, try again later.",
   "request_unsuccessful": "Your request failed. Please, try again later.",
 
+  "delete_request_success": "The element has been deleted successfully.",
+  "update_request_success": "The element has been updated.",
+
   "user_expired": "This user has expired.",
   "action_not_allowed": "This action is not allowed.",
   "database_integrity_violation": "There seems to be an issue. Please report the next issue code: ERR_DBIV",
@@ -48,8 +51,8 @@
   "professional_specialization_not_found": "Couldn't find this professional specialization.",
   "invalid_parameter": "Invalid parameter.",
   "invalid_format": "Invalid format.",
-  "user_not_in_appointment": "The user is not registered to the appointment.",
-  "user_already_in_appointment": "The user is already registered to the appointment.",
+  "user_not_in_appointment": "The user is not registered in the appointment.",
+  "user_already_in_appointment": "The user is already registered in this appointment.",
   "attendance_not_found": "Couldn't find the attendance.",
 
   "malformed_profile": "Malformed profile.",
@@ -64,5 +67,11 @@
   "error_generating_pdf": "There has been an error generating the PDF.",
   "element_does_not_exists": "This element does not exist.",
   "temporal_token_does_not_exists": "This token does not exist or has expired.",
-  "invalid_availability_range": "Selected range is not valid!"
+  "invalid_availability_range": "Selected range is not valid!",
+
+  "input_data_is_invalid": "Provided data are invalid!",
+
+  "invalid_number_of_organizations": "User must only pertain to one organization.",
+
+  "conflicting_data": "Inserted data conflicts with already existing data on database."
 }

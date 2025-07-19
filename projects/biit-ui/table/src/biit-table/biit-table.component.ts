@@ -270,8 +270,4 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
   resetInputValue() {
     this.search = this.currentSearch;
   }
-
-  log(value) {
-    console.log(value);
-  }
 }

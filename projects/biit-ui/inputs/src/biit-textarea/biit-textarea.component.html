@@ -19,13 +19,13 @@
       <a *ngIf="required"
          [style.color]="value ? null : 'red'">*</a>
     </div>
-    <biit-icon *ngIf="error" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
-    <div *ngIf="error" class="input-error-msg">
-      <a>
+    <biit-icon *ngIf="error" id="exclamation" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
+    <div *ngIf="error" class="input-error-msg" id="error-message">
+      <a id="message">
         {{error}}
       </a>
     </div>
-    <span *ngIf="description" class="input-description">
+    <span *ngIf="description" id="description" class="input-description">
       {{description}}
     </span>
   </div>

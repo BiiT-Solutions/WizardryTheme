@@ -104,16 +104,10 @@ export class BiitDatatableComponent<T> implements OnInit {
 
   onFooterPageChange(event: any) {
     const page = new Page(event.offset, event.pageSize, event.count);
-    console.log(event)
-    console.log(page)
     this.onPageChange.emit(page);
   }
 
   setColumnVisibility(columns: DatatableColumn[]) {
     this._columns = this.allColumns.filter(c => columns.includes(c))
-  }
-
-  log(...event) {
-    console.log(event);
   }
 }

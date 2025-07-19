@@ -15,12 +15,11 @@
     <context-menu #navbarMenu>
       <ng-template contextMenuItem
                    *ngFor="let item of contextMenuItems"
-                   [attr.id]="'item-' + item"
                    [disabled]="item.disabled"
                    [visible]="item.visible"
                    (execute)="router.navigate([item.parent, item.path])"
       >
-        <div [class.active]="router.url.includes('/'+item.parent+'/'+item.path)">
+        <div [attr.id]="'nav-subitem-' + item.title" [class.active]="router.url.includes('/' + item.parent + '/' + item.path)">
           {{ item.title }}
         </div>
       </ng-template>

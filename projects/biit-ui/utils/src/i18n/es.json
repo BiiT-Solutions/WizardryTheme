@@ -12,6 +12,9 @@
   "request_failed": "Tu petición ha fallado. Por favor, inténtalo más tarde.",
   "request_unsuccessful": "Tu petición ha fallado. Por favor, inténtalo más tarde.",
 
+  "delete_request_success": "El element ha sido borrado correctamente.",
+  "update_request_success": "El elemento ha sido actualiazado.",
+
   "user_expired": "Este usuario ha expirado.",
   "action_not_allowed": "Esta acción no está permitida.",
   "database_integrity_violation": "Parece que ha habido un problema. Por favor, reporta el siguiente código de error: ERR_DBIV",
@@ -64,5 +67,11 @@
   "error_generating_pdf": "Ha habido un error al generar el PDF.",
   "element_does_not_exists": "Este elemento no existe.",
   "temporal_token_does_not_exists": "El token utilizado no existe o ha expirado.",
-  "invalid_availability_range": "¡El rango seleccionado es invalido!"
+  "invalid_availability_range": "¡El rango seleccionado es invalido!",
+
+  "input_data_is_invalid": "Los datos enviados al servidor son inválidos.",
+
+  "invalid_number_of_organizations": "El usuario debe pertenecer a una única organización.",
+
+  "conflicting_data": "Los datos a insertar entran en conflicto con aquellos almacenados en la base de datos."
 }

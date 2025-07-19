@@ -24,8 +24,10 @@ export class BiitNotificationComponent implements OnDestroy {
   //   this.notification.timeout.refresh();
   // }
 
-  emitClick() {
-    this.notification.onAction$.next();
+  emitClick(closable: boolean) {
+    if (closable) {
+      this.notification.onAction$.next();
+    }
   }
 
   ngOnDestroy(): void {
