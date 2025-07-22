@@ -43,12 +43,12 @@
         {{ error }}
       </a>
     </div>
-    <div *ngIf="regExError" id="regex-error-message" class="input-error-msg">
+    <div *ngIf="regExError && !error" id="regex-error-message" class="input-error-msg">
       <a id="regex-message">
         {{ t('inputs.regex-error') }}
       </a>
     </div>
-    <div *ngIf="minLengthError" id="length-error-message" class="input-error-msg">
+    <div *ngIf="minLengthError && !error && !regExError" id="length-error-message" class="input-error-msg">
       <a id="length-message">
         {{ t('inputs.minlength-error') }}
       </a>
