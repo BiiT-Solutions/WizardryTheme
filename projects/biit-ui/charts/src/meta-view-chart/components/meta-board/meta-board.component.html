@@ -1,7 +1,7 @@
-<div class="meta-board"
+<div class="meta-board" id="metaviwer-board"
      [style.grid-template-columns]="'repeat(auto-fill, minmax(' + this.size + ', 1fr))'"
 >
-  <biit-meta-element [style.width]="this.size"
+  <biit-meta-element id="metaviewer-element" [style.width]="this.size"
     *ngFor="let element of data; let index = index"
                       [styles]="element.styles"
                       [classes]="element.classes"
