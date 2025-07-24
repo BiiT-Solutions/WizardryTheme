@@ -1,19 +1,19 @@
-<div class="meta-view-chart-board" *transloco="let t">
+<div class="meta-view-chart-board" id="metaviewer-chart" *transloco="let t">
   <div class="meta-view-column">
     <biit-meta-filter [metadata]="data" (filterChange)="onFilter($event)"/>
   </div>
-  <biit-meta-board *ngIf="view === View.GRID"
+  <biit-meta-board id="metaviewer-board" *ngIf="view === View.GRID"
     [data]="elements"
     [selected]="selectedElement"
     (elementClick)="onElementClick($event)"
   />
-  <biit-timeline-viewer-chart *ngIf="view === View.TIMELINE && timelineOptions && timelineOptions.date"
+  <biit-timeline-viewer-chart id="metaviewer-timeline" *ngIf="view === View.TIMELINE && timelineOptions && timelineOptions.date"
     [data]="elements | extractData"
     [options]="timelineOptions"
     (onItemClick)="onTimeLineElementClick($event)"
     style="overflow: hidden"
   />
-  <div class="error-view" *ngIf="view === View.TIMELINE && !timelineOptions?.date">
+  <div class="error-view" id="metaviewer-error" *ngIf="view === View.TIMELINE && !timelineOptions?.date">
     <div>
       <biit-icon name="exclamation" style="display:block; width: 1rem;" />
     </div>
