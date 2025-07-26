@@ -32,6 +32,7 @@ export class BiitLoginComponent implements OnInit {
   @Input() biitLoginServiceSupport: BiitLoginServiceSupport;
   @Input() notification: boolean = false;
   @Input() displayLogin: boolean = false;
+  @Input() signupIfCookies: boolean = true;
 
   @Output() onLogin: EventEmitter<BiitLogin>;
   @Output() onNotRemember: EventEmitter<void>;
@@ -72,7 +73,14 @@ export class BiitLoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.allowSignUp && !this.displayLogin) {
-      this.signUpView = true;
+      if (this.signupIfCookies) {
+        const cookiesAccepted: string | null = localStorage.getItem("cookies-consent");
+        if (cookiesAccepted === 'true') {
+          this.signUpView = true;
+        }
+      } else {
+        this.signUpView = true;
+      }
     }
     if (this.teams && this.teams.length) {
       this.dumbTeam = this.teams[0];
