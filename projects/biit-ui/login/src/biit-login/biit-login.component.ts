@@ -31,6 +31,7 @@ export class BiitLoginComponent implements OnInit {
   @Input() teams: { key: any, label: string }[];
   @Input() biitLoginServiceSupport: BiitLoginServiceSupport;
   @Input() notification: boolean = false;
+  @Input() displayLogin: boolean = false;
 
   @Output() onLogin: EventEmitter<BiitLogin>;
   @Output() onNotRemember: EventEmitter<void>;
@@ -70,7 +71,7 @@ export class BiitLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.allowSignUp) {
+    if (this.allowSignUp && !this.displayLogin) {
       this.signUpView = true;
     }
     if (this.teams && this.teams.length) {
