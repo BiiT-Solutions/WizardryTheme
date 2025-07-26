@@ -75,7 +75,7 @@ export class BiitLoginComponent implements OnInit {
     if (this.allowSignUp && !this.displayLogin) {
       if (this.signupIfCookies) {
         const cookiesAccepted: string | null = localStorage.getItem("cookies-consent");
-        if (cookiesAccepted === 'true') {
+        if (!cookiesAccepted) {
           this.signUpView = true;
         }
       } else {
