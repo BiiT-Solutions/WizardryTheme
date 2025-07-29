@@ -1,5 +1,5 @@
 <div class="metadata-view" id="metaviewer-data">
-  <div class="metadata-header" [class.justify-center]="!titleField">
+  <div class="metadata-header" id="metaviewer-header" [class.justify-center]="!titleField">
     <div class="data-icon">
       <biit-meta-element id="metaviewer-element"
         [styles]="_data.styles"
@@ -9,7 +9,7 @@
         <div *ngIf="_data.custom" [innerHTML]="_data.custom.innerHTML"></div>
       </biit-meta-element>
     </div>
-    <div *ngIf="titleField" class="data-title" [tooltip]="_data.data[titleField] | printf">
+    <div *ngIf="titleField" class="data-title" id="title" [tooltip]="_data.data[titleField] | printf">
       {{_data.data[titleField] | printf}}
     </div>
     <div>
@@ -21,7 +21,7 @@
   </div>
   <div class="metadata-info" id="metaviewer-info">
     <div *ngFor="let field of (fields | removeFromArray: [titleField]) " class="field">
-      <div class="metadata-info-row">
+      <div class="metadata-info-row" id="metaviewer-info-row">
         <div class="field-value">
           <biit-input-text
             [placeholder]="field"
