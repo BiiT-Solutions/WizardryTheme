@@ -22,8 +22,8 @@
   <div class="metadata-info" id="metaviewer-info">
     <div *ngFor="let field of (fields | removeFromArray: [titleField]) " class="field">
       <div class="metadata-info-row" id="metaviewer-info-row">
-        <div class="field-value">
-          <biit-input-text id="field"
+        <div class="field-value" id="field">
+          <biit-input-text
             [placeholder]="field"
             [ngModel]="_data.data[field] | autoFormat"
             [readonly]="true"
