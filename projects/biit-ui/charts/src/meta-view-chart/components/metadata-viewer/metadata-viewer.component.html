@@ -13,7 +13,7 @@
       {{_data.data[titleField] | printf}}
     </div>
     <div>
-      <button biit-icon
+      <button biit-icon id="close-button"
               [icon]="'cross_wide'"
               (click)="close()"
       ></button>
@@ -23,7 +23,7 @@
     <div *ngFor="let field of (fields | removeFromArray: [titleField]) " class="field">
       <div class="metadata-info-row" id="metaviewer-info-row">
         <div class="field-value">
-          <biit-input-text
+          <biit-input-text id="field"
             [placeholder]="field"
             [ngModel]="_data.data[field] | autoFormat"
             [readonly]="true"
