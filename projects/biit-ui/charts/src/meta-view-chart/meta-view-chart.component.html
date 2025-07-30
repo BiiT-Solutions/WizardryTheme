@@ -19,7 +19,7 @@
     </div>
     <div>{{ t('charts.configuration-not-meets-requirements') }}</div>
   </div>
-  <div class="meta-view-column rtl" *ngIf="selectedElement" @fadeInOut>
+  <div class="meta-view-column rtl" id="metadata-viewer" *ngIf="selectedElement" @fadeInOut>
     <biit-metadata-viewer class="ltr"
       [data]="selectedElement"
       [fields]="data.fields"
