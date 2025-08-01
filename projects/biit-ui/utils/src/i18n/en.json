@@ -60,6 +60,7 @@
   "profile_not_found": "Couldn't find the profile.",
   "candidate_not_found": "Couldn't find the candidate.",
   "comment_too_long": "The comment is too long. Please, keep it under 10.000 characters.",
+  "profile_not_assigned_to_project": "The profile is not assigned to the selected project.",
 
   "fact_not_found": "Couldn't find the fact.",
   "template_not_found": "Couldn't find the template.",
