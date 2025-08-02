@@ -1,4 +1,4 @@
-import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, OnInit, Output, ChangeDetectorRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {biitIcon} from 'biit-icons-collection';
 import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
@@ -85,6 +85,28 @@ export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
 
   writeValue(value: string): void {
     this.value = value;
+  }
+
+  protected checkValue(event: KeyboardEvent) {
+    if (this.type === Type.NUMBER) {
+      const input = event.target as HTMLInputElement;
+      const cursorPos = input.selectionStart ?? 0;
+      const value = input.value;
+
+      // Allow digits and control keys
+      if (/[0-9]/.test(event.key) || ['Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'].includes(event.key)) {
+        return;
+      }
+      // Allow '-' only at the start and if not already present
+      if (event.key === '-' && cursorPos === 0 && !value.startsWith('-')) {
+        return;
+      }
+      // Allow '.' or ',' only if neither is present
+      if ((event.key === '.' || event.key === ',') && !value.includes('.') && !value.includes(',')) {
+        return;
+      }
+      event.preventDefault();
+    }
   }
 }
 
