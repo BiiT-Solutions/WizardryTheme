@@ -62,6 +62,7 @@ export class BiitDatatableComponent<T> implements OnInit {
   protected readonly ColumnMode = ColumnMode;
   protected readonly SelectionType = SelectionType;
   protected readonly BiitMultiselectType = BiitMultiselectType;
+  private findTimeout: NodeJS.Timeout;
 
   constructor(biitIconService: BiitIconService) {
     biitIconService.registerIcons(completeIconSet);
@@ -89,17 +90,23 @@ export class BiitDatatableComponent<T> implements OnInit {
     }
   }
 
-  onFilter(value: string) {
-    this.search = value;
-    const val = value.toLowerCase();
+  onFilter(value: string, force: boolean = false) {
+    if (this.findTimeout) {
+      clearTimeout(this.findTimeout);
+    }
+    this.findTimeout = setTimeout(() => {    this.search = value;
+        const val = value.toLowerCase();
 
-    // filter our data
-    const temp = this.allData.filter(item => GenericFilter.filter(item, val, true));
+        // filter our data
+        const temp = this.allData.filter(item => GenericFilter.filter(item, val, true));
 
-    // update the rows
-    this._data = temp;
-    // Whenever the filter changes, always go back to the first page
-    this.table.offset = 0;
+        // update the rows
+        this._data = temp;
+        // Whenever the filter changes, always go back to the first page
+        this.table.offset = 0;
+        clearTimeout(this.findTimeout);
+        this.findTimeout = null;
+      }, force ? 0 : 500);
   }
 
   onFooterPageChange(event: any) {

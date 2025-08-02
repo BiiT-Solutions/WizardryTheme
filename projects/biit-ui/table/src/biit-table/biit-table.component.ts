@@ -116,6 +116,8 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
   protected readonly BiitMultiselectType = BiitMultiselectType;
   protected readonly BiitTableColumnFormat = BiitTableColumnFormat;
 
+  private findTimeout: NodeJS.Timeout;
+
   constructor(private renderer: Renderer2,
               private elem: ElementRef) { }
 
@@ -166,15 +168,22 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  onTableUpdate() {
-    this.currentSearch = this.search;
-    this.selectedRows.clear();
-    this.onUpdate.emit(new BiitTableResponse(
-      this.paginator.currentPage,
-      this.paginator.pageSize,
-      this.search,
-      this.sorting
-    ));
+  onTableUpdate(force: boolean = false) {
+    if (this.findTimeout) {
+      clearTimeout(this.findTimeout);
+    }
+    this.findTimeout = setTimeout(() => {
+      this.currentSearch = this.search;
+      this.selectedRows.clear();
+      this.onUpdate.emit(new BiitTableResponse(
+        this.paginator.currentPage,
+        this.paginator.pageSize,
+        this.search,
+        this.sorting
+      ));
+      clearTimeout(this.findTimeout);
+      this.findTimeout = null;
+    }, force ? 0 : 500);
   }
 
   onTableSort(column: BiitTableColumn) {

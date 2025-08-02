@@ -7,9 +7,10 @@
       <biit-input-text id="search-field" [(ngModel)]="search"
                        (onActionPerformed)="
                          paginator.currentPage = 1;
-                         onTableUpdate();
+                         onTableUpdate(true);
                        "
                        (focusout)="resetInputValue()"
+                       (ngModelChange)="onTableUpdate()"
                        icon="search"
                        [placeholder]="t('table.search')"
       ></biit-input-text>
