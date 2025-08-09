@@ -100,13 +100,13 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit, DoCh
   }
 
   writeValue(value: any): void {
-    this.currentValue = value;
+    this.currentValue = this.isPrimitive ? this.data.find(i => i[this.value] === value) : value;
   }
 
   onModelChange(value: any) {
     this.currentValue = value;
     this.closeDropdown();
-    this.onChange(value);
+    this.onChange(this.isPrimitive ? value[this.value] : value);
   }
 
   handleMouseEvents($event: PointerEvent) {
