@@ -7,6 +7,8 @@
            class="input-object"
            (keydown)="checkValue($event)"
            [(ngModel)]="value"
+           (input)="value"
+           (ngModelChange)="onChange($event); validateInput();"
            (keydown.enter)="onActionPerformed.emit(value)"
            [type]="reveal ? Type.TEXT : type" required
            [min]="min"
