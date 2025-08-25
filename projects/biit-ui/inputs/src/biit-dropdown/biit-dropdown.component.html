@@ -7,11 +7,11 @@
 >
   <div class="input-container" #input>
     <input id="input" [ngModel]="dropdownOpen ? filterText :
-                      currentValue && isPrimitive ? currentValue :
+                      currentValue && !label ? currentValue :
                       currentValue && currentValue[label] ? currentValue[label] : ''"
            (ngModelChange)="filterText = $event; handleFilter()"
            (click)="!dropdownOpen && !isDisabled && openDropdown()"
-           [placeholder]="dropdownOpen && currentValue && isPrimitive ? currentValue :
+           [placeholder]="dropdownOpen && currentValue && !label ? currentValue :
                           dropdownOpen && currentValue && currentValue[label] ? currentValue[label] : ''"
            tabindex="0"
            class="input-object"
@@ -73,7 +73,7 @@
       [disabled]="!dropdownOpen || isDisabled"
     >
       <div id="content">
-        <a>{{ isPrimitive ? item : item[label] }}</a>
+        <a>{{ label ?  item[label] : item }}</a>
         <span *ngIf="descriptionLabel && item[descriptionLabel]" class="description">{{ item[descriptionLabel] }}</span>
       </div>
     </button>

@@ -7,8 +7,9 @@
       <biit-input-text id="search" #searchInput
                        [ngModel]="search"
                        (onActionPerformed)="
-                         onFilter($event);
+                         onFilter($event, true);
                        "
+                       (ngModelChange)="onFilter($event)"
                        (focusout)="searchInput.value = search"
                        icon="search"
                        [placeholder]="t('t.search')"

@@ -279,8 +279,8 @@ const Template: Story<BiitInputTextComponent> = (args: BiitInputTextComponent) =
      [description]="description"
      style="width: 256px; display: block;"
      >
-
-    </biit-input-text>`
+    </biit-input-text>
+`
 });
 
 export const Default = Template.bind({});
