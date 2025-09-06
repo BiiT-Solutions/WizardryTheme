@@ -1,6 +1,10 @@
 $default-color: #262626;
 $biit-color: #F20D5E;
 
+$idle: #808080;
+$error: #A1093F;
+$active: #262626;
+
 .login-container {
   display: flex;
   font-size: inherit;
@@ -94,7 +98,7 @@ $biit-color: #F20D5E;
   right: 0;
   top: 0;
   width: 50%;
-  height: 2rem;
+  height: calc(2rem + 3px);
   display: flex;
 
   div {
@@ -104,12 +108,16 @@ $biit-color: #F20D5E;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background: #262626;
-    color: white;
+    background: transparent;
+    color: $idle;
+    &:hover {
+      border-bottom: 3px solid $idle;
+    }
 
     &.selected {
-      background: #EDEDED;
+      background: transparent;
       color: #262626;
+      border-bottom: 3px solid $active;
     }
   }
 }
