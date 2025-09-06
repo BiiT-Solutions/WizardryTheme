@@ -34,6 +34,8 @@
     "@angular/platform-browser-dynamic": "v15-lts",
     "@angular/router": "v15-lts",
     "@ngneat/transloco-locale": "^5.1.1",
+    "@perfectmemory/ngx-contextmenu": "^15.0.0",
+    "@siemens/ngx-datatable": "v21-3",
     "angular-calendar": "~0.31.0",
     "apexcharts": "^3.37.1",
     "biit-icons-collection": "latest",
@@ -42,9 +44,8 @@
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "uuid": "^9.0.0",
-    "zone.js": "~0.12.0",
-    "@perfectmemory/ngx-contextmenu": "^15.0.0",
-    "@siemens/ngx-datatable": "v21-3"
+    "web-file-polyfill": "^1.0.4",
+    "zone.js": "~0.12.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "v15-lts",

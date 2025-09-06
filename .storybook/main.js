@@ -1,4 +1,3 @@
-global.File = class {};
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
