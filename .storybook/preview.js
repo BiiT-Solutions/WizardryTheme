@@ -7,7 +7,7 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {Router, RouterModule} from "@angular/router";
 import {ENVIRONMENT_INITIALIZER, inject} from "@angular/core";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-
+require('web-file-polyfill');
 setCompodocJson(docJson);
 
 export const parameters = {
