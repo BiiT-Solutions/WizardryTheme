@@ -3,30 +3,31 @@
     <biit-tooltip-icon *ngIf="info"
                        class="tooltip-icon"
                        [text]="info"></biit-tooltip-icon>
-    <textarea id="input"
-              class="input-object" required
-           [(ngModel)]="value"
-           (ngModelChange)="this.onChange($event);"
-           (keydown.enter)="onActionPerformed.emit(value)"
-           [attr.name]="fieldName"
-           [attr.maxlength]="maxLength"
-           [class.error]="error"
-           [class.reveal]="reveal"
-           [style.resize]="resize"
+    <textarea
+      class="input-object" required
+      [(ngModel)]="value"
+      (ngModelChange)="this.onChange($event);"
+      (keydown.enter)="onActionPerformed.emit(value)"
+      [attr.name]="fieldName"
+      [attr.maxlength]="maxLength"
+      [class.error]="error"
+      [class.reveal]="reveal"
+      [style.resize]="resize"
     ></textarea>
     <div class="input-placeholder">
-      {{placeholder}}
+      {{ placeholder }}
       <a *ngIf="required"
          [style.color]="value ? null : 'red'">*</a>
     </div>
-    <biit-icon *ngIf="error" id="exclamation" name="exclamation" class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
+    <biit-icon *ngIf="error" id="exclamation" name="exclamation" class="input-error-icon"
+               [pathStyle]="{fill:'#A1093F'}"></biit-icon>
     <div *ngIf="error" class="input-error-msg" id="error-message">
       <a id="message">
-        {{error}}
+        {{ error }}
       </a>
     </div>
     <span *ngIf="description" id="description" class="input-description">
-      {{description}}
+      {{ description }}
     </span>
   </div>
 </div>
