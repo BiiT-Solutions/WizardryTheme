@@ -25,8 +25,8 @@ export class IsDisabledPipe implements PipeTransform {
       disabled = true;
     }
 
-    if (min && date.getTime() < min.getTime()) disabled = true;
-    if (max && date.getTime() > max.getTime()) disabled = true;
+    if (min  && date?.getTime() < min?.getTime()) disabled = true;
+    if (max && date?.getTime() > max?.getTime()) disabled = true;
 
     return disabled;
   }
