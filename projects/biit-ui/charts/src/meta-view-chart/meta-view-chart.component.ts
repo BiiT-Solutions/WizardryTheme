@@ -20,12 +20,12 @@ import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [
-        style({ opacity: 0 }),
-        animate('300ms ease-in', style({ opacity: 1 }))
+        style({opacity: 0}),
+        animate('300ms ease-in', style({opacity: 1}))
       ]),
       transition(':leave', [
-        style({ opacity: 1 }),
-        animate('300ms ease-out', style({ opacity: 0 }))
+        style({opacity: 1}),
+        animate('300ms ease-out', style({opacity: 0}))
       ])
     ])
   ]
@@ -33,25 +33,28 @@ import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 export class MetaViewChartComponent {
   @Input('data') set _data(data: MetaViewData) {
     this.data = data;
-    this.data.data.forEach(element => {
-      {
-        element.data['_id'] = uuid();
-        element.data['_color'] = element.statusColor;
-      }
-    });
-    this.cdRef.detectChanges();
-    this.timelineOptions = {
-      date: data.timelineDateField,
-      color: '_color',
-      tooltipHeader: data.titleField,
-      tooltipInfo: []
-    };
-    this.elements = this.data.data;
-    this.onFilter(null);
+    if (data) {
+      this.data.data.forEach(element => {
+        {
+          element.data['_id'] = uuid();
+          element.data['_color'] = element.statusColor;
+        }
+      });
+      this.cdRef.detectChanges();
+      this.timelineOptions = {
+        date: data.timelineDateField,
+        color: '_color',
+        tooltipHeader: data.titleField,
+        tooltipInfo: []
+      };
+      this.elements = this.data.data;
+      this.onFilter(null);
+    }
   }
+
   @Input() view: View = View.GRID;
-  @Output() selected: EventEmitter<MetaViewElementData>= new EventEmitter<MetaViewElementData>();
-  @Output() unselected: EventEmitter<void>= new EventEmitter<void>();
+  @Output() selected: EventEmitter<MetaViewElementData> = new EventEmitter<MetaViewElementData>();
+  @Output() unselected: EventEmitter<void> = new EventEmitter<void>();
 
   protected readonly View = View;
 
@@ -108,11 +111,11 @@ export class MetaViewChartComponent {
       return;
     }
     this.elements = this.data.data.filter((element: MetaViewElementData) => {
-      return !Array.from(filters.entries()).map(filter =>  this.resolveFilter(filter[1], element.data[filter[0]])).some(result => !result);
+      return !Array.from(filters.entries()).map(filter => this.resolveFilter(filter[1], element.data[filter[0]])).some(result => !result);
     });
   }
 
-  private resolveFilter(restriction:  any, value: any): boolean {
+  private resolveFilter(restriction: any, value: any): boolean {
     if (Array.isArray(restriction) && !restriction.some(Array.isArray) && restriction.length === 2) {
       return value >= restriction[0] && value <= restriction[1];
     }
