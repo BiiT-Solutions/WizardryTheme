@@ -13,38 +13,43 @@ import {Page} from "./models/page";
   selector: 'biit-datatable',
   templateUrl: './biit-datatable.component.html',
   styleUrls: ['./biit-datatable.component.scss'],
-  providers: [provideTranslocoScope({scope:'biit-ui/table', alias:'t'})]
+  providers: [provideTranslocoScope({scope: 'biit-ui/table', alias: 't'})]
 })
 export class BiitDatatableComponent<T> implements OnInit {
   @ViewChild('table') table: DatatableComponent;
 
   _data: T[] = [];
   allData: T[] = [];
+
   @Input() set data(data: T[]) {
     this._data = data ?? [];
     this.allData = data ?? [];
     this.selected = [];
   }
+
   get data(): T[] {
     return this._data;
   }
 
   _columns: DatatableColumn[] = [];
   allColumns: DatatableColumn[] = [];
+
   @Input() set columns(columns: DatatableColumn[]) {
     this.allColumns = columns ?? [];
     this._columns = columns.filter(c => c.visible);
   }
+
   get columns(): DatatableColumn[] {
     return this._columns;
   }
 
   selected: T[] = [];
+
   get selectedRows(): T[] {
     return this.selected;
   }
 
-  @Input() pageSize?:number;
+  @Input() pageSize?: number;
   @Input() pageSizeList: number[] = [];
   @Input() loading = false;
   @Input() selectable?: any;
@@ -77,13 +82,13 @@ export class BiitDatatableComponent<T> implements OnInit {
     this.serverSide = coerceBooleanProperty(this.serverSide);
   }
 
-  onSelect({ selected }) {
+  onSelect({selected}) {
     this.selected.splice(0, this.selected.length);
     this.selected.push(...selected);
     this.onSelection.emit(this.selected);
   }
 
-  onActivate(event: { type: 'keydown'|'click'|'dblclick', event, row, column, value, cellElement, rowElement }) {
+  onActivate(event: { type: 'keydown' | 'click' | 'dblclick', event, row, column, value, cellElement, rowElement }) {
     if (event.type == 'click' && event.column.name !== 'chkbox') {
       this.selected = [event.row];
       this.onSelection.emit(this.selected);
@@ -94,19 +99,20 @@ export class BiitDatatableComponent<T> implements OnInit {
     if (this.findTimeout) {
       clearTimeout(this.findTimeout);
     }
-    this.findTimeout = setTimeout(() => {    this.search = value;
-        const val = value.toLowerCase();
+    this.findTimeout = setTimeout(() => {
+      this.search = value;
+      const val = value.toLowerCase();
 
-        // filter our data
-        const temp = this.allData.filter(item => GenericFilter.filter(item, val, true));
+      // filter our data
+      const temp: T[] = this.allData.filter(item => GenericFilter.filter(item, val, true));
 
-        // update the rows
-        this._data = temp;
-        // Whenever the filter changes, always go back to the first page
-        this.table.offset = 0;
-        clearTimeout(this.findTimeout);
-        this.findTimeout = null;
-      }, force ? 0 : 500);
+      // update the rows
+      this._data = temp;
+      // Whenever the filter changes, always go back to the first page
+      this.table.offset = 0;
+      clearTimeout(this.findTimeout);
+      this.findTimeout = null;
+    }, force ? 0 : 500);
   }
 
   onFooterPageChange(event: any) {
