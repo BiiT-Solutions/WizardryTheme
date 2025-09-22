@@ -20,7 +20,7 @@
            [class.default-cursor]="dropdownOpen"
            [disabled]="isDisabled"
            [readonly]="!dropdownOpen"/>
-    <div class="input-show-icon-container"
+    <div class="input-show-icon-container" id="arrow"
          [class.passthrough]="!dropdownOpen"
          [class.rotate-90]="dropdownOpen"
          (click)="dropdownOpen && closeDropdown()">
