@@ -2,12 +2,14 @@ import {
   AfterViewInit,
   Component,
   DoCheck,
-  ElementRef, EventEmitter,
+  ElementRef,
+  EventEmitter,
   forwardRef,
   Input,
   IterableDiffer,
   IterableDiffers,
-  OnInit, Output
+  OnInit,
+  Output
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {biitIcon} from 'biit-icons-collection';
@@ -46,26 +48,37 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   @Input() description: string = '';
   @Input() data: any[] = [];
   protected isPrimitive: boolean;
+
   @Input() set primitive(primitive: any) {
     this.isPrimitive = coerceBooleanProperty(primitive);
   };
+
   protected isCompact: boolean;
+
   @Input() set compact(compact: any) {
     this.isCompact = coerceBooleanProperty(compact);
   };
+
   protected isDisabled: boolean;
+
   @Input() set disabled(disabled: any) {
     this.isDisabled = coerceBooleanProperty(disabled);
   };
+
   protected isRequired: boolean;
+
   @Input() set required(required: any) {
     this.isRequired = coerceBooleanProperty(required);
   };
+
   protected isSortAsc: boolean;
+
   @Input('sort-asc') set sortAsc(sortAsc: any) {
     this.isSortAsc = coerceBooleanProperty(sortAsc);
   };
+
   protected isSortDesc: boolean;
+
   @Input('sort-desc') set sortDesc(sortDesc: any) {
     this.isSortDesc = coerceBooleanProperty(sortDesc);
   };
@@ -76,9 +89,16 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   public filterText: string = '';
   public filteredData: any[] = [];
   public dropdownOpen: boolean = false;
-  public get dropdownElement(): HTMLElement {return this.elem.nativeElement.querySelector('.dropdown-list')};
-  public get inputElement(): HTMLElement {return this.elem.nativeElement.querySelector('.input-object')};
-  public hover = new MouseEvent('pointerover', { 'bubbles': true });
+
+  public get dropdownElement(): HTMLElement {
+    return this.elem.nativeElement.querySelector('.dropdown-list')
+  };
+
+  public get inputElement(): HTMLElement {
+    return this.elem.nativeElement.querySelector('.input-object')
+  };
+
+  public hover = new MouseEvent('pointerover', {'bubbles': true});
 
   private differ: IterableDiffer<string>;
 
@@ -116,8 +136,10 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
     });
   }
 
-  onChange = (values: any[]) => {};
-  onTouched = () => {};
+  onChange = (values: any[]) => {
+  };
+  onTouched = () => {
+  };
 
   registerOnChange(fn: any): void {
     this.onChange = fn;
@@ -128,14 +150,20 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   }
 
   writeValue(values: any[]): void {
-    this.currentValues = values;
+    if (values) {
+      this.currentValues = values;
+    } else {
+      this.currentValues = [];
+    }
   }
 
   onModelChange(value: any) {
-    if (!this.currentValues.includes(value)) {
-      this.currentValues.push(value);
-    } else {
-      this.currentValues.splice(this.currentValues.indexOf(value), 1);
+    if (this.currentValues) {
+      if (!this.currentValues.includes(value)) {
+        this.currentValues.push(value);
+      } else {
+        this.currentValues.splice(this.currentValues.indexOf(value), 1);
+      }
     }
     this.onChange(this.currentValues);
   }
@@ -155,7 +183,7 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
         break;
 
       case 'ArrowDown':
-        if (document.activeElement.tagName == "BIIT-CHECKBOX"){
+        if (document.activeElement.tagName == "BIIT-CHECKBOX") {
           (document.activeElement.nextElementSibling as HTMLElement)?.focus();
         }
         break;
@@ -203,17 +231,17 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
     if (this.isPrimitive) {
       if (this.isSortAsc || this.isSortDesc) {
         this.data.sort(
-          (a,b) => this.isSortAsc ? (a>b ? 1 : (b>a ? -1 : 0)) : (a>b ? -1 : (b>a ? 1 : 0))
+          (a, b) => this.isSortAsc ? (a > b ? 1 : (b > a ? -1 : 0)) : (a > b ? -1 : (b > a ? 1 : 0))
         );
       }
     } else {
       if (this.isSortAsc || this.isSortDesc) {
-        this.data.sort((a,b) => {
-          if ( this.currentValues.includes(a) && !this.currentValues.includes(b)) return -1;
-          if ( !this.currentValues.includes(a) && this.currentValues.includes(b)) return 1;
-          if ( a[this.label] < b[this.label] ){
+        this.data.sort((a, b) => {
+          if (this.currentValues.includes(a) && !this.currentValues.includes(b)) return -1;
+          if (!this.currentValues.includes(a) && this.currentValues.includes(b)) return 1;
+          if (a[this.label] < b[this.label]) {
             return this.isSortAsc ? -1 : 1;
-          } else if ( a[this.label] > b[this.label] ){
+          } else if (a[this.label] > b[this.label]) {
             return this.isSortAsc ? 1 : -1;
           } else {
             return 0;
@@ -221,8 +249,10 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
         });
       } else {
         this.data.sort((a, b) => {
-          if ( this.currentValues.includes(a) && !this.currentValues.includes(b)) return -1;
-          if ( !this.currentValues.includes(a) && this.currentValues.includes(b)) return 1;
+          if (this.currentValues) {
+            if (this.currentValues.includes(a) && !this.currentValues.includes(b)) return -1;
+            if (!this.currentValues.includes(a) && this.currentValues.includes(b)) return 1;
+          }
           return 0;
         })
       }
@@ -245,7 +275,9 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
   closeDropdown() {
     this.dropdownOpen = false;
     this.dropdownElement.setAttribute('aria-expanded', "false");
-    setTimeout(() => { this.clearFilter(); }, 100);
+    setTimeout(() => {
+      this.clearFilter();
+    }, 100);
   }
 
   private setTooltipComponentProperties() {
@@ -283,8 +315,8 @@ export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, A
 
     // Support inner functions
     function bottomCheck(): boolean {
-        return button.getBoundingClientRect().bottom + dropdown.offsetHeight <= window.innerHeight ||
-          button.getBoundingClientRect().top - dropdown.offsetHeight <= 0;
+      return button.getBoundingClientRect().bottom + dropdown.offsetHeight <= window.innerHeight ||
+        button.getBoundingClientRect().top - dropdown.offsetHeight <= 0;
     }
 
     function rightCheck(): boolean {
