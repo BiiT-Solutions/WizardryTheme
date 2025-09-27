@@ -8,7 +8,7 @@ export class ErrorHandler {
       snackbarService.showNotification(message, NotificationType.ERROR, null);
       return;
     }
-    if (error?.error?.code) {
+    if (error?.status) {
       translocoService.selectTranslate(error.error.code, {}, {scope:'biit-ui/utils'}).subscribe(msg => {
         snackbarService.showNotification(msg, NotificationType.ERROR, undefined);
       });
