@@ -1,6 +1,6 @@
 {
   "400": "Ups! Parece que esta página y su servidor no están en sincronía!. Por favor, pruebe a refrescar la página y limpiar la cache.",
-  "401": "Ups! Parece que tu usuario y contraseña no son correctos. Por favor, compruébalo e insténtalo de nuevo.",
+  "401": "Ups! Parece que tus credenciales no son correctas o no tienes los suficientes permisos. Por favor, compruébalo e insténtalo de nuevo.",
   "403": "Ups! Parece que tu usuario no tiene permisos para acceder a este recurso.",
   "404": "Lo sentimos, pero parece que nuestros servicios no se encuentran disponibles en este momento. Pruebe de nuevo más tarde.",
   "423": "Has alcanzado el número máximo de intentos. Por favor, pruebe de nuevo más tarde.",

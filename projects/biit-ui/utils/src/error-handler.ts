@@ -8,12 +8,20 @@ export class ErrorHandler {
       snackbarService.showNotification(message, NotificationType.ERROR, null);
       return;
     }
-    if (error?.status) {
+    if (error?.error?.code) {
       translocoService.selectTranslate(error.error.code, {}, {scope:'biit-ui/utils'}).subscribe(msg => {
         snackbarService.showNotification(msg, NotificationType.ERROR, undefined);
       });
       return;
     }
+
+    if (error?.status) {
+      translocoService.selectTranslate('' + error.status, {}, {scope:'biit-ui/utils'}).subscribe(msg => {
+        snackbarService.showNotification(msg, NotificationType.ERROR, undefined);
+      });
+      return;
+    }
+
     translocoService.selectTranslate('request_unsuccessful', {}, {scope:'biit-ui/utils'}).subscribe(msg => {
       snackbarService.showNotification(msg, NotificationType.ERROR, null);
     });
