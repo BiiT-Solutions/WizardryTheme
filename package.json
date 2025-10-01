@@ -1,6 +1,6 @@
 {
   "name": "storybook-biit",
-  "version": "1.2.16",
+  "version": "1.2.18",
   "scripts": {
     "clean": "git clean -fdx && npm install",
     "ng": "ng",
