@@ -78,3 +78,13 @@ $active-color: #EDEDED;
     }
   }
 }
+
+@media screen and (max-width: 500px) {
+  .navbar-user-canvas {
+    width: unset !important;
+  }
+  .titles {
+    display: none !important;
+  }
+
+}
