@@ -1,31 +1,43 @@
-<div class="navbar-menu-canvas" id="nav-menu">
-  <div class="item" #navItem
-       *ngFor="let route of routes"
-       [attr.id]="'nav-item-' + route.path"
-       [routerLink]="route.children ? null : [route.path]"
-       [routerLinkActive]="['active']"
-       [class.active]="router.url.includes('/'+route.path)"
-       [class.hover]="route == hovered && contextMenuService.hasOpenMenu()"
-       [class.disabled]="route.data?.['disabled']"
-       [style.display]="route.data?.['hidden'] ? 'none' : 'inline-flex'"
-       (click)="route.children ? onContextMenu(route, navItem) : null; log(hovered == route); "
-  >
-    {{ route.title }}
+<div class="nav-wrapper">
+  <button class="nav-arrow left"
+          *ngIf="showLeft"
+          (click)="scrollLeft()"
+          aria-label="Scroll left">
+    ‹
+  </button>
 
-    <context-menu #navbarMenu>
-      <ng-template contextMenuItem
-                   *ngFor="let item of contextMenuItems"
-                   [disabled]="item.disabled"
-                   [visible]="item.visible"
-                   (execute)="router.navigate([item.parent, item.path])"
-      >
-        <div [attr.id]="'nav-subitem-' + item.path" [class.active]="router.url.includes('/' + item.parent + '/' + item.path)">
-          {{ item.title }}
-        </div>
-      </ng-template>
-    </context-menu>
+  <div #menuCanvas class="navbar-menu-canvas scroll-x">
+    <div class="item" #navItem
+         *ngFor="let route of routes"
+         [attr.id]="'nav-item-' + route.path"
+         [routerLink]="route.children ? null : [route.path]"
+         [routerLinkActive]="['active']"
+         [class.active]="router.url.includes('/'+route.path)"
+         [class.hover]="route == hovered && contextMenuService.hasOpenMenu()"
+         [class.disabled]="route.data?.['disabled']"
+         [style.display]="route.data?.['hidden'] ? 'none' : 'inline-flex'"
+         (click)="route.children ? onContextMenu(route, navItem) : null">
+      {{ route.title }}
+      <context-menu #navbarMenu menuClass="custom-style">
+        <ng-template contextMenuItem
+                     *ngFor="let item of contextMenuItems"
+                     [disabled]="item.disabled"
+                     [visible]="item.visible"
+                     (execute)="router.navigate([item.parent, item.path])">
+          <div [attr.id]="'nav-subitem-' + item.path"
+               [class.active]="router.url.includes('/' + item.parent + '/' + item.path)">
+            {{ item.title }}
+          </div>
+        </ng-template>
+      </context-menu>
+    </div>
   </div>
+
+  <button class="nav-arrow right"
+          *ngIf="showRight"
+          (click)="scrollRight()
+"
+          aria-label="Scroll right">
+    ›
+  </button>
 </div>
-
-
-
