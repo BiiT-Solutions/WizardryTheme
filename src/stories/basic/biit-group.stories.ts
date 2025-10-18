@@ -37,7 +37,7 @@ export default {
 const Template: Story<BiitActionButtonComponent> = (args: BiitActionButtonComponent) => ({
   props: args,
   template: `
-    <div style="display: block; height: 500px; width: 700px;">
+    <div style="display: block;">
       <biit-group [legend]="legend"
                   [description]="description"
                   [enablePlus]="enablePlus"

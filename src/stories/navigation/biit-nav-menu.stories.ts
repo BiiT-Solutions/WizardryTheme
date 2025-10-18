@@ -53,6 +53,116 @@ export default {
         ]
       },
       {
+        path: "users",
+        component: BiitButtonComponent,
+        title: "Users",
+        children: [
+          {
+            path: "name",
+            component: BiitButtonComponent,
+            title: "Name"
+          },
+          {
+            path: "location",
+            component: BiitButtonComponent,
+            title: "Location"
+          },
+          {
+            path: "ability",
+            component: BiitButtonComponent,
+            title: "Ability"
+          }
+        ]
+      },
+      {
+        path: "users",
+        component: BiitButtonComponent,
+        title: "Users",
+        children: [
+          {
+            path: "name",
+            component: BiitButtonComponent,
+            title: "Name"
+          },
+          {
+            path: "location",
+            component: BiitButtonComponent,
+            title: "Location"
+          },
+          {
+            path: "ability",
+            component: BiitButtonComponent,
+            title: "Ability"
+          }
+        ]
+      },
+      {
+        path: "users",
+        component: BiitButtonComponent,
+        title: "Users",
+        children: [
+          {
+            path: "name",
+            component: BiitButtonComponent,
+            title: "Name"
+          },
+          {
+            path: "location",
+            component: BiitButtonComponent,
+            title: "Location"
+          },
+          {
+            path: "ability",
+            component: BiitButtonComponent,
+            title: "Ability"
+          }
+        ]
+      },
+      {
+        path: "users",
+        component: BiitButtonComponent,
+        title: "Users",
+        children: [
+          {
+            path: "name",
+            component: BiitButtonComponent,
+            title: "Name"
+          },
+          {
+            path: "location",
+            component: BiitButtonComponent,
+            title: "Location"
+          },
+          {
+            path: "ability",
+            component: BiitButtonComponent,
+            title: "Ability"
+          }
+        ]
+      },
+      {
+        path: "users",
+        component: BiitButtonComponent,
+        title: "Users",
+        children: [
+          {
+            path: "name",
+            component: BiitButtonComponent,
+            title: "Name"
+          },
+          {
+            path: "location",
+            component: BiitButtonComponent,
+            title: "Location"
+          },
+          {
+            path: "ability",
+            component: BiitButtonComponent,
+            title: "Ability"
+          }
+        ]
+      },
+      {
         path: "roles",
         component: BiitButtonComponent,
         title: "Roles",
@@ -81,6 +191,182 @@ export default {
   },
   args: {
     routes: [
+      {
+        path: "users",
+        component: BiitButtonComponent,
+        title: "Users",
+        children: [
+          {
+            path: "name",
+            component: BiitButtonComponent,
+            title: "Name"
+          },
+          {
+            path: "location",
+            component: BiitButtonComponent,
+            title: "Location"
+          },
+          {
+            path: "ability",
+            component: BiitButtonComponent,
+            title: "Ability"
+          }
+        ]
+      },
+      {
+        path: "users",
+        component: BiitButtonComponent,
+        title: "Users",
+        children: [
+          {
+            path: "name",
+            component: BiitButtonComponent,
+            title: "Name"
+          },
+          {
+            path: "location",
+            component: BiitButtonComponent,
+            title: "Location"
+          },
+          {
+            path: "ability",
+            component: BiitButtonComponent,
+            title: "Ability"
+          }
+        ]
+      },
+      {
+        path: "users",
+        component: BiitButtonComponent,
+        title: "Users",
+        children: [
+          {
+            path: "name",
+            component: BiitButtonComponent,
+            title: "Name"
+          },
+          {
+            path: "location",
+            component: BiitButtonComponent,
+            title: "Location"
+          },
+          {
+            path: "ability",
+            component: BiitButtonComponent,
+            title: "Ability"
+          }
+        ]
+      },
+      {
+        path: "users",
+        component: BiitButtonComponent,
+        title: "Users",
+        children: [
+          {
+            path: "name",
+            component: BiitButtonComponent,
+            title: "Name"
+          },
+          {
+            path: "location",
+            component: BiitButtonComponent,
+            title: "Location"
+          },
+          {
+            path: "ability",
+            component: BiitButtonComponent,
+            title: "Ability"
+          }
+        ]
+      },
+      {
+        path: "users",
+        component: BiitButtonComponent,
+        title: "Users",
+        children: [
+          {
+            path: "name",
+            component: BiitButtonComponent,
+            title: "Name"
+          },
+          {
+            path: "location",
+            component: BiitButtonComponent,
+            title: "Location"
+          },
+          {
+            path: "ability",
+            component: BiitButtonComponent,
+            title: "Ability"
+          }
+        ]
+      },
+      {
+        path: "users",
+        component: BiitButtonComponent,
+        title: "Users",
+        children: [
+          {
+            path: "name",
+            component: BiitButtonComponent,
+            title: "Name"
+          },
+          {
+            path: "location",
+            component: BiitButtonComponent,
+            title: "Location"
+          },
+          {
+            path: "ability",
+            component: BiitButtonComponent,
+            title: "Ability"
+          }
+        ]
+      },
+      {
+        path: "users",
+        component: BiitButtonComponent,
+        title: "Users",
+        children: [
+          {
+            path: "name",
+            component: BiitButtonComponent,
+            title: "Name"
+          },
+          {
+            path: "location",
+            component: BiitButtonComponent,
+            title: "Location"
+          },
+          {
+            path: "ability",
+            component: BiitButtonComponent,
+            title: "Ability"
+          }
+        ]
+      },
+      {
+        path: "users",
+        component: BiitButtonComponent,
+        title: "Users",
+        children: [
+          {
+            path: "name",
+            component: BiitButtonComponent,
+            title: "Name"
+          },
+          {
+            path: "location",
+            component: BiitButtonComponent,
+            title: "Location"
+          },
+          {
+            path: "ability",
+            component: BiitButtonComponent,
+            title: "Ability"
+          }
+        ]
+      },
       {
         path: "users",
         component: BiitButtonComponent,
@@ -135,7 +421,7 @@ export default {
 const Template: Story<BiitNavMenuComponent> = (args: BiitNavMenuComponent) => ({
   props: args,
   template: `
-    <div style="display: block; background: white; width: 100%; height: 2.5rem; padding-left: 2.5rem; padding-right: 15rem; box-sizing: border-box;">
+    <div style="display: block; background: white; width: 100%; height: 2.5rem; box-sizing: border-box;">
       <biit-nav-menu [routes]="routes"
       ></biit-nav-menu>
     </div>
