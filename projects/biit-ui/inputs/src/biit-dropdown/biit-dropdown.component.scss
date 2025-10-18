@@ -10,12 +10,7 @@ input::selection{ background-color:transparent }
 
 .biit-input {
   display: flex;
-  min-width: 12.8rem;
   height: 2.1rem;
-
-  &.compact {
-    width: 12.8rem;
-  }
 }
 
 .input-container {

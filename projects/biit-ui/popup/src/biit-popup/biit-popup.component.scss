@@ -36,6 +36,13 @@ $error-color: #A1093F;
   }
 }
 
+@media screen and (max-width: 800px) {
+  .sixty-canvas {
+    width: 100vw !important;
+    padding: 1rem !important;
+  }
+}
+
 .sixty-canvas {
   position: fixed;
   display: flex;
