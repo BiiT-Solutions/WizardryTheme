@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ViewEncapsulation, ElementRef, Input, ViewChild} from '@angular/core';
 import {Route, Router} from '@angular/router';
 import {ContextMenuComponent, ContextMenuService} from "@perfectmemory/ngx-contextmenu";
 import { fromEvent } from 'rxjs';
@@ -7,7 +7,8 @@ import { auditTime } from 'rxjs/operators';
 @Component({
   selector: 'biit-nav-menu',
   templateUrl: 'biit-nav-menu.component.html',
-  styleUrls: ['biit-nav-menu.component.scss']
+  styleUrls: ['biit-nav-menu.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class BiitNavMenuComponent {

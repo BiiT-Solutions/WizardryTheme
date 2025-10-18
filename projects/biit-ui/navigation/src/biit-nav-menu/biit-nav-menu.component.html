@@ -18,7 +18,7 @@
          [style.display]="route.data?.['hidden'] ? 'none' : 'inline-flex'"
          (click)="route.children ? onContextMenu(route, navItem) : null">
       {{ route.title }}
-      <context-menu #navbarMenu>
+      <context-menu #navbarMenu menuClass="custom-style">
         <ng-template contextMenuItem
                      *ngFor="let item of contextMenuItems"
                      [disabled]="item.disabled"

@@ -84,3 +84,25 @@ $disabled-color: #EDEDED;
 .nav-arrow:hover {
   color: #000;
 }
+
+.custom-style {
+  /* Styling of the element where a context menu can appear */
+  --ngx-contextmenu-focusable-border-bottom: 1px dotted #70757e;
+
+  /* Styling of the context menu itself */
+  --ngx-contextmenu-border-radius: 4px;
+  --ngx-contextmenu-border: 1px solid rgba(0, 0, 0, 0.18);
+  --ngx-contextmenu-margin: 2px 0 0;
+  --ngx-contextmenu-min-width: 160px;
+  --ngx-contextmenu-padding: 5px 0;
+  --ngx-contextmenu-max-height: 100vh;
+
+  /* Styling of context menu items */
+  --ngx-contextmenu-item-arrow-left: '◀';
+  --ngx-contextmenu-item-arrow-right: '▶';
+  --ngx-contextmenu-item-separator-color: #8a909a;
+  --ngx-contextmenu-item-separator-padding: 10px;
+  --ngx-contextmenu-item-separator-width: 96%;
+  --ngx-contextmenu-item-padding: 6px 20px;
+  --ngx-contextmenu-item-text-hover-color: #5a6473;
+}
