@@ -15,6 +15,7 @@ import {TranslocoRootModule} from 'biit-ui/i18n';
 import {BiitIconModule} from 'biit-ui/icon';
 import {BiitButtonModule, BiitIconButtonModule} from "biit-ui/button";
 import {ColumnDataPipe} from "./pipes/column-data-pipe";
+import {BiitVerticalMenuModule} from "biit-ui/navigation";
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {ColumnDataPipe} from "./pipes/column-data-pipe";
     TranslocoRootModule,
     BiitIconModule,
     BiitButtonModule,
-    BiitIconButtonModule
+    BiitIconButtonModule,
+    BiitVerticalMenuModule
   ]
 })
 export class BiitTableModule {

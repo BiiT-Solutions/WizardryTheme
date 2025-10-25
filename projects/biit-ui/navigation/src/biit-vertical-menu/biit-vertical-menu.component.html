@@ -1,0 +1,25 @@
+<div class="vertical-container">
+  <button
+    biit-icon
+    icon="project_add"
+    cdkOverlayOrigin
+    #trigger="cdkOverlayOrigin"
+    class="icon-btn"
+    type="button"
+    (click)="toggleMenu()">
+  </button>
+
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="trigger"
+    [cdkConnectedOverlayOpen]="open"
+    [cdkConnectedOverlayPositions]="positions"
+    (overlayOutsideClick)="close()"
+    (detach)="close()">
+    <div class="floating-menu" role="menu">
+      <ng-content></ng-content>
+    </div>
+  </ng-template>
+
+
+</div>

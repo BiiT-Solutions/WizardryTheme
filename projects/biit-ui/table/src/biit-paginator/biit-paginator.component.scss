@@ -194,3 +194,10 @@ $background-color: #D9D9D9;
 .downwards {
   --origin: -1rem;
 }
+
+@media screen and (max-width: 600px) {
+  .page-size-selector {
+    display: none !important;
+  }
+
+}

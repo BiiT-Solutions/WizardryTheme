@@ -9,24 +9,26 @@
     selectable
     sortable
   >
-    <button biit-icon icon="plus"
-            title="Add"
-    ></button>
-    <button biit-icon icon="minus"
-            title="Delete"
-            [disabled]="!table.getSelectedRows().length"
-    ></button>
-    <button biit-icon icon="edit"
-            title="Edit"
-            [disabled]="table.getSelectedRows().length !== 1"
-    ></button>
-    <biit-toggle
-    ></biit-toggle>
-    <biit-dropdown compact primitive
-                   [(ngModel)]="dropdown"
-                   [data]="['This', 'is a', 'dropdown']"
-                   title="Testing"
-                   style="display: block;"
-    ></biit-dropdown>
+    <ng-template #actions>
+      <button biit-icon icon="plus"
+              title="Add"
+      ></button>
+      <button biit-icon icon="minus"
+              title="Delete"
+              [disabled]="!table.getSelectedRows().length"
+      ></button>
+      <button biit-icon icon="edit"
+              title="Edit"
+              [disabled]="table.getSelectedRows().length !== 1"
+      ></button>
+      <biit-toggle
+      ></biit-toggle>
+      <biit-dropdown compact primitive
+                     [(ngModel)]="dropdown"
+                     [data]="['This', 'is a', 'dropdown']"
+                     title="Testing"
+                     style="display: block;"
+      ></biit-dropdown>
+    </ng-template>
   </biit-table>
 </div>

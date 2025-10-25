@@ -3,6 +3,8 @@ import {
   Component,
   Directive,
   ElementRef,
+  TemplateRef,
+  ContentChild,
   EventEmitter,
   Input,
   OnInit,
@@ -95,6 +97,9 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
   @Input() columns: BiitTableColumn[] = [];
   @Input() pageSizes: number[] = [];
   @Input() defaultPageSize: number;
+
+  @ContentChild('actions') actionsTpl!: TemplateRef<any>;
+
   isSelectable: boolean = false;
   isSelectableSingle: boolean = false;
   isSortable: boolean = false;

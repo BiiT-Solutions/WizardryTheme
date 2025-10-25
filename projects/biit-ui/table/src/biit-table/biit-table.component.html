@@ -1,7 +1,15 @@
 <div class="canvas" *transloco="let t">
   <div class="header" *ngIf="!hideHeader">
     <div class="buttons" id="menu">
-      <ng-content></ng-content>
+      <biit-vertical-menu *ngIf="actionsTpl" class="vertical-menu">
+        <ng-container *ngTemplateOutlet="actionsTpl"></ng-container>
+      </biit-vertical-menu>
+      <div *ngIf="actionsTpl" class="horizontal-menu">
+        <ng-container *ngTemplateOutlet="actionsTpl"></ng-container>
+      </div>
+      <div *ngIf="!actionsTpl">
+        <ng-content></ng-content>
+      </div>
     </div>
     <div class="forms">
       <biit-input-text id="search-field" [(ngModel)]="search"

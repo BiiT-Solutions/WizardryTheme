@@ -1,0 +1,48 @@
+$default-color: #F20D5E;
+$dark-grey: #808080;
+$light-grey: #D9D9D9;
+$dark-border: #262626;
+
+.vertical-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.icon-btn {
+  padding: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.icon-btn:focus-visible {
+  outline: 2px solid #1976d2;
+  border-radius: 4px;
+}
+
+.floating-menu {
+  min-width: 140px;
+  background: #fff;
+  border:3px solid $dark-border;
+  padding: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.floating-menu button {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.floating-menu button:hover {
+  background: #f3f3f3;
+}
+
