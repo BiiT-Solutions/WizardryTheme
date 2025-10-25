@@ -1,7 +1,15 @@
 <div id="biit-table" class="table-canvas" *transloco="let t">
   <div class="top" *ngIf="!hideHeader">
     <div id="menu" class="action-bar">
-      <ng-content></ng-content>
+      <biit-vertical-menu *ngIf="actionsTpl" class="vertical-menu">
+        <ng-container *ngTemplateOutlet="actionsTpl"></ng-container>
+      </biit-vertical-menu>
+      <div *ngIf="actionsTpl" class="horizontal-menu default-menu">
+        <ng-container *ngTemplateOutlet="actionsTpl"></ng-container>
+      </div>
+      <div class="default-menu" *ngIf="!actionsTpl">
+        <ng-content></ng-content>
+      </div>
     </div>
     <div id="options" class="options">
       <biit-input-text id="search" #searchInput

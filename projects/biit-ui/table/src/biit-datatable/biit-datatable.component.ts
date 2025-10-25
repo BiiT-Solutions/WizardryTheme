@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
 import {DatatableColumn} from "./models/datatable-column";
 import {ColumnMode, DatatableComponent, SelectionType} from "@siemens/ngx-datatable";
 import {completeIconSet} from "biit-icons-collection";
@@ -63,6 +63,8 @@ export class BiitDatatableComponent<T> implements OnInit {
 
   @Output() onSelection: EventEmitter<T[]> = new EventEmitter<T[]>();
   @Output() onPageChange: EventEmitter<Page> = new EventEmitter<Page>();
+
+  @ContentChild('actions') actionsTpl!: TemplateRef<any>;
 
   protected readonly ColumnMode = ColumnMode;
   protected readonly SelectionType = SelectionType;

@@ -7,6 +7,7 @@ import {NgForOf, NgIf, NgTemplateOutlet} from "@angular/common";
 import {BiitDatatablePagerModule} from "../biit-datatable-pager/biit-datatable-pager.module";
 import {BiitProgressBarModule} from "biit-ui/info";
 import {TranslocoModule} from "@ngneat/transloco";
+import {BiitVerticalMenuModule} from "biit-ui/navigation";
 
 @NgModule({
   declarations: [
@@ -15,19 +16,20 @@ import {TranslocoModule} from "@ngneat/transloco";
   exports: [
     BiitDatatableComponent
   ],
-  imports: [
-    FormsModule,
-    NgTemplateOutlet,
-    BiitCheckboxModule,
-    BiitDatatablePagerModule,
-    NgForOf,
-    NgIf,
-    NgxDatatableModule,
-    BiitProgressBarModule,
-    BiitMultiselectModule,
-    TranslocoModule,
-    BiitInputTextModule
-  ],
+    imports: [
+        FormsModule,
+        NgTemplateOutlet,
+        BiitCheckboxModule,
+        BiitDatatablePagerModule,
+        NgForOf,
+        NgIf,
+        NgxDatatableModule,
+        BiitProgressBarModule,
+        BiitMultiselectModule,
+        TranslocoModule,
+        BiitInputTextModule,
+        BiitVerticalMenuModule
+    ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class BiitDatatableModule {
