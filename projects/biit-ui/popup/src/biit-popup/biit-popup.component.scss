@@ -36,6 +36,17 @@ $error-color: #A1093F;
   }
 }
 
+@media screen and (max-width: 600px) {
+ .popup-canvas {
+   top: 0 !important;
+   left: 0 !important;
+   transform: unset !important;
+   height: 100% !important;
+   width: 100% !important;
+   text-align: center;
+ }
+}
+
 @media screen and (max-width: 800px) {
   .sixty-canvas {
     width: 100vw !important;
