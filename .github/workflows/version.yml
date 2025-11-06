@@ -1,7 +1,7 @@
 name: Update Version
 on:
   workflow_run:
-    workflows: ["Publish Package"]
+    workflows: ["Publish Library"]
     types:
       - completed
   workflow_dispatch:
@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    #if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     permissions:
       contents: write
       id-token: write
@@ -40,7 +40,7 @@ jobs:
           file="projects/wizardry-theme/package.json"
           sed -i -e "s|^  \"version\".*|  \"version\": \"${new_version}\",|g"  ${file}
           git add $file
-          git commit -m "Component version: %s"
+          git commit -m "Component version: ${new_version}"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git push
 

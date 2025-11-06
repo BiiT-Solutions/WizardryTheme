@@ -1,6 +1,8 @@
 # BiitFrontendComponents
 
-This project contains all common components that are used among all Angular projects developed by BiiT.
+This project contains all common components that are used among all Angular projects developed by BiiT. You can take a look here:
+
+[https://biit-solutions.github.io/WizardryTheme](https://biit-solutions.github.io/WizardryTheme)
 
 # Adding a new component
 
