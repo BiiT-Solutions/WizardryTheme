@@ -1,6 +1,6 @@
 {
   "name": "@biit-solutions/wizardry-theme",
-  "version": "0.0.521",
+  "version": "1.2.31",
   "author": "Biit Sourcing Solutions",
   "scripts": {
     "increase-version": "npm --no-git-tag-version version patch"
