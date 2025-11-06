@@ -3,6 +3,7 @@
   "version": "1.2.33",
   "license": "AGPLv3",
   "author": "BiiT Sourcing Solutions",
+  "private": false,
   "scripts": {
     "increase-version": "npm --no-git-tag-version version patch"
   },
