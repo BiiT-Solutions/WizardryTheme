@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, ElementRef, Inject, Input, OnInit, Optional} from '@angular/core';
 import {BiitIconService} from "./biit-icon.service";
 import {DOCUMENT} from "@angular/common";
-import {biitIcon} from "biit-icons-collection";
+import {biitIcon} from '@biit-solutions/biit-icons-collection';
 
 @Component({
   selector: 'biit-icon',

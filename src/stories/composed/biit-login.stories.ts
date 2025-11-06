@@ -1,7 +1,7 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {BiitLoginComponent, BiitLoginModule} from "@biit-solutions/wizardry-theme/login";
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
-import {completeIconSet} from "biit-icons-collection";
+import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {APP_INITIALIZER} from "@angular/core";
 import {BiitLogin} from "@biit-solutions/wizardry-theme/models";
 import {TranslocoStorybookModule} from "../../app/transloco/transloco-storybook.module";

@@ -2,7 +2,7 @@ import {Story, Meta, moduleMetadata, forceReRender} from '@storybook/angular';
 import {BiitToggleComponent} from '@biit-solutions/wizardry-theme/inputs';
 import {APP_INITIALIZER} from "@angular/core";
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
-import {completeIconSet} from "biit-icons-collection";
+import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {BiitCookiesConsentModule} from "@biit-solutions/wizardry-theme/info";
 import {BiitButtonModule} from "@biit-solutions/wizardry-theme/button";
 import {FormsModule} from "@angular/forms";

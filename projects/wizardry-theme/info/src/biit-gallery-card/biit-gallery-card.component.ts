@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {biitIcon} from "biit-icons-collection";
+import {biitIcon} from '@biit-solutions/biit-icons-collection';
 
 @Component({
   selector: 'biit-gallery-card',

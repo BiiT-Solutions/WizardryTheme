@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {biitIcon, BiitIcons} from "biit-icons-collection";
+import {biitIcon, BiitIcons} from '@biit-solutions/biit-icons-collection';
 
 @Injectable({
   providedIn: 'root'

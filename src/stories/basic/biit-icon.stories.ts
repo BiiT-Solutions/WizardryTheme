@@ -1,6 +1,6 @@
 import {Meta, moduleMetadata, Story} from "@storybook/angular";
 import {BiitIconService, BiitIconComponent, BiitIconModule} from "@biit-solutions/wizardry-theme/icon";
-import {completeIconSet} from "biit-icons-collection";
+import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {APP_INITIALIZER} from "@angular/core";
 
 function biitIconServiceFactory(service: BiitIconService) {

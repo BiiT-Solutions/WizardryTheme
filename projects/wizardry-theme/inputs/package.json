@@ -5,7 +5,7 @@
     "@angular/core": "v15-lts",
     "@angular/forms": "v15-lts",
     "@angular/platform-browser": "v15-lts",
-    "biit-icons-collection": "latest",
+    "@biit-solutions/biit-icons-collection": "latest",
     "wizardry-theme/icon": "latest",
     "date-fns": "^2.30.0"
   },

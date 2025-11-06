@@ -3,7 +3,7 @@ import {BiitNavUserComponent} from '@biit-solutions/wizardry-theme/navigation';
 import {ContextMenuModule} from "@perfectmemory/ngx-contextmenu";
 import {BiitButtonModule} from "@biit-solutions/wizardry-theme/button";
 import {BiitIconModule, BiitIconService} from "@biit-solutions/wizardry-theme/icon";
-import {completeIconSet} from "biit-icons-collection";
+import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {APP_INITIALIZER} from "@angular/core";
 
 function biitIconServiceFactory(service: BiitIconService) {

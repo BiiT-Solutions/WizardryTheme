@@ -1,7 +1,7 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
 import {BiitToggleGroupModule, BiitToggleGroupComponent} from '@biit-solutions/wizardry-theme/inputs';
-import {completeIconSet} from "biit-icons-collection";
+import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {APP_INITIALIZER} from "@angular/core";
 

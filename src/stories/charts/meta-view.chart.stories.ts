@@ -4,7 +4,7 @@ import {
   MetaViewChartModule
 } from "@biit-solutions/wizardry-theme/charts";
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
-import {completeIconSet} from "biit-icons-collection";
+import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {APP_INITIALIZER} from "@angular/core";
 import {MetaViewData} from "@biit-solutions/wizardry-theme/charts";
 import {View} from '../../../projects/wizardry-theme/charts/src/meta-view-chart/model/view';

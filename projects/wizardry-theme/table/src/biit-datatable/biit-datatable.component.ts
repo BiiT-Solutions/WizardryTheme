@@ -1,7 +1,7 @@
 import {Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
 import {DatatableColumn} from "./models/datatable-column";
 import {ColumnMode, DatatableComponent, SelectionType} from "@siemens/ngx-datatable";
-import {completeIconSet} from "biit-icons-collection";
+import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {BiitMultiselectType} from "@biit-solutions/wizardry-theme/inputs";
 import {coerceBooleanProperty} from "@angular/cdk/coercion";

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {biitIcon} from "biit-icons-collection";
+import {biitIcon} from '@biit-solutions/biit-icons-collection';
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
 
 @Component({

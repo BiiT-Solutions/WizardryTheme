@@ -1,5 +1,4 @@
-import {Component, Input} from '@angular/core';
-import {biitIcon} from "biit-icons-collection";
+import {Component} from '@angular/core';
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
 import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 
@@ -14,6 +13,7 @@ import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 })
 export class BiitCookiesConsentComponent {
   protected consent: boolean = false;
+
   constructor() {
     if (localStorage.getItem("cookies-consent") !== undefined) {
       this.consent = coerceBooleanProperty(localStorage.getItem("cookies-consent"));

@@ -3,7 +3,7 @@ import {BiitTableColumn, BiitTableColumnFormat} from '../biit-table/models/biit-
 import {BiitTableResponse} from '../biit-table/models/biit-table-response';
 import {BiitTableData} from '../biit-table/models/biit-table-data';
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
-import {completeIconSet} from "biit-icons-collection";
+import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {GenericSort} from "../utils/generic-sort";
 
 @Component({

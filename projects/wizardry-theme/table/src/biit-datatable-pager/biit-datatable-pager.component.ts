@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {DataTablePagerComponent} from "@siemens/ngx-datatable";
 import {provideTranslocoScope} from "@ngneat/transloco";
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
-import {completeIconSet} from "biit-icons-collection";
+import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 
 @Component({
   selector: 'biit-datatable-pager',
