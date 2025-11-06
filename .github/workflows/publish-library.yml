@@ -4,7 +4,6 @@ on:
     workflows: ["Publish Storybook"]
     types:
       - completed
-  workflow_dispatch:
 
 jobs:
   build:

@@ -4,7 +4,6 @@ on:
     workflows: ["Publish Library"]
     types:
       - completed
-  workflow_dispatch:
 
 
 jobs:
