@@ -41,6 +41,7 @@ jobs:
           sed -i -e "s|^  \"version\".*|  \"version\": \"${new_version}\",|g"  ${file}
           git add $file
           git commit -m "Component version: %s"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git push
 
       - name: Push changes
