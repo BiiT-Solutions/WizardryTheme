@@ -39,7 +39,7 @@
     "@siemens/ngx-datatable": "v21-3",
     "angular-calendar": "~0.31.0",
     "apexcharts": "^3.37.1",
-    "biit-icons-collection": "latest",
+    "@biit-solutions/biit-icons-collection": "latest",
     "material-design-icons": "^3.0.1",
     "ng-apexcharts": "~1.8.0",
     "rxjs": "~7.5.0",

@@ -3,7 +3,7 @@ import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {APP_INITIALIZER} from '@angular/core';
 import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
-import {completeIconSet} from 'biit-icons-collection';
+import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {BiitMultiselectComponent, BiitMultiselectModule, BiitMultiselectType} from '@biit-solutions/wizardry-theme/inputs';
 import {TranslocoStorybookModule} from "../../app/transloco/transloco-storybook.module";
 

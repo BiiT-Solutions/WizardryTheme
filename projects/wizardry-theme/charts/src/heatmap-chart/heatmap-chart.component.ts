@@ -10,7 +10,7 @@ import {
 } from "ng-apexcharts";
 import {HeatmapChartData} from "./heatmap-chart-data";
 import {HeatmapChartRange} from "./heatmap-chart-range";
-import {completeIconSet} from 'biit-icons-collection';
+import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 
 

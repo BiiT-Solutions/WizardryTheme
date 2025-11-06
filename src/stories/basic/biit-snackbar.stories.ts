@@ -4,7 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {APP_INITIALIZER} from '@angular/core';
 import {BiitInputTextModule} from '@biit-solutions/wizardry-theme/inputs';
 import {CommonModule} from '@angular/common';
-import {completeIconSet} from 'biit-icons-collection';
+import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {
   BiitSnackbarComponent,

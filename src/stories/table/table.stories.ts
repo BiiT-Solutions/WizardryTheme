@@ -2,7 +2,7 @@ import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {BiitTableComponent} from "../../../projects/wizardry-theme/table/src/biit-table/biit-table.component";
 import {BiitTableDemoModule} from '../../../projects/wizardry-theme/table/src/biit-table-demo/biit-table-demo.module';
 import {APP_INITIALIZER} from '@angular/core';
-import {completeIconSet} from 'biit-icons-collection';
+import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {TranslocoStorybookModule} from '../../app/transloco/transloco-storybook.module';
 

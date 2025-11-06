@@ -1,6 +1,6 @@
 import {Component, EventEmitter, forwardRef, Input, OnInit, Output, ChangeDetectorRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
-import {biitIcon} from 'biit-icons-collection';
+import {biitIcon} from '@biit-solutions/biit-icons-collection';
 import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
 

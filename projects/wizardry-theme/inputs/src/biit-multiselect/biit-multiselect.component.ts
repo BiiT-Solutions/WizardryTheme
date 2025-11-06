@@ -12,7 +12,7 @@ import {
   Output
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {biitIcon} from 'biit-icons-collection';
+import {biitIcon} from '@biit-solutions/biit-icons-collection';
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
 
 export enum BiitMultiselectType {
