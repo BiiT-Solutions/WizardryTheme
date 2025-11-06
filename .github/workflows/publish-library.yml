@@ -1,9 +1,9 @@
 name: Publish Library
 on:
-  workflow_run:
-    workflows: ["Publish Storybook"]
-    types:
-      - completed
+  push:
+    branches:
+      - "main"
+  workflow_dispatch:
 
 jobs:
   build:
@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Set login
+      - name: Publish library
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
