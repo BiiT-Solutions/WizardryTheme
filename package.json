@@ -20,8 +20,8 @@
     "prepare-translations": "cpx \"./src/assets/i18n/wizardry-theme/**/*.json\" \"./dist/wizardry-theme/assets/i18n/\"",
     "prepare-styles": "cpx \"./src/assets/styles/**/*.*\" \"./dist/wizardry-theme/assets/styles/\"",
     "generate-zip": "mkdir -p ./dist-zip && tar -zcvf ./dist-zip/storybook.gz ./storybook-static",
-    "publish-storybook": "npm run build-storybook && npm run prepare-publication && npm publish ./storybook-static",
-    "publish-library": "npm run build-library && npm run prepare-translations && npm run prepare-styles && npm publish ./dist/wizardry-theme/"
+    "publish-storybook": "npm run build-storybook && npm run prepare-publication && npm publish --access=public ./storybook-static",
+    "publish-library": "npm run build-library && npm run prepare-translations && npm run prepare-styles && npm publish --access=public ./dist/wizardry-theme/"
   },
   "private": false,
   "dependencies": {
