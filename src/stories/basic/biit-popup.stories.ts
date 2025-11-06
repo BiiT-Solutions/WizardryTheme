@@ -1,9 +1,9 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {BiitPopupComponent, BiitPopupModule} from "wyzardry-theme/popup";
-import {BiitIconService} from 'wyzardry-theme/icon';
+import {BiitPopupComponent, BiitPopupModule} from "@biit-solutions/wizardry-theme/popup";
+import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {completeIconSet} from 'biit-icons-collection';
 import {APP_INITIALIZER} from '@angular/core';
-import {BiitButtonModule} from 'wyzardry-theme/button';
+import {BiitButtonModule} from '@biit-solutions/wizardry-theme/button';
 import {FormsModule} from "@angular/forms";
 
 function biitIconServiceFactory(service: BiitIconService) {

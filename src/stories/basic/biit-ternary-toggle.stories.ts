@@ -1,7 +1,7 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
-import {BiitTernaryToggleModule} from 'wyzardry-theme/inputs';
-import {BiitTernaryToggleComponent} from 'wyzardry-theme/inputs';
+import {BiitTernaryToggleModule} from '@biit-solutions/wizardry-theme/inputs';
+import {BiitTernaryToggleComponent} from '@biit-solutions/wizardry-theme/inputs';
 
 export default {
   title: 'Basic/Inputs/Ternary Toggle',

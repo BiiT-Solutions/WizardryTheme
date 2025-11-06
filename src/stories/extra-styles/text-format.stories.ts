@@ -1,5 +1,5 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {} from 'wyzardry-theme/navigation';
+import {} from '@biit-solutions/wizardry-theme/navigation';
 
 export default {
   title: 'Extra Styles/Text Format',

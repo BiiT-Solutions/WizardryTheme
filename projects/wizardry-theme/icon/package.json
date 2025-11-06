@@ -1,0 +1,12 @@
+{
+  "name": "@wizardry-theme/biit-icon",
+  "author": "BiiT Sourcing Solutions",
+  "peerDependencies": {
+    "@angular/common": "v15-lts",
+    "@angular/core": "v15-lts"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

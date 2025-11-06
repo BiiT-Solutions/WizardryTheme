@@ -6,35 +6,35 @@ module.exports = {
   LOADING LIBRARIES EXAMPLE
     scopedLibs: [
       {
-        src: 'wyzardry-theme/filter',
-        dist: ['./src/assets/i18n/wyzardry-theme/filter']
+        src: 'wizardry-theme/filter',
+        dist: ['./src/assets/i18n/wizardry-theme/filter']
       }
     ]
 */
   scopedLibs: [
     {
-      src: './projects/wyzardry-theme/login',
-      dist: ['./src/assets/i18n/wyzardry-theme']
+      src: './projects/wizardry-theme/login',
+      dist: ['./src/assets/i18n/wizardry-theme']
     },
     {
-      src: './projects/wyzardry-theme/table',
-      dist: ['./src/assets/i18n/wyzardry-theme']
+      src: './projects/wizardry-theme/table',
+      dist: ['./src/assets/i18n/wizardry-theme']
     },
     {
-      src: './projects/wyzardry-theme/inputs',
-      dist: ['./src/assets/i18n/wyzardry-theme']
+      src: './projects/wizardry-theme/inputs',
+      dist: ['./src/assets/i18n/wizardry-theme']
     },
     {
-      src: './projects/wyzardry-theme/info',
-      dist: ['./src/assets/i18n/wyzardry-theme']
+      src: './projects/wizardry-theme/info',
+      dist: ['./src/assets/i18n/wizardry-theme']
     },
     {
-      src: './projects/wyzardry-theme/utils',
-      dist: ['./src/assets/i18n/wyzardry-theme']
+      src: './projects/wizardry-theme/utils',
+      dist: ['./src/assets/i18n/wizardry-theme']
     },
     {
-      src: './projects/wyzardry-theme/charts',
-      dist: ['./src/assets/i18n/wyzardry-theme']
+      src: './projects/wizardry-theme/charts',
+      dist: ['./src/assets/i18n/wizardry-theme']
     }
   ]
 };

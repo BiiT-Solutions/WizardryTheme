@@ -1,0 +1,15 @@
+{
+  "name": "@wizardry-theme/login",
+  "peerDependencies": {
+  },
+  "i18n": [
+    {
+      "scope": "login",
+      "path": "src/i18n"
+    },
+    {
+      "scope": "login-welcome",
+      "path": "src/i18n-welcome"
+    }
+  ]
+}

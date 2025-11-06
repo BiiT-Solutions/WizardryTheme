@@ -1,0 +1,18 @@
+{
+  "name": "@wizardry-theme/info",
+  "peerDependencies": {
+    "@angular/common": "v15-lts",
+    "@angular/core": "v15-lts",
+    "@angular/forms": "v15-lts",
+    "@angular/platform-browser": "v15-lts",
+    "biit-icons-collection": "latest",
+    "wizardry-theme/icon": "latest",
+    "date-fns": "^2.30.0"
+  },
+  "i18n": [
+    {
+      "scope": "inputs",
+      "path": "src/i18n"
+    }
+  ]
+}

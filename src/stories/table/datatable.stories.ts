@@ -1,12 +1,12 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {APP_INITIALIZER} from '@angular/core';
 import {completeIconSet} from 'biit-icons-collection';
-import {BiitIconService} from 'wyzardry-theme/icon';
+import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {TranslocoStorybookModule} from '../../app/transloco/transloco-storybook.module';
 import {
   BiitDatatableDemoModule
-} from "../../../projects/wyzardry-theme/table/src/biit-datatable-demo/biit-datatable-demo.module";
-import {BiitDatatableComponent} from "../../../projects/wyzardry-theme/table/src/biit-datatable/biit-datatable.component";
+} from "../../../projects/wizardry-theme/table/src/biit-datatable-demo/biit-datatable-demo.module";
+import {BiitDatatableComponent} from "../../../projects/wizardry-theme/table/src/biit-datatable/biit-datatable.component";
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);

@@ -1,10 +1,10 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {BiitDropdownModule} from 'wyzardry-theme/inputs';
-import {BiitDropdownComponent} from 'wyzardry-theme/inputs';
+import {BiitDropdownModule} from '@biit-solutions/wizardry-theme/inputs';
+import {BiitDropdownComponent} from '@biit-solutions/wizardry-theme/inputs';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {APP_INITIALIZER} from '@angular/core';
-import {BiitIconService} from 'wyzardry-theme/icon';
+import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {completeIconSet} from 'biit-icons-collection';
 
 function biitIconServiceFactory(service: BiitIconService) {

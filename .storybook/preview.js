@@ -1,7 +1,7 @@
 import {setCompodocJson} from "@storybook/addon-docs/angular";
 import docJson from "../documentation.json";
 import {moduleMetadata} from "@storybook/angular";
-import {DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES} from "../projects/wyzardry-theme/i18n/src/i18n/supported-languages";
+import {DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES} from "../projects/wizardry-theme/i18n/src/i18n/supported-languages";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterTestingModule} from "@angular/router/testing";
 import {Router, RouterModule} from "@angular/router";

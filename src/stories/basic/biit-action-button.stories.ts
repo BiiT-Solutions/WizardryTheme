@@ -3,8 +3,8 @@ import {
   BiitActionButtonComponent,
   BiitActionButtonModule,
   BiitIconButtonModule
-} from 'wyzardry-theme/button';
-import {BiitIconService} from 'wyzardry-theme/icon';
+} from '@biit-solutions/wizardry-theme/button';
+import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {completeIconSet} from 'biit-icons-collection';
 import {APP_INITIALIZER} from '@angular/core';
 import {FormsModule} from '@angular/forms';

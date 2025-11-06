@@ -1,12 +1,12 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {
   BiitActionButtonComponent
-} from 'wyzardry-theme/button';
-import {BiitIconService} from 'wyzardry-theme/icon';
+} from '@biit-solutions/wizardry-theme/button';
+import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {completeIconSet} from 'biit-icons-collection';
 import {APP_INITIALIZER} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {BiitGroupModule, BiitInputTextModule} from "wyzardry-theme/inputs";
+import {BiitGroupModule, BiitInputTextModule} from "@biit-solutions/wizardry-theme/inputs";
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);

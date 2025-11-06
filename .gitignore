@@ -51,14 +51,14 @@ package-lock.json
 # Storybook generated files
 documentation.json
 
-/src/assets/i18n/wyzardry-theme/
+/src/assets/i18n/wizardry-theme/
 
-/src/assets/i18n/wyzardry-theme/filter
-/src/assets/i18n/wyzardry-theme/login
-/src/assets/i18n/wyzardry-theme/table
-/src/assets/i18n/wyzardry-theme/inputs
-/src/assets/i18n/wyzardry-theme/info
-/src/assets/i18n/wyzardry-theme/utils
+/src/assets/i18n/wizardry-theme/filter
+/src/assets/i18n/wizardry-theme/login
+/src/assets/i18n/wizardry-theme/table
+/src/assets/i18n/wizardry-theme/inputs
+/src/assets/i18n/wizardry-theme/info
+/src/assets/i18n/wizardry-theme/utils
 
-/src/assets/i18n/wyzardry-theme/chart
-/src/assets/i18n/wyzardry-theme/login-welcome
+/src/assets/i18n/wizardry-theme/chart
+/src/assets/i18n/wizardry-theme/login-welcome

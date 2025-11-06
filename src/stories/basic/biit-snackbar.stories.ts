@@ -1,18 +1,18 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {BiitButtonModule} from 'wyzardry-theme/button';
+import {BiitButtonModule} from '@biit-solutions/wizardry-theme/button';
 import {FormsModule} from '@angular/forms';
 import {APP_INITIALIZER} from '@angular/core';
-import {BiitInputTextModule} from 'wyzardry-theme/inputs';
+import {BiitInputTextModule} from '@biit-solutions/wizardry-theme/inputs';
 import {CommonModule} from '@angular/common';
 import {completeIconSet} from 'biit-icons-collection';
-import {BiitIconService} from 'wyzardry-theme/icon';
+import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {
   BiitSnackbarComponent,
   BiitSnackbarHorizontalPosition, BiitSnackbarModule,
   BiitSnackbarService,
   BiitSnackbarVerticalPosition,
   NotificationType
-} from 'wyzardry-theme/info';
+} from '@biit-solutions/wizardry-theme/info';
 
 let biitSnackbarService: BiitSnackbarService;
 

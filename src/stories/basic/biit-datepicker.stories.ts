@@ -1,7 +1,7 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
-import {BiitDatePickerComponent, BiitDatePickerModule} from 'wyzardry-theme/inputs';
-import {BiitIconService} from "wyzardry-theme/icon";
+import {BiitDatePickerComponent, BiitDatePickerModule} from '@biit-solutions/wizardry-theme/inputs';
+import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {completeIconSet} from "biit-icons-collection";
 import {APP_INITIALIZER} from "@angular/core";
 import {TranslocoStorybookModule} from "../../app/transloco/transloco-storybook.module";

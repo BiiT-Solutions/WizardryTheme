@@ -5,44 +5,44 @@
     "baseUrl": "./",
     "preserveConstEnums": true,
     "paths": {
-      "wyzardry-theme": [
-        "projects/wyzardry-theme/src/public-api"
+      "@biit-solutions/wizardry-theme": [
+        "projects/wizardry-theme/src/public-api"
       ],
-      "wyzardry-theme/utils": [
-        "projects/wyzardry-theme/utils/src/public-api"
+      "@biit-solutions/wizardry-theme/utils": [
+        "projects/wizardry-theme/utils/src/public-api"
       ],
-      "wyzardry-theme/models": [
-        "projects/wyzardry-theme/models/src/public-api"
+      "@biit-solutions/wizardry-theme/models": [
+        "projects/wizardry-theme/models/src/public-api"
       ],
-      "wyzardry-theme/i18n": [
-        "projects/wyzardry-theme/i18n/src/public-api"
+      "@biit-solutions/wizardry-theme/i18n": [
+        "projects/wizardry-theme/i18n/src/public-api"
       ],
-      "wyzardry-theme/button": [
-        "projects/wyzardry-theme/button/src/public-api"
+      "@biit-solutions/wizardry-theme/button": [
+        "projects/wizardry-theme/button/src/public-api"
       ],
-      "wyzardry-theme/icon": [
-        "projects/wyzardry-theme/icon/src/public-api"
+      "@biit-solutions/wizardry-theme/icon": [
+        "projects/wizardry-theme/icon/src/public-api"
       ],
-      "wyzardry-theme/inputs": [
-        "projects/wyzardry-theme/inputs/src/public-api"
+      "@biit-solutions/wizardry-theme/inputs": [
+        "projects/wizardry-theme/inputs/src/public-api"
       ],
-      "wyzardry-theme/popup": [
-        "projects/wyzardry-theme/popup/src/public-api"
+      "@biit-solutions/wizardry-theme/popup": [
+        "projects/wizardry-theme/popup/src/public-api"
       ],
-      "wyzardry-theme/login": [
-        "projects/wyzardry-theme/login/src/public-api"
+      "@biit-solutions/wizardry-theme/login": [
+        "projects/wizardry-theme/login/src/public-api"
       ],
-      "wyzardry-theme/info": [
-        "projects/wyzardry-theme/info/src/public-api"
+      "@biit-solutions/wizardry-theme/info": [
+        "projects/wizardry-theme/info/src/public-api"
       ],
-      "wyzardry-theme/navigation": [
-        "projects/wyzardry-theme/navigation/src/public-api"
+      "@biit-solutions/wizardry-theme/navigation": [
+        "projects/wizardry-theme/navigation/src/public-api"
       ],
-      "wyzardry-theme/charts": [
-        "projects/wyzardry-theme/charts/src/public-api"
+      "@biit-solutions/wizardry-theme/charts": [
+        "projects/wizardry-theme/charts/src/public-api"
       ],
-      "wyzardry-theme/calendar": [
-        "projects/wyzardry-theme/calendar/src/public-api"
+      "@biit-solutions/wizardry-theme/calendar": [
+        "projects/wizardry-theme/calendar/src/public-api"
       ]
     },
     "outDir": "./dist/out-tsc",

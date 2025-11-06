@@ -7,7 +7,7 @@ import {
   BarChartOrientation,
   BarChartSeries,
   BarChartSeriesData
-} from "wyzardry-theme/charts";
+} from "@biit-solutions/wizardry-theme/charts";
 
 export default {
   title: 'Charts/Bar',

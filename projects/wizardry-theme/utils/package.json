@@ -1,0 +1,9 @@
+{
+  "name": "@wizardry-theme/utils",
+  "i18n": [
+    {
+      "scope": "utils",
+      "path": "src/i18n"
+    }
+  ]
+}

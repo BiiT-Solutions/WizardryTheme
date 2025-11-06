@@ -1,5 +1,5 @@
 {
-  "extends": "../projects/wyzardry-theme/tsconfig.lib.json",
+  "extends": "../projects/wizardry-theme/tsconfig.lib.json",
   "compilerOptions": {
     "types": [
       "node"

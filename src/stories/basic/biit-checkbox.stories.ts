@@ -1,7 +1,7 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
-import {BiitCheckboxModule} from 'wyzardry-theme/inputs';
-import {BiitCheckboxComponent} from 'wyzardry-theme/inputs';
+import {BiitCheckboxModule} from '@biit-solutions/wizardry-theme/inputs';
+import {BiitCheckboxComponent} from '@biit-solutions/wizardry-theme/inputs';
 
 export default {
   title: 'Basic/Inputs/Checkbox',

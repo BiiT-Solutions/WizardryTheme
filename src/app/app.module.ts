@@ -5,9 +5,9 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
-import {TranslocoRootModule} from 'wyzardry-theme/i18n';
+import {TranslocoRootModule} from '@biit-solutions/wizardry-theme/i18n';
 import {TranslocoModule} from "@ngneat/transloco";
-import {BiitSnackbarService} from 'wyzardry-theme/info';
+import {BiitSnackbarService} from '@biit-solutions/wizardry-theme/info';
 
 @NgModule({
   declarations: [

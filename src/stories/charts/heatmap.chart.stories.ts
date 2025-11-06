@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {HeatmapChartModule, HeatmapChartComponent, HeatmapChartRange, HeatmapChartData, HeatmapChartDataElement} from "wyzardry-theme/charts";
+import {HeatmapChartModule, HeatmapChartComponent, HeatmapChartRange, HeatmapChartData, HeatmapChartDataElement} from "@biit-solutions/wizardry-theme/charts";
 
 export default {
   title: 'Charts/Heatmap',

@@ -1,8 +1,8 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
-import {BiitTextareaModule, BiitTextareaComponent} from 'wyzardry-theme/inputs';
+import {BiitTextareaModule, BiitTextareaComponent} from '@biit-solutions/wizardry-theme/inputs';
 import {APP_INITIALIZER} from '@angular/core';
-import {BiitIconService} from 'wyzardry-theme/icon';
+import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {completeIconSet} from 'biit-icons-collection';
 
 function biitIconServiceFactory(service: BiitIconService) {

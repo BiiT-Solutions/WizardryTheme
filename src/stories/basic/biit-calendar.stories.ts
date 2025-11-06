@@ -1,8 +1,8 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
 import {TranslocoStorybookModule} from "../../app/transloco/transloco-storybook.module";
-import {BiitCalendarComponent, BiitCalendarModule, CalendarEvent, EventColor} from "wyzardry-theme/calendar";
-import {BiitIconButtonModule} from "wyzardry-theme/button";
+import {BiitCalendarComponent, BiitCalendarModule, CalendarEvent, EventColor} from "@biit-solutions/wizardry-theme/calendar";
+import {BiitIconButtonModule} from "@biit-solutions/wizardry-theme/button";
 import {addMonths, addWeeks, subMonths, subWeeks} from "date-fns";
 import { DragAndDropModule } from 'angular-draggable-droppable';
 import {CalendarEventTimesChangedEvent} from "angular-calendar";

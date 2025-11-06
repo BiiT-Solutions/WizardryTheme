@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {PieChartComponent, PieChartData, PieChartModule} from "wyzardry-theme/charts";
+import {PieChartComponent, PieChartData, PieChartModule} from "@biit-solutions/wizardry-theme/charts";
 
 export default {
   title: 'Charts/Pie',

@@ -1,9 +1,9 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {BiitNavMenuModule} from '../../../projects/wyzardry-theme/navigation/src/biit-nav-menu/biit-nav-menu.module';
-import {BiitNavMenuComponent} from '../../../projects/wyzardry-theme/navigation/src/biit-nav-menu/biit-nav-menu.component';
+import {BiitNavMenuModule} from '../../../projects/wizardry-theme/navigation/src/biit-nav-menu/biit-nav-menu.module';
+import {BiitNavMenuComponent} from '../../../projects/wizardry-theme/navigation/src/biit-nav-menu/biit-nav-menu.component';
 import { RouterTestingModule } from "@angular/router/testing";
 import {RouterModule} from '@angular/router';
-import {BiitButtonComponent} from 'wyzardry-theme/button';
+import {BiitButtonComponent} from '@biit-solutions/wizardry-theme/button';
 
 export default {
   title: 'Navigation/Nav Menu',
