@@ -1,6 +1,8 @@
 {
   "name": "@biit-solutions/storybook",
   "version": "1.2.32",
+  "license": "AGPLv3",
+  "author": "BiiT Sourcing Solutions",
   "scripts": {
     "clean": "git clean -fdx && npm install",
     "ng": "ng",
@@ -78,5 +80,9 @@
     "karma-jasmine-html-reporter": "~2.0.0",
     "ng-packagr": "^15.2.2",
     "typescript": "~4.9.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BiiT-Solutions/WizardryTheme.git"
   }
 }

@@ -1,8 +1,10 @@
-# BiitUi
+# Wizardry Theme
 
 This library contains a collections of components to be imported to your projects.
 
-See StoryBook to check components and functionalities.
+See StoryBook to check components and functionalities:
+
+https://biit-solutions.github.io/WizardryTheme/
 
 ## Build
 
