@@ -1,8 +1,8 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
-import {BiitToggleGroupModule, BiitToggleGroupComponent} from 'biit-ui/inputs';
+import {BiitToggleGroupModule, BiitToggleGroupComponent} from 'wyzardry-theme/inputs';
 import {completeIconSet} from "biit-icons-collection";
-import {BiitIconService} from "biit-ui/icon";
+import {BiitIconService} from "wyzardry-theme/icon";
 import {APP_INITIALIZER} from "@angular/core";
 
 function biitIconServiceFactory(service: BiitIconService) {

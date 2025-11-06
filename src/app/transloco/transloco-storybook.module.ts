@@ -6,7 +6,7 @@ import {
   TranslocoModule, TranslocoService,
 } from "@ngneat/transloco"
 import {APP_INITIALIZER, NgModule} from "@angular/core"
-import {DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, TranslocoHttpLoader} from "biit-ui/i18n";
+import {DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, TranslocoHttpLoader} from "wyzardry-theme/i18n";
 import {forceReRender} from "@storybook/angular";
 import {distinctUntilChanged, tap} from "rxjs";
 import {provideTranslocoLocale, TRANSLOCO_LOCALE_CONFIG} from "@ngneat/transloco-locale";

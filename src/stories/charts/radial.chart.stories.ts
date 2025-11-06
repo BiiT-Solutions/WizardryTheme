@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {RadialChartComponent, RadialChartData, RadialChartModule} from "biit-ui/charts";
+import {RadialChartComponent, RadialChartData, RadialChartModule} from "wyzardry-theme/charts";
 
 export default {
   title: 'Charts/Radial - Gauge',

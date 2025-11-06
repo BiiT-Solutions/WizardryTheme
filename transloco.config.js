@@ -6,35 +6,35 @@ module.exports = {
   LOADING LIBRARIES EXAMPLE
     scopedLibs: [
       {
-        src: 'biit-ui/filter',
-        dist: ['./src/assets/i18n/biit-ui/filter']
+        src: 'wyzardry-theme/filter',
+        dist: ['./src/assets/i18n/wyzardry-theme/filter']
       }
     ]
 */
   scopedLibs: [
     {
-      src: './projects/biit-ui/login',
-      dist: ['./src/assets/i18n/biit-ui']
+      src: './projects/wyzardry-theme/login',
+      dist: ['./src/assets/i18n/wyzardry-theme']
     },
     {
-      src: './projects/biit-ui/table',
-      dist: ['./src/assets/i18n/biit-ui']
+      src: './projects/wyzardry-theme/table',
+      dist: ['./src/assets/i18n/wyzardry-theme']
     },
     {
-      src: './projects/biit-ui/inputs',
-      dist: ['./src/assets/i18n/biit-ui']
+      src: './projects/wyzardry-theme/inputs',
+      dist: ['./src/assets/i18n/wyzardry-theme']
     },
     {
-      src: './projects/biit-ui/info',
-      dist: ['./src/assets/i18n/biit-ui']
+      src: './projects/wyzardry-theme/info',
+      dist: ['./src/assets/i18n/wyzardry-theme']
     },
     {
-      src: './projects/biit-ui/utils',
-      dist: ['./src/assets/i18n/biit-ui']
+      src: './projects/wyzardry-theme/utils',
+      dist: ['./src/assets/i18n/wyzardry-theme']
     },
     {
-      src: './projects/biit-ui/charts',
-      dist: ['./src/assets/i18n/biit-ui']
+      src: './projects/wyzardry-theme/charts',
+      dist: ['./src/assets/i18n/wyzardry-theme']
     }
   ]
 };

@@ -1,7 +1,7 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
-import {BiitToggleModule} from 'biit-ui/inputs';
-import {BiitToggleComponent} from 'biit-ui/inputs';
+import {BiitToggleModule} from 'wyzardry-theme/inputs';
+import {BiitToggleComponent} from 'wyzardry-theme/inputs';
 
 export default {
   title: 'Basic/Inputs/Toggle',

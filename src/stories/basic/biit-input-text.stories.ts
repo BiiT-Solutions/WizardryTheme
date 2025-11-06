@@ -1,6 +1,6 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {BiitInputTextComponent, BiitInputTextModule, Type} from "biit-ui/inputs";
-import {BiitIconService} from "biit-ui/icon";
+import {BiitInputTextComponent, BiitInputTextModule, Type} from "wyzardry-theme/inputs";
+import {BiitIconService} from "wyzardry-theme/icon";
 import {completeIconSet} from "biit-icons-collection";
 import {APP_INITIALIZER} from "@angular/core";
 import {FormsModule} from "@angular/forms";

@@ -1,0 +1,12 @@
+{
+  "name": "@wyzardry-theme/calendar",
+  "peerDependencies": {
+    "angular-calendar": "~0.31.0"
+  },
+  "i18n": [
+    {
+      "scope": "calendar",
+      "path": "src/i18n"
+    }
+  ]
+}

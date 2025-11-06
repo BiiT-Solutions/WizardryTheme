@@ -8,7 +8,7 @@ import {
   BiitSliderOptionComponent,
   BiitSliderOptionVerticalModule,
   BiitSliderOptionVerticalComponent
-} from 'biit-ui/inputs';
+} from 'wyzardry-theme/inputs';
 import {FormsModule} from "@angular/forms";
 
 const values = [

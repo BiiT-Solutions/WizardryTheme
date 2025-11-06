@@ -6,11 +6,11 @@ import {
   BiitRadioButtonModule,
   BiitTextareaModule,
   BiitToggleModule
-} from 'biit-ui/inputs';
-import {BiitToggleComponent} from 'biit-ui/inputs';
-import {BiitTooltipIconModule} from "biit-ui/info";
+} from 'wyzardry-theme/inputs';
+import {BiitToggleComponent} from 'wyzardry-theme/inputs';
+import {BiitTooltipIconModule} from "wyzardry-theme/info";
 import {APP_INITIALIZER} from "@angular/core";
-import {BiitIconService} from "biit-ui/icon";
+import {BiitIconService} from "wyzardry-theme/icon";
 import {completeIconSet} from "biit-icons-collection";
 
 function biitIconServiceFactory(service: BiitIconService) {

@@ -1,10 +1,10 @@
 import {Story, Meta, moduleMetadata, forceReRender} from '@storybook/angular';
-import {BiitToggleComponent} from 'biit-ui/inputs';
+import {BiitToggleComponent} from 'wyzardry-theme/inputs';
 import {APP_INITIALIZER} from "@angular/core";
-import {BiitIconService} from "biit-ui/icon";
+import {BiitIconService} from "wyzardry-theme/icon";
 import {completeIconSet} from "biit-icons-collection";
-import {BiitCookiesConsentModule} from "biit-ui/info";
-import {BiitButtonModule} from "biit-ui/button";
+import {BiitCookiesConsentModule} from "wyzardry-theme/info";
+import {BiitButtonModule} from "wyzardry-theme/button";
 import {FormsModule} from "@angular/forms";
 
 function biitIconServiceFactory(service: BiitIconService) {

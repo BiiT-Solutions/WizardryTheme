@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {RadarChartComponent, RadarChartModule, RadarChartData, RadarChartSeries} from "biit-ui/charts";
+import {RadarChartComponent, RadarChartModule, RadarChartData, RadarChartSeries} from "wyzardry-theme/charts";
 
 export default {
   title: 'Charts/Radar',

@@ -4,7 +4,7 @@ import {
   LineChartData,
   LineChartModule,
   LineChartSeries
-} from "biit-ui/charts";
+} from "wyzardry-theme/charts";
 
 export default {
   title: 'Charts/Line',

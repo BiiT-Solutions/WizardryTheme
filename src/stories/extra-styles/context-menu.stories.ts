@@ -1,8 +1,8 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {BiitNavUserComponent} from 'biit-ui/navigation';
+import {BiitNavUserComponent} from 'wyzardry-theme/navigation';
 import {ContextMenuModule} from "@perfectmemory/ngx-contextmenu";
-import {BiitButtonModule} from "biit-ui/button";
-import {BiitIconModule, BiitIconService} from "biit-ui/icon";
+import {BiitButtonModule} from "wyzardry-theme/button";
+import {BiitIconModule, BiitIconService} from "wyzardry-theme/icon";
 import {completeIconSet} from "biit-icons-collection";
 import {APP_INITIALIZER} from "@angular/core";
 

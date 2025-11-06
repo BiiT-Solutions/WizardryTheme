@@ -2,7 +2,7 @@ import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {
   TimelineViewerChartModule,
   TimelineViewerChartComponent
-} from "biit-ui/charts";
+} from "wyzardry-theme/charts";
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 

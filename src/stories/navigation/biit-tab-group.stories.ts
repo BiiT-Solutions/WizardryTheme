@@ -1,5 +1,5 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {BiitTabGroupComponent, BiitTabGroupModule} from 'biit-ui/navigation';
+import {BiitTabGroupComponent, BiitTabGroupModule} from 'wyzardry-theme/navigation';
 
 export default {
   title: 'Navigation/Tab Group',

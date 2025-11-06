@@ -1,5 +1,5 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {BiitNavUserModule, BiitNavUserComponent} from 'biit-ui/navigation';
+import {BiitNavUserModule, BiitNavUserComponent} from 'wyzardry-theme/navigation';
 
 export default {
   title: 'Navigation/Nav User',

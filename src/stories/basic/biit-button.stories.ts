@@ -1,5 +1,5 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {BiitButtonModule, BiitButtonComponent} from 'biit-ui/button';
+import {BiitButtonModule, BiitButtonComponent} from 'wyzardry-theme/button';
 import {FormsModule} from '@angular/forms';
 
 export default {

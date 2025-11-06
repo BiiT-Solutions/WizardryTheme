@@ -1,5 +1,5 @@
 {
-  "extends": "../projects/biit-ui/tsconfig.lib.json",
+  "extends": "../projects/wyzardry-theme/tsconfig.lib.json",
   "compilerOptions": {
     "types": [
       "node"

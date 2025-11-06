@@ -1,6 +1,6 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {BiitButtonComponent, BiitButtonModule} from 'biit-ui/button';
-import {BiitTooltipModule} from 'biit-ui/info';
+import {BiitButtonComponent, BiitButtonModule} from 'wyzardry-theme/button';
+import {BiitTooltipModule} from 'wyzardry-theme/info';
 
 export default {
   title: 'Basic/Info/Tooltip',

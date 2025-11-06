@@ -2,12 +2,12 @@ import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {
   MetaViewChartComponent,
   MetaViewChartModule
-} from "biit-ui/charts";
-import {BiitIconService} from "biit-ui/icon";
+} from "wyzardry-theme/charts";
+import {BiitIconService} from "wyzardry-theme/icon";
 import {completeIconSet} from "biit-icons-collection";
 import {APP_INITIALIZER} from "@angular/core";
-import {MetaViewData} from "biit-ui/charts";
-import {View} from 'projects/biit-ui/charts/src/meta-view-chart/model/view';
+import {MetaViewData} from "wyzardry-theme/charts";
+import {View} from '../../../projects/wyzardry-theme/charts/src/meta-view-chart/model/view';
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);

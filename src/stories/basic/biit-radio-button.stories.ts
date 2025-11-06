@@ -1,8 +1,8 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
-import {BiitRadioButtonModule} from 'biit-ui/inputs';
-import {BiitRadioButtonComponent} from 'biit-ui/inputs';
-import {BiitIconService} from 'biit-ui/icon';
+import {BiitRadioButtonModule} from 'wyzardry-theme/inputs';
+import {BiitRadioButtonComponent} from 'wyzardry-theme/inputs';
+import {BiitIconService} from 'wyzardry-theme/icon';
 import {completeIconSet} from 'biit-icons-collection';
 import {APP_INITIALIZER} from '@angular/core';
 

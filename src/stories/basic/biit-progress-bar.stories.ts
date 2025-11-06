@@ -1,5 +1,5 @@
 import {Meta, moduleMetadata, Story} from "@storybook/angular";
-import {BiitProgressBarComponent, BiitProgressBarModule, BiitProgressBarType} from 'biit-ui/info';
+import {BiitProgressBarComponent, BiitProgressBarModule, BiitProgressBarType} from 'wyzardry-theme/info';
 
 export default {
   title: "Basic/Info/Progress Bar",
