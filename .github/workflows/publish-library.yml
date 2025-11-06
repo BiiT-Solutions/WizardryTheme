@@ -4,11 +4,16 @@ on:
     branches:
       - "main"
   workflow_dispatch:
+    inputs:
+      input1:
+        type: boolean
+        description: manual launched
+        default: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' || inputs.input1 == true }}
     permissions:
       contents: read
       id-token: write
