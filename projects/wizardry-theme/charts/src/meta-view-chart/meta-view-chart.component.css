@@ -42,3 +42,11 @@ biit-meta-board {
   align-items: center;
   gap: 1rem;
 }
+
+@media screen and (max-width: 800px){
+  .meta-view-column {
+    position: absolute;
+    background: white;
+    z-index: 1;
+  }
+}

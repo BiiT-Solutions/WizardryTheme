@@ -1,4 +1,12 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation
+} from '@angular/core';
 import {MetaViewElementData} from "./model/meta-view-element-data";
 import {MetaViewData} from "./model/meta-view-data";
 import {View} from "./model/view";
@@ -30,7 +38,7 @@ import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
     ])
   ]
 })
-export class MetaViewChartComponent {
+export class MetaViewChartComponent implements AfterViewInit {
   @Input('data') set _data(data: MetaViewData) {
     this.data = data;
     if (data) {
@@ -63,12 +71,19 @@ export class MetaViewChartComponent {
   protected elements: MetaViewElementData[] = [];
   protected selectedElement: MetaViewElementData;
   protected latestFilter: Map<string, any>;
+  protected showMenu= true;
 
   protected timelineOptions: TimelineViewerChartOptions;
   private delayedFilter: NodeJS.Timeout;
   private static FILTER_DELAY: number = 500;
+  private static SHOW_MENU_SIZE: number = 800;
 
   constructor(protected cdRef: ChangeDetectorRef) {
+  }
+
+  ngAfterViewInit(): void {
+    this.showMenu = window.screen.width  > MetaViewChartComponent.SHOW_MENU_SIZE;
+    console.log()
   }
 
   protected onElementClick(element: MetaViewElementData) {
