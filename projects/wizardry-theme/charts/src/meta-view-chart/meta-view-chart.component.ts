@@ -83,7 +83,6 @@ export class MetaViewChartComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.showMenu = window.screen.width  > MetaViewChartComponent.SHOW_MENU_SIZE;
-    console.log()
   }
 
   protected onElementClick(element: MetaViewElementData) {
