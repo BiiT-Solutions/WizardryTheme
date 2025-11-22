@@ -1,5 +1,7 @@
 <div class="meta-view-chart-board" id="metaviewer-chart" *transloco="let t">
-  <div class="meta-view-column">
+  <button biit-icon icon="hamburger" *ngIf="!showMenu" (click)="showMenu=true"></button>
+  <div class="meta-view-column" *ngIf="showMenu">
+    <button biit-icon icon="hamburger" (click)="showMenu=false" style="position:absolute;"></button>
     <biit-meta-filter [metadata]="data" (filterChange)="onFilter($event)"/>
   </div>
   <biit-meta-board id="metaviewer-board" *ngIf="view === View.GRID"

@@ -9,6 +9,7 @@ import {TimelineViewerChartModule} from "../timeline-viewer-chart/timeline-viewe
 import {PipesModule} from "./pipes/pipes.module";
 import {BiitIconModule} from "@biit-solutions/wizardry-theme/icon";
 import {TranslocoRootModule} from "@biit-solutions/wizardry-theme/i18n";
+import {BiitIconButtonModule} from "@biit-solutions/wizardry-theme/button";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {TranslocoRootModule} from "@biit-solutions/wizardry-theme/i18n";
     TimelineViewerChartModule,
     PipesModule,
     BiitIconModule,
-    TranslocoRootModule
+    TranslocoRootModule,
+    BiitIconButtonModule
   ],
   exports: [
     MetaViewChartComponent
