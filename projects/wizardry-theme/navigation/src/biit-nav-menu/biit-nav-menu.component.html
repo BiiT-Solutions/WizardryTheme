@@ -1,12 +1,12 @@
 <div class="nav-wrapper">
-  <button class="nav-arrow left"
+  <button class="nav-arrow left" id="nav-menu-left"
           *ngIf="showLeft"
           (click)="scrollLeft()"
           aria-label="Scroll left">
     ‹
   </button>
 
-  <div #menuCanvas class="navbar-menu-canvas scroll-x">
+  <div #menuCanvas class="navbar-menu-canvas scroll-x" id="nav-menu">
     <div class="item" #navItem
          *ngFor="let route of routes"
          [attr.id]="'nav-item-' + route.path"
@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <button class="nav-arrow right"
+  <button class="nav-arrow right" id="nav-menu-right"
           *ngIf="showRight"
           (click)="scrollRight()
 "
