@@ -1,4 +1,7 @@
-$default-color: #262626;
+@import "../../../../../src/theme-colors";
+
+$border-color: var(--border-color);
+$background-color: var(--floating-background);
 
 .floating-action-button {
   box-sizing: border-box;
@@ -6,7 +9,7 @@ $default-color: #262626;
   z-index: 999;
   opacity: 50%;
   background: white;
-  border: 3px solid $default-color;
+  border: 3px solid $border-color;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

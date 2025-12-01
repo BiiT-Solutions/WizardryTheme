@@ -1,7 +1,9 @@
-$default-color: #F20D5E;
-$dark-grey: #808080;
-$light-grey: #D9D9D9;
-$dark-border: #262626;
+$default-color: var(--main-color);
+$default-background: var(--main-background);
+$dark-grey: var(--disabled-primary-color);
+$light-grey: var(--disabled-secondary-color);
+$dark-border: var(--border-color);
+$font-color: var(--main-font-color);
 
 * { box-sizing:border-box; }
 
@@ -33,7 +35,7 @@ $dark-border: #262626;
       }
 
       &.primary {
-        color: white;
+        color: $font-color;
         background: $default-color;
 
         &:hover, :focus-visible {

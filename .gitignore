@@ -62,3 +62,6 @@ documentation.json
 
 /src/assets/i18n/wizardry-theme/chart
 /src/assets/i18n/wizardry-theme/login-welcome
+*.component.css
+*.component.css.map
+styles.css
