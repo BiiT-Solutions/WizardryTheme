@@ -26,6 +26,7 @@ export class BiitLoginComponent implements OnInit {
 
   @Input() login: BiitLogin;
   @Input() allowSignUp = false;
+  @Input() allowResetPassword = true;
   @Input() signUpGeneratedPassword = false;
   @Input() signUpGeneratedUsername = true;
   @Input() teams: { key: any, label: string }[];

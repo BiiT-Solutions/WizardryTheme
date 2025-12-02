@@ -65,3 +65,4 @@ documentation.json
 *.component.css
 *.component.css.map
 styles.css
+biit-solutions-storybook-*.tgz
