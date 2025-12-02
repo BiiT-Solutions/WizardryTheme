@@ -1,5 +1,5 @@
-$bar-color: #F20D5E;
-$background-color: #808080;
+$bar-color: var(--main-color);
+$background-color: var(--disabled-primary-color);
 
 .canvas {
   position: relative;

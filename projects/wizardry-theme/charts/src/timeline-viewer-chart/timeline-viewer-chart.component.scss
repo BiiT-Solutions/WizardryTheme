@@ -1,3 +1,6 @@
+$border-color: var(--component-color);
+$background-color: var(--popup-background);
+
 #bar-chart {
   display: flex;
   flex-direction: column;
@@ -7,20 +10,20 @@
   transition: 1s ease-in-out;
 
   ::ng-deep .apexcharts-tooltip {
-    border: 1px solid #262626;
+    border: 1px solid $background-color;
     border-radius: 0;
     box-shadow: none;
     font-family: 'Montserrat';
     font-size: 0.7rem;
-    background: white;
+    background: $background-color;
 
     * {
       box-sizing: border-box;
     }
 
     .tooltip-header {
-      background: #262626;
-      color: white;
+      background: $background-color;
+      color: $background-color;
       padding: 0.45rem 0.7rem;
     }
 
@@ -53,7 +56,7 @@
   ::ng-deep .apexcharts-series {
     path:hover {
       box-sizing: border-box;
-      border: 0.15rem solid #262626;
+      border: 0.15rem solid $background-color;
     }
   }
 }

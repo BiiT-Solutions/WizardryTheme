@@ -1,3 +1,5 @@
+$main-color: var(--main-color);
+
 * {
   box-sizing: border-box;
 }
@@ -20,7 +22,7 @@
     display: flex;
     align-items: center;
     background: white;
-    border: 3px solid #262626;
+    border: 3px solid $main-color;
     pointer-events: all;
 
     @media screen and (max-width: 1279px) {

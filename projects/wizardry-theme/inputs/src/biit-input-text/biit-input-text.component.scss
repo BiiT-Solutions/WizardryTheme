@@ -1,9 +1,11 @@
-$default-color: #262626;
-$background-color: #D9D9D9;
-$secondary-color: #808080;
-$error-color: #A1093F;
+$default-color: var(--component-color);
+$background-color: var(--main-background);
+$secondary-color: var(--secondary-color);
+$error-color: var(--error-color);
 
-* { box-sizing:border-box; }
+* {
+  box-sizing: border-box;
+}
 
 .biit-input {
   display: flex;
@@ -24,14 +26,14 @@ $error-color: #A1093F;
 }
 
 .input-container {
-  position:relative;
+  position: relative;
   width: 100%;
 }
 
 .input-object {
-  font-size:1em;
-  display:block;
-  border:none;
+  font-size: 1em;
+  display: block;
+  border: none;
   color: $default-color;
   padding: 0.7em 0.7em 0.7em 0.7em;
   height: 2.1em;
@@ -64,32 +66,32 @@ $error-color: #A1093F;
 }
 
 .input-placeholder {
-  color:$default-color;
-  font-size:1em;
-  font-weight:bolder;
+  color: $default-color;
+  font-size: 1em;
+  font-weight: bolder;
   text-transform: uppercase;
-  position:absolute;
-  pointer-events:none;
-  left:0.7em;
+  position: absolute;
+  pointer-events: none;
+  left: 0.7em;
   top: 0.42em;
   height: 0.7em;
-  transition:0.2s ease all;
-  -moz-transition:0.2s ease all;
-  -webkit-transition:0.2s ease all;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
 }
 
 /* active state */
 .input-object:focus ~ .input-placeholder, .input-object:-webkit-autofill ~ .input-placeholder, .input-filled {
-  top:-0.95em;
+  top: -0.95em;
   font-size: 0.7em;
   line-height: 0.7em;
-  font-weight:normal;
-  color:$secondary-color;
+  font-weight: normal;
+  color: $secondary-color;
 }
 
 .input-error-icon {
   display: flex;
-  top:0.7em;
+  top: 0.7em;
   position: absolute;
   width: 0.7em;
   height: 0.7em;

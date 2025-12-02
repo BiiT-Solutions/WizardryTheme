@@ -1,8 +1,8 @@
-$default-color: #262626;
-$background-color: #D9D9D9;
-$secondary-color: #808080;
-$hover-color: #EDEDED;
-$light-grey: #D9D9D9;
+$default-color: var(--component-color);
+$background-color: var(--main-background);
+$secondary-color: var(--secondary-color);
+$hover-color: var(--hover-color);
+$light-grey: var(--main-background);
 
 * { box-sizing:border-box; }
 

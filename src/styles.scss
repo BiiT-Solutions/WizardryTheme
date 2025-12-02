@@ -3,6 +3,8 @@
 @import "@perfectmemory/ngx-contextmenu/src/assets/stylesheets/base";
 @import "theme-colors";
 
+
+
 html, body { height: 100%; font-size: 16px}
 body { margin: 0;
   font-family: Montserrat, "Montserrat", sans-serif; }
@@ -10,27 +12,27 @@ body { margin: 0;
 .ngx-contextmenu {
   --ngx-contextmenu-font-family: Montserrat, "Montserrat", sans-serif;
   --ngx-contextmenu-font-size: 1rem;
-  --ngx-contextmenu-text-color: #262626;
+  --ngx-contextmenu-text-color: var(--component-color);
   --ngx-contextmenu-box-shadow: none;
-  --ngx-contextmenu-border: 2px solid #EDEDED;
+  --ngx-contextmenu-border: 2px solid var(--secondary-text-color);
   --ngx-contextmenu-border-radius: none;
   --ngx-contextmenu-margin: none;
   --ngx-contextmenu-padding: none;
   --ngx-contextmenu-min-width: 12.5rem;
   --ngx-contextmenu-item-padding: 0.6rem 1rem 0.6rem 2rem;
-  --ngx-contextmenu-item-separator-color: #262626;
+  --ngx-contextmenu-item-separator-color: var(--component-color);
   --ngx-contextmenu-item-separator-padding: 8px;
-  --ngx-contextmenu-item-background-hover-color: #D9D9D9;
+  --ngx-contextmenu-item-background-hover-color: var(--main-background);
 
   li {
     position: relative;
 
     button {
       &:active {
-        color: #f20d5e !important;
+        color: var(--main-color) !important;
       }
       &:has(.active) {
-        background: #EDEDED;
+        background: var(--secondary-text-color);
       }
       &:not(.disabled) {
         cursor: pointer;

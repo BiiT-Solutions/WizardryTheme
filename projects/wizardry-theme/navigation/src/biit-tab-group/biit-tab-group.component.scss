@@ -1,6 +1,6 @@
-$idle: #808080;
-$error: #A1093F;
-$active: #262626;
+$idle: var(--disabled-primary-color);
+$error: var(--error-color);
+$active: var(--component-color);
 
 .tab-group {
   width: inherit;

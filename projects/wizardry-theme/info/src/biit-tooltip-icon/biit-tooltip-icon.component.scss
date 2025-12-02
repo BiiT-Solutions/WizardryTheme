@@ -1,8 +1,11 @@
+$background-color: var(--secondary-background-color);
+$question-mark-color: var(--main-font-color);
+
 .square {
   position: relative;
   height: 1em;
   width: 1em;
-  background-color: #808080;
+  background-color: $background-color;
   rotate: -45deg;
 }
 
@@ -11,7 +14,7 @@
   font-size: 0.8em;
   rotate: 45deg;
   left: 0.35em;
-  color: white;
+  color: $question-mark-color;
   cursor: default;
   user-select: none;
 }

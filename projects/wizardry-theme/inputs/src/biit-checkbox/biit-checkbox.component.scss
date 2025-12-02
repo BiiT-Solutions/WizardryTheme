@@ -1,6 +1,6 @@
-$default-color: #262626;
-$selected-color: #F20D5E;
-$disabled-color: #D9D9D9;
+$border-color: var(--component-color);
+$selected-color: var(--main-color);
+$disabled-color: var(--main-background);
 $_3px: 0.2em;
 $_5px: 0.25em;
 $_14px: 0.75em;
@@ -50,7 +50,7 @@ label {
     font: inherit;
     width: $_14px;
     height: $_14px;
-    border: $_3px solid $default-color;
+    border: $_3px solid $border-color;
     box-sizing: border-box;
     margin: 0;
     cursor: pointer;

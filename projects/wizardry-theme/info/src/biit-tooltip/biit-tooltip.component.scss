@@ -1,10 +1,10 @@
-$text-color: #EDEDED;
-$background-color: #808080;
+$text-color: var(--secondary-text-color);
+$background-color: var(--secondary-background-color);
 
 .tooltip {
   position: fixed;
   z-index: 1;
-  background: #808080;
+  background: $background-color;
   color: white;
   width: fit-content;
   max-width: 25.6rem;

@@ -1,8 +1,8 @@
-$default-color: #262626;
-$trail-color: #EDEDED;
-$trail-selected-color: #FBAEC9;
-$box-selected-color: #F20D5E;
-$disabled-color: #D9D9D9;
+$default-color: var(--component-color);
+$trail-color: var(--trail-color);
+$trail-selected-color: var(--selected-color);
+$box-selected-color: var(--main-color);
+$disabled-color: var(--main-background);
 
 $_2px: 0.1em;
 $_5px: 0.25em;

@@ -1,6 +1,6 @@
 fieldset {
   position: relative;
-  border: 3px solid #262626;
+  border: 3px solid var(--component-color);
   padding-inline-start: 2.25em;
   padding-inline-end: 2.25em;
   padding-block-start: 1.75em;
@@ -32,6 +32,6 @@ fieldset {
   margin-top: 0.4rem;
   font-family: "Cormorant Garamond", serif;
   font-size: 0.9rem;
-  color: #262626;
+  color: var(--component-color);
   text-align: left;
 }

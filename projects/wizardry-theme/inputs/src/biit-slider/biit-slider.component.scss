@@ -1,6 +1,6 @@
-$default-color: #262626;
-$active-color: #F20D5E;
-$bar-color: #D7D7D7;
+$default-color: var(--component-color);
+$active-color: var(--main-color);
+$bar-color: var(--light-background);
 
 .slider {
   position: relative;

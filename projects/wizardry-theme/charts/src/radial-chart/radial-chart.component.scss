@@ -1,3 +1,6 @@
+$border-color: var(--component-color);
+$background-color: var(--popup-background);
+
 #bar-chart {
   display: block;
   height: inherit;
@@ -13,7 +16,7 @@
     box-shadow: none;
     font-family: 'Montserrat';
     font-size: 0.7rem;
-    background: white;
+    background: $background-color;
 
     * {
       box-sizing: border-box;
@@ -24,7 +27,7 @@
       flex-direction: column;
       row-gap: 0.2rem;
       padding: 0.45rem 0.7rem;
-      color: black;
+      color: $border-color;
 
       .tooltip-data {
         display: flex;
@@ -49,7 +52,7 @@
   ::ng-deep .apexcharts-series {
     path:hover {
       box-sizing: border-box;
-      border: 0.15rem solid #262626;
+      border: 0.15rem solid $border-color;
     }
   }
 

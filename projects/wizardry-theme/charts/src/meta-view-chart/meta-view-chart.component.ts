@@ -19,7 +19,7 @@ import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 @Component({
   selector: 'biit-meta-view-chart',
   templateUrl: './meta-view-chart.component.html',
-  styleUrls: ['./meta-view-chart.component.css'],
+  styleUrls: ['./meta-view-chart.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [{
     provide: TRANSLOCO_SCOPE,

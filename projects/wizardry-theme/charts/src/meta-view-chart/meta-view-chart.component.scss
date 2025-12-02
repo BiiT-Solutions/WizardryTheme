@@ -1,3 +1,6 @@
+$border-color: var(--component-color);
+$background-color: var(--popup-background);
+
 biit-meta-board {
   display: block;
   width: 100%;
@@ -23,7 +26,7 @@ biit-meta-board {
   flex: 0 1 auto;
   resize: horizontal;
   overflow: auto;
-  border: 3px solid #262626;
+  border: 3px solid $border-color;
 }
 
 .rtl {
@@ -46,7 +49,7 @@ biit-meta-board {
 @media screen and (max-width: 800px){
   .meta-view-column {
     position: absolute;
-    background: white;
+    background: $background-color;
     z-index: 1;
   }
 }

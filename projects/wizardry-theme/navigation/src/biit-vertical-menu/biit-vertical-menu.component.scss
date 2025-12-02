@@ -1,7 +1,8 @@
-$default-color: #F20D5E;
-$dark-grey: #808080;
-$light-grey: #D9D9D9;
-$dark-border: #262626;
+$default-color: var(--main-color);
+$background-color: var(--light-background);
+$secondary-color: var(--secondary-color);
+$dark-border: var(--component-color);
+$hover-color: var(--hover-color);
 
 .vertical-container {
   position: relative;
@@ -18,12 +19,12 @@ $dark-border: #262626;
 }
 
 .icon-btn:focus-visible {
-  outline: 2px solid #1976d2;
+  outline: 2px solid $dark-border;
   border-radius: 4px;
 }
 
 .floating-menu {
-  background: #fff;
+  background: $background-color;
   border:3px solid $dark-border;
   padding: 4px;
   box-shadow: 0 4px 12px rgba(0,0,0,.15);
@@ -42,6 +43,6 @@ $dark-border: #262626;
 }
 
 .floating-menu button:hover {
-  background: #f3f3f3;
+  background: $hover-color;
 }
 

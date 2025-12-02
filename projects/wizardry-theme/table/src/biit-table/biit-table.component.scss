@@ -1,6 +1,7 @@
-$text-color: #262626;
-$hover-color: #EDEDED;
-$background-color: #D9D9D9;
+$text-color: var(--component-color);
+$hover-color: var(--hover-color);
+$background-color: var(--main-background);
+$popup-background-color: var(--popup-background);
 
 .canvas {
   height: 100%;
@@ -59,13 +60,13 @@ $background-color: #D9D9D9;
         text-transform: uppercase;
         position: sticky;
         top: 0;
-        background: white;
+        background: $popup-background-color;
         z-index: 1;
 
         th {
           position: relative;
           height: 2.1rem;
-          color: white;
+          color: $popup-background-color;
           font-weight: 500;
           background: $text-color;
           padding: 0.4rem 2.4rem;
@@ -77,7 +78,7 @@ $background-color: #D9D9D9;
           &.select {
             width: 2.1rem;
             padding: 0.3rem 0.7rem;
-            background: white;
+            background: $popup-background-color;
           }
 
           &.sortable {

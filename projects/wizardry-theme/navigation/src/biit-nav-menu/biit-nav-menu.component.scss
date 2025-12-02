@@ -1,6 +1,8 @@
-$hover-color: #D9D9D9;
-$active-color: #EDEDED;
-$disabled-color: #EDEDED;
+$hover-color: var(--main-background);
+$active-color: var(--hover-color);
+$disabled-color: var(--hover-color);
+$separator-color: var(--secondary-color);
+$text-over-color: var(--text-hover-color);
 
 .navbar-menu-canvas {
   height: 2.5rem;
@@ -100,9 +102,9 @@ $disabled-color: #EDEDED;
   /* Styling of context menu items */
   --ngx-contextmenu-item-arrow-left: '◀';
   --ngx-contextmenu-item-arrow-right: '▶';
-  --ngx-contextmenu-item-separator-color: #8a909a;
+  --ngx-contextmenu-item-separator-color: $separator-color;
   --ngx-contextmenu-item-separator-padding: 10px;
   --ngx-contextmenu-item-separator-width: 96%;
   --ngx-contextmenu-item-padding: 6px 20px;
-  --ngx-contextmenu-item-text-hover-color: #5a6473;
+  --ngx-contextmenu-item-text-hover-color: $text-over-color;
 }

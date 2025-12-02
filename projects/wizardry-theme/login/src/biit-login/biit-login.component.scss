@@ -1,9 +1,9 @@
-$default-color: #262626;
-$biit-color: #F20D5E;
+$border-color: var(--component-color);
+$biit-color: var(--main-color);
 
-$idle: #808080;
-$error: #A1093F;
-$active: #262626;
+$idle: var(--disabled-primary-color);
+$error: var(--error-color);
+$active: var(--active-color);
 
 .login-container {
   display: flex;
@@ -43,7 +43,7 @@ $active: #262626;
 
 .login-icon-square {
   display: inline-flex;
-  border: solid 0.175em $default-color;
+  border: solid 0.175em $border-color;
   width: 12.8em;
   height: 12.8em;
   box-sizing: border-box;
@@ -110,6 +110,7 @@ $active: #262626;
     cursor: pointer;
     background: transparent;
     color: $idle;
+
     &:hover {
       border-bottom: 3px solid $idle;
     }

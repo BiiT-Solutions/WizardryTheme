@@ -1,6 +1,7 @@
-$default-color: #262626;
-$background-color: #D9D9D9;
-$active-color: #F20D5E;
+$default-color: var(--component-color);
+$background-color: var(--main-background);
+$active-color: var(--main-color);
+$popup-background: var(--popup-background);
 
 :host {
   background: none;
@@ -31,7 +32,7 @@ $active-color: #F20D5E;
     pointer-events: none;
 
     &:hover, &:focus-visible {
-      background-color: white;
+      background-color: $popup-background;
     }
 
     ::ng-deep biit-icon path {

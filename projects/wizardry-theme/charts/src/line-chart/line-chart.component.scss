@@ -1,3 +1,6 @@
+$border-color: var(--component-color);
+$background-color: var(--popup-background);
+
 #line-chart {
   display: block;
   height: inherit;
@@ -7,20 +10,20 @@
 
   ::ng-deep apx-chart {
     .apexcharts-tooltip {
-      border: 1px solid #262626;
+      border: 1px solid $border-color;
       border-radius: 0;
       box-shadow: none;
       font-family: 'Montserrat';
       font-size: 0.7rem;
-      background: white;
+      background: $background-color;
 
       * {
         box-sizing: border-box;
       }
 
       .tooltip-header {
-        background: #262626;
-        color: white;
+        background: $border-color;
+        color: $background-color;
         padding: 0.45rem 0.7rem;
       }
 

@@ -1,7 +1,7 @@
-$default-color: #262626;
-$background-color: #D9D9D9;
-$secondary-color: #808080;
-$error-color: #A1093F;
+$default-color: var(--component-color);
+$background-color: var(--main-background);
+$secondary-color: var(--disabled-primary-color);
+$error-color: var(--error-color);
 
 * { box-sizing:border-box; }
 

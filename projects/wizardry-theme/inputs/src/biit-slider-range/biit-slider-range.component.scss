@@ -1,6 +1,6 @@
-$default-color: #262626;
-$active-color: #F20D5E;
-$bar-color: #D7D7D7;
+$default-color: var(--component-color);
+$active-color: var(--main-color);
+$bar-color: var(--light-background);
 
 .slider {
   position: relative;
@@ -45,9 +45,11 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-thumb:hover {
   background-color: $active-color;
 }
+
 input[type="range"]:active::-webkit-slider-thumb {
   background-color: $active-color;
 }
+
 input[type="range"]:focus::-webkit-slider-thumb {
   background-color: $active-color;
 }
@@ -67,9 +69,11 @@ input[type="range"]::-moz-range-thumb {
 input[type="range"]::-moz-range-thumb:hover {
   background-color: $active-color;
 }
+
 input[type="range"]:active::-moz-range-thumb {
   background-color: $active-color;
 }
+
 input[type="range"]:focus::-moz-range-thumb {
   background-color: $active-color;
 }

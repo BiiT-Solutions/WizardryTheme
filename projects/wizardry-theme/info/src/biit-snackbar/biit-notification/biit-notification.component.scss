@@ -1,7 +1,7 @@
-$text-color: #EDEDED;
-$regular-bg: #262626;
-$error-bg: #A1093F;
-$warning-bg: #F20D5E;
+$text-color: var(--secondary-text-color);
+$regular-bg: var(--component-color);
+$error-bg: var(--error-color);
+$warning-bg: var(--warning-color);
 
 .notification-canvas {
   display: flex;

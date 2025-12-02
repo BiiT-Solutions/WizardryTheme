@@ -1,5 +1,7 @@
-$hover-color: #D9D9D9;
-$active-color: #EDEDED;
+$main-color: var(--main-color);
+$font-color: var(--main-font-color);
+$hover-color: var(--main-background);
+$active-color: var(--hover-color);
 
 .navbar-user-canvas {
   height: 2.5rem;
@@ -51,7 +53,7 @@ $active-color: #EDEDED;
     .avatar {
       height: 1.7rem;
       width: 1.7rem;
-      background: #F20D5E;
+      background: $main-color;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -60,7 +62,7 @@ $active-color: #EDEDED;
       a {
         text-transform: uppercase;
         font-size: 0.7rem;
-        color: white;
+        color: $font-color;
       }
     }
   }
