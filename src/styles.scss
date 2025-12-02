@@ -4,10 +4,15 @@
 @import "theme-colors";
 
 
+html, body {
+  height: 100%;
+  font-size: 16px
+}
 
-html, body { height: 100%; font-size: 16px}
-body { margin: 0;
-  font-family: Montserrat, "Montserrat", sans-serif; }
+body {
+  margin: 0;
+  font-family: Montserrat, "Montserrat", sans-serif;
+}
 
 .ngx-contextmenu {
   --ngx-contextmenu-font-family: Montserrat, "Montserrat", sans-serif;
@@ -31,9 +36,11 @@ body { margin: 0;
       &:active {
         color: var(--main-color) !important;
       }
+
       &:has(.active) {
         background: var(--secondary-text-color);
       }
+
       &:not(.disabled) {
         cursor: pointer;
       }
@@ -56,4 +63,9 @@ body { margin: 0;
       right: 0.6rem
     }
   }
+}
+
+//Icons default color
+svg {
+  color: var(--main-color);
 }
