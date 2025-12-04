@@ -1,4 +1,5 @@
-$text-color: var(--component-color);
+$border-color: var(--component-color);
+$header-color: var(--table-header-color);
 $hover-color: var(--hover-color);
 $background-color: var(--main-background);
 $popup-background-color: var(--popup-background);
@@ -68,7 +69,7 @@ $popup-background-color: var(--popup-background);
           height: 2.1rem;
           color: $popup-background-color;
           font-weight: 500;
-          background: $text-color;
+          background: $header-color;
           padding: 0.4rem 2.4rem;
           text-align: center;
           text-align: -moz-center;
@@ -136,7 +137,7 @@ $popup-background-color: var(--popup-background);
 
           > td {
             height: 2.1rem;
-            border-bottom: 0.2rem solid $text-color;
+            border-bottom: 0.2rem solid $border-color;
             padding: 0.3rem 0.7rem;
             overflow: hidden;
 
