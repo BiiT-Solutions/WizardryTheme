@@ -1,5 +1,6 @@
 $default-color: var(--component-color);
 $background-color: var(--main-background);
+$disabled-color: var(--disabled-menu-color);
 $active-color: var(--main-color);
 $popup-background: var(--popup-background);
 
@@ -36,7 +37,7 @@ $popup-background: var(--popup-background);
     }
 
     ::ng-deep biit-icon path {
-      fill: $background-color !important;
+      fill: $disabled-color !important;
     }
   }
 
