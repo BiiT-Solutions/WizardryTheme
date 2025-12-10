@@ -4,6 +4,8 @@ $dark-grey: var(--disabled-primary-color);
 $light-grey: var(--disabled-secondary-color);
 $dark-border: var(--component-color);
 $font-color: var(--main-font-color);
+$over-primary: var(--hover-primary-color);
+$over-secondary: var(--hover-secondary-color);
 
 * { box-sizing:border-box; }
 
@@ -39,12 +41,12 @@ $font-color: var(--main-font-color);
         background: $default-color;
 
         &:hover, :focus-visible {
-          background: transparent;
+          background: $over-primary;
           border:3px solid $dark-border;
         }
 
         &:active {
-          background: transparent;
+          background: $over-primary;
           border: 3px solid $dark-border;
         }
 
@@ -58,11 +60,11 @@ $font-color: var(--main-font-color);
         border: 3px solid $dark-border;
 
         &:hover .button-content, :focus-visible .button-content {
-          background: $light-grey;
+          background: $over-secondary;
         }
 
         &:active .button-content {
-          background: $light-grey;
+          background: $over-secondary;
         }
       }
     }
