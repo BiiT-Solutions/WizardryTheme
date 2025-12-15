@@ -37,3 +37,11 @@ const TertiaryTemplate: Story<BiitButtonComponent> = (args: BiitButtonComponent)
 `});
 
 export const Tertiary = TertiaryTemplate.bind({});
+
+const QuaternaryTemplate: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
+  props: args,
+  template: `
+    <button biit-button quaternary [disabled]="disabled" style="display: block">Button</button>
+`});
+
+export const Quaternary = QuaternaryTemplate.bind({});

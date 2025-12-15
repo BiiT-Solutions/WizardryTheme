@@ -5,9 +5,19 @@ $light-grey: var(--disabled-secondary-color);
 $dark-border: var(--component-color);
 $font-color: var(--main-font-color);
 $over-primary: var(--hover-primary-color);
-$over-secondary: var(--hover-secondary-color);
+$secondary-button-color: var(--secondary-button-color);
+$secondary-button-background-color: var(--secondary-button-background-color);
+$secondary-button-hover-background: var(--secondary-button-hover-background);
+$secondary-button-active-background: var(--secondary-button-active-background);
+$quaternary-button-color: var(--quaternary-button-color);
+$quaternary-button-background-color: var(--quaternary-button-background-color);
+$quaternary-button-hover-background: var(--quaternary-button-hover-background);
+$quaternary-button-active-background: var(--quaternary-button-active-background);
 
-* { box-sizing:border-box; }
+
+* {
+  box-sizing: border-box;
+}
 
 :host {
   background: none;
@@ -17,7 +27,7 @@ $over-secondary: var(--hover-secondary-color);
   font: inherit;
   outline: inherit;
 
-  .button-base{
+  .button-base {
     font-size: inherit;
     line-height: 1em;
     width: fit-content;
@@ -42,7 +52,7 @@ $over-secondary: var(--hover-secondary-color);
 
         &:hover, :focus-visible {
           background: $over-primary;
-          border:3px solid $dark-border;
+          border: 3px solid $dark-border;
         }
 
         &:active {
@@ -56,15 +66,40 @@ $over-secondary: var(--hover-secondary-color);
       }
 
       &.secondary {
-        color: $dark-border;
+        color: $secondary-button-color;
+        background: $secondary-button-background-color;
         border: 3px solid $dark-border;
 
         &:hover .button-content, :focus-visible .button-content {
-          background: $over-secondary;
+          background: $secondary-button-hover-background;
         }
 
         &:active .button-content {
-          background: $over-secondary;
+          background: $secondary-button-active-background;
+        }
+      }
+
+      &.quaternary {
+        color: $quaternary-button-color;
+        background: $quaternary-button-background-color;
+        border: 3px solid $quaternary-button-background-color;
+
+        &:hover {
+          border: 3px solid $dark-border;
+          .button-content, :focus-visible .button-content {
+            background: $quaternary-button-hover-background;
+          }
+        }
+
+        &:active {
+          border: 3px solid $dark-border;
+          .button-content {
+            background: $quaternary-button-active-background;
+          }
+        }
+
+        .button-content {
+          background: $quaternary-button-background-color;
         }
       }
     }
@@ -89,11 +124,18 @@ $over-secondary: var(--hover-secondary-color);
         background: transparent;
         border: 3px solid $dark-border;
       }
+
       .secondary .button-content {
         background: $light-grey;
       }
+
       .tertiary .bar {
         top: 0.15em;
+      }
+
+      .quaternary .button-content {
+        background: $quaternary-button-background-color;
+        border: 3px solid $dark-border;
       }
     }
   }
@@ -122,6 +164,15 @@ $over-secondary: var(--hover-secondary-color);
         background: $light-grey;
       }
     }
+
+    .quaternary {
+      border: 3px solid $light-grey;
+
+      .button-content {
+        background: $light-grey !important;
+        color: $dark-grey;
+      }
+    }
   }
 }
 
@@ -130,7 +181,6 @@ $over-secondary: var(--hover-secondary-color);
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
 }
-
 
 
 .button-content {

@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {
   BiitButtonComponent,
-  BiitButtonPrimaryDirective,
+  BiitButtonPrimaryDirective, BiitButtonQuaternaryDirective,
   BiitButtonSecondaryDirective,
   BiitButtonTertiaryDirective
 } from './biit-button.component';
@@ -13,7 +13,8 @@ import {FormsModule} from '@angular/forms';
     BiitButtonComponent,
     BiitButtonPrimaryDirective,
     BiitButtonSecondaryDirective,
-    BiitButtonTertiaryDirective
+    BiitButtonTertiaryDirective,
+    BiitButtonQuaternaryDirective
   ],
   imports: [
     CommonModule,
@@ -23,7 +24,8 @@ import {FormsModule} from '@angular/forms';
     BiitButtonComponent,
     BiitButtonPrimaryDirective,
     BiitButtonSecondaryDirective,
-    BiitButtonTertiaryDirective
+    BiitButtonTertiaryDirective,
+    BiitButtonQuaternaryDirective
   ]
 })
 export class BiitButtonModule { }

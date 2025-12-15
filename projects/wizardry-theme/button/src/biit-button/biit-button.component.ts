@@ -27,6 +27,15 @@ export class BiitButtonTertiaryDirective {
   }
 }
 
+@Directive({
+  selector: '[quaternary]'
+})
+export class BiitButtonQuaternaryDirective {
+  constructor(private parent: BiitButtonComponent) {
+    parent.color = 'quaternary';
+  }
+}
+
 @Component({
   selector: 'button[biit-button]',
   templateUrl: 'biit-button.component.html',
