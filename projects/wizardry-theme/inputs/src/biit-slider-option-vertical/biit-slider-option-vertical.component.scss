@@ -118,7 +118,7 @@ $bar-color: var(--light-background);
 
       .description {
         font-size: 0.75em;
-        color: #808080;
+        color: var(--secondary-color);
         line-height: 120%;
         font-style: italic;
         font-weight: 400;
@@ -132,7 +132,7 @@ $bar-color: var(--light-background);
     width: 14px;
     height: 16px;
     padding: 7px 2px;
-    background-color: #262626;
+    background-color: $default-color;
     font-weight: 500;
     box-sizing: border-box;
     background-clip: content-box;
@@ -201,7 +201,7 @@ $bar-color: var(--light-background);
     font-size: 1em;
     background: white;
     padding: 0.1em 0.2em;
-    border: 1px solid #262626;
+    border: 1px solid $default-color;
     display: block;
     position: relative;
     min-width: max-content;

@@ -10,4 +10,7 @@
   <a class="toggle-label">
     <ng-content></ng-content>
   </a>
+  <span *ngIf="description" id="description" class="toggle-description">
+      {{ description }}
+    </span>
 </label>

@@ -13,7 +13,8 @@ export default {
   args: {
     value: false,
     label: 'Toggle',
-    disabled: false
+    disabled: false,
+    description: 'Toggle description',
   },
   argTypes: {
     value: {
@@ -33,6 +34,19 @@ export default {
       name: 'label',
       description: 'Defines the label that will get printed alongside the toggle.',
       type: { name: 'string', required: true },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: undefined },
+        category: 'Inputs'
+      },
+      control: {
+        type: 'text'
+      }
+    },
+    description: {
+      name: 'description',
+      description: 'Defines the tooltip from the toggle.',
+      type: { name: 'string', required: false },
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: undefined },
@@ -63,7 +77,8 @@ const Template: Story<BiitToggleComponent> = (args: BiitToggleComponent) => ({
   props: args,
   template:`
     <biit-toggle [(ngModel)]="value"
-                     [disabled]="disabled">
+                     [disabled]="disabled"
+                     [description]="description">
         {{label}}
     </biit-toggle>
 `

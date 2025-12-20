@@ -15,6 +15,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 })
 export class BiitToggleComponent implements ControlValueAccessor {
   @Input() disabled = false;
+  @Input() description: string;
   checked: boolean;
 
   onChange = (value: any) => {};
