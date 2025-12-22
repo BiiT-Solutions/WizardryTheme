@@ -54,7 +54,6 @@ export class BiitDatatableComponent<T> implements OnInit {
     if (rows) {
       this.selected.push(...rows);
     }
-
   }
 
   @Input() pageSize?: number;
