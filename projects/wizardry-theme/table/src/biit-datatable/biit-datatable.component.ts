@@ -45,11 +45,11 @@ export class BiitDatatableComponent<T> implements OnInit {
 
   selected: T[] = [];
 
-  get selectedRows(): T[] {
+  public get selectedRows(): T[] {
     return this.selected;
   }
 
-  set selectedRows(rows: T[]) {
+  public set selectedRows(rows: T[]) {
     this.selected = rows ?? [];
   }
 
