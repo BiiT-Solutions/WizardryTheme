@@ -1,15 +1,15 @@
 import {
   AfterViewChecked,
   Component,
+  ContentChild,
   Directive,
   ElementRef,
-  TemplateRef,
-  ContentChild,
   EventEmitter,
   Input,
   OnInit,
   Output,
-  Renderer2
+  Renderer2,
+  TemplateRef
 } from '@angular/core';
 import {BiitPaginatorOptions} from '../biit-paginator/models/biit-paginator-options';
 import {BiitTableColumn, BiitTableColumnFormat} from './models/biit-table-column';
@@ -86,6 +86,7 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
       }
     }
   }
+
   @Input('loading') set _loading(loading: boolean) {
     if (loading) {
       this.loading = loading;
@@ -94,6 +95,7 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
       this.loading = false;
     }
   }
+
   @Input() columns: BiitTableColumn[] = [];
   @Input() pageSizes: number[] = [];
   @Input() defaultPageSize: number;
@@ -108,7 +110,7 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
 
   @Output() onUpdate: EventEmitter<BiitTableResponse> = new EventEmitter<BiitTableResponse>();
   @Output() onCellAction: EventEmitter<BiitTableActionResponse> = new EventEmitter<BiitTableActionResponse>();
-  @Output() onRowClick : EventEmitter<any> = new EventEmitter<any>();
+  @Output() onRowClick: EventEmitter<any> = new EventEmitter<any>();
 
   protected data: BiitTableData<any>;
   protected paginator;
@@ -124,7 +126,8 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
   private findTimeout: NodeJS.Timeout;
 
   constructor(private renderer: Renderer2,
-              private elem: ElementRef) { }
+              private elem: ElementRef) {
+  }
 
   ngOnInit(): void {
     this.paginator = new BiitPaginatorOptions(1, this.defaultPageSize, this.pageSizes, this.data ? this.data.totalItems : 1);
@@ -160,7 +163,7 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
       + 2.4 * parseFloat(getComputedStyle(document.documentElement).fontSize) * 2;
 
     // If inner text width plus header paddings are less than the current header width (set by user column properties)
-    if(minColumnSize > column.offsetWidth) {
+    if (minColumnSize > column.offsetWidth) {
       (column as HTMLElement).style.width = minColumnSize + 'px';
     }
   }
@@ -227,9 +230,9 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
 
   private initResizableColumns(column: BiitTableColumn) {
     const moveListener = this.renderer.listen('window', 'mousemove', (event) => {
-      if(this.columnResize.pressed) {
+      if (this.columnResize.pressed) {
         let width = this.columnResize.startWidth + (event.x - this.columnResize.startX);
-        if(width > this.columnResize.minWidth) {
+        if (width > this.columnResize.minWidth) {
           column.width = width;
         }
       }
@@ -239,7 +242,7 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
       return false;
     });
     const releaseListener = this.renderer.listen('window', 'mouseup', (event) => {
-      if(this.columnResize.pressed) {
+      if (this.columnResize.pressed) {
         this.columnResize.pressed = false;
         event.preventDefault();
         event.stopPropagation();
@@ -270,6 +273,10 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
 
   getSelectedRows(): any[] {
     return [...this.selectedRows];
+  }
+
+  setSelectedRows(_selectedRows: any[]): void {
+    this.selectedRows = new Set<any>(_selectedRows);
   }
 
   emitCellAction(item: any, column: string, event: Event) {
