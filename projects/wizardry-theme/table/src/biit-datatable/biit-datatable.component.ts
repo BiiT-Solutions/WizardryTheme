@@ -49,7 +49,7 @@ export class BiitDatatableComponent<T> implements OnInit {
     return this.selected;
   }
 
-  public set selectedRows(rows: T[]) {
+  @Input() public set selectedRows(rows: T[]) {
     this.selected.splice(0, this.selected.length);
     if (rows) {
       this.selected.push(...rows);
