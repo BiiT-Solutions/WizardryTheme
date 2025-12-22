@@ -276,7 +276,7 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
   }
 
   setSelectedRows(_selectedRows: any[]): void {
-    this.selectedRows = new Set<any>(_selectedRows);
+    this.selectedRows = new Set<any>(_selectedRows.filter(r => this.data.data.includes(r)));
   }
 
   emitCellAction(item: any, column: string, event: Event) {

@@ -49,6 +49,10 @@ export class BiitDatatableComponent<T> implements OnInit {
     return this.selected;
   }
 
+  set selectedRows(rows: T[]) {
+    this.selected = rows ?? [];
+  }
+
   @Input() pageSize?: number;
   @Input() pageSizeList: number[] = [];
   @Input() loading = false;
