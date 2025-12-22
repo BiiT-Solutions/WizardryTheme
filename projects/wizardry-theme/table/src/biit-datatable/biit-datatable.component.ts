@@ -50,7 +50,11 @@ export class BiitDatatableComponent<T> implements OnInit {
   }
 
   public set selectedRows(rows: T[]) {
-    this.selected = rows ?? [];
+    this.selected.splice(0, this.selected.length);
+    if (rows) {
+      this.selected.push(...rows);
+    }
+
   }
 
   @Input() pageSize?: number;
