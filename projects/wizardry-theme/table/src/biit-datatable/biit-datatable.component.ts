@@ -95,6 +95,7 @@ export class BiitDatatableComponent<T> implements OnInit {
     if (rows) {
       this.selected.push(...rows);
       this.onSelection.emit(this.selected);
+      this.table.selected = this.selected;
     }
   }
 
