@@ -49,13 +49,6 @@ export class BiitDatatableComponent<T> implements OnInit {
     return this.selected;
   }
 
-  @Input() public set selectedRows(rows: T[]) {
-    this.selected.splice(0, this.selected.length);
-    if (rows) {
-      this.selected.push(...rows);
-    }
-  }
-
   @Input() pageSize?: number;
   @Input() pageSizeList: number[] = [];
   @Input() loading = false;
@@ -95,6 +88,14 @@ export class BiitDatatableComponent<T> implements OnInit {
     this.selected.splice(0, this.selected.length);
     this.selected.push(...selected);
     this.onSelection.emit(this.selected);
+  }
+
+  @Input() public set selectedRows(rows: T[]) {
+    this.selected.splice(0, this.selected.length);
+    if (rows) {
+      this.selected.push(...rows);
+      this.onSelection.emit(this.selected);
+    }
   }
 
   onActivate(event: { type: 'keydown' | 'click' | 'dblclick', event, row, column, value, cellElement, rowElement }) {
