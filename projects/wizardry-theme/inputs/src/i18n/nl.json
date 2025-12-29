@@ -1,4 +1,8 @@
 {
-  "regex-error": "Waarde niet geldig",
-  "minlength-error": "Waarde voldoet niet aan de minimale lengte"
+  "regex-error": "Der eingegebene Wert ist ungültig",
+  "minlength-error": "Der eingegebene Wert ist zu kurz",
+  "date-error": "Das ausgewählte Datum ist ungültig",
+  "today": "Heute",
+  "done": "Erledigt",
+  "back": "Zurück"
 }

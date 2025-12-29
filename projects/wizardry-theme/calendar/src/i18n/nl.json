@@ -1,10 +1,10 @@
 {
-  "username-empty": "Username is mandatory.",
-  "password-empty": "Password is mandatory.",
-  "username": "Username",
-  "password": "Password",
-  "take_me_in": "take me in",
-  "forgot": "forgot my password",
-  "cant_remember": "can't remember my password",
-  "remember": "Remember me"
+  "username-empty": "Gebruikersnaam is verplicht.",
+  "password-empty": "Wachtwoord is verplicht.",
+  "username": "Gebruiker",
+  "password": "Wachtwoord",
+  "take_me_in": "Inloggen",
+  "forgot": "Ik ben mijn wachtwoord vergeten",
+  "cant_remember": "Ik kan het wachtwoord niet herinneren",
+  "remember": "Onthoud mij"
 }

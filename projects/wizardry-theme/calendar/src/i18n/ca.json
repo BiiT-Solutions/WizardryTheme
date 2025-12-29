@@ -1,0 +1,10 @@
+{
+  "username-empty": "El nom d'usuari és necessari.",
+  "password-empty": "La contrasenya és necessària.",
+  "username": "Usuari",
+  "password": "Contrasenya",
+  "take_me_in": "Accedir",
+  "forgot": "He oblidat la contrasenya",
+  "cant_remember": "No recordo la contrasenya",
+  "remember": "Recorda'm"
+}

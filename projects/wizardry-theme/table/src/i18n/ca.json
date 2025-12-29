@@ -1,0 +1,14 @@
+{
+  "rows-per-page": "Files per pàgina",
+  "first-page": "Primera pàgina",
+  "previous-page": "Pàgina anterior",
+  "next-page": "Pàgina següent",
+  "last-page": "Última pàgina",
+  "search": "Cercar",
+  "column-selector": "Selector de columnes",
+  "yes": "Sí",
+  "no": "No",
+  "total": "Total",
+  "selected": "Seleccionats",
+  "empty-message": "No hi ha resultats per mostrar."
+}

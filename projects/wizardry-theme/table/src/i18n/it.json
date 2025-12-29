@@ -1,0 +1,14 @@
+{
+  "rows-per-page": "Righe per pagina",
+  "first-page": "Prima pagina",
+  "previous-page": "Pagina precedente",
+  "next-page": "Pagina successiva",
+  "last-page": "Ultima pagina",
+  "search": "Cerca",
+  "column-selector": "Selettore di colonne",
+  "yes": "Sì",
+  "no": "No",
+  "total": "Totale",
+  "selected": "Selezionati",
+  "empty-message": "Non ci sono risultati da mostrare."
+}

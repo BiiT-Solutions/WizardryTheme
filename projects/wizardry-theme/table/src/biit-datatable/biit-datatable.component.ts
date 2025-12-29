@@ -90,15 +90,6 @@ export class BiitDatatableComponent<T> implements OnInit {
     this.onSelection.emit(this.selected);
   }
 
-  @Input() public set selectedRows(rows: T[]) {
-    this.selected.splice(0, this.selected.length);
-    if (rows) {
-      this.selected.push(...rows);
-      this.onSelection.emit(this.selected);
-      this.table.selected = this.selected;
-    }
-  }
-
   onActivate(event: { type: 'keydown' | 'click' | 'dblclick', event, row, column, value, cellElement, rowElement }) {
     if (event.type == 'click' && event.column.name !== 'chkbox') {
       this.selected = [event.row];

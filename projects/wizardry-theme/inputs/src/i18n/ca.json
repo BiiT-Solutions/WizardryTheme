@@ -1,0 +1,8 @@
+{
+  "regex-error": "El valor introduït no és vàlid",
+  "minlength-error": "El valor introduït és massa curt",
+  "date-error": "La data seleccionada no és vàlida",
+  "today": "Avui",
+  "done": "Fet",
+  "back": "Tornar"
+}
