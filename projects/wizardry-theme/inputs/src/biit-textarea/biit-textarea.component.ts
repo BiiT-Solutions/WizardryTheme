@@ -17,7 +17,7 @@ import {biitIcon} from '@biit-solutions/biit-icons-collection';
 export class BiitTextareaComponent implements ControlValueAccessor, OnInit {
 
   @Input() placeholder: string = '';
-  @Input() error: string;
+  @Input() error: string | undefined;
   @Input() description: string;
   @Input() info: string;
   @Input() icon: biitIcon;

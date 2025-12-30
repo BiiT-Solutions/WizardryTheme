@@ -42,7 +42,7 @@ export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
     this._placeholder = placeholder;
   }
   protected _placeholder = '';
-  @Input() error: string = "";
+  @Input() error: string | undefined = "";
   @Input() description: string;
 
   protected value: Date;

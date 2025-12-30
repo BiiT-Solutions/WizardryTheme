@@ -26,7 +26,7 @@ export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
     this._placeholder = placeholder;
   }
   protected _placeholder = '';
-  @Input() error: string;
+  @Input() error: string | undefined;
   @Input() description: string;
   @Input() info: string;
   @Input() type: Type;
