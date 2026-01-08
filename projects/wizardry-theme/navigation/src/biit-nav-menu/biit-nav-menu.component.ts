@@ -87,8 +87,4 @@ export class BiitNavMenuComponent {
 
     this.contextMenuService.show(this.contextMenu, { x, y });
   }
-
-  log(event) {
-    console.debug("DEVELOPMENT LOG: ", event)
-  }
 }

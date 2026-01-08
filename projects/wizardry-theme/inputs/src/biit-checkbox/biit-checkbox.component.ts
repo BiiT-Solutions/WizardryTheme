@@ -1,4 +1,4 @@
-import {Component, Input, forwardRef} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
@@ -17,10 +17,13 @@ export class BiitCheckboxComponent implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() description: string;
   @Input() showAlwaysDescription = false;
+  @Output() onValueChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   checked: any;
 
-  onChange = (value: any) => {};
-  onTouched = () => {};
+  onChange = (value: any) => {
+  };
+  onTouched = () => {
+  };
 
   registerOnChange(fn: any): void {
     this.onChange = fn;
@@ -37,5 +40,6 @@ export class BiitCheckboxComponent implements ControlValueAccessor {
   onModelChange(event: boolean) {
     this.checked = event;
     this.onChange(event);
+    this.onValueChange.emit(this.checked);
   }
 }
