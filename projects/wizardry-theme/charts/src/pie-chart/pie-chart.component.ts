@@ -115,7 +115,7 @@ export class PieChartComponent implements OnInit, OnChanges {
         }
       },
       grid: {
-        borderColor: '#262626',
+        borderColor: 'var(--chart-component-color)',
       },
       tooltip: {
         custom: function({ series, seriesIndex, dataPointIndex, w }) {

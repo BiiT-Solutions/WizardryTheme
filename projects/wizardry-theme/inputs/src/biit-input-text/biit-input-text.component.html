@@ -25,7 +25,7 @@
          tabindex="0">
       <biit-icon [name]="type === Type.PASSWORD ? 'show' : icon"
                  class="input-show-icon"
-                 [pathStyle]="{fill: reveal ? '#F20D5E' : '#262626'}"
+                 [pathStyle]="{fill: reveal ? 'var(--main-color)' : 'var(--component-color)'}"
       ></biit-icon>
     </div>
     <div class="input-placeholder" [class.input-filled]="this.value?.toString().length">

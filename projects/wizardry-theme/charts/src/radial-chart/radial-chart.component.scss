@@ -11,7 +11,7 @@ $background-color: var(--chart-background);
   transition: 1s ease-in-out;
 
   ::ng-deep .apexcharts-tooltip {
-    border: 1px solid #262626;
+    border: 1px solid var(--chart-component-color);
     border-radius: 0;
     box-shadow: none;
     font-family: 'Montserrat';

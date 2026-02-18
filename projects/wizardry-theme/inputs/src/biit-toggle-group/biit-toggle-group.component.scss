@@ -18,7 +18,7 @@ button {
   line-height: 100%;
   padding: 0.625em;
   cursor: pointer;
-  color: #262626;
+  color: var(--component-color);
 
   display: flex;
   gap: 0.375em;
@@ -46,10 +46,10 @@ button {
 
   &:active, &.active {
     background: #EDEDED;
-    color: #F20D5E;
+    color: var(--main-color);
 
     ::ng-deep biit-icon svg * {
-      fill: #F20D5E !important;
+      fill: var(--main-color) !important;
     }
   }
 

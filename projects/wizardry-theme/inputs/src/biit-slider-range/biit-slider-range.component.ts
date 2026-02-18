@@ -82,7 +82,7 @@ export class BiitSliderRangeComponent implements ControlValueAccessor, AfterView
     const progress2 = ((slider2.value - this.min) * 100) / (this.max - this.min);
 
     // Set slider bar background colors according to progress
-    this.slider1.nativeElement.style.background = `linear-gradient(to right, #D7D7D7 ${progress1}%, #F20D5E ${progress1}%, #F20D5E ${progress2}%, #D7D7D7 ${progress2}%)`;
+    this.slider1.nativeElement.style.background = `linear-gradient(to right, #D7D7D7 ${progress1}%, var(--main-color) ${progress1}%, var(--main-color) ${progress2}%, #D7D7D7 ${progress2}%)`;
 
     // Set slider tooltip position
     if (activeSlider == 'ranger1') {

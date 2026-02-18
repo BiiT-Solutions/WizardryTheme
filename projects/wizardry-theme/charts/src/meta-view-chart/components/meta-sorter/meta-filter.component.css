@@ -60,7 +60,7 @@
     align-items: center;
     font-size: 1em;
   }
-  border-bottom: 1px solid #262626;
+  border-bottom: 1px solid var(--chart-component-color);
 }
 biit-date-filter-selector {
   font-size: 1em;

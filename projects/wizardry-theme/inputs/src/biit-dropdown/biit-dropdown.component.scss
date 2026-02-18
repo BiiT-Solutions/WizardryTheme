@@ -129,7 +129,7 @@ input::selection {
   margin-bottom: -0.175rem;
   width: auto;
   height: 0.175rem;
-  background: #262626;
+  background: var(--component-color);
 
   &.disabled {
     background: $light-grey;

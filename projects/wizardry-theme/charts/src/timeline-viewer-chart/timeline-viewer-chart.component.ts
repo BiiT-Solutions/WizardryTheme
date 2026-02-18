@@ -194,7 +194,7 @@ export class TimelineViewerChartComponent implements OnInit, OnChanges {
             seriesIndex: 0,
             dataPointIndex: dataPointIndex,
             fillColor: '#fff',
-            strokeColor: value.color ?? '#262626',
+            strokeColor: value.color ?? 'var(--chart-component-color)',
             size: 7
           })
         )

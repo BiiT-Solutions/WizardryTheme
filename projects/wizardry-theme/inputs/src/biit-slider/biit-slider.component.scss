@@ -71,7 +71,7 @@ input[type="range"]:focus::-moz-range-thumb {
     width: 0.75em;
     height: 1.85em;
     padding: 0 0.3em 1.3em 0.3em;
-    background-color: #262626;
+    background-color: var(--component-color);
     line-height: 2.4em;
     white-space: nowrap;
     font-weight: 500;
@@ -97,7 +97,7 @@ input[type="range"]:focus::-moz-range-thumb {
     font-size: 1em;
     background: white;
     padding: 0.2em;
-    border: 0.05em solid #262626;
+    border: 0.05em solid var(--component-color);
     height: 0.7em;
     display: block;
     line-height: 0.7em;

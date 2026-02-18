@@ -12,8 +12,6 @@
   --secondary-text-color: #EDEDED;
   --secondary-background-color: #808080;
   --disabled-primary-color: #808080;
-  --disabled-menu-color: #D9D9D9;
-  --disabled-menu-color-hover: #FFFFFF;
   --disabled-secondary-color: var(--main-color);
   --component-color: #262626;
   --active-color: var(--component-color);
@@ -30,8 +28,13 @@
   --text-hover-color: #5A6473;
   --selected-color: #FBAEC9;
   --chart-background: #FFFFFF;
+  --chart-component-color: var(--component-color);
   --icon-color: var(--main-color);
   --table-header-color: var(--component-color);
   --table-border-color: var(--table-header-color);
+  --table-selected-row-color: var(--main-background);
   --scrollbar-color: var(--main-color);
+  --menu-button-active: var(--main-color);
+  --disabled-menu-color: #D9D9D9;
+  --disabled-menu-color-hover: #FFFFFF;
 }

@@ -7,7 +7,7 @@
          [value]="value"
          [class.disabled]="disabled"/>
   <biit-icon [name]="value == selected ? 'radio_button_filled' : 'radio_button_empty'"
-             [pathStyle]="{fill: disabled ? '#D9D9D9' : hover || (value == selected) ? '#F20D5E' : '#262626'}"
+             [pathStyle]="{fill: disabled ? '#D9D9D9' : hover || (value == selected) ? 'var(--main-color)' : 'var(--component-color)'}"
              class="biit-radio"
              [class.checked]="value == selected"
              [class.disabled]="disabled"

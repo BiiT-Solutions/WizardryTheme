@@ -102,7 +102,7 @@ export class LineChartComponent implements OnInit, OnChanges {
         }
       },
       grid: {
-        borderColor: "#262626",
+        borderColor: "var(--chart-component-color)",
         position: 'back',
         strokeDashArray: 0,
         padding: {
@@ -124,7 +124,7 @@ export class LineChartComponent implements OnInit, OnChanges {
             fontSize: '14px',
             fontFamily: 'Montserrat',
             fontWeight: 900,
-            color: "#262626"
+            color: "var(--chart-component-color)"
           }
         },
         crosshairs : {
@@ -154,7 +154,7 @@ export class LineChartComponent implements OnInit, OnChanges {
             fontSize: '14px',
             fontFamily: 'Montserrat',
             fontWeight: 900,
-            color: "#262626"
+            color: "var(--chart-component-color)"
           }
         },
         labels: {

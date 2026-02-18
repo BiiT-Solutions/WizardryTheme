@@ -1,8 +1,8 @@
 $default-color: var(--component-color);
 $background-color: var(--main-background);
 $disabled-color: var(--disabled-menu-color);
-$active-color: var(--main-color);
-$disabled-popup-background: var(--disabled-menu-color-hover);
+$active-color: var(--menu-button-active);
+$disabled-menu-color: var(--disabled-menu-color-hover);
 
 :host {
   background: none;
@@ -33,7 +33,7 @@ $disabled-popup-background: var(--disabled-menu-color-hover);
     pointer-events: none;
 
     &:hover, &:focus-visible {
-      background-color: $disabled-popup-background;
+      background-color: $disabled-menu-color;
     }
 
     ::ng-deep biit-icon path {

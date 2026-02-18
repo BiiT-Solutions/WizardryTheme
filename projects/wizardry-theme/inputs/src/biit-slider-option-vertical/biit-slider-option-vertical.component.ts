@@ -79,9 +79,9 @@ export class BiitSliderOptionVerticalComponent implements ControlValueAccessor, 
 
     // Set slider bar background colors according to progress
     if (!this.inverted) {
-      this.slider.nativeElement.style.background = `linear-gradient(to top, #F20D5E ${progress}%, #D7D7D7 ${progress}%)`;
+      this.slider.nativeElement.style.background = `linear-gradient(to top, var(--main-color) ${progress}%, #D7D7D7 ${progress}%)`;
     } else {
-      this.slider.nativeElement.style.background = `linear-gradient(to bottom, #F20D5E ${progress}%, #D7D7D7 ${progress}%)`;
+      this.slider.nativeElement.style.background = `linear-gradient(to bottom, var(--main-color) ${progress}%, #D7D7D7 ${progress}%)`;
     }
 
     // Set tooltip text

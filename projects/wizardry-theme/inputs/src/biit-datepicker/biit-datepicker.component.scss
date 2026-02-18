@@ -422,7 +422,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-bottom: -3px;
   width: auto;
   height: 3px;
-  background: #262626;
+  background: var(--chart-component-color);
 }
 
 .onwards {

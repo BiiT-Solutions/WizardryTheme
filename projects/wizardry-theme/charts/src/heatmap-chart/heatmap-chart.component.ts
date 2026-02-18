@@ -226,7 +226,7 @@ export class HeatmapChartComponent implements OnInit, OnChanges {
         enabled: false
       },
       grid: {
-        borderColor: '#262626',
+        borderColor: 'var(--chart-component-color)',
         position: 'front',
         xaxis: {
           lines: {

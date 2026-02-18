@@ -148,6 +148,7 @@ $text-color: var(--secondary-text-color);
             display: flex;
             justify-content: flex-end;
             align-items: center;
+            color: var(--component-color);
 
             select {
               -webkit-appearance: none;

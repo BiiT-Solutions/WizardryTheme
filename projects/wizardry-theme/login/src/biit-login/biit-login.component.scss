@@ -117,7 +117,7 @@ $active: var(--active-color);
 
     &.selected {
       background: transparent;
-      color: #262626;
+      color: var(--component-color);
       border-bottom: 3px solid $active;
     }
   }

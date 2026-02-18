@@ -21,7 +21,7 @@
            tabindex="0">
         <biit-icon [name]="'calendar'"
                    class="input-show-icon"
-                   [pathStyle]="{fill: dropdownOpen ? '#F20D5E' : '#262626'}"
+                   [pathStyle]="{fill: dropdownOpen ? 'var(--main-color)' : 'var(--chart-component-color)'}"
         ></biit-icon>
       </div>
       <div class="input-placeholder input-filled">
@@ -101,7 +101,7 @@
                   <div class="item arrow"
                        (click)="onModelChange(sub(value, {hours: 1}))">
                     <biit-icon [name]="'right_arrow'"
-                               [pathStyle]="{fill: '#262626'}"
+                               [pathStyle]="{fill: 'var(--chart-component-color)'}"
                                class="up"
                     ></biit-icon>
                   </div>
@@ -119,7 +119,7 @@
                   <div class="item arrow"
                        (click)="onModelChange(add(value, {hours: 1}))">
                     <biit-icon [name]="'right_arrow'"
-                               [pathStyle]="{fill: '#262626'}"
+                               [pathStyle]="{fill: 'var(--chart-component-color)'}"
                                class="down"
                     ></biit-icon>
                   </div>
@@ -129,7 +129,7 @@
                   <div class="item arrow"
                        (click)="onModelChange(sub(value, {minutes: 1}))">
                     <biit-icon [name]="'right_arrow'"
-                               [pathStyle]="{fill: '#262626'}"
+                               [pathStyle]="{fill: 'var(--chart-component-color)'}"
                                class="up"
                     ></biit-icon>
                   </div>
@@ -147,7 +147,7 @@
                   <div class="item arrow"
                        (click)="onModelChange(add(value, {minutes: 1}))">
                     <biit-icon [name]="'right_arrow'"
-                               [pathStyle]="{fill: '#262626'}"
+                               [pathStyle]="{fill: 'var(--chart-component-color)'}"
                                class="down"
                     ></biit-icon>
                   </div>
@@ -172,7 +172,7 @@
                 <div class="item arrow"
                      (click)="prevMonth()">
                   <biit-icon [name]="'right_arrow'"
-                             [pathStyle]="{fill: '#262626'}"
+                             [pathStyle]="{fill: 'var(--chart-component-color)'}"
                              class="up"
                   ></biit-icon>
                 </div>
@@ -198,7 +198,7 @@
                 <div class="item arrow"
                      (click)="nextMonth()">
                   <biit-icon [name]="'right_arrow'"
-                             [pathStyle]="{fill: '#262626'}"
+                             [pathStyle]="{fill: 'var(--chart-component-color)'}"
                              class="down"
                   ></biit-icon>
                 </div>
@@ -209,7 +209,7 @@
                 <div class="item arrow"
                      (click)="viewerDate = sub(viewerDate, {years: 1})">
                   <biit-icon [name]="'right_arrow'"
-                             [pathStyle]="{fill: '#262626'}"
+                             [pathStyle]="{fill: 'var(--chart-component-color)'}"
                              class="up"
                   ></biit-icon>
                 </div>
@@ -235,7 +235,7 @@
                 <div class="item arrow"
                      (click)="viewerDate = add(viewerDate, {years: 1})">
                   <biit-icon [name]="'right_arrow'"
-                             [pathStyle]="{fill: '#262626'}"
+                             [pathStyle]="{fill: 'var(--chart-component-color)'}"
                              class="down"
                   ></biit-icon>
                 </div>
@@ -324,7 +324,7 @@
           <div class="item arrow"
                (click)="onModelChange(sub(value, {hours: 1}))">
             <biit-icon [name]="'right_arrow'"
-                       [pathStyle]="{fill: '#262626'}"
+                       [pathStyle]="{fill: 'var(--chart-component-color)'}"
                        class="up"
             ></biit-icon>
           </div>
@@ -342,7 +342,7 @@
           <div class="item arrow"
                (click)="onModelChange(add(value, {hours: 1}))">
             <biit-icon [name]="'right_arrow'"
-                       [pathStyle]="{fill: '#262626'}"
+                       [pathStyle]="{fill: 'var(--chart-component-color)'}"
                        class="down"
             ></biit-icon>
           </div>
@@ -352,7 +352,7 @@
           <div class="item arrow"
                (click)="onModelChange(sub(value, {minutes: 1}))">
             <biit-icon [name]="'right_arrow'"
-                       [pathStyle]="{fill: '#262626'}"
+                       [pathStyle]="{fill: 'var(--chart-component-color)'}"
                        class="up"
             ></biit-icon>
           </div>
@@ -370,7 +370,7 @@
           <div class="item arrow"
                (click)="onModelChange(add(value, {minutes: 1}))">
             <biit-icon [name]="'right_arrow'"
-                       [pathStyle]="{fill: '#262626'}"
+                       [pathStyle]="{fill: 'var(--chart-component-color)'}"
                        class="down"
             ></biit-icon>
           </div>
@@ -394,7 +394,7 @@
           <div class="item arrow"
                (click)="prevMonth()">
             <biit-icon [name]="'right_arrow'"
-                       [pathStyle]="{fill: '#262626'}"
+                       [pathStyle]="{fill: 'var(--chart-component-color)'}"
                        class="up"
             ></biit-icon>
           </div>
@@ -420,7 +420,7 @@
           <div class="item arrow"
                (click)="nextMonth()">
             <biit-icon [name]="'right_arrow'"
-                       [pathStyle]="{fill: '#262626'}"
+                       [pathStyle]="{fill: 'var(--chart-component-color)'}"
                        class="down"
             ></biit-icon>
           </div>
@@ -431,7 +431,7 @@
           <div class="item arrow"
                (click)="viewerDate = sub(viewerDate, {years: 1})">
             <biit-icon [name]="'right_arrow'"
-                       [pathStyle]="{fill: '#262626'}"
+                       [pathStyle]="{fill: 'var(--chart-component-color)'}"
                        class="up"
             ></biit-icon>
           </div>
@@ -457,7 +457,7 @@
           <div class="item arrow"
                (click)="viewerDate = add(viewerDate, {years: 1})">
             <biit-icon [name]="'right_arrow'"
-                       [pathStyle]="{fill: '#262626'}"
+                       [pathStyle]="{fill: 'var(--chart-component-color)'}"
                        class="down"
             ></biit-icon>
           </div>

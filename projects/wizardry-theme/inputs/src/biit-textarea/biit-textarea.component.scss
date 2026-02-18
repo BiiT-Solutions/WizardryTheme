@@ -161,7 +161,7 @@ $error-color: var(--error-color);
   margin-bottom: -3px;
   width: auto;
   height: 3px;
-  background: #262626;
+  background: var(--component-color);
 }
 
 .tooltip-icon {

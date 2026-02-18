@@ -166,7 +166,7 @@ export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
         }
       },
       grid: {
-        borderColor: '#262626',
+        borderColor: 'var(--chart-component-color)',
       },
       tooltip: {
         custom: function({ series, seriesIndex, dataPointIndex, w }) {
