@@ -2,7 +2,7 @@ $default-color: var(--component-color);
 $background-color: var(--main-background);
 $secondary-color: var(--secondary-color);
 $error-color: var(--error-color);
-$popup-background: var(--popup-background);
+$popup-background: var(--chart-background);
 
 .popup-background {
   position: fixed;
@@ -13,7 +13,7 @@ $popup-background: var(--popup-background);
   z-index: 10;
 
   &.dark-bg {
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: var(--popup-background-color);
   }
 }
 
