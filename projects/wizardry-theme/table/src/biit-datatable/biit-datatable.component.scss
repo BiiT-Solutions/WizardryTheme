@@ -1,7 +1,7 @@
 $default-color: var(--table-header-color);;
 $table-background: var(--chart-background);
 $main-background: var(--main-background);
-$text-color: var(--secondary-text-color);
+$text-color: var(--table-text-color);
 
 .table-canvas {
   height: 100%;
@@ -9,6 +9,7 @@ $text-color: var(--secondary-text-color);
   flex-direction: column;
   gap: 14px;
   background: $table-background;
+  color: var(--table-text-color);
 
   .top {
     display: flex;
@@ -148,7 +149,7 @@ $text-color: var(--secondary-text-color);
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            color: var(--component-color);
+            color: $text-color;
 
             select {
               -webkit-appearance: none;
