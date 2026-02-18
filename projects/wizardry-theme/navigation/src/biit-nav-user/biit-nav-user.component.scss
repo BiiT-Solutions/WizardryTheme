@@ -2,8 +2,11 @@ $main-color: var(--main-color);
 $font-color: var(--nav-menu-font-color);
 $hover-color: var(--nav-menu-hover-color);
 $active-color: var(--nav-menu-active-background);
+$text-over-color: var(--nav-menu-text-hover-color);
+$background-color: var(--nav-menu-background-color);
 
 .navbar-user-canvas {
+  background: $background-color;
   height: 2.5rem;
   width: 15rem;
   display: flex;
@@ -24,6 +27,7 @@ $active-color: var(--nav-menu-active-background);
 
     &:hover {
       background: $hover-color;
+      color: $text-over-color;
     }
 
     &:active {

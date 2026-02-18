@@ -1,13 +1,14 @@
 $hover-color: var(--nav-menu-hover-color);
 $active-color: var(--nav-menu-active-background);
-$disabled-color: var(--nav-menu-disable-background);
+$disabled-color: var(--nav-menu-disable-font);
 $separator-color: var(--nav-menu-separator-color);
 $text-over-color: var(--nav-menu-text-hover-color);
+$background-color: var(--nav-menu-background-color);
 
 .navbar-menu-canvas {
   height: 2.5rem;
   display: flex;
-  background: white;
+  background: $background-color;
   overflow-x: auto;
 
   .item {
