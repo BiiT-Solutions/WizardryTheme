@@ -23,6 +23,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Prepare styles
+        run: npm run prepare-styles
+
       - name: Publish Storybook
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
