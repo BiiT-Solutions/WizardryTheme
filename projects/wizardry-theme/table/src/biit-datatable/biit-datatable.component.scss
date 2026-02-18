@@ -169,6 +169,7 @@ $text-color: var(--secondary-text-color);
               font-family: 'Montserrat', serif;
               cursor: pointer;
               background: $table-background;
+              color: $text-color;
 
               &:hover {
                 background: $main-background;

@@ -3,6 +3,8 @@ $background-color: var(--main-background);
 $secondary-color: var(--secondary-color);
 $hover-color: var(--hover-color);
 $light-grey: var(--main-background);
+$border-color: var(--border-color);
+$description-color: var(--secondary-color);
 
 * {
   box-sizing: border-box;
@@ -35,7 +37,7 @@ input::selection {
 }
 
 .input-object {
-  background-color: white;
+  background-color: $background-color;
   font-size: 1rem;
   display: block;
   border: none;
@@ -137,11 +139,11 @@ input::selection {
 }
 
 .dropdown-list {
-  background: white;
+  background: $background-color;
   position: absolute;
   z-index: 2;
   box-sizing: border-box;
-  border: 0.175rem solid black;
+  border: 0.175rem solid $border-color;
   margin-top: -0.175rem;
   min-width: 12.8rem;
   width: 100%;
@@ -191,7 +193,7 @@ input::selection {
 
   .description {
     font-size: 0.75em;
-    color: #808080;
+    color: $description-color;
     line-height: 120%;
     font-style: italic;
   }

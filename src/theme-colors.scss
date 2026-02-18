@@ -37,4 +37,10 @@
   --menu-button-active: var(--main-color);
   --disabled-menu-color: #D9D9D9;
   --disabled-menu-color-hover: #FFFFFF;
+  --nav-menu-hover-color: var(--main-background);
+  --nav-menu-text-hover-color: var(--text-hover-color);
+  --nav-menu-active-background: var(--hover-color);
+  --nav-menu-disable-background: var(--hover-color);
+  --nav-menu-separator-color: var(--secondary-color);
+  --nav-menu-font-color: var(--main-font-color);
 }

@@ -1,8 +1,8 @@
-$hover-color: var(--main-background);
-$active-color: var(--hover-color);
-$disabled-color: var(--hover-color);
-$separator-color: var(--secondary-color);
-$text-over-color: var(--text-hover-color);
+$hover-color: var(--nav-menu-hover-color);
+$active-color: var(--nav-menu-active-background);
+$disabled-color: var(--nav-menu-disable-background);
+$separator-color: var(--nav-menu-separator-color);
+$text-over-color: var(--nav-menu-text-hover-color);
 
 .navbar-menu-canvas {
   height: 2.5rem;

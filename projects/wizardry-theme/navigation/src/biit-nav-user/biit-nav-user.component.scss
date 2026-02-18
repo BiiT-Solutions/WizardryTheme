@@ -1,7 +1,7 @@
 $main-color: var(--main-color);
-$font-color: var(--main-font-color);
-$hover-color: var(--main-background);
-$active-color: var(--hover-color);
+$font-color: var(--nav-menu-font-color);
+$hover-color: var(--nav-menu-hover-color);
+$active-color: var(--nav-menu-active-background);
 
 .navbar-user-canvas {
   height: 2.5rem;
