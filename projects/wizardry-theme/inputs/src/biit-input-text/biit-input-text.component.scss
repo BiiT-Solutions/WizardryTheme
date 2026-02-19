@@ -1,5 +1,7 @@
 $default-color: var(--component-color);
-$background-color: var(--main-background);
+$background-color: var(--input-text-background);
+$background-focus-color: var(--input-text-focus-background);
+$background-hover-color: var(--input-text-hover-background);
 $secondary-color: var(--secondary-color);
 $error-color: var(--error-color);
 
@@ -40,14 +42,15 @@ $error-color: var(--error-color);
   width: 100%;
   min-width: 2.1em;
   font-weight: normal;
+  background: $background-color;;
 
   &:focus {
     outline: none;
-    background: $background-color;
+    background: $background-focus-color;
   }
 
   &:hover {
-    background: $background-color;
+    background: $background-hover-color;
   }
 
   &.error {

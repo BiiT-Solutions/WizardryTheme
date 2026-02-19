@@ -1,8 +1,6 @@
-$default-color: var(--component-color);
-$background-color: var(--main-background);
-$secondary-color: var(--secondary-color);
-$error-color: var(--error-color);
-$popup-background: var(--chart-background);
+$default-color: var(--popup-color);
+$error-color: var(--popup-error-color);
+$popup-background: var(--popup-background);
 
 .popup-background {
   position: fixed;

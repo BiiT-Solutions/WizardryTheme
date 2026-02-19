@@ -46,5 +46,12 @@
   --nav-menu-font-color: var(--nav-menu-hover-color);
   --nav-menu-font-disabled-color: #8a909a;
   --nav-menu-background-color: #FFFFFF;
+  --nav-menu-active-color: var(--hover-color);
   --nav-menu-border-color: rgba(0, 0, 0, 0.18);
+  --input-text-background: var(--main-background);
+  --input-text-focus-background: var(--main-background);
+  --input-text-hover-background: var(--main-background);
+  --popup-color: var(--component-color);
+  --popup-background: #FFFFFF;
+  --popup-error-color: var(--error-color);
 }
