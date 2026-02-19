@@ -15,7 +15,7 @@
     <biit-icon *ngIf="closable" id="popup-x-button"
                class="close"
                [name]="'cross_wide'"
-               [pathStyle]="{fill: '#000000'}"
+               [pathStyle]="{fill: 'var(--popup-close-button)'}"
                (click)="onClosed.emit()"
     ></biit-icon>
   </div>

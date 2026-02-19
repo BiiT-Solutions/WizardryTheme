@@ -1,7 +1,8 @@
 $default-color: var(--table-header-color);
 $header-text-color: var(--table-header-text);
-$table-background: var(--chart-background);
-$main-background: var(--main-background);
+$table-background: var(--table-background-color);
+$table-hover-background: var(--table-hover-background-color);
+$table-active-row-background: var(--table-active-row-backgorund-color);
 $text-color: var(--table-text-color);
 
 .table-canvas {
@@ -119,7 +120,7 @@ $text-color: var(--table-text-color);
           }
 
           &.active .datatable-body-cell-label {
-            background: $main-background;
+            background: $table-active-row-background;
           }
         }
       }
@@ -161,7 +162,7 @@ $text-color: var(--table-text-color);
 
               &:focus-visible {
                 outline: none;
-                background: $main-background;
+                background: $table-active-row-background;
               }
 
               height: 34px;
@@ -175,7 +176,7 @@ $text-color: var(--table-text-color);
               color: $text-color;
 
               &:hover {
-                background: $main-background;
+                background: $table-active-row-background;
               }
 
               * {
