@@ -1,4 +1,5 @@
-$default-color: var(--table-header-color);;
+$default-color: var(--table-header-color);
+$header-text-color: var(--table-header-text);
 $table-background: var(--chart-background);
 $main-background: var(--main-background);
 $text-color: var(--table-text-color);
@@ -68,6 +69,7 @@ $text-color: var(--table-text-color);
             align-items: center;
             justify-content: center;
             background: $default-color;
+            color: $header-text-color;
 
             span {
               color: $text-color;
