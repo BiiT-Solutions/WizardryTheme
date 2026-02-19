@@ -8,7 +8,7 @@ $background-color: var(--floating-background);
   position: fixed;
   z-index: 999;
   opacity: 50%;
-  background: white;
+  background: inherit;
   border: 3px solid $border-color;
   display: flex;
   flex-direction: column;
