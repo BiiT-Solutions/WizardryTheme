@@ -116,7 +116,8 @@ $text-color: var(--table-text-color);
           }
 
           &:hover .datatable-body-cell-label {
-            background: $text-color;
+            color: $text-color;
+            background: $table-hover-background;
           }
 
           &.active .datatable-body-cell-label {
