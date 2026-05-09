@@ -115,6 +115,10 @@ $text-color: var(--table-text-color);
             height: 100%;
           }
 
+          &.biit-row-highlight:not(.active) .datatable-body-cell-label {
+            background: var(--table-row-highlight-background-color, rgba(255, 196, 0, 0.15));
+          }
+
           &:hover .datatable-body-cell-label {
             color: $text-color;
             background: $table-hover-background;

@@ -59,6 +59,8 @@ export class BiitDatatableComponent<T> implements OnInit {
   @Input() hideFooter?: any;
   @Input() serverSide?: any;
   @Input() page?: Page;
+  @Input() rowStylePredicate?: (row: T) => boolean;
+  @Input() rowStyleClass: string = 'biit-row-highlight';
   search: string = "";
 
   @Output() onSelection: EventEmitter<T[]> = new EventEmitter<T[]>();
@@ -70,6 +72,15 @@ export class BiitDatatableComponent<T> implements OnInit {
   protected readonly SelectionType = SelectionType;
   protected readonly BiitMultiselectType = BiitMultiselectType;
   private findTimeout: NodeJS.Timeout;
+
+  getRowClass = (row: T): string => {
+    const highlightClass = this.rowStyleClass?.trim();
+    if (!highlightClass || !this.rowStylePredicate) {
+      return '';
+    }
+
+    return this.rowStylePredicate(row) ? highlightClass : '';
+  };
 
   constructor(biitIconService: BiitIconService) {
     biitIconService.registerIcons(completeIconSet);

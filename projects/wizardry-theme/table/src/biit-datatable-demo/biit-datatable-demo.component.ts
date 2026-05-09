@@ -13,25 +13,25 @@ export class BiitDatatableDemoComponent {
   @Input() serverSide = false;
 
   rows = [
-    {name: "Dwight Schrute",gender: "male",title: "Assistant to the Regional Manager"},
-    {name: "James Halpert",gender: "male",title: "Regional Co-Manager"},
-    {name: "Andy Bernard",gender: "male",title: "Sales Representative"},
-    {name: "Michael Scott",gender: "male",title: "Regional Manager"},
-    {name: "Pam Beesly",gender: "female",title: "Office Administrator"},
-    {name: "Phyllis Lapin",gender: "female",title: "Regional Director of Sales"},
-    {name: "Oscar Martinez",gender: "male",title: "Chief Accountant"},
-    {name: "Kelly Kapoor",gender: "female",title: "Customer Service Representative"},
-    {name: "Angela Martin",gender: "female",title: "Head of Accounting"},
-    {name: "Ryan Howard",gender: "male",title: "VP of Northeast Sales"},
-    {name: "Creed Bratton",gender: "male",title: "Head of Quality Assurance"},
-    {name: "Stanley Hudson",gender: "male",title: "Sales Representative"},
+    {name: "Dwight Schrute", gender: "male", title: "Assistant to the Regional Manager"},
+    {name: "James Halpert", gender: "male", title: "Regional Co-Manager"},
+    {name: "Andy Bernard", gender: "male", title: "Sales Representative"},
+    {name: "Michael Scott", gender: "male", title: "Regional Manager"},
+    {name: "Pam Beesly", gender: "female", title: "Office Administrator"},
+    {name: "Phyllis Lapin", gender: "female", title: "Regional Director of Sales"},
+    {name: "Oscar Martinez", gender: "male", title: "Chief Accountant"},
+    {name: "Kelly Kapoor", gender: "female", title: "Customer Service Representative"},
+    {name: "Angela Martin", gender: "female", title: "Head of Accounting"},
+    {name: "Ryan Howard", gender: "male", title: "VP of Northeast Sales"},
+    {name: "Creed Bratton", gender: "male", title: "Head of Quality Assurance"},
+    {name: "Stanley Hudson", gender: "male", title: "Sales Representative"},
   ];
   _rows = [
-    {name: "Dwight Schrute",gender: "male",title: "Assistant to the Regional Manager"},
-    {name: "James Halpert",gender: "male",title: "Regional Co-Manager"},
-    {name: "Andy Bernard",gender: "male",title: "Sales Representative"},
-    {name: "Michael Scott",gender: "male",title: "Regional Manager"},
-    {name: "Pam Beesly",gender: "female",title: "Office Administrator"},
+    {name: "Dwight Schrute", gender: "male", title: "Assistant to the Regional Manager"},
+    {name: "James Halpert", gender: "male", title: "Regional Co-Manager"},
+    {name: "Andy Bernard", gender: "male", title: "Sales Representative"},
+    {name: "Michael Scott", gender: "male", title: "Regional Manager"},
+    {name: "Pam Beesly", gender: "female", title: "Office Administrator"},
   ]
 
   loadingIndicator = true;
@@ -47,6 +47,12 @@ export class BiitDatatableDemoComponent {
   SelectionType = SelectionType;
   ColumnMode = ColumnMode;
   pageSize = 5
+
+  public highlightRows: (row: {
+    gender: string;
+    name: string;
+    title: string
+  }) => boolean = (row) => row.gender === 'female';
 
   constructor(private biitIconService: BiitIconService) {
   }

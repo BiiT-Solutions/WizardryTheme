@@ -39,6 +39,7 @@
       <ngx-datatable #table
                      [rows]="data"
                      [columns]="_columns"
+                     [rowClass]="getRowClass"
                      [columnMode]="'force'"
                      [headerHeight]="42"
                      [footerHeight]="hideFooter ? 0 : 34"
@@ -154,6 +155,7 @@
       <ngx-datatable #table
                      [rows]="data"
                      [columns]="_columns"
+                     [rowClass]="getRowClass"
                      [columnMode]="'force'"
                      [headerHeight]="42"
                      [footerHeight]="hideFooter ? 0 : 34"
