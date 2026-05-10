@@ -4,6 +4,8 @@ $table-background: var(--table-background-color);
 $table-hover-background: var(--table-hover-background-color);
 $table-active-row-background: var(--table-active-row-backgorund-color);
 $text-color: var(--table-text-color);
+$text-hover-color: var(--table-text-hover-color);
+$text-active-color: var(--table-text-active-color);
 
 .table-canvas {
   height: 100%;
@@ -120,11 +122,12 @@ $text-color: var(--table-text-color);
           }
 
           &:hover .datatable-body-cell-label {
-            color: $text-color;
+            color: $text-hover-color;
             background: $table-hover-background;
           }
 
           &.active .datatable-body-cell-label {
+            color: $text-active-color;
             background: $table-active-row-background;
           }
         }
