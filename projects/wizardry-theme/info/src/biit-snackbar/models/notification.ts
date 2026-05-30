@@ -6,7 +6,7 @@ export class Notification {
   id: string;
   message: string = '';
   type: NotificationType = NotificationType.INFO;
-  timeout: NodeJS.Timeout;
+  timeout: ReturnType<typeof setTimeout>;
   actionLabel: string;
   onAction$: Subject<void> = new Subject<void>();
 

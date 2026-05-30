@@ -10,7 +10,10 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions"
   ],
-  "framework": "@storybook/angular",
+  "framework": {
+    "name": "@storybook/angular",
+    "options": {}
+  },
   "core": {
     "builder": "@storybook/builder-webpack5"
   }

@@ -16,7 +16,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 export class BiitTernaryToggleComponent implements ControlValueAccessor{
   @Input() disabled = false;
   checked: boolean | undefined;
-  private clickTimer: NodeJS.Timeout | undefined;
+  private clickTimer: ReturnType<typeof setTimeout> | undefined;
 
   onChange = (value: any) => {};
   onTouched = () => {};

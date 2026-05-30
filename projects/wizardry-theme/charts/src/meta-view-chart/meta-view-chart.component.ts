@@ -74,7 +74,7 @@ export class MetaViewChartComponent implements AfterViewInit {
   protected showMenu= true;
 
   protected timelineOptions: TimelineViewerChartOptions;
-  private delayedFilter: NodeJS.Timeout;
+  private delayedFilter: ReturnType<typeof setTimeout>;
   private static FILTER_DELAY: number = 500;
   private static SHOW_MENU_SIZE: number = 800;
 

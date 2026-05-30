@@ -1,10 +1,5 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
-import {
-  TimelineViewerChartModule,
-  TimelineViewerChartComponent
-} from "@biit-solutions/wizardry-theme/charts";
-import {BrowserModule} from "@angular/platform-browser";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {TimelineViewerChartComponent, TimelineViewerChartModule} from "@biit-solutions/wizardry-theme/charts";
 
 export default {
   title: 'Charts/Timeline Viewer',

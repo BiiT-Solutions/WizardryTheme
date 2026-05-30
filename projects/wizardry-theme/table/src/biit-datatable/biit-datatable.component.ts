@@ -71,7 +71,7 @@ export class BiitDatatableComponent<T> implements OnInit {
   protected readonly ColumnMode = ColumnMode;
   protected readonly SelectionType = SelectionType;
   protected readonly BiitMultiselectType = BiitMultiselectType;
-  private findTimeout: NodeJS.Timeout;
+  private findTimeout: ReturnType<typeof setTimeout>;
 
   getRowClass = (row: T): string => {
     const highlightClass = this.rowStyleClass?.trim();

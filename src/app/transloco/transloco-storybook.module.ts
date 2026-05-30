@@ -1,17 +1,18 @@
 import { HttpClientModule } from "@angular/common/http"
 import {
-  TRANSLOCO_LOADER,
-  TRANSLOCO_CONFIG,
+  DefaultTranspiler,
+  provideTransloco,
   translocoConfig,
+  TRANSLOCO_TRANSPILER,
   TranslocoModule, TranslocoService,
 } from "@ngneat/transloco"
 import {APP_INITIALIZER, NgModule} from "@angular/core"
 import {DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, TranslocoHttpLoader} from "@biit-solutions/wizardry-theme/i18n";
 import {forceReRender} from "@storybook/angular";
 import {distinctUntilChanged, tap} from "rxjs";
-import {provideTranslocoLocale, TRANSLOCO_LOCALE_CONFIG} from "@ngneat/transloco-locale";
+import {provideTranslocoLocale} from "@ngneat/transloco-locale";
 
-export let translocoServiceInstance: TranslocoService | null = null;
+export const translocoServiceState = { instance: null as TranslocoService | null };
 
 /**
  * This module provides translations for Storybook.
@@ -20,15 +21,9 @@ export let translocoServiceInstance: TranslocoService | null = null;
   exports: [TranslocoModule],
   imports: [HttpClientModule],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: translocoStorybookInitializer, // our initializer hook
-      multi: true,
-      deps: [TranslocoService], // the dependencies that Angular passes as arguments to our hook
-    },
-    {
-      provide: TRANSLOCO_CONFIG,
-      useValue: translocoConfig({
+    ...provideTransloco({
+      loader: TranslocoHttpLoader,
+      config: translocoConfig({
         availableLangs: SUPPORTED_LANGUAGES.map(lang => lang.code),
         defaultLang: DEFAULT_LANGUAGE.code,
         reRenderOnLangChange: true,
@@ -38,14 +33,16 @@ export let translocoServiceInstance: TranslocoService | null = null;
         fallbackLang: DEFAULT_LANGUAGE.code,
         prodMode: false,
       }),
+    }),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: translocoStorybookInitializer, // our initializer hook
+      multi: true,
+      deps: [TranslocoService], // the dependencies that Angular passes as arguments to our hook
     },
     {
-      provide: TRANSLOCO_LOADER,
-      useClass: TranslocoHttpLoader
-    },
-    {
-      provide: TRANSLOCO_LOCALE_CONFIG,
-      useFactory: provideTranslocoLocale
+      provide: TRANSLOCO_TRANSPILER,
+      useClass: DefaultTranspiler,
     },
     provideTranslocoLocale({
       langToLocaleMapping: {
@@ -59,15 +56,13 @@ export let translocoServiceInstance: TranslocoService | null = null;
 export class TranslocoStorybookModule {
   public static setLanguage(globals: any): void {
     if (globals['language']) {
-      // TODO: get reference to the TranslocoService instance
-      translocoServiceInstance?.setActiveLang(globals['language']);
+      translocoServiceState.instance?.setActiveLang(globals['language']);
     }
   }
 }
 export function translocoStorybookInitializer(translocoService: TranslocoService) {
   return () => {
-    // stores the reference to the service
-    translocoServiceInstance = translocoService;
+    translocoServiceState.instance = translocoService;
     translocoService.langChanges$
       .pipe(
         distinctUntilChanged(),
