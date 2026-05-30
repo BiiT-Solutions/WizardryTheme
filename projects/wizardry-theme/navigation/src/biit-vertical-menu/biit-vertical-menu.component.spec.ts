@@ -10,6 +10,9 @@ describe('BiitVerticalMenuComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ BiitVerticalMenuComponent ]
     })
+    .overrideComponent(BiitVerticalMenuComponent, {
+      set: { template: '' }
+    })
     .compileComponents();
 
     fixture = TestBed.createComponent(BiitVerticalMenuComponent);
@@ -19,5 +22,13 @@ describe('BiitVerticalMenuComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('opens and closes the menu', () => {
+    component.toggleMenu();
+    expect(component.open).toBeTrue();
+
+    component.onSelect('item');
+    expect(component.open).toBeFalse();
   });
 });

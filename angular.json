@@ -139,9 +139,13 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "projects/wizardry-theme/tsconfig.spec.json",
+            "main": "projects/wizardry-theme/src/test.ts",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
+            ],
+            "include": [
+              "projects/wizardry-theme/**/*.spec.ts"
             ]
           }
         }
