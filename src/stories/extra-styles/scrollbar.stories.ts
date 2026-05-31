@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 
 export default {
   title: 'Extra Styles/Scrollbar',
@@ -11,7 +12,7 @@ export default {
   }
 } as any;
 
-const Template: Story = (args) => ({
+const Template: StoryFn = (args) => ({
   props: args,
   template:`
     <p>Add the css classes to base css file ("show code" in Docs)</p>

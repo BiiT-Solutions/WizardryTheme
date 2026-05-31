@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {
   BiitSliderModule,
   BiitSliderComponent,
@@ -117,7 +118,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitSliderComponent> = (args: BiitSliderComponent) => ({
+const Template: StoryFn<BiitSliderComponent> = (args: BiitSliderComponent) => ({
   props: args,
   template:`
     <biit-slider [(ngModel)]="value"
@@ -132,7 +133,7 @@ const Template: Story<BiitSliderComponent> = (args: BiitSliderComponent) => ({
 
 export const Single = Template.bind({});
 
-const TemplateRange: Story<BiitSliderRangeComponent> = (args: BiitSliderRangeComponent) => ({
+const TemplateRange: StoryFn<BiitSliderRangeComponent> = (args: BiitSliderRangeComponent) => ({
   props: args,
   template:`
     <biit-slider-range [(ngModel)]="valueRange"
@@ -148,7 +149,7 @@ const TemplateRange: Story<BiitSliderRangeComponent> = (args: BiitSliderRangeCom
 
 export const Range = TemplateRange.bind({});
 
-const TemplateOption: Story<BiitSliderOptionComponent> = (args: BiitSliderOptionComponent) => ({
+const TemplateOption: StoryFn<BiitSliderOptionComponent> = (args: BiitSliderOptionComponent) => ({
   props: args,
   template:`
     <biit-slider-option style="display: block; width: 40em; height: 20em; margin-left: 10em; margin-top: 2em"
@@ -162,7 +163,7 @@ const TemplateOption: Story<BiitSliderOptionComponent> = (args: BiitSliderOption
 
 export const Option = TemplateOption.bind({});
 
-const TemplateOptionVertical: Story<BiitSliderOptionVerticalComponent> = (args: BiitSliderOptionVerticalComponent) => ({
+const TemplateOptionVertical: StoryFn<BiitSliderOptionVerticalComponent> = (args: BiitSliderOptionVerticalComponent) => ({
   props: args,
   template:`
     <biit-slider-option-vertical style="display: block; width: 40em; height: 30em; margin-left: 10em; margin-top: 2em"

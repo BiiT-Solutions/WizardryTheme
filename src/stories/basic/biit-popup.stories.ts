@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {BiitPopupComponent, BiitPopupModule} from "@biit-solutions/wizardry-theme/popup";
 import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
@@ -107,7 +108,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitPopupComponent> = (args: BiitPopupComponent) => ({
+const Template: StoryFn<BiitPopupComponent> = (args: BiitPopupComponent) => ({
   props: args,
   template: `
     <button biit-button (click)="showPopup = true">Show Popup</button>
@@ -137,7 +138,7 @@ Default.parameters = {
   }
 }
 
-const SixtyTemplate: Story<BiitPopupComponent> = (args: BiitPopupComponent) => ({
+const SixtyTemplate: StoryFn<BiitPopupComponent> = (args: BiitPopupComponent) => ({
   props: args,
   template: `
     <button biit-button (click)="showSixty = true">Show Sixty View</button>
@@ -152,7 +153,7 @@ const SixtyTemplate: Story<BiitPopupComponent> = (args: BiitPopupComponent) => (
 export const SixtyView = SixtyTemplate.bind({});
 
 
-const InfoBoxTemplate: Story<BiitPopupComponent> = (args: BiitPopupComponent) => ({
+const InfoBoxTemplate: StoryFn<BiitPopupComponent> = (args: BiitPopupComponent) => ({
   props: args,
   template: `
     <button biit-button (click)="mousePosition = $event; showInfoBox = true" style="display: flex; justify-content: end; width: 100%">Show Info box</button>

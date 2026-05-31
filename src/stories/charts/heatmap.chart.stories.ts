@@ -1,4 +1,5 @@
-import {Meta, moduleMetadata, Story} from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {HeatmapChartModule, HeatmapChartComponent, HeatmapChartRange, HeatmapChartData, HeatmapChartDataElement} from "@biit-solutions/wizardry-theme/charts";
 
 export default {
@@ -95,7 +96,7 @@ export default {
   }
 } as any;
 
-const Template: Story<HeatmapChartComponent> = (args: HeatmapChartComponent) => ({
+const Template: StoryFn<HeatmapChartComponent> = (args: HeatmapChartComponent) => ({
   props: args,
   template: `
     <biit-heatmap [data]="data"

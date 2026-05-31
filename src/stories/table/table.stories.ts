@@ -1,4 +1,5 @@
-import {Meta, moduleMetadata, Story} from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {BiitTableComponent} from "../../../projects/wizardry-theme/table/src/biit-table/biit-table.component";
 import {BiitTableDemoModule} from '../../../projects/wizardry-theme/table/src/biit-table-demo/biit-table-demo.module';
 import { APP_INITIALIZER } from '@angular/core';
@@ -22,7 +23,7 @@ export default {
   component: BiitTableComponent
 } as any;
 
-const Template: Story<BiitTableComponent> = (args: BiitTableComponent, { globals }) => {
+const Template: StoryFn<BiitTableComponent> = (args: BiitTableComponent, { globals }) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,

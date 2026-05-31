@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {BiitButtonComponent, BiitButtonModule} from '@biit-solutions/wizardry-theme/button';
 import {BiitTooltipModule} from '@biit-solutions/wizardry-theme/info';
 
@@ -11,7 +12,7 @@ export default {
   ],
 } as any;
 
-const Template: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
+const Template: StoryFn<BiitButtonComponent> = (args: BiitButtonComponent) => ({
   props: args,
   template: `
     <h3 tooltip="Meowth, that's right!"

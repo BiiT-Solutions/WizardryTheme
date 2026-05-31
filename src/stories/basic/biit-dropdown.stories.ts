@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {BiitDropdownModule} from '@biit-solutions/wizardry-theme/inputs';
 import {BiitDropdownComponent} from '@biit-solutions/wizardry-theme/inputs';
 import {FormsModule} from '@angular/forms';
@@ -130,7 +131,7 @@ export default {
   }
 } as any;
 
-const TemplateExpanded: Story<BiitDropdownComponent> = (args: BiitDropdownComponent) => ({
+const TemplateExpanded: StoryFn<BiitDropdownComponent> = (args: BiitDropdownComponent) => ({
   props: args,
   template:`
     <div style="display:block; position: fixed; top: 50%; left: 50%; translate: -50% -50%; text-align: center;">
@@ -161,7 +162,7 @@ const TemplateExpanded: Story<BiitDropdownComponent> = (args: BiitDropdownCompon
 
 export const Expanded = TemplateExpanded.bind({});
 
-const TemplateCompact: Story<BiitDropdownComponent> = (args: BiitDropdownComponent) => ({
+const TemplateCompact: StoryFn<BiitDropdownComponent> = (args: BiitDropdownComponent) => ({
   props: args,
   template:`
     <div style="display:block; position: fixed; top: 50%; left: 50%; translate: -50% -50%; text-align: center;">
@@ -192,7 +193,7 @@ const TemplateCompact: Story<BiitDropdownComponent> = (args: BiitDropdownCompone
 
 export const Compact = TemplateCompact.bind({});
 
-const TemplateIcon: Story<BiitDropdownComponent> = (args: BiitDropdownComponent) => ({
+const TemplateIcon: StoryFn<BiitDropdownComponent> = (args: BiitDropdownComponent) => ({
   props: args,
   template:`
     <div style="display:block; position: fixed; top: 50%; left: 50%; translate: -50% -50%; text-align: center;">

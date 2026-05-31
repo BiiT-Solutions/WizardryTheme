@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {BiitButtonModule, BiitButtonComponent} from '@biit-solutions/wizardry-theme/button';
 import {FormsModule} from '@angular/forms';
 
@@ -14,7 +15,7 @@ export default {
   },
 } as any;
 
-const PrimaryTemplate: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
+const PrimaryTemplate: StoryFn<BiitButtonComponent> = (args: BiitButtonComponent) => ({
   props: args,
   template: `
     <button biit-button primary [disabled]="disabled" style="display: block">Button</button>
@@ -22,7 +23,7 @@ const PrimaryTemplate: Story<BiitButtonComponent> = (args: BiitButtonComponent) 
 
 export const Primary = PrimaryTemplate.bind({});
 
-const SecondaryTemplate: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
+const SecondaryTemplate: StoryFn<BiitButtonComponent> = (args: BiitButtonComponent) => ({
   props: args,
   template: `
     <button biit-button secondary [disabled]="disabled" style="display: block">Button</button>
@@ -30,7 +31,7 @@ const SecondaryTemplate: Story<BiitButtonComponent> = (args: BiitButtonComponent
 
 export const Secondary = SecondaryTemplate.bind({});
 
-const TertiaryTemplate: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
+const TertiaryTemplate: StoryFn<BiitButtonComponent> = (args: BiitButtonComponent) => ({
   props: args,
   template: `
     <button biit-button tertiary [disabled]="disabled" style="display: block">Button</button>
@@ -38,7 +39,7 @@ const TertiaryTemplate: Story<BiitButtonComponent> = (args: BiitButtonComponent)
 
 export const Tertiary = TertiaryTemplate.bind({});
 
-const QuaternaryTemplate: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
+const QuaternaryTemplate: StoryFn<BiitButtonComponent> = (args: BiitButtonComponent) => ({
   props: args,
   template: `
     <button biit-button quaternary [disabled]="disabled" style="display: block">Button</button>

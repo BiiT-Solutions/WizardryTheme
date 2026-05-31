@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
 import {BiitDatePickerComponent, BiitDatePickerModule} from '@biit-solutions/wizardry-theme/inputs';
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
@@ -169,7 +170,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitDatePickerComponent> = (args: BiitDatePickerComponent, { globals }) => {
+const Template: StoryFn<BiitDatePickerComponent> = (args: BiitDatePickerComponent, { globals }) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,
@@ -192,7 +193,7 @@ const Template: Story<BiitDatePickerComponent> = (args: BiitDatePickerComponent,
 
 export const Default = Template.bind({});
 
-const TemplateCalendar: Story<BiitDatePickerComponent> = (args: BiitDatePickerComponent, { globals }) => {
+const TemplateCalendar: StoryFn<BiitDatePickerComponent> = (args: BiitDatePickerComponent, { globals }) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,

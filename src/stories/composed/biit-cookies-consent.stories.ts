@@ -1,4 +1,5 @@
-import {Story, moduleMetadata} from '@storybook/angular';
+import type {Meta, StoryObj} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {BiitToggleComponent} from '@biit-solutions/wizardry-theme/inputs';
 import { APP_INITIALIZER } from "@angular/core";
 import { FORCE_RE_RENDER } from '@storybook/core-events';
@@ -21,7 +22,7 @@ function removeConsent() {
   forceReRender();
 }
 
-export default {
+const meta = {
   title: 'Composed/Cookies Pop-up',
   decorators: [
     moduleMetadata({
@@ -29,20 +30,21 @@ export default {
       providers: [{ provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }]
     }),
   ],
-} as any;
+} satisfies Meta<BiitToggleComponent>;
 
-const Template: Story<BiitToggleComponent> = (args: BiitToggleComponent) => ({
-  props: {
-    ...args,
-    removeConsent: () => removeConsent()
-  },
-  template:`
-    <div style="display:block">
-      <button biit-button (click)="removeConsent()">remove consent</button>
-      <biit-cookies-consent></biit-cookies-consent>
-    </div>
+export default meta;
 
-`
-});
-
-export const Default = Template.bind({});
+export const Default: StoryObj<BiitToggleComponent> = {
+  render: (args) => ({
+    props: {
+      ...args,
+      removeConsent: () => removeConsent(),
+    },
+    template: `
+      <div style="display:block">
+        <button biit-button (click)="removeConsent()">remove consent</button>
+        <biit-cookies-consent></biit-cookies-consent>
+      </div>
+    `,
+  }),
+};

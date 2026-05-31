@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {BiitNavMenuModule} from '../../../projects/wizardry-theme/navigation/src/biit-nav-menu/biit-nav-menu.module';
 import {BiitNavMenuComponent} from '../../../projects/wizardry-theme/navigation/src/biit-nav-menu/biit-nav-menu.component';
 import {BiitButtonComponent} from '@biit-solutions/wizardry-theme/button';
@@ -414,7 +415,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitNavMenuComponent> = (args: BiitNavMenuComponent) => ({
+const Template: StoryFn<BiitNavMenuComponent> = (args: BiitNavMenuComponent) => ({
   props: args,
   template: `
     <div style="display: block; background: white; width: 100%; height: 2.5rem; box-sizing: border-box;">

@@ -1,4 +1,5 @@
-import {Meta, moduleMetadata, Story} from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {
   LineChartComponent,
   LineChartData,
@@ -75,7 +76,7 @@ export default {
   }
 } as any;
 
-const Template: Story<LineChartComponent> = (args: LineChartComponent) => ({
+const Template: StoryFn<LineChartComponent> = (args: LineChartComponent) => ({
   props: args,
   template: `
     <biit-line-chart [data]="data"

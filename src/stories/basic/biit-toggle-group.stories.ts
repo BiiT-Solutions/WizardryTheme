@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
 import {BiitToggleGroupModule, BiitToggleGroupComponent} from '@biit-solutions/wizardry-theme/inputs';
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
@@ -55,7 +56,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitToggleGroupComponent> = (args: BiitToggleGroupComponent) => ({
+const Template: StoryFn<BiitToggleGroupComponent> = (args: BiitToggleGroupComponent) => ({
   props: args,
   template:`
     <biit-toggle-group [(ngModel)]="value"

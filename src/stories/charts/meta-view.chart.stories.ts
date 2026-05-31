@@ -1,4 +1,5 @@
-import {Meta, moduleMetadata, Story} from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {
   MetaViewChartComponent,
   MetaViewChartModule
@@ -47,7 +48,7 @@ export default {
   parameters: {}
 } as any;
 
-const Template: Story<MetaViewChartComponent> = (args: MetaViewChartComponent) => ({
+const Template: StoryFn<MetaViewChartComponent> = (args: MetaViewChartComponent) => ({
   props: args,
   template: `
     <biit-meta-view-chart

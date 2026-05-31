@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
 import {BiitCheckboxModule} from '@biit-solutions/wizardry-theme/inputs';
 import {BiitCheckboxComponent} from '@biit-solutions/wizardry-theme/inputs';
@@ -78,7 +79,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitCheckboxComponent> = (args: BiitCheckboxComponent) => ({
+const Template: StoryFn<BiitCheckboxComponent> = (args: BiitCheckboxComponent) => ({
   props: args,
   template:`
     <div *ngFor="let item of items">

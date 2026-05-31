@@ -1,4 +1,5 @@
-import {Meta, moduleMetadata, Story} from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {BiitLoginComponent, BiitLoginModule} from "@biit-solutions/wizardry-theme/login";
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
@@ -86,7 +87,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitLoginComponent> = (args: BiitLoginComponent, { globals }) => {
+const Template: StoryFn<BiitLoginComponent> = (args: BiitLoginComponent, { globals }) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,
@@ -102,7 +103,7 @@ const Template: Story<BiitLoginComponent> = (args: BiitLoginComponent, { globals
 
 export const Default = Template.bind({});
 
-const SignUpTemplate: Story<BiitLoginComponent> = (args: BiitLoginComponent, { globals }) => {
+const SignUpTemplate: StoryFn<BiitLoginComponent> = (args: BiitLoginComponent, { globals }) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,

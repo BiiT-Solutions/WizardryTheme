@@ -1,4 +1,5 @@
-import {Meta, moduleMetadata, Story} from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import { APP_INITIALIZER } from '@angular/core';
@@ -167,7 +168,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitMultiselectComponent> = (args: BiitMultiselectComponent) => ({
+const Template: StoryFn<BiitMultiselectComponent> = (args: BiitMultiselectComponent) => ({
   props: args,
   template:`
     <div style="display:block; position: fixed; top: 50%; left: 50%; translate: -50% -50%; text-align: center;">
@@ -215,7 +216,7 @@ Icon.args = {
   type: BiitMultiselectType.ICON
 }
 
-export const Chips: Story<BiitMultiselectComponent> = (args: BiitMultiselectComponent, { globals }) => {
+export const Chips: StoryFn<BiitMultiselectComponent> = (args: BiitMultiselectComponent, { globals }) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,

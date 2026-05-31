@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
 import {BiitRadioButtonModule} from '@biit-solutions/wizardry-theme/inputs';
 import {BiitRadioButtonComponent} from '@biit-solutions/wizardry-theme/inputs';
@@ -114,7 +115,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitRadioButtonComponent> = (args: BiitRadioButtonComponent) => ({
+const Template: StoryFn<BiitRadioButtonComponent> = (args: BiitRadioButtonComponent) => ({
   props: args,
   template:`
     <div *ngFor="let item of items, let i = index">

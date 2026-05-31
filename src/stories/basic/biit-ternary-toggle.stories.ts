@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
 import {BiitTernaryToggleModule} from '@biit-solutions/wizardry-theme/inputs';
 import {BiitTernaryToggleComponent} from '@biit-solutions/wizardry-theme/inputs';
@@ -73,7 +74,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitTernaryToggleComponent> = (args: BiitTernaryToggleComponent) => ({
+const Template: StoryFn<BiitTernaryToggleComponent> = (args: BiitTernaryToggleComponent) => ({
   props: args,
   template:`
     <biit-ternary-togle [(ngModel)]="value"

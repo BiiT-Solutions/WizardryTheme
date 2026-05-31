@@ -1,4 +1,5 @@
-import {Meta, moduleMetadata, Story} from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {TimelineViewerChartComponent, TimelineViewerChartModule} from "@biit-solutions/wizardry-theme/charts";
 
 export default {
@@ -37,7 +38,7 @@ export default {
   },
 } as any;
 
-const Template: Story<TimelineViewerChartComponent> = (args: TimelineViewerChartComponent) => ({
+const Template: StoryFn<TimelineViewerChartComponent> = (args: TimelineViewerChartComponent) => ({
   props: args,
   template: `
     <biit-timeline-viewer-chart [data]="data"

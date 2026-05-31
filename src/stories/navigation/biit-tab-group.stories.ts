@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {BiitTabGroupComponent, BiitTabGroupModule} from '@biit-solutions/wizardry-theme/navigation';
 
 export default {
@@ -13,7 +14,7 @@ export default {
   }
 } as any;
 
-const ExtendedTemplate: Story<BiitTabGroupComponent> = (args: BiitTabGroupComponent) => ({
+const ExtendedTemplate: StoryFn<BiitTabGroupComponent> = (args: BiitTabGroupComponent) => ({
   props: args,
   template:`
     <biit-tab-group [loading]="loading" style="display: block">
@@ -38,7 +39,7 @@ const ExtendedTemplate: Story<BiitTabGroupComponent> = (args: BiitTabGroupCompon
 
 export const Extended = ExtendedTemplate.bind({});
 
-const CompactTemplate: Story<BiitTabGroupComponent> = (args: BiitTabGroupComponent) => ({
+const CompactTemplate: StoryFn<BiitTabGroupComponent> = (args: BiitTabGroupComponent) => ({
   props: args,
   template:`
     <biit-tab-group [loading]="loading" style="display: block; width: 700px">

@@ -1,4 +1,5 @@
-import {Meta, moduleMetadata, Story} from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {BiitInputTextComponent, BiitInputTextModule, Type} from "@biit-solutions/wizardry-theme/inputs";
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
@@ -253,7 +254,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitInputTextComponent> = (args: BiitInputTextComponent) => ({
+const Template: StoryFn<BiitInputTextComponent> = (args: BiitInputTextComponent) => ({
   props: args,
   template: `
     <biit-input-text

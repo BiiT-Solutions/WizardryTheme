@@ -1,4 +1,4 @@
-import {Meta, moduleMetadata, Story} from "@storybook/angular";
+import {Meta, moduleMetadata, StoryFn} from "@storybook/angular";
 import {BiitProgressBarComponent, BiitProgressBarModule, BiitProgressBarType} from '@biit-solutions/wizardry-theme/info';
 
 export default {
@@ -47,7 +47,7 @@ export default {
 } as any;
 
 
-const Template: Story<BiitProgressBarComponent> = (args: BiitProgressBarComponent) => ({
+const Template: StoryFn<BiitProgressBarComponent> = (args: BiitProgressBarComponent) => ({
   props: args,
   template: `
     <biit-progress-bar [type]="type" [value]="value"></biit-progress-bar>

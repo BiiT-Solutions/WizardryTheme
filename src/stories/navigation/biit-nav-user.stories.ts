@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {BiitNavUserModule, BiitNavUserComponent} from '@biit-solutions/wizardry-theme/navigation';
 
 export default {
@@ -14,7 +15,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitNavUserComponent> = (args: BiitNavUserComponent) => ({
+const Template: StoryFn<BiitNavUserComponent> = (args: BiitNavUserComponent) => ({
   props: args,
   template:`
     <div>

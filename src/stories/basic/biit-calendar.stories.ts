@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
 import {TranslocoStorybookModule} from "../../app/transloco/transloco-storybook.module";
 import {BiitCalendarComponent, BiitCalendarModule, CalendarEvent, EventColor} from "@biit-solutions/wizardry-theme/calendar";
@@ -37,7 +38,7 @@ export default {
   },
 } as any;
 
-export const Weekly: Story<BiitCalendarComponent> = (args: BiitCalendarComponent, { globals }) => {
+export const Weekly: StoryFn<BiitCalendarComponent> = (args: BiitCalendarComponent, { globals }) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,
@@ -78,7 +79,7 @@ export const Weekly: Story<BiitCalendarComponent> = (args: BiitCalendarComponent
   }
 };
 
-export const Monthly: Story<BiitCalendarComponent> = (args: BiitCalendarComponent, { globals }) => {
+export const Monthly: StoryFn<BiitCalendarComponent> = (args: BiitCalendarComponent, { globals }) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,

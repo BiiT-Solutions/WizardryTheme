@@ -1,4 +1,5 @@
-import {Meta, moduleMetadata, Story} from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {BiitButtonModule} from '@biit-solutions/wizardry-theme/button';
 import {FormsModule} from '@angular/forms';
 import { APP_INITIALIZER } from '@angular/core';
@@ -68,7 +69,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitSnackbarComponent> = (args: BiitSnackbarComponent) => ({
+const Template: StoryFn<BiitSnackbarComponent> = (args: BiitSnackbarComponent) => ({
   props: {
     ...args,
     addToast: (msg: string, type: NotificationType, action: string, timeoutSeconds: number) => addToast(msg, type, action, timeoutSeconds),

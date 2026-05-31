@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {
   BiitActionButtonComponent
 } from '@biit-solutions/wizardry-theme/button';
@@ -29,7 +30,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitActionButtonComponent> = (args: BiitActionButtonComponent) => ({
+const Template: StoryFn<BiitActionButtonComponent> = (args: BiitActionButtonComponent) => ({
   props: args,
   template: `
     <div style="display: block;">

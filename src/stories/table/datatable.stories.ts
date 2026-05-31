@@ -1,4 +1,5 @@
-import {Meta, moduleMetadata, Story} from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import { APP_INITIALIZER } from '@angular/core';
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
@@ -24,7 +25,7 @@ export default {
   component: BiitDatatableComponent
 } as any;
 
-const Template: Story<BiitDatatableComponent<any>> = (args: BiitDatatableComponent<any>, { globals }) => {
+const Template: StoryFn<BiitDatatableComponent<any>> = (args: BiitDatatableComponent<any>, { globals }) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,
@@ -38,7 +39,7 @@ const Template: Story<BiitDatatableComponent<any>> = (args: BiitDatatableCompone
 
 export const Default = Template.bind({});
 
-const ServerSideTemplate: Story<BiitDatatableComponent<any>> = (args: BiitDatatableComponent<any>, { globals }) => {
+const ServerSideTemplate: StoryFn<BiitDatatableComponent<any>> = (args: BiitDatatableComponent<any>, { globals }) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,

@@ -1,4 +1,5 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
 import {BiitToggleComponent} from '@biit-solutions/wizardry-theme/inputs';
 import { APP_INITIALIZER } from "@angular/core";
@@ -42,7 +43,7 @@ export default {
   }
 } as any;
 
-const Template: Story<BiitToggleComponent> = (args: BiitToggleComponent) => ({
+const Template: StoryFn<BiitToggleComponent> = (args: BiitToggleComponent) => ({
   props: args,
   template:`
     <div style="display:block">

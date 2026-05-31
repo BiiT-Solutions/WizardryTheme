@@ -1,4 +1,4 @@
-import {Meta, moduleMetadata, Story} from "@storybook/angular";
+import {Meta, moduleMetadata, StoryFn} from "@storybook/angular";
 import {BiitIconService, BiitIconComponent, BiitIconModule} from "@biit-solutions/wizardry-theme/icon";
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import { APP_INITIALIZER } from "@angular/core";
@@ -97,7 +97,7 @@ export default {
 } as any;
 
 
-const Template: Story<BiitIconComponent> = (args: BiitIconComponent) => ({
+const Template: StoryFn<BiitIconComponent> = (args: BiitIconComponent) => ({
   props: args,
   template: `
        <biit-icon [name]="name"

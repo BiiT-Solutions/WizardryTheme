@@ -1,4 +1,5 @@
-import {Meta, moduleMetadata, Story} from '@storybook/angular';
+import type {Meta, StoryFn} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 import {RadialChartComponent, RadialChartData, RadialChartModule} from "@biit-solutions/wizardry-theme/charts";
 
 export default {
@@ -72,7 +73,7 @@ export default {
   }
 } as any;
 
-const Template: Story<RadialChartComponent> = (args: RadialChartComponent) => ({
+const Template: StoryFn<RadialChartComponent> = (args: RadialChartComponent) => ({
   props: args,
   template: `
     <biit-radial-chart [data]="data"
