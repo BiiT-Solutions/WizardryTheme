@@ -65,7 +65,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitIconButtonComponent> = (args: BiitIconButtonComponent) => ({
+const Template: StoryFn<BiitIconButtonComponent> = (args: any) => ({
   props: args,
   template: `
     <button biit-icon

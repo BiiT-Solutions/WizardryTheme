@@ -15,7 +15,7 @@ export default {
   },
 } as any;
 
-const PrimaryTemplate: StoryFn<BiitButtonComponent> = (args: BiitButtonComponent) => ({
+const PrimaryTemplate: StoryFn<BiitButtonComponent> = (args: any) => ({
   props: args,
   template: `
     <button biit-button primary [disabled]="disabled" style="display: block">Button</button>
@@ -23,7 +23,7 @@ const PrimaryTemplate: StoryFn<BiitButtonComponent> = (args: BiitButtonComponent
 
 export const Primary = PrimaryTemplate.bind({});
 
-const SecondaryTemplate: StoryFn<BiitButtonComponent> = (args: BiitButtonComponent) => ({
+const SecondaryTemplate: StoryFn<BiitButtonComponent> = (args: any) => ({
   props: args,
   template: `
     <button biit-button secondary [disabled]="disabled" style="display: block">Button</button>
@@ -31,7 +31,7 @@ const SecondaryTemplate: StoryFn<BiitButtonComponent> = (args: BiitButtonCompone
 
 export const Secondary = SecondaryTemplate.bind({});
 
-const TertiaryTemplate: StoryFn<BiitButtonComponent> = (args: BiitButtonComponent) => ({
+const TertiaryTemplate: StoryFn<BiitButtonComponent> = (args: any) => ({
   props: args,
   template: `
     <button biit-button tertiary [disabled]="disabled" style="display: block">Button</button>
@@ -39,7 +39,7 @@ const TertiaryTemplate: StoryFn<BiitButtonComponent> = (args: BiitButtonComponen
 
 export const Tertiary = TertiaryTemplate.bind({});
 
-const QuaternaryTemplate: StoryFn<BiitButtonComponent> = (args: BiitButtonComponent) => ({
+const QuaternaryTemplate: StoryFn<BiitButtonComponent> = (args: any) => ({
   props: args,
   template: `
     <button biit-button quaternary [disabled]="disabled" style="display: block">Button</button>

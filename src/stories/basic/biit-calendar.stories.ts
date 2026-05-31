@@ -38,7 +38,7 @@ export default {
   },
 } as any;
 
-export const Weekly: StoryFn<BiitCalendarComponent> = (args: BiitCalendarComponent, { globals }) => {
+export const Weekly: StoryFn<BiitCalendarComponent> = (args: any, { globals }: any) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,
@@ -79,7 +79,7 @@ export const Weekly: StoryFn<BiitCalendarComponent> = (args: BiitCalendarCompone
   }
 };
 
-export const Monthly: StoryFn<BiitCalendarComponent> = (args: BiitCalendarComponent, { globals }) => {
+export const Monthly: StoryFn<BiitCalendarComponent> = (args: any, { globals }: any) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,

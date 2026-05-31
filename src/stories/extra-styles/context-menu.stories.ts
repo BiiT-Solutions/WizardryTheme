@@ -26,7 +26,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitNavUserComponent> = (args: BiitNavUserComponent) => ({
+const Template: StoryFn<BiitNavUserComponent> = (args: any) => ({
   props: args,
   template:`
     <button biit-button [contextMenu]="contextMenu">Show</button>

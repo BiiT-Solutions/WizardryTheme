@@ -74,7 +74,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BarChartComponent> = (args: BarChartComponent) => ({
+const Template: StoryFn<BarChartComponent> = (args: any) => ({
   props: args,
   template: `
     <biit-bar-chart [data]="data"

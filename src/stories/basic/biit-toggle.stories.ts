@@ -74,7 +74,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitToggleComponent> = (args: BiitToggleComponent) => ({
+const Template: StoryFn<BiitToggleComponent> = (args: any) => ({
   props: args,
   template:`
     <biit-toggle [(ngModel)]="value"

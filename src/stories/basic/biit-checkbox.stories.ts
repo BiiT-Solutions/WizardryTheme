@@ -79,7 +79,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitCheckboxComponent> = (args: BiitCheckboxComponent) => ({
+const Template: StoryFn<BiitCheckboxComponent> = (args: any) => ({
   props: args,
   template:`
     <div *ngFor="let item of items">

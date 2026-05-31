@@ -1,32 +1,38 @@
 <div>
-  <div *ngFor="let year of sortByYear.keys()"  class="date-filter-row">
-    <biit-checkbox [(ngModel)]="selectedRanges[year + '']" (ngModelChange)="onYearSelected(year, $event)" >
-      <div class="year-title">
-        <div class="title-counter">
-          <div> {{year}} </div>
-          <div> ({{sortByYear.get(year).length}})</div>
+  @for (year of sortByYear.keys(); track year) {
+    <div  class="date-filter-row">
+      <biit-checkbox [(ngModel)]="selectedRanges[year + '']" (ngModelChange)="onYearSelected(year, $event)" >
+        <div class="year-title">
+          <div class="title-counter">
+            <div> {{year}} </div>
+            <div> ({{sortByYear.get(year).length}})</div>
+          </div>
+          <biit-icon
+            name="right_arrow" class="year-arrow" [class.arrow-rotate]="selectedYear === year"
+            (click)="$event.preventDefault(); onDisplayYear(year)" />
         </div>
-        <biit-icon
-          name="right_arrow" class="year-arrow" [class.arrow-rotate]="selectedYear === year"
-          (click)="$event.preventDefault(); onDisplayYear(year)" />
-      </div>
-      <div class="month-body" *ngIf="selectedYear === year">
-        <div *ngFor="let month of sortByMonth.keys()">
-          <biit-checkbox
-            class="month-checkbox"
-            [(ngModel)]="selectedRanges[year + '-' + month]"
-            (ngModelChange)="onMonthSelected(year, month, $event)" >
-            <div class="title-counter">
+        @if (selectedYear === year) {
+          <div class="month-body">
+            @for (month of sortByMonth.keys(); track month) {
               <div>
-                {{month | monthName}}
+                <biit-checkbox
+                  class="month-checkbox"
+                  [(ngModel)]="selectedRanges[year + '-' + month]"
+                  (ngModelChange)="onMonthSelected(year, month, $event)" >
+                  <div class="title-counter">
+                    <div>
+                      {{month | monthName}}
+                    </div>
+                    <div>
+                      ({{sortByMonth.get(month).length}})
+                    </div>
+                  </div>
+                </biit-checkbox>
               </div>
-              <div>
-                ({{sortByMonth.get(month).length}})
-              </div>
-            </div>
-          </biit-checkbox>
-        </div>
-      </div>
-    </biit-checkbox>
-  </div>
+            }
+          </div>
+        }
+      </biit-checkbox>
+    </div>
+  }
 </div>

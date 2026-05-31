@@ -3,6 +3,8 @@
     <span #text>
       <ng-content></ng-content>
     </span>
-    <div *ngIf="color == 'tertiary'" class="bar" [ngStyle]="{'width.px': text.offsetWidth }"></div>
+    @if (color == 'tertiary') {
+      <div class="bar" [ngStyle]="{'width.px': text.offsetWidth }"></div>
+    }
   </div>
 </div>

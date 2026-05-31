@@ -74,7 +74,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitTernaryToggleComponent> = (args: BiitTernaryToggleComponent) => ({
+const Template: StoryFn<BiitTernaryToggleComponent> = (args: any) => ({
   props: args,
   template:`
     <biit-ternary-togle [(ngModel)]="value"

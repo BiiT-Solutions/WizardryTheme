@@ -43,7 +43,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitToggleComponent> = (args: BiitToggleComponent) => ({
+const Template: StoryFn<BiitToggleComponent> = (args: any) => ({
   props: args,
   template:`
     <div style="display:block">

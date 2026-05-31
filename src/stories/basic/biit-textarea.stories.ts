@@ -32,7 +32,7 @@ export default {
   },
 } as any;
 
-const Template: StoryFn<BiitTextareaComponent> = (args: BiitTextareaComponent) => ({
+const Template: StoryFn<BiitTextareaComponent> = (args: any) => ({
   props: args,
   template: `
     <biit-textarea [(ngModel)]="text"

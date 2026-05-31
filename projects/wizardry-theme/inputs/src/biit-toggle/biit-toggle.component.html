@@ -1,8 +1,8 @@
 <label class="toggle-base">
   <input type="checkbox" id="checkbox"
-         [ngModel]="checked"
-         (ngModelChange)="onToggle($event)"
-         [disabled]="disabled"/>
+    [ngModel]="checked"
+    (ngModelChange)="onToggle($event)"
+    [disabled]="disabled"/>
   <div class="toggle-switch" id="switch">
     <div class="toggle-trail"></div>
     <div class="toggle-box"></div>
@@ -10,7 +10,9 @@
   <a class="toggle-label">
     <ng-content></ng-content>
   </a>
-  <span *ngIf="description" id="description" class="toggle-description">
+  @if (description) {
+    <span id="description" class="toggle-description">
       {{ description }}
     </span>
+  }
 </label>

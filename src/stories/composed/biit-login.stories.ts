@@ -87,7 +87,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitLoginComponent> = (args: BiitLoginComponent, { globals }) => {
+const Template: StoryFn<BiitLoginComponent> = (args: any, { globals }: any) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,
@@ -103,7 +103,7 @@ const Template: StoryFn<BiitLoginComponent> = (args: BiitLoginComponent, { globa
 
 export const Default = Template.bind({});
 
-const SignUpTemplate: StoryFn<BiitLoginComponent> = (args: BiitLoginComponent, { globals }) => {
+const SignUpTemplate: StoryFn<BiitLoginComponent> = (args: any, { globals }: any) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,

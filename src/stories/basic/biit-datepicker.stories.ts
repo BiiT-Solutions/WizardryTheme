@@ -170,7 +170,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitDatePickerComponent> = (args: BiitDatePickerComponent, { globals }) => {
+const Template: StoryFn<BiitDatePickerComponent> = (args: any, { globals }: any) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,
@@ -193,7 +193,7 @@ const Template: StoryFn<BiitDatePickerComponent> = (args: BiitDatePickerComponen
 
 export const Default = Template.bind({});
 
-const TemplateCalendar: StoryFn<BiitDatePickerComponent> = (args: BiitDatePickerComponent, { globals }) => {
+const TemplateCalendar: StoryFn<BiitDatePickerComponent> = (args: any, { globals }: any) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,

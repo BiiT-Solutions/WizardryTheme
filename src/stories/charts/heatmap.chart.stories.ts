@@ -96,7 +96,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<HeatmapChartComponent> = (args: HeatmapChartComponent) => ({
+const Template: StoryFn<HeatmapChartComponent> = (args: any) => ({
   props: args,
   template: `
     <biit-heatmap [data]="data"

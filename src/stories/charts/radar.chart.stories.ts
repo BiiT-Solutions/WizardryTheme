@@ -43,7 +43,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<RadarChartComponent> = (args: RadarChartComponent) => ({
+const Template: StoryFn<RadarChartComponent> = (args: any) => ({
   props: args,
   template: `
     <biit-radar-chart [data]="data"

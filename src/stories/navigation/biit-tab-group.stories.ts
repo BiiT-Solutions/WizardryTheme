@@ -14,7 +14,7 @@ export default {
   }
 } as any;
 
-const ExtendedTemplate: StoryFn<BiitTabGroupComponent> = (args: BiitTabGroupComponent) => ({
+const ExtendedTemplate: StoryFn<BiitTabGroupComponent> = (args: any) => ({
   props: args,
   template:`
     <biit-tab-group [loading]="loading" style="display: block">
@@ -39,7 +39,7 @@ const ExtendedTemplate: StoryFn<BiitTabGroupComponent> = (args: BiitTabGroupComp
 
 export const Extended = ExtendedTemplate.bind({});
 
-const CompactTemplate: StoryFn<BiitTabGroupComponent> = (args: BiitTabGroupComponent) => ({
+const CompactTemplate: StoryFn<BiitTabGroupComponent> = (args: any) => ({
   props: args,
   template:`
     <biit-tab-group [loading]="loading" style="display: block; width: 700px">

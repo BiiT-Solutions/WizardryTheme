@@ -1,17 +1,21 @@
 <label [class.disabled]="disabled" id="biit-checkbox" class="biit-checkbox">
   <input [attr.id]="checked?'checked':'unchecked'"
-         type="checkbox"
-         class="checkbox-box"
-         [ngModel]="checked"
-         (ngModelChange)="onModelChange($event)"
-         [disabled]="disabled"/>
+    type="checkbox"
+    class="checkbox-box"
+    [ngModel]="checked"
+    (ngModelChange)="onModelChange($event)"
+    [disabled]="disabled"/>
   <div>
     <div>
       <a>
         <ng-content></ng-content>
       </a>
-      <biit-tooltip-icon *ngIf="description && !showAlwaysDescription" inline [text]="description"/>
+      @if (description && !showAlwaysDescription) {
+        <biit-tooltip-icon inline [text]="description"/>
+      }
     </div>
-    <span class="description" *ngIf="description && showAlwaysDescription">{{ description }}</span>
+    @if (description && showAlwaysDescription) {
+      <span class="description">{{ description }}</span>
+    }
   </div>
 </label>

@@ -48,7 +48,7 @@ export default {
   parameters: {}
 } as any;
 
-const Template: StoryFn<MetaViewChartComponent> = (args: MetaViewChartComponent) => ({
+const Template: StoryFn<MetaViewChartComponent> = (args: any) => ({
   props: args,
   template: `
     <biit-meta-view-chart

@@ -38,7 +38,7 @@ export default {
   },
 } as any;
 
-const Template: StoryFn<TimelineViewerChartComponent> = (args: TimelineViewerChartComponent) => ({
+const Template: StoryFn<TimelineViewerChartComponent> = (args: any) => ({
   props: args,
   template: `
     <biit-timeline-viewer-chart [data]="data"

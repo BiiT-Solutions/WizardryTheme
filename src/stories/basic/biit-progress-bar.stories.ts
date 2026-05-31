@@ -47,7 +47,7 @@ export default {
 } as any;
 
 
-const Template: StoryFn<BiitProgressBarComponent> = (args: BiitProgressBarComponent) => ({
+const Template: StoryFn<BiitProgressBarComponent> = (args: any) => ({
   props: args,
   template: `
     <biit-progress-bar [type]="type" [value]="value"></biit-progress-bar>

@@ -415,7 +415,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitNavMenuComponent> = (args: BiitNavMenuComponent) => ({
+const Template: StoryFn<BiitNavMenuComponent> = (args: any) => ({
   props: args,
   template: `
     <div style="display: block; background: white; width: 100%; height: 2.5rem; box-sizing: border-box;">

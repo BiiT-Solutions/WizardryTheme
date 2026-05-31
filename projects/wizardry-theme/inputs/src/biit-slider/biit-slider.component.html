@@ -1,20 +1,22 @@
 <div class="slider">
   <input #ranger type="range"
-         [(ngModel)]="value"
-         (ngModelChange)="onChange(ranger.value);"
-         [min]="min"
-         [max]="max"
-         [step]="step"
-         (input)="progressScript()"
-         (pointerdown)="tooltipBoxVisible = true"
-         (pointerup)="tooltipBoxVisible = false"
-  >
+    [(ngModel)]="value"
+    (ngModelChange)="onChange(ranger.value);"
+    [min]="min"
+    [max]="max"
+    [step]="step"
+    (input)="progressScript()"
+    (pointerdown)="tooltipBoxVisible = true"
+    (pointerup)="tooltipBoxVisible = false"
+    >
   <div #tooltip class="tooltip" [style.opacity]="tooltipBoxVisible && showTooltip ? '100%' : '0%'"></div>
   <div class="ticks">
-    <span *ngFor="let tick of [].constructor(ticks); index as i"
-          [class.no-labels]="!labels.length"
-          (click)="updateValue(i)">
-      {{labels[i]}}
-    </span>
+    @for (tick of [].constructor(ticks); track tick; let i = $index) {
+      <span
+        [class.no-labels]="!labels.length"
+        (click)="updateValue(i)">
+        {{labels[i]}}
+      </span>
+    }
   </div>
 </div>

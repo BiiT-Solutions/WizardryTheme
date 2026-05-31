@@ -1,23 +1,26 @@
 <div class="notification-canvas" id="biit-notification"
      [class.regular]="notification?.type == 'INFO' ||
                       notification?.type == 'SUCCESS'"
-     [class.error]="notification?.type == 'ERROR'"
-     [class.warning]="notification?.type == 'WARNING'"
-     (click)="emitClick(notification?.actionLabel == undefined)">
-  <biit-icon *ngIf="notification?.type !== 'INFO'"
+  [class.error]="notification?.type == 'ERROR'"
+  [class.warning]="notification?.type == 'WARNING'"
+  (click)="emitClick(notification?.actionLabel == undefined)">
+  @if (notification?.type !== 'INFO') {
+    <biit-icon
              [name]="notification?.type == 'WARNING' ? 'exclamation' :
               notification?.type == 'ERROR' ? 'cross' : 'thick'"
-             [pathStyle]="{fill: '#EDEDED'}"
-             class="notification-icon"
-  ></biit-icon>
+      [pathStyle]="{fill: '#EDEDED'}"
+      class="notification-icon"
+    ></biit-icon>
+  }
   <a id="message">
     {{ notification?.message }}
   </a>
-  <button biit-button #action
-          (click)="emitClick(true)"
-          *ngIf="notification?.actionLabel"
-          color="tertiary"
-  >
-    {{ notification.actionLabel }}
-  </button>
+  @if (notification?.actionLabel) {
+    <button biit-button #action
+      (click)="emitClick(true)"
+      color="tertiary"
+      >
+      {{ notification.actionLabel }}
+    </button>
+  }
 </div><br>

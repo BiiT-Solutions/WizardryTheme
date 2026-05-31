@@ -115,7 +115,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitRadioButtonComponent> = (args: BiitRadioButtonComponent) => ({
+const Template: StoryFn<BiitRadioButtonComponent> = (args: any) => ({
   props: args,
   template:`
     <div *ngFor="let item of items, let i = index">

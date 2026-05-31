@@ -23,7 +23,7 @@ export default {
   component: BiitTableComponent
 } as any;
 
-const Template: StoryFn<BiitTableComponent> = (args: BiitTableComponent, { globals }) => {
+const Template: StoryFn<BiitTableComponent> = (args: any, { globals }: any) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,

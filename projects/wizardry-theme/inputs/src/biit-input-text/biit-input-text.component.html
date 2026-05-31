@@ -1,61 +1,77 @@
 <div class="biit-input" [class.disabled]="disabled" [class.readonly]="readonly" *transloco="let t">
   <div class="input-container">
-    <biit-tooltip-icon *ngIf="info"
-                       class="tooltip-icon"
-                       [text]="info"></biit-tooltip-icon>
+    @if (info) {
+      <biit-tooltip-icon
+        class="tooltip-icon"
+      [text]="info"></biit-tooltip-icon>
+    }
     <input
-           class="input-object"
-           (keydown)="checkValue($event)"
-           [(ngModel)]="value"
-           (input)="value"
-           (ngModelChange)="onChange($event); validateInput();"
-           (keydown.enter)="onActionPerformed.emit(value)"
-           [type]="reveal ? Type.TEXT : type" required
-           [min]="min"
-           [max]="max"
-           [minlength]="minLength"
-           [maxlength]="maxLength ? maxLength : 100"
-           [attr.name]="fieldName"
-           [class.error]="error || regExError || minLengthError"
-           [class.reveal]="reveal"
-    >
-    <div *ngIf="type === Type.PASSWORD || icon" class="input-show-icon-container"
-         (click)="reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit(value)"
-         (keydown.enter)="reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit(value)"
-         tabindex="0">
-      <biit-icon [name]="type === Type.PASSWORD ? 'show' : icon"
-                 class="input-show-icon"
-                 [pathStyle]="{fill: reveal ? 'var(--main-color)' : 'var(--component-color)'}"
-      ></biit-icon>
-    </div>
+      class="input-object"
+      (keydown)="checkValue($event)"
+      [(ngModel)]="value"
+      (input)="value"
+      (ngModelChange)="onChange($event); validateInput();"
+      (keydown.enter)="onActionPerformed.emit(value)"
+      [type]="reveal ? Type.TEXT : type" required
+      [min]="min"
+      [max]="max"
+      [minlength]="minLength"
+      [maxlength]="maxLength ? maxLength : 100"
+      [attr.name]="fieldName"
+      [class.error]="error || regExError || minLengthError"
+      [class.reveal]="reveal"
+      >
+    @if (type === Type.PASSWORD || icon) {
+      <div class="input-show-icon-container"
+        (click)="reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit(value)"
+        (keydown.enter)="reveal = (type === Type.PASSWORD ? !reveal : false); onActionPerformed.emit(value)"
+        tabindex="0">
+        <biit-icon [name]="type === Type.PASSWORD ? 'show' : icon"
+          class="input-show-icon"
+          [pathStyle]="{fill: reveal ? 'var(--main-color)' : 'var(--component-color)'}"
+        ></biit-icon>
+      </div>
+    }
     <div class="input-placeholder" [class.input-filled]="this.value?.toString().length">
       {{ _placeholder }}
-      <a *ngIf="required"
-         [style.color]="value ? null : 'red'">*</a>
+      @if (required) {
+        <a
+        [style.color]="value ? null : 'red'">*</a>
+      }
     </div>
-    <biit-icon *ngIf="error || regExError || minLengthError" id="exclamation" name="exclamation"
-               class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
+    @if (error || regExError || minLengthError) {
+      <biit-icon id="exclamation" name="exclamation"
+      class="input-error-icon" [pathStyle]="{fill:'#A1093F'}"></biit-icon>
+    }
     <div class="bottom-line"
-         [class.disabled]="disabled"
-         [class.readonly]="readonly"
+      [class.disabled]="disabled"
+      [class.readonly]="readonly"
     ></div>
-    <div *ngIf="error" class="input-error-msg" id="error-message">
-      <a id="message">
-        {{ error }}
-      </a>
-    </div>
-    <div *ngIf="regExError && !error" id="regex-error-message" class="input-error-msg">
-      <a id="regex-message">
-        {{ t('inputs.regex-error') }}
-      </a>
-    </div>
-    <div *ngIf="minLengthError && !error && !regExError" id="length-error-message" class="input-error-msg">
-      <a id="length-message">
-        {{ t('inputs.minlength-error') }}
-      </a>
-    </div>
-    <span *ngIf="description" id="description" class="input-description">
-      {{ description }}
-    </span>
+    @if (error) {
+      <div class="input-error-msg" id="error-message">
+        <a id="message">
+          {{ error }}
+        </a>
+      </div>
+    }
+    @if (regExError && !error) {
+      <div id="regex-error-message" class="input-error-msg">
+        <a id="regex-message">
+          {{ t('inputs.regex-error') }}
+        </a>
+      </div>
+    }
+    @if (minLengthError && !error && !regExError) {
+      <div id="length-error-message" class="input-error-msg">
+        <a id="length-message">
+          {{ t('inputs.minlength-error') }}
+        </a>
+      </div>
+    }
+    @if (description) {
+      <span id="description" class="input-description">
+        {{ description }}
+      </span>
+    }
   </div>
 </div>

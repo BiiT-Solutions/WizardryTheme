@@ -56,7 +56,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitToggleGroupComponent> = (args: BiitToggleGroupComponent) => ({
+const Template: StoryFn<BiitToggleGroupComponent> = (args: any) => ({
   props: args,
   template:`
     <biit-toggle-group [(ngModel)]="value"

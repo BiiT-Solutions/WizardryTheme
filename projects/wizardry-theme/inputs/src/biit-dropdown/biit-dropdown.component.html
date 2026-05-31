@@ -1,87 +1,96 @@
-<div class="biit-input" aria-haspopup="listbox"
-     *ngIf="!icon"
-     [class.compact]="isCompact"
-     [class.disabled]="isDisabled"
-     (keydown)="!isDisabled && handleKeyboardEvents($event)"
-     (keydown.enter)="!dropdownOpen && !isDisabled && openDropdown()"
->
-  <div class="input-container" #input>
+@if (!icon) {
+  <div class="biit-input" aria-haspopup="listbox"
+    [class.compact]="isCompact"
+    [class.disabled]="isDisabled"
+    (keydown)="!isDisabled && handleKeyboardEvents($event)"
+    (keydown.enter)="!dropdownOpen && !isDisabled && openDropdown()"
+    >
+    <div class="input-container" #input>
     <input [ngModel]="dropdownOpen ? filterText :
                       currentValue && !label ? currentValue :
                       currentValue && currentValue[label] ? currentValue[label] : ''"
-           (ngModelChange)="filterText = $event; handleFilter()"
-           (click)="!dropdownOpen && !isDisabled && openDropdown()"
+        (ngModelChange)="filterText = $event; handleFilter()"
+        (click)="!dropdownOpen && !isDisabled && openDropdown()"
            [placeholder]="dropdownOpen && currentValue && !label ? currentValue :
                           dropdownOpen && currentValue && currentValue[label] ? currentValue[label] : ''"
-           tabindex="0"
-           class="input-object"
-           [class.grey-bg]="dropdownOpen"
-           [class.default-cursor]="dropdownOpen"
-           [disabled]="isDisabled"
-           [readonly]="!dropdownOpen"/>
-    <div class="input-show-icon-container"
-         [class.passthrough]="!dropdownOpen"
-         [class.rotate-90]="dropdownOpen"
-         (click)="dropdownOpen && closeDropdown()">
-      <biit-icon [name]="'right_arrow'"
-                 class="input-show-icon"
-                 [pathStyle]="{fill: isDisabled ? '#D9D9D9' : dropdownOpen ? 'var(--main-color)' : 'var(--component-color)'}"
-      ></biit-icon>
-    </div>
-    <div id="dropdown-label"
-         class="input-placeholder"
-         [class.disabled]="isDisabled"
-         [class.compact]="dropdownOpen || currentValue">
-      {{ title }}
-      <a *ngIf="isRequired"
-         [style.color]="currentValue ? null : 'red'">*</a>
-    </div>
-    <div class="bottom-line"
-         [class.disabled]="isDisabled"
-    ></div>
-    <span class="description">{{ description }}</span>
-  </div>
-</div>
-<button biit-icon
-        *ngIf="icon"
-        [icon]="icon"
-        (click)="!dropdownOpen ? openDropdown() : closeDropdown()"
-        [checked]="dropdownOpen"
+        tabindex="0"
+        class="input-object"
+        [class.grey-bg]="dropdownOpen"
+        [class.default-cursor]="dropdownOpen"
         [disabled]="isDisabled"
-></button>
+        [readonly]="!dropdownOpen"/>
+      <div class="input-show-icon-container"
+        [class.passthrough]="!dropdownOpen"
+        [class.rotate-90]="dropdownOpen"
+        (click)="dropdownOpen && closeDropdown()">
+        <biit-icon [name]="'right_arrow'"
+          class="input-show-icon"
+          [pathStyle]="{fill: isDisabled ? '#D9D9D9' : dropdownOpen ? 'var(--main-color)' : 'var(--component-color)'}"
+        ></biit-icon>
+      </div>
+      <div id="dropdown-label"
+        class="input-placeholder"
+        [class.disabled]="isDisabled"
+        [class.compact]="dropdownOpen || currentValue">
+        {{ title }}
+        @if (isRequired) {
+          <a
+          [style.color]="currentValue ? null : 'red'">*</a>
+        }
+      </div>
+      <div class="bottom-line"
+        [class.disabled]="isDisabled"
+      ></div>
+      <span class="description">{{ description }}</span>
+    </div>
+  </div>
+}
+@if (icon) {
+  <button biit-icon
+    [icon]="icon"
+    (click)="!dropdownOpen ? openDropdown() : closeDropdown()"
+    [checked]="dropdownOpen"
+    [disabled]="isDisabled"
+  ></button>
+}
 <div style="position: relative; height: 0; width: 100%">
   <div #dropdown id="dropdown"
-       [class.disabled]="isDisabled"
-       [style.overflow]="dropdownOpen ? undefined : 'hidden'"
-       class="dropdown-list"
-       role="listbox"
-       aria-expanded="false"
-       aria-labelledby="dropdown-label"
-       [class.dropdown-open]="dropdownOpen"
-       [class.compact]="isCompact"
-       (keydown)="handleKeyboardEvents($event)"
-  >
-    <button
-      *ngFor="let item of filteredData; index as i"
-      (click)="onModelChange(item)"
-      [class.selected]="currentValue === item"
-      class="dropdown-item"
-      role="option"
-      aria-selected="false"
-      [id]="i"
-      [tabindex]="!dropdownOpen || isDisabled ? -1 : 0"
-      [disabled]="!dropdownOpen || isDisabled"
+    [class.disabled]="isDisabled"
+    [style.overflow]="dropdownOpen ? undefined : 'hidden'"
+    class="dropdown-list"
+    role="listbox"
+    aria-expanded="false"
+    aria-labelledby="dropdown-label"
+    [class.dropdown-open]="dropdownOpen"
+    [class.compact]="isCompact"
+    (keydown)="handleKeyboardEvents($event)"
     >
-      <div id="content">
-        <a>{{ label ?  item[label] : item }}</a>
-        <span *ngIf="descriptionLabel && item[descriptionLabel]" class="description">{{ item[descriptionLabel] }}</span>
-      </div>
-    </button>
-    <button *ngIf="!filteredData.length"
-            class="dropdown-item no-results"
-            disabled
-    >
-      <a>No results found</a>
-    </button>
+    @for (item of filteredData; track item; let i = $index) {
+      <button
+        (click)="onModelChange(item)"
+        [class.selected]="currentValue === item"
+        class="dropdown-item"
+        role="option"
+        aria-selected="false"
+        [id]="i"
+        [tabindex]="!dropdownOpen || isDisabled ? -1 : 0"
+        [disabled]="!dropdownOpen || isDisabled"
+        >
+        <div id="content">
+          <a>{{ label ?  item[label] : item }}</a>
+          @if (descriptionLabel && item[descriptionLabel]) {
+            <span class="description">{{ item[descriptionLabel] }}</span>
+          }
+        </div>
+      </button>
+    }
+    @if (!filteredData.length) {
+      <button
+        class="dropdown-item no-results"
+        disabled
+        >
+        <a>No results found</a>
+      </button>
+    }
   </div>
 </div>

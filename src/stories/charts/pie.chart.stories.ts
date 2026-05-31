@@ -59,7 +59,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<PieChartComponent> = (args: PieChartComponent) => ({
+const Template: StoryFn<PieChartComponent> = (args: any) => ({
   props: args,
   template: `
     <biit-radial-chart [data]="data"

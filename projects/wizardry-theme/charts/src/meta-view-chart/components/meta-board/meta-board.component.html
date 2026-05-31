@@ -1,13 +1,16 @@
 <div class="meta-board" id="metaviewer-board"
-     [style.grid-template-columns]="'repeat(auto-fill, minmax(' + this.size + ', 1fr))'"
->
-  <biit-meta-element class="metaviewer-element" [style.width]="this.size"
-    *ngFor="let element of data; let index = index"
-                      [styles]="element.styles"
-                      [classes]="element.classes"
-                      [class.selected]="element === selected"
-                      [icon]="element.icon"
-                      (click)="onElementClick(element)"
-                     @fadeInOut
-  ><div *ngIf="element.custom" [innerHTML]="element.custom.innerHTML"></div></biit-meta-element>
+  [style.grid-template-columns]="'repeat(auto-fill, minmax(' + this.size + ', 1fr))'"
+  >
+  @for (element of data; track element; let index = $index) {
+    <biit-meta-element class="metaviewer-element" [style.width]="this.size"
+      [styles]="element.styles"
+      [classes]="element.classes"
+      [class.selected]="element === selected"
+      [icon]="element.icon"
+      (click)="onElementClick(element)"
+      @fadeInOut
+      >@if (element.custom) {
+      <div [innerHTML]="element.custom.innerHTML"></div>
+    }</biit-meta-element>
+  }
 </div>

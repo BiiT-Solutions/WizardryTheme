@@ -5,31 +5,37 @@
         [styles]="_data.styles"
         [classes]="_data.classes"
         [icon]="_data.icon"
-      >
-        <div *ngIf="_data.custom" [innerHTML]="_data.custom.innerHTML"></div>
+        >
+        @if (_data.custom) {
+          <div [innerHTML]="_data.custom.innerHTML"></div>
+        }
       </biit-meta-element>
     </div>
-    <div *ngIf="titleField" class="data-title" id="title" [tooltip]="_data.data[titleField] | printf">
-      {{_data.data[titleField] | printf}}
-    </div>
+    @if (titleField) {
+      <div class="data-title" id="title" [tooltip]="_data.data[titleField] | printf">
+        {{_data.data[titleField] | printf}}
+      </div>
+    }
     <div>
       <button biit-icon id="close-button"
-              [icon]="'cross_wide'"
-              (click)="close()"
+        [icon]="'cross_wide'"
+        (click)="close()"
       ></button>
     </div>
   </div>
   <div class="metadata-info" id="metaviewer-info">
-    <div *ngFor="let field of (fields | removeFromArray: [titleField]) " class="field">
-      <div class="metadata-info-row" id="metaviewer-info-row">
-        <div class="field-value" id="field">
-          <biit-input-text
-            [placeholder]="field"
-            [ngModel]="_data.data[field] | autoFormat"
-            [readonly]="true"
-          />
+    @for (field of (fields | removeFromArray: [titleField]) ; track field) {
+      <div class="field">
+        <div class="metadata-info-row" id="metaviewer-info-row">
+          <div class="field-value" id="field">
+            <biit-input-text
+              [placeholder]="field"
+              [ngModel]="_data.data[field] | autoFormat"
+              [readonly]="true"
+              />
+          </div>
         </div>
       </div>
-    </div>
+    }
   </div>
 </div>

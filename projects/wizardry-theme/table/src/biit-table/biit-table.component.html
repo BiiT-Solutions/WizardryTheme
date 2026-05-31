@@ -1,136 +1,182 @@
 <div class="canvas" *transloco="let t">
-  <div class="header" *ngIf="!hideHeader">
-    <div class="buttons" id="menu">
-      <biit-vertical-menu *ngIf="actionsTpl" class="vertical-menu">
-        <ng-container *ngTemplateOutlet="actionsTpl"></ng-container>
-      </biit-vertical-menu>
-      <div *ngIf="actionsTpl" class="horizontal-menu">
-        <ng-container *ngTemplateOutlet="actionsTpl"></ng-container>
+  @if (!hideHeader) {
+    <div class="header">
+      <div class="buttons" id="menu">
+        @if (actionsTpl) {
+          <biit-vertical-menu class="vertical-menu">
+            <ng-container *ngTemplateOutlet="actionsTpl"></ng-container>
+          </biit-vertical-menu>
+        }
+        @if (actionsTpl) {
+          <div class="horizontal-menu">
+            <ng-container *ngTemplateOutlet="actionsTpl"></ng-container>
+          </div>
+        }
+        @if (!actionsTpl) {
+          <div>
+            <ng-content></ng-content>
+          </div>
+        }
       </div>
-      <div *ngIf="!actionsTpl">
-        <ng-content></ng-content>
-      </div>
-    </div>
-    <div class="forms">
-      <biit-input-text id="search-field" [(ngModel)]="search"
+      <div class="forms">
+        <biit-input-text id="search-field" [(ngModel)]="search"
                        (onActionPerformed)="
                          paginator.currentPage = 1;
                          onTableUpdate(true);
                        "
-                       (focusout)="resetInputValue()"
-                       (ngModelChange)="onTableUpdate()"
-                       icon="search"
-                       [placeholder]="t('table.search')"
-      ></biit-input-text>
-      <biit-multiselect id="column-selector" [ngModel]="columns | visibleColumns"
-                        (ngModelChange)="setColumnVisibility($event)"
-                        [data]="columns"
-                        label="label"
-                        value="visible"
-                        [title]="t('table.column-selector')"
-                        [type]="BiitMultiselectType.ICON"
-                        [compact]="true"
-      ></biit-multiselect>
+          (focusout)="resetInputValue()"
+          (ngModelChange)="onTableUpdate()"
+          icon="search"
+          [placeholder]="t('table.search')"
+        ></biit-input-text>
+        <biit-multiselect id="column-selector" [ngModel]="columns | visibleColumns"
+          (ngModelChange)="setColumnVisibility($event)"
+          [data]="columns"
+          label="label"
+          value="visible"
+          [title]="t('table.column-selector')"
+          [type]="BiitMultiselectType.ICON"
+          [compact]="true"
+        ></biit-multiselect>
+      </div>
     </div>
-  </div>
+  }
 
   <div class="content">
-    <div *ngIf="loading" style="position: relative">
-      <biit-progress-bar style="position: absolute; top: 2.1rem; left: 0.2rem; width: calc(100% - 0.1rem);"></biit-progress-bar>
-    </div>
+    @if (loading) {
+      <div style="position: relative">
+        <biit-progress-bar style="position: absolute; top: 2.1rem; left: 0.2rem; width: calc(100% - 0.1rem);"></biit-progress-bar>
+      </div>
+    }
     <table>
       <thead>
         <tr>
-          <th *ngIf="isSelectable || isSelectableSingle" class="select">
-            <biit-checkbox *ngIf="isSelectable"
-                           [ngModel]="data?.data.length && selectedRows.size == data?.data.length"
-                           (ngModelChange)="$event ? data?.data.forEach(selectedRows.add, selectedRows) : selectedRows.clear()"
-            ></biit-checkbox>
-          </th>
-          <th *ngFor="let column of columns, index as i"
+          @if (isSelectable || isSelectableSingle) {
+            <th class="select">
+              @if (isSelectable) {
+                <biit-checkbox
+                  [ngModel]="data?.data.length && selectedRows.size == data?.data.length"
+                  (ngModelChange)="$event ? data?.data.forEach(selectedRows.add, selectedRows) : selectedRows.clear()"
+                ></biit-checkbox>
+              }
+            </th>
+          }
+          @for (column of columns; track column; let i = $index) {
+            <th
               [class.sortable]="isSortable"
               [style.display]="!column.visible ? 'none' : null"
               [style.width]="column.width ? column.width + 'px' : ''"
               (click)="isSortable ? onTableSort(column) : false"
-          >
-            <div class="label">
-              {{column.label}}
-            </div>
-            <biit-icon *ngIf="isSortable"
-                       [name]="sorting?.name == column.name ? 'right_arrow' : 'up_down_arrow'"
-                       [pathStyle]="{fill: '#FFFFFF'}"
-                       class="sort"
-                       [class.asc]="sorting?.name == column.name && sorting?.order == 'asc'"
-                       [class.desc]="sorting?.name == column.name && sorting?.order == 'desc'"
-            ></biit-icon>
-            <div class="column-resizer"
-                 (mousedown)="resizeColumn($event, column, i)"
+              >
+              <div class="label">
+                {{column.label}}
+              </div>
+              @if (isSortable) {
+                <biit-icon
+                  [name]="sorting?.name == column.name ? 'right_arrow' : 'up_down_arrow'"
+                  [pathStyle]="{fill: '#FFFFFF'}"
+                  class="sort"
+                  [class.asc]="sorting?.name == column.name && sorting?.order == 'asc'"
+                  [class.desc]="sorting?.name == column.name && sorting?.order == 'desc'"
+                ></biit-icon>
+              }
+              <div class="column-resizer"
+                (mousedown)="resizeColumn($event, column, i)"
                  (click)="$event.preventDefault();
                           $event.stopPropagation();
                           $event.stopImmediatePropagation();"
-            ></div>
-          </th>
+              ></div>
+            </th>
+          }
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of data?.data; index as i"
+        @for (item of data?.data; track item; let i = $index) {
+          <tr
             [class.selectable]="isSelectable"
             [class.selected]="selectedRows.has(item)"
             (pointerdown)="emitRowClick(item)"
-        >
-            <td *ngIf="isSelectable || isSelectableSingle" class="select">
-              <biit-checkbox id="select{{i}}"
-                             [ngModel]="selectedRows.has(item)"
-                             (ngModelChange)="selectRow(item, true)"
-              ></biit-checkbox>
-            </td>
-            <td *ngFor="let column of columns"
+            >
+            @if (isSelectable || isSelectableSingle) {
+              <td class="select">
+                <biit-checkbox id="select{{i}}"
+                  [ngModel]="selectedRows.has(item)"
+                  (ngModelChange)="selectRow(item, true)"
+                ></biit-checkbox>
+              </td>
+            }
+            @for (column of columns; track column) {
+              <td
                 (pointerdown)="selectRow(item, $event.ctrlKey)"
                 [style.display]="!column.visible ? 'none' : null"
                 [style.width]="column.width ? column.width + 'px' : null"
-            >
-              <div *ngIf="column.format == BiitTableColumnFormat.DEFAULT">
-                {{item | columnData: column.name}}
-              </div>
-              <div *ngIf="column.format == BiitTableColumnFormat.BOOLEAN">
-                {{(item | columnData: column.name) ? t('table.yes') : t('table.no') }}
-              </div>
-              <div *ngIf="column.format == BiitTableColumnFormat.DATE">
-                {{(item | columnData: column.name) | localizedDate}}
-              </div>
-              <div *ngIf="column.format == BiitTableColumnFormat.BUTTON"
-                   style="width: auto; text-align: -webkit-center; text-align: -moz-center;">
-                <button biit-button tertiary
-                        (pointerdown)="emitCellAction(item, column.name, $event)">
-                  {{item | columnData: column.name}}
-                </button>
-              </div>
-              <div *ngIf="column.format == BiitTableColumnFormat.ICON_BUTTON"
-                   style="width: auto; text-align: -webkit-center; text-align: -moz-center;">
-                <button biit-icon [icon]="item | columnData: column.name"
-                        (pointerdown)="emitCellAction(item, column.name, $event);"></button>
-              </div>
-              <div *ngIf="column.format == BiitTableColumnFormat.ICON"
-                   style="width: auto; height: 1.05rem;">
-                <biit-icon [name]="item | columnData: column.name"></biit-icon>
-              </div>
-              <div *ngIf="column.format == BiitTableColumnFormat.CUSTOM_HTML"
-                   style="width: auto; text-align: -webkit-center; text-align: -moz-center;">
-                <div [innerHTML]="item | columnData: column.name"></div>
-              </div>
-            </td>
-        </tr>
+                >
+                @if (column.format == BiitTableColumnFormat.DEFAULT) {
+                  <div>
+                    {{item | columnData: column.name}}
+                  </div>
+                }
+                @if (column.format == BiitTableColumnFormat.BOOLEAN) {
+                  <div>
+                    {{(item | columnData: column.name) ? t('table.yes') : t('table.no') }}
+                  </div>
+                }
+                @if (column.format == BiitTableColumnFormat.DATE) {
+                  <div>
+                    {{(item | columnData: column.name) | localizedDate}}
+                  </div>
+                }
+                @if (column.format == BiitTableColumnFormat.BUTTON) {
+                  <div
+                    style="width: auto; text-align: -webkit-center; text-align: -moz-center;">
+                    <button biit-button tertiary
+                      (pointerdown)="emitCellAction(item, column.name, $event)">
+                      {{item | columnData: column.name}}
+                    </button>
+                  </div>
+                }
+                @if (column.format == BiitTableColumnFormat.ICON_BUTTON) {
+                  <div
+                    style="width: auto; text-align: -webkit-center; text-align: -moz-center;">
+                    <button biit-icon [icon]="item | columnData: column.name"
+                    (pointerdown)="emitCellAction(item, column.name, $event);"></button>
+                  </div>
+                }
+                @if (column.format == BiitTableColumnFormat.ICON) {
+                  <div
+                    style="width: auto; height: 1.05rem;">
+                    <biit-icon [name]="item | columnData: column.name"></biit-icon>
+                  </div>
+                }
+                @if (column.format == BiitTableColumnFormat.CUSTOM_HTML) {
+                  <div
+                    style="width: auto; text-align: -webkit-center; text-align: -moz-center;">
+                    <div [innerHTML]="item | columnData: column.name"></div>
+                  </div>
+                }
+              </td>
+            }
+          </tr>
+        }
       </tbody>
     </table>
 
   </div>
 
-  <div class="footer" *ngIf="!hideFooter">
-    <div class="selected">
-      <a style="margin-right: 0.7rem" *ngIf="selectedRows.size">Selected:</a>
-      <a *ngIf="selectedRows.size">{{selectedRows.size}}</a>
+  @if (!hideFooter) {
+    <div class="footer">
+      <div class="selected">
+        @if (selectedRows.size) {
+          <a style="margin-right: 0.7rem">Selected:</a>
+        }
+        @if (selectedRows.size) {
+          <a>{{selectedRows.size}}</a>
+        }
+      </div>
+      @if (paginator) {
+        <biit-paginator
+        [ngModel]="paginator" (ngModelChange)="paginator = $event; onTableUpdate()"></biit-paginator>
+      }
     </div>
-    <biit-paginator *ngIf="paginator"
-      [ngModel]="paginator" (ngModelChange)="paginator = $event; onTableUpdate()"></biit-paginator>
-  </div>
+  }
 </div>

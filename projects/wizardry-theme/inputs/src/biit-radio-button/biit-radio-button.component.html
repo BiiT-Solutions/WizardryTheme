@@ -1,22 +1,26 @@
 <label [class.disabled]="disabled" (mouseenter)="hover=true" (mouseleave)="hover=false">
   <input type="radio"
-         [ngModel]="selected"
-         (ngModelChange)="onModelChange($event)"
-         [id]="id"
-         [name]="name"
-         [value]="value"
-         [class.disabled]="disabled"/>
+    [ngModel]="selected"
+    (ngModelChange)="onModelChange($event)"
+    [id]="id"
+    [name]="name"
+    [value]="value"
+    [class.disabled]="disabled"/>
   <biit-icon [name]="value == selected ? 'radio_button_filled' : 'radio_button_empty'"
-             [pathStyle]="{fill: disabled ? '#D9D9D9' : hover || (value == selected) ? 'var(--main-color)' : 'var(--component-color)'}"
-             class="biit-radio"
-             [class.checked]="value == selected"
-             [class.disabled]="disabled"
+    [pathStyle]="{fill: disabled ? '#D9D9D9' : hover || (value == selected) ? 'var(--main-color)' : 'var(--component-color)'}"
+    class="biit-radio"
+    [class.checked]="value == selected"
+    [class.disabled]="disabled"
   ></biit-icon>
   <div>
     <div>
       <a><ng-content></ng-content></a>
-      <biit-tooltip-icon *ngIf="description && !showAlwaysDescription" inline [text]="description"/>
+      @if (description && !showAlwaysDescription) {
+        <biit-tooltip-icon inline [text]="description"/>
+      }
     </div>
-    <span class="description" *ngIf="description && showAlwaysDescription">{{ description }}</span>
+    @if (description && showAlwaysDescription) {
+      <span class="description">{{ description }}</span>
+    }
   </div>
 </label>

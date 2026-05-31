@@ -1,9 +1,11 @@
 <div class="gallery-card">
   <div class="card-top">
-    <biit-icon *ngIf="icon"
-               [name]="icon"
-               class="icon"
-    ></biit-icon>
+    @if (icon) {
+      <biit-icon
+        [name]="icon"
+        class="icon"
+      ></biit-icon>
+    }
   </div>
   <div class="card-bottom">
     <a class="title">{{title}}</a>

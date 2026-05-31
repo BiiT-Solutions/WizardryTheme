@@ -1,116 +1,128 @@
 <div id="biit-table" class="table-canvas" *transloco="let t">
-  <div class="top" *ngIf="!hideHeader">
-    <div id="menu" class="action-bar">
-      <biit-vertical-menu *ngIf="actionsTpl" class="vertical-menu">
-        <ng-container *ngTemplateOutlet="actionsTpl"></ng-container>
-      </biit-vertical-menu>
-      <div *ngIf="actionsTpl" class="horizontal-menu default-menu">
-        <ng-container *ngTemplateOutlet="actionsTpl"></ng-container>
+  @if (!hideHeader) {
+    <div class="top">
+      <div id="menu" class="action-bar">
+        @if (actionsTpl) {
+          <biit-vertical-menu class="vertical-menu">
+            <ng-container *ngTemplateOutlet="actionsTpl"></ng-container>
+          </biit-vertical-menu>
+        }
+        @if (actionsTpl) {
+          <div class="horizontal-menu default-menu">
+            <ng-container *ngTemplateOutlet="actionsTpl"></ng-container>
+          </div>
+        }
+        @if (!actionsTpl) {
+          <div class="default-menu">
+            <ng-content></ng-content>
+          </div>
+        }
       </div>
-      <div class="default-menu" *ngIf="!actionsTpl">
-        <ng-content></ng-content>
-      </div>
-    </div>
-    <div id="options" class="options">
-      <biit-input-text id="search" #searchInput
-                       [ngModel]="search"
+      <div id="options" class="options">
+        <biit-input-text id="search" #searchInput
+          [ngModel]="search"
                        (onActionPerformed)="
                          onFilter($event, true);
                        "
-                       (ngModelChange)="onFilter($event)"
-                       (focusout)="searchInput.value = search"
-                       icon="search"
-                       [placeholder]="t('t.search')"
-      ></biit-input-text>
-      <biit-multiselect id="column-selector" [ngModel]="_columns"
-                        (ngModelChange)="setColumnVisibility($event)"
-                        [data]="allColumns"
-                        label="name"
-                        value="visible"
-                        [type]="BiitMultiselectType.ICON"
-                        [title]="t('t.column-selector')"
-                        [compact]="true"
-      ></biit-multiselect>
+          (ngModelChange)="onFilter($event)"
+          (focusout)="searchInput.value = search"
+          icon="search"
+          [placeholder]="t('t.search')"
+        ></biit-input-text>
+        <biit-multiselect id="column-selector" [ngModel]="_columns"
+          (ngModelChange)="setColumnVisibility($event)"
+          [data]="allColumns"
+          label="name"
+          value="visible"
+          [type]="BiitMultiselectType.ICON"
+          [title]="t('t.column-selector')"
+          [compact]="true"
+        ></biit-multiselect>
+      </div>
     </div>
-  </div>
+  }
   <div id="content" class="table">
-    <biit-progress-bar *ngIf="loading"></biit-progress-bar>
-    <ng-container *ngIf="!serverSide">
+    @if (loading) {
+      <biit-progress-bar></biit-progress-bar>
+    }
+    @if (!serverSide) {
       <ngx-datatable #table
-                     [rows]="data"
-                     [columns]="_columns"
-                     [rowClass]="getRowClass"
-                     [columnMode]="'force'"
-                     [headerHeight]="42"
-                     [footerHeight]="hideFooter ? 0 : 34"
-                     [rowHeight]="'auto'"
-                     [reorderable]="false"
-                     [selectionType]="SelectionType.checkbox"
-                     [selected]="selected"
-                     (select)="onSelect($event)"
-                     (activate)="onActivate($event)"
-                     [virtualization]="false"
-                     [scrollbarVDynamic]="true"
-                     [limit]="pageSize"
-                     [scrollbarH]="scrollbarH"
-                     [messages]="{emptyMessage: t('t.empty-message')}"
-      >
-        <ngx-datatable-column *ngIf="selectable && !singleSelection"
-                              #chkbox
-                              [width]="42"
-                              [sortable]="false"
-                              [canAutoResize]="false"
-                              [draggable]="false"
-                              [resizeable]="false"
-                              [name]="'chkbox'"
+        [rows]="data"
+        [columns]="_columns"
+        [rowClass]="getRowClass"
+        [columnMode]="'force'"
+        [headerHeight]="42"
+        [footerHeight]="hideFooter ? 0 : 34"
+        [rowHeight]="'auto'"
+        [reorderable]="false"
+        [selectionType]="SelectionType.checkbox"
+        [selected]="selected"
+        (select)="onSelect($event)"
+        (activate)="onActivate($event)"
+        [virtualization]="false"
+        [scrollbarVDynamic]="true"
+        [limit]="pageSize"
+        [scrollbarH]="scrollbarH"
+        [messages]="{emptyMessage: t('t.empty-message')}"
         >
-          <ng-template
-            ngx-datatable-header-template
-            let-value="value"
-            let-allRowsSelected="allRowsSelected"
-            let-selectFn="selectFn"
-          >
-            <biit-checkbox [ngModel]="allRowsSelected" (ngModelChange)="selectFn(!allRowsSelected)"></biit-checkbox>
-          </ng-template>
-          <ng-template
-            ngx-datatable-cell-template
-            let-value="value"
-            let-isSelected="isSelected"
-            let-onCheckboxChangeFn="onCheckboxChangeFn"
-          >
-            <biit-checkbox [ngModel]="isSelected" (ngModelChange)="onCheckboxChangeFn($event)"></biit-checkbox>
-          </ng-template>
-        </ngx-datatable-column>
-
-        <ngx-datatable-column *ngFor="let column of _columns"
-                              [name]="column.name"
-                              [prop]="column.prop"
-                              [checkboxable]="column.checkboxable"
-                              [frozenLeft]="column.frozenLeft"
-                              [frozenRight]="column.frozenRight"
-                              [flexGrow]="column.flexGrow"
-                              [minWidth]="column.minWidth"
-                              [maxWidth]="column.maxWidth"
-                              [width]="column.width"
-                              [resizeable]="column.resizeable"
-                              [comparator]="column.comparator"
-                              [pipe]="column.pipe"
-                              [sortable]="column.sortable"
-                              [draggable]="column.draggable"
-                              [canAutoResize]="column.canAutoResize"
-                              [cellTemplate]="column.cellTemplate"
-                              [ghostCellTemplate]="column.ghostCellTemplate"
-                              [treeToggleTemplate]="column.treeToggleTemplate"
-                              [cellClass]="column.cellClass"
-                              [headerTemplate]="column.headerTemplate"
-                              [headerClass]="column.headerClass"
-                              [headerCheckboxable]="column.headerCheckboxable"
-                              [isTreeColumn]="column.isTreeColumn"
-                              [treeLevelIndent]="column.treeLevelIndent"
-                              [summaryFunc]="column.summaryFunc"
-                              [summaryTemplate]="column.summaryTemplate"
-        ></ngx-datatable-column>
-
+        @if (selectable && !singleSelection) {
+          <ngx-datatable-column
+            #chkbox
+            [width]="42"
+            [sortable]="false"
+            [canAutoResize]="false"
+            [draggable]="false"
+            [resizeable]="false"
+            [name]="'chkbox'"
+            >
+            <ng-template
+              ngx-datatable-header-template
+              let-value="value"
+              let-allRowsSelected="allRowsSelected"
+              let-selectFn="selectFn"
+              >
+              <biit-checkbox [ngModel]="allRowsSelected" (ngModelChange)="selectFn(!allRowsSelected)"></biit-checkbox>
+            </ng-template>
+            <ng-template
+              ngx-datatable-cell-template
+              let-value="value"
+              let-isSelected="isSelected"
+              let-onCheckboxChangeFn="onCheckboxChangeFn"
+              >
+              <biit-checkbox [ngModel]="isSelected" (ngModelChange)="onCheckboxChangeFn($event)"></biit-checkbox>
+            </ng-template>
+          </ngx-datatable-column>
+        }
+        @for (column of _columns; track column) {
+          <ngx-datatable-column
+            [name]="column.name"
+            [prop]="column.prop"
+            [checkboxable]="column.checkboxable"
+            [frozenLeft]="column.frozenLeft"
+            [frozenRight]="column.frozenRight"
+            [flexGrow]="column.flexGrow"
+            [minWidth]="column.minWidth"
+            [maxWidth]="column.maxWidth"
+            [width]="column.width"
+            [resizeable]="column.resizeable"
+            [comparator]="column.comparator"
+            [pipe]="column.pipe"
+            [sortable]="column.sortable"
+            [draggable]="column.draggable"
+            [canAutoResize]="column.canAutoResize"
+            [cellTemplate]="column.cellTemplate"
+            [ghostCellTemplate]="column.ghostCellTemplate"
+            [treeToggleTemplate]="column.treeToggleTemplate"
+            [cellClass]="column.cellClass"
+            [headerTemplate]="column.headerTemplate"
+            [headerClass]="column.headerClass"
+            [headerCheckboxable]="column.headerCheckboxable"
+            [isTreeColumn]="column.isTreeColumn"
+            [treeLevelIndent]="column.treeLevelIndent"
+            [summaryFunc]="column.summaryFunc"
+            [summaryTemplate]="column.summaryTemplate"
+          ></ngx-datatable-column>
+        }
         <ngx-datatable-footer id="datatable-footer">
           <ng-template
             ngx-datatable-footer-template
@@ -119,118 +131,130 @@
             let-selectedCount="selectedCount"
             let-curPage="curPage"
             let-offset="offset"
-          >
+            >
             <div class="label">
               <span>{{ t('t.total') }}: </span><span id="total-number-of-items">{{rowCount}}</span>
-              <span *ngIf="selectedCount">&nbsp;&nbsp;|&nbsp;&nbsp;{{ t('t.selected') }}: </span><span *ngIf="selectedCount" id="number-of-items-selected">{{selectedCount}}</span>
+              @if (selectedCount) {
+                <span>&nbsp;&nbsp;|&nbsp;&nbsp;{{ t('t.selected') }}: </span>
+                }@if (selectedCount) {
+                <span id="number-of-items-selected">{{selectedCount}}</span>
+              }
             </div>
             <div class="pagination" [style.display]="!((rowCount / pageSize) > 1) ? 'none' : null">
               <biit-datatable-pager #pager
-                                    [page]="curPage"
-                                    [size]="pageSizeCurrent"
-                                    [count]="rowCount"
-                                    [hidden]="!((rowCount / pageSize) > 1)"
-                                    (change)="table.onFooterPage($event)">
+                [page]="curPage"
+                [size]="pageSizeCurrent"
+                [count]="rowCount"
+                [hidden]="!((rowCount / pageSize) > 1)"
+                (change)="table.onFooterPage($event)">
               </biit-datatable-pager>
             </div>
-            <div class="page-items" *ngIf="pageSizeList">
-              <div *ngIf="pageSizeList?.length">
-                <span>{{ t('t.rows-per-page') }}:</span>
-                <select [(ngModel)]="pageSize"
-                        (ngModelChange)="pager.size = $event">
-                  <option *ngFor="let size of pageSizeList"
+            @if (pageSizeList) {
+              <div class="page-items">
+                @if (pageSizeList?.length) {
+                  <div>
+                    <span>{{ t('t.rows-per-page') }}:</span>
+                    <select [(ngModel)]="pageSize"
+                      (ngModelChange)="pager.size = $event">
+                      @for (size of pageSizeList; track size) {
+                        <option
                           [ngValue]="size"
-                  >
-                    {{size}}
-                  </option>
-                </select>
+                          >
+                          {{size}}
+                        </option>
+                      }
+                    </select>
+                  </div>
+                }
               </div>
-            </div>
+            }
           </ng-template>
         </ngx-datatable-footer>
       </ngx-datatable>
-    </ng-container>
+    }
 
-    <ng-container *ngIf="serverSide">
+    @if (serverSide) {
       <ngx-datatable #table
-                     [rows]="data"
-                     [columns]="_columns"
-                     [rowClass]="getRowClass"
-                     [columnMode]="'force'"
-                     [headerHeight]="42"
-                     [footerHeight]="hideFooter ? 0 : 34"
-                     [rowHeight]="'auto'"
-                     [reorderable]="false"
-                     [selectionType]="SelectionType.checkbox"
-                     [selected]="selected"
-                     (select)="onSelect($event)"
-                     (activate)="onActivate($event)"
-                     [virtualization]="false"
-                     [scrollbarVDynamic]="true"
-                     [scrollbarH]="scrollbarH"
-                     [messages]="{emptyMessage: t('t.empty-message')}"
-                     [externalPaging]="true"
-                     [count]="page.totalElements"
-                     [offset]="page.pageNumber"
-                     [limit]="page.pageSize"
-                     (page)="onFooterPageChange($event)"
-      >
-        <ngx-datatable-column *ngIf="selectable && !singleSelection"
-                              #chkbox
-                              [width]="42"
-                              [sortable]="false"
-                              [canAutoResize]="false"
-                              [draggable]="false"
-                              [resizeable]="false"
-                              [name]="'chkbox'"
+        [rows]="data"
+        [columns]="_columns"
+        [rowClass]="getRowClass"
+        [columnMode]="'force'"
+        [headerHeight]="42"
+        [footerHeight]="hideFooter ? 0 : 34"
+        [rowHeight]="'auto'"
+        [reorderable]="false"
+        [selectionType]="SelectionType.checkbox"
+        [selected]="selected"
+        (select)="onSelect($event)"
+        (activate)="onActivate($event)"
+        [virtualization]="false"
+        [scrollbarVDynamic]="true"
+        [scrollbarH]="scrollbarH"
+        [messages]="{emptyMessage: t('t.empty-message')}"
+        [externalPaging]="true"
+        [count]="page.totalElements"
+        [offset]="page.pageNumber"
+        [limit]="page.pageSize"
+        (page)="onFooterPageChange($event)"
         >
-          <ng-template
-            ngx-datatable-header-template
-            let-value="value"
-            let-allRowsSelected="allRowsSelected"
-            let-selectFn="selectFn"
-          >
-            <biit-checkbox [ngModel]="allRowsSelected" (ngModelChange)="selectFn(!allRowsSelected)"></biit-checkbox>
-          </ng-template>
-          <ng-template
-            ngx-datatable-cell-template
-            let-value="value"
-            let-isSelected="isSelected"
-            let-onCheckboxChangeFn="onCheckboxChangeFn"
-          >
-            <biit-checkbox [ngModel]="isSelected" (ngModelChange)="onCheckboxChangeFn($event)"></biit-checkbox>
-          </ng-template>
-        </ngx-datatable-column>
-
-        <ngx-datatable-column *ngFor="let column of _columns"
-                              [name]="column.name"
-                              [prop]="column.prop"
-                              [checkboxable]="column.checkboxable"
-                              [frozenLeft]="column.frozenLeft"
-                              [frozenRight]="column.frozenRight"
-                              [flexGrow]="column.flexGrow"
-                              [minWidth]="column.minWidth"
-                              [maxWidth]="column.maxWidth"
-                              [width]="column.width"
-                              [resizeable]="column.resizeable"
-                              [comparator]="column.comparator"
-                              [pipe]="column.pipe"
-                              [sortable]="column.sortable"
-                              [draggable]="column.draggable"
-                              [canAutoResize]="column.canAutoResize"
-                              [cellTemplate]="column.cellTemplate"
-                              [ghostCellTemplate]="column.ghostCellTemplate"
-                              [treeToggleTemplate]="column.treeToggleTemplate"
-                              [cellClass]="column.cellClass"
-                              [headerTemplate]="column.headerTemplate"
-                              [headerClass]="column.headerClass"
-                              [headerCheckboxable]="column.headerCheckboxable"
-                              [isTreeColumn]="column.isTreeColumn"
-                              [treeLevelIndent]="column.treeLevelIndent"
-                              [summaryFunc]="column.summaryFunc"
-                              [summaryTemplate]="column.summaryTemplate"
-        ></ngx-datatable-column>
-
+        @if (selectable && !singleSelection) {
+          <ngx-datatable-column
+            #chkbox
+            [width]="42"
+            [sortable]="false"
+            [canAutoResize]="false"
+            [draggable]="false"
+            [resizeable]="false"
+            [name]="'chkbox'"
+            >
+            <ng-template
+              ngx-datatable-header-template
+              let-value="value"
+              let-allRowsSelected="allRowsSelected"
+              let-selectFn="selectFn"
+              >
+              <biit-checkbox [ngModel]="allRowsSelected" (ngModelChange)="selectFn(!allRowsSelected)"></biit-checkbox>
+            </ng-template>
+            <ng-template
+              ngx-datatable-cell-template
+              let-value="value"
+              let-isSelected="isSelected"
+              let-onCheckboxChangeFn="onCheckboxChangeFn"
+              >
+              <biit-checkbox [ngModel]="isSelected" (ngModelChange)="onCheckboxChangeFn($event)"></biit-checkbox>
+            </ng-template>
+          </ngx-datatable-column>
+        }
+        @for (column of _columns; track column) {
+          <ngx-datatable-column
+            [name]="column.name"
+            [prop]="column.prop"
+            [checkboxable]="column.checkboxable"
+            [frozenLeft]="column.frozenLeft"
+            [frozenRight]="column.frozenRight"
+            [flexGrow]="column.flexGrow"
+            [minWidth]="column.minWidth"
+            [maxWidth]="column.maxWidth"
+            [width]="column.width"
+            [resizeable]="column.resizeable"
+            [comparator]="column.comparator"
+            [pipe]="column.pipe"
+            [sortable]="column.sortable"
+            [draggable]="column.draggable"
+            [canAutoResize]="column.canAutoResize"
+            [cellTemplate]="column.cellTemplate"
+            [ghostCellTemplate]="column.ghostCellTemplate"
+            [treeToggleTemplate]="column.treeToggleTemplate"
+            [cellClass]="column.cellClass"
+            [headerTemplate]="column.headerTemplate"
+            [headerClass]="column.headerClass"
+            [headerCheckboxable]="column.headerCheckboxable"
+            [isTreeColumn]="column.isTreeColumn"
+            [treeLevelIndent]="column.treeLevelIndent"
+            [summaryFunc]="column.summaryFunc"
+            [summaryTemplate]="column.summaryTemplate"
+          ></ngx-datatable-column>
+        }
         <ngx-datatable-footer>
           <ng-template
             ngx-datatable-footer-template
@@ -239,36 +263,44 @@
             let-selectedCount="selectedCount"
             let-curPage="curPage"
             let-offset="offset"
-          >
+            >
             <div class="label" id="total-elements">
               <span>{{ t('t.total') }}: {{rowCount}}</span>
-              <span *ngIf="selectedCount">&nbsp;&nbsp;|&nbsp;&nbsp;{{ t('t.selected') }}: {{selectedCount}}</span>
+              @if (selectedCount) {
+                <span>&nbsp;&nbsp;|&nbsp;&nbsp;{{ t('t.selected') }}: {{selectedCount}}</span>
+              }
             </div>
             <div class="pagination" [style.display]="!((rowCount / pageSize) > 1) ? 'none' : null">
               <biit-datatable-pager #pager
-                                    [page]="curPage"
-                                    [size]="pageSizeCurrent"
-                                    [count]="rowCount"
-                                    [hidden]="!((rowCount / pageSize) > 1)"
-                                    (change)="table.onFooterPage($event)">
+                [page]="curPage"
+                [size]="pageSizeCurrent"
+                [count]="rowCount"
+                [hidden]="!((rowCount / pageSize) > 1)"
+                (change)="table.onFooterPage($event)">
               </biit-datatable-pager>
             </div>
-            <div class="page-items" *ngIf="pageSizeList">
-              <div *ngIf="pageSizeList?.length">
-                <span>{{ t('t.rows-per-page') }}:</span>
-                <select [(ngModel)]="pageSize"
-                        (ngModelChange)="pager.size = $event">
-                  <option *ngFor="let size of pageSizeList"
+            @if (pageSizeList) {
+              <div class="page-items">
+                @if (pageSizeList?.length) {
+                  <div>
+                    <span>{{ t('t.rows-per-page') }}:</span>
+                    <select [(ngModel)]="pageSize"
+                      (ngModelChange)="pager.size = $event">
+                      @for (size of pageSizeList; track size) {
+                        <option
                           [ngValue]="size"
-                  >
-                    {{size}}
-                  </option>
-                </select>
+                          >
+                          {{size}}
+                        </option>
+                      }
+                    </select>
+                  </div>
+                }
               </div>
-            </div>
+            }
           </ng-template>
         </ngx-datatable-footer>
       </ngx-datatable>
-    </ng-container>
+    }
   </div>
 </div>

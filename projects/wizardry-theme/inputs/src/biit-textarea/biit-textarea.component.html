@@ -1,8 +1,10 @@
 <div class="biit-input" [class.disabled]="disabled" [class.readonly]="readonly">
   <div class="input-container">
-    <biit-tooltip-icon *ngIf="info"
-                       class="tooltip-icon"
-                       [text]="info"></biit-tooltip-icon>
+    @if (info) {
+      <biit-tooltip-icon
+        class="tooltip-icon"
+      [text]="info"></biit-tooltip-icon>
+    }
     <textarea
       class="input-object" required
       [(ngModel)]="value"
@@ -16,18 +18,26 @@
     ></textarea>
     <div class="input-placeholder">
       {{ placeholder }}
-      <a *ngIf="required"
-         [style.color]="value ? null : 'red'">*</a>
+      @if (required) {
+        <a
+        [style.color]="value ? null : 'red'">*</a>
+      }
     </div>
-    <biit-icon *ngIf="error" id="exclamation" name="exclamation" class="input-error-icon"
-               [pathStyle]="{fill:'#A1093F'}"></biit-icon>
-    <div *ngIf="error" class="input-error-msg" id="error-message">
-      <a id="message">
-        {{ error }}
-      </a>
-    </div>
-    <span *ngIf="description" id="description" class="input-description">
-      {{ description }}
-    </span>
+    @if (error) {
+      <biit-icon id="exclamation" name="exclamation" class="input-error-icon"
+      [pathStyle]="{fill:'#A1093F'}"></biit-icon>
+    }
+    @if (error) {
+      <div class="input-error-msg" id="error-message">
+        <a id="message">
+          {{ error }}
+        </a>
+      </div>
+    }
+    @if (description) {
+      <span id="description" class="input-description">
+        {{ description }}
+      </span>
+    }
   </div>
 </div>

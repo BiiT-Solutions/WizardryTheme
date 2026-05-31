@@ -69,7 +69,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitSnackbarComponent> = (args: BiitSnackbarComponent) => ({
+const Template: StoryFn<BiitSnackbarComponent> = (args: any) => ({
   props: {
     ...args,
     addToast: (msg: string, type: NotificationType, action: string, timeoutSeconds: number) => addToast(msg, type, action, timeoutSeconds),

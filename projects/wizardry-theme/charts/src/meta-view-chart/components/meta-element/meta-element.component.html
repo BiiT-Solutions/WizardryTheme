@@ -1,6 +1,10 @@
 <div class="wh-100 c-pointer">
-  <div *ngIf="!icon" [style]="styles" class="wh-100" [ngClass]="classes">
-    <ng-content></ng-content>
-  </div>
-  <svg *ngIf="icon" [style]="styles" class="wh-100" [ngClass]="classes" [innerHTML]="icon | safeHtml" />
+  @if (!icon) {
+    <div [style]="styles" class="wh-100" [ngClass]="classes">
+      <ng-content></ng-content>
+    </div>
+  }
+  @if (icon) {
+    <svg [style]="styles" class="wh-100" [ngClass]="classes" [innerHTML]="icon | safeHtml" />
+  }
 </div>

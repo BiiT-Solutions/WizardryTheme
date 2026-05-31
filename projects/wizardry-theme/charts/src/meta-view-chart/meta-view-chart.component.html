@@ -1,31 +1,43 @@
 <div class="meta-view-chart-board" id="metaviewer-chart" *transloco="let t">
-  <button biit-icon icon="hamburger" *ngIf="!showMenu" (click)="showMenu=true"></button>
-  <div class="meta-view-column" *ngIf="showMenu">
-    <button biit-icon icon="hamburger" (click)="showMenu=false" style="position:absolute;"></button>
-    <biit-meta-filter [metadata]="data" (filterChange)="onFilter($event)"/>
-  </div>
-  <biit-meta-board id="metaviewer-board" *ngIf="view === View.GRID"
-    [data]="elements"
-    [selected]="selectedElement"
-    (elementClick)="onElementClick($event)"
-  />
-  <biit-timeline-viewer-chart id="metaviewer-timeline" *ngIf="view === View.TIMELINE && timelineOptions && timelineOptions.date"
-    [data]="elements | extractData"
-    [options]="timelineOptions"
-    (onItemClick)="onTimeLineElementClick($event)"
-    style="overflow: hidden"
-  />
-  <div class="error-view" id="metaviewer-error" *ngIf="view === View.TIMELINE && !timelineOptions?.date">
-    <div>
-      <biit-icon name="exclamation" style="display:block; width: 1rem;" />
+  @if (!showMenu) {
+    <button biit-icon icon="hamburger" (click)="showMenu=true"></button>
+  }
+  @if (showMenu) {
+    <div class="meta-view-column">
+      <button biit-icon icon="hamburger" (click)="showMenu=false" style="position:absolute;"></button>
+      <biit-meta-filter [metadata]="data" (filterChange)="onFilter($event)"/>
     </div>
-    <div>{{ t('charts.configuration-not-meets-requirements') }}</div>
-  </div>
-  <div class="meta-view-column rtl" id="metadata-viewer" *ngIf="selectedElement" @fadeInOut>
-    <biit-metadata-viewer class="ltr"
-      [data]="selectedElement"
-      [fields]="data.fields"
-      [titleField]="data.titleField"
-      (onClose)="unselectElement()"/>
-  </div>
+  }
+  @if (view === View.GRID) {
+    <biit-meta-board id="metaviewer-board"
+      [data]="elements"
+      [selected]="selectedElement"
+      (elementClick)="onElementClick($event)"
+      />
+  }
+  @if (view === View.TIMELINE && timelineOptions && timelineOptions.date) {
+    <biit-timeline-viewer-chart id="metaviewer-timeline"
+      [data]="elements | extractData"
+      [options]="timelineOptions"
+      (onItemClick)="onTimeLineElementClick($event)"
+      style="overflow: hidden"
+      />
+  }
+  @if (view === View.TIMELINE && !timelineOptions?.date) {
+    <div class="error-view" id="metaviewer-error">
+      <div>
+        <biit-icon name="exclamation" style="display:block; width: 1rem;" />
+      </div>
+      <div>{{ t('charts.configuration-not-meets-requirements') }}</div>
+    </div>
+  }
+  @if (selectedElement) {
+    <div class="meta-view-column rtl" id="metadata-viewer" @fadeInOut>
+      <biit-metadata-viewer class="ltr"
+        [data]="selectedElement"
+        [fields]="data.fields"
+        [titleField]="data.titleField"
+        (onClose)="unselectElement()"/>
+    </div>
+  }
 </div>

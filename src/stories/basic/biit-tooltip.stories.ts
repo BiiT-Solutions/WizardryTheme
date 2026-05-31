@@ -12,7 +12,7 @@ export default {
   ],
 } as any;
 
-const Template: StoryFn<BiitButtonComponent> = (args: BiitButtonComponent) => ({
+const Template: StoryFn<BiitButtonComponent> = (args: any) => ({
   props: args,
   template: `
     <h3 tooltip="Meowth, that's right!"

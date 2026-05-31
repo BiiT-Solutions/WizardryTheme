@@ -108,7 +108,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitPopupComponent> = (args: BiitPopupComponent) => ({
+const Template: StoryFn<BiitPopupComponent> = (args: any) => ({
   props: args,
   template: `
     <button biit-button (click)="showPopup = true">Show Popup</button>
@@ -138,7 +138,7 @@ Default.parameters = {
   }
 }
 
-const SixtyTemplate: StoryFn<BiitPopupComponent> = (args: BiitPopupComponent) => ({
+const SixtyTemplate: StoryFn<BiitPopupComponent> = (args: any) => ({
   props: args,
   template: `
     <button biit-button (click)="showSixty = true">Show Sixty View</button>
@@ -153,7 +153,7 @@ const SixtyTemplate: StoryFn<BiitPopupComponent> = (args: BiitPopupComponent) =>
 export const SixtyView = SixtyTemplate.bind({});
 
 
-const InfoBoxTemplate: StoryFn<BiitPopupComponent> = (args: BiitPopupComponent) => ({
+const InfoBoxTemplate: StoryFn<BiitPopupComponent> = (args: any) => ({
   props: args,
   template: `
     <button biit-button (click)="mousePosition = $event; showInfoBox = true" style="display: flex; justify-content: end; width: 100%">Show Info box</button>

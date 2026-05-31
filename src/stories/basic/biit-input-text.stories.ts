@@ -254,7 +254,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitInputTextComponent> = (args: BiitInputTextComponent) => ({
+const Template: StoryFn<BiitInputTextComponent> = (args: any) => ({
   props: args,
   template: `
     <biit-input-text

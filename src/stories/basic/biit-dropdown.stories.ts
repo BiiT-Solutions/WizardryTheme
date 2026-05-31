@@ -131,7 +131,7 @@ export default {
   }
 } as any;
 
-const TemplateExpanded: StoryFn<BiitDropdownComponent> = (args: BiitDropdownComponent) => ({
+const TemplateExpanded: StoryFn<BiitDropdownComponent> = (args: any) => ({
   props: args,
   template:`
     <div style="display:block; position: fixed; top: 50%; left: 50%; translate: -50% -50%; text-align: center;">
@@ -162,7 +162,7 @@ const TemplateExpanded: StoryFn<BiitDropdownComponent> = (args: BiitDropdownComp
 
 export const Expanded = TemplateExpanded.bind({});
 
-const TemplateCompact: StoryFn<BiitDropdownComponent> = (args: BiitDropdownComponent) => ({
+const TemplateCompact: StoryFn<BiitDropdownComponent> = (args: any) => ({
   props: args,
   template:`
     <div style="display:block; position: fixed; top: 50%; left: 50%; translate: -50% -50%; text-align: center;">
@@ -193,7 +193,7 @@ const TemplateCompact: StoryFn<BiitDropdownComponent> = (args: BiitDropdownCompo
 
 export const Compact = TemplateCompact.bind({});
 
-const TemplateIcon: StoryFn<BiitDropdownComponent> = (args: BiitDropdownComponent) => ({
+const TemplateIcon: StoryFn<BiitDropdownComponent> = (args: any) => ({
   props: args,
   template:`
     <div style="display:block; position: fixed; top: 50%; left: 50%; translate: -50% -50%; text-align: center;">

@@ -25,7 +25,7 @@ export default {
   component: BiitDatatableComponent
 } as any;
 
-const Template: StoryFn<BiitDatatableComponent<any>> = (args: BiitDatatableComponent<any>, { globals }) => {
+const Template: StoryFn<BiitDatatableComponent<any>> = (args: any, { globals }: any) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,
@@ -39,7 +39,7 @@ const Template: StoryFn<BiitDatatableComponent<any>> = (args: BiitDatatableCompo
 
 export const Default = Template.bind({});
 
-const ServerSideTemplate: StoryFn<BiitDatatableComponent<any>> = (args: BiitDatatableComponent<any>, { globals }) => {
+const ServerSideTemplate: StoryFn<BiitDatatableComponent<any>> = (args: any, { globals }: any) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,

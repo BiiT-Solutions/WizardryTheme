@@ -1,7 +1,7 @@
 import { HttpClientModule } from "@angular/common/http"
 import { APP_INITIALIZER, NgModule } from "@angular/core"
-import { FORCE_RE_RENDER } from "@storybook/core-events"
-import { addons } from "@storybook/preview-api"
+import { FORCE_RE_RENDER } from "storybook/internal/core-events"
+import { addons } from "storybook/preview-api"
 import {
   DefaultTranspiler,
   provideTransloco,

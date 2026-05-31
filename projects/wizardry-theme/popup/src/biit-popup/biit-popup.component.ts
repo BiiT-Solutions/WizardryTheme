@@ -93,7 +93,7 @@ export class BiitPopupComponent implements AfterViewInit {
 
   protected readonly Type = BiitPopupType;
 
-  @HostListener('document:keydown.escape', ['$event']) onEscPress(event: KeyboardEvent) {
+  @HostListener('document:keydown.escape', ['$event']) onEscPress(event: Event) {
     this.onClosed.emit();
   }
 

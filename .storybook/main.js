@@ -2,13 +2,11 @@ require('web-file-polyfill');
 
 module.exports = {
   "stories": [
-    "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-docs"
   ],
   "framework": {
     "name": "@storybook/angular",
@@ -16,5 +14,14 @@ module.exports = {
   },
   "core": {
     "builder": "@storybook/builder-webpack5"
+  },
+  "webpackFinal": async (config) => {
+    config.resolve = config.resolve || {};
+    config.resolve.fallback = {
+      ...(config.resolve.fallback || {}),
+      "util": false,
+      "stream": false,
+    };
+    return config;
   }
 };

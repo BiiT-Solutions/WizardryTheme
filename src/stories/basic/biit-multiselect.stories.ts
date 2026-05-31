@@ -168,7 +168,7 @@ export default {
   }
 } as any;
 
-const Template: StoryFn<BiitMultiselectComponent> = (args: BiitMultiselectComponent) => ({
+const Template: StoryFn<BiitMultiselectComponent> = (args: any) => ({
   props: args,
   template:`
     <div style="display:block; position: fixed; top: 50%; left: 50%; translate: -50% -50%; text-align: center;">
@@ -216,7 +216,7 @@ Icon.args = {
   type: BiitMultiselectType.ICON
 }
 
-export const Chips: StoryFn<BiitMultiselectComponent> = (args: BiitMultiselectComponent, { globals }) => {
+export const Chips: StoryFn<BiitMultiselectComponent> = (args: any, { globals }: any) => {
   TranslocoStorybookModule.setLanguage(globals);
   return {
     globals,
