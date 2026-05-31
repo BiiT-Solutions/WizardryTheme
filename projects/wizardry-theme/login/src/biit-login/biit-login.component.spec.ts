@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslocoService } from '@ngneat/transloco';
 
 import { BiitLoginComponent } from './biit-login.component';
 
@@ -8,7 +9,18 @@ describe('BiitLoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BiitLoginComponent ]
+      declarations: [ BiitLoginComponent ],
+      providers: [
+        {
+          provide: TranslocoService,
+          useValue: {
+            translate: (key: string) => key
+          }
+        }
+      ]
+    })
+    .overrideComponent(BiitLoginComponent, {
+      set: { template: '' }
     })
     .compileComponents();
 
@@ -19,5 +31,9 @@ describe('BiitLoginComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('generates a keyId with two characters', () => {
+    expect((component as any).keyId.length).toBe(2);
   });
 });

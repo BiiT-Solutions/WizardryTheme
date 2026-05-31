@@ -10,6 +10,9 @@ describe('TextFilterComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ TextFilterComponent ]
     })
+    .overrideComponent(TextFilterComponent, {
+      set: { template: '' }
+    })
     .compileComponents();
 
     fixture = TestBed.createComponent(TextFilterComponent);

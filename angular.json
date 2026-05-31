@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "biit-frontend-components:build:production"
+              "buildTarget": "biit-frontend-components:build:production"
             },
             "development": {
-              "browserTarget": "biit-frontend-components:build:development"
+              "buildTarget": "biit-frontend-components:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "biit-frontend-components:build"
+            "buildTarget": "biit-frontend-components:build"
           }
         },
         "test": {
@@ -139,9 +139,13 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "projects/wizardry-theme/tsconfig.spec.json",
+            "main": "projects/wizardry-theme/src/test.ts",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
+            ],
+            "include": [
+              "projects/wizardry-theme/**/*.spec.ts"
             ]
           }
         }
@@ -149,8 +153,8 @@
     },
     "storybook": {
       "projectType": "application",
-      "root": "stories",
-      "sourceRoot": "stories",
+      "root": "",
+      "sourceRoot": "src",
       "architect": {
         "build": {
           "options": {
@@ -175,7 +179,25 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "frontend:build"
+            "buildTarget": "biit-frontend-components:build"
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "browserTarget": "biit-frontend-components:build",
+            "port": 6006,
+            "configDir": ".storybook",
+            "compodoc": false
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "browserTarget": "biit-frontend-components:build",
+            "outputDir": "storybook-static",
+            "configDir": ".storybook",
+            "compodoc": false
           }
         }
       }

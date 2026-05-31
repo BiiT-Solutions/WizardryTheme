@@ -123,7 +123,7 @@ export class BiitTableComponent implements OnInit, AfterViewChecked {
   protected readonly BiitMultiselectType = BiitMultiselectType;
   protected readonly BiitTableColumnFormat = BiitTableColumnFormat;
 
-  private findTimeout: NodeJS.Timeout;
+  private findTimeout: ReturnType<typeof setTimeout>;
 
   constructor(private renderer: Renderer2,
               private elem: ElementRef) {

@@ -10,6 +10,9 @@ describe('MetadataViewerComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ MetadataViewerComponent ]
     })
+    .overrideComponent(MetadataViewerComponent, {
+      set: { template: '' }
+    })
     .compileComponents();
 
     fixture = TestBed.createComponent(MetadataViewerComponent);
@@ -19,5 +22,13 @@ describe('MetadataViewerComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('emits close events', () => {
+    const emitSpy = spyOn(component.onClose, 'emit');
+
+    component['close']();
+
+    expect(emitSpy).toHaveBeenCalled();
   });
 });

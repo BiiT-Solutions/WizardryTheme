@@ -1,14 +1,31 @@
 import {setCompodocJson} from "@storybook/addon-docs/angular";
-import docJson from "../documentation.json";
-import {moduleMetadata} from "@storybook/angular";
+import {applicationConfig, moduleMetadata} from "@storybook/angular";
 import {DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES} from "../projects/wizardry-theme/i18n/src/i18n/supported-languages";
-import {HttpClientModule} from "@angular/common/http";
+import {provideHttpClient} from "@angular/common/http";
 import {RouterTestingModule} from "@angular/router/testing";
-import {Router, RouterModule} from "@angular/router";
-import {ENVIRONMENT_INITIALIZER, inject} from "@angular/core";
+import {Router} from "@angular/router";
+import {APP_INITIALIZER, ENVIRONMENT_INITIALIZER, inject} from "@angular/core";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-require('web-file-polyfill');
-setCompodocJson(docJson);
+import {provideTransloco, translocoConfig, TranslocoModule, TranslocoService} from "@ngneat/transloco";
+import {provideTranslocoLocale} from "@ngneat/transloco-locale";
+import {of} from "rxjs";
+import {completeIconSet} from "@biit-solutions/biit-icons-collection";
+import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
+import {translocoStorybookInitializer} from "../src/app/transloco/transloco-storybook.module";
+require("web-file-polyfill");
+
+class StorybookTranslocoLoader {
+  getTranslation() {
+    // Keep Storybook resilient when scoped translation assets are missing.
+    return of({});
+  }
+}
+
+try {
+  setCompodocJson(require("../documentation.json"));
+} catch {
+  console.warn('Compodoc JSON not found. Run "npm run docs:json" to enable docs metadata.');
+}
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -40,17 +57,56 @@ export const globalTypes = {
 
 const globalModuleImports = moduleMetadata({
   imports: [
+    TranslocoModule,
     RouterTestingModule,
-    RouterModule.forRoot([], {enableTracing: true}),
-    HttpClientModule,
     BrowserAnimationsModule
-  ],
-  providers: [Router],
+  ]
+});
+
+const globalAppProviders = applicationConfig({
+  providers: [
+    provideHttpClient(),
+    ...provideTransloco({
+      loader: StorybookTranslocoLoader,
+      config: translocoConfig({
+        availableLangs: SUPPORTED_LANGUAGES.map(language => language.code),
+        defaultLang: DEFAULT_LANGUAGE.code,
+        fallbackLang: DEFAULT_LANGUAGE.code,
+        reRenderOnLangChange: true,
+        missingHandler: {
+          logMissingKey: false,
+        },
+        prodMode: true,
+      }),
+    }),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: translocoStorybookInitializer,
+      multi: true,
+      deps: [TranslocoService],
+    },
+    {
+      provide: ENVIRONMENT_INITIALIZER,
+      multi: true,
+      useValue() {
+        inject(BiitIconService).registerIcons(completeIconSet);
+      }
+    },
+    provideTranslocoLocale({
+      langToLocaleMapping: {
+        en: "en-US",
+        es: "es-ES",
+        nl: "nl-NL"
+      }
+    })
+  ]
 });
 
 
 const setRoutesMetadata = (fn, c) => {
   const story = fn();
+  story.moduleMetadata = story.moduleMetadata || {};
+  story.moduleMetadata.providers = story.moduleMetadata.providers || [];
   story.moduleMetadata.providers.push(
     {
       provide: ENVIRONMENT_INITIALIZER, multi: true, useValue() {
@@ -62,6 +118,7 @@ const setRoutesMetadata = (fn, c) => {
 }
 
 export const decorators = [
+  globalAppProviders,
   globalModuleImports,
   setRoutesMetadata
 ];

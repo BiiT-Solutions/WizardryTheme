@@ -11,9 +11,9 @@ export class TextFilterComponent {
   }
   @Output() filterChange: EventEmitter<string> = new EventEmitter<string>();
   protected search: string = '';
-  private timeout: NodeJS.Timeout;
+  private timeout: ReturnType<typeof setTimeout>;
 
-  onSearchChange(value: string): void {
+  onSearchChange(): void {
     clearTimeout(this.timeout);
     this.timeout = setTimeout(() => this.filterChange.emit(this.search), 500);
   }

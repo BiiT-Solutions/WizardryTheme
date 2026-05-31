@@ -10,6 +10,9 @@ describe('BooleanFilterComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ BooleanFilterComponent ]
     })
+    .overrideComponent(BooleanFilterComponent, {
+      set: { template: '' }
+    })
     .compileComponents();
 
     fixture = TestBed.createComponent(BooleanFilterComponent);

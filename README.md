@@ -69,7 +69,7 @@ Create this file on the root folder of your component (`projects/wizardry-theme/
 ```
 {
   "peerDependencies": {
-    "@angular/material": "^15.1.0"
+    "@angular/material": "^16.0.0"
   }
 }
 ```
@@ -139,12 +139,24 @@ To run and test the storybook, simply execute:
 npm run storybook
 ```
 
+For daily development, if you want a faster startup without running translation extraction and Compodoc generation first, you can use:
+
+```
+npm run storybook:fast
+```
+
 ### Compiling the storybook
 
 To compile storybook, run next command:
 
 ```
 npm run build-storybook
+```
+
+If you need a faster build without previous translation extraction and Compodoc generation, run:
+
+```
+npm run build-storybook:fast
 ```
 
 ### Publishing the storybook
@@ -217,7 +229,7 @@ When compiling the project ```npm run transloco:extract``` should be run to copy
           }  
 ]
 ```
-4. On your main lib module import ```TranslocoRootModule``` from ```wizardry-theme/18n```
+4. On your main lib module import ```TranslocoRootModule``` from ```wizardry-theme/i18n```
 5. Add as well on main lib module next provider:
 ```json
 providers: [{  

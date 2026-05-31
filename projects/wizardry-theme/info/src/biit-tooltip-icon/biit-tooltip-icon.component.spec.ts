@@ -10,6 +10,9 @@ describe('BiitTooltipIconComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ BiitTooltipIconComponent ]
     })
+    .overrideComponent(BiitTooltipIconComponent, {
+      set: { template: '' }
+    })
     .compileComponents();
 
     fixture = TestBed.createComponent(BiitTooltipIconComponent);
@@ -19,5 +22,11 @@ describe('BiitTooltipIconComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('coerces inline input to boolean', () => {
+    component.inline = 'true';
+
+    expect((component as any).isInline).toBeTrue();
   });
 });
