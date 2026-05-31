@@ -8,9 +8,9 @@
     "increase-version": "npm --no-git-tag-version version patch"
   },
   "peerDependencies": {
-    "@angular/common": "v15-lts",
-    "@angular/core": "v15-lts",
-    "@angular/material": "v15-lts",
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@angular/material": "^18.0.0",
     "@ngneat/transloco": "^4.2.2",
     "tslib": "^2.3.0",
     "apexcharts": "^3.37.1",
@@ -18,8 +18,8 @@
     "date-fns": "^2.30.0",
     "@ngneat/transloco-locale": "^5.1.1",
     "angular-calendar": "~0.31.0",
-    "@perfectmemory/ngx-contextmenu": "^15.0.0",
-    "@siemens/ngx-datatable": "v21-3"
+    "@perfectmemory/ngx-contextmenu": "^18.0.0",
+    "@siemens/ngx-datatable": "^22.4.2"
   },
   "repository": {
     "type": "git",

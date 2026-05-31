@@ -8,13 +8,16 @@
   },
   "exclude": [
     "../src/test.ts",
-    "../src/**/*.spec.ts",
-    "../projects/**/*.spec.ts"
+    "../**/*.spec.ts",
+    "../**/*.test.ts"
   ],
   "include": [
-    "../stories/**/*",
-    "../src/**/*",
-    "../projects/**/*"
+    "../src/**/*.stories.ts",
+    "../src/**/*.stories.tsx",
+    "../src/**/*.stories.js",
+    "../src/**/*.stories.jsx",
+    "../src/**/*.stories.mdx",
+    "../src/**/*.mdx"
   ],
   "files": [
     "./typings.d.ts"
