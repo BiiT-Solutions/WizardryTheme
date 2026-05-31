@@ -28,9 +28,10 @@ type ChartOptions = {
 };
 
 @Component({
-  selector: 'biit-timeline-viewer-chart',
-  templateUrl: './timeline-viewer-chart.component.html',
-  styleUrls: ['./timeline-viewer-chart.component.scss']
+    selector: 'biit-timeline-viewer-chart',
+    templateUrl: './timeline-viewer-chart.component.html',
+    styleUrls: ['./timeline-viewer-chart.component.scss'],
+    standalone: false
 })
 export class TimelineViewerChartComponent implements OnInit, OnChanges {
   @ViewChild('apexChart') apexChart: ChartComponent;

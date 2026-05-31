@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'autoFormat'
+    name: 'autoFormat',
+    standalone: false
 })
 export class AutoFormatPipe implements PipeTransform {
 

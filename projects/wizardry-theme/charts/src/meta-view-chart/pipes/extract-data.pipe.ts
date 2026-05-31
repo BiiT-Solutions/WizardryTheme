@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {MetaViewElementData} from "../model/meta-view-element-data";
 
 @Pipe({
-  name: 'extractData'
+    name: 'extractData',
+    standalone: false
 })
 export class ExtractDataPipe implements PipeTransform {
 

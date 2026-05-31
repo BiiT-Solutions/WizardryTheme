@@ -4,23 +4,24 @@ import {BiitSnackbarService} from './biit-snackbar.service';
 import {Notification} from './models/notification';
 
 @Component({
-  selector: 'biit-snackbar',
-  templateUrl: 'biit-snackbar.component.html',
-  styleUrls: ['biit-snackbar.component.scss'],
-  animations: [
-    trigger('notificationList', [
-      transition(':enter', [
-        style({ opacity: 0, height: 0 }),
-        animate('500ms ease-in-out', style({ height: '*' })),
-        animate('500ms ease-in-out', style({ opacity: 1, transform: 'translateY(0px)' }))
-      ]),
-      transition(':leave', [
-        style({ opacity: 1, height: '*' }),
-        animate('500ms ease-in-out', style({ opacity: 0 })),
-        animate('500ms ease-in-out', style({ height: 0 }))
-      ])
-    ])
-  ]
+    selector: 'biit-snackbar',
+    templateUrl: 'biit-snackbar.component.html',
+    styleUrls: ['biit-snackbar.component.scss'],
+    animations: [
+        trigger('notificationList', [
+            transition(':enter', [
+                style({ opacity: 0, height: 0 }),
+                animate('500ms ease-in-out', style({ height: '*' })),
+                animate('500ms ease-in-out', style({ opacity: 1, transform: 'translateY(0px)' }))
+            ]),
+            transition(':leave', [
+                style({ opacity: 1, height: '*' }),
+                animate('500ms ease-in-out', style({ opacity: 0 })),
+                animate('500ms ease-in-out', style({ height: 0 }))
+            ])
+        ])
+    ],
+    standalone: false
 })
 
 export class BiitSnackbarComponent implements OnInit {

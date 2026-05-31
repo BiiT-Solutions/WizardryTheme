@@ -6,9 +6,10 @@ export enum BiitProgressBarType {
 }
 
 @Component({
-  selector: 'biit-progress-bar',
-  templateUrl: 'biit-progress-bar.component.html',
-  styleUrls: ['biit-progress-bar.component.scss']
+    selector: 'biit-progress-bar',
+    templateUrl: 'biit-progress-bar.component.html',
+    styleUrls: ['biit-progress-bar.component.scss'],
+    standalone: false
 })
 
 export class BiitProgressBarComponent {

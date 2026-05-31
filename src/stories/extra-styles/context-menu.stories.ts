@@ -4,7 +4,7 @@ import {ContextMenuModule} from "@perfectmemory/ngx-contextmenu";
 import {BiitButtonModule} from "@biit-solutions/wizardry-theme/button";
 import {BiitIconModule, BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
-import {APP_INITIALIZER} from "@angular/core";
+import { APP_INITIALIZER } from "@angular/core";
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);
@@ -16,19 +16,14 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [ContextMenuModule, BiitButtonModule, BiitIconModule],
-      providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: biitIconServiceFactory,
-        multi: true,
-        deps: [BiitIconService],
-      }]
+      providers: [{ provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }]
     }),
   ],
   args: {
     title: 'John Doe',
     subtitle: ''
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitNavUserComponent> = (args: BiitNavUserComponent) => ({
   props: args,

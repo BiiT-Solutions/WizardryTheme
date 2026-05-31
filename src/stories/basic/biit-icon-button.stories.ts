@@ -2,7 +2,7 @@ import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import { BiitIconButtonComponent, BiitIconButtonModule } from '@biit-solutions/wizardry-theme/button';
 import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
-import {APP_INITIALIZER} from '@angular/core';
+import { APP_INITIALIZER } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 function biitIconServiceFactory(service: BiitIconService) {
@@ -15,12 +15,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [BiitIconButtonModule, FormsModule],
-      providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: biitIconServiceFactory,
-        multi: true,
-        deps: [BiitIconService],
-      }]
+      providers: [{ provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }]
     }),
   ],
   args: {
@@ -67,7 +62,7 @@ export default {
       }
     }
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitIconButtonComponent> = (args: BiitIconButtonComponent) => ({
   props: args,

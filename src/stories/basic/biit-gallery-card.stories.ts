@@ -1,7 +1,7 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
 import {BiitToggleComponent} from '@biit-solutions/wizardry-theme/inputs';
-import {APP_INITIALIZER} from "@angular/core";
+import { APP_INITIALIZER } from "@angular/core";
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {BiitGalleryCardModule} from "../../../projects/wizardry-theme/info/src/biit-gallery-card/biit-gallery-card.module";
@@ -16,12 +16,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [BiitGalleryCardModule, FormsModule],
-      providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: biitIconServiceFactory,
-        multi: true,
-        deps: [BiitIconService],
-      }]
+      providers: [{ provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }]
     }),
   ],
   args: {
@@ -45,7 +40,7 @@ export default {
       }
     }
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitToggleComponent> = (args: BiitToggleComponent) => ({
   props: args,

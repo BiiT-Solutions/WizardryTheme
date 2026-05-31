@@ -93,7 +93,7 @@ export default {
       }
     },
   }
-} as Meta;
+} as any;
 
 const Template: Story<HeatmapChartComponent> = (args: HeatmapChartComponent) => ({
   props: args,

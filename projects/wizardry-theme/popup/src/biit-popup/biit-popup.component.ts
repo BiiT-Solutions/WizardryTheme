@@ -11,7 +11,8 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[clear-bg]'
+    selector: '[clear-bg]',
+    standalone: false
 })
 export class BiitPopupBackgroundDirective {
   constructor(private parent: BiitPopupComponent) {
@@ -20,7 +21,8 @@ export class BiitPopupBackgroundDirective {
 }
 
 @Directive({
-  selector: '[no-header]'
+    selector: '[no-header]',
+    standalone: false
 })
 export class BiitPopupNoHeaderDirective {
   constructor(private parent: BiitPopupComponent) {
@@ -29,7 +31,8 @@ export class BiitPopupNoHeaderDirective {
 }
 
 @Directive({
-  selector: '[closable]'
+    selector: '[closable]',
+    standalone: false
 })
 export class BiitPopupClosableDirective {
   constructor(private parent: BiitPopupComponent) {
@@ -38,7 +41,8 @@ export class BiitPopupClosableDirective {
 }
 
 @Directive({
-  selector: '[closable-outside]'
+    selector: '[closable-outside]',
+    standalone: false
 })
 export class BiitPopupClosableOutsideDirective {
   constructor(private parent: BiitPopupComponent) {
@@ -47,7 +51,8 @@ export class BiitPopupClosableOutsideDirective {
 }
 
 @Directive({
-  selector: '[sixty-view]'
+    selector: '[sixty-view]',
+    standalone: false
 })
 export class BiitPopupSixtyViewDirective {
   constructor(private parent: BiitPopupComponent) {
@@ -56,7 +61,8 @@ export class BiitPopupSixtyViewDirective {
 }
 
 @Directive({
-  selector: '[info-box]'
+    selector: '[info-box]',
+    standalone: false
 })
 export class BiitPopupInfoBoxDirective {
   constructor(private parent: BiitPopupComponent) {
@@ -67,9 +73,10 @@ export class BiitPopupInfoBoxDirective {
 
 
 @Component({
-  selector: 'biit-popup',
-  templateUrl: './biit-popup.component.html',
-  styleUrls: ['./biit-popup.component.scss']
+    selector: 'biit-popup',
+    templateUrl: './biit-popup.component.html',
+    styleUrls: ['./biit-popup.component.scss'],
+    standalone: false
 })
 export class BiitPopupComponent implements AfterViewInit {
   @Input() title: string = '';

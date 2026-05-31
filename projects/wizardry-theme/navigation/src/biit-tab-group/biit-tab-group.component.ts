@@ -12,9 +12,10 @@ import {BiitTabComponent} from './biit-tab.component';
 import {BiitProgressBarType} from "@biit-solutions/wizardry-theme/info";
 
 @Component({
-  selector: 'biit-tab-group',
-  templateUrl: 'biit-tab-group.component.html',
-  styleUrls: ['biit-tab-group.component.scss']
+    selector: 'biit-tab-group',
+    templateUrl: 'biit-tab-group.component.html',
+    styleUrls: ['biit-tab-group.component.scss'],
+    standalone: false
 })
 
 export class BiitTabGroupComponent implements AfterViewInit {

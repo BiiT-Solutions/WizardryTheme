@@ -26,9 +26,10 @@ export type LineChartOptions = {
 
 
 @Component({
-  selector: 'biit-line-chart',
-  templateUrl: './line-chart.component.html',
-  styleUrls: ['./line-chart.component.scss']
+    selector: 'biit-line-chart',
+    templateUrl: './line-chart.component.html',
+    styleUrls: ['./line-chart.component.scss'],
+    standalone: false
 })
 export class LineChartComponent implements OnInit, OnChanges {
   @ViewChild('apexChart') apexChart: ChartComponent;

@@ -2,9 +2,10 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MetaViewElementData} from "../../model/meta-view-element-data";
 
 @Component({
-  selector: 'biit-bar-range',
-  templateUrl: './bar-range.component.html',
-  styleUrls: ['./bar-range.component.css']
+    selector: 'biit-bar-range',
+    templateUrl: './bar-range.component.html',
+    styleUrls: ['./bar-range.component.css'],
+    standalone: false
 })
 export class BarRangeComponent {
   @Input('items') set _items(value:  MetaViewElementData[] ) {

@@ -5,20 +5,21 @@ import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
 
 @Component({
-  selector: 'biit-input-text',
-  templateUrl: './biit-input-text.component.html',
-  styleUrls: ['./biit-input-text.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BiitInputTextComponent),
-      multi: true
-    },
-    {
-      provide: TRANSLOCO_SCOPE,
-      useValue: {scope: 'wizardry-theme/inputs', alias: "inputs"}
-    }
-  ]
+    selector: 'biit-input-text',
+    templateUrl: './biit-input-text.component.html',
+    styleUrls: ['./biit-input-text.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => BiitInputTextComponent),
+            multi: true
+        },
+        {
+            provide: TRANSLOCO_SCOPE,
+            useValue: { scope: 'wizardry-theme/inputs', alias: "inputs" }
+        }
+    ],
+    standalone: false
 })
 export class BiitInputTextComponent implements ControlValueAccessor, OnInit {
 

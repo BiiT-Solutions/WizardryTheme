@@ -14,19 +14,20 @@ import {biitIcon} from '@biit-solutions/biit-icons-collection';
 import {BiitMultiselectType} from "../biit-multiselect/biit-multiselect.component";
 
 @Component({
-  selector: 'biit-dropdown',
-  templateUrl: './biit-dropdown.component.html',
-  styleUrls: ['./biit-dropdown.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BiitDropdownComponent),
-      multi: true
-    }
-  ],
-  host: {
-    '(document:pointerdown)': 'handleMouseEvents($event)'
-  }
+    selector: 'biit-dropdown',
+    templateUrl: './biit-dropdown.component.html',
+    styleUrls: ['./biit-dropdown.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => BiitDropdownComponent),
+            multi: true
+        }
+    ],
+    host: {
+        '(document:pointerdown)': 'handleMouseEvents($event)'
+    },
+    standalone: false
 })
 export class BiitDropdownComponent implements ControlValueAccessor, OnInit, DoCheck {
 

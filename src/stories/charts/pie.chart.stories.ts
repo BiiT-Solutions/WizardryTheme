@@ -56,7 +56,7 @@ export default {
       }
     }
   }
-} as Meta;
+} as any;
 
 const Template: Story<PieChartComponent> = (args: PieChartComponent) => ({
   props: args,

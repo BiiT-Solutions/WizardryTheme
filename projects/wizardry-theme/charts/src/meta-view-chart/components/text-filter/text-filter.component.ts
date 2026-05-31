@@ -1,9 +1,10 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-  selector: 'biit-text-filter',
-  templateUrl: './text-filter.component.html',
-  styleUrls: ['./text-filter.component.css']
+    selector: 'biit-text-filter',
+    templateUrl: './text-filter.component.html',
+    styleUrls: ['./text-filter.component.css'],
+    standalone: false
 })
 export class TextFilterComponent {
   @Input() set filter(value: string) {

@@ -9,18 +9,19 @@ import {BiitLoginServiceSupport} from "./models/biit-login-service-support";
 import {debounceTime, Subject} from "rxjs";
 
 @Component({
-  selector: 'biit-login',
-  templateUrl: './biit-login.component.html',
-  styleUrls: ['./biit-login.component.scss'],
-  providers: [{
-    provide: TRANSLOCO_SCOPE,
-    useValue: {scope: 'wizardry-theme/login', alias: "login"},
-    multi: true
-  }, {
-    provide: TRANSLOCO_SCOPE,
-    useValue: {scope: 'wizardry-theme/login-welcome', alias: "login-welcome"},
-    multi: true
-  }]
+    selector: 'biit-login',
+    templateUrl: './biit-login.component.html',
+    styleUrls: ['./biit-login.component.scss'],
+    providers: [{
+            provide: TRANSLOCO_SCOPE,
+            useValue: { scope: 'wizardry-theme/login', alias: "login" },
+            multi: true
+        }, {
+            provide: TRANSLOCO_SCOPE,
+            useValue: { scope: 'wizardry-theme/login-welcome', alias: "login-welcome" },
+            multi: true
+        }],
+    standalone: false
 })
 export class BiitLoginComponent implements OnInit {
 

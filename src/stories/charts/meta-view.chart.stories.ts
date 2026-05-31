@@ -5,7 +5,7 @@ import {
 } from "@biit-solutions/wizardry-theme/charts";
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
-import {APP_INITIALIZER} from "@angular/core";
+import { APP_INITIALIZER } from "@angular/core";
 import {MetaViewData} from "@biit-solutions/wizardry-theme/charts";
 import {View} from '../../../projects/wizardry-theme/charts/src/meta-view-chart/model/view';
 
@@ -19,12 +19,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [MetaViewChartModule],
-      providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: biitIconServiceFactory,
-        multi: true,
-        deps: [BiitIconService],
-      }]
+      providers: [{ provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }]
     }),
   ],
   args: {
@@ -50,7 +45,7 @@ export default {
     },
   },
   parameters: {}
-} as Meta;
+} as any;
 
 const Template: Story<MetaViewChartComponent> = (args: MetaViewChartComponent) => ({
   props: args,

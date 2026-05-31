@@ -2,16 +2,17 @@ import {Component, forwardRef, Input} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
-  selector: 'biit-ternary-togle',
-  templateUrl: './biit-ternary-toggle.component.html',
-  styleUrls: ['./biit-ternary-toggle.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BiitTernaryToggleComponent),
-      multi: true
-    }
-  ]
+    selector: 'biit-ternary-togle',
+    templateUrl: './biit-ternary-toggle.component.html',
+    styleUrls: ['./biit-ternary-toggle.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => BiitTernaryToggleComponent),
+            multi: true
+        }
+    ],
+    standalone: false
 })
 export class BiitTernaryToggleComponent implements ControlValueAccessor{
   @Input() disabled = false;

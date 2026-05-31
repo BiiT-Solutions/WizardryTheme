@@ -25,9 +25,10 @@ export type RadarChartOptions = {
 
 
 @Component({
-  selector: 'biit-radar-chart',
-  templateUrl: './radar-chart.component.html',
-  styleUrls: ['./radar-chart.component.scss']
+    selector: 'biit-radar-chart',
+    templateUrl: './radar-chart.component.html',
+    styleUrls: ['./radar-chart.component.scss'],
+    standalone: false
 })
 export class RadarChartComponent implements OnInit, OnChanges {
   @ViewChild('apexChart') apexChart: ChartComponent;

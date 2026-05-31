@@ -4,12 +4,13 @@ import {DOCUMENT} from "@angular/common";
 import {biitIcon} from '@biit-solutions/biit-icons-collection';
 
 @Component({
-  selector: 'biit-icon',
-  template: `
+    selector: 'biit-icon',
+    template: `
     <ng-content></ng-content>
   `,
-  styles: [':host::ng-deep svg{width: 50px; height: 50px; display: block}'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    styles: [':host::ng-deep svg{width: 50px; height: 50px; display: block}'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class BiitIconComponent implements OnInit {
   private svgIcon: SVGElement | undefined = undefined;

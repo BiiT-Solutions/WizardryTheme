@@ -3,9 +3,10 @@ import {biitIcon} from '@biit-solutions/biit-icons-collection';
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
 
 @Component({
-  selector: 'biit-toggle-button',
-  template: '',
-  styleUrls: ['biit-toggle-button.component.scss']
+    selector: 'biit-toggle-button',
+    template: '',
+    styleUrls: ['biit-toggle-button.component.scss'],
+    standalone: false
 })
 
 export class BiitToggleButtonComponent implements OnInit {

@@ -70,7 +70,7 @@ export default {
       }
     }
   }
-} as Meta;
+} as any;
 
 const Template: Story<RadialChartComponent> = (args: RadialChartComponent) => ({
   props: args,

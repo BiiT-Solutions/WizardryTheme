@@ -22,7 +22,7 @@ import {
   startOfHour
 } from "date-fns";
 import {EventColor} from "../utils/event-color";
-import {CalendarEventTimesChangedEvent} from "angular-calendar";
+import {CalendarEventTimesChangedEvent, CalendarEventTimesChangedEventType} from "angular-calendar";
 import {finalize, fromEvent, merge, Subject, takeUntil} from "rxjs";
 import {CalendarEventClickEvent} from "./models/calendar-event-click-event";
 import {ContextMenuComponent} from "@perfectmemory/ngx-contextmenu";
@@ -30,13 +30,14 @@ import {CalendarUtility} from "./calendar-utility";
 import {CalendarConfiguration} from "./models/calendar-configuration";
 
 @Component({
-  selector: 'biit-calendar',
-  templateUrl: './biit-calendar.component.html',
-  styleUrls: ['./biit-calendar.component.scss'],
-  providers: [{
-    provide: TRANSLOCO_SCOPE,
-    useValue: {scope: 'wizardry-theme/calendar', alias: "calendar"}
-  }]
+    selector: 'biit-calendar',
+    templateUrl: './biit-calendar.component.html',
+    styleUrls: ['./biit-calendar.component.scss'],
+    providers: [{
+            provide: TRANSLOCO_SCOPE,
+            useValue: { scope: 'wizardry-theme/calendar', alias: "calendar" }
+        }],
+    standalone: false
 })
 export class BiitCalendarComponent implements OnInit, AfterViewInit, CalendarUtility{
   @Input() calendarMode: CalendarMode = CalendarMode.MONTH;
@@ -178,6 +179,45 @@ export class BiitCalendarComponent implements OnInit, AfterViewInit, CalendarUti
   private refreshCalendar() {
     this.events = [...this.events];
     this.cdr.detectChanges();
+  }
+
+  // Angular 20 infers DOM Event for template outputs in some third-party directives;
+  // use explicit runtime guards/casts to keep the public outputs strongly typed.
+  onWeekEventTimesChanged(event: unknown): void {
+    this.onEventDrop.emit(event as CalendarEventTimesChangedEvent);
+  }
+
+  onMonthEventTimesChanged(event: unknown): void {
+    this.onEventDrop.emit(event as CalendarEventTimesChangedEvent);
+  }
+
+  onWeekEventClicked(event: unknown): void {
+    const clickEvent = event as { event?: unknown; sourceEvent?: MouseEvent | KeyboardEvent };
+    this.onEventClick.emit({
+      event: this.$calendarEvent(clickEvent.event),
+      sourceEvent: clickEvent.sourceEvent as MouseEvent | KeyboardEvent,
+    });
+  }
+
+  onMonthEventClicked(event: unknown): void {
+    const clickEvent = event as { event?: unknown; sourceEvent?: MouseEvent | KeyboardEvent };
+    this.onEventClick.emit({
+      event: this.$calendarEvent(clickEvent.event),
+      sourceEvent: clickEvent.sourceEvent as MouseEvent | KeyboardEvent,
+    });
+  }
+
+  onHeaderEventDropped(event: unknown, dayDate: Date): void {
+    const dropEvent = event as { dropData?: { event?: unknown } };
+    if (!dropEvent.dropData?.event) {
+      return;
+    }
+
+    this.onEventDrop.emit({
+      type: CalendarEventTimesChangedEventType.Drop,
+      event: this.$calendarEvent(dropEvent.dropData.event),
+      newStart: dayDate,
+    } as unknown as CalendarEventTimesChangedEvent);
   }
 }
 

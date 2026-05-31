@@ -71,7 +71,7 @@ export default {
       }
     }
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitTernaryToggleComponent> = (args: BiitTernaryToggleComponent) => ({
   props: args,

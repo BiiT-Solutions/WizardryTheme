@@ -35,7 +35,7 @@ export default {
     ],
     dragEvent: new CalendarEvent(undefined, 'Drag Event', new Date(), new Date(), false, true, EventColor.PURPLE)
   },
-} as Meta;
+} as any;
 
 export const Weekly: Story<BiitCalendarComponent> = (args: BiitCalendarComponent, { globals }) => {
   TranslocoStorybookModule.setLanguage(globals);

@@ -3,8 +3,9 @@ import {TranslocoService} from "@ngneat/transloco";
 import {Observable} from "rxjs";
 
 @Pipe({
-  name: 'monthSelectorLabel',
-  pure: false
+    name: 'monthSelectorLabel',
+    pure: false,
+    standalone: false
 })
 
 export class MonthSelectorLabelPipe implements PipeTransform {

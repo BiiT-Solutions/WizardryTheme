@@ -4,7 +4,7 @@ import {
 } from '@biit-solutions/wizardry-theme/button';
 import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
-import {APP_INITIALIZER} from '@angular/core';
+import { APP_INITIALIZER } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {BiitGroupModule, BiitInputTextModule} from "@biit-solutions/wizardry-theme/inputs";
 
@@ -18,12 +18,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [BiitGroupModule, BiitInputTextModule, FormsModule],
-      providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: biitIconServiceFactory,
-        multi: true,
-        deps: [BiitIconService],
-      }]
+      providers: [{ provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }]
     }),
   ],
   args: {
@@ -32,7 +27,7 @@ export default {
     enablePlus: true,
     enableMinus: false
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitActionButtonComponent> = (args: BiitActionButtonComponent) => ({
   props: args,

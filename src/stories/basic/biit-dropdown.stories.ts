@@ -3,7 +3,7 @@ import {BiitDropdownModule} from '@biit-solutions/wizardry-theme/inputs';
 import {BiitDropdownComponent} from '@biit-solutions/wizardry-theme/inputs';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {APP_INITIALIZER} from '@angular/core';
+import { APP_INITIALIZER } from '@angular/core';
 import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 
@@ -17,12 +17,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [BiitDropdownModule, FormsModule, CommonModule],
-      providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: biitIconServiceFactory,
-        multi:true,
-        deps: [BiitIconService],
-      }]
+      providers: [{ provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }]
     }),
   ],
   args: {
@@ -133,7 +128,7 @@ export default {
       }
     }
   }
-} as Meta;
+} as any;
 
 const TemplateExpanded: Story<BiitDropdownComponent> = (args: BiitDropdownComponent) => ({
   props: args,

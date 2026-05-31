@@ -1,8 +1,9 @@
 import {IterableDiffer, IterableDiffers, Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
-  name: 'arrayChangeDetector',
-  pure: false
+    name: 'arrayChangeDetector',
+    pure: false,
+    standalone: false
 })
 export class ArrayChangeDetectorPipe implements PipeTransform {
   private differ: IterableDiffer<any>;

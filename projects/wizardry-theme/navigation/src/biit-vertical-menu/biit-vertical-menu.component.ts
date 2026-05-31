@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import {ConnectedPosition} from "@angular/cdk/overlay";
 
 @Component({
-  selector: 'biit-vertical-menu',
-  templateUrl: './biit-vertical-menu.component.html',
-  styleUrls: ['./biit-vertical-menu.component.scss']
+    selector: 'biit-vertical-menu',
+    templateUrl: './biit-vertical-menu.component.html',
+    styleUrls: ['./biit-vertical-menu.component.scss'],
+    standalone: false
 })
 export class BiitVerticalMenuComponent {
   open = false;

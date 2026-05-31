@@ -40,7 +40,7 @@ export default {
       }
     }
   }
-} as Meta;
+} as any;
 
 const Template: Story<RadarChartComponent> = (args: RadarChartComponent) => ({
   props: args,

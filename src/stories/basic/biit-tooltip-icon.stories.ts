@@ -9,7 +9,7 @@ import {
 } from '@biit-solutions/wizardry-theme/inputs';
 import {BiitToggleComponent} from '@biit-solutions/wizardry-theme/inputs';
 import {BiitTooltipIconModule} from "@biit-solutions/wizardry-theme/info";
-import {APP_INITIALIZER} from "@angular/core";
+import { APP_INITIALIZER } from "@angular/core";
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 
@@ -23,19 +23,14 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [BiitTooltipIconModule, BiitInputTextModule, BiitTextareaModule, BiitToggleModule, BiitCheckboxModule, BiitRadioButtonModule, FormsModule],
-      providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: biitIconServiceFactory,
-        multi: true,
-        deps: [BiitIconService],
-      }]
+      providers: [{ provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }]
     }),
   ],
   args: {
     text: 'Testing tooltip',
     selected: ''
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitToggleComponent> = (args: BiitToggleComponent) => ({
   props: args,

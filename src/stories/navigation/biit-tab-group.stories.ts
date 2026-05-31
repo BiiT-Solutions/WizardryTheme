@@ -11,7 +11,7 @@ export default {
   args: {
     loading: false
   }
-} as Meta;
+} as any;
 
 const ExtendedTemplate: Story<BiitTabGroupComponent> = (args: BiitTabGroupComponent) => ({
   props: args,

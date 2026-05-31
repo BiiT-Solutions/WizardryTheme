@@ -3,7 +3,7 @@ import {FormsModule} from '@angular/forms';
 import {BiitDatePickerComponent, BiitDatePickerModule} from '@biit-solutions/wizardry-theme/inputs';
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
-import {APP_INITIALIZER} from "@angular/core";
+import { APP_INITIALIZER } from "@angular/core";
 import {TranslocoStorybookModule} from "../../app/transloco/transloco-storybook.module";
 
 function biitIconServiceFactory(service: BiitIconService) {
@@ -16,12 +16,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [BiitDatePickerModule, FormsModule, TranslocoStorybookModule],
-      providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: biitIconServiceFactory,
-        multi:true,
-        deps: [BiitIconService],
-      }]
+      providers: [{ provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }]
     }),
   ],
   args: {
@@ -172,7 +167,7 @@ export default {
       }
     }
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitDatePickerComponent> = (args: BiitDatePickerComponent, { globals }) => {
   TranslocoStorybookModule.setLanguage(globals);

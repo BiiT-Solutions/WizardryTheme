@@ -25,9 +25,10 @@ export type RadialChartOptions = {
 };
 
 @Component({
-  selector: 'biit-radial-chart',
-  templateUrl: './radial-chart.component.html',
-  styleUrls: ['./radial-chart.component.scss']
+    selector: 'biit-radial-chart',
+    templateUrl: './radial-chart.component.html',
+    styleUrls: ['./radial-chart.component.scss'],
+    standalone: false
 })
 export class RadialChartComponent implements OnInit, OnChanges {
   @ViewChild('apexChart') apexChart: ChartComponent;

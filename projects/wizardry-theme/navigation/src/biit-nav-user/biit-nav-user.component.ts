@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'biit-nav-user',
-  templateUrl: 'biit-nav-user.component.html',
-  styleUrls: ['biit-nav-user.component.scss']
+    selector: 'biit-nav-user',
+    templateUrl: 'biit-nav-user.component.html',
+    styleUrls: ['biit-nav-user.component.scss'],
+    standalone: false
 })
 
 export class BiitNavUserComponent implements OnInit {

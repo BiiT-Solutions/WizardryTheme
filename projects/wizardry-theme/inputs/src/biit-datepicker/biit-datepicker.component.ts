@@ -6,23 +6,24 @@ import {enGB, es, nl} from "date-fns/locale";
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
 
 @Component({
-  selector: 'biit-datepicker',
-  templateUrl: 'biit-datepicker.component.html',
-  styleUrls: ['biit-datepicker.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BiitDatePickerComponent),
-      multi: true
+    selector: 'biit-datepicker',
+    templateUrl: 'biit-datepicker.component.html',
+    styleUrls: ['biit-datepicker.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => BiitDatePickerComponent),
+            multi: true
+        },
+        {
+            provide: TRANSLOCO_SCOPE,
+            useValue: { scope: 'wizardry-theme/inputs', alias: "inputs" }
+        }
+    ],
+    host: {
+        '(document:pointerdown)': 'handleMouseEvents($event)'
     },
-    {
-      provide: TRANSLOCO_SCOPE,
-      useValue: {scope: 'wizardry-theme/inputs', alias: "inputs"}
-    }
-  ],
-  host: {
-    '(document:pointerdown)': 'handleMouseEvents($event)'
-  }
+    standalone: false
 })
 export class BiitDatePickerComponent implements ControlValueAccessor, OnInit {
   @Input() disabled: boolean;

@@ -2,9 +2,10 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MetaViewElementData} from "../../model/meta-view-element-data";
 
 @Component({
-  selector: 'biit-metadata-viewer',
-  templateUrl: './metadata-viewer.component.html',
-  styleUrls: ['./metadata-viewer.component.css']
+    selector: 'biit-metadata-viewer',
+    templateUrl: './metadata-viewer.component.html',
+    styleUrls: ['./metadata-viewer.component.css'],
+    standalone: false
 })
 export class MetadataViewerComponent {
   @Input() set data(data: MetaViewElementData) {

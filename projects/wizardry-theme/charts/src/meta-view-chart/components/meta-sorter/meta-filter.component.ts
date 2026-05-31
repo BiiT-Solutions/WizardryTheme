@@ -4,10 +4,11 @@ import {FieldType} from "./model/FieldType";
 import {FieldTypePipe} from "../../pipes/field-type.pipe";
 
 @Component({
-  selector: 'biit-meta-filter',
-  templateUrl: './meta-filter.component.html',
-  styleUrls: ['./meta-filter.component.css'],
-  providers: [FieldTypePipe]
+    selector: 'biit-meta-filter',
+    templateUrl: './meta-filter.component.html',
+    styleUrls: ['./meta-filter.component.css'],
+    providers: [FieldTypePipe],
+    standalone: false
 })
 export class MetaFilterComponent implements OnInit {
   @Input('metadata') set _metadata(data: MetaViewData) {

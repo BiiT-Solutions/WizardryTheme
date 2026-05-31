@@ -11,16 +11,17 @@ import {
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
-  selector: 'biit-slider-option-vertical',
-  templateUrl: './biit-slider-option-vertical.component.html',
-  styleUrls: ['./biit-slider-option-vertical.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BiitSliderOptionVerticalComponent),
-      multi: true
-    }
-  ]
+    selector: 'biit-slider-option-vertical',
+    templateUrl: './biit-slider-option-vertical.component.html',
+    styleUrls: ['./biit-slider-option-vertical.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => BiitSliderOptionVerticalComponent),
+            multi: true
+        }
+    ],
+    standalone: false
 })
 export class BiitSliderOptionVerticalComponent implements ControlValueAccessor, AfterViewChecked, OnInit {
   @Input() data: { value: string | number, label: string, description: string }[];

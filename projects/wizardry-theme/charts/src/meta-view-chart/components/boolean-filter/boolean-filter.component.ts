@@ -1,9 +1,10 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-  selector: 'biit-boolean-filter',
-  templateUrl: './boolean-filter.component.html',
-  styleUrls: ['./boolean-filter.component.css']
+    selector: 'biit-boolean-filter',
+    templateUrl: './boolean-filter.component.html',
+    styleUrls: ['./boolean-filter.component.css'],
+    standalone: false
 })
 export class BooleanFilterComponent {
   @Input() set filter(value: boolean | undefined) {

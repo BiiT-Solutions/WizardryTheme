@@ -2,9 +2,10 @@ import {Component, Input} from '@angular/core';
 import {biitIcon} from '@biit-solutions/biit-icons-collection';
 
 @Component({
-  selector: 'button[biit-icon]',
-  templateUrl: 'biit-icon-button.component.html',
-  styleUrls: ['biit-icon-button.component.scss'],
+    selector: 'button[biit-icon]',
+    templateUrl: 'biit-icon-button.component.html',
+    styleUrls: ['biit-icon-button.component.scss'],
+    standalone: false
 })
 
 export class BiitIconButtonComponent {

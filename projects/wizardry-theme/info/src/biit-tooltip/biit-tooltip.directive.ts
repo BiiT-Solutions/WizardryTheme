@@ -8,7 +8,8 @@ import {
 import {BiitTooltipComponent} from './biit-tooltip.component';
 
 @Directive({
-  selector: '[tooltip]'
+    selector: '[tooltip]',
+    standalone: false
 })
 export class BiitTooltipDirective {
   @Input() tooltip = '';

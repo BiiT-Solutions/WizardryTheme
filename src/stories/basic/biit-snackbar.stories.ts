@@ -1,7 +1,7 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {BiitButtonModule} from '@biit-solutions/wizardry-theme/button';
 import {FormsModule} from '@angular/forms';
-import {APP_INITIALIZER} from '@angular/core';
+import { APP_INITIALIZER } from '@angular/core';
 import {BiitInputTextModule} from '@biit-solutions/wizardry-theme/inputs';
 import {CommonModule} from '@angular/common';
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
@@ -50,18 +50,8 @@ export default {
     moduleMetadata({
       imports: [BiitSnackbarModule, BiitButtonModule, BiitInputTextModule, FormsModule, CommonModule],
       providers: [
-        {
-          provide: APP_INITIALIZER,
-          useFactory: biitSnackbarServiceFactory,
-          multi: true,
-          deps: [BiitSnackbarService],
-        },
-        {
-          provide: APP_INITIALIZER,
-          useFactory: biitIconServiceFactory,
-          multi:true,
-          deps: [BiitIconService],
-        }
+        { provide: APP_INITIALIZER, useFactory: biitSnackbarServiceFactory, deps: [BiitSnackbarService], multi: true },
+        { provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }
         ]
     })
   ],
@@ -76,7 +66,7 @@ export default {
     actionText: 'Dismiss',
     timeoutSeconds: 5
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitSnackbarComponent> = (args: BiitSnackbarComponent) => ({
   props: {

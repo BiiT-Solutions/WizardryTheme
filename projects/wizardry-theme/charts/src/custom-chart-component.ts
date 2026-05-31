@@ -63,7 +63,8 @@ interface ApexDropShadow {
 }
 
 @Component({
-  template: ''
+    template: '',
+    standalone: false
 })
 export abstract class CustomChartComponent implements OnInit {
 

@@ -73,7 +73,7 @@ export default {
       }
     }
   }
-} as Meta;
+} as any;
 
 const Template: Story<LineChartComponent> = (args: LineChartComponent) => ({
   props: args,

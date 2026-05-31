@@ -115,7 +115,7 @@ export default {
       }
     }
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitSliderComponent> = (args: BiitSliderComponent) => ({
   props: args,

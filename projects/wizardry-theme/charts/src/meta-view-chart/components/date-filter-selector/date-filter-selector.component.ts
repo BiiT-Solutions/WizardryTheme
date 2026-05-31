@@ -2,9 +2,10 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MetaViewElementData} from "../../model/meta-view-element-data";
 
 @Component({
-  selector: 'biit-date-filter-selector',
-  templateUrl: './date-filter-selector.component.html',
-  styleUrls: ['./date-filter-selector.component.css']
+    selector: 'biit-date-filter-selector',
+    templateUrl: './date-filter-selector.component.html',
+    styleUrls: ['./date-filter-selector.component.css'],
+    standalone: false
 })
 export class DateFilterSelectorComponent {
   @Input('items') set _items(value : MetaViewElementData[]) {

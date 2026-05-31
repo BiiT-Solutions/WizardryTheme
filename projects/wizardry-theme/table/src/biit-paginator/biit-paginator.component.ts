@@ -8,19 +8,20 @@ import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {BiitPaginatorOptions} from './models/biit-paginator-options';
 
 @Component({
-  selector: 'biit-paginator',
-  templateUrl: './biit-paginator.component.html',
-  styleUrls: ['./biit-paginator.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BiitPaginatorComponent),
-      multi: true
-    }
-  ],
-  host: {
-    '(document:pointerdown)': 'handleMouseEvents($event)'
-  }
+    selector: 'biit-paginator',
+    templateUrl: './biit-paginator.component.html',
+    styleUrls: ['./biit-paginator.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => BiitPaginatorComponent),
+            multi: true
+        }
+    ],
+    host: {
+        '(document:pointerdown)': 'handleMouseEvents($event)'
+    },
+    standalone: false
 })
 export class BiitPaginatorComponent {
 

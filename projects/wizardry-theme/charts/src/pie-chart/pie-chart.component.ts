@@ -25,9 +25,10 @@ export type PieChartOptions = {
 };
 
 @Component({
-  selector: 'biit-pie-chart',
-  templateUrl: './pie-chart.component.html',
-  styleUrls: ['./pie-chart.component.scss']
+    selector: 'biit-pie-chart',
+    templateUrl: './pie-chart.component.html',
+    styleUrls: ['./pie-chart.component.scss'],
+    standalone: false
 })
 export class PieChartComponent implements OnInit, OnChanges {
   @ViewChild('apexChart') apexChart: ChartComponent;

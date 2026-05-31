@@ -3,7 +3,8 @@ import {MetaViewElementData} from "../model/meta-view-element-data";
 import {BarChartData, BarChartSeries, BarChartSeriesData} from "../../bar-chart/models/bar-chart-data";
 
 @Pipe({
-  name: 'metaElementToBarChart'
+    name: 'metaElementToBarChart',
+    standalone: false
 })
 export class MetaElementToBarChartPipe implements PipeTransform {
 

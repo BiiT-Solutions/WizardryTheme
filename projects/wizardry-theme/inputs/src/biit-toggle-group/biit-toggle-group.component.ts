@@ -11,16 +11,17 @@ import {BiitToggleButtonComponent} from "./biit-toggle-button.component";
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
 
 @Component({
-  selector: 'biit-toggle-group',
-  templateUrl: 'biit-toggle-group.component.html',
-  styleUrls: ['biit-toggle-group.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BiitToggleGroupComponent),
-      multi: true
-    }
-  ]
+    selector: 'biit-toggle-group',
+    templateUrl: 'biit-toggle-group.component.html',
+    styleUrls: ['biit-toggle-group.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => BiitToggleGroupComponent),
+            multi: true
+        }
+    ],
+    standalone: false
 })
 export class BiitToggleGroupComponent implements OnInit, ControlValueAccessor {
   @ContentChildren(BiitToggleButtonComponent) buttons: QueryList<BiitToggleButtonComponent>

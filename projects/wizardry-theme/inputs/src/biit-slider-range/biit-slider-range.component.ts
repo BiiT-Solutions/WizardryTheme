@@ -2,17 +2,18 @@ import {AfterViewChecked, Component, ElementRef, forwardRef, Input, ViewChild, V
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
-  selector: 'biit-slider-range',
-  templateUrl: './biit-slider-range.component.html',
-  styleUrls: ['./biit-slider-range.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BiitSliderRangeComponent),
-      multi: true
-    }
-  ],
-  encapsulation: ViewEncapsulation.None
+    selector: 'biit-slider-range',
+    templateUrl: './biit-slider-range.component.html',
+    styleUrls: ['./biit-slider-range.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => BiitSliderRangeComponent),
+            multi: true
+        }
+    ],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class BiitSliderRangeComponent implements ControlValueAccessor, AfterViewChecked {
   @Input() min: number;

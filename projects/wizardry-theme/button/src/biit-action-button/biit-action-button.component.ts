@@ -2,9 +2,10 @@ import {AfterContentInit, Component, ContentChildren, ElementRef, Input, QueryLi
 import {BiitIconButtonComponent} from "../biit-icon-button/biit-icon-button.component";
 
 @Component({
-  selector: 'biit-action-button',
-  templateUrl: './biit-action-button.component.html',
-  styleUrls: ['./biit-action-button.component.scss']
+    selector: 'biit-action-button',
+    templateUrl: './biit-action-button.component.html',
+    styleUrls: ['./biit-action-button.component.scss'],
+    standalone: false
 })
 export class BiitActionButtonComponent implements AfterContentInit {
 

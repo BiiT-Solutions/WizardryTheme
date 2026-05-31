@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {isSameDay} from "date-fns";
 
 @Pipe({
-  name: 'isSameDay'
+    name: 'isSameDay',
+    standalone: false
 })
 
 export class IsSameDayPipe implements PipeTransform {

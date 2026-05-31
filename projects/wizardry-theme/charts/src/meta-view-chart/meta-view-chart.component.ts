@@ -17,26 +17,27 @@ import {animate, style, transition, trigger} from "@angular/animations";
 import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 
 @Component({
-  selector: 'biit-meta-view-chart',
-  templateUrl: './meta-view-chart.component.html',
-  styleUrls: ['./meta-view-chart.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  providers: [{
-    provide: TRANSLOCO_SCOPE,
-    useValue: {scope: 'wizardry-theme/chart', alias: "charts"}
-  }],
-  animations: [
-    trigger('fadeInOut', [
-      transition(':enter', [
-        style({opacity: 0}),
-        animate('300ms ease-in', style({opacity: 1}))
-      ]),
-      transition(':leave', [
-        style({opacity: 1}),
-        animate('300ms ease-out', style({opacity: 0}))
-      ])
-    ])
-  ]
+    selector: 'biit-meta-view-chart',
+    templateUrl: './meta-view-chart.component.html',
+    styleUrls: ['./meta-view-chart.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    providers: [{
+            provide: TRANSLOCO_SCOPE,
+            useValue: { scope: 'wizardry-theme/chart', alias: "charts" }
+        }],
+    animations: [
+        trigger('fadeInOut', [
+            transition(':enter', [
+                style({ opacity: 0 }),
+                animate('300ms ease-in', style({ opacity: 1 }))
+            ]),
+            transition(':leave', [
+                style({ opacity: 1 }),
+                animate('300ms ease-out', style({ opacity: 0 }))
+            ])
+        ])
+    ],
+    standalone: false
 })
 export class MetaViewChartComponent implements AfterViewInit {
   @Input('data') set _data(data: MetaViewData) {

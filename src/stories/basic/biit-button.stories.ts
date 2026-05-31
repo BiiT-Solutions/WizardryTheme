@@ -12,7 +12,7 @@ export default {
   args: {
     disabled: false
   },
-} as Meta;
+} as any;
 
 const PrimaryTemplate: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
   props: args,

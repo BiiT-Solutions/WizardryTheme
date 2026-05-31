@@ -412,7 +412,7 @@ export default {
       },
     ]
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitNavMenuComponent> = (args: BiitNavMenuComponent) => ({
   props: args,

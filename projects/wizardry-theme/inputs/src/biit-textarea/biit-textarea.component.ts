@@ -3,16 +3,17 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {biitIcon} from '@biit-solutions/biit-icons-collection';
 
 @Component({
-  selector: 'biit-textarea',
-  templateUrl: './biit-textarea.component.html',
-  styleUrls: ['./biit-textarea.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BiitTextareaComponent),
-      multi: true
-    }
-  ]
+    selector: 'biit-textarea',
+    templateUrl: './biit-textarea.component.html',
+    styleUrls: ['./biit-textarea.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => BiitTextareaComponent),
+            multi: true
+        }
+    ],
+    standalone: false
 })
 export class BiitTextareaComponent implements ControlValueAccessor, OnInit {
 

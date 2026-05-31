@@ -3,7 +3,7 @@ import {FormsModule} from '@angular/forms';
 import {BiitToggleGroupModule, BiitToggleGroupComponent} from '@biit-solutions/wizardry-theme/inputs';
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
-import {APP_INITIALIZER} from "@angular/core";
+import { APP_INITIALIZER } from "@angular/core";
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);
@@ -15,12 +15,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [BiitToggleGroupModule, FormsModule],
-      providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: biitIconServiceFactory,
-        multi: true,
-        deps: [BiitIconService],
-      }]
+      providers: [{ provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }]
     }),
   ],
   args: {
@@ -58,7 +53,7 @@ export default {
       }
     },
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitToggleGroupComponent> = (args: BiitToggleGroupComponent) => ({
   props: args,

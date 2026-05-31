@@ -5,9 +5,10 @@ import {DatatableColumn} from "../biit-datatable/models/datatable-column";
 import {Page} from "../biit-datatable/models/page";
 
 @Component({
-  selector: 'biit-datatable-demo',
-  templateUrl: './biit-datatable-demo.component.html',
-  styleUrls: ['./biit-datatable-demo.component.scss']
+    selector: 'biit-datatable-demo',
+    templateUrl: './biit-datatable-demo.component.html',
+    styleUrls: ['./biit-datatable-demo.component.scss'],
+    standalone: false
 })
 export class BiitDatatableDemoComponent {
   @Input() serverSide = false;

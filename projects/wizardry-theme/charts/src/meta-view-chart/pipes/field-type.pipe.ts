@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {FieldType} from "../components/meta-sorter/model/FieldType";
 
 @Pipe({
-  name: 'fieldType'
+    name: 'fieldType',
+    standalone: false
 })
 export class FieldTypePipe implements PipeTransform {
 

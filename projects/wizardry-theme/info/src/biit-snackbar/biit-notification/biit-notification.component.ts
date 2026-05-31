@@ -3,9 +3,10 @@ import {Notification} from '../models/notification';
 import {BiitButtonComponent} from "@biit-solutions/wizardry-theme/button";
 
 @Component({
-  selector: 'biit-notification',
-  templateUrl: 'biit-notification.component.html',
-  styleUrls: ['biit-notification.component.scss']
+    selector: 'biit-notification',
+    templateUrl: 'biit-notification.component.html',
+    styleUrls: ['biit-notification.component.scss'],
+    standalone: false
 })
 
 export class BiitNotificationComponent implements OnDestroy {

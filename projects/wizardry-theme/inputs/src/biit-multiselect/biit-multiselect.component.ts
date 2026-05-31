@@ -22,19 +22,20 @@ export enum BiitMultiselectType {
 }
 
 @Component({
-  selector: 'biit-multiselect',
-  templateUrl: './biit-multiselect.component.html',
-  styleUrls: ['./biit-multiselect.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BiitMultiselectComponent),
-      multi: true
-    }
-  ],
-  host: {
-    '(document:pointerdown)': 'handleMouseEvents($event)'
-  }
+    selector: 'biit-multiselect',
+    templateUrl: './biit-multiselect.component.html',
+    styleUrls: ['./biit-multiselect.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => BiitMultiselectComponent),
+            multi: true
+        }
+    ],
+    host: {
+        '(document:pointerdown)': 'handleMouseEvents($event)'
+    },
+    standalone: false
 })
 
 export class BiitMultiselectComponent implements ControlValueAccessor, OnInit, AfterViewInit, DoCheck {

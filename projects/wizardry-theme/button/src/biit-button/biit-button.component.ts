@@ -1,7 +1,8 @@
 import {Component, Directive} from '@angular/core';
 
 @Directive({
-  selector: '[primary]'
+    selector: '[primary]',
+    standalone: false
 })
 export class BiitButtonPrimaryDirective {
   constructor(private parent: BiitButtonComponent) {
@@ -10,7 +11,8 @@ export class BiitButtonPrimaryDirective {
 }
 
 @Directive({
-  selector: '[secondary]'
+    selector: '[secondary]',
+    standalone: false
 })
 export class BiitButtonSecondaryDirective {
   constructor(private parent: BiitButtonComponent) {
@@ -19,7 +21,8 @@ export class BiitButtonSecondaryDirective {
 }
 
 @Directive({
-  selector: '[tertiary]'
+    selector: '[tertiary]',
+    standalone: false
 })
 export class BiitButtonTertiaryDirective {
   constructor(private parent: BiitButtonComponent) {
@@ -28,7 +31,8 @@ export class BiitButtonTertiaryDirective {
 }
 
 @Directive({
-  selector: '[quaternary]'
+    selector: '[quaternary]',
+    standalone: false
 })
 export class BiitButtonQuaternaryDirective {
   constructor(private parent: BiitButtonComponent) {
@@ -37,9 +41,10 @@ export class BiitButtonQuaternaryDirective {
 }
 
 @Component({
-  selector: 'button[biit-button]',
-  templateUrl: 'biit-button.component.html',
-  styleUrls: ['biit-button.component.scss'],
+    selector: 'button[biit-button]',
+    templateUrl: 'biit-button.component.html',
+    styleUrls: ['biit-button.component.scss'],
+    standalone: false
 })
 
 export class BiitButtonComponent {

@@ -33,9 +33,10 @@ export type HeatmapOptions = {
 
 
 @Component({
-  selector: 'biit-heatmap',
-  templateUrl: './heatmap-chart.component.html',
-  styleUrls: ['./heatmap-chart.component.scss']
+    selector: 'biit-heatmap',
+    templateUrl: './heatmap-chart.component.html',
+    styleUrls: ['./heatmap-chart.component.scss'],
+    standalone: false
 })
 export class HeatmapChartComponent implements OnInit, OnChanges {
 

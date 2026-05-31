@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {MetaViewElementData} from "../model/meta-view-element-data";
 
 @Pipe({
-  name: 'metaElementMaxValue'
+    name: 'metaElementMaxValue',
+    standalone: false
 })
 export class MetaElementMaxValuePipe implements PipeTransform {
 

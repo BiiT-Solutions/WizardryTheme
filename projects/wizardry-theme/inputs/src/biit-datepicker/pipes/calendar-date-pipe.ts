@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'calendarDate'
+    name: 'calendarDate',
+    standalone: false
 })
 
 export class CalendarDatePipe implements PipeTransform {

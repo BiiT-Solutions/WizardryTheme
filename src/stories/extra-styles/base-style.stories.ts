@@ -9,7 +9,7 @@ export default {
   ],
   args: {
   }
-} as Meta;
+} as any;
 
 const Template: Story = (args) => ({
   props: args,

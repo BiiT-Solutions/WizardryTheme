@@ -4,7 +4,7 @@ import {BiitRadioButtonModule} from '@biit-solutions/wizardry-theme/inputs';
 import {BiitRadioButtonComponent} from '@biit-solutions/wizardry-theme/inputs';
 import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
-import {APP_INITIALIZER} from '@angular/core';
+import { APP_INITIALIZER } from '@angular/core';
 
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);
@@ -16,12 +16,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [BiitRadioButtonModule, FormsModule],
-      providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: biitIconServiceFactory,
-        multi: true,
-        deps: [BiitIconService],
-      }]
+      providers: [{ provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }]
     }),
   ],
   args: {
@@ -117,7 +112,7 @@ export default {
       }
     },
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitRadioButtonComponent> = (args: BiitRadioButtonComponent) => ({
   props: args,

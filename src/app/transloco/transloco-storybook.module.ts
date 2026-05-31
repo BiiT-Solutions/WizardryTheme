@@ -1,4 +1,7 @@
 import { HttpClientModule } from "@angular/common/http"
+import { APP_INITIALIZER, NgModule } from "@angular/core"
+import { FORCE_RE_RENDER } from "@storybook/core-events"
+import { addons } from "@storybook/preview-api"
 import {
   DefaultTranspiler,
   provideTransloco,
@@ -6,11 +9,11 @@ import {
   TRANSLOCO_TRANSPILER,
   TranslocoModule, TranslocoService,
 } from "@ngneat/transloco"
-import {APP_INITIALIZER, NgModule} from "@angular/core"
 import {DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, TranslocoHttpLoader} from "@biit-solutions/wizardry-theme/i18n";
-import {forceReRender} from "@storybook/angular";
 import {distinctUntilChanged, tap} from "rxjs";
 import {provideTranslocoLocale} from "@ngneat/transloco-locale";
+
+const forceReRender = (): void => addons.getChannel().emit(FORCE_RE_RENDER);
 
 export const translocoServiceState = { instance: null as TranslocoService | null };
 
@@ -36,9 +39,9 @@ export const translocoServiceState = { instance: null as TranslocoService | null
     }),
     {
       provide: APP_INITIALIZER,
-      useFactory: translocoStorybookInitializer, // our initializer hook
+      useFactory: translocoStorybookInitializer,
+      deps: [TranslocoService],
       multi: true,
-      deps: [TranslocoService], // the dependencies that Angular passes as arguments to our hook
     },
     {
       provide: TRANSLOCO_TRANSPILER,

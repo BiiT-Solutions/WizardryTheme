@@ -1,9 +1,10 @@
 import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'biit-meta-element',
-  templateUrl: './meta-element.component.html',
-  styleUrls: ['./meta-element.component.css']
+    selector: 'biit-meta-element',
+    templateUrl: './meta-element.component.html',
+    styleUrls: ['./meta-element.component.css'],
+    standalone: false
 })
 export class MetaElementComponent {
   @Input() icon: SVGElement;

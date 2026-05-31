@@ -2,9 +2,10 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
 
 @Component({
-  selector: 'biit-group',
-  templateUrl: './biit-group.component.html',
-  styleUrls: ['./biit-group.component.scss']
+    selector: 'biit-group',
+    templateUrl: './biit-group.component.html',
+    styleUrls: ['./biit-group.component.scss'],
+    standalone: false
 })
 export class BiitGroupComponent {
   @Input() legend: string;

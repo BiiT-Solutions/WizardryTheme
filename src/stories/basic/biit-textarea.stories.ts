@@ -1,7 +1,7 @@
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
 import {BiitTextareaModule, BiitTextareaComponent} from '@biit-solutions/wizardry-theme/inputs';
-import {APP_INITIALIZER} from '@angular/core';
+import { APP_INITIALIZER } from '@angular/core';
 import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 
@@ -15,12 +15,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [BiitTextareaModule, FormsModule],
-      providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: biitIconServiceFactory,
-        multi:true,
-        deps: [BiitIconService],
-      }]
+      providers: [{ provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }]
     }),
   ],
   args: {
@@ -34,7 +29,7 @@ export default {
     maxLength: 500,
     placeholder: 'Textarea component'
   },
-} as Meta;
+} as any;
 
 const Template: Story<BiitTextareaComponent> = (args: BiitTextareaComponent) => ({
   props: args,

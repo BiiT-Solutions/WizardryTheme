@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {MetaViewElementData} from "../model/meta-view-element-data";
 
 @Pipe({
-  name: 'stepValueExtractor'
+    name: 'stepValueExtractor',
+    standalone: false
 })
 export class StepValueExtractorPipe implements PipeTransform {
 

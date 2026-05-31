@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'removeFromArray'
+    name: 'removeFromArray',
+    standalone: false
 })
 export class RemoveFromArrayPipe implements PipeTransform {
 

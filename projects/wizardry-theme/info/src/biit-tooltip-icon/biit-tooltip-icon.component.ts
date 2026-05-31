@@ -2,9 +2,10 @@ import {Component, Input} from '@angular/core';
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
 
 @Component({
-  selector: 'biit-tooltip-icon',
-  templateUrl: './biit-tooltip-icon.component.html',
-  styleUrls: ['./biit-tooltip-icon.component.scss']
+    selector: 'biit-tooltip-icon',
+    templateUrl: './biit-tooltip-icon.component.html',
+    styleUrls: ['./biit-tooltip-icon.component.scss'],
+    standalone: false
 })
 export class BiitTooltipIconComponent {
   @Input() text;

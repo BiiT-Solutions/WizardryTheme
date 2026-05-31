@@ -1,15 +1,19 @@
-import {Story, Meta, moduleMetadata, forceReRender} from '@storybook/angular';
+import {Story, moduleMetadata} from '@storybook/angular';
 import {BiitToggleComponent} from '@biit-solutions/wizardry-theme/inputs';
-import {APP_INITIALIZER} from "@angular/core";
+import { APP_INITIALIZER } from "@angular/core";
+import { FORCE_RE_RENDER } from '@storybook/core-events';
+import { addons } from '@storybook/preview-api';
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {BiitCookiesConsentModule} from "@biit-solutions/wizardry-theme/info";
 import {BiitButtonModule} from "@biit-solutions/wizardry-theme/button";
 import {FormsModule} from "@angular/forms";
 
+const forceReRender = (): void => addons.getChannel().emit(FORCE_RE_RENDER);
+
 function biitIconServiceFactory(service: BiitIconService) {
   service.registerIcons(completeIconSet);
-  return () => service;
+  return (): void => undefined;
 }
 
 function removeConsent() {
@@ -22,15 +26,10 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [BiitCookiesConsentModule, FormsModule, BiitButtonModule],
-      providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: biitIconServiceFactory,
-        multi: true,
-        deps: [BiitIconService],
-      }]
+      providers: [{ provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }]
     }),
   ],
-} as Meta;
+} as any;
 
 const Template: Story<BiitToggleComponent> = (args: BiitToggleComponent) => ({
   props: {

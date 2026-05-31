@@ -3,13 +3,14 @@ import {coerceBooleanProperty} from "@angular/cdk/coercion";
 import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
 
 @Component({
-  selector: 'biit-cookies-consent',
-  templateUrl: './biit-cookies-consent.component.html',
-  styleUrls: ['./biit-cookies-consent.component.scss'],
-  providers: [{
-    provide: TRANSLOCO_SCOPE,
-    useValue: {scope: 'wizardry-theme/info', alias: "info"}
-  }]
+    selector: 'biit-cookies-consent',
+    templateUrl: './biit-cookies-consent.component.html',
+    styleUrls: ['./biit-cookies-consent.component.scss'],
+    providers: [{
+            provide: TRANSLOCO_SCOPE,
+            useValue: { scope: 'wizardry-theme/info', alias: "info" }
+        }],
+    standalone: false
 })
 export class BiitCookiesConsentComponent {
   protected consent: boolean = false;

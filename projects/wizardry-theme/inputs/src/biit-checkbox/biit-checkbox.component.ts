@@ -2,16 +2,17 @@ import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core'
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
-  selector: 'biit-checkbox',
-  templateUrl: 'biit-checkbox.component.html',
-  styleUrls: ['biit-checkbox.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BiitCheckboxComponent),
-      multi: true
-    }
-  ]
+    selector: 'biit-checkbox',
+    templateUrl: 'biit-checkbox.component.html',
+    styleUrls: ['biit-checkbox.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => BiitCheckboxComponent),
+            multi: true
+        }
+    ],
+    standalone: false
 })
 export class BiitCheckboxComponent implements ControlValueAccessor {
   @Input() disabled = false;

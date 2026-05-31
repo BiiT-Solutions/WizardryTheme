@@ -5,10 +5,11 @@ import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 
 @Component({
-  selector: 'biit-datatable-pager',
-  templateUrl: './biit-datatable-pager.component.html',
-  styleUrls: ['./biit-datatable-pager.component.scss'],
-  providers: [provideTranslocoScope({scope:'wizardry-theme/table', alias:'t'})]
+    selector: 'biit-datatable-pager',
+    templateUrl: './biit-datatable-pager.component.html',
+    styleUrls: ['./biit-datatable-pager.component.scss'],
+    providers: [provideTranslocoScope({ scope: 'wizardry-theme/table', alias: 't' })],
+    standalone: false
 })
 export class BiitDatatablePagerComponent extends DataTablePagerComponent {
 

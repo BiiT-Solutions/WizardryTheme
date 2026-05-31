@@ -5,10 +5,11 @@ import { fromEvent } from 'rxjs';
 import { auditTime } from 'rxjs/operators';
 
 @Component({
-  selector: 'biit-nav-menu',
-  templateUrl: 'biit-nav-menu.component.html',
-  styleUrls: ['biit-nav-menu.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'biit-nav-menu',
+    templateUrl: 'biit-nav-menu.component.html',
+    styleUrls: ['biit-nav-menu.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 
 export class BiitNavMenuComponent {

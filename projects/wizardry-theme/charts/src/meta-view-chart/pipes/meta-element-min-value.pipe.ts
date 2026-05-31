@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {MetaViewElementData} from "../model/meta-view-element-data";
 
 @Pipe({
-  name: 'metaElementMinValue'
+    name: 'metaElementMinValue',
+    standalone: false
 })
 export class MetaElementMinValuePipe implements PipeTransform {
 

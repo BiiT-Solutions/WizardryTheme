@@ -2,9 +2,10 @@ import {Component, Input} from '@angular/core';
 import {biitIcon} from '@biit-solutions/biit-icons-collection';
 
 @Component({
-  selector: 'biit-gallery-card',
-  templateUrl: './biit-gallery-card.component.html',
-  styleUrls: ['./biit-gallery-card.component.scss']
+    selector: 'biit-gallery-card',
+    templateUrl: './biit-gallery-card.component.html',
+    styleUrls: ['./biit-gallery-card.component.scss'],
+    standalone: false
 })
 export class BiitGalleryCardComponent {
   @Input() title: string = "";

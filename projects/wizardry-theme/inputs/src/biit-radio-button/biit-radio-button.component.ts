@@ -2,16 +2,17 @@ import {Component, Input, forwardRef, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
-  selector: 'biit-radio-button',
-  templateUrl: 'biit-radio-button.component.html',
-  styleUrls: ['biit-radio-button.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BiitRadioButtonComponent),
-      multi: true
-    }
-  ]
+    selector: 'biit-radio-button',
+    templateUrl: 'biit-radio-button.component.html',
+    styleUrls: ['biit-radio-button.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => BiitRadioButtonComponent),
+            multi: true
+        }
+    ],
+    standalone: false
 })
 export class BiitRadioButtonComponent implements ControlValueAccessor, OnInit {
   @Input() id: string;

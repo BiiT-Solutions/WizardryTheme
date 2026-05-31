@@ -10,10 +10,11 @@ import {provideTranslocoScope} from "@ngneat/transloco";
 import {Page} from "./models/page";
 
 @Component({
-  selector: 'biit-datatable',
-  templateUrl: './biit-datatable.component.html',
-  styleUrls: ['./biit-datatable.component.scss'],
-  providers: [provideTranslocoScope({scope: 'wizardry-theme/table', alias: 't'})]
+    selector: 'biit-datatable',
+    templateUrl: './biit-datatable.component.html',
+    styleUrls: ['./biit-datatable.component.scss'],
+    providers: [provideTranslocoScope({ scope: 'wizardry-theme/table', alias: 't' })],
+    standalone: false
 })
 export class BiitDatatableComponent<T> implements OnInit {
   @ViewChild('table') table: DatatableComponent;

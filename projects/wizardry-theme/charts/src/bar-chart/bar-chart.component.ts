@@ -24,12 +24,13 @@ export type BarChartOptions = {
 };
 
 @Component({
-  selector: 'biit-bar-chart',
-  templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.scss'],
-  host: {
-    '(document:scroll)': 'handleScroll($event)'
-  }
+    selector: 'biit-bar-chart',
+    templateUrl: './bar-chart.component.html',
+    styleUrls: ['./bar-chart.component.scss'],
+    host: {
+        '(document:scroll)': 'handleScroll($event)'
+    },
+    standalone: false
 })
 export class BarChartComponent implements OnInit, OnChanges, AfterViewInit {
   @ViewChild('apexChart') apexChart: ChartComponent;

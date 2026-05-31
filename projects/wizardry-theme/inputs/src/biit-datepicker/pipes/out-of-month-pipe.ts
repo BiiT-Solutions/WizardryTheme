@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {isSameMonth} from "date-fns";
 
 @Pipe({
-  name: 'outOfMonth'
+    name: 'outOfMonth',
+    standalone: false
 })
 
 export class OutOfMonthPipe implements PipeTransform {

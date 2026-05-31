@@ -12,7 +12,7 @@ export default {
     title: 'John Doe',
     subtitle: ''
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitNavUserComponent> = (args: BiitNavUserComponent) => ({
   props: args,

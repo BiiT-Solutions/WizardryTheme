@@ -7,9 +7,10 @@ import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {GenericSort} from "../utils/generic-sort";
 
 @Component({
-  selector: 'biit-table-demo',
-  templateUrl: './biit-table-demo.component.html',
-  styleUrls: ['./biit-table-demo.component.scss']
+    selector: 'biit-table-demo',
+    templateUrl: './biit-table-demo.component.html',
+    styleUrls: ['./biit-table-demo.component.scss'],
+    standalone: false
 })
 export class BiitTableDemoComponent implements OnInit {
 

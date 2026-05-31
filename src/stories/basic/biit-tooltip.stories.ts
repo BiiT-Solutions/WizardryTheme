@@ -9,7 +9,7 @@ export default {
       imports: [BiitButtonModule, BiitTooltipModule]
     }),
   ],
-} as Meta;
+} as any;
 
 const Template: Story<BiitButtonComponent> = (args: BiitButtonComponent) => ({
   props: args,

@@ -76,7 +76,7 @@ export default {
       }
     },
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitCheckboxComponent> = (args: BiitCheckboxComponent) => ({
   props: args,

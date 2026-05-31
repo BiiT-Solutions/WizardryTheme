@@ -1,9 +1,10 @@
 import {Component, ViewChild, ElementRef} from '@angular/core';
 
 @Component({
-  selector: 'biit-tooltip',
-  templateUrl: 'biit-tooltip.component.html',
-  styleUrls: ['biit-tooltip.component.scss']
+    selector: 'biit-tooltip',
+    templateUrl: 'biit-tooltip.component.html',
+    styleUrls: ['biit-tooltip.component.scss'],
+    standalone: false
 })
 
 export class BiitTooltipComponent {

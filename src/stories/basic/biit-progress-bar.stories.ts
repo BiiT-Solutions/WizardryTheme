@@ -44,7 +44,7 @@ export default {
       if: { arg: 'type', eq: 'DETERMINATE' }
     }
   }
-} as Meta;
+} as any;
 
 
 const Template: Story<BiitProgressBarComponent> = (args: BiitProgressBarComponent) => ({

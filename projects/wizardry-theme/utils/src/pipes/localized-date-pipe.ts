@@ -3,8 +3,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {TranslocoLocaleService} from "@ngneat/transloco-locale";
 
 @Pipe({
-  name: 'localizedDate',
-  pure: false
+    name: 'localizedDate',
+    pure: false,
+    standalone: false
 })
 export class LocalizedDatePipe implements PipeTransform {
 

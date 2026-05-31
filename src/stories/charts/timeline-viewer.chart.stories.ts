@@ -35,7 +35,7 @@ export default {
       }
     }
   },
-} as Meta;
+} as any;
 
 const Template: Story<TimelineViewerChartComponent> = (args: TimelineViewerChartComponent) => ({
   props: args,

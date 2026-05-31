@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {isSameDay, isWeekend} from "date-fns";
 
 @Pipe({
-  name: 'isDisabled'
+    name: 'isDisabled',
+    standalone: false
 })
 
 export class IsDisabledPipe implements PipeTransform {

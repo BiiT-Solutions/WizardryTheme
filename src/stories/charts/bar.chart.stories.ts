@@ -71,7 +71,7 @@ export default {
       }
     }
   }
-} as Meta;
+} as any;
 
 const Template: Story<BarChartComponent> = (args: BarChartComponent) => ({
   props: args,

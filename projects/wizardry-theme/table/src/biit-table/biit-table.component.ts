@@ -22,7 +22,8 @@ import {TRANSLOCO_SCOPE} from '@ngneat/transloco';
 import {BiitTableActionResponse} from "./models/biit-table-action-response";
 
 @Directive({
-  selector: '[selectable]'
+    selector: '[selectable]',
+    standalone: false
 })
 export class BiitTableSelectableDirective {
   constructor(private parent: BiitTableComponent) {
@@ -31,7 +32,8 @@ export class BiitTableSelectableDirective {
 }
 
 @Directive({
-  selector: '[selectableSingle]'
+    selector: '[selectableSingle]',
+    standalone: false
 })
 export class BiitTableSelectableSingleDirective {
   constructor(private parent: BiitTableComponent) {
@@ -40,7 +42,8 @@ export class BiitTableSelectableSingleDirective {
 }
 
 @Directive({
-  selector: '[sortable]'
+    selector: '[sortable]',
+    standalone: false
 })
 export class BiitTableSortableDirective {
   constructor(private parent: BiitTableComponent) {
@@ -49,7 +52,8 @@ export class BiitTableSortableDirective {
 }
 
 @Directive({
-  selector: '[hideHeader]'
+    selector: '[hideHeader]',
+    standalone: false
 })
 export class BiitTableHeaderlessDirective {
   constructor(private parent: BiitTableComponent) {
@@ -58,7 +62,8 @@ export class BiitTableHeaderlessDirective {
 }
 
 @Directive({
-  selector: '[hideFooter]'
+    selector: '[hideFooter]',
+    standalone: false
 })
 export class BiitTableFooterlessDirective {
   constructor(private parent: BiitTableComponent) {
@@ -67,13 +72,14 @@ export class BiitTableFooterlessDirective {
 }
 
 @Component({
-  selector: 'biit-table',
-  templateUrl: './biit-table.component.html',
-  styleUrls: ['./biit-table.component.scss'],
-  providers: [{
-    provide: TRANSLOCO_SCOPE,
-    useValue: {scope: 'wizardry-theme/table', alias: "table"}
-  }]
+    selector: 'biit-table',
+    templateUrl: './biit-table.component.html',
+    styleUrls: ['./biit-table.component.scss'],
+    providers: [{
+            provide: TRANSLOCO_SCOPE,
+            useValue: { scope: 'wizardry-theme/table', alias: "table" }
+        }],
+    standalone: false
 })
 export class BiitTableComponent implements OnInit, AfterViewChecked {
 

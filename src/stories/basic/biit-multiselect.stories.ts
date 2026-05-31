@@ -1,7 +1,7 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {APP_INITIALIZER} from '@angular/core';
+import { APP_INITIALIZER } from '@angular/core';
 import {BiitIconService} from '@biit-solutions/wizardry-theme/icon';
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {BiitMultiselectComponent, BiitMultiselectModule, BiitMultiselectType} from '@biit-solutions/wizardry-theme/inputs';
@@ -40,12 +40,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [BiitMultiselectModule, FormsModule, CommonModule],
-      providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: biitIconServiceFactory,
-        multi:true,
-        deps: [BiitIconService],
-      }]
+      providers: [{ provide: APP_INITIALIZER, useFactory: biitIconServiceFactory, deps: [BiitIconService], multi: true }]
     }),
   ],
   args: {
@@ -170,7 +165,7 @@ export default {
       }
     }
   }
-} as Meta;
+} as any;
 
 const Template: Story<BiitMultiselectComponent> = (args: BiitMultiselectComponent) => ({
   props: args,
