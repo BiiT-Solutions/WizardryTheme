@@ -1,7 +1,7 @@
 {
   "name": "@wizardry-theme/table",
   "peerDependencies": {
-    "@angular/material": "^18.0.0",
+    "@angular/material": "^21.2.13",
     "@siemens/ngx-datatable": "^22.4.2"
   },
   "i18n": [

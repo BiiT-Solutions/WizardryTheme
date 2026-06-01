@@ -2,8 +2,8 @@
   "name": "@wizardry-theme/biit-icon",
   "author": "BiiT Sourcing Solutions",
   "peerDependencies": {
-    "@angular/common": "^18.0.0",
-    "@angular/core": "^18.0.0"
+    "@angular/common": "^21.2.13",
+    "@angular/core": "^21.2.13"
   },
   "dependencies": {
     "tslib": "^2.3.0"

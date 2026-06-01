@@ -69,7 +69,7 @@ Create this file on the root folder of your component (`projects/wizardry-theme/
 ```
 {
   "peerDependencies": {
-    "@angular/material": "^16.0.0"
+    "@angular/material": "^21.2.13"
   }
 }
 ```

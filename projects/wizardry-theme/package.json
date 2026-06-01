@@ -1,6 +1,6 @@
 {
   "name": "@biit-solutions/wizardry-theme",
-  "version": "1.25.1",
+  "version": "1.25.2",
   "license": "AGPLv3",
   "author": "BiiT Sourcing Solutions",
   "private": false,
@@ -8,9 +8,9 @@
     "increase-version": "npm --no-git-tag-version version patch"
   },
   "peerDependencies": {
-    "@angular/common": "^18.0.0",
-    "@angular/core": "^18.0.0",
-    "@angular/material": "^18.0.0",
+    "@angular/common": "^21.2.13",
+    "@angular/core": "^21.2.13",
+    "@angular/material": "^21.2.13",
     "@ngneat/transloco": "^4.2.2",
     "tslib": "^2.3.0",
     "apexcharts": "^3.37.1",
