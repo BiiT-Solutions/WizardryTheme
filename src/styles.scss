@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import "angular-calendar/scss/angular-calendar";
-@import "@perfectmemory/ngx-contextmenu/src/assets/stylesheets/base";
-@import "theme-colors";
+@use "angular-calendar/scss/angular-calendar";
+@use "@perfectmemory/ngx-contextmenu/src/assets/stylesheets/base";
+@use "./theme-colors" as *;
 
 
 html, body {

@@ -1,7 +1,7 @@
-@import "angular-calendar/scss/angular-calendar";
-@import "@siemens/ngx-datatable/assets/icons";
-@import '@angular/cdk/overlay-prebuilt';
-@import "@perfectmemory/ngx-contextmenu/src/assets/stylesheets/base";
+@use "angular-calendar/scss/angular-calendar";
+@use "@siemens/ngx-datatable/assets/icons";
+@use '@angular/cdk/overlay-prebuilt';
+@use "@perfectmemory/ngx-contextmenu/src/assets/stylesheets/base";
 
 html, body{
   height: 100%;
