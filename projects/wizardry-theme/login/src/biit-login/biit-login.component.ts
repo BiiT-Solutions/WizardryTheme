@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Type} from '@biit-solutions/wizardry-theme/inputs';
 import {BiitLogin} from "@biit-solutions/wizardry-theme/models";
 import {LoginErrors} from "./models/LoginErrors";
-import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
+import {TRANSLOCO_SCOPE, TranslocoService} from "@jsverse/transloco";
 import {SignUpRequest} from "./models/sign-up-request";
 import {HttpErrorResponse} from "@angular/common/http";
 import {BiitLoginServiceSupport} from "./models/biit-login-service-support";

@@ -1,7 +1,7 @@
 import {Component, Input, forwardRef, OnInit, ElementRef, HostListener} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {eachDayOfInterval, add, setDate, startOfWeek, sub, setDefaultOptions, Locale, parseISO} from 'date-fns'
-import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
+import {TRANSLOCO_SCOPE, TranslocoService} from "@jsverse/transloco";
 import {enGB, es, nl} from "date-fns/locale";
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
 

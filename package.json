@@ -11,16 +11,16 @@
     "build-library": "npm run transloco:extract && ng build wizardry-theme",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "transloco:clean": "del-cli --force ./src/assets/i18n/wizardry-theme",
-    "transloco:extract": "npm run transloco:clean && transloco-scoped-libs",
+    "transloco:clean": "rimraf ./src/assets/i18n/wizardry-theme",
+    "transloco:extract": "npm run transloco:clean && node ./scripts/transloco-scoped-libs.mjs",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run transloco:extract && npm run docs:json && ng run storybook:storybook",
     "storybook:fast": "ng run storybook:storybook",
     "build-storybook": "npm run transloco:extract && npm run docs:json && ng run storybook:build-storybook",
     "build-storybook:fast": "ng run storybook:build-storybook",
     "prepare-publication": "cp ./README.md ./storybook-static/ && echo \"{\\\"name\\\": \\\"`node -e \"console.log(require('./package.json').name);\"\n`\\\", \\\"version\\\": \\\"`node -e \"console.log(require('./package.json').version);\"\n`\\\"}\" > ./storybook-static/package.json",
-    "prepare-translations": "cpx \"./src/assets/i18n/wizardry-theme/**/*.json\" \"./dist/wizardry-theme/assets/i18n/\"",
-    "prepare-styles": "cpx \"./src/assets/styles/**/*.*\" \"./dist/wizardry-theme/assets/styles/\"",
+    "prepare-translations": "cpy \"src/assets/i18n/wizardry-theme/**/*.json\" \"dist/wizardry-theme/assets/i18n\" --parents",
+    "prepare-styles": "cpy \"src/assets/styles/**/*.*\" \"dist/wizardry-theme/assets/styles\" --parents",
     "generate-zip": "mkdir -p ./dist-zip && tar -zcvf ./dist-zip/storybook.gz ./storybook-static",
     "publish-storybook": "npm run build-storybook && npm run prepare-publication && npm publish --access=public ./storybook-static",
     "publish-library": "npm run build-library && npm run prepare-translations && npm run prepare-styles && npm publish --access=public ./dist/wizardry-theme/"
@@ -39,7 +39,7 @@
     "@angular/platform-browser-dynamic": "21.2.15",
     "@angular/router": "21.2.15",
     "@biit-solutions/biit-icons-collection": "latest",
-    "@ngneat/transloco-locale": "^5.1.1",
+    "@jsverse/transloco-locale": "^8.4.0",
     "@perfectmemory/ngx-contextmenu": "^21.0.1",
     "@siemens/ngx-datatable": "^22.4.2",
     "angular-calendar": "~0.31.0",
@@ -48,7 +48,7 @@
     "ng-apexcharts": "~1.8.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "uuid": "^9.0.0",
+    "uuid": "^11.1.0",
     "web-file-polyfill": "^1.0.4",
     "zone.js": "~0.15.1"
   },
@@ -58,19 +58,15 @@
     "@angular/compiler-cli": "21.2.15",
     "@babel/core": "^7.20.12",
     "@compodoc/compodoc": "^1.1.19",
-    "@ngneat/transloco": "^5.0.0",
-    "@ngneat/transloco-scoped-libs": "^5.0.3",
+    "@jsverse/transloco": "^8.4.0",
     "@storybook/addon-docs": "^10.4.1",
     "@storybook/addon-links": "^10.4.1",
     "@storybook/angular": "^10.4.1",
     "@storybook/builder-webpack5": "^10.4.1",
-    "@storybook/testing-library": "^0.2.2",
     "@types/jasmine": "~4.3.0",
-    "@types/uuid": "^9.0.2",
     "babel-loader": "^8.3.0",
-    "cpx": "^1.5.0",
     "date-fns": "^2.30.0",
-    "del-cli": "^5.0.0",
+    "cpy-cli": "^5.0.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -81,10 +77,19 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "storybook": "^10.4.1",
+    "rimraf": "^6.0.1",
     "typescript": "~5.9.3"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/BiiT-Solutions/WizardryTheme.git"
+  },
+  "overrides": {
+    "sockjs": {
+      "uuid": "^11.1.0"
+    },
+    "http-auth": {
+      "uuid": "^11.1.0"
+    }
   }
 }

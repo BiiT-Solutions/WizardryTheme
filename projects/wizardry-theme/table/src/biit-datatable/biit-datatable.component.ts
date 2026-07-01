@@ -6,7 +6,7 @@ import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {BiitMultiselectType} from "@biit-solutions/wizardry-theme/inputs";
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
 import {GenericFilter} from "../utils/generic-filter";
-import {provideTranslocoScope} from "@ngneat/transloco";
+import {provideTranslocoScope} from "@jsverse/transloco";
 import {Page} from "./models/page";
 
 @Component({

@@ -8,10 +8,10 @@ import {
   translocoConfig,
   TRANSLOCO_TRANSPILER,
   TranslocoModule, TranslocoService,
-} from "@ngneat/transloco"
+} from "@jsverse/transloco"
 import {DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, TranslocoHttpLoader} from "@biit-solutions/wizardry-theme/i18n";
 import {distinctUntilChanged, tap} from "rxjs";
-import {provideTranslocoLocale} from "@ngneat/transloco-locale";
+import {provideTranslocoLocale} from "@jsverse/transloco-locale";
 
 const forceReRender = (): void => addons.getChannel().emit(FORCE_RE_RENDER);
 

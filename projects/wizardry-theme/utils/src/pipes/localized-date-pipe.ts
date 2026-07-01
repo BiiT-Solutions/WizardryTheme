@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
-import {TranslocoLocaleService} from "@ngneat/transloco-locale";
+import {TranslocoLocaleService} from "@jsverse/transloco-locale";
 
 @Pipe({
     name: 'localizedDate',

@@ -11,7 +11,7 @@ import {IsSameDayPipe} from "./pipes/is-same-day-pipe";
 import {IsDisabledPipe} from "./pipes/is-disabled-pipe";
 import {TranslocoRootModule} from "@biit-solutions/wizardry-theme/i18n";
 import {LocalizedDatePipeModule} from "@biit-solutions/wizardry-theme/utils";
-import {TranslocoDatePipe} from "@ngneat/transloco-locale";
+import {TranslocoDatePipe} from "@jsverse/transloco-locale";
 import {BiitIconModule} from "@biit-solutions/wizardry-theme/icon";
 
 @NgModule({

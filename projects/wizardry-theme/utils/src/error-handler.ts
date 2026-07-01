@@ -1,4 +1,4 @@
-import {TranslocoService} from "@ngneat/transloco";
+import {TranslocoService} from "@jsverse/transloco";
 import {BiitSnackbarService, NotificationType} from "@biit-solutions/wizardry-theme/info";
 import {HttpErrorResponse} from "@angular/common/http";
 

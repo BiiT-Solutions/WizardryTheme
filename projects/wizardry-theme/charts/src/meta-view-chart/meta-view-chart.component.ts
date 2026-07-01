@@ -14,7 +14,7 @@ import {TimelineViewerChartOptions} from "../timeline-viewer-chart/models/timeli
 import {TimelineViewerChartData} from "../timeline-viewer-chart/models/timeline-viewer-chart-data";
 import {v4 as uuid} from 'uuid';
 import {animate, style, transition, trigger} from "@angular/animations";
-import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
+import {TRANSLOCO_SCOPE} from "@jsverse/transloco";
 
 @Component({
     selector: 'biit-meta-view-chart',

@@ -18,7 +18,7 @@ import {BiitTableResponse} from './models/biit-table-response';
 import {BiitTableData} from './models/biit-table-data';
 import {BiitTableSorting, BiitTableSortingOrder} from './models/biit-table-sorting';
 import {BiitMultiselectType} from '@biit-solutions/wizardry-theme/inputs';
-import {TRANSLOCO_SCOPE} from '@ngneat/transloco';
+import {TRANSLOCO_SCOPE} from '@jsverse/transloco';
 import {BiitTableActionResponse} from "./models/biit-table-action-response";
 
 @Directive({

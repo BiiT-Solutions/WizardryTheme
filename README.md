@@ -184,7 +184,7 @@ npm run generate-zip
 ### Add transloco to a new project
 
 1. Install transloco dependencies
-> **ng** add @ngneat/transloco 
+> **ng** add @jsverse/transloco 
 
 Directory ```./assets/i18n``` will be created with languages selected.
 
@@ -207,8 +207,8 @@ scopedLibs: [
 ```json
 "scripts": {  
   (...)  
-  "transloco:clean": "del-cli --force ./src/assets/i18n/wizardry-theme",  
-  "transloco:extract": "npm run transloco:clean && transloco-scoped-libs",  
+  "transloco:clean": "rimraf ./src/assets/i18n/wizardry-theme",  
+  "transloco:extract": "npm run transloco:clean && node ./scripts/transloco-scoped-libs.mjs",  
   (...)  
 }
 ```

@@ -8,7 +8,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import {TRANSLOCO_SCOPE, TranslocoService} from "@ngneat/transloco";
+import {TRANSLOCO_SCOPE, TranslocoService} from "@jsverse/transloco";
 import {CalendarEvent} from "./models/calendar-event";
 import {enGB, es, nl} from "date-fns/locale";
 import {

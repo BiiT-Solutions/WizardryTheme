@@ -5,7 +5,7 @@ import {FormsModule} from "@angular/forms";
 import {BiitIconModule} from '@biit-solutions/wizardry-theme/icon';
 import {BiitIconButtonModule} from '@biit-solutions/wizardry-theme/button';
 import {TranslocoRootModule} from '@biit-solutions/wizardry-theme/i18n';
-import {TRANSLOCO_SCOPE} from '@ngneat/transloco';
+import {TRANSLOCO_SCOPE} from '@jsverse/transloco';
 import {BiitTooltipModule} from '@biit-solutions/wizardry-theme/info';
 
 

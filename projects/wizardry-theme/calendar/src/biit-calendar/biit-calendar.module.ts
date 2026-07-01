@@ -5,7 +5,7 @@ import {TranslocoRootModule} from "@biit-solutions/wizardry-theme/i18n";
 import {CalendarModule, DateAdapter} from "angular-calendar";
 import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
 import {ContextMenuModule} from "@perfectmemory/ngx-contextmenu";
-import {TranslocoDatePipe} from "@ngneat/transloco-locale";
+import {TranslocoDatePipe} from "@jsverse/transloco-locale";
 
 
 @NgModule({

@@ -6,20 +6,13 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {Router} from "@angular/router";
 import {APP_INITIALIZER, ENVIRONMENT_INITIALIZER, inject} from "@angular/core";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {provideTransloco, translocoConfig, TranslocoModule, TranslocoService} from "@ngneat/transloco";
-import {provideTranslocoLocale} from "@ngneat/transloco-locale";
-import {of} from "rxjs";
+import {provideTransloco, translocoConfig, TranslocoModule, TranslocoService} from "@jsverse/transloco";
+import {provideTranslocoLocale} from "@jsverse/transloco-locale";
 import {completeIconSet} from "@biit-solutions/biit-icons-collection";
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
+import {TranslocoHttpLoader} from "@biit-solutions/wizardry-theme/i18n";
 import {translocoStorybookInitializer} from "../src/app/transloco/transloco-storybook.module";
 require("web-file-polyfill");
-
-class StorybookTranslocoLoader {
-  getTranslation() {
-    // Keep Storybook resilient when scoped translation assets are missing.
-    return of({});
-  }
-}
 
 try {
   setCompodocJson(require("../documentation.json"));
@@ -67,7 +60,7 @@ const globalAppProviders = applicationConfig({
   providers: [
     provideHttpClient(),
     ...provideTransloco({
-      loader: StorybookTranslocoLoader,
+      loader: TranslocoHttpLoader,
       config: translocoConfig({
         availableLangs: SUPPORTED_LANGUAGES.map(language => language.code),
         defaultLang: DEFAULT_LANGUAGE.code,

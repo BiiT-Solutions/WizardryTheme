@@ -1,9 +1,9 @@
 import {HttpClientModule} from '@angular/common/http';
-import {DefaultTranspiler, TRANSLOCO_CONFIG, TRANSLOCO_LOADER, TRANSLOCO_TRANSPILER, translocoConfig, TranslocoModule} from '@ngneat/transloco';
+import {DefaultTranspiler, TRANSLOCO_CONFIG, TRANSLOCO_LOADER, TRANSLOCO_TRANSPILER, translocoConfig, TranslocoModule} from '@jsverse/transloco';
 import {isDevMode, NgModule} from '@angular/core';
 import {DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES} from "./supported-languages";
 import {TranslocoHttpLoader} from "./http-loader";
-import {provideTranslocoLocale, TRANSLOCO_LOCALE_CONFIG} from "@ngneat/transloco-locale";
+import {provideTranslocoLocale, TRANSLOCO_LOCALE_CONFIG} from "@jsverse/transloco-locale";
 
 @NgModule({
   exports: [ TranslocoModule ],

@@ -13,6 +13,10 @@ module.exports = {
 */
   scopedLibs: [
     {
+      src: './projects/wizardry-theme/calendar',
+      dist: ['./src/assets/i18n/wizardry-theme']
+    },
+    {
       src: './projects/wizardry-theme/login',
       dist: ['./src/assets/i18n/wizardry-theme']
     },

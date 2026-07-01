@@ -6,7 +6,7 @@ import {NgxDatatableModule} from "@siemens/ngx-datatable";
 import {NgForOf, NgIf, NgTemplateOutlet} from "@angular/common";
 import {BiitDatatablePagerModule} from "../biit-datatable-pager/biit-datatable-pager.module";
 import {BiitProgressBarModule} from "@biit-solutions/wizardry-theme/info";
-import {TranslocoModule} from "@ngneat/transloco";
+import {TranslocoModule} from "@jsverse/transloco";
 import {BiitVerticalMenuModule} from "@biit-solutions/wizardry-theme/navigation";
 
 @NgModule({

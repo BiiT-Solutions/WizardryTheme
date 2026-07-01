@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {coerceBooleanProperty} from "@angular/cdk/coercion";
-import {TRANSLOCO_SCOPE} from "@ngneat/transloco";
+import {TRANSLOCO_SCOPE} from "@jsverse/transloco";
 
 @Component({
     selector: 'biit-cookies-consent',
