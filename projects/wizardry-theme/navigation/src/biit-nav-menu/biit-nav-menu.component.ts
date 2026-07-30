@@ -12,9 +12,10 @@ import { auditTime } from 'rxjs/operators';
     standalone: false
 })
 
-export class BiitNavMenuComponent {
+export class BiitNavMenuComponent implements AfterViewInit {
   @Input() routes: Route[] = [];
-  protected hovered: Route;
+  protected hovered: Route | null = null;
+  protected isMenuOpen = false;
   protected submenuHover = false;
   protected submenuItemHover;
   protected timeout;
@@ -60,7 +61,9 @@ export class BiitNavMenuComponent {
   }
 
   onContextMenu(route: Route, navItem: HTMLDivElement) {
+    this.clearTimeout(this.timeout);
     this.hovered = route;
+    this.isMenuOpen = true;
     this.contextMenuItems = route.children?.map(item => {
       return {
         title: item.title,
@@ -69,10 +72,20 @@ export class BiitNavMenuComponent {
         path: item.path,
         parent: route.path
       }
-    })
+    }) ?? [];
     this.timeout = setTimeout(() => {
         this.openMenu(navItem);
     }, 50);
+  }
+
+  protected onMenuOpen(): void {
+    this.isMenuOpen = true;
+  }
+
+  protected onMenuClose(): void {
+    this.clearTimeout(this.timeout);
+    this.isMenuOpen = false;
+    this.hovered = null;
   }
 
   protected openMenu(navItem: HTMLDivElement): void {

@@ -11,15 +11,17 @@
     @for (route of routes; track route) {
       <div class="item" #navItem
         [attr.id]="'nav-item-' + route.path"
+        tabindex="0"
         [routerLink]="route.children ? null : [route.path]"
         [routerLinkActive]="['active']"
         [class.active]="router.url.includes('/'+route.path)"
-        [class.hover]="route == hovered && contextMenuService.hasOpenMenu()"
+        [class.hover]="route === hovered && isMenuOpen"
         [class.disabled]="route.data?.['disabled']"
         [style.display]="route.data?.['hidden'] ? 'none' : 'inline-flex'"
+        (keydown.enter)="route.children ? onContextMenu(route, navItem) : null"
         (click)="route.children ? onContextMenu(route, navItem) : null">
         {{ route.title }}
-        <context-menu #navbarMenu menuClass="custom-style">
+        <context-menu #navbarMenu menuClass="custom-style" (open)="onMenuOpen()" (close)="onMenuClose()">
           @for (item of contextMenuItems; track item) {
             <ng-template contextMenuItem
               [disabled]="item.disabled"
