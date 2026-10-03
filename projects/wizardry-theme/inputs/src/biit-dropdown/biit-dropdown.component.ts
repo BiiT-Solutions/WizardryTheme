@@ -1,5 +1,6 @@
 import {
   Component,
+  ChangeDetectorRef,
   DoCheck,
   ElementRef,
   forwardRef,
@@ -74,7 +75,8 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit, DoCh
 
   constructor(
     private elem: ElementRef,
-    iDiff: IterableDiffers
+    iDiff: IterableDiffers,
+    private cdr: ChangeDetectorRef
   ) {
     this.differ = iDiff.find(this.data).create();
   }
@@ -214,12 +216,14 @@ export class BiitDropdownComponent implements ControlValueAccessor, OnInit, DoCh
     setTimeout(() => {
       this.dropdownOpen = true;
       this.dropdownElement.setAttribute('aria-expanded', "true");
+      this.cdr.detectChanges();
     }, 100);
   }
 
   closeDropdown() {
     this.dropdownOpen = false;
     this.dropdownElement.setAttribute('aria-expanded', "false");
+    this.cdr.detectChanges();
     setTimeout(() => { this.clearFilter(); }, 1000);
   }
 

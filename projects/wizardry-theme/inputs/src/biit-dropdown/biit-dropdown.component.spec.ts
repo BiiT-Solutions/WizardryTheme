@@ -1,4 +1,4 @@
-import {IterableDiffers} from '@angular/core';
+import {ChangeDetectorRef, IterableDiffers} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import {BiitDropdownComponent} from './biit-dropdown.component';
 
@@ -6,7 +6,7 @@ describe('BiitDropdownComponent', () => {
   function createComponent() {
     TestBed.configureTestingModule({});
     const elementRefStub = {nativeElement: {querySelector: () => null, contains: () => false}};
-    return new BiitDropdownComponent(elementRefStub as any, TestBed.inject(IterableDiffers));
+    return new BiitDropdownComponent(elementRefStub as any, TestBed.inject(IterableDiffers), jasmine.createSpyObj<ChangeDetectorRef>('ChangeDetectorRef', ['detectChanges']));
   }
 
   it('should create', () => {
@@ -39,7 +39,8 @@ describe('BiitDropdownComponent', () => {
     const input = document.createElement('input');
     const dropdown = document.createElement('div');
     const elementRef = {nativeElement: {querySelector: (selector: string) => selector === '.input-object' ? input : dropdown}};
-    const component = new BiitDropdownComponent(elementRef as any, TestBed.inject(IterableDiffers));
+    const cdr = jasmine.createSpyObj<ChangeDetectorRef>('ChangeDetectorRef', ['detectChanges']);
+    const component = new BiitDropdownComponent(elementRef as any, TestBed.inject(IterableDiffers), cdr);
     spyOn(globalThis, 'setTimeout').and.callFake((callback: () => void) => {
       callback();
       return 0 as unknown as ReturnType<typeof setTimeout>;
@@ -49,5 +50,6 @@ describe('BiitDropdownComponent', () => {
 
     expect(component.dropdownOpen).toBeTrue();
     expect(dropdown.getAttribute('aria-expanded')).toBe('true');
+    expect(cdr.detectChanges).toHaveBeenCalled();
   });
 });
