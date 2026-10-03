@@ -10,7 +10,7 @@
                       currentValue && !label ? currentValue :
                       currentValue && currentValue[label] ? currentValue[label] : ''"
         (ngModelChange)="filterText = $event; handleFilter()"
-        (click)="!dropdownOpen && !isDisabled && openDropdown()"
+        (pointerdown)="!dropdownOpen && !isDisabled && openDropdown()"
            [placeholder]="dropdownOpen && currentValue && !label ? currentValue :
                           dropdownOpen && currentValue && currentValue[label] ? currentValue[label] : ''"
         tabindex="0"

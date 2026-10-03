@@ -34,5 +34,20 @@ describe('BiitDropdownComponent', () => {
 
     expect(onChange).toHaveBeenCalledWith('value');
   });
-});
 
+  it('opens the dropdown when the input receives a pointer interaction', () => {
+    const input = document.createElement('input');
+    const dropdown = document.createElement('div');
+    const elementRef = {nativeElement: {querySelector: (selector: string) => selector === '.input-object' ? input : dropdown}};
+    const component = new BiitDropdownComponent(elementRef as any, TestBed.inject(IterableDiffers));
+    spyOn(globalThis, 'setTimeout').and.callFake((callback: () => void) => {
+      callback();
+      return 0 as unknown as ReturnType<typeof setTimeout>;
+    });
+
+    component.openDropdown();
+
+    expect(component.dropdownOpen).toBeTrue();
+    expect(dropdown.getAttribute('aria-expanded')).toBe('true');
+  });
+});
