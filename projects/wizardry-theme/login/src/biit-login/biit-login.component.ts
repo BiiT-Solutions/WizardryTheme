@@ -192,7 +192,7 @@ export class BiitLoginComponent implements OnInit {
 
   private randomChar(): number {
     if (window.crypto && window.crypto.getRandomValues) {
-      const buffer: Uint8Array = new Uint8Array(1);
+      const buffer = new Uint8Array(new ArrayBuffer(1));
       window.crypto.getRandomValues(buffer);
       return buffer[0];
     } else {

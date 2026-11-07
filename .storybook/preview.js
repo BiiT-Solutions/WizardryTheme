@@ -12,8 +12,6 @@ import {completeIconSet} from "@biit-solutions/biit-icons-collection";
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {TranslocoHttpLoader} from "@biit-solutions/wizardry-theme/i18n";
 import {translocoStorybookInitializer} from "../src/app/transloco/transloco-storybook.module";
-require("web-file-polyfill");
-
 try {
   setCompodocJson(require("../documentation.json"));
 } catch {

@@ -5,17 +5,21 @@ class BiitIconServiceStub {
   registerIcons = jasmine.createSpy('registerIcons');
 }
 
+class ChangeDetectorRefStub {
+  markForCheck(): void {}
+}
+
 describe('BiitDatatableComponent', () => {
   it('initializes icon registry in constructor', () => {
     const iconService = new BiitIconServiceStub();
 
-    new BiitDatatableComponent<any>(iconService as any);
+    new BiitDatatableComponent<any>(iconService as any, new ChangeDetectorRefStub() as any);
 
     expect(iconService.registerIcons).toHaveBeenCalled();
   });
 
   it('updates data and clears current selection when setting data', () => {
-    const component = new BiitDatatableComponent<any>(new BiitIconServiceStub() as any);
+    const component = new BiitDatatableComponent<any>(new BiitIconServiceStub() as any, new ChangeDetectorRefStub() as any);
     component.selected = [{id: 10}];
 
     const input = [{id: 1}, {id: 2}];
@@ -26,8 +30,17 @@ describe('BiitDatatableComponent', () => {
     expect(component.selectedRows).toEqual([]);
   });
 
+  it('preserves the active search when refreshed data arrives', () => {
+    const component = new BiitDatatableComponent<any>(new BiitIconServiceStub() as any, new ChangeDetectorRefStub() as any);
+    component.search = 'mengano';
+    component.data = [{name: 'Mengano'}, {name: 'Fulano'}];
+
+    expect(component.data).toEqual([{name: 'Mengano'}]);
+    expect(component.allData).toEqual([{name: 'Mengano'}, {name: 'Fulano'}]);
+  });
+
   it('keeps only visible columns when setting columns', () => {
-    const component = new BiitDatatableComponent<any>(new BiitIconServiceStub() as any);
+    const component = new BiitDatatableComponent<any>(new BiitIconServiceStub() as any, new ChangeDetectorRefStub() as any);
     const columns = [
       new DatatableColumn('Name', 'name', true),
       new DatatableColumn('Hidden', 'hidden', false),
@@ -41,7 +54,7 @@ describe('BiitDatatableComponent', () => {
   });
 
   it('returns highlight class only when predicate matches', () => {
-    const component = new BiitDatatableComponent<any>(new BiitIconServiceStub() as any);
+    const component = new BiitDatatableComponent<any>(new BiitIconServiceStub() as any, new ChangeDetectorRefStub() as any);
     component.rowStyleClass = 'highlight';
     component.rowStylePredicate = row => row.marked === true;
 
@@ -50,7 +63,7 @@ describe('BiitDatatableComponent', () => {
   });
 
   it('emits selected rows on select and plain cell click', () => {
-    const component = new BiitDatatableComponent<any>(new BiitIconServiceStub() as any);
+    const component = new BiitDatatableComponent<any>(new BiitIconServiceStub() as any, new ChangeDetectorRefStub() as any);
     const selectionSpy = jasmine.createSpy('selectionSpy');
     component.onSelection.subscribe(selectionSpy);
 
@@ -73,7 +86,7 @@ describe('BiitDatatableComponent', () => {
   });
 
   it('ignores checkbox cell click and updates footer page event', () => {
-    const component = new BiitDatatableComponent<any>(new BiitIconServiceStub() as any);
+    const component = new BiitDatatableComponent<any>(new BiitIconServiceStub() as any, new ChangeDetectorRefStub() as any);
     const selectionSpy = jasmine.createSpy('selectionSpy');
     const pageSpy = jasmine.createSpy('pageSpy');
     component.selected = [{id: 7}];
@@ -102,7 +115,7 @@ describe('BiitDatatableComponent', () => {
   });
 
   it('applies column visibility from selected column list', () => {
-    const component = new BiitDatatableComponent<any>(new BiitIconServiceStub() as any);
+    const component = new BiitDatatableComponent<any>(new BiitIconServiceStub() as any, new ChangeDetectorRefStub() as any);
     const nameColumn = new DatatableColumn('Name', 'name', true);
     const titleColumn = new DatatableColumn('Title', 'title', true);
     component.columns = [nameColumn, titleColumn];
@@ -112,4 +125,3 @@ describe('BiitDatatableComponent', () => {
     expect(component.columns).toEqual([titleColumn]);
   });
 });
-
