@@ -1,4 +1,4 @@
-import {Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
 import {DatatableColumn} from "./models/datatable-column";
 import {ColumnMode, DatatableComponent, SelectionType} from "@siemens/ngx-datatable";
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
@@ -23,9 +23,10 @@ export class BiitDatatableComponent<T> implements OnInit {
   allData: T[] = [];
 
   @Input() set data(data: T[]) {
-    this._data = data ?? [];
     this.allData = data ?? [];
+    this._data = this.filterData(this.search);
     this.selected = [];
+    this.cdr.markForCheck();
   }
 
   get data(): T[] {
@@ -83,7 +84,7 @@ export class BiitDatatableComponent<T> implements OnInit {
     return this.rowStylePredicate(row) ? highlightClass : '';
   };
 
-  constructor(biitIconService: BiitIconService) {
+  constructor(biitIconService: BiitIconService, private readonly cdr: ChangeDetectorRef) {
     biitIconService.registerIcons(completeIconSet);
   }
 
@@ -115,18 +116,18 @@ export class BiitDatatableComponent<T> implements OnInit {
     }
     this.findTimeout = setTimeout(() => {
       this.search = value;
-      const val = value.toLowerCase();
-
-      // filter our data
-      const temp: T[] = this.allData.filter(item => GenericFilter.filter(item, val, true));
-
-      // update the rows
-      this._data = temp;
+      this._data = this.filterData(value);
+      this.cdr.markForCheck();
       // Whenever the filter changes, always go back to the first page
       this.table.offset = 0;
       clearTimeout(this.findTimeout);
       this.findTimeout = null;
     }, force ? 0 : 500);
+  }
+
+  private filterData(value: string): T[] {
+    const formattedValue = value.toLowerCase();
+    return this.allData.filter(item => GenericFilter.filter(item, formattedValue, true));
   }
 
   onFooterPageChange(event: any) {

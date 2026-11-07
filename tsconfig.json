@@ -3,6 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "ignoreDeprecations": "6.0",
     "preserveConstEnums": true,
     "paths": {
       "@biit-solutions/wizardry-theme": [

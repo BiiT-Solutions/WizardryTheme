@@ -1,7 +1,7 @@
 {
   "name": "@wizardry-theme/calendar",
   "peerDependencies": {
-    "angular-calendar": "~0.31.0"
+    "angular-calendar": "~0.32.2"
   },
   "i18n": [
     {
