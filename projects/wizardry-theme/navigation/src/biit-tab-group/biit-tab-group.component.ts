@@ -26,8 +26,8 @@ export class BiitTabGroupComponent implements AfterViewInit {
   protected compactMode = false;
 
   ngAfterViewInit() {
-    let activeTabs = this.tabs.filter(tab => tab.active);
-    if(!activeTabs.length) {
+    const activeTabs = this.tabs.filter(tab => tab.active);
+    if (!activeTabs.length && this.tabs.first) {
       this.activateTab(this.tabs.first);
     }
     this.checkHeaders();
