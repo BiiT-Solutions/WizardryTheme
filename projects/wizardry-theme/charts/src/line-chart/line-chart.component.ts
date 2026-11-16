@@ -203,8 +203,12 @@ export class LineChartComponent implements OnInit, OnChanges {
   }
 
   public async getPngBlob(): Promise<Blob> {
-    const base64 = await this.apexChart.dataURI();
-    const decode = await fetch(base64.imgURI);
-    return decode.blob();
+    const base64 = await this.apexChart.dataURI() as { imgURI: string };
+    if (base64.imgURI) {
+      const decode = await fetch(base64.imgURI);
+      return decode.blob();
+    } else {
+      throw new Error("dataURI did not return expected format");
+    }
   }
 }
