@@ -57,7 +57,7 @@
         [reorderable]="false"
         [selectionType]="SelectionType.checkbox"
         [selected]="selected"
-        (select)="onSelect($event)"
+        (selectedChange)="onSelect({selected: $event})"
         (activate)="onActivate($event)"
         [virtualization]="false"
         [scrollbarVDynamic]="true"
@@ -77,11 +77,10 @@
             >
             <ng-template
               ngx-datatable-header-template
-              let-value="value"
               let-allRowsSelected="allRowsSelected"
               let-selectFn="selectFn"
               >
-              <biit-checkbox [ngModel]="allRowsSelected" (ngModelChange)="selectFn(!allRowsSelected)"></biit-checkbox>
+              <biit-checkbox [ngModel]="allRowsSelected" (ngModelChange)="selectFn()"></biit-checkbox>
             </ng-template>
             <ng-template
               ngx-datatable-cell-template
@@ -141,12 +140,8 @@
               }
             </div>
             <div class="pagination" [style.display]="!((rowCount / pageSize) > 1) ? 'none' : null">
-              <biit-datatable-pager #pager
-                [page]="curPage"
-                [size]="pageSizeCurrent"
-                [count]="rowCount"
-                [hidden]="!((rowCount / pageSize) > 1)"
-                (change)="table.onFooterPage($event)">
+              <biit-datatable-pager
+                [hidden]="!((rowCount / pageSize) > 1)">
               </biit-datatable-pager>
             </div>
             @if (pageSizeList) {
@@ -155,7 +150,7 @@
                   <div>
                     <span>{{ t('t.rows-per-page') }}:</span>
                     <select [(ngModel)]="pageSize"
-                      (ngModelChange)="pager.size = $event">
+                      (ngModelChange)="pageSize = $event">
                       @for (size of pageSizeList; track size) {
                         <option
                           [ngValue]="size"
@@ -185,7 +180,7 @@
         [reorderable]="false"
         [selectionType]="SelectionType.checkbox"
         [selected]="selected"
-        (select)="onSelect($event)"
+        (selectedChange)="onSelect({selected: $event})"
         (activate)="onActivate($event)"
         [virtualization]="false"
         [scrollbarVDynamic]="true"
@@ -209,11 +204,10 @@
             >
             <ng-template
               ngx-datatable-header-template
-              let-value="value"
               let-allRowsSelected="allRowsSelected"
               let-selectFn="selectFn"
               >
-              <biit-checkbox [ngModel]="allRowsSelected" (ngModelChange)="selectFn(!allRowsSelected)"></biit-checkbox>
+              <biit-checkbox [ngModel]="allRowsSelected" (ngModelChange)="selectFn()"></biit-checkbox>
             </ng-template>
             <ng-template
               ngx-datatable-cell-template
@@ -271,12 +265,8 @@
               }
             </div>
             <div class="pagination" [style.display]="!((rowCount / pageSize) > 1) ? 'none' : null">
-              <biit-datatable-pager #pager
-                [page]="curPage"
-                [size]="pageSizeCurrent"
-                [count]="rowCount"
-                [hidden]="!((rowCount / pageSize) > 1)"
-                (change)="table.onFooterPage($event)">
+              <biit-datatable-pager
+                [hidden]="!((rowCount / pageSize) > 1)">
               </biit-datatable-pager>
             </div>
             @if (pageSizeList) {
@@ -285,7 +275,7 @@
                   <div>
                     <span>{{ t('t.rows-per-page') }}:</span>
                     <select [(ngModel)]="pageSize"
-                      (ngModelChange)="pager.size = $event">
+                      (ngModelChange)="pageSize = $event">
                       @for (size of pageSizeList; track size) {
                         <option
                           [ngValue]="size"

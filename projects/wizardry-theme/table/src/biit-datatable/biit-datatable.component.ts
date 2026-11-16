@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
 import {DatatableColumn} from "./models/datatable-column";
-import {ColumnMode, DatatableComponent, SelectionType} from "@siemens/ngx-datatable";
+import {ActivateEvent, ColumnMode, DatatableComponent, SelectionType} from "@siemens/ngx-datatable";
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {BiitMultiselectType} from "@biit-solutions/wizardry-theme/inputs";
@@ -103,8 +103,8 @@ export class BiitDatatableComponent<T> implements OnInit {
     this.onSelection.emit(this.selected);
   }
 
-  onActivate(event: { type: 'keydown' | 'click' | 'dblclick', event, row, column, value, cellElement, rowElement }) {
-    if (event.type == 'click' && event.column.name !== 'chkbox') {
+  onActivate(event: ActivateEvent<any>) {
+    if (event.type == 'click' && event.column?.name !== 'chkbox') {
       this.selected = [event.row];
       this.onSelection.emit(this.selected);
     }
@@ -119,7 +119,7 @@ export class BiitDatatableComponent<T> implements OnInit {
       this._data = this.filterData(value);
       this.cdr.markForCheck();
       // Whenever the filter changes, always go back to the first page
-      this.table.offset = 0;
+      this.table.offset.set(0);
       clearTimeout(this.findTimeout);
       this.findTimeout = null;
     }, force ? 0 : 500);
