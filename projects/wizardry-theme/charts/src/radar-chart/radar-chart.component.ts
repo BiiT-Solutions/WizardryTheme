@@ -75,7 +75,6 @@ export class RadarChartComponent implements OnInit, OnChanges {
         size: 10,
         shape: "rect",
         colors: ["transparent"],
-        radius: 0,
         strokeWidth: 0,
 
       },
@@ -154,8 +153,12 @@ export class RadarChartComponent implements OnInit, OnChanges {
   }
 
   public async getPngBlob(): Promise<Blob> {
-    const base64 = await this.apexChart.dataURI();
-    const decode = await fetch(base64.imgURI);
-    return decode.blob();
+    const base64: any = await this.apexChart.dataURI();
+    if (base64.imgURI) {
+      const decode = await fetch(base64.imgURI);
+      return decode.blob();
+    } else {
+      throw new Error("dataURI did not return expected format");
+    }
   }
 }
