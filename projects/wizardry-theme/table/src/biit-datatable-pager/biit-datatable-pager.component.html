@@ -16,7 +16,7 @@
     ></button>
     <div class="page-display" (click)="input.focus()">
       <input id="current-page" #input
-             [ngModel]="page"
+             [ngModel]="page()"
              readonly
              (keydown.arrowUp)="nextPage(); $event.stopPropagation(); $event.preventDefault();"
              (keydown.arrowRight)="nextPage(); $event.stopPropagation(); $event.preventDefault();"
@@ -24,9 +24,9 @@
              (keydown.arrowLeft)="prevPage(); $event.stopPropagation(); $event.preventDefault();"
              type="number"
              [min]="1"
-             [max]="totalPages"
+             [max]="totalPages()"
              style="width: 2.5rem">
-      <span #label id="total-pages">/{{ totalPages }}</span>
+      <span #label id="total-pages">/{{ totalPages() }}</span>
     </div>
     <button biit-icon id="arrow-next"
             icon='right_arrow'
@@ -37,7 +37,7 @@
     ></button>
     <button biit-icon id="arrow-last"
             icon='right_double_arrow'
-            (click)="selectPage(totalPages)"
+            (click)="selectPage(totalPages())"
             [disabled]="!canNext()"
             tooltip="{{t('t.last-page')}}"
     ></button>

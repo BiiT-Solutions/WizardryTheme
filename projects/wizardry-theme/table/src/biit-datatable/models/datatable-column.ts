@@ -1,5 +1,8 @@
-import {TableColumn, ValueGetter} from "@siemens/ngx-datatable";
+import {TableColumn, TableColumnProp} from "@siemens/ngx-datatable";
 import {PipeTransform, TemplateRef} from "@angular/core";
+
+// `ValueGetter` is not exported by @siemens/ngx-datatable v27, so we declare it locally.
+type ValueGetter = (obj: any, prop: TableColumnProp) => any;
 
 export class DatatableColumn implements TableColumn {
   /**

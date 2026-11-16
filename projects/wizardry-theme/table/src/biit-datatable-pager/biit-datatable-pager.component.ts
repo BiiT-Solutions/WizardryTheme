@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {DataTablePagerComponent} from "@siemens/ngx-datatable";
+import {DatatablePagerComponent} from "@siemens/ngx-datatable";
 import {provideTranslocoScope} from "@jsverse/transloco";
 import {BiitIconService} from "@biit-solutions/wizardry-theme/icon";
 import {completeIconSet} from '@biit-solutions/biit-icons-collection';
@@ -11,7 +11,7 @@ import {completeIconSet} from '@biit-solutions/biit-icons-collection';
     providers: [provideTranslocoScope({ scope: 'wizardry-theme/table', alias: 't' })],
     standalone: false
 })
-export class BiitDatatablePagerComponent extends DataTablePagerComponent {
+export class BiitDatatablePagerComponent extends DatatablePagerComponent {
 
   constructor(biitIconService: BiitIconService) {
     super();
