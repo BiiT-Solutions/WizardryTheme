@@ -5,6 +5,9 @@ on:
     types:
       - completed
 
+concurrency:
+  group: update-version
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -12,40 +15,39 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     permissions:
       contents: write
-      id-token: write
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout main
+        uses: actions/checkout@v5
         with:
-          persist-credentials: false
+          # workflow_run checks out the commit that triggered the run, but main
+          # may have moved since then. Always bump from the latest main.
+          ref: main
           fetch-depth: 0
-      # Setup .npmrc file to publish to npm
+
       - name: Use Node.js
         uses: actions/setup-node@v6
         with:
           node-version: '22.x'
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Install dependencies
-        run: npm install
 
       - name: Increase version
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config user.name $GITHUB_ACTOR
-          git config user.email ${GITHUB_ACTOR}-actions@github.com
-          npm version patch --force -m "Version: %s"
-          new_version=`cat package.json | grep -Po '(?<="version": ")[^"]*'`
-          file="projects/wizardry-theme/package.json"
-          sed -i -e "s|^  \"version\".*|  \"version\": \"${new_version}\",|g"  ${file}
-          git add $file
+          set -euo pipefail
+
+          # Attribute the commits to the GitHub Actions bot account so they are
+          # linked to a GitHub user (required by the "unattributed changes"
+          # branch rule if branch protection is enabled again).
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Bump the root package (@biit-solutions/storybook) and mirror the same
+          # version in the library entry point.
+          npm version patch --no-git-tag-version
+          new_version=$(node -p "require('./package.json').version")
+          sed -i -e "s|^  \"version\".*|  \"version\": \"${new_version}\",|g" projects/wizardry-theme/package.json
+
+          git add package.json
+          git commit -m "Version: ${new_version}"
+          git add projects/wizardry-theme/package.json
           git commit -m "Component version: ${new_version}"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-          git push
 
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-
+          git push origin HEAD:main
