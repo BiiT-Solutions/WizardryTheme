@@ -39,15 +39,15 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Bump the root package (@biit-solutions/storybook) and mirror the same
-          # version in the library entry point.
-          npm version patch --no-git-tag-version
+          # Bump the root package (@biit-solutions/storybook). This creates the
+          # "Version: X.Y.Z" commit and the vX.Y.Z annotated tag, as before.
+          npm version patch --force -m "Version: %s"
           new_version=$(node -p "require('./package.json').version")
-          sed -i -e "s|^  \"version\".*|  \"version\": \"${new_version}\",|g" projects/wizardry-theme/package.json
 
-          git add package.json
-          git commit -m "Version: ${new_version}"
+          # Mirror the same version in the library entry point.
+          sed -i -e "s|^  \"version\".*|  \"version\": \"${new_version}\",|g" projects/wizardry-theme/package.json
           git add projects/wizardry-theme/package.json
           git commit -m "Component version: ${new_version}"
 
-          git push origin HEAD:main
+          # --follow-tags publishes the vX.Y.Z tag along with main.
+          git push origin HEAD:main --follow-tags
